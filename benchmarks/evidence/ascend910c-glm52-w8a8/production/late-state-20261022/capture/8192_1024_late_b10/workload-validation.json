@@ -1,0 +1,235 @@
+{
+  "status": "passed",
+  "requests": [
+    {
+      "id": "2150b90324b948588f48ff22d2a640d0",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 67.64147018594667
+    },
+    {
+      "id": "f776e80f4def43e0b27b998b2c036e45",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 67.68974785786122
+    },
+    {
+      "id": "e16d49a0abd54683a825b53c25350242",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 67.6339131440036
+    },
+    {
+      "id": "4f4aeb31fa46486f9f86fda3160b730f",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 67.68239625915885
+    },
+    {
+      "id": "ce12704c453a4ec0a3edbd8dea4d6037",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 67.62716015288606
+    },
+    {
+      "id": "cb01021becae49958752b8f714e0809d",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 67.67572483886033
+    },
+    {
+      "id": "9eb83f22546840b8895c69ca578e26a8",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 67.62033584201708
+    },
+    {
+      "id": "58cd75456a914ca09cae9de91fbe6696",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 67.66890659788623
+    },
+    {
+      "id": "78b6161ba35840279f4cf991c135fdf1",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 67.6137817343697
+    },
+    {
+      "id": "a7cf4cf7961b433b99c7468a5b0ef190",
+      "finish_reason": {
+        "type": "length",
+        "length": 1024
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 1024,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 1024
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 67.66231398005038
+    }
+  ]
+}

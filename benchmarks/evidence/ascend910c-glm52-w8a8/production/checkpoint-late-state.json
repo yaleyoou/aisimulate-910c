@@ -1,0 +1,21 @@
+{
+  "research": {
+    "production_goal": {
+      "status": "active",
+      "foundation_commit": "fff9ab32",
+      "real_state_commit": "298697dd",
+      "late_state": "Two additional complete8k/1k workloads:single request and concurrency10, capturing3puredecode forwards after900outputs.16ranks x75layers complete,KVlength9094..9097,no retractions. Scope remains invocation state, not latency.",
+      "recording_service": "Own peer recording service stopped after all captures;8NPUboards report no processes. Existing peer xq-sglang-glm5.2 and local United preserved. Peer task calibration container remains idle for upcoming benchmarks.",
+      "hccl_options_probe": "Source returnsNone options for attention_tp and explicit650MB for moe_ep. With HCCL_BUFFSIZE650, both standalone groups allocate about1.4GB (probe records exact deltas); do not invent a200MB attention-group reservation from empty options.",
+      "next": "Benchmark captured GMM and actual MoE/attention/kernel scopes with validated timing/cache behavior; implement full Ascend execution and memory/PD model; validate canonical predict/recommend and supported parallel strategies."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "late_decode_state": {"kind": "file", "scope": "collection", "path": "production/late-state-20261022/validation.json"},
+        "hccl_group_options_probe": {"kind": "file", "scope": "validation", "path": "production/hccl-group-options-probe.json"}
+      }
+    }
+  }
+}

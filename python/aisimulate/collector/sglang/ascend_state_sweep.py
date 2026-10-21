@@ -20,9 +20,12 @@ def main():
     parser.add_argument("--concurrency", type=int, required=True)
     parser.add_argument("--case", required=True)
     parser.add_argument("--output-tokens", type=int, default=64)
+    parser.add_argument("--arm-after-tokens", type=int, default=1)
     args = parser.parse_args()
     if not 1 <= args.concurrency <= 10 or not re.fullmatch(r"[A-Za-z0-9_-]+", args.case):
         raise ValueError("Use a fresh simple case name and concurrency1..10 for this verified KV budget")
+    if not 1 <= args.arm_after_tokens <= args.output_tokens - 3:
+        raise ValueError("The capture trigger must leave at least three generation steps")
     output = args.capture_dir / args.case
     output.mkdir(parents=True, exist_ok=False)
     control = {"case_id": args.case, "enabled": False, "max_forwards": 3}
@@ -74,7 +77,7 @@ def main():
                 final = json.loads(payload)
                 if "meta_info" not in final:
                     raise ValueError(f"Unexpected streaming response: {final}")
-                if final["meta_info"].get("completion_tokens", 0) >= 1:
+                if final["meta_info"].get("completion_tokens", 0) >= args.arm_after_tokens:
                     ready[index].set()
         if final is None:
             raise ValueError("Empty streaming response")
