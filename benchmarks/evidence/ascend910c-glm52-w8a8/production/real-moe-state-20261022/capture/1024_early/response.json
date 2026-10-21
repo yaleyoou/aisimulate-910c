@@ -1,0 +1,45 @@
+{
+  "text": ". This is the bounded inference validation workload. This is the bounded inference",
+  "output_ids": [
+    13,
+    220,
+    1986,
+    374,
+    279,
+    60686,
+    44120,
+    10514,
+    53239,
+    13,
+    220,
+    1986,
+    374,
+    279,
+    60686,
+    44120
+  ],
+  "meta_info": {
+    "id": "74dcf244a6764b7f82d748ddf14903d1",
+    "finish_reason": {
+      "type": "length",
+      "length": 16
+    },
+    "prompt_tokens": 1024,
+    "weight_version": "default",
+    "num_retractions": 0,
+    "reasoning_tokens": 0,
+    "completion_tokens": 16,
+    "cached_tokens": 0,
+    "weight_versions": [
+      {
+        "version": "default",
+        "start": 0,
+        "end": 16
+      }
+    ],
+    "cached_tokens_details": null,
+    "dp_rank": 0,
+    "e2e_latency": 3.5624996232800186,
+    "response_sent_to_client_ts": 1792618933.249056
+  }
+}

@@ -1,0 +1,1 @@
+{"pid": 225115, "command": ["python3", "/mnt/raid/aisimulate-youxingye-20261022/recording/source/ascend_state_sweep.py", "--capture-dir", "/mnt/raid/aisimulate-youxingye-20261022/recording/capture", "--case", "8192_decode_b2", "--concurrency", "2"]}

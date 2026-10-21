@@ -597,6 +597,14 @@
           "scope": "collection",
           "sha256": "71c2712fce072cf609547af7cee2483612a7adc172f7de1267bd474f4378f9bf"
         },
+        "kv_layout_reconciliation": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/ascend-kv-layout.json",
+          "scope": "validation",
+          "sha256": "8e0f52b91d68e2c24a28c85d3efbd71ed19b827267b132a615753038c793f5e9"
+        },
         "local_reference_campaign": {
           "archived": false,
           "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
@@ -629,6 +637,22 @@
           "scope": "validation",
           "sha256": "8a5f394342b20f7bf12620290cd78c7bae3e33a16157dd159a03544bb2e55f5b"
         },
+        "real_moe_state_grid": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/real-moe-state-20261022/state-grid-validation.json",
+          "scope": "collection",
+          "sha256": "3df27dfe34f78b5f9cd3da74513e034f8b0d0e8cd01cdf3bd599826c980d159c"
+        },
+        "runtime_topology_constraints": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/runtime-topology-constraints.json",
+          "scope": "validation",
+          "sha256": "decbaa690be14014a475e9abf94b9741454d781dbae5075012d06baef15fb614"
+        },
         "serving_operator_validation": {
           "archived": true,
           "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
@@ -636,6 +660,14 @@
           "path": "operators/verified-20261021/collection-validation.json",
           "scope": "validation",
           "sha256": "c0ec7c0e656394887a5f9aeeb57f236efdf95ce4f341408a54435f7b0edeb4fd"
+        },
+        "state_capture_tests": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/state-tests-final.log",
+          "scope": "validation",
+          "sha256": "e2f87f617d31bf2140756bf75a4cb545b6bca8fb0905de3684a4d86381a695fd"
         },
         "verified_peer_checkpoint": {
           "archived": false,
@@ -960,26 +992,33 @@
       "confidence": "High for inspected source and completed smoke; production dataset and broad goal remain incomplete.",
       "coverage": "production/coverage-plan.json",
       "cross_host_controls": "Local36/36correct andCV<=10%;median absolute latency difference2.239% butmaximum484.79% on tiny standalone dynamicquant; no blanket cross-driver borrowing.",
+      "cross_host_state": "Same input IDs and first16output IDs, but only533/1200prefill layer/rank row totals match exactly. Median difference0.16%,maximum31.53%; keep driver-specific routing observations.",
       "current_collection": "Own peer recording server aisim-glm52-state-20261022 starts on18000 with verified weights and state-only graph-safe count copies. Original local United remains healthy.",
       "current_implementation": "HCCL native op/table/selector and strict publication gates; distinct static/dynamic W8A8 GEMM and dynamic W8A8 MoE identities; local GLM ModelSlim sidecar normalization with compact per-layer precision metadata.",
       "date": "2026-10-22",
       "diagnostic_findings": "Increasing iterations and disablingGC did not eliminate eager timing spikes; GC callbacks measured0. CPU affinity improved some points but not all. Retain controls; no claim of fixed root cause.",
       "final_foundation_tests": "390GPU parity tests,9precision-native,22wire-spec,20source-resolution,5HCCL-native,10Python foundation tests passed.296serving-setup peer HCCL rows reproduced through the native engine. Ruff14source/testfiles passed.",
+      "foundation_commit": "fff9ab32",
       "foundation_status": "Implemented and validated; this is not full model/PD/search completion.",
       "graph_event_capability": "Captured NPU timing events cannot be read after graph replay: event recorder null507000. Do not build module timing on that assumption.",
       "guide_help_inspected": "onboard and onboard init current help; guided init still restricts framework to vLLM, so no fabricated SGLang profile acceptance.",
       "handoff": "production/NEXT.md",
+      "kv_layout": "Actual arch code2201 is notarch35. This runtime allocates78BF16 indexer caches despite21indexer-computing layers.109824bytes/token/rank plusone128token sentinel page gives5833850880bytes at52992capacity, matching5.43GiB logs.",
       "metadata_validation": "Actual checkpoint:78layers,75MoE,21declared indexers;primary GEMMw8a8,MoEw8a8_dynamic. About19MB source becomes33257bytes retained metadata; cold parse0.145s; existing model-config cache reused.",
       "model_transfer": "196files and774079436873bytes copied to fresh private peer directory. Both full SHA256 manifests match: b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc.",
       "native_binary_sha256": "bf9621744d83b89ec513573cb28e7d09a8b9d22c2db2fd30c78c86c86912c89e",
       "native_validation": "5native HCCL tests passed;3initial exporter tests passed,expanded4tests pending;both existing GPU parity suites390passed in1971.32s. Actual292control rows reproduced exactly through existing native engine/spec interface. Additional source-resolution registration and pinned-op-count changes need final focused rebuild/checks.",
-      "next": "Validate real-model per-layer/rank routing state, collect model-specific operator/module performance, implement memory and full execution composition, then PD and canonical search validation.",
+      "next": "Benchmark captured operator invocations with validated cache/timing protocol; implement actual Ascend model and memory composition. Then validate forward and PD/request accuracy and canonical search. Overall goal remains incomplete.",
       "objective": "Canonical Ascend910C + local GLM5.2W8A8 operator prediction, memory, replay, aggregated/PD and parallelism/replica search.",
+      "parallelism_constraint": "Pinned SGLang DeepEP forces EP to globalTP; do not treat requestedEP8 underglobalTP16 as a separate deployable strategy.",
       "qualified_hccl": "320points with complete recorded United environment/CPU setup on npu1-19;296qualified and24CV failures retained. Peer-driver scope remains explicit; no automatic local-driver borrowing.",
       "routing_collection_source": "Pinned SGLang includes RoutedExpertsCapturer and enable_return_routed_experts. Both Ascend DeepEP normal/LL adapters use group_list_type1 per-expert counts; prior balanced cumulative probes are controls only.",
-      "service": "Original local United restored and healthyHTTP200; local reference task container removed; existing peer service preserved.",
+      "routing_findings": "Single-request graph decode routes128rows globally per layer including padding, while each physical received buffer has4096rows.8k prefill totals65536rows/layer and busiest ranks6150..15964rows; balanced4096 assumption is incorrect.",
+      "service": "Local original United remains healthy. Own peer state-only recording service18000 is healthy; its measured latencies must not qualify prediction accuracy.",
       "serving_setup": "production/serving-setup.json captures complete launcher exports and live scheduler CPU masks. Collector applies these before runtime imports. Worker proctitle makes worker/proc/environ unreliable; launcher/script provenance is explicit.",
       "source_parity_correction": "Read live United process environment: TASK_QUEUE_ENABLE0,HCCL_BUFFSIZE650,SGLANG_NPU_USE_MULTI_STREAM1. Earlier controls usedqueue1/defaultbuffers and are NOT qualified serving-profile data. Producer now calls pinned SGLang group-options factory and records resolved options; exporter requires v2 and refuses mismatches.",
+      "state_collection": "Eight real-model workloads completed:1k/2k/4k/8k prefill+earlydecode and8k puredecode at concurrency2/4/8/10.16ranks x3forwards x75MoE layers per workload;28800layer/rank invocations,12662unique GMM1 states.",
+      "state_validation": "Full rank/layer coverage and nonnegative count/storage checks passed.6control/parser tests passed. Real NPU graph probes validate both copied counts and optional retained references; retained-reference mode is not yet qualified on the full model.",
       "status": "active",
       "tests": "Native HCCL5, wire-spec22, source-resolution20, precision enums9 and Python foundation10passed. EarlierGPU parity390passed; final foundation parity is running on rebuilt binary in production/foundation-parity.log."
     },
@@ -1041,7 +1080,7 @@
       "remaining_work": "Production Ascend query integration, actual-route communication qualification, full-forward and serving prediction accuracy."
     }
   },
-  "revision": 21,
+  "revision": 22,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

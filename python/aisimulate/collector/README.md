@@ -739,6 +739,24 @@ driver versions, hardware and collector source digest. The native HCCL reader
 uses the exact system selector documented in
 [hardware extensions](../../../docs/perf-model/extending.md#hardware-system-yaml).
 
+`ascend_recording_server.py` is a dedicated state-collection launcher. It calls
+the installed SGLang CLI and installs `ascend_state_capture.py` in spawned workers.
+The observer retains actual per-layer expert counts across graph replay; it does
+not substitute a balanced routing distribution. Its records preserve the physical
+input buffer separately from the counts consumed by grouped matmul. The default
+copies count tensors; optional `AISIM_CAPTURE_COPY_COUNTS=0` retains references
+and fails if the runtime reuses their storage. Both modes are state observations,
+not qualified performance measurements.
+
+`ascend_state_requests.py` drives bounded prefill/early-decode captures, and
+`ascend_state_sweep.py` waits until all dedicated requests have produced their
+first token before arming steady decode capture. The latter is currently scoped
+to the verified United attention-DP2 layout and its8k KV budget. The control file
+must be written atomically. Do not use the recording service's instrumented
+request latency to qualify prediction accuracy. `ascend_state_report.py` rejects
+missing ranks/layers, invalid count vectors and inconsistent storage geometry,
+then deduplicates exact invocation geometries while retaining their observations.
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.

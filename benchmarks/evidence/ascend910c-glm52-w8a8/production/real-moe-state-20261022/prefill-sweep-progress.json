@@ -1,0 +1,14 @@
+[
+  {
+    "case": "4096_early",
+    "returncode": 0
+  },
+  {
+    "case": "2048_early",
+    "returncode": 0
+  },
+  {
+    "case": "1024_early",
+    "returncode": 0
+  }
+]

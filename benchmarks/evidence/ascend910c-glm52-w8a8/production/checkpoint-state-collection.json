@@ -1,0 +1,26 @@
+{
+  "research": {
+    "production_goal": {
+      "status": "active",
+      "foundation_commit": "fff9ab32",
+      "state_collection": "Eight real-model workloads completed:1k/2k/4k/8k prefill+earlydecode and8k puredecode at concurrency2/4/8/10.16ranks x3forwards x75MoE layers per workload;28800layer/rank invocations,12662unique GMM1 states.",
+      "state_validation": "Full rank/layer coverage and nonnegative count/storage checks passed.6control/parser tests passed. Real NPU graph probes validate both copied counts and optional retained references; retained-reference mode is not yet qualified on the full model.",
+      "routing_findings": "Single-request graph decode routes128rows globally per layer including padding, while each physical received buffer has4096rows.8k prefill totals65536rows/layer and busiest ranks6150..15964rows; balanced4096 assumption is incorrect.",
+      "cross_host_state": "Same input IDs and first16output IDs, but only533/1200prefill layer/rank row totals match exactly. Median difference0.16%,maximum31.53%; keep driver-specific routing observations.",
+      "kv_layout": "Actual arch code2201 is notarch35. This runtime allocates78BF16 indexer caches despite21indexer-computing layers.109824bytes/token/rank plusone128token sentinel page gives5833850880bytes at52992capacity, matching5.43GiB logs.",
+      "parallelism_constraint": "Pinned SGLang DeepEP forces EP to globalTP; do not treat requestedEP8 underglobalTP16 as a separate deployable strategy.",
+      "service": "Local original United remains healthy. Own peer state-only recording service18000 is healthy; its measured latencies must not qualify prediction accuracy.",
+      "next": "Benchmark captured operator invocations with validated cache/timing protocol; implement actual Ascend model and memory composition. Then validate forward and PD/request accuracy and canonical search. Overall goal remains incomplete."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "real_moe_state_grid": {"kind": "file", "scope": "collection", "path": "production/real-moe-state-20261022/state-grid-validation.json"},
+        "state_capture_tests": {"kind": "file", "scope": "validation", "path": "production/state-tests-final.log"},
+        "kv_layout_reconciliation": {"kind": "file", "scope": "validation", "path": "production/ascend-kv-layout.json"},
+        "runtime_topology_constraints": {"kind": "file", "scope": "validation", "path": "production/runtime-topology-constraints.json"}
+      }
+    }
+  }
+}

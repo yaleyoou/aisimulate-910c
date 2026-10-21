@@ -1,0 +1,177 @@
+{
+  "request_tokens_identical": true,
+  "first_16_output_ids_identical": true,
+  "rank_shape_checks": [
+    {
+      "rank": 0,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 1,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 2,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 3,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 4,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 5,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 6,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 7,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 8,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 9,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 10,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 11,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 12,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 13,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 14,
+      "matched": false,
+      "measured_groups": 75
+    },
+    {
+      "rank": 15,
+      "matched": false,
+      "measured_groups": 75
+    }
+  ],
+  "scope": "Specific8k fixed prompt: original uninstrumented local trace vs peer state capture. Not blanket timing transfer qualification.",
+  "equal_layer_rank_counts": 533,
+  "checked_layer_rank_counts": 1200,
+  "median_relative_count_difference": 0.0016012820512820514,
+  "max_relative_count_difference": 0.31529850746268656,
+  "largest_count_differences": [
+    {
+      "rank": 0,
+      "parameter": "model.layers.77.mlp.experts.w13_weight",
+      "local_rows": 1072,
+      "peer_rows": 1410,
+      "relative_difference": 0.31529850746268656
+    },
+    {
+      "rank": 14,
+      "parameter": "model.layers.75.mlp.experts.w13_weight",
+      "local_rows": 5905,
+      "peer_rows": 4492,
+      "relative_difference": 0.2392887383573243
+    },
+    {
+      "rank": 3,
+      "parameter": "model.layers.73.mlp.experts.w13_weight",
+      "local_rows": 1924,
+      "peer_rows": 2324,
+      "relative_difference": 0.2079002079002079
+    },
+    {
+      "rank": 2,
+      "parameter": "model.layers.73.mlp.experts.w13_weight",
+      "local_rows": 1586,
+      "peer_rows": 1271,
+      "relative_difference": 0.19861286254728877
+    },
+    {
+      "rank": 15,
+      "parameter": "model.layers.76.mlp.experts.w13_weight",
+      "local_rows": 810,
+      "peer_rows": 658,
+      "relative_difference": 0.18765432098765433
+    },
+    {
+      "rank": 10,
+      "parameter": "model.layers.53.mlp.experts.w13_weight",
+      "local_rows": 1546,
+      "peer_rows": 1272,
+      "relative_difference": 0.17723156532988357
+    },
+    {
+      "rank": 10,
+      "parameter": "model.layers.77.mlp.experts.w13_weight",
+      "local_rows": 681,
+      "peer_rows": 569,
+      "relative_difference": 0.1644640234948605
+    },
+    {
+      "rank": 14,
+      "parameter": "model.layers.71.mlp.experts.w13_weight",
+      "local_rows": 336,
+      "peer_rows": 284,
+      "relative_difference": 0.15476190476190477
+    },
+    {
+      "rank": 0,
+      "parameter": "model.layers.61.mlp.experts.w13_weight",
+      "local_rows": 675,
+      "peer_rows": 573,
+      "relative_difference": 0.1511111111111111
+    },
+    {
+      "rank": 12,
+      "parameter": "model.layers.77.mlp.experts.w13_weight",
+      "local_rows": 3971,
+      "peer_rows": 3377,
+      "relative_difference": 0.14958448753462603
+    },
+    {
+      "rank": 10,
+      "parameter": "model.layers.71.mlp.experts.w13_weight",
+      "local_rows": 497,
+      "peer_rows": 424,
+      "relative_difference": 0.14688128772635814
+    },
+    {
+      "rank": 15,
+      "parameter": "model.layers.63.mlp.experts.w13_weight",
+      "local_rows": 882,
+      "peer_rows": 1007,
+      "relative_difference": 0.1417233560090703
+    }
+  ]
+}

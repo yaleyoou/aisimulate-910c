@@ -1,0 +1,28 @@
+{
+  "schema": "aisimulate-ascend-runtime-constraints/v1",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "facts": [
+    {
+      "condition": "moe_a2a_backend=deepep",
+      "resolved_behavior": "SGLang forces ep_size to its global tp_size, even when another ep_size was requested.",
+      "source": "python/sglang/srt/arg_groups/overrides.py:1531 and:1563",
+      "implication": "Do not search or collect a distinct EP8/MoETP2 configuration under globalTP16+DeepEP. The runtime resolves it toEP16. Keep requested and resolved topology distinct."
+    },
+    {
+      "condition": "Current United CLI tp_size16,dp_size2,ep_size16,enable_dp_attention",
+      "resolved_behavior": "AttentionTP8,attentionDP2,MoETP1,MoEEP16;16physical runtime chips.",
+      "source": "../stage1/runtime-resolved-args.json",
+      "implication": "AISimulate attention TP is not the same quantity as SGLang's global TP argument."
+    },
+    {
+      "condition": "Current recorded PP1,CP1,DCP1 with16workers/node",
+      "resolved_behavior": "Scheduler GPU-rank0 CPU mask is0-19,320-339; masks are observed, not inferred from PCI NUMA(-1).",
+      "source": "serving-setup.json",
+      "implication": "Collection inherits this exact setup. Other worker placements need their own resolved setup."
+    }
+  ],
+  "unresolved": [
+    "Supported and memory-feasible non-A2A AscendTP alternatives must be inspected and measured separately.",
+    "PP/CP/DCP and larger-node configurations are not qualified merely because configuration fields exist."
+  ]
+}

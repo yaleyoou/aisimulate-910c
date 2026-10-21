@@ -1,0 +1,40 @@
+{
+  "schema": "aisimulate-ascend-kv-layout-evidence/v1",
+  "status": "source_verified_and_reconciled_with_runtime_log",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "device": "Ascend910_9382",
+  "acl_get_device_info_0_601": [2201, 0],
+  "arch35_predicate": "acl.rt.get_device_info(0,601)==(3510,0); false on this device",
+  "runtime": {
+    "main_layers": 78,
+    "indexer_compute_layers": 21,
+    "allocated_indexer_layers": 78,
+    "kv_lora_dim": 512,
+    "rope_dim": 64,
+    "indexer_key_dim": 128,
+    "dtype": "bfloat16",
+    "element_bytes": 2,
+    "page_size": 128,
+    "capacity_tokens": 52992,
+    "sentinel_pages": 1,
+    "allocated_token_slots": 53120,
+    "logical_kv_bytes_per_token_per_attention_tp_rank": 109824,
+    "sentinel_bytes_per_rank": 14057472,
+    "allocated_kv_bytes_per_rank": 5833850880,
+    "allocated_kv_gib_per_rank": 5.433197021484375,
+    "runtime_log_rounded_gb": 5.43
+  },
+  "sources": [
+    "sglang/python/sglang/srt/hardware_backend/npu/utils.py:28",
+    "sglang/python/sglang/srt/mem_cache/kv_cache_configurator.py:1947",
+    "sglang/python/sglang/srt/hardware_backend/npu/memory_pool_npu.py:622",
+    "sglang/python/sglang/srt/hardware_backend/npu/memory_pool_npu.py:705",
+    "../stage1/runtime-memory-observations.json"
+  ],
+  "limits": [
+    "This is the source-verified A3 BF16 layout for DCP1, PP1 and the observed allocation; different runtime/hardware/cache modes need their own layout.",
+    "TP ranks replicate an attention-DP group's KV capacity; capacity tokens are not multiplied by TP16.",
+    "The sentinel page is fixed pool overhead, not an extra page per request.",
+    "PD payload must still be verified against the actual transfer implementation; allocated indexer layers do not alone prove transferred bytes."
+  ]
+}

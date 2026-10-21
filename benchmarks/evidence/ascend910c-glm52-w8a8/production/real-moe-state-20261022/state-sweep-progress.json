@@ -1,0 +1,14 @@
+[
+  {
+    "case": "8192_decode_b4",
+    "returncode": 0
+  },
+  {
+    "case": "8192_decode_b8",
+    "returncode": 0
+  },
+  {
+    "case": "8192_decode_b10",
+    "returncode": 0
+  }
+]
