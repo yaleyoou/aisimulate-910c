@@ -2329,6 +2329,9 @@ class BaseBackend:
         # Per-rank persistent KV: decode CP stripes the token-linear KV (prefill
         # CP's all-gather is a transient compute buffer, not steady-state footprint).
         kvcache = batch_size * model.get_kvcache_rank_bytes_per_sequence(seq_tokens)
+        pool_overhead = getattr(model, "get_kvcache_pool_overhead_bytes", None)
+        if pool_overhead is not None:
+            kvcache += pool_overhead()
         if has_draft_scheme:
             kvcache += batch_size * scheme.draft_kv_bytes_per_sequence(model, seq_tokens)
         # should not be divided by pp_size as you need to hold all kvcache for stages.

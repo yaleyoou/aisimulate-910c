@@ -1,0 +1,42 @@
+{
+  "research": {
+    "ascend_kv_model": {
+      "status": "validated_kv_component",
+      "confidence": "99focused/adjacent tests and390GPUparity tests passed; per-rank physical pool independently measured",
+      "limits": ["Total resident memory model and physical request-admission page propagation remain to complete", "Canonical full Ascend op composition, PD and search remain required"],
+      "parity": {"session": 44523, "log": "production/worker-memory-20261022/kv-parity.log", "passed": 390, "seconds": 1974.72}
+    },
+    "worker_memory_collection": {
+      "status": "validated_observations_and_serving_baselines",
+      "confidence": "All16ranks have6startup boundaries;52992usabletokens and5833850880KVbytes each;5report validation tests passed",
+      "finding": "Rank0graph phase consumed4587425792device-freebytes, but Torchallocated rose23031296 andreserved203423744. Keep these counters distinct and reconcile unmanaged allocation/lifetimes before resource modeling.",
+      "serving_control": "Same frozen8192/1024token requests as late state captures, concurrency1and10,1warmup+3measurements each,44requests complete withzero cachehits/retractions. Client timings are not isolated forward measurements.",
+      "container_state": "Stopped after controls; original peer container preserved",
+      "next_action": "Use observed tensors/layouts to build full resident accounting and compare canonical forward/request predictions once operators are connected."
+    },
+    "hccl_local_and_dual": {
+      "status": "running",
+      "local_runner_pid": 3576363,
+      "peer_launcher_pid": 2583067,
+      "progress_file": "production/hccl-local-serving-20261022/campaign.json",
+      "scope": "Actual Unitedsetup onlocaldriver26.1.1 for2/4/8/16ranks, then32ranks acrossbothnodes. Preserve driver-specific provenance and rawCVfailures.",
+      "service_state": "Localglm52-united-v0522temporarily paused by managedrunner; finally removes only owncalibrationcontainer and restartsUnited, waitingup to1800sforhealth. Peer originalxqcontainer unchanged.",
+      "peer_ready_signal": "production/hccl-local-serving-20261022/peer-ready.json",
+      "next_action": "Inspect32rankcompletion, restorehealth, validate/exportactualqualifiedrows and runnativequerychecks."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "initialized_memory_report": {"path": "production/worker-memory-20261022/report.json", "kind": "file", "scope": "validation"},
+        "unprofiled_serving_control_report": {"path": "production/worker-memory-20261022/serving-controls-report.json", "kind": "file", "scope": "validation"},
+        "unprofiled_serving_control_raw": {"path": "production/worker-memory-20261022/serving-controls.tar.gz", "kind": "file", "scope": "collection"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "next_action": "Complete source-matched HCCLcalibration andservice restoration, then complete missing operatorcurves, canonicalAscendcomposition/residentmemory, PDtransfer andsupportedstrategysearch."
+      }
+    }
+  }
+}

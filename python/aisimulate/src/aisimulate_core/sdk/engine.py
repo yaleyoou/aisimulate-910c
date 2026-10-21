@@ -642,6 +642,7 @@ def compile_engine(
             wideep_num_slots=wideep_num_slots,
             cp_size=cp_size,
             speculation=resolved_speculation,
+            system=system,
         )
         model_config.fpm_config = fpm_config
         # Apply MTP BEFORE get_model so the walked op lists carry the

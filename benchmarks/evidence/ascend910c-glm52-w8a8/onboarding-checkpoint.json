@@ -589,6 +589,14 @@
           "scope": "validation",
           "sha256": "95dcb21e3730af1c116e38e522bbfee439cf25c813f487b414ed4980fb1fccd4"
         },
+        "initialized_memory_report": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/worker-memory-20261022/report.json",
+          "scope": "validation",
+          "sha256": "e60e24a6b12e5a91bf2c8b18a2a6c1c31b9adafe1d9c24ccef410974448912ff"
+        },
         "isolated_attention_validation": {
           "archived": true,
           "context_sha256": "8fbb3a099933ee4c6c11aa1104451da2e4477971f0e5b7a555a6274c422c1f28",
@@ -701,6 +709,22 @@
           "scope": "validation",
           "sha256": "e2f87f617d31bf2140756bf75a4cb545b6bca8fb0905de3684a4d86381a695fd"
         },
+        "unprofiled_serving_control_raw": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/worker-memory-20261022/serving-controls.tar.gz",
+          "scope": "collection",
+          "sha256": "dc63d39b630918b38894ba79096ce2bab77101c123dfc5d3587bc8feff137236"
+        },
+        "unprofiled_serving_control_report": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/worker-memory-20261022/serving-controls-report.json",
+          "scope": "validation",
+          "sha256": "39a9d2a6767b15a6011db7932a0aa53e8934f8aae609a90dbe4e755ee0a36ca6"
+        },
         "verified_peer_checkpoint": {
           "archived": false,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -764,7 +788,7 @@
           "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
           "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "Continue source-qualified operator collection and canonical Ascend model composition; complete full forward/memory/request accuracy, then PD and supported parallelism/replica search.",
+        "next_action": "Complete source-matched HCCLcalibration andservice restoration, then complete missing operatorcurves, canonicalAscendcomposition/residentmemory, PDtransfer andsupportedstrategysearch.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -835,6 +859,27 @@
     "status": "in_progress"
   },
   "research": {
+    "ascend_kv_model": {
+      "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
+      "confidence": "99focused/adjacent tests and390GPUparity tests passed; per-rank physical pool independently measured",
+      "limits": [
+        "Total resident memory model and physical request-admission page propagation remain to complete",
+        "Canonical full Ascend op composition, PD and search remain required"
+      ],
+      "parity": {
+        "expected_tests": 390,
+        "log": "production/worker-memory-20261022/kv-parity.log",
+        "passed": 390,
+        "seconds": 1974.72,
+        "session": 44523
+      },
+      "sources": [
+        "production/ascend-kv-layout.json",
+        "python/aisimulate/src/aisimulate_core/sdk/models/deepseek_v32.py",
+        "python/aisimulate/tests/unit/sdk/test_ascend_kv_layout.py"
+      ],
+      "status": "validated_kv_component"
+    },
     "basis": {
       "confidence": "high",
       "sources": [
@@ -922,6 +967,16 @@
       "topology_scope": "npu1-32/npu1-19 in SuperPod1,16 concurrent cross-node pairs; localdriver26.1.1 vs peer25.5.0; no cross-SuperPod or more-than-two-node qualification.",
       "validation": "Actual Python system loader tests6/6, Rust SystemSpec tests5/5,9 YAML values against manifest,149 evidence hashes, pinned Ruff0.14.1 lint+format, CODEOWNERS tracked-tree coverage100%."
     },
+    "hccl_local_and_dual": {
+      "local_runner_pid": 3576363,
+      "next_action": "Inspect32rankcompletion, restorehealth, validate/exportactualqualifiedrows and runnativequerychecks.",
+      "peer_launcher_pid": 2583067,
+      "peer_ready_signal": "production/hccl-local-serving-20261022/peer-ready.json",
+      "progress_file": "production/hccl-local-serving-20261022/campaign.json",
+      "scope": "Actual Unitedsetup onlocaldriver26.1.1 for2/4/8/16ranks, then32ranks acrossbothnodes. Preserve driver-specific provenance and rawCVfailures.",
+      "service_state": "Localglm52-united-v0522temporarily paused by managedrunner; finally removes only owncalibrationcontainer and restartsUnited, waitingup to1800sforhealth. Peer originalxqcontainer unchanged.",
+      "status": "running"
+    },
     "historical_runtime": {
       "actual_package_version": "0.5.17.dev386+gc5bd3d7dc",
       "confidence": "high",
@@ -981,6 +1036,7 @@
       ],
       "validation": "11newCPUbehavior tests pass; targetedRuffpasses. Fullcollector attempts encounter existing torch backend/autoload and duplicate triton registration errors; no full-suitepass claimed."
     },
+    "moe_protocol_commit": "76454223: observed-count GMM1/activation/GMM2 and dependent-chain protocol measurements, numerical checks, preserved failures and evidence.",
     "native_communication_collection": {
       "confidence": "high for raw observations; initial small-payload timing includes CPU submission gaps and is not a fabric-latency estimate",
       "follow_up": "Independent host-callback gate prequeues native HCCL work before device events; remote readiness passed full pre/post payload checks and measured about 8us instead of 60us. Repeat exact topology campaign with this boundary. Graph capture returned 107025 and is not used. ReduceScatter MAX will be a separately labeled correctness control; it does not qualify SUM.",
@@ -1135,9 +1191,26 @@
       "hardware_and_baseline": "93011105",
       "publication": "Local commits only; no remote push.",
       "remaining_work": "Production Ascend query integration, actual-route communication qualification, full-forward and serving prediction accuracy."
+    },
+    "worker_memory_collection": {
+      "confidence": "All16ranks have6startup boundaries;52992usabletokens and5833850880KVbytes each;5report validation tests passed",
+      "container": "aisim-glm52-memory-20261022",
+      "container_state": "Stopped after controls; original peer container preserved",
+      "finding": "Rank0graph phase consumed4587425792device-freebytes, but Torchallocated rose23031296 andreserved203423744. Keep these counters distinct and reconcile unmanaged allocation/lifetimes before resource modeling.",
+      "host": "npu1-19",
+      "http_port": 18000,
+      "next_action": "Use observed tensors/layouts to build full resident accounting and compare canonical forward/request predictions once operators are connected.",
+      "remote_root": "/mnt/raid/aisimulate-youxingye-20261022/memory",
+      "scope": "Startup-only snapshots surround load_model,alloc_memory_pool,init_cuda_graphs; no forward/replay hooks. Tensor values never copied. PyTorch storage extents and allocation/free deltas remain separate.",
+      "serving_control": "Same frozen8192/1024token requests as late state captures, concurrency1and10,1warmup+3measurements each,44requests complete withzero cachehits/retractions. Client timings are not isolated forward measurements.",
+      "sources": [
+        "production/worker-memory-20261022/launch.json",
+        "production/worker-memory-20261022/ascend_memory_capture.py"
+      ],
+      "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 25,
+  "revision": 27,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

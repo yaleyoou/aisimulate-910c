@@ -1,0 +1,33 @@
+{
+  "research": {
+    "moe_protocol_commit": "76454223: observed-count GMM1/activation/GMM2 and dependent-chain protocol measurements, numerical checks, preserved failures and evidence.",
+    "ascend_kv_model": {
+      "status": "implemented_pending_gpu_parity",
+      "sources": ["production/ascend-kv-layout.json", "python/aisimulate/src/aisimulate_core/sdk/models/deepseek_v32.py", "python/aisimulate/tests/unit/sdk/test_ascend_kv_layout.py"],
+      "confidence": "BF16 per-token geometry and default128-page sentinel reconciled with serving;99focused/adjacent tests passed",
+      "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
+      "limits": ["Resident weights/communication/graph estimates remain unresolved; hardware YAML misc is intentionally empty", "Request admission must use matching128-token physical pages", "GPU parity is running; do not edit core composition during this run"],
+      "parity": {"session": 44523, "log": "/tmp/aisim-ascend-kv-parity.log", "expected_tests": 390}
+    },
+    "worker_memory_collection": {
+      "status": "model_loading",
+      "confidence": "All16ranks produced load_model:before observations; later startup stages pending",
+      "container": "aisim-glm52-memory-20261022",
+      "host": "npu1-19",
+      "http_port": 18000,
+      "remote_root": "/mnt/raid/aisimulate-youxingye-20261022/memory",
+      "sources": ["production/worker-memory-20261022/launch.json", "production/worker-memory-20261022/ascend_memory_capture.py"],
+      "scope": "Startup-only snapshots surround load_model,alloc_memory_pool,init_cuda_graphs; no forward/replay hooks. Tensor values never copied. PyTorch storage extents and allocation/free deltas remain separate.",
+      "next_action": "Wait for model loading, validate complete per-rank startup records and allocation lifetimes; then collect uninstrumented forward/request controls."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "next_action": "Complete memory observation and parity, then finish missing operator curves/canonical forward model, PD and parallelism/replica search."
+      }
+    }
+  }
+}

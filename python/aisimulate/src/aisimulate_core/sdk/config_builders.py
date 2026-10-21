@@ -49,6 +49,7 @@ def build_model_config(
     cp_size: int = 1,
     dcp_size: int | None = None,
     fpm_fmha_quant_mode: str | None = None,
+    system: str | None = None,
 ) -> ModelConfig:
     """Build a ModelConfig with optional quant mode overrides."""
     validate_moe_controls(
@@ -79,6 +80,7 @@ def build_model_config(
         wideep_num_slots=wideep_num_slots,
         moe_kernel_source=moe_kernel_source,
         speculation=speculation,
+        system=system,
     )
 
 

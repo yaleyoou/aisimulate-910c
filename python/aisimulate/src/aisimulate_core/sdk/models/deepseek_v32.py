@@ -15,6 +15,7 @@ from collections import Counter
 
 import aisimulate_core.sdk.operations as ops
 from aisimulate_core.sdk import common
+from aisimulate_core.sdk.errors import InvalidEngineConfigurationError
 from aisimulate_core.sdk.models.base import BaseModel, register_model
 from aisimulate_core.sdk.models.blocks.moe import MoEBlockShape
 from aisimulate_core.sdk.models.helpers import (
@@ -798,18 +799,58 @@ class DeepSeekV32Model(BaseModel):
         self.context_ops.append(ops.P2P("context_p2p", pp_scale_factor, h, pp_size))
         self.generation_ops.append(ops.P2P("generation_p2p", pp_scale_factor * self._mtp_scale_factor, h, pp_size))
 
+    def _uses_ascend_kv_layout(self) -> bool:
+        """A3 layout audited at SGLang baa9befa381511cd4d56f83980951e5a45fffc6d.
+
+        kv_cache_configurator.py:1947 leaves indexer_layer_ids unset outside
+        arch35. memory_pool_npu.py:622,705 allocates all layers in BF16 and
+        one sentinel page. The measured 52992-token pool is 5833850880 bytes.
+        """
+        if getattr(self.config, "system", None) != "ascend910c":
+            return False
+        if (
+            self._backend_name != "sglang"
+            or self.architecture != "GlmMoeDsaForCausalLM"
+            or self.config.kvcache_quant_mode != common.KVCacheQuantMode.bfloat16
+            or self.config.pp_size != 1
+            or self.config.cp_size != 1
+            or (self.config.dcp_size or 1) != 1
+            or self.config.nextn != 0
+        ):
+            raise InvalidEngineConfigurationError(
+                "Ascend910C DSA KV layout requires SGLang GLM, BF16 cache, PP1/CP1/DCP1 and MTP off"
+            )
+        return True
+
+    def get_kvcache_pool_overhead_bytes(self) -> int:
+        if self._uses_ascend_kv_layout():
+            return int(128 * self.get_kvcache_bytes_per_sequence(1))
+        return super().get_kvcache_pool_overhead_bytes()
+
+    def get_kvcache_max_tokens(self, kv_budget_bytes: float) -> int:
+        if self._uses_ascend_kv_layout():
+            per_page = 128 * self.get_kvcache_bytes_per_sequence(1)
+            budget = float(kv_budget_bytes)
+            return 0 if budget <= 0 else max(0, int(budget // per_page) - 1) * 128
+        return super().get_kvcache_max_tokens(kv_budget_bytes)
+
     def get_kvcache_bytes_per_sequence(self, seq_len: int) -> float:
         seq_len = max(0, seq_len)
         extra = self.extra_params if isinstance(self.extra_params, dict) else {}
         kv_lora_rank = extra.get("kv_lora_rank", 512)
         qk_rope_head_dim = extra.get("qk_rope_head_dim", 64)
         index_head_dim = extra.get("index_head_dim", 128)
+        index_entry_bytes = (
+            index_head_dim * common.GEMMQuantMode.bfloat16.value.memory
+            if self._uses_ascend_kv_layout()
+            else common.indexer_cache_entry_bytes(index_head_dim)
+        )
         return (
             self._num_layers
             * seq_len
             * (
                 kv_lora_rank * self.config.kvcache_quant_mode.value.memory
                 + qk_rope_head_dim * common.GEMMQuantMode.bfloat16.value.memory
-                + common.indexer_cache_entry_bytes(index_head_dim)
+                + index_entry_bytes
             )
         )

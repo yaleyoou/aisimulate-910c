@@ -65,6 +65,18 @@ accounting.
 vLLM and TRT-LLM continue to deduct activation memory under their own budget
 semantics. No measured server capacity is required by this calculation.
 
+For `ascend910c` with SGLang GLM DSA and BF16 KV, the native model uses BF16
+latent, RoPE and indexer storage for every model layer. Indexer computation
+sharing does not reduce this A3 allocation. The layout currently supports
+PP1/CP1/DCP1 with MTP disabled; other combinations fail explicitly. Each rank's
+pool reserves one 128-token sentinel page, and usable capacity rounds down to
+whole 128-token pages. The sentinel is charged once per pool, independently of
+request count. Attention TP replicates the cache; it does not multiply capacity.
+Request admission must use the matching 128-token page size as well.
+The target system is preserved through both canonical compilation and memory
+construction, including role-specific search configurations. This cache-layout
+support does not qualify resident weight/workspace estimates or serving latency.
+
 `estimate_kv_cache` and `estimate_num_gpu_blocks` accept
 `cuda_graph_reserved_bytes=<rank-local bytes>`. The value must be a
 non-negative integer no greater than `2**53` and defaults to zero. It is treated

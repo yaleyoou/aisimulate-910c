@@ -1,0 +1,20 @@
+{
+  "base_commit": "76454223ce5ddf436be412c3874579077fb9a189",
+  "source_sha256": {
+    "python/aisimulate/src/aisimulate_core/sdk/backends/base_backend.py": "ee06a85e323fdce6f25429b6b5d7db2b219fd7add99d269386b654254bbc71d2",
+    "python/aisimulate/src/aisimulate_core/sdk/config_builders.py": "18b5dd554ba22d9a0e3f2f3e5e382f138d5165a365ca6d3e5fde1574f040bb0d",
+    "python/aisimulate/src/aisimulate_core/sdk/engine.py": "6bfc5f5ba5135c48a3ecd04073d83ea73f1f3e1236779933e0c5853e27845cb2",
+    "python/aisimulate/src/aisimulate_core/sdk/memory/kv_cache.py": "5c82103183c255349b339825ac1fb3787828ee64ad57303b23cafade8f83aa5e",
+    "python/aisimulate/src/aisimulate_core/sdk/models/base.py": "adae1f798ed18f1de3d3b59a43acf8f9df4265726b7db89b134d744b3a62191e",
+    "python/aisimulate/src/aisimulate_core/sdk/models/deepseek_v32.py": "beab977cecfea0e69bafc56b746884e2fd358af2424bcc1d04ddfb33023750cd"
+  },
+  "native_binary": "84bc86f297185af28dc45f5396669da97b721fd1a793fd6a40fd93e1b84a5e95  /tmp/aisim-native/_runtime.abi3.so",
+  "cost_scope": "O(1) metadata propagation and KV pool arithmetic; no new scans over requests/tokens or persistent query caches",
+  "checks": {
+    "kv-parity.log": "15eaadee16065af3b47a846f63844275f2bfcff4fc7021ea0fb2a6cabadb1c5f",
+    "kv-tests.log": "2aa282aaa75749b11297a5a17b08bf7e0cad3ad5db5a0902a6389d452f78bbf7",
+    "memory-report-tests.log": "0bb519e2b44761def95b4ba4d6641219d5ae85db12b245cd09882ca639f96fa6",
+    "report.json": "e60e24a6b12e5a91bf2c8b18a2a6c1c31b9adafe1d9c24ccef410974448912ff",
+    "serving-controls-report.json": "39a9d2a6767b15a6011db7932a0aa53e8934f8aae609a90dbe4e755ee0a36ca6"
+  }
+}

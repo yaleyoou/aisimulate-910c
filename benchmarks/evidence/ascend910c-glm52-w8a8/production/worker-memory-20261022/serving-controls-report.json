@@ -1,0 +1,185 @@
+{
+  "schema": "aisimulate-ascend-serving-control-report/v1",
+  "status": "validated_measured_baseline",
+  "prediction_accuracy_qualified": false,
+  "timing_scope": "Client HTTP arrivals, including scheduling and frontend overhead; not device forward times",
+  "archive_sha256": "dc63d39b630918b38894ba79096ce2bab77101c123dfc5d3587bc8feff137236",
+  "cases": [
+    {
+      "concurrency": 1,
+      "matched_request_sha256": "1696a76bdf63c9b9c8452e7ca46784bb5f44c3a8505d88006a3f1c3eb399c12c",
+      "trials": [
+        {
+          "ordinal": 0,
+          "warmup": true,
+          "mean_ttft_ms": 5935.449103,
+          "mean_tpot_ms": 48.08952304789834,
+          "output_tokens_per_second": 18.573904044870957,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 49195.58207798004,
+              "mean_client_tpot_ms": 48.08952304787883
+            },
+            "all_at_output900": {
+              "duration_ms": 5965.179146766663,
+              "mean_client_tpot_ms": 48.10628344166663
+            }
+          }
+        },
+        {
+          "ordinal": 1,
+          "warmup": false,
+          "mean_ttft_ms": 2548.581805,
+          "mean_tpot_ms": 48.091087817204304,
+          "output_tokens_per_second": 19.789028122598392,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 49197.18283653259,
+              "mean_client_tpot_ms": 48.091087816747404
+            },
+            "all_at_output900": {
+              "duration_ms": 5965.4411277771,
+              "mean_client_tpot_ms": 48.108396191750806
+            }
+          }
+        },
+        {
+          "ordinal": 2,
+          "warmup": false,
+          "mean_ttft_ms": 2517.15727,
+          "mean_tpot_ms": 48.089080574780056,
+          "output_tokens_per_second": 19.801836360148705,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 49195.12942790985,
+              "mean_client_tpot_ms": 48.089080574691934
+            },
+            "all_at_output900": {
+              "duration_ms": 5963.795633792877,
+              "mean_client_tpot_ms": 48.095126078974815
+            }
+          }
+        },
+        {
+          "ordinal": 3,
+          "warmup": false,
+          "mean_ttft_ms": 2536.697266,
+          "mean_tpot_ms": 48.092375337243396,
+          "output_tokens_per_second": 19.79305882353169,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 49198.49996995926,
+              "mean_client_tpot_ms": 48.09237533720358
+            },
+            "all_at_output900": {
+              "duration_ms": 5963.821547985077,
+              "mean_client_tpot_ms": 48.09533506439578
+            }
+          }
+        }
+      ],
+      "measurement_statistics": {
+        "mean_ttft_ms": {
+          "mean": 2534.145447,
+          "cv": 0.005112290157680604
+        },
+        "mean_tpot_ms": {
+          "mean": 48.090847909742585,
+          "cv": 2.8191151092651755e-05
+        },
+        "output_tokens_per_second": {
+          "mean": 19.79464110209293,
+          "cv": 0.0002701388186130302
+        }
+      }
+    },
+    {
+      "concurrency": 10,
+      "matched_request_sha256": "f83d74f2a554cf697bcbed4a536c28ce6b1a137eb6c88fc83f067e5b73267fd6",
+      "trials": [
+        {
+          "ordinal": 0,
+          "warmup": true,
+          "mean_ttft_ms": 10329.5501114,
+          "mean_tpot_ms": 52.74697872394917,
+          "output_tokens_per_second": 159.21308945215728,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 50682.449758052826,
+              "mean_client_tpot_ms": 49.53911622686815
+            },
+            "all_at_output900": {
+              "duration_ms": 6141.253789901733,
+              "mean_client_tpot_ms": 49.483144284095445
+            }
+          }
+        },
+        {
+          "ordinal": 1,
+          "warmup": false,
+          "mean_ttft_ms": 10331.8608853,
+          "mean_tpot_ms": 52.73789692844575,
+          "output_tokens_per_second": 159.2351464282452,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 50680.83500099182,
+              "mean_client_tpot_ms": 49.537668507709455
+            },
+            "all_at_output900": {
+              "duration_ms": 6140.057002544403,
+              "mean_client_tpot_ms": 49.48425084644678
+            }
+          }
+        },
+        {
+          "ordinal": 2,
+          "warmup": false,
+          "mean_ttft_ms": 11658.9667712,
+          "mean_tpot_ms": 54.72234100430108,
+          "output_tokens_per_second": 151.3091293637183,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 51784.75108766556,
+              "mean_client_tpot_ms": 50.665872556947555
+            },
+            "all_at_output900": {
+              "duration_ms": 6233.977020740509,
+              "mean_client_tpot_ms": 50.64424179468126
+            }
+          }
+        },
+        {
+          "ordinal": 3,
+          "warmup": false,
+          "mean_ttft_ms": 10287.5707804,
+          "mean_tpot_ms": 52.72718582404692,
+          "output_tokens_per_second": 159.36864148705408,
+          "common_windows": {
+            "all_admitted": {
+              "duration_ms": 50680.50250196457,
+              "mean_client_tpot_ms": 49.53771690451148
+            },
+            "all_at_output900": {
+              "duration_ms": 6141.454885959625,
+              "mean_client_tpot_ms": 49.4966394410012
+            }
+          }
+        }
+      ],
+      "measurement_statistics": {
+        "mean_ttft_ms": {
+          "mean": 10759.466145633332,
+          "cv": 0.05913861700439336
+        },
+        "mean_tpot_ms": {
+          "mean": 53.39580791893125,
+          "cv": 0.01756712313601576
+        },
+        "output_tokens_per_second": {
+          "mean": 156.63763909300587,
+          "cv": 0.02405692215188954
+        }
+      }
+    }
+  ]
+}

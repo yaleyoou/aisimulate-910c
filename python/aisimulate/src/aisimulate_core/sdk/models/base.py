@@ -593,6 +593,10 @@ class BaseModel:
         seq_len = max(0, seq_len)
         return seq_len * self.config.kvcache_quant_mode.value.memory * self.get_kvcache_elements_per_token()
 
+    def get_kvcache_pool_overhead_bytes(self) -> int:
+        """Fixed allocation paid once per rank's KV pool, independently of requests."""
+        return 0
+
     def get_kvcache_max_tokens(self, kv_budget_bytes: float) -> int:
         """Largest single-sequence length whose KV cache fits in ``kv_budget_bytes``.
 

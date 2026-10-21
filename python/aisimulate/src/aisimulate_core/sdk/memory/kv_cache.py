@@ -50,6 +50,7 @@ from aisimulate_core.sdk.backends.factory import get_backend
 from aisimulate_core.sdk.common import DefaultHFModels
 from aisimulate_core.sdk.config import validate_parallel_size
 from aisimulate_core.sdk.config_builders import apply_nextn, build_model_config, validate_moe_controls, validate_nextn
+from aisimulate_core.sdk.errors import InvalidEngineConfigurationError
 from aisimulate_core.sdk.fpm_profile import FpmModelProfile, load_fpm_profile
 from aisimulate_core.sdk.models import get_model
 from aisimulate_core.sdk.models.helpers import resolve_sglang_mla_compute
@@ -344,6 +345,7 @@ class KVCacheEstimator:
             wideep_num_slots=wideep_num_slots,
             cp_size=cp_size,
             dcp_size=dcp_size,
+            system=system,
         )
         # Apply nextn/MTP onto the config BEFORE get_model so the built model is
         # spec-decode aware (e.g. for any draft-module weights). This does NOT scale
@@ -1297,6 +1299,8 @@ def estimate_kv_cache(
             systems_path=systems_path,
         )
     except Exception as exc:  # native model build unsupported (model/backend/perf DB)
+        if isinstance(exc, InvalidEngineConfigurationError):
+            raise
         if isinstance(exc, NotImplementedError) and (int(cp_size) > 1 or int(dcp_size) > 1):
             # A context-parallel capability rejection must not degrade into the
             # naive estimator, which knows neither knob and would return an
