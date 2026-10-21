@@ -1,0 +1,16 @@
+{
+  "research": {
+    "stage_commits": {
+      "hardware_and_baseline": "93011105",
+      "actual_operator_mapping": "2a0ad787",
+      "experimental_collection_and_validation": "3f29e55a",
+      "publication": "Local commits only; no remote push.",
+      "remaining_work": "Production Ascend query integration, actual-route communication qualification, full-forward and serving prediction accuracy."
+    },
+    "collection_cleanup": {
+      "local": "Seven task profiler directories removed after exporting and hashing evidence; United healthy; CPU validation container stopped with cache retained.",
+      "remote": "aisim-910c-ops-20261021 removed; existing xq-sglang-glm5.2 container preserved.",
+      "sources": ["operators/local-cleanup.json", "operators/remote-cleanup.json"]
+    }
+  }
+}
