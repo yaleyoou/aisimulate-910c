@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 from collector.sglang.ascend_state_capture import CaptureState
 
 pytestmark = pytest.mark.unit

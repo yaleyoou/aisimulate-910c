@@ -4,7 +4,6 @@ import json
 import tarfile
 
 import pytest
-
 from collector.sglang.ascend_trace import validate_response
 from collector.sglang.ascend_trace_report import IDENTITY_FIELDS, read_archive, summarize
 

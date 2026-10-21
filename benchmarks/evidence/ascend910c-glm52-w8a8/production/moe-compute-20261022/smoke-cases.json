@@ -1,0 +1,101 @@
+[
+  {
+    "case_id": "0ed36a980756c75510005dd3588ed4a493be54e05f60eb9bfcf6a18e3d262e8c",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      14
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 3,
+        "layer": 58,
+        "ordinal": 1
+      }
+    ],
+    "source_cases": [
+      "8192_decode_b2"
+    ],
+    "observation_count": 2
+  },
+  {
+    "case_id": "817a8b68cf7af45fefca6b61ba317853400d3823779f2fbaa92fdd33a3ddd743",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 11,
+        "layer": 4,
+        "ordinal": 1
+      }
+    ],
+    "source_cases": [
+      "1024_early",
+      "2048_early",
+      "4096_early",
+      "8192_decode_b10",
+      "8192_decode_b2",
+      "8192_decode_b4",
+      "8192_decode_b8",
+      "8192_early"
+    ],
+    "observation_count": 525
+  }
+]

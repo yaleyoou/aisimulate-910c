@@ -1,0 +1,32 @@
+{
+  "research": {
+    "moe_compute_protocol": {
+      "status": "completed_experimental_protocol_comparison",
+      "confidence": "Numerical invocation verified; selected weight-rotation convergence measured; serving transferability still unresolved",
+      "results": "8 observed count geometries;176measurement groups across3attempts;2CVfailures preserved.8vs16weight-copy GMM/chain differences below2%.Changed16vs32graphcalls moveszero-work chain11%.",
+      "validation": "11newCPUbehavior tests pass; targetedRuffpasses. Fullcollector attempts encounter existing torch backend/autoload and duplicate triton registration errors; no full-suitepass claimed.",
+      "next_action": "Collect wider operator grids and qualify graph/eager serving equivalence before canonical publication and full forward/PD/search validation."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "moe_compute_protocol_validation": {
+          "path": "production/moe-compute-20261022/validation.json",
+          "kind": "file",
+          "scope": "validation"
+        },
+        "moe_compute_protocol_raw": {
+          "path": "production/moe-compute-20261022/moe-reverse-result.json",
+          "kind": "file",
+          "scope": "collection"
+        }
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "next_action": "Continue source-qualified operator collection and canonical Ascend model composition; complete full forward/memory/request accuracy, then PD and supported parallelism/replica search."
+      }
+    }
+  }
+}

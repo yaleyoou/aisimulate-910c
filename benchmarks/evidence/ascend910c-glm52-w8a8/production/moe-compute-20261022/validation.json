@@ -1,0 +1,149 @@
+{
+  "schema": "aisimulate-ascend-moe-protocol-validation/v1",
+  "status": "complete_experimental_protocol_comparison",
+  "production_prediction_ready": false,
+  "source_state_sha256": "b4093ce4b6c3b98c0dd86aacd9ab38bdb26ef23027526f2fe50fad389f64532c",
+  "input_sha256": {
+    "moe-smoke-result.json": "2680c90ce0d8846975ee641c9f5f25439e41d98ad01670944fa7095f8535e8c1",
+    "moe-full-result.json": "90696b460d60e5b92badb17c29919563a2670b608593a069e9be41eb86882045",
+    "moe-reverse-result.json": "ee64a750e9f97bb1da00f400e66706250189d99fd5c6a0e86581607f931f91df"
+  },
+  "selected_observed_cases": 8,
+  "outputs": {
+    "moe-smoke-result.json": {
+      "cases": 2,
+      "measurements": 16,
+      "cv_failures": [
+        {
+          "case_id": "0ed36a980756c75510005dd3588ed4a493be54e05f60eb9bfcf6a18e3d262e8c",
+          "operation": "gmm1",
+          "weight_copies": 1,
+          "cv": 0.11156706837422216
+        }
+      ]
+    },
+    "moe-full-result.json": {
+      "cases": 8,
+      "measurements": 64,
+      "cv_failures": []
+    },
+    "moe-reverse-result.json": {
+      "cases": 8,
+      "measurements": 96,
+      "cv_failures": [
+        {
+          "case_id": "817a8b68cf7af45fefca6b61ba317853400d3823779f2fbaa92fdd33a3ddd743",
+          "operation": "activation",
+          "weight_copies": 16,
+          "cv": 0.11637296718270132
+        }
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "case_id": "0ed36a980756c75510005dd3588ed4a493be54e05f60eb9bfcf6a18e3d262e8c",
+      "logical_rows": 28,
+      "storage_rows": 4096,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 1.0085279355610266,
+        "gmm2": 0.9946579953260268,
+        "chain": 0.9965452113519593
+      },
+      "chain_repeat_ratio_changed_graph_calls": 0.9993884765839604,
+      "sum_components_over_chain": 1.0135505876716553
+    },
+    {
+      "case_id": "817a8b68cf7af45fefca6b61ba317853400d3823779f2fbaa92fdd33a3ddd743",
+      "logical_rows": 0,
+      "storage_rows": 4096,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 0.9959121879210096,
+        "gmm2": 1.0015343491331956,
+        "chain": 0.9968360905234426
+      },
+      "chain_repeat_ratio_changed_graph_calls": 0.8901405657746327,
+      "sum_components_over_chain": 1.0565387449738861
+    },
+    {
+      "case_id": "3b4e4a0bb22f5b5022cbfebcc29fce427365a2f2e7316c653e18d3b77dbe1225",
+      "logical_rows": 48,
+      "storage_rows": 4096,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 0.9904601285820414,
+        "gmm2": 1.0134291803596254,
+        "chain": 1.0043610985570863
+      },
+      "chain_repeat_ratio_changed_graph_calls": 1.008603399910498,
+      "sum_components_over_chain": 1.007826192759951
+    },
+    {
+      "case_id": "0700c408be5427f8fa8a654cc0d338b28e488aea6b542ae90301b9e4d8a32416",
+      "logical_rows": 16,
+      "storage_rows": 4096,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 1.0198630550427485,
+        "gmm2": 0.9920709722092451,
+        "chain": 0.9948678538251259
+      },
+      "chain_repeat_ratio_changed_graph_calls": 0.9337547853439621,
+      "sum_components_over_chain": 1.0281236738524588
+    },
+    {
+      "case_id": "2e945577d1f28193552b29f00d2bac6ef8b8e3b82a5ca702167cdc71ff0cb19d",
+      "logical_rows": 2,
+      "storage_rows": 2,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 0.9817931011960143,
+        "gmm2": 0.9974651718181113,
+        "chain": 0.9988756426548827
+      },
+      "chain_repeat_ratio_changed_graph_calls": 0.9988895987321457,
+      "sum_components_over_chain": 1.01783071974015
+    },
+    {
+      "case_id": "992d8a619f0fb1097c31c6aaac9aed9897453c79927f0d02416d9040d15782b6",
+      "logical_rows": 1024,
+      "storage_rows": 1024,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 1.0073628536668702,
+        "gmm2": 1.0129728232904467,
+        "chain": 0.984643692850505
+      },
+      "chain_repeat_ratio_changed_graph_calls": 1.0152549874416144,
+      "sum_components_over_chain": 0.9873827952720593
+    },
+    {
+      "case_id": "42b7dafd4b4a525d182962c0228b19be30212bfd9f40d7e9589b2d4259e550d6",
+      "logical_rows": 4102,
+      "storage_rows": 4102,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 0.996955330379608,
+        "gmm2": 1.0143381156074545,
+        "chain": 1.0044724925987771
+      },
+      "chain_repeat_ratio_changed_graph_calls": 0.9955283645747021,
+      "sum_components_over_chain": 0.9727957124218478
+    },
+    {
+      "case_id": "36da99f7cad625a0c4609ac0d29194d92476079a9add60f1faebd6666f08f1e8",
+      "logical_rows": 15964,
+      "storage_rows": 15964,
+      "eight_to_sixteen_copy_ratio": {
+        "gmm1": 1.0107190837136684,
+        "gmm2": 0.9985753943228719,
+        "chain": 0.9990887043148076
+      },
+      "chain_repeat_ratio_changed_graph_calls": 1.005517156049469,
+      "sum_components_over_chain": 0.9887219876204859
+    }
+  ],
+  "limitations": [
+    "Selected actual count vectors; seeded values, not actual checkpoint weights or activations.",
+    "Zero-count cases validate execution only; there are no populated output rows to check numerically.",
+    "Standalone graph timing also used for eager-source geometry; eager launch cost remains unqualified.",
+    "8-to-16-copy convergence only covers these cases. The 16-versus32-call repeat changes timing scope.",
+    "CV failures remain in raw data and are not accepted timing points.",
+    "No claim of complete operator coverage, canonical forward accuracy, PD or search readiness."
+  ]
+}

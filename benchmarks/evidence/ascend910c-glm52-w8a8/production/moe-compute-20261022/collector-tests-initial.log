@@ -1,0 +1,76 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/pytest_asyncio/plugin.py:247: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.3.2, pluggy-1.7.0
+rootdir: /workspace/python/aisimulate
+configfile: pytest.ini
+plugins: asyncio-1.3.0, xdist-3.6.1, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 3790 items / 3 errors / 39 deselected / 3751 selected
+
+==================================== ERRORS ====================================
+_____ ERROR collecting tests/unit/collector/test_dsv4_megamoe_workload.py ______
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2935: in _import_device_backends
+    entrypoint = backend_extension.load()
+/usr/local/python3.12.13/lib/python3.12/importlib/metadata/__init__.py:205: in load
+    module = import_module(match.group('module'))
+/usr/local/python3.12.13/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+<frozen importlib._bootstrap_external>:999: in exec_module
+    ???
+<frozen importlib._bootstrap>:488: in _call_with_frames_removed
+    ???
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/__init__.py:40: in <module>
+    import torch_npu.utils.patch_getenv
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/__init__.py:12: in <module>
+    from torch_npu.npu.utils import get_cann_version
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/__init__.py:158: in <module>
+    from .utils import (obfuscation_initialize, obfuscation_calculate, obfuscation_finalize,
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/utils.py:11: in <module>
+    import torch_npu._C
+E   ImportError: libascend_hal.so: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+python/aisimulate/tests/unit/collector/test_dsv4_megamoe_workload.py:16: in <module>
+    import torch as _real_torch
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2980: in <module>
+    _import_device_backends()
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2939: in _import_device_backends
+    raise RuntimeError(
+E   RuntimeError: Failed to load the backend extension: torch_npu. You can disable extension auto-loading with TORCH_DEVICE_BACKEND_AUTOLOAD=0.
+____ ERROR collecting tests/unit/collector/test_helper_moe_distribution.py _____
+python/aisimulate/tests/unit/collector/test_helper_moe_distribution.py:38: in <module>
+    import torch
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2804: in <module>
+    class _TritonLibrary:
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805: in _TritonLibrary
+    lib = torch.library.Library("triton", "DEF")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/library.py:101: in __init__
+    self.m: Any | None = torch._C._dispatch_library(
+E   RuntimeError: Only a single TORCH_LIBRARY can be used to register the namespace triton; please put all of your definitions in a single TORCH_LIBRARY block.  If you were trying to specify implementations, consider using TORCH_LIBRARY_IMPL (which can be duplicated).  If you really intended to define operators for a single namespace in a distributed way, you can use TORCH_LIBRARY_FRAGMENT to explicitly indicate this.  Previous registration of TORCH_LIBRARY was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805; latest registration was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805
+_____ ERROR collecting tests/unit/collector/test_sglang_moe_ep_routing.py ______
+python/aisimulate/tests/unit/collector/test_sglang_moe_ep_routing.py:31: in <module>
+    import torch as _real_torch
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2804: in <module>
+    class _TritonLibrary:
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805: in _TritonLibrary
+    lib = torch.library.Library("triton", "DEF")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/library.py:101: in __init__
+    self.m: Any | None = torch._C._dispatch_library(
+E   RuntimeError: Only a single TORCH_LIBRARY can be used to register the namespace triton; please put all of your definitions in a single TORCH_LIBRARY block.  If you were trying to specify implementations, consider using TORCH_LIBRARY_IMPL (which can be duplicated).  If you really intended to define operators for a single namespace in a distributed way, you can use TORCH_LIBRARY_FRAGMENT to explicitly indicate this.  Previous registration of TORCH_LIBRARY was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805; latest registration was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805
+=========================== short test summary info ============================
+ERROR python/aisimulate/tests/unit/collector/test_dsv4_megamoe_workload.py - ...
+ERROR python/aisimulate/tests/unit/collector/test_helper_moe_distribution.py
+ERROR python/aisimulate/tests/unit/collector/test_sglang_moe_ep_routing.py - ...
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+================= 39 deselected, 1 warning, 3 errors in 10.84s =================

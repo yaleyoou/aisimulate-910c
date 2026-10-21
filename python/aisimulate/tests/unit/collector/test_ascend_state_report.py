@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 from collector.sglang.ascend_state_report import summarize
 
 pytestmark = pytest.mark.unit

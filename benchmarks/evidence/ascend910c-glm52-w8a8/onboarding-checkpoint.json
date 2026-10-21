@@ -637,6 +637,22 @@
           "scope": "validation",
           "sha256": "4984a8842a7f216de6a19348f082e48d2281981f2eb2b8d102500ddd8f9b2ae8"
         },
+        "moe_compute_protocol_raw": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/moe-compute-20261022/moe-reverse-result.json",
+          "scope": "collection",
+          "sha256": "ee64a750e9f97bb1da00f400e66706250189d99fd5c6a0e86581607f931f91df"
+        },
+        "moe_compute_protocol_validation": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/moe-compute-20261022/validation.json",
+          "scope": "validation",
+          "sha256": "bb8627777de4b83a3fbdf7da34873956e1092782c4923bafd6e766e7f21a29e9"
+        },
         "operator_delivery": {
           "archived": true,
           "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
@@ -748,7 +764,7 @@
           "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
           "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "Complete production HCCL/precision identity and collection coverage before proposing additional deployment cells; exact profile acceptance remains separate.",
+        "next_action": "Continue source-qualified operator collection and canonical Ascend model composition; complete full forward/memory/request accuracy, then PD and supported parallelism/replica search.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -925,6 +941,7 @@
       "max_running_requests_per_attention_dp": 32,
       "page_size": 128
     },
+    "late_state_commit": "e095a871: complete late decode routing at output900+ for8192/1024 workloads; peer recording service stopped and original local service preserved.",
     "latest_runtime": {
       "confidence": "high for published metadata; compatibility unverified",
       "image_tag": "v0.5.22-cann9.1.0-a3",
@@ -943,6 +960,26 @@
       "source_manifest": "production/model-source-fingerprint.json",
       "target_manifest": "production/model-target-fingerprint.json",
       "target_path": "npu1-19:/mnt/raid/aisimulate-youxingye-20261022/glm-q"
+    },
+    "moe_compute_protocol": {
+      "authorization": "Existing user goal covers coordinated collector/consumer adaptation and use of bothnodes; no branch, push or PR requested.",
+      "confidence": "Numerical invocation verified; selected weight-rotation convergence measured; serving transferability still unresolved",
+      "next_action": "Collect wider operator grids and qualify graph/eager serving equivalence before canonical publication and full forward/PD/search validation.",
+      "results": "8 observed count geometries;176measurement groups across3attempts;2CVfailures preserved.8vs16weight-copy GMM/chain differences below2%.Changed16vs32graphcalls moveszero-work chain11%.",
+      "scope": "8 exact serving count vectors covering graph zero/sparse and eager2..15964rows; GMM1, fused SwiGLU quant, GMM2 and dependent chain; compare1vs8distinct weight allocations before selecting a timing protocol.",
+      "sources": [
+        "python/aisimulate/collector/sglang/ascend_moe_compute.py",
+        "production/moe-compute-20261022/cases.json",
+        "production/real-moe-state-20261022/gmm1-invocations.json.gz"
+      ],
+      "status": "completed_experimental_protocol_comparison",
+      "unresolved": [
+        "Weight-cache convergence",
+        "Standalone graph versus serving timing",
+        "Additional deployment shapes",
+        "Actual checkpoint-value sensitivity"
+      ],
+      "validation": "11newCPUbehavior tests pass; targetedRuffpasses. Fullcollector attempts encounter existing torch backend/autoload and duplicate triton registration errors; no full-suitepass claimed."
     },
     "native_communication_collection": {
       "confidence": "high for raw observations; initial small-payload timing includes CPU submission gaps and is not a fabric-latency estimate",
@@ -1100,7 +1137,7 @@
       "remaining_work": "Production Ascend query integration, actual-route communication qualification, full-forward and serving prediction accuracy."
     }
   },
-  "revision": 23,
+  "revision": 25,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

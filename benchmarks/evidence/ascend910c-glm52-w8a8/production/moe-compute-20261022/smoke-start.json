@@ -1,0 +1,1 @@
+{"pid": 1466150, "command": ["docker", "exec", "aisim-910c-production-20261022", "python3", "/campaign/ascend_moe_compute.py", "--cases", "/campaign/moe-smoke-cases.json", "--serving-setup", "/campaign/moe-serving-setup.json", "--output", "/campaign/moe-smoke-result.json"]}

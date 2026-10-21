@@ -1,0 +1,22 @@
+{
+  "research": {
+    "late_state_commit": "e095a871: complete late decode routing at output900+ for8192/1024 workloads; peer recording service stopped and original local service preserved.",
+    "moe_compute_protocol": {
+      "status": "draft_and_smoke_running",
+      "sources": ["python/aisimulate/collector/sglang/ascend_moe_compute.py", "production/moe-compute-20261022/cases.json", "production/real-moe-state-20261022/gmm1-invocations.json.gz"],
+      "confidence": "Observed count geometry and pinned framework call chain; timing transferability unresolved",
+      "scope": "8 exact serving count vectors covering graph zero/sparse and eager2..15964rows; GMM1, fused SwiGLU quant, GMM2 and dependent chain; compare1vs8distinct weight allocations before selecting a timing protocol.",
+      "unresolved": ["Weight-cache convergence", "Standalone graph versus serving timing", "Additional deployment shapes", "Actual checkpoint-value sensitivity"],
+      "authorization": "Existing user goal covers coordinated collector/consumer adaptation and use of bothnodes; no branch, push or PR requested."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "next_action": "Qualify MoE timing protocol using actual serving count vectors, then collect missing Ascend operators and integrate canonical FPE/memory; PD/search and full serving accuracy remain required."
+      }
+    }
+  }
+}

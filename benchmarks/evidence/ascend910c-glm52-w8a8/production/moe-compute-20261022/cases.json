@@ -1,0 +1,377 @@
+[
+  {
+    "case_id": "0ed36a980756c75510005dd3588ed4a493be54e05f60eb9bfcf6a18e3d262e8c",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      14
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 3,
+        "layer": 58,
+        "ordinal": 1
+      }
+    ],
+    "source_cases": [
+      "8192_decode_b2"
+    ],
+    "observation_count": 2
+  },
+  {
+    "case_id": "817a8b68cf7af45fefca6b61ba317853400d3823779f2fbaa92fdd33a3ddd743",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 11,
+        "layer": 4,
+        "ordinal": 1
+      }
+    ],
+    "source_cases": [
+      "1024_early",
+      "2048_early",
+      "4096_early",
+      "8192_decode_b10",
+      "8192_decode_b2",
+      "8192_decode_b4",
+      "8192_decode_b8",
+      "8192_early"
+    ],
+    "observation_count": 525
+  },
+  {
+    "case_id": "3b4e4a0bb22f5b5022cbfebcc29fce427365a2f2e7316c653e18d3b77dbe1225",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      16,
+      0,
+      2,
+      0,
+      0,
+      2,
+      14,
+      0,
+      0,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 0,
+        "layer": 17,
+        "ordinal": 1
+      }
+    ],
+    "source_cases": [
+      "8192_decode_b2"
+    ],
+    "observation_count": 1
+  },
+  {
+    "case_id": "0700c408be5427f8fa8a654cc0d338b28e488aea6b542ae90301b9e4d8a32416",
+    "input_shape": [
+      4096,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      0,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "execution": "graph",
+    "observations": [
+      {
+        "rank": 2,
+        "layer": 48,
+        "ordinal": 0
+      }
+    ],
+    "source_cases": [
+      "8192_decode_b2"
+    ],
+    "observation_count": 1
+  },
+  {
+    "case_id": "2e945577d1f28193552b29f00d2bac6ef8b8e3b82a5ca702167cdc71ff0cb19d",
+    "input_shape": [
+      2,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "execution": "eager",
+    "observations": [
+      {
+        "rank": 12,
+        "layer": 14,
+        "ordinal": 0
+      }
+    ],
+    "source_cases": [
+      "2048_early"
+    ],
+    "observation_count": 1
+  },
+  {
+    "case_id": "992d8a619f0fb1097c31c6aaac9aed9897453c79927f0d02416d9040d15782b6",
+    "input_shape": [
+      1024,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      422,
+      182,
+      6,
+      171,
+      1,
+      7,
+      1,
+      25,
+      9,
+      7,
+      34,
+      19,
+      1,
+      36,
+      102,
+      1
+    ],
+    "execution": "eager",
+    "observations": [
+      {
+        "rank": 8,
+        "layer": 49,
+        "ordinal": 0
+      }
+    ],
+    "source_cases": [
+      "2048_early"
+    ],
+    "observation_count": 1
+  },
+  {
+    "case_id": "42b7dafd4b4a525d182962c0228b19be30212bfd9f40d7e9589b2d4259e550d6",
+    "input_shape": [
+      4102,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      11,
+      10,
+      399,
+      150,
+      228,
+      773,
+      1369,
+      123,
+      14,
+      20,
+      811,
+      22,
+      14,
+      3,
+      8,
+      147
+    ],
+    "execution": "eager",
+    "observations": [
+      {
+        "rank": 4,
+        "layer": 55,
+        "ordinal": 0
+      }
+    ],
+    "source_cases": [
+      "8192_early"
+    ],
+    "observation_count": 1
+  },
+  {
+    "case_id": "36da99f7cad625a0c4609ac0d29194d92476079a9add60f1faebd6666f08f1e8",
+    "input_shape": [
+      15964,
+      6144
+    ],
+    "input_dtype": "torch.int8",
+    "weight_shape": [
+      16,
+      6144,
+      4096
+    ],
+    "weight_dtype": "torch.int8",
+    "output_dtype": "torch.bfloat16",
+    "group_list_type": 1,
+    "expert_counts": [
+      0,
+      46,
+      548,
+      0,
+      0,
+      2363,
+      0,
+      0,
+      5043,
+      4412,
+      0,
+      25,
+      2,
+      3522,
+      3,
+      0
+    ],
+    "execution": "eager",
+    "observations": [
+      {
+        "rank": 14,
+        "layer": 22,
+        "ordinal": 0
+      }
+    ],
+    "source_cases": [
+      "8192_early"
+    ],
+    "observation_count": 1
+  }
+]

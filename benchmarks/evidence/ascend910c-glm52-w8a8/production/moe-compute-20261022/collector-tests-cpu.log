@@ -1,0 +1,38 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/pytest_asyncio/plugin.py:247: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.3.2, pluggy-1.7.0
+rootdir: /workspace/python/aisimulate
+configfile: pytest.ini
+plugins: asyncio-1.3.0, xdist-3.6.1, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 3798 items / 2 errors / 39 deselected / 3759 selected
+
+==================================== ERRORS ====================================
+____ ERROR collecting tests/unit/collector/test_helper_moe_distribution.py _____
+python/aisimulate/tests/unit/collector/test_helper_moe_distribution.py:38: in <module>
+    import torch
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2804: in <module>
+    class _TritonLibrary:
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805: in _TritonLibrary
+    lib = torch.library.Library("triton", "DEF")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/library.py:101: in __init__
+    self.m: Any | None = torch._C._dispatch_library(
+E   RuntimeError: Only a single TORCH_LIBRARY can be used to register the namespace triton; please put all of your definitions in a single TORCH_LIBRARY block.  If you were trying to specify implementations, consider using TORCH_LIBRARY_IMPL (which can be duplicated).  If you really intended to define operators for a single namespace in a distributed way, you can use TORCH_LIBRARY_FRAGMENT to explicitly indicate this.  Previous registration of TORCH_LIBRARY was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805; latest registration was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805
+_____ ERROR collecting tests/unit/collector/test_sglang_moe_ep_routing.py ______
+python/aisimulate/tests/unit/collector/test_sglang_moe_ep_routing.py:31: in <module>
+    import torch as _real_torch
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2804: in <module>
+    class _TritonLibrary:
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805: in _TritonLibrary
+    lib = torch.library.Library("triton", "DEF")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/library.py:101: in __init__
+    self.m: Any | None = torch._C._dispatch_library(
+E   RuntimeError: Only a single TORCH_LIBRARY can be used to register the namespace triton; please put all of your definitions in a single TORCH_LIBRARY block.  If you were trying to specify implementations, consider using TORCH_LIBRARY_IMPL (which can be duplicated).  If you really intended to define operators for a single namespace in a distributed way, you can use TORCH_LIBRARY_FRAGMENT to explicitly indicate this.  Previous registration of TORCH_LIBRARY was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805; latest registration was registered at /usr/local/python3.12.13/lib/python3.12/site-packages/torch/__init__.py:2805
+=========================== short test summary info ============================
+ERROR python/aisimulate/tests/unit/collector/test_helper_moe_distribution.py
+ERROR python/aisimulate/tests/unit/collector/test_sglang_moe_ep_routing.py - ...
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+================= 39 deselected, 1 warning, 2 errors in 10.05s =================

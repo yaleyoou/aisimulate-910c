@@ -1,7 +1,6 @@
 import json
 
 import pytest
-
 from collector.sglang.ascend_hccl_export import validated_rows
 
 pytestmark = pytest.mark.unit
