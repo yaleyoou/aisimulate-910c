@@ -392,6 +392,14 @@
       "scope": "input",
       "sha256": "0d0a29e38e0bd65cf40d3993eceeec6479c89219879f39ae0f689cc412dfe411"
     },
+    "operator_mapping_document": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "../../../md/910c-glm52-w8a8-operator-mapping.md",
+      "scope": "input",
+      "sha256": "c3091f932560d0cb5aab6c0f9612304532456b08a477b48b4ef661c1558c935e"
+    },
     "peer_hardware_preflight": {
       "archived": false,
       "context_sha256": null,
@@ -480,6 +488,14 @@
       "scope": "input",
       "sha256": "d0de4e4690c3fcfe8bb402b8589e2f482147e308efe6583b6ce090533b3f8fae"
     },
+    "serving_source_inventory": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "operators/serving-source-inventory.json",
+      "scope": "input",
+      "sha256": "b6f76c50ef3ce490135a88dd50e06e403b773cbd1cdd574ac294e503cba2b6d0"
+    },
     "weight_shards": {
       "archived": false,
       "context_sha256": null,
@@ -543,11 +559,11 @@
       },
       "progress": {
         "blockers": [
-          "ModelSlim precision/fusion and GLM DSA/indexer/MoE model support need implementation and real operator measurements.",
-          "HCCL tables and serving-memory integration missing; hardware YAML alone cannot qualify prediction.",
-          "No supported guided SGLang FPM profile or exact acceptance; no formal FPM campaign or replay-accuracy validation."
+          "Ascend operator production query integration and exact accepted FPM profile remain absent.",
+          "Profiler observations cannot alone qualify isolated operator timings or complete 8k-to9k decode coverage.",
+          "Serving memory integration, replay coverage and measured serving prediction accuracy remain unvalidated."
         ],
-        "next_action": "Use completed ascend910c hardware calibration and pinned0.5.22 United baseline to implement and collect the exact operator mapping.",
+        "next_action": "Finish trace collection quality checks and independent operator timing; preserve separate status from formal FPM onboarding.",
         "stage": 1,
         "status": "in_progress"
       },
@@ -656,6 +672,11 @@
       "finding": "v0.5.22 converts legacy dp-size2 + enable-dp-attention into dp_size1 + attn_dp_size2, and divides global chunk16384 into per-attention-DP chunk8192.",
       "source": "stage1/runtime-resolved-args.json"
     },
+    "git_stage_policy": {
+      "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed.",
+      "hardware_commit": "93011105",
+      "user_request": "Commit corresponding work after each completed stage; local commits authorized, no push requested."
+    },
     "hardware_yaml_delivery": {
       "cleanup": "Both task NPU containers removed; task SSH port22290 closed; existing peer container preserved. CPU validation container stopped with build cache retained.",
       "compute_coefficients": "Measured BF16/INT8 4096-cube effective rates; not theoretical peaks; no strict SOL physical-lower-bound claim.",
@@ -731,6 +752,16 @@
       ],
       "status": "First dual-node campaign finished; 6318 P2P samples, 702 rank/size points, 10 points exceed the unchanged CV 10% limit. Selected bulk-bandwidth points pass. 70 vendor collective points report success; 14 BF16 SUM ReduceScatter points report NULL and are unqualified."
     },
+    "operator_mapping": {
+      "attention_indexer": "BF16 LightningIndexer21 and SparseFlashAttention78 per active forward; INT8 linear projections; full/shared layers21/57.",
+      "confidence": "High for installed-source identity, observed dtype/shape/counts and fixed deployment; no generic deployment claim.",
+      "fusion": "Q-A/KV-A fused2624 output; gate/up fused; routed activation requant fused; shared expert separate; KV-B absorbed into BF16 BMMs.",
+      "parallel_shapes": "attention TP8, dense TP16, shared expertTP1, routed EP16 with16 experts/rank; decode attention graph padded8, dense16, shared1.",
+      "runtime_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "source_files_verified": 15,
+      "status": "Source mapping and observed United kernel selection established for exact 8192/1024 single request.",
+      "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
+    },
     "phase1_handoff": {
       "confidence": "High for local inventory and single-chip measurements; communication repeatability partial; production integration unresolved.",
       "date": "2026-10-20",
@@ -800,7 +831,7 @@
       "status": "Implementation and two measurement campaigns completed; raw data integrity/correctness passed; communication repeatability partial."
     }
   },
-  "revision": 14,
+  "revision": 15,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

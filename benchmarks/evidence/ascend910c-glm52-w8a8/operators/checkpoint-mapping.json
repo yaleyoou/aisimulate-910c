@@ -1,0 +1,45 @@
+{
+  "research": {
+    "operator_mapping": {
+      "status": "Source mapping and observed United kernel selection established for exact 8192/1024 single request.",
+      "confidence": "High for installed-source identity, observed dtype/shape/counts and fixed deployment; no generic deployment claim.",
+      "runtime_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "source_files_verified": 15,
+      "attention_indexer": "BF16 LightningIndexer21 and SparseFlashAttention78 per active forward; INT8 linear projections; full/shared layers21/57.",
+      "parallel_shapes": "attention TP8, dense TP16, shared expertTP1, routed EP16 with16 experts/rank; decode attention graph padded8, dense16, shared1.",
+      "fusion": "Q-A/KV-A fused2624 output; gate/up fused; routed activation requant fused; shared expert separate; KV-B absorbed into BF16 BMMs.",
+      "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
+    },
+    "git_stage_policy": {
+      "user_request": "Commit corresponding work after each completed stage; local commits authorized, no push requested.",
+      "hardware_commit": "93011105",
+      "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed."
+    }
+  },
+  "artifacts": {
+    "operator_mapping_document": {
+      "kind": "file",
+      "scope": "input",
+      "path": "../../../md/910c-glm52-w8a8-operator-mapping.md"
+    },
+    "serving_source_inventory": {
+      "kind": "file",
+      "scope": "input",
+      "path": "operators/serving-source-inventory.json"
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "next_action": "Finish trace collection quality checks and independent operator timing; preserve separate status from formal FPM onboarding.",
+        "blockers": [
+          "Ascend operator production query integration and exact accepted FPM profile remain absent.",
+          "Profiler observations cannot alone qualify isolated operator timings or complete 8k-to9k decode coverage.",
+          "Serving memory integration, replay coverage and measured serving prediction accuracy remain unvalidated."
+        ]
+      }
+    }
+  }
+}
