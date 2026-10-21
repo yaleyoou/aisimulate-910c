@@ -810,6 +810,7 @@ SupportMatrixHFModels = DefaultHFModels - RetiredSupportMatrixHFModels
 Supported systems (GPU types)
 """
 SupportedSystems = {
+    "ascend910c",
     "h100_sxm",
     "h100_pcie",
     "h200_sxm",

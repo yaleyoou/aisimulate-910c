@@ -1,0 +1,4 @@
+{"command": ["docker", "exec", "aisim-910c-hardware-20261021", "timeout", "180", "mpirun", "--allow-run-as-root", "--bind-to", "none", "-np", "2", "/tmp/p2p_probe", "0,1", "/tmp/remote-readiness", "20", "7", "1048576"], "returncode": 0, "stdout": "completed bytes=64 ranks=2\ncompleted bytes=256 ranks=2\ncompleted bytes=1024 ranks=2\ncompleted bytes=4096 ranks=2\ncompleted bytes=16384 ranks=2\ncompleted bytes=65536 ranks=2\ncompleted bytes=262144 ranks=2\ncompleted bytes=1048576 ranks=2\n", "stderr": ""}
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html

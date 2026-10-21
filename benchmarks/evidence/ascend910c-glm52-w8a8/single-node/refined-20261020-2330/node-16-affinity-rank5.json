@@ -1,0 +1,14 @@
+{
+  "rank": 5,
+  "cpus": [
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215
+  ],
+  "policy": "disjoint eight-logical-CPU sets; no NPU NUMA-locality claim"
+}

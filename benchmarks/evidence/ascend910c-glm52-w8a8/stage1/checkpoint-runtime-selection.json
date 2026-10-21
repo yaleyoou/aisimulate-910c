@@ -1,0 +1,46 @@
+{
+  "research": {
+    "historical_runtime": {
+      "confidence": "high",
+      "image_digest": "sha256:d26b1aec41ac4bfe77ccea785e44eb8b7f4053e3ea3b2a02111cb90e876653c8",
+      "tag": "cann9.0.0-a3-v0.5.16",
+      "actual_package_version": "0.5.17.dev386+gc5bd3d7dc",
+      "source_commit": "c5bd3d7dce7623b8d2ffe3e662d3fd5198e6f4ba",
+      "source_tracked_changes": ["python/pyproject.toml modified", "python/pyproject_npu.toml deleted"],
+      "finding": "The tag is not the actual installed package version. Kept only as historical baseline."
+    },
+    "latest_runtime": {
+      "confidence": "high for published metadata; compatibility unverified",
+      "sources": ["https://api.github.com/repos/sgl-project/sglang/releases/latest", "https://quay.io/api/v1/repository/ascend/sglang/tag/?limit=100&onlyActiveTags=true"],
+      "observed_date": "2026-10-20",
+      "release": "v0.5.22",
+      "release_published_at": "2026-10-19T02:55:19Z",
+      "image_tag": "v0.5.22-cann9.1.0-a3",
+      "next_action": "Pull immutable image, inspect package versions and United argument support, then attempt isolated named serving container."
+    }
+  },
+  "decisions": {
+    "runtime_upgrade": {
+      "source": "User requested latest SGLang NPU and implementation using the existing United deployment.",
+      "choice": "Latest stable release with matching official Ascend A3 image, pinned by digest.",
+      "preserved": "Single-node United TP16 DP2 EP16, modelslim, original scheduler and graph settings unless evidence requires a documented compatibility change.",
+      "execution_authorized": true,
+      "profile_accepted": false
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "inputs": {
+        "framework_version": "0.5.22",
+        "runtime_image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+        "runtime_version_status": "selected image; installed package verification pending",
+        "attention_tensor_parallel": 8,
+        "attention_data_parallel": 2,
+        "moe_tensor_parallel": 1,
+        "moe_expert_parallel": 16,
+        "physical_device_count": 16
+      },
+      "progress": {"stage": 1, "status": "in_progress", "next_action": "Inspect v0.5.22 image and validate United launch; finish hardware/model baseline report."}
+    }
+  }
+}

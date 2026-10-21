@@ -1,0 +1,53 @@
+{
+  "request": {
+    "model": "glm-5",
+    "messages": [
+      {
+        "role": "user",
+        "content": "1 + 1 等于多少？请给出最终答案。"
+      }
+    ],
+    "max_tokens": 512,
+    "temperature": 0
+  },
+  "elapsed_seconds": 10.849983466789126,
+  "response": {
+    "id": "5a3368a91ed543078f5a53c0ed457c93",
+    "object": "chat.completion",
+    "created": 1792488927,
+    "model": "glm-5",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "1.  **分析请求：**\n    *   问题：\"1 + 1 等于多少？\"（1 + 1 等于多少？）\n    *   约束条件：\"请给出最终答案。\"（请给出最终答案。）\n    *   语言：中文。\n\n2.  **确定答案：**\n    *   在标准算术中，1 + 1 = 2。\n    *   在布尔逻辑中，1 + 1 = 1（如果 1 代表真）。\n    *   在二进制算术中，1 + 1 = 10。\n    *   然而，在没有特定上下文的情况下，标准算术是默认假设。提示要求给出*最终*答案，这意味着它应该简明直接。\n\n3.  **构思输出：**\n    *   直接答案：2。\n    *   由于提示明确要求给出“最终答案”（最终答案），我应该保持简明直接，避免不必要的解释。\n\n4.  **起草回复：**\n    *   \"2\"（或\"等于2。\"）\n    *   就直接输出“2”吧。</think>2",
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "matched_stop": 154827
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 27,
+      "total_tokens": 263,
+      "completion_tokens": 236,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "reasoning_tokens": 0
+    },
+    "metadata": {
+      "weight_version": "default",
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 236
+        }
+      ]
+    }
+  },
+  "scope": "A single simple completion, not model quality qualification."
+}

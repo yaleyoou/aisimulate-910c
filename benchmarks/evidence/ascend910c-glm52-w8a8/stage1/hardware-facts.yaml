@@ -1,0 +1,68 @@
+schema: aisimulate-hardware-investigation/v1
+status: facts_only_not_a_runnable_system_spec
+observed_date: '2026-10-20'
+target_name: ascend910c
+identity:
+  user_designation: Ascend 910C
+  npu_smi_name: Ascend910
+  board_product: IT22HMDA_2_S
+  board_id: '0x71'
+  pci_device_id: D803
+  qualification: Commercial SKU not independently resolved by product query.
+device_granularity:
+  simulator_device_proposal: one_runtime_visible_chip_verified_count
+  boards_per_node: 8
+  chips_per_board: 2
+  physical_chip_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  total_devices_per_node: 16
+  npu_smi_hbm_capacity_mb_per_chip: 65536
+  nominal_hbm_gib_per_chip_interpretation: 64
+  nominal_node_hbm_gib_interpretation: 1024
+  runtime_available_bytes_per_chip: null
+  runtime_device_name: Ascend910_9382
+  runtime_device_count: 16
+  runtime_total_memory_bytes_even_chip: 65787658240
+  runtime_total_memory_bytes_odd_chip: 65796046848
+  runtime_probe_device_0_free_bytes: 65354162176
+  runtime_probe_note: Free memory observed after a tiny BF16 matmul, before model loading; not serving KV capacity.
+serving_observations:
+  container: glm52-united-v0522
+  model: /mnt/raid/user/data/models/glm-q
+  kv_dtype: bfloat16
+  kv_capacity_tokens_per_attention_dp: 52992
+  max_req_input_len_reported: 52986
+  max_running_requests_per_attention_dp: 32
+  page_size: 128
+  scope: Runtime observations for this exact deployment; not a finalized FPM memory profile.
+  capacity_note: The tool labels its unit MB; runtime free memory and KV capacity require initialization observations.
+topology:
+  same_board_pairs: [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15]]
+  same_board_link: SIO
+  cross_board_link: HCCS_SW
+  communication_interface: bond4
+performance_coefficients:
+  hbm_bandwidth_bytes_per_second: null
+  bf16_dense_flops_per_second: null
+  int8_dense_ops_per_second: null
+  sio_effective_bandwidth_bytes_per_second: null
+  hccs_effective_bandwidth_bytes_per_second: null
+  collective_fixed_latency_seconds: null
+  status: Unmeasured; do not substitute zero, another accelerator, or unsourced values.
+software:
+  host_driver_version: 26.1.1
+  host_ascendhal_version: 7.35.23
+  host_hccl_version: 8.5.0
+  selected_container_cann_version: 9.1.0
+  container_version_status: CANN and HCCL 9.1.0 verified in files; all devices visible and device 0 BF16 matmul passed.
+sources:
+  - npu-status.txt
+  - npu-mapping.txt
+  - npu-topology.txt
+  - npu-board.txt
+  - npu-memory.txt
+  - npu-product.txt
+  - host-and-deployment-inventory.json
+  - runtime-v0522/device-probe.json
+  - runtime-v0522/runtime-image-inventory.json
+  - runtime-memory-observations.json
+integration_gap: Requires validated performance coefficients and matching NPU operator data before op-level prediction.

@@ -1,0 +1,85 @@
+quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443: Pulling from ascend/sglang
+119d19e001ba: Already exists
+0f558e63da43: Already exists
+0223f5880560: Already exists
+31fed17ba85b: Pulling fs layer
+5a78e9f4bd0d: Pulling fs layer
+3dd4d7096f1f: Pulling fs layer
+433a4acc8d92: Pulling fs layer
+3175941133d1: Pulling fs layer
+3dd4d7096f1f: Download complete
+5a78e9f4bd0d: Download complete
+a37e4a70c274: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+f98cbb74cd0a: Pulling fs layer
+9fb0bf0ab793: Pulling fs layer
+c7b3ceb943b9: Pulling fs layer
+a37e4a70c274: Waiting
+2094ee619970: Pulling fs layer
+2888e3a619d4: Pulling fs layer
+4f4fb700ef54: Waiting
+700faa36c336: Pulling fs layer
+f98cbb74cd0a: Waiting
+9fb0bf0ab793: Waiting
+cb9bcf7f0b14: Pulling fs layer
+c7b3ceb943b9: Waiting
+2094ee619970: Waiting
+700faa36c336: Waiting
+a6d0cf727029: Pulling fs layer
+2888e3a619d4: Waiting
+1aa211a88fa5: Pulling fs layer
+4cfb9a23cc5f: Pulling fs layer
+4cfb9a23cc5f: Waiting
+433a4acc8d92: Verifying Checksum
+433a4acc8d92: Download complete
+3175941133d1: Verifying Checksum
+3175941133d1: Download complete
+a37e4a70c274: Download complete
+4f4fb700ef54: Download complete
+9fb0bf0ab793: Verifying Checksum
+9fb0bf0ab793: Download complete
+c7b3ceb943b9: Verifying Checksum
+c7b3ceb943b9: Download complete
+2094ee619970: Verifying Checksum
+2094ee619970: Download complete
+2888e3a619d4: Verifying Checksum
+2888e3a619d4: Download complete
+700faa36c336: Verifying Checksum
+700faa36c336: Download complete
+cb9bcf7f0b14: Verifying Checksum
+cb9bcf7f0b14: Download complete
+f98cbb74cd0a: Verifying Checksum
+f98cbb74cd0a: Download complete
+31fed17ba85b: Verifying Checksum
+31fed17ba85b: Download complete
+4cfb9a23cc5f: Verifying Checksum
+4cfb9a23cc5f: Download complete
+31fed17ba85b: Pull complete
+5a78e9f4bd0d: Pull complete
+3dd4d7096f1f: Pull complete
+433a4acc8d92: Pull complete
+3175941133d1: Pull complete
+a37e4a70c274: Pull complete
+4f4fb700ef54: Pull complete
+f98cbb74cd0a: Pull complete
+9fb0bf0ab793: Pull complete
+c7b3ceb943b9: Pull complete
+2094ee619970: Pull complete
+2888e3a619d4: Pull complete
+700faa36c336: Pull complete
+cb9bcf7f0b14: Pull complete
+1aa211a88fa5: Verifying Checksum
+1aa211a88fa5: Download complete
+a6d0cf727029: Retrying in 5 seconds
+a6d0cf727029: Retrying in 4 seconds
+a6d0cf727029: Retrying in 3 seconds
+a6d0cf727029: Retrying in 2 seconds
+a6d0cf727029: Retrying in 1 second
+a6d0cf727029: Verifying Checksum
+a6d0cf727029: Download complete
+a6d0cf727029: Pull complete
+1aa211a88fa5: Pull complete
+4cfb9a23cc5f: Pull complete
+Digest: sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+Status: Downloaded newer image for quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443

@@ -1,0 +1,25 @@
+<frozen runpy>:128: RuntimeWarning: 'torch.distributed.run' found in sys.modules after import of package 'torch.distributed', but prior to execution of 'torch.distributed.run'; this may result in unpredictable behaviour
+[W1020 15:30:30.763540079 ProcessGroupHCCL.cpp:1294] Warning: The watchdog timeout 180000ms(which is set by init_process_group) is less than or equal to HCCL execution timeout 1836000ms! The plog may not be recorded. (function ProcessGroupHCCL)
+{"starting": {"operation": "all_reduce", "size_bytes": 4096, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+[rank0]:[W1020 15:30:30.769557598 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+{"starting": {"operation": "all_reduce", "size_bytes": 65536, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_reduce", "size_bytes": 1048576, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_reduce", "size_bytes": 16777216, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_reduce", "size_bytes": 67108864, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_gather", "size_bytes": 4096, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_gather", "size_bytes": 65536, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_gather", "size_bytes": 1048576, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_gather", "size_bytes": 16777216, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_gather", "size_bytes": 67108864, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "reduce_scatter", "size_bytes": 4096, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "reduce_scatter", "size_bytes": 65536, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "reduce_scatter", "size_bytes": 1048576, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "reduce_scatter", "size_bytes": 16777216, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "reduce_scatter", "size_bytes": 67108864, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_to_all", "size_bytes": 4096, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_to_all", "size_bytes": 65536, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_to_all", "size_bytes": 1048576, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_to_all", "size_bytes": 16777216, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}
+{"starting": {"operation": "all_to_all", "size_bytes": 67108864, "devices": [0, 1, 2, 3, 4, 5, 6, 7]}}

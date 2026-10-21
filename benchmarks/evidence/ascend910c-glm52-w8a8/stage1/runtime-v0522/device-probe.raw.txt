@@ -1,0 +1,95 @@
+[LOG_WARNING] can not open file, file: /root/ascend/log/run/plog/plog-1_20261020081552148.log, possible reason: Read-only file system.{
+  "observed_at": "2026-10-20T08:15:54.933986+00:00",
+  "torch": "2.10.0+cpu",
+  "torch_npu": "2.10.0.post6",
+  "device_count": 16,
+  "devices": [
+    {
+      "id": 0,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 1,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 2,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 3,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 4,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 5,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 6,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 7,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 8,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 9,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 10,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 11,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 12,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 13,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 14,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 15,
+      "name": "Ascend910_9382",
+      "total_memory_bytes": 65796046848
+    }
+  ],
+  "model_loaded": false,
+  "bf16_matmul_passed": true,
+  "device_0_free_total_bytes": [
+    65354162176,
+    65787658240
+  ],
+  "success": true
+}

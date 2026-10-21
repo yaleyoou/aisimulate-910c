@@ -1,0 +1,20 @@
+fatal: detected dubious ownership in repository at '/workspace'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /workspace
+Traceback (most recent call last):
+  File "/workspace/.github/codeowners/build_codeowners.py", line 180, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/.github/codeowners/build_codeowners.py", line 120, in main
+    tree = load_tree(Path(args.repo))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.github/codeowners/codeowners_match.py", line 255, in load_tree
+    out = subprocess.check_output(["git", "-C", str(repo), "ls-files"], text=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', '.', 'ls-files']' returned non-zero exit status 128.

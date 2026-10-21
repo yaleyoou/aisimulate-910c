@@ -1,0 +1,26 @@
+{
+  "started": "2026-10-21T06:50:53.774928+00:00",
+  "status": "collected",
+  "service_restored": true,
+  "source_sha256": {
+    "remote.py": "4b7014d6b44845d4ae270515329f9dd66a8898a1ba1d78cb7f7da75d75dd50fc",
+    "prepare.py": "c237467fa817de78a813a3896616afbe1f2cb8452afba4f7c0e11df055a45401",
+    "build_native.py": "ffb81076a4c4118ee95d4300b06cec925cb9f223003de4f80f6b342f448fba02",
+    "setup_mpi.py": "48ae5b0790499854faf08ff285138a4c590f4bf263daab06fa0bc537e4ff96bd",
+    "probe_remote.py": "3d90686207a81156a0d41449dc831a7237424b787b577e165323e51306ae689b",
+    "run_campaign.py": "1c38b469a49f8e05a9b3c5c662a85304475a64a3f6aafb33b0def0f3eeb059b6",
+    "p2p_probe.cpp": "a7f9d6ad1fd64cfb6f70660bb55cad49983ca49c4f40aa66b3b703794fd19fea"
+  },
+  "hosts": [
+    "npu1-32",
+    "npu1-19"
+  ],
+  "scope": "same-superpod hardware calibration",
+  "cv_limit": 0.1,
+  "repeats": 9,
+  "iterations": 50,
+  "warmup": 50,
+  "collection_finished": "2026-10-21T06:58:23.254090+00:00",
+  "service_restart_requested": "2026-10-21T06:58:23.407044+00:00",
+  "service_ready": "2026-10-21T07:08:34.966942+00:00"
+}

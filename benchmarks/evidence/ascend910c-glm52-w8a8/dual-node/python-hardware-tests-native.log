@@ -1,0 +1,12 @@
+ImportError while loading conftest '/workspace/python/aisimulate/tests/conftest.py'.
+python/aisimulate/tests/conftest.py:22: in <module>
+    from aisimulate.legacy_cli.main import configure_parser as configure_cli_parser
+python/aisimulate/src/aisimulate/legacy_cli/__init__.py:49: in <module>
+    from aisimulate.legacy_cli.api import (
+python/aisimulate/src/aisimulate/legacy_cli/api.py:20: in <module>
+    from aisimulate.legacy_cli.main import (
+python/aisimulate/src/aisimulate/legacy_cli/main.py:18: in <module>
+    from aisimulate.generator.api import (
+python/aisimulate/src/aisimulate/generator/api.py:19: in <module>
+    from prettytable import PrettyTable
+E   ModuleNotFoundError: No module named 'prettytable'

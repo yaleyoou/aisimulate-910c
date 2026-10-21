@@ -1,0 +1,11 @@
+United 配置检查通过：
+  服务：0.0.0.0:8000，容器=glm52-united-v0522
+  并行：NPU=16 TP=16 DP=2 EP=16
+  推理：context=180000 max_running=64 chunk=16384 max_prefill=32768
+  功能：DP-Attention=1 DP-LMHead=1 DeepEP=1/auto Decode-Graph=1
+United 环境检查通过：NPU=16，服务访问 IP=10.120.72.32
+ENABLE_SYSTEM_TUNING=0，跳过系统调优
+端口预检查通过: 0.0.0.0:8000
+启动 United 容器：glm52-united-v0522，监听 0.0.0.0:8000
+等待 United 服务：http://10.120.72.32:8000/health
+United 容器已退出，最近日志如下：

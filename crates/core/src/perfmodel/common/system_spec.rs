@@ -214,6 +214,26 @@ mod tests {
     }
 
     #[test]
+    fn parse_ascend910c_runtime_chip_calibration() {
+        let spec = SystemSpec::load(&systems_root().join("ascend910c.yaml"))
+            .expect("ascend910c.yaml parse must succeed");
+        assert_eq!(spec.data_dir, PathBuf::from("data/ascend910c"));
+        assert_eq!(spec.node.num_gpus_per_node, 16);
+        assert_eq!(spec.gpu.mem_capacity, Some(65_787_658_240));
+        assert_eq!(spec.gpu.mem_bw_empirical_scaling_factor, 1.0);
+        assert_eq!(spec.get_p2p_bandwidth(16), spec.node.intra_node_bw);
+        assert_eq!(spec.get_p2p_bandwidth(32), spec.node.inter_node_bw);
+        assert!(spec.gpu.bfloat16_tc_flops.unwrap() > 0.0);
+        assert!(spec.gpu.int8_tc_flops.unwrap() > 0.0);
+        assert!(spec.gpu.fp32_flops.is_none());
+        assert!(spec.gpu.fp8_tc_flops.is_none());
+        assert!(spec.gpu.fp4_tc_flops.is_none());
+        assert!(spec.gpu.sm_version.is_none());
+        assert!(spec.misc.nccl_mem.is_empty());
+        assert!(spec.misc.nccl_version.is_none());
+    }
+
+    #[test]
     fn parse_gb200_rack_tier() {
         let spec = SystemSpec::load(&systems_root().join("gb200.yaml"))
             .expect("gb200.yaml parse must succeed");

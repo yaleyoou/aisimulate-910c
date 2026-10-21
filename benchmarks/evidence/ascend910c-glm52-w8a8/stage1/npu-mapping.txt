@@ -1,0 +1,25 @@
+	NPU ID                         Chip ID                        Chip Logic ID                  Chip Phy-ID                    Chip Name                     
+	0                              0                              0                              0                              Ascend910
+	0                              1                              1                              1                              Ascend910
+	0                              2                              -                              -                              Mcu                           
+	1                              0                              2                              2                              Ascend910
+	1                              1                              3                              3                              Ascend910
+	1                              2                              -                              -                              Mcu                           
+	2                              0                              4                              4                              Ascend910
+	2                              1                              5                              5                              Ascend910
+	2                              2                              -                              -                              Mcu                           
+	3                              0                              6                              6                              Ascend910
+	3                              1                              7                              7                              Ascend910
+	3                              2                              -                              -                              Mcu                           
+	4                              0                              8                              8                              Ascend910
+	4                              1                              9                              9                              Ascend910
+	4                              2                              -                              -                              Mcu                           
+	5                              0                              10                             10                             Ascend910
+	5                              1                              11                             11                             Ascend910
+	5                              2                              -                              -                              Mcu                           
+	6                              0                              12                             12                             Ascend910
+	6                              1                              13                             13                             Ascend910
+	6                              2                              -                              -                              Mcu                           
+	7                              0                              14                             14                             Ascend910
+	7                              1                              15                             15                             Ascend910
+	7                              2                              -                              -                              Mcu                           

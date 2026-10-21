@@ -1,0 +1,172 @@
+{
+  "artifacts": {
+    "model_inventory": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/model-inventory.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "quantization_map": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/quantization-map.csv",
+      "kind": "file",
+      "scope": "input"
+    },
+    "weight_shards": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/weight-shards.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "host_inventory": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/host-and-deployment-inventory.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_facts": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/hardware-facts.yaml",
+      "kind": "file",
+      "scope": "input"
+    },
+    "published_version_metadata": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/upstream-version-check.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "runtime_inventory": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/runtime-v0522/runtime-image-inventory.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "device_probe": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/runtime-v0522/device-probe.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "runtime_memory_observation": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/runtime-memory-observations.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "resolved_runtime_args": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/runtime-resolved-args.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "deployment_snapshot": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/deployment-baseline.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "serving_smoke": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/serving-smoke/serving-smoke.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "complete_chat": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/serving-smoke/chat-complete.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "server_info": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/serving-smoke/server-info.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "exact_workload_request": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/serving-smoke/request-8192-1024.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "exact_workload_response": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/serving-smoke/response-8192-1024.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "baseline_report": {
+      "path": "/tgm_rent_data/data/youxingye/aisimulate-910c/md/910c-glm52-w8a8-stage1-baseline.md",
+      "kind": "file",
+      "scope": "input"
+    },
+    "launch_script": {
+      "path": "/home/youxingye/United deployment/service/start-united-v0522.sh",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "decisions": {
+    "loading_retry": {
+      "status": "third attempt succeeded with serial eager loading",
+      "change": "model_loader_extra_config.enable_multithread_load=false and weight_loader_disable_mmap=true; all inference CLI settings preserved",
+      "limits": "Earlier attempts warmed file caches; startup speed difference is not an isolated A/B experiment."
+    }
+  },
+  "research": {
+    "serving_start": {
+      "container": "glm52-united-v0522",
+      "status": "ready and bounded request validation passed",
+      "limitations": "Not formal operator data, replay coverage, benchmark repeatability, or serving accuracy qualification."
+    },
+    "phase1_handoff": {
+      "confidence": "high for local observations; hardware performance coefficients unresolved",
+      "date": "2026-10-20",
+      "model_hardware_runtime_inventory": "complete",
+      "production_hardware_and_model_integration": "incomplete",
+      "formal_profile_accepted": false,
+      "formal_collection": "not_started",
+      "replay_coverage": "not_checked",
+      "serving_accuracy": "not_assessed",
+      "memory_evidence": "raw initialized-runtime observations only, not a finalized FPM profile",
+      "functional_smoke": "passed: exact8192 input and1024 output, cached_tokens0, num_retractions0",
+      "sources": [
+        "stage1/runtime-memory-observations.json",
+        "stage1/serving-smoke/serving-smoke.json",
+        "stage1/runtime-v0522/runtime-image-inventory.json"
+      ]
+    },
+    "kv_runtime": {
+      "dtype": "bfloat16",
+      "capacity_tokens_per_attention_dp": 52992,
+      "max_req_input_len": 52986,
+      "page_size": 128,
+      "max_running_requests_per_attention_dp": 32
+    }
+  },
+  "pending_questions": [
+    "Full checkpoint immutable revision remains unresolved; metadata and headers are hashed only.",
+    "910C measured hardware coefficients and a validated production system spec remain absent.",
+    "ModelSlim op-level precision, INT8 MoE and Ascend collectors require integration.",
+    "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+  ],
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "blockers": [
+      "910C measured hardware coefficients and a validated production system spec remain absent.",
+      "ModelSlim op-level precision, INT8 MoE and Ascend collectors require integration.",
+      "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+    ],
+    "next_action": "Use the verified v0.5.22 United baseline to complete the sourced hardware system spec and module-level model/quantization support before planning collection."
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "inputs": {
+        "weight_loader_disable_mmap": true,
+        "model_loader_extra_config": {
+          "enable_multithread_load": false
+        },
+        "runtime_random_seed_observed": 874573661,
+        "kv_dtype_observed": "bfloat16",
+        "kv_capacity_tokens_per_attention_dp_observed": 52992,
+        "scheduler_max_running_requests_per_attention_dp_observed": 32
+      },
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "blockers": [
+          "910C measured hardware coefficients and a validated production system spec remain absent.",
+          "ModelSlim op-level precision, INT8 MoE and Ascend collectors require integration.",
+          "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+        ],
+        "next_action": "Use the verified v0.5.22 United baseline to complete the sourced hardware system spec and module-level model/quantization support before planning collection."
+      }
+    }
+  }
+}

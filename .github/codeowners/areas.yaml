@@ -20,6 +20,7 @@ areas:
       - CONTRIBUTING.md
       - CONTRIBUTORS.md
       - docs/
+      - md/
       - pages/
       - python/aisimulate/src/aisimulate/__init__.py
       - tests/conftest.py

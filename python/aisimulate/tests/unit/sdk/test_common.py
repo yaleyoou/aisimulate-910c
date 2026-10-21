@@ -71,6 +71,33 @@ class TestSupportedSystems:
         """Cloud/colo PCIe systems should be available for naive and SOL-style estimates."""
         assert {"h100_pcie", "a100_pcie", "l4", "a30"}.issubset(common.SupportedSystems)
 
+    def test_ascend910c_uses_runtime_chip_granularity(self):
+        from aisimulate_core.sdk.perf_database import is_blackwell_system, is_hopper_system, load_system_spec
+        from aisimulate_core.sdk.system_spec import SystemSpec
+
+        assert "ascend910c" in common.SupportedSystems
+        spec = SystemSpec(load_system_spec("ascend910c"))
+        assert spec["gpu"]["mem_capacity"] == 65_787_658_240
+        assert spec["node"]["num_gpus_per_node"] == 16
+        assert spec.get_p2p_bandwidth(16) == spec["node"]["intra_node_bw"]
+        assert spec.get_p2p_bandwidth(32) == spec["node"]["inter_node_bw"]
+        assert not is_blackwell_system("ascend910c")
+        assert not is_hopper_system("ascend910c")
+        assert "sm_version" not in spec["gpu"]
+        assert "nccl_mem" not in spec["misc"]
+        assert "nccl_version" not in spec["misc"]
+
+    def test_ascend910c_does_not_invent_unmeasured_compute_modes(self):
+        from aisimulate_core.sdk.errors import MissingSystemFlopsError
+        from aisimulate_core.sdk.perf_database import load_system_spec
+
+        spec = load_system_spec("ascend910c")
+        assert common.get_quant_tc_flops(spec, common.GEMMQuantMode.sq) == spec["gpu"]["int8_tc_flops"]
+        assert common.get_quant_tc_flops(spec, common.GEMMQuantMode.bfloat16) == spec["gpu"]["bfloat16_tc_flops"]
+        for mode in [common.GEMMQuantMode.fp8, common.GEMMQuantMode.nvfp4]:
+            with pytest.raises(MissingSystemFlopsError):
+                common.get_quant_tc_flops(spec, mode)
+
     def test_support_matrix_systems_sort_by_display_priority(self):
         """Support matrix systems should sort by product priority before name."""
         systems = [

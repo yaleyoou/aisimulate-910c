@@ -1,0 +1,3 @@
+API readiness bf16 up to nine output positions versus independent CPU FP32 dot products
+API readiness int8 up to nine output positions versus independent CPU FP32 dot products
+[W1020 15:18:38.010366738 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())

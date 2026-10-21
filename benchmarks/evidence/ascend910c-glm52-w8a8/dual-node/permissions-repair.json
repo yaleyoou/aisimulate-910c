@@ -1,0 +1,2919 @@
+{
+  "at": "2026-10-21T11:40:37.376566+00:00",
+  "reason": "youxingye could not read root-owned mode0600 .git/index and adaptation files; restore task files to repository user ownership without broadening permission modes.",
+  "scope": "Git index, current tracked modifications, hardware report/YAML/data root, and this adaptation evidence directory. Other files including md/test.md left unchanged.",
+  "changes": [
+    {
+      "path": ".git/index",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/__pycache__",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/__pycache__/prepare.cpython-39.pyc",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/__pycache__/remote.cpython-39.pyc",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/build-native.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/build-results.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/build_native.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/campaign-pid.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/campaign-retry.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/campaign.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/capture-readiness-launch.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-device-timing-result.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-device-timing.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-final-resume.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-hardware-final-result.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-hardware-final.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-preflight-result.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/checkpoint-preflight.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/codeowners-check-final.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/codeowners-check.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/current-run.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/export_calibration.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/hardware-validation.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/lint-final.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/lint-pinned.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/lint.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/local-cleanup.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/local-product.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/local_driver.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/local_hccs.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/local_spod.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/mpi-setup.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/native-build-results.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/native-validation-build.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-19-build.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-19-native-build.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-19-network.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-19-preflight.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-32-build.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/npu1-32-native-build.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/onboard-help-current.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/p2p_probe.cpp",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/prelaunch-remote.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/prepare-pid.txt",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/prepare.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/prepare.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/probe_remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/python-hardware-tests-final.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/python-hardware-tests-native.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/python-hardware-tests.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/commands.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-10.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-11.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-12.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-13.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-14.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-15.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-16.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-17.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-18.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-19.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-20.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-21.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-22.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-23.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-24.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-25.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-26.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-27.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-28.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-29.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-3.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-30.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-31.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-4.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-5.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-6.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-7.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-8.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-fetch-9.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank10.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank11.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank12.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank13.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank14.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank15.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank16.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank17.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank18.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank19.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank2.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank20.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank21.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank22.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank23.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank24.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank25.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank26.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank27.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank28.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank29.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank3.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank30.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank31.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank4.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank5.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank6.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank7.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank8.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-rank9.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32-reduce_scatter-max-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/cross-32.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/hccs-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/hccs-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/hccs-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/hccs-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/hccs-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-10.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-11.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-12.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-13.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-14.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-15.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-3.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-4.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-5.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-6.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-7.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-8.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-fetch-9.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank10.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank11.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank12.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank13.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank14.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank15.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank2.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank3.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank4.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank5.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank6.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank7.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank8.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-rank9.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16-reduce_scatter-max-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-16.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/local-exclusive.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/manifest.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/remote-before.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/restore-service.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/sio-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/sio-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/sio-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/sio-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/sio-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/build_native.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/p2p_probe.cpp",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/prepare.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/probe_remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/run_campaign.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/setup_mpi.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/source/summarize.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/stop-service.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-20261021-151553/summary.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-campaign.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-readiness-launch.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/queued-readiness-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/readiness-launch.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/remote-cleanup.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/remote-readiness.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving/request-8192-1024.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving/response-8192-1024.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving/server-info.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving/serving-smoke.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/restored-serving.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/resume-20261021.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/commands.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/manifest.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/remote-before.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/build_native.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/p2p_probe.cpp",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/prepare.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/probe_remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/run_campaign.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-144855/source/setup_mpi.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/commands.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-all_gather-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-all_reduce-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-all_reduce-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-all_reduce-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-alltoall-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-10.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-11.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-12.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-13.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-14.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-15.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-16.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-17.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-18.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-19.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-20.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-21.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-22.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-23.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-24.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-25.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-26.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-27.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-28.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-29.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-3.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-30.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-31.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-4.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-5.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-6.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-7.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-8.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-fetch-9.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank10.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank11.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank12.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank13.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank14.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank15.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank16.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank17.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank18.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank19.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank2.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank20.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank21.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank22.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank23.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank24.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank25.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank26.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank27.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank28.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank29.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank3.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank30.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank31.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank4.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank5.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank6.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank7.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank8.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-rank9.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32-reduce_scatter-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/cross-32.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/hccs-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/hccs-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/hccs-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/hccs-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/hccs-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-all_gather-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-all_reduce-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-all_reduce-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-all_reduce-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-alltoall-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-10.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-11.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-12.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-13.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-14.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-15.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-3.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-4.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-5.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-6.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-7.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-8.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-fetch-9.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank10.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank11.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank12.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank13.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank14.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank15.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank2.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank3.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank4.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank5.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank6.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank7.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank8.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-rank9.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16-reduce_scatter-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-16.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/local-exclusive.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/manifest.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/remote-before.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/restore-service.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/sio-2-fetch-0.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/sio-2-fetch-1.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/sio-2-rank0.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/sio-2-rank1.jsonl",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/sio-2.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/build_native.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/p2p_probe.cpp",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/prepare.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/probe_remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/remote.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/run_campaign.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/source/setup_mpi.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/stop-service.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run-20261021-145053/summary.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/run_campaign.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/rust-hardware-tests.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/setup_mpi.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/summarize.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/validate_calibration.py",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/validation-setup-mirror.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/dual-node/validation-setup.log",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/hardware-calibration.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/onboarding-checkpoint.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/single-node/checkpoint-resume-20261021.json",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "md/910c-hardware-adaptation.md",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    },
+    {
+      "path": "python/aisimulate/src/aisimulate_core/systems/data/ascend910c",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o700"
+    },
+    {
+      "path": "python/aisimulate/src/aisimulate_core/systems/data/ascend910c/README.md",
+      "before_uid": 0,
+      "before_gid": 0,
+      "after_uid": 5031,
+      "after_gid": 5031,
+      "mode_preserved": "0o600"
+    }
+  ]
+}

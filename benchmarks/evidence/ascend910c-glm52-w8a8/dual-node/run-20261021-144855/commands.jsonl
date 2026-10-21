@@ -1,0 +1,1 @@
+{"started": "2026-10-21T06:48:56.843585+00:00", "finished": "2026-10-21T06:48:57.076064+00:00", "command": ["docker", "exec", "aisim-910c-hardware-20261021", "ssh", "-F", "/dev/null", "-p", "22290", "-i", "/root/.ssh/aisim_key", "-oBatchMode=yes", "-oStrictHostKeyChecking=accept-new", "root@10.120.72.19", "npu-smi", "info"], "returncode": 127}

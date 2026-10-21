@@ -1,0 +1,63 @@
+{
+  "research": {
+    "device_probe": {
+      "confidence": "high",
+      "source": "stage1/runtime-v0522/device-probe.json",
+      "device_count": 16,
+      "name": "Ascend910_9382",
+      "bf16_matmul_device0_passed": true,
+      "limits": "Does not qualify full-model execution or collectives; model not loaded in this probe."
+    },
+    "runtime_v0522": {
+      "confidence": "high",
+      "source": "stage1/runtime-v0522/runtime-image-inventory.json",
+      "sglang": "0.5.22",
+      "sglang_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "tracked_changes": ["python/pyproject.toml modified", "python/pyproject_npu.toml deleted"],
+      "python": "3.12.13",
+      "torch": "2.10.0+cpu",
+      "torch_npu": "2.10.0.post6",
+      "cann": "9.1.0 B243",
+      "hccl": "9.1.0",
+      "deep_ep": "1.0.0+0234a271.cann.9.1.0.b243"
+    },
+    "cli_limitation": {
+      "confidence": "high",
+      "source": "stage1/runtime-v0522/onboard-init-help.stdout.txt",
+      "finding": "Guided FPM onboarding currently allows only framework=vllm. No SGLang profile was fabricated or accepted."
+    },
+    "serving_start": {
+      "container": "glm52-united-v0522",
+      "status": "initializing",
+      "launch_option_spelling_check": "33 original United CLI flags present in v0.5.22 help",
+      "launch_script": "/home/youxingye/United deployment/service/start-united-v0522.sh",
+      "limitations": "Readiness, model correctness, KV capacity and 8192/1024 request remain unverified."
+    }
+  },
+  "inputs": {"runtime_image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"},
+  "pending_questions": [
+    "Full checkpoint immutable revision remains unresolved; metadata and headers are hashed only.",
+    "910C effective compute, memory bandwidth and collective coefficients remain unmeasured.",
+    "ModelSlim op-level parsing, INT8 MoE, NPU collectors and guided SGLang FPM support remain integration work.",
+    "United v0.5.22 full-model readiness, cache capacity and request execution are being checked."
+  ],
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "inputs": {
+        "framework_version": "0.5.22",
+        "runtime_version_status": "installed packages and source commit verified",
+        "runtime_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+        "context_length": 180000,
+        "chunked_prefill_size": 16384,
+        "max_prefill_tokens": 32768,
+        "max_running_requests": 64,
+        "mem_fraction_static": 0.9,
+        "graph_capture_sizes": [8, 16, 24, 32],
+        "quantization": "modelslim",
+        "dtype": "bfloat16",
+        "mtp_enabled": false
+      },
+      "progress": {"stage": 1, "status": "in_progress", "next_action": "Verify model load, graph capture, health and a bounded 8192/1024 request; finalize phase-1 report."}
+    }
+  }
+}

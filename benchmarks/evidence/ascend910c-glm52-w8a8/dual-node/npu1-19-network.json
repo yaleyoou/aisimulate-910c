@@ -1,0 +1,53 @@
+{
+  "spod": {
+    "command": [
+      "npu-smi",
+      "info",
+      "-t",
+      "spod-info",
+      "-i",
+      "0",
+      "-c",
+      "0"
+    ],
+    "returncode": 0,
+    "stdout": "\tSDID                           : 75497472\n\tSuper Pod Size                 : 384\n\tSuper Pod ID                   : 1\n\tServer Index                   : 18\n",
+    "stderr": ""
+  },
+  "hccs": {
+    "command": [
+      "npu-smi",
+      "info",
+      "-t",
+      "hccs",
+      "-i",
+      "0",
+      "-c",
+      "0"
+    ],
+    "returncode": 0,
+    "stdout": "\thccs health status             : OK\n\thccs lane mode                 : [4                    4                    4                    4                    4                    4                    4                    ]\n\thccs link lane list            : [1111                 1111                 1111                 1111                 1111                 1111                 1111                 ]\n\thccs link speed                : [224                  224                  224                  224                  224                  224                  224                  ]\n\thccs tx packets                : [6829234421206        7375148413149        7275814146026        8882772752616        8543588985393        8209477770369        6701019304534        ]\n\thccs tx bytes                  : [136584688424120      147502968262980      145516282920520      177655455052320      170871779707860      164189555407380      134020386090680      ]\n\thccs rx packets                : [6771698119903        7146774628475        6890957203067        9031471042001        9877108114425        7426082531921        7060476652616        ]\n\thccs rx bytes                  : [135433962398060      142935492569500      137819144061340      180629420840020      197542162288500      148521650638420      141209533052320      ]\n\thccs retry count               : [0                    0                    0                    0                    0                    0                    0                    ]\n\thccs error count               : [0                    0                    0                    0                    0                    0                    0                    ]\n\thccs first error lane          : NA\n",
+    "stderr": ""
+  },
+  "ip": {
+    "command": [
+      "/usr/local/Ascend/driver/tools/hccn_tool",
+      "-i",
+      "0",
+      "-ip",
+      "-g"
+    ],
+    "returncode": 13,
+    "stdout": "",
+    "stderr": "Get ipconf failed, because no ip was preset there!\n"
+  },
+  "bond": {
+    "command": [
+      "cat",
+      "/proc/net/bonding/bond4"
+    ],
+    "returncode": 0,
+    "stdout": "Ethernet Channel Bonding Driver: v5.10.0-216.0.0.115.oe2203sp4.aarch64\n\nBonding Mode: IEEE 802.3ad Dynamic link aggregation\nTransmit Hash Policy: layer2 (0)\nMII Status: up\nMII Polling Interval (ms): 100\nUp Delay (ms): 0\nDown Delay (ms): 0\nPeer Notification Delay (ms): 0\n\n802.3ad info\nLACP rate: slow\nMin links: 0\nAggregator selection policy (ad_select): stable\nSystem priority: 65535\nSystem MAC address: ac:dc:ca:68:6e:9a\nActive Aggregator Info:\n\tAggregator ID: 1\n\tNumber of ports: 2\n\tActor Key: 21\n\tPartner Key: 7617\n\tPartner Mac Address: ec:81:9c:97:9f:31\n\nSlave Interface: enp196s0f0\nMII Status: up\nSpeed: 25000 Mbps\nDuplex: full\nLink Failure Count: 0\nPermanent HW addr: ac:dc:ca:68:6e:9a\nSlave queue ID: 0\nAggregator ID: 1\nActor Churn State: none\nPartner Churn State: none\nActor Churned Count: 0\nPartner Churned Count: 0\ndetails actor lacp pdu:\n    system priority: 65535\n    system mac address: ac:dc:ca:68:6e:9a\n    port key: 21\n    port priority: 255\n    port number: 1\n    port state: 61\ndetails partner lacp pdu:\n    system priority: 32768\n    system mac address: ec:81:9c:97:9f:31\n    oper key: 7617\n    port priority: 32768\n    port number: 23\n    port state: 61\n\nSlave Interface: enp196s0f1\nMII Status: up\nSpeed: 25000 Mbps\nDuplex: full\nLink Failure Count: 0\nPermanent HW addr: ac:dc:ca:68:6e:9b\nSlave queue ID: 0\nAggregator ID: 1\nActor Churn State: none\nPartner Churn State: none\nActor Churned Count: 0\nPartner Churned Count: 0\ndetails actor lacp pdu:\n    system priority: 65535\n    system mac address: ac:dc:ca:68:6e:9a\n    port key: 21\n    port priority: 255\n    port number: 2\n    port state: 61\ndetails partner lacp pdu:\n    system priority: 32768\n    system mac address: ec:81:9c:97:9f:31\n    oper key: 7617\n    port priority: 32768\n    port number: 32791\n    port state: 61\n",
+    "stderr": ""
+  }
+}

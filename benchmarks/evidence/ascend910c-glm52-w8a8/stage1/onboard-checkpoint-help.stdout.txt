@@ -1,0 +1,15 @@
+usage: aisimulate onboard checkpoint [-h] --file FILE [--update UPDATE]
+                                     [--expect-revision EXPECT_REVISION]
+                                     [--accept-profile CONFIG_ID]
+
+options:
+  -h, --help            show this help message and exit
+  --file FILE           Session JSON path; keep outside fresh init output
+                        roots.
+  --update UPDATE       JSON merge patch file, or - for stdin; supplied values
+                        are data only.
+  --expect-revision EXPECT_REVISION
+                        Required current revision for existing updates.
+  --accept-profile CONFIG_ID
+                        Record user approval of the exact complete draft;
+                        repeat to accept several configurations.

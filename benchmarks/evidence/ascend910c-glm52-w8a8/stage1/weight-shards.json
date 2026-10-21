@@ -1,0 +1,1822 @@
+[
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00001-of-00181.safetensors",
+    "name": "quant_model_weights-00001-of-00181.safetensors",
+    "size_bytes": 4284316944,
+    "mtime_ns": 1787740948108578747,
+    "header_sha256": "a66eb1f151e22ab50e723f848365d8ce0343216f86d2c58b3a8f0bbf5e53bab7",
+    "header_length": 99440,
+    "tensor_count": 832,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00002-of-00181.safetensors",
+    "name": "quant_model_weights-00002-of-00181.safetensors",
+    "size_bytes": 4287620432,
+    "mtime_ns": 1787740287228923189,
+    "header_sha256": "2645106b4d8141305c5d1e176221ed473c3969682e298d84d1597a6f89abf6d1",
+    "header_length": 124232,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00003-of-00181.safetensors",
+    "name": "quant_model_weights-00003-of-00181.safetensors",
+    "size_bytes": 4294138488,
+    "mtime_ns": 1787735940790980044,
+    "header_sha256": "86286a0e943f5ca663440d3e23d625896b67155b95988c705fc48b1a542416b7",
+    "header_length": 121936,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00004-of-00181.safetensors",
+    "name": "quant_model_weights-00004-of-00181.safetensors",
+    "size_bytes": 4287620112,
+    "mtime_ns": 1787742275931612415,
+    "header_sha256": "bd8f6fccc7d78d79d2ab8396db67875f6a3435a1668121a6b059b142b921758f",
+    "header_length": 123912,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00005-of-00181.safetensors",
+    "name": "quant_model_weights-00005-of-00181.safetensors",
+    "size_bytes": 4294138848,
+    "mtime_ns": 1787740432062605843,
+    "header_sha256": "75c44c69ba2d7260be5b7976ac5642a5d33b19baf9cf1cd383d117aa7ab1de78",
+    "header_length": 122296,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00006-of-00181.safetensors",
+    "name": "quant_model_weights-00006-of-00181.safetensors",
+    "size_bytes": 4287619760,
+    "mtime_ns": 1787741146982815372,
+    "header_sha256": "ee59191134278aa4cf670f2401b8836000af06e4bb8eda71347cbbd005f3d04e",
+    "header_length": 123560,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00007-of-00181.safetensors",
+    "name": "quant_model_weights-00007-of-00181.safetensors",
+    "size_bytes": 4287587864,
+    "mtime_ns": 1787739527492112031,
+    "header_sha256": "b78f4698174ddc65116c1e430d1a058b7533143d15113be8fecb4cba19e19dd3",
+    "header_length": 124432,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00008-of-00181.safetensors",
+    "name": "quant_model_weights-00008-of-00181.safetensors",
+    "size_bytes": 4291927968,
+    "mtime_ns": 1787740817427071580,
+    "header_sha256": "eaa995977a33de5d06fcdb519bd08324c05b2cc5a95da5eb68bcca9e6ba4d16d",
+    "header_length": 122224,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00009-of-00181.safetensors",
+    "name": "quant_model_weights-00009-of-00181.safetensors",
+    "size_bytes": 4287620504,
+    "mtime_ns": 1787742076857364581,
+    "header_sha256": "933f13e322746e5d519adf984c831f2cfd37d5544fb720d75085d428ef16a7ff",
+    "header_length": 124304,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00010-of-00181.safetensors",
+    "name": "quant_model_weights-00010-of-00181.safetensors",
+    "size_bytes": 4294138416,
+    "mtime_ns": 1787745252033893922,
+    "header_sha256": "855140045eb63265cfb0de95de35017779dccf308863e8f041a6e40de0529075",
+    "header_length": 121864,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00011-of-00181.safetensors",
+    "name": "quant_model_weights-00011-of-00181.safetensors",
+    "size_bytes": 4287620184,
+    "mtime_ns": 1787745438367963638,
+    "header_sha256": "eecb94618d49fbd11be798df882f86b9d05d004674f179a5e984032617871955",
+    "header_length": 123984,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00012-of-00181.safetensors",
+    "name": "quant_model_weights-00012-of-00181.safetensors",
+    "size_bytes": 4294138728,
+    "mtime_ns": 1787745185861139294,
+    "header_sha256": "df9589bc730c6c2b86f1fbbef6ca917272374f5b3b3fc7844794c3aab5ed8d7e",
+    "header_length": 122176,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00013-of-00181.safetensors",
+    "name": "quant_model_weights-00013-of-00181.safetensors",
+    "size_bytes": 4287619872,
+    "mtime_ns": 1787754056146512620,
+    "header_sha256": "f8b5620e4fc3e8965d694acc89d1a395f4d656bd9b70b3a5b238af8a499f67f6",
+    "header_length": 123672,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00014-of-00181.safetensors",
+    "name": "quant_model_weights-00014-of-00181.safetensors",
+    "size_bytes": 4287587864,
+    "mtime_ns": 1787746542776596534,
+    "header_sha256": "62e2b0d76699e3ab2e5fa9b689ab3a10dddb55e5fa303fb7ae0cb66417d6e2f7",
+    "header_length": 124432,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00015-of-00181.safetensors",
+    "name": "quant_model_weights-00015-of-00181.safetensors",
+    "size_bytes": 4294170800,
+    "mtime_ns": 1787745916501358311,
+    "header_sha256": "fa5f68aede39faaf220259cc5f480cf706cccf6d0a3bfba0e400fb3c5e39b151",
+    "header_length": 121480,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00016-of-00181.safetensors",
+    "name": "quant_model_weights-00016-of-00181.safetensors",
+    "size_bytes": 4287587800,
+    "mtime_ns": 1787757973487204235,
+    "header_sha256": "50396b99203a76da7842a8f34d2ffe360900d433d33b48072d301e92cc00b61a",
+    "header_length": 124368,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00017-of-00181.safetensors",
+    "name": "quant_model_weights-00017-of-00181.safetensors",
+    "size_bytes": 4291928752,
+    "mtime_ns": 1787748008901323463,
+    "header_sha256": "09da51fb1c1a3c1ec84f4ccee1d92a7e3245829a9fd23d93cf43c5369f27eeed",
+    "header_length": 123008,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00018-of-00181.safetensors",
+    "name": "quant_model_weights-00018-of-00181.safetensors",
+    "size_bytes": 4287621280,
+    "mtime_ns": 1787750640851231959,
+    "header_sha256": "5855ff160048d4ab05266429963e2454a6e51077209069855a3c0222d5c235c2",
+    "header_length": 125080,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00019-of-00181.safetensors",
+    "name": "quant_model_weights-00019-of-00181.safetensors",
+    "size_bytes": 4294139664,
+    "mtime_ns": 1787750283679087974,
+    "header_sha256": "487476a23a0a3011d141654bd226a72348f393b532e9702ccb5f2f639927b004",
+    "header_length": 123112,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00020-of-00181.safetensors",
+    "name": "quant_model_weights-00020-of-00181.safetensors",
+    "size_bytes": 4287620960,
+    "mtime_ns": 1787749117741654194,
+    "header_sha256": "13154ae56c4865f59f9fc7924b420031980f394d1a875ecf18d50bd785a9e43d",
+    "header_length": 124760,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00021-of-00181.safetensors",
+    "name": "quant_model_weights-00021-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787751431624494039,
+    "header_sha256": "58803288b8dfd8d8de8a0cca6fea8d043887e82637a20c17bab90591c0effc36",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00022-of-00181.safetensors",
+    "name": "quant_model_weights-00022-of-00181.safetensors",
+    "size_bytes": 4294171736,
+    "mtime_ns": 1787751311939133664,
+    "header_sha256": "9580a9807cfc1394c72461dd9bc17e29272a3c301ea18f77f26b045be7a2bf98",
+    "header_length": 122416,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00023-of-00181.safetensors",
+    "name": "quant_model_weights-00023-of-00181.safetensors",
+    "size_bytes": 4287588896,
+    "mtime_ns": 1787753408299060089,
+    "header_sha256": "7e3aef6cfe318180cb5245cf74dfb7a8166bd12b8a5c7b66ffd21de893d5b0b2",
+    "header_length": 125464,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00024-of-00181.safetensors",
+    "name": "quant_model_weights-00024-of-00181.safetensors",
+    "size_bytes": 4294172048,
+    "mtime_ns": 1787750282483074244,
+    "header_sha256": "f271aca3e624135b044e8b2cc78dd1af72cd88c7f74902f4fbf6463f08e187e2",
+    "header_length": 122728,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00025-of-00181.safetensors",
+    "name": "quant_model_weights-00025-of-00181.safetensors",
+    "size_bytes": 4287588576,
+    "mtime_ns": 1787756525838904372,
+    "header_sha256": "1a0de3af138301c01e4423d019b8e11f02056da817b4e4c94c02f28825e4054b",
+    "header_length": 125144,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00026-of-00181.safetensors",
+    "name": "quant_model_weights-00026-of-00181.safetensors",
+    "size_bytes": 4291929464,
+    "mtime_ns": 1787755383085750151,
+    "header_sha256": "03772449d20e46f5350ce6de538fb69ca7b93741e05a8dfc02421af969809542",
+    "header_length": 123720,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00027-of-00181.safetensors",
+    "name": "quant_model_weights-00027-of-00181.safetensors",
+    "size_bytes": 4287621032,
+    "mtime_ns": 1787754915268374311,
+    "header_sha256": "38e288eed83094dd39795983a46be035b913f28687168480386bdf47bf507216",
+    "header_length": 124832,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00028-of-00181.safetensors",
+    "name": "quant_model_weights-00028-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787756456026102454,
+    "header_sha256": "ec7f2d4d25d1b6d1d2a1371a2da1f09abdf752ea3121896e23477ad8ecc53bda",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00029-of-00181.safetensors",
+    "name": "quant_model_weights-00029-of-00181.safetensors",
+    "size_bytes": 4294171736,
+    "mtime_ns": 1787756874890909396,
+    "header_sha256": "c6265184f5876e4fff35e958da9b9dd6be10f273af0c7e47b4ea698bf948f01f",
+    "header_length": 122416,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00030-of-00181.safetensors",
+    "name": "quant_model_weights-00030-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787759097107933432,
+    "header_sha256": "f092a0963a81db2480014a66e56949a88eec405805a2602918597b82640c9131",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00031-of-00181.safetensors",
+    "name": "quant_model_weights-00031-of-00181.safetensors",
+    "size_bytes": 4294171976,
+    "mtime_ns": 1787759420311635710,
+    "header_sha256": "551a99c1648dc80097ed7594d0cca5e28a0595e68d35268864c4703ce9c53f3c",
+    "header_length": 122656,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00032-of-00181.safetensors",
+    "name": "quant_model_weights-00032-of-00181.safetensors",
+    "size_bytes": 4287588648,
+    "mtime_ns": 1787760971573348091,
+    "header_sha256": "07b9c38ad974a1400d50c3180ccee3e76a0dd0feda292947a1d6604ee78b874c",
+    "header_length": 125216,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00033-of-00181.safetensors",
+    "name": "quant_model_weights-00033-of-00181.safetensors",
+    "size_bytes": 4294172288,
+    "mtime_ns": 1787761080210601459,
+    "header_sha256": "36306a3a44ed35764e4f0f45298c0a3bab834fa0a0ceaf3bec53e927e6c2439a",
+    "header_length": 122968,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00034-of-00181.safetensors",
+    "name": "quant_model_weights-00034-of-00181.safetensors",
+    "size_bytes": 4287588336,
+    "mtime_ns": 1787761203444029278,
+    "header_sha256": "65baa8e46746b40c8c14ff097afa773ed1826c341617904dd2c5d8917e49f9ea",
+    "header_length": 124904,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00035-of-00181.safetensors",
+    "name": "quant_model_weights-00035-of-00181.safetensors",
+    "size_bytes": 4291929776,
+    "mtime_ns": 1787762470414683963,
+    "header_sha256": "7ad2784d9a21beca79ebf02532423c19f17b9c6bbe6fb7a75ae4ca4693e7ec17",
+    "header_length": 124032,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00036-of-00181.safetensors",
+    "name": "quant_model_weights-00036-of-00181.safetensors",
+    "size_bytes": 4287620720,
+    "mtime_ns": 1787761736730216631,
+    "header_sha256": "882454f0a9535a523afa0d061c1b6ac4658dcf6b043764d6367bb911f093c166",
+    "header_length": 124520,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00037-of-00181.safetensors",
+    "name": "quant_model_weights-00037-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787765344043672864,
+    "header_sha256": "05848752554f6d6bc7b48123652a33a1053fb446d08260d0a4b31c276086699f",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00038-of-00181.safetensors",
+    "name": "quant_model_weights-00038-of-00181.safetensors",
+    "size_bytes": 4294171904,
+    "mtime_ns": 1787765713115887585,
+    "header_sha256": "cbbaba99f6cdeb061fa85f49fd53463e07aae1ccc0d2b96475cf5a75ed9d90dc",
+    "header_length": 122584,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00039-of-00181.safetensors",
+    "name": "quant_model_weights-00039-of-00181.safetensors",
+    "size_bytes": 4287588720,
+    "mtime_ns": 1787765013255921796,
+    "header_sha256": "92f35f96d87bb49bb8278b458a8836001c392d9853bce451ccb9a8be24fc5aaf",
+    "header_length": 125288,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00040-of-00181.safetensors",
+    "name": "quant_model_weights-00040-of-00181.safetensors",
+    "size_bytes": 4294172216,
+    "mtime_ns": 1787765702643768603,
+    "header_sha256": "8d9806ea9a59f9a90d21f4c2be441d8ab0d1c47922e51e560068e116837b22b5",
+    "header_length": 122896,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00041-of-00181.safetensors",
+    "name": "quant_model_weights-00041-of-00181.safetensors",
+    "size_bytes": 4287588408,
+    "mtime_ns": 1787766168444635537,
+    "header_sha256": "81dded42c8e0060a627b048c533917820f546b1d9e291ffc8345cd6eaa8a4292",
+    "header_length": 124976,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00042-of-00181.safetensors",
+    "name": "quant_model_weights-00042-of-00181.safetensors",
+    "size_bytes": 4294172536,
+    "mtime_ns": 1787767596456874491,
+    "header_sha256": "1c77c54371e16982d2c1e668ea781ba82092e384cc7a1a771518c3dc295fc83c",
+    "header_length": 123216,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00043-of-00181.safetensors",
+    "name": "quant_model_weights-00043-of-00181.safetensors",
+    "size_bytes": 4287588080,
+    "mtime_ns": 1787766388807044224,
+    "header_sha256": "cd90f24cbdaad34e68216fde6c6ff5d193e48adf15f99be1e803721492e2bef2",
+    "header_length": 124648,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00044-of-00181.safetensors",
+    "name": "quant_model_weights-00044-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787767832291567007,
+    "header_sha256": "1b8f625762b744c8dc0fc2f89e865f730a0498c410e61aa8b8b5b0ca24c4b8e8",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00045-of-00181.safetensors",
+    "name": "quant_model_weights-00045-of-00181.safetensors",
+    "size_bytes": 4291961704,
+    "mtime_ns": 1787771952063067035,
+    "header_sha256": "19ad33d6a6b4282c50c4604565e9fe5fb6c6f59544c5aad1fc04db7f02de77d7",
+    "header_length": 123192,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00046-of-00181.safetensors",
+    "name": "quant_model_weights-00046-of-00181.safetensors",
+    "size_bytes": 4287588792,
+    "mtime_ns": 1787771557942588919,
+    "header_sha256": "88fb169193294da6f761d18a5c3bf528e945fe0ef1bd39315d87769f00442a8f",
+    "header_length": 125360,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00047-of-00181.safetensors",
+    "name": "quant_model_weights-00047-of-00181.safetensors",
+    "size_bytes": 4294172144,
+    "mtime_ns": 1787772674491265969,
+    "header_sha256": "7dd1e100176356b401c4b3d197fb199e0bfc61f1a2cb16aac12a3100cd39a766",
+    "header_length": 122824,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00048-of-00181.safetensors",
+    "name": "quant_model_weights-00048-of-00181.safetensors",
+    "size_bytes": 4287588480,
+    "mtime_ns": 1787772268934656959,
+    "header_sha256": "f92a99a14035de82ea9df6f716544bcbfbda7029f4f63f7b816e4fa6b13b886d",
+    "header_length": 125048,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00049-of-00181.safetensors",
+    "name": "quant_model_weights-00049-of-00181.safetensors",
+    "size_bytes": 4294172464,
+    "mtime_ns": 1787771038932672309,
+    "header_sha256": "5a9df5929fb56b2280817bcb513010b52b1484d2f6fb6baf9c5647c396e48712",
+    "header_length": 123144,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00050-of-00181.safetensors",
+    "name": "quant_model_weights-00050-of-00181.safetensors",
+    "size_bytes": 4287588168,
+    "mtime_ns": 1787772447516682314,
+    "header_sha256": "2679b15c8a5662f75a41fafdaa9c92a26714bef8daf05b52c2f02cc21f41e210",
+    "header_length": 124736,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00051-of-00181.safetensors",
+    "name": "quant_model_weights-00051-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787774069463085327,
+    "header_sha256": "00b40662e5a5480bb782d876d9614ecc19fd42ec140a717c3d8511c2158edaa3",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00052-of-00181.safetensors",
+    "name": "quant_model_weights-00052-of-00181.safetensors",
+    "size_bytes": 4294171752,
+    "mtime_ns": 1787772728035875754,
+    "header_sha256": "2e96ddec492608d48785bfe5f6c93efecd21d4dc59ce2d5cbe08e12eb6201f57",
+    "header_length": 122432,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00053-of-00181.safetensors",
+    "name": "quant_model_weights-00053-of-00181.safetensors",
+    "size_bytes": 4287588880,
+    "mtime_ns": 1787775967004858991,
+    "header_sha256": "8c2e4c13e95a3b7782fd25a2f57bd7b56b8557a2710dbc65f5745a53285cdfa6",
+    "header_length": 125448,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00054-of-00181.safetensors",
+    "name": "quant_model_weights-00054-of-00181.safetensors",
+    "size_bytes": 4291961952,
+    "mtime_ns": 1787776715093588886,
+    "header_sha256": "8625310b9d2d85f70ea3d237324d92714811409d260afe49540cd906f0c7313d",
+    "header_length": 123440,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00055-of-00181.safetensors",
+    "name": "quant_model_weights-00055-of-00181.safetensors",
+    "size_bytes": 4287588552,
+    "mtime_ns": 1787777049513405577,
+    "header_sha256": "872717bf5cb230834cd69f4db3d9695a9fe0ce86d99001566aa03ebb60342fc9",
+    "header_length": 125120,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00056-of-00181.safetensors",
+    "name": "quant_model_weights-00056-of-00181.safetensors",
+    "size_bytes": 4294172392,
+    "mtime_ns": 1787779007091769774,
+    "header_sha256": "c4900bd18a511f1f0fbf187400fbb4077bca1169569e7a2a4a13e2956583817a",
+    "header_length": 123072,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00057-of-00181.safetensors",
+    "name": "quant_model_weights-00057-of-00181.safetensors",
+    "size_bytes": 4287588240,
+    "mtime_ns": 1787778642679547079,
+    "header_sha256": "a5028887845e7dabf5445c23dae4eb165479b0497ebda19a7d4176438f87232c",
+    "header_length": 124808,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00058-of-00181.safetensors",
+    "name": "quant_model_weights-00058-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787779913058129002,
+    "header_sha256": "5d79563a9dc9ce8d8d66e68a0aefb6e47a9551add4fc3b394b1efb7ce288cdb3",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00059-of-00181.safetensors",
+    "name": "quant_model_weights-00059-of-00181.safetensors",
+    "size_bytes": 4294171728,
+    "mtime_ns": 1787775996489218453,
+    "header_sha256": "265129c5eca25b5571e18981b7f164f5f90b4b8120cc5c3fc40f78e5234027f3",
+    "header_length": 122408,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00060-of-00181.safetensors",
+    "name": "quant_model_weights-00060-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787780895225566518,
+    "header_sha256": "b35ab4a55239f4eb04d1dbb1a0363076ff69e47cd09088dfb0074821a27d830d",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00061-of-00181.safetensors",
+    "name": "quant_model_weights-00061-of-00181.safetensors",
+    "size_bytes": 4294172000,
+    "mtime_ns": 1787779420216372083,
+    "header_sha256": "43a873361bca68a42fe86133c1e867ca37e55d90de343be5402c2893c31b6773",
+    "header_length": 122680,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00062-of-00181.safetensors",
+    "name": "quant_model_weights-00062-of-00181.safetensors",
+    "size_bytes": 4287588632,
+    "mtime_ns": 1787782704513816975,
+    "header_sha256": "dcf1bb021b96d55917e8f96a14989bc235e7ea1aaaab498ed94dc39494aed0db",
+    "header_length": 125200,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00063-of-00181.safetensors",
+    "name": "quant_model_weights-00063-of-00181.safetensors",
+    "size_bytes": 4291962192,
+    "mtime_ns": 1787782065670454449,
+    "header_sha256": "f92375a5925f7a796d82db0cb804084cdc6237ef11eca9e06b6d2d2e1c2f04c5",
+    "header_length": 123680,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00064-of-00181.safetensors",
+    "name": "quant_model_weights-00064-of-00181.safetensors",
+    "size_bytes": 4287588312,
+    "mtime_ns": 1787783641952641925,
+    "header_sha256": "be2939125722d14f66b3d8774e41ad86c837c7f5fa1d7b119f6ab4b3cc622a21",
+    "header_length": 124880,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00065-of-00181.safetensors",
+    "name": "quant_model_weights-00065-of-00181.safetensors",
+    "size_bytes": 4202912400,
+    "mtime_ns": 1787782289481091415,
+    "header_sha256": "d6bd6da5e1b77438e65bae1710ea9986fd0bb203d927420fd26e6468c62fb0c4",
+    "header_length": 122992,
+    "tensor_count": 1001,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00066-of-00181.safetensors",
+    "name": "quant_model_weights-00066-of-00181.safetensors",
+    "size_bytes": 4290585032,
+    "mtime_ns": 1787784240855594929,
+    "header_sha256": "67c8e589b4366e7a573628bb64b3b069f5f23119e10fcd36efa8f188b2f13801",
+    "header_length": 122296,
+    "tensor_count": 1003,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00067-of-00181.safetensors",
+    "name": "quant_model_weights-00067-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787784188670967992,
+    "header_sha256": "0960f4d67f871be5bfdaa9440adec5169018c7d56ea25911c1c4f49d4f37837b",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00068-of-00181.safetensors",
+    "name": "quant_model_weights-00068-of-00181.safetensors",
+    "size_bytes": 4294171952,
+    "mtime_ns": 1787785864822196168,
+    "header_sha256": "b36a0e4dce22dfcb2221d596c23f7e57d7728b014889f10b8c8dc5c680b81c8d",
+    "header_length": 122632,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00069-of-00181.safetensors",
+    "name": "quant_model_weights-00069-of-00181.safetensors",
+    "size_bytes": 4287588680,
+    "mtime_ns": 1787785461529601846,
+    "header_sha256": "9804f9ef4bb8e2c5a018053a04b8b7140c7919d7d747e787e30db37dfa6f4ba2",
+    "header_length": 125248,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00070-of-00181.safetensors",
+    "name": "quant_model_weights-00070-of-00181.safetensors",
+    "size_bytes": 4294172264,
+    "mtime_ns": 1787788872288774119,
+    "header_sha256": "8a5c981fd943b0cff2e3dd63b15d31b7928e13cb4ea8ca45ef3269ad2ad0d8f3",
+    "header_length": 122944,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00071-of-00181.safetensors",
+    "name": "quant_model_weights-00071-of-00181.safetensors",
+    "size_bytes": 4287588360,
+    "mtime_ns": 1787787677843133052,
+    "header_sha256": "dc4ed91b0ed97d33d85d91b9eba00a77773b692659fbcf8c44d566e5d3de613e",
+    "header_length": 124928,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00072-of-00181.safetensors",
+    "name": "quant_model_weights-00072-of-00181.safetensors",
+    "size_bytes": 4291929728,
+    "mtime_ns": 1787788407019458777,
+    "header_sha256": "a6c4f276d7a9fa57053a4fbce4d561aba040f8d03974b2976986e94d0cc6bf1d",
+    "header_length": 123984,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00073-of-00181.safetensors",
+    "name": "quant_model_weights-00073-of-00181.safetensors",
+    "size_bytes": 4287620776,
+    "mtime_ns": 1787790879403707671,
+    "header_sha256": "0ad5254e30b941aab8aebcb2235161408eb0118614e085420aaa9380760e5a7c",
+    "header_length": 124576,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00074-of-00181.safetensors",
+    "name": "quant_model_weights-00074-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787789211220521895,
+    "header_sha256": "8c58d68123ed928ee1f5e81c145380d15ffaa1c48b54780e02f6a99f5d046a81",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00075-of-00181.safetensors",
+    "name": "quant_model_weights-00075-of-00181.safetensors",
+    "size_bytes": 4294171880,
+    "mtime_ns": 1787788882888894566,
+    "header_sha256": "d9327fe3832e124bac0e2374fb92639a83f7b3defa205fc95440fdb72481f17d",
+    "header_length": 122560,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00076-of-00181.safetensors",
+    "name": "quant_model_weights-00076-of-00181.safetensors",
+    "size_bytes": 4287588752,
+    "mtime_ns": 1787790541323631171,
+    "header_sha256": "5d81674f9b3704ee4ab0713875643514dca2ddfb64d3aba41ec70366ca859ecf",
+    "header_length": 125320,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00077-of-00181.safetensors",
+    "name": "quant_model_weights-00077-of-00181.safetensors",
+    "size_bytes": 4294172192,
+    "mtime_ns": 1787792499986343936,
+    "header_sha256": "ef7a16b670572388d2a63442a780d00d83d2fc613f6b7c063903a8aa352b980d",
+    "header_length": 122872,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00078-of-00181.safetensors",
+    "name": "quant_model_weights-00078-of-00181.safetensors",
+    "size_bytes": 4287588432,
+    "mtime_ns": 1787792387249008314,
+    "header_sha256": "59049452de3cc812c2387b17c3233e5758aaf33f30ebd307fe2e779873f46afc",
+    "header_length": 125000,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00079-of-00181.safetensors",
+    "name": "quant_model_weights-00079-of-00181.safetensors",
+    "size_bytes": 4294172504,
+    "mtime_ns": 1787792899330776569,
+    "header_sha256": "09d1a0c4707cbe4cc8ad4962834d5557ba59842f25c72c0a21975ea512fa573e",
+    "header_length": 123184,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00080-of-00181.safetensors",
+    "name": "quant_model_weights-00080-of-00181.safetensors",
+    "size_bytes": 4287588120,
+    "mtime_ns": 1787794421699695699,
+    "header_sha256": "58a97ffc369697e9cae468e8e2a71c1884b484d68029f81593e2c2fad017aa4e",
+    "header_length": 124688,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00081-of-00181.safetensors",
+    "name": "quant_model_weights-00081-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787794575141401390,
+    "header_sha256": "ece7fb72e777a1b2cad8240cb1375213f7d0836ff383bf45f3fa31a3715acba8",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00082-of-00181.safetensors",
+    "name": "quant_model_weights-00082-of-00181.safetensors",
+    "size_bytes": 4291961680,
+    "mtime_ns": 1787796942280242642,
+    "header_sha256": "57177e3a9a43f6d00c550e418c46ddd0e2fd1df09b604d3debcc5ca1580e133c",
+    "header_length": 123168,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00083-of-00181.safetensors",
+    "name": "quant_model_weights-00083-of-00181.safetensors",
+    "size_bytes": 4287588824,
+    "mtime_ns": 1787795328705916974,
+    "header_sha256": "d727bfd99bfe1e15dbe86154cd8080eeee19aa67601c3bc70e7f84c40af3a7a1",
+    "header_length": 125392,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00084-of-00181.safetensors",
+    "name": "quant_model_weights-00084-of-00181.safetensors",
+    "size_bytes": 4294172120,
+    "mtime_ns": 1787796960980452267,
+    "header_sha256": "32235725676285d17762990077804151ae612efa07a1176c90aaf30523890c58",
+    "header_length": 122800,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00085-of-00181.safetensors",
+    "name": "quant_model_weights-00085-of-00181.safetensors",
+    "size_bytes": 4287588504,
+    "mtime_ns": 1787792678016317087,
+    "header_sha256": "24d98b9c2dc860b1e98e88f1362520b768f43d6678583292015bdfa840d3db53",
+    "header_length": 125072,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00086-of-00181.safetensors",
+    "name": "quant_model_weights-00086-of-00181.safetensors",
+    "size_bytes": 4294172432,
+    "mtime_ns": 1787800564557504540,
+    "header_sha256": "90f81988337833439abe4e3206c7be6184b01d2b53e1f347a0bcc82113f52710",
+    "header_length": 123112,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00087-of-00181.safetensors",
+    "name": "quant_model_weights-00087-of-00181.safetensors",
+    "size_bytes": 4287588192,
+    "mtime_ns": 1787797338872748300,
+    "header_sha256": "c62342fc8f0717f19826a587ca95873d2089c3a0d9a234a0320bb27bb11d20ba",
+    "header_length": 124760,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00088-of-00181.safetensors",
+    "name": "quant_model_weights-00088-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787797521630830358,
+    "header_sha256": "7f7a67fd02fb7dc0ecc2e5b80f288a887b4dd9efd58f7b78889edf879aac8877",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00089-of-00181.safetensors",
+    "name": "quant_model_weights-00089-of-00181.safetensors",
+    "size_bytes": 4294171728,
+    "mtime_ns": 1787799285158888106,
+    "header_sha256": "8f281859edfed98bc6a3e2c21c98ba3d4298566e05e8983b9f4d843fa9c36911",
+    "header_length": 122408,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00090-of-00181.safetensors",
+    "name": "quant_model_weights-00090-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787800041127545197,
+    "header_sha256": "3376701c4441a3e695670ca210b5bd661b9484ac9489e800f0f7a93340d311cf",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00091-of-00181.safetensors",
+    "name": "quant_model_weights-00091-of-00181.safetensors",
+    "size_bytes": 4291961920,
+    "mtime_ns": 1787800158108900624,
+    "header_sha256": "68a45e5587ee6463e714ad9c8ab79dc85228aa9cb97190d0713019aec6ccfe81",
+    "header_length": 123408,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00092-of-00181.safetensors",
+    "name": "quant_model_weights-00092-of-00181.safetensors",
+    "size_bytes": 4287588576,
+    "mtime_ns": 1787829413702587586,
+    "header_sha256": "04eb73101db3da3346e081738a35ed09ff29ff1a885ae619abd3709207239f47",
+    "header_length": 125144,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00093-of-00181.safetensors",
+    "name": "quant_model_weights-00093-of-00181.safetensors",
+    "size_bytes": 4294172360,
+    "mtime_ns": 1787802560376370112,
+    "header_sha256": "52f198a7cd098b84441f75de0c90ccaad7f75775fbb2b10f7131c0ea1988c13f",
+    "header_length": 123040,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00094-of-00181.safetensors",
+    "name": "quant_model_weights-00094-of-00181.safetensors",
+    "size_bytes": 4287588264,
+    "mtime_ns": 1787801826463960990,
+    "header_sha256": "8cae36828f1e36d09a5e8d4f6eed48aa248916c772fc8cbaf31af5c6f8a788ff",
+    "header_length": 124832,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00095-of-00181.safetensors",
+    "name": "quant_model_weights-00095-of-00181.safetensors",
+    "size_bytes": 4287588912,
+    "mtime_ns": 1787808950524512019,
+    "header_sha256": "2d48ef7ff7098263eb053b947554df6e2fa81b9a68c8615040877e63d62889a8",
+    "header_length": 125480,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00096-of-00181.safetensors",
+    "name": "quant_model_weights-00096-of-00181.safetensors",
+    "size_bytes": 4294171720,
+    "mtime_ns": 1787805213110424682,
+    "header_sha256": "17188a7244b664697a27c9491e49aaac68f5dac9b85c04590fd7cf4678f6d18d",
+    "header_length": 122400,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00097-of-00181.safetensors",
+    "name": "quant_model_weights-00097-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787804112797889811,
+    "header_sha256": "5eb6a09e0a3255be125a79c9690f891db4443cbc3199483fdf86c257c619fb8b",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00098-of-00181.safetensors",
+    "name": "quant_model_weights-00098-of-00181.safetensors",
+    "size_bytes": 4294171968,
+    "mtime_ns": 1787804833837993261,
+    "header_sha256": "a01bc732caf2e494ceb7211ab75f2507f65baa8ef872a5ddcc719406637977e9",
+    "header_length": 122648,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00099-of-00181.safetensors",
+    "name": "quant_model_weights-00099-of-00181.safetensors",
+    "size_bytes": 4287588664,
+    "mtime_ns": 1787804509450332062,
+    "header_sha256": "7e3868185047ffc98c1e77ebf5301b8c9bde8291ec4b336037e16a241e44b409",
+    "header_length": 125232,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00100-of-00181.safetensors",
+    "name": "quant_model_weights-00100-of-00181.safetensors",
+    "size_bytes": 4291962168,
+    "mtime_ns": 1787808785330663705,
+    "header_sha256": "39b8f1e9e7f9300f4f7f3260b726c942f929fbd48f18c9a89dd32b73cc589990",
+    "header_length": 123656,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00101-of-00181.safetensors",
+    "name": "quant_model_weights-00101-of-00181.safetensors",
+    "size_bytes": 4287588336,
+    "mtime_ns": 1787806087932469511,
+    "header_sha256": "ae0e787cd28baca8007d58d7533444e062dcf0b3454fb0b3e61962e1e3f6e7a2",
+    "header_length": 124904,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00102-of-00181.safetensors",
+    "name": "quant_model_weights-00102-of-00181.safetensors",
+    "size_bytes": 4294172672,
+    "mtime_ns": 1787808890411811507,
+    "header_sha256": "1833c76520ac5a05508cd2c35f2252a9bed8dcca6698b5b2b2308a702999e7bd",
+    "header_length": 123352,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00103-of-00181.safetensors",
+    "name": "quant_model_weights-00103-of-00181.safetensors",
+    "size_bytes": 4287587952,
+    "mtime_ns": 1787810580443107556,
+    "header_sha256": "03818ff9b27b85276b9558ac0c1d446df7b78add85cacf457bb044eba11a6b69",
+    "header_length": 124520,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00104-of-00181.safetensors",
+    "name": "quant_model_weights-00104-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787809831450596905,
+    "header_sha256": "3d8e32c37df3102e4214555a5746c610594b49e172bc0f8bfa0de7aeafeaa051",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00105-of-00181.safetensors",
+    "name": "quant_model_weights-00105-of-00181.safetensors",
+    "size_bytes": 4294171896,
+    "mtime_ns": 1787810211958915150,
+    "header_sha256": "c11457ef837eae51df4f9a95ae33ea3679ba14283d2da08ebae34cc7310c53fd",
+    "header_length": 122576,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00106-of-00181.safetensors",
+    "name": "quant_model_weights-00106-of-00181.safetensors",
+    "size_bytes": 4287588736,
+    "mtime_ns": 1787811328027501636,
+    "header_sha256": "01918cebf707459fad93a61b9f01a372a2fa5febdc719404e51e15c522d2aa02",
+    "header_length": 125304,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00107-of-00181.safetensors",
+    "name": "quant_model_weights-00107-of-00181.safetensors",
+    "size_bytes": 4294172216,
+    "mtime_ns": 1787814120251246809,
+    "header_sha256": "05e2ede52df369005fe97450335cffcf46064b40a8fe65eefee811e857bb9c8f",
+    "header_length": 122896,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00108-of-00181.safetensors",
+    "name": "quant_model_weights-00108-of-00181.safetensors",
+    "size_bytes": 4287588416,
+    "mtime_ns": 1787814749238260154,
+    "header_sha256": "633cf9d9829727a78cdb0b36edbda12a7e5955bb6d97fd5378b0353b75eaa4e8",
+    "header_length": 124984,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00109-of-00181.safetensors",
+    "name": "quant_model_weights-00109-of-00181.safetensors",
+    "size_bytes": 4291962408,
+    "mtime_ns": 1787813930425326524,
+    "header_sha256": "04d4c68bf318c651ee3621ed840d8f0dd7fbd2c149557030619951cec1aae19c",
+    "header_length": 123896,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00110-of-00181.safetensors",
+    "name": "quant_model_weights-00110-of-00181.safetensors",
+    "size_bytes": 4287588080,
+    "mtime_ns": 1787816528686656137,
+    "header_sha256": "07e690e881dadb71d5e850a272e518c77e41c389de4afe19e6f2232b56da05d8",
+    "header_length": 124648,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00111-of-00181.safetensors",
+    "name": "quant_model_weights-00111-of-00181.safetensors",
+    "size_bytes": 4287588904,
+    "mtime_ns": 1787829472427274313,
+    "header_sha256": "463cadf59a16e595f8d0f6ff5fb7e4d50c250c49733aae53ed9ddc70cb1efb5a",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00112-of-00181.safetensors",
+    "name": "quant_model_weights-00112-of-00181.safetensors",
+    "size_bytes": 4294171824,
+    "mtime_ns": 1787816312336091719,
+    "header_sha256": "b777efec1e1ec5ca6146f30374d7d8d17f80dfcd818e0419adb6f964bcb26d84",
+    "header_length": 122504,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00113-of-00181.safetensors",
+    "name": "quant_model_weights-00113-of-00181.safetensors",
+    "size_bytes": 4287588808,
+    "mtime_ns": 1787815882547172745,
+    "header_sha256": "78ec9221d943443717108e6dbb8867d41ba2bfe014d0e38ccd0c063ba5b8cde6",
+    "header_length": 125376,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00114-of-00181.safetensors",
+    "name": "quant_model_weights-00114-of-00181.safetensors",
+    "size_bytes": 4294172144,
+    "mtime_ns": 1787832405912358570,
+    "header_sha256": "09e034cee0e0bdd1b5147d1f8c8b43a416872a076581da6bd69ea94b1d9bb16b",
+    "header_length": 122824,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00115-of-00181.safetensors",
+    "name": "quant_model_weights-00115-of-00181.safetensors",
+    "size_bytes": 4287588488,
+    "mtime_ns": 1787832107853010786,
+    "header_sha256": "7ed0126d044e90e9c02895535fdc03fb4d55679c83c70579128f5c69ce11f949",
+    "header_length": 125056,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00116-of-00181.safetensors",
+    "name": "quant_model_weights-00116-of-00181.safetensors",
+    "size_bytes": 4294172456,
+    "mtime_ns": 1787840391707903246,
+    "header_sha256": "0293ae226b2d5b4d143b677a0e7cc166571be3533982c19c075c70663bfcd7e8",
+    "header_length": 123136,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00117-of-00181.safetensors",
+    "name": "quant_model_weights-00117-of-00181.safetensors",
+    "size_bytes": 4287588176,
+    "mtime_ns": 1787833140141005256,
+    "header_sha256": "1b6fe36faa6e8ae8b0deab227de75b799945768fc571679b12556ed7cdd2ae1e",
+    "header_length": 124744,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00118-of-00181.safetensors",
+    "name": "quant_model_weights-00118-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787834332838541894,
+    "header_sha256": "eebecb3a8f9d069888b20785c9b9c89e8339278a77551879b08b688fa3cb208e",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00119-of-00181.safetensors",
+    "name": "quant_model_weights-00119-of-00181.safetensors",
+    "size_bytes": 4291928856,
+    "mtime_ns": 1787834225633315504,
+    "header_sha256": "5af4799c695614aec612f52dedc95f133461a2ceb4e1041e72333ef0e30f55a4",
+    "header_length": 123112,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00120-of-00181.safetensors",
+    "name": "quant_model_weights-00120-of-00181.safetensors",
+    "size_bytes": 4287588880,
+    "mtime_ns": 1787835535116346572,
+    "header_sha256": "633efae3b03dd0185c3e75629a949787834c639a19fd241e2cca87da10a4c20e",
+    "header_length": 125448,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00121-of-00181.safetensors",
+    "name": "quant_model_weights-00121-of-00181.safetensors",
+    "size_bytes": 4294172072,
+    "mtime_ns": 1787834737675152820,
+    "header_sha256": "d77120feafc843504d890337b648ec2f25239015059234cd8ba88b9dd2c49c50",
+    "header_length": 122752,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00122-of-00181.safetensors",
+    "name": "quant_model_weights-00122-of-00181.safetensors",
+    "size_bytes": 4287588560,
+    "mtime_ns": 1787836521999623518,
+    "header_sha256": "37b1e09322cdae34d820f8d1362094fc5cb28323ab11714de8d7a8f5443549d2",
+    "header_length": 125128,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00123-of-00181.safetensors",
+    "name": "quant_model_weights-00123-of-00181.safetensors",
+    "size_bytes": 4294172384,
+    "mtime_ns": 1787838075057448461,
+    "header_sha256": "6bf5c566eccf5225bac6a9ec4ae08ae71622aa6413334d9efb001b11fa8f35de",
+    "header_length": 123064,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00124-of-00181.safetensors",
+    "name": "quant_model_weights-00124-of-00181.safetensors",
+    "size_bytes": 4287588248,
+    "mtime_ns": 1787837650040554333,
+    "header_sha256": "d1c5497bd1edb93f0bc7e10d523dd4fdb512ed262360faba4283d0f45893b183",
+    "header_length": 124816,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00125-of-00181.safetensors",
+    "name": "quant_model_weights-00125-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787841061467463677,
+    "header_sha256": "e68f9043d4effe221127b57da64ac0b30e71b5da3609dcd56759b5685888a56d",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00126-of-00181.safetensors",
+    "name": "quant_model_weights-00126-of-00181.safetensors",
+    "size_bytes": 4294138960,
+    "mtime_ns": 1787839141441730048,
+    "header_sha256": "86db49c6d08c9f9c4ccf7d14de79838159380ec9d3b75b1f398c3cbc806ec2fc",
+    "header_length": 122408,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00127-of-00181.safetensors",
+    "name": "quant_model_weights-00127-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787840466188728418,
+    "header_sha256": "0414b07273040b6e7ede80d6eaf83d86e6964130b8150998479357ffb8d537ef",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00128-of-00181.safetensors",
+    "name": "quant_model_weights-00128-of-00181.safetensors",
+    "size_bytes": 4291929096,
+    "mtime_ns": 1787840413796147962,
+    "header_sha256": "5e067f8bf8336702e038351795c6043d748119743af97c4655cd5025b02e5ffb",
+    "header_length": 123352,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00129-of-00181.safetensors",
+    "name": "quant_model_weights-00129-of-00181.safetensors",
+    "size_bytes": 4287588632,
+    "mtime_ns": 1787842364153571414,
+    "header_sha256": "5262dd50a394be34341e2927898e41494dc99911375b5b163e679bd39f38f932",
+    "header_length": 125200,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00130-of-00181.safetensors",
+    "name": "quant_model_weights-00130-of-00181.safetensors",
+    "size_bytes": 4294172312,
+    "mtime_ns": 1787842271584525364,
+    "header_sha256": "fca9a14959e589c00bc2d525d1a1dd506a8ce26b391b807d494b9b4bee591c34",
+    "header_length": 122992,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00131-of-00181.safetensors",
+    "name": "quant_model_weights-00131-of-00181.safetensors",
+    "size_bytes": 4287588320,
+    "mtime_ns": 1787843839770319223,
+    "header_sha256": "dfe2994081cac3356d6e433231af632f8c1d7ae155f921c189e7a00fb566f7e5",
+    "header_length": 124888,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00132-of-00181.safetensors",
+    "name": "quant_model_weights-00132-of-00181.safetensors",
+    "size_bytes": 4294172720,
+    "mtime_ns": 1787849329532770835,
+    "header_sha256": "9c80bbce1ceef4a1392a3f4b2410247937b6b17702f38b916bd5ffc307551622",
+    "header_length": 123400,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00133-of-00181.safetensors",
+    "name": "quant_model_weights-00133-of-00181.safetensors",
+    "size_bytes": 4287587912,
+    "mtime_ns": 1787845974435140718,
+    "header_sha256": "08b25c44b91ef73ec74e66879e87596dafb7ab460f4081b07b5f75aa9c735d04",
+    "header_length": 124480,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00134-of-00181.safetensors",
+    "name": "quant_model_weights-00134-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787845686343778362,
+    "header_sha256": "2e308cd9b22ac6813f2ec4746cbcc74257758e171f5b26af1e3a91314077be13",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00135-of-00181.safetensors",
+    "name": "quant_model_weights-00135-of-00181.safetensors",
+    "size_bytes": 4294139152,
+    "mtime_ns": 1787847092087934985,
+    "header_sha256": "18dc9e5ae4ef21ccba2f443a3d9a724de09892940ef726f1f3249192a89f6279",
+    "header_length": 122600,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00136-of-00181.safetensors",
+    "name": "quant_model_weights-00136-of-00181.safetensors",
+    "size_bytes": 4287621480,
+    "mtime_ns": 1787853464099858487,
+    "header_sha256": "d4294ba8bd2ce00e9fd19e48cda06508c76ec4ee40f07e15f0926c7dac7ca0c2",
+    "header_length": 125280,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00137-of-00181.safetensors",
+    "name": "quant_model_weights-00137-of-00181.safetensors",
+    "size_bytes": 4291929336,
+    "mtime_ns": 1787848476543081106,
+    "header_sha256": "cab0a95d366e22f23c1f9a1b751e5a4a80b4bf657f01c95024cc50fe5bdb1606",
+    "header_length": 123592,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00138-of-00181.safetensors",
+    "name": "quant_model_weights-00138-of-00181.safetensors",
+    "size_bytes": 4287588392,
+    "mtime_ns": 1787845775556820395,
+    "header_sha256": "4c95325760936a605bda4ad74ec93aca17cb109031d74f3b64fe89746f3e3c9e",
+    "header_length": 124960,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00139-of-00181.safetensors",
+    "name": "quant_model_weights-00139-of-00181.safetensors",
+    "size_bytes": 4294172576,
+    "mtime_ns": 1787850564474804219,
+    "header_sha256": "acc273ac2ae579b60f5083de0c6d6dc56c0e036d50b8c6720e46d804ae5f2fc5",
+    "header_length": 123256,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00140-of-00181.safetensors",
+    "name": "quant_model_weights-00140-of-00181.safetensors",
+    "size_bytes": 4287588056,
+    "mtime_ns": 1787849790458242690,
+    "header_sha256": "a47d3a218c57a351eaf60c456277dec52bf9c7912a8e7779490e60d32e5c0c50",
+    "header_length": 124624,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00141-of-00181.safetensors",
+    "name": "quant_model_weights-00141-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787850903242654542,
+    "header_sha256": "78e95ca77f323670cedccb1461aa20b6f6a8c0a7a6bf0c7ed3038782f95e8583",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00142-of-00181.safetensors",
+    "name": "quant_model_weights-00142-of-00181.safetensors",
+    "size_bytes": 4294139080,
+    "mtime_ns": 1787859143028444784,
+    "header_sha256": "0f4cd07134b5e8d69a5c6022afecb27ad42350c2bbc28c4b37e63383eb515a47",
+    "header_length": 122528,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00143-of-00181.safetensors",
+    "name": "quant_model_weights-00143-of-00181.safetensors",
+    "size_bytes": 4287621552,
+    "mtime_ns": 1787850106661732328,
+    "header_sha256": "baae5c31680c57fa2adbe86ac4539e5252120c48e8be12995bb05c0dff42b1e5",
+    "header_length": 125352,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00144-of-00181.safetensors",
+    "name": "quant_model_weights-00144-of-00181.safetensors",
+    "size_bytes": 4294139392,
+    "mtime_ns": 1787853859464389436,
+    "header_sha256": "558e1154848307f1a27ffb8adcdcc70137c3940590ee5cd6db0ea7f6861b0c2a",
+    "header_length": 122840,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00145-of-00181.safetensors",
+    "name": "quant_model_weights-00145-of-00181.safetensors",
+    "size_bytes": 4287621232,
+    "mtime_ns": 1787861580820116415,
+    "header_sha256": "e99498a52459d04f3a15e13caa3910a6c63ac6edaa905a9991f57ffaa52962ba",
+    "header_length": 125032,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00146-of-00181.safetensors",
+    "name": "quant_model_weights-00146-of-00181.safetensors",
+    "size_bytes": 4291929584,
+    "mtime_ns": 1787855762889829381,
+    "header_sha256": "9faabbe36d28a5fb02a2c8928d0d1e5378e8b357fcae058974ed5834caeeb6ec",
+    "header_length": 123840,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00147-of-00181.safetensors",
+    "name": "quant_model_weights-00147-of-00181.safetensors",
+    "size_bytes": 4287588144,
+    "mtime_ns": 1787855059301765197,
+    "header_sha256": "d42a09ac0c1aebb08b7dc5f5d88b2477fc9c2ddbb36696b2fcfbf6d5a03ec83d",
+    "header_length": 124712,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00148-of-00181.safetensors",
+    "name": "quant_model_weights-00148-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787855223319595235,
+    "header_sha256": "b6f6f90c98f69c473c589f0fdde8c8a996c5e073ed8ae1dc1be2e02b5e06136a",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00149-of-00181.safetensors",
+    "name": "quant_model_weights-00149-of-00181.safetensors",
+    "size_bytes": 4294139008,
+    "mtime_ns": 1787856008356757985,
+    "header_sha256": "0a28f1fa8a9dc620b0804694c00070dea8a2d6ea102c77a214975ebaccfb7280",
+    "header_length": 122456,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00150-of-00181.safetensors",
+    "name": "quant_model_weights-00150-of-00181.safetensors",
+    "size_bytes": 4287621624,
+    "mtime_ns": 1787857842045649958,
+    "header_sha256": "56d2c9bd03df7d984d3d4ede87b2dcb8b36eaa24ffae069f9316c0425e04eed2",
+    "header_length": 125424,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00151-of-00181.safetensors",
+    "name": "quant_model_weights-00151-of-00181.safetensors",
+    "size_bytes": 4294139320,
+    "mtime_ns": 1787860335741974995,
+    "header_sha256": "c9da04421a5013b689064700be60afaa8f300f255267fd7a0c0694c94f0ba1ee",
+    "header_length": 122768,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00152-of-00181.safetensors",
+    "name": "quant_model_weights-00152-of-00181.safetensors",
+    "size_bytes": 4287621304,
+    "mtime_ns": 1787859545921020784,
+    "header_sha256": "2d1e07f11fd08667e69fdbf4cdf44048d1a36ff728e86f6a4751e015a76bbe30",
+    "header_length": 125104,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00153-of-00181.safetensors",
+    "name": "quant_model_weights-00153-of-00181.safetensors",
+    "size_bytes": 4294139640,
+    "mtime_ns": 1787861368389706085,
+    "header_sha256": "1116ee5668e0ed92f723b79f599586241bcf258c08df7a09782275c3f22fd58e",
+    "header_length": 123088,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00154-of-00181.safetensors",
+    "name": "quant_model_weights-00154-of-00181.safetensors",
+    "size_bytes": 4287620992,
+    "mtime_ns": 1787860690210010751,
+    "header_sha256": "29716d372b6cd9dd64b11034217aa733af3c8484ab2f3bd25710cff4cac5ecae",
+    "header_length": 124792,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00155-of-00181.safetensors",
+    "name": "quant_model_weights-00155-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787861350813506651,
+    "header_sha256": "c2a2e76486740df572c86e7af3a05058e3295e807551313ad4f4d2172a1ebb0a",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00156-of-00181.safetensors",
+    "name": "quant_model_weights-00156-of-00181.safetensors",
+    "size_bytes": 4291928832,
+    "mtime_ns": 1787861064542258109,
+    "header_sha256": "20a40c381e736ec5bd67a0793ac76bddd7a5c4aee601af6d8d5b847e16758356",
+    "header_length": 123088,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00157-of-00181.safetensors",
+    "name": "quant_model_weights-00157-of-00181.safetensors",
+    "size_bytes": 4287621672,
+    "mtime_ns": 1787867492127134924,
+    "header_sha256": "4dc2257488b32f1e7e9c6cd52fd9def716eee18ce5e1294ac63dfc4607cf7002",
+    "header_length": 125472,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00158-of-00181.safetensors",
+    "name": "quant_model_weights-00158-of-00181.safetensors",
+    "size_bytes": 4294139248,
+    "mtime_ns": 1787865625897951828,
+    "header_sha256": "8b20e00d26fa51782b44b99f78e6abd4b592faf6cc7cd5ed5bbca3b87826ab49",
+    "header_length": 122696,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00159-of-00181.safetensors",
+    "name": "quant_model_weights-00159-of-00181.safetensors",
+    "size_bytes": 4287621376,
+    "mtime_ns": 1787866673981854069,
+    "header_sha256": "564956737c3433939d5a6c12854e806eb078a56a0ad13ac7d69cff00bdbdc3e7",
+    "header_length": 125176,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00160-of-00181.safetensors",
+    "name": "quant_model_weights-00160-of-00181.safetensors",
+    "size_bytes": 4294139568,
+    "mtime_ns": 1787866108903442887,
+    "header_sha256": "71c74d6f25fe62fdc750e777d926a32904445e2356f364a72c805ca1550de295",
+    "header_length": 123016,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00161-of-00181.safetensors",
+    "name": "quant_model_weights-00161-of-00181.safetensors",
+    "size_bytes": 4287621064,
+    "mtime_ns": 1787867301296970190,
+    "header_sha256": "78be012898b1012efc057068562738e91c7bfd39505feb74d867b72fe68934d4",
+    "header_length": 124864,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00162-of-00181.safetensors",
+    "name": "quant_model_weights-00162-of-00181.safetensors",
+    "size_bytes": 4291175600,
+    "mtime_ns": 1787867376717825747,
+    "header_sha256": "ef9f86db5e13395975e9db172445c4bbc1576ca8b64efe944ae253f46e172500",
+    "header_length": 125584,
+    "tensor_count": 1022,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00163-of-00181.safetensors",
+    "name": "quant_model_weights-00163-of-00181.safetensors",
+    "size_bytes": 4290585032,
+    "mtime_ns": 1787866551224461537,
+    "header_sha256": "32d51579d764dbe569ac8219a4e472fdacc1d93783b69a97695d057b06a0e97f",
+    "header_length": 122296,
+    "tensor_count": 1003,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00164-of-00181.safetensors",
+    "name": "quant_model_weights-00164-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787867094378622955,
+    "header_sha256": "e65e52c0cd1db78eafbf8c72a02e5d8f9c484603c05941608eb8fc1899b07acd",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00165-of-00181.safetensors",
+    "name": "quant_model_weights-00165-of-00181.safetensors",
+    "size_bytes": 4291929056,
+    "mtime_ns": 1787871662674685453,
+    "header_sha256": "ec0d256e8f296b1124e9a4b0919e381fd37a787781a2612ea42a74c255636d8c",
+    "header_length": 123312,
+    "tensor_count": 1011,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00166-of-00181.safetensors",
+    "name": "quant_model_weights-00166-of-00181.safetensors",
+    "size_bytes": 4287621448,
+    "mtime_ns": 1787872358826599201,
+    "header_sha256": "386c49e67e1c5d5b9f13d475104eb39cbbb80693e3c16b659abf5abc6615d8c8",
+    "header_length": 125248,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00167-of-00181.safetensors",
+    "name": "quant_model_weights-00167-of-00181.safetensors",
+    "size_bytes": 4294139496,
+    "mtime_ns": 1787871690230998164,
+    "header_sha256": "562a4427a4eb5c6289412c6d0d8cbb0e901425f3d5fceb9237107754b0046208",
+    "header_length": 122944,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00168-of-00181.safetensors",
+    "name": "quant_model_weights-00168-of-00181.safetensors",
+    "size_bytes": 4287621136,
+    "mtime_ns": 1787872129375990306,
+    "header_sha256": "1078768bdcef34a974e47577952d1fd4b01bcf2931bbbaa4a5a4b2bda0197e8e",
+    "header_length": 124936,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00169-of-00181.safetensors",
+    "name": "quant_model_weights-00169-of-00181.safetensors",
+    "size_bytes": 4294139848,
+    "mtime_ns": 1787872121759903727,
+    "header_sha256": "f36fd7202184e9d8143d8a062135b5705f939c4d2a9cb55e9d4ece9e41f73677",
+    "header_length": 123296,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00170-of-00181.safetensors",
+    "name": "quant_model_weights-00170-of-00181.safetensors",
+    "size_bytes": 4287620776,
+    "mtime_ns": 1787872958313421227,
+    "header_sha256": "48c2db0da63497ddbd6626ac42cef4e335f97102d43090842bdb6a249e0f4e16",
+    "header_length": 124576,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00171-of-00181.safetensors",
+    "name": "quant_model_weights-00171-of-00181.safetensors",
+    "size_bytes": 4287588888,
+    "mtime_ns": 1787872574577052525,
+    "header_sha256": "f10d09271b8372c86b4d0a717c80f5303b42a3fc717a75107d2f71023fe03a5c",
+    "header_length": 125456,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00172-of-00181.safetensors",
+    "name": "quant_model_weights-00172-of-00181.safetensors",
+    "size_bytes": 4294171880,
+    "mtime_ns": 1787891094975118982,
+    "header_sha256": "4e49a2f2ce2f44eebba28536ef168e25aa26e4f7bd3545a0834dd0bffa8840a0",
+    "header_length": 122560,
+    "tensor_count": 1005,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00173-of-00181.safetensors",
+    "name": "quant_model_weights-00173-of-00181.safetensors",
+    "size_bytes": 4287588752,
+    "mtime_ns": 1787875409569586173,
+    "header_sha256": "25abe650a23b7deca55c1c1df037fdd1e6476aea445a21718d2364d0ae70e143",
+    "header_length": 125320,
+    "tensor_count": 1020,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00174-of-00181.safetensors",
+    "name": "quant_model_weights-00174-of-00181.safetensors",
+    "size_bytes": 4282850016,
+    "mtime_ns": 1787876680064142066,
+    "header_sha256": "609c94278c6df399599c1a10dff8bbc751c0a207ef0d7a3ed3cf07354ec64d7e",
+    "header_length": 76504,
+    "tensor_count": 622,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00175-of-00181.safetensors",
+    "name": "quant_model_weights-00175-of-00181.safetensors",
+    "size_bytes": 4278211304,
+    "mtime_ns": 1787877339795674096,
+    "header_sha256": "2808edc21dc71ff1ffeb5f84d2bbcea611a545bde23f1561afc6db79651753f2",
+    "header_length": 21216,
+    "tensor_count": 170,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00176-of-00181.safetensors",
+    "name": "quant_model_weights-00176-of-00181.safetensors",
+    "size_bytes": 4278211408,
+    "mtime_ns": 1787877005615857628,
+    "header_sha256": "9e196b80acd51f4c9fffd221f1eb92073f2afa42283f3cf3dc6cb95642538f77",
+    "header_length": 21320,
+    "tensor_count": 170,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00177-of-00181.safetensors",
+    "name": "quant_model_weights-00177-of-00181.safetensors",
+    "size_bytes": 4278211472,
+    "mtime_ns": 1787878452668391553,
+    "header_sha256": "3d85750f277cb79c194dc1b6011e27b2ce42ae285b469156e12b3b953b217eab",
+    "header_length": 21384,
+    "tensor_count": 170,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00178-of-00181.safetensors",
+    "name": "quant_model_weights-00178-of-00181.safetensors",
+    "size_bytes": 4278211480,
+    "mtime_ns": 1787877267422847569,
+    "header_sha256": "afc47b345f703b52cc1dc78f5b78ace8b9e2bd0dc2cb4e37b0d16e369ae3f02a",
+    "header_length": 21392,
+    "tensor_count": 170,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00179-of-00181.safetensors",
+    "name": "quant_model_weights-00179-of-00181.safetensors",
+    "size_bytes": 2683395872,
+    "mtime_ns": 1787877200858087373,
+    "header_sha256": "19db8dace53aede71b5aeea4f08e9d29ef9b9794a3e58d4fe2da2edbef3db5b3",
+    "header_length": 3864,
+    "tensor_count": 32,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00180-of-00181.safetensors",
+    "name": "quant_model_weights-00180-of-00181.safetensors",
+    "size_bytes": 3806355760,
+    "mtime_ns": 1787876894486588487,
+    "header_sha256": "d88c6be3b56b8bb1dbd1242a4aa0ec7eb6edf8c4c17d3e42399980220b96d90b",
+    "header_length": 296,
+    "tensor_count": 3,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/quant_model_weights-00181-of-00181.safetensors",
+    "name": "quant_model_weights-00181-of-00181.safetensors",
+    "size_bytes": 3806330976,
+    "mtime_ns": 1787878805724429181,
+    "header_sha256": "f456ce5d0577933780cf43233aca79c27a6c6f85ad84ec5c7466c452f38fa9a7",
+    "header_length": 88,
+    "tensor_count": 1,
+    "payload_sha256": null
+  },
+  {
+    "path": "/mnt/raid/user/data/models/glm-q/rot.safetensors",
+    "name": "rot.safetensors",
+    "size_bytes": 75497560,
+    "mtime_ns": 1787876992579708750,
+    "header_sha256": "67e5675a6cb4a321eb2e5b1c4c0536f6f924ae8316cbff6e618db4361c0beee5",
+    "header_length": 80,
+    "tensor_count": 1,
+    "payload_sha256": null
+  }
+]

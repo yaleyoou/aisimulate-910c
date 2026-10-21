@@ -1,0 +1,9 @@
+the minbytes is 1024, maxbytes is 268435456, iters is 50, warmup_iters is 50
+data_size(Bytes): | aveg_time(us): | alg_bandwidth(GB/s): | check_result:
+1024              | 44.06          | 0.02324              | success
+8192              | 45.37          | 0.18055              | success
+65536             | 48.90          | 1.34019              | success
+524288            | 84.97          | 6.17059              | success
+4194304           | 147.19         | 28.49515             | success
+33554432          | 561.78         | 59.72873             | success
+268435456         | 2584.06        | 103.88137            | success

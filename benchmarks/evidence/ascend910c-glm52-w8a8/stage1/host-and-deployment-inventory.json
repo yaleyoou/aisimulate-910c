@@ -1,0 +1,351 @@
+{
+  "observed_at": "2026-10-20T07:00:02.351123+00:00",
+  "commands": {
+    "npu-status": {
+      "command": [
+        "npu-smi",
+        "info"
+      ],
+      "exit_code": 0,
+      "output": "npu-status.txt"
+    },
+    "npu-mapping": {
+      "command": [
+        "npu-smi",
+        "info",
+        "-m"
+      ],
+      "exit_code": 0,
+      "output": "npu-mapping.txt"
+    },
+    "npu-topology": {
+      "command": [
+        "npu-smi",
+        "info",
+        "-t",
+        "topo"
+      ],
+      "exit_code": 0,
+      "output": "npu-topology.txt"
+    },
+    "npu-board": {
+      "command": [
+        "npu-smi",
+        "info",
+        "-t",
+        "board",
+        "-i",
+        "0"
+      ],
+      "exit_code": 0,
+      "output": "npu-board.txt"
+    },
+    "npu-product": {
+      "command": [
+        "npu-smi",
+        "info",
+        "-t",
+        "product",
+        "-i",
+        "0",
+        "-c",
+        "0"
+      ],
+      "exit_code": 0,
+      "output": "npu-product.txt"
+    },
+    "npu-memory": {
+      "command": [
+        "npu-smi",
+        "info",
+        "-t",
+        "memory",
+        "-i",
+        "0",
+        "-c",
+        "0"
+      ],
+      "exit_code": 0,
+      "output": "npu-memory.txt"
+    }
+  },
+  "sources": {
+    "/usr/local/Ascend/driver/version.info": {
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "size_bytes": 332
+    },
+    "/usr/local/Ascend/cann/share/info/hccl/version.info": {
+      "sha256": "360d8612391b52d013b68e902e8571c9abeba90b20c6b7864f1b86f0d03da9b9",
+      "size_bytes": 187
+    },
+    "/home/youxingye/United deployment/service/logs-united.sh": {
+      "sha256": "3f58ef2411de5e1e48b772a70f97ab5f02ea07ce6340d294da621d7f4f4a7b32",
+      "size_bytes": 403
+    },
+    "/home/youxingye/United deployment/service/run-united-container.sh": {
+      "sha256": "197cd5ff4f5b45911ce6980bfa45d61c2000cfd18584fca8e224505220c94fd4",
+      "size_bytes": 2184
+    },
+    "/home/youxingye/United deployment/service/run-united.sh": {
+      "sha256": "1e1c88fc033176790325d00b8bbb7000f51c36b54849c1f051f8df1c56ac99d6",
+      "size_bytes": 2667
+    },
+    "/home/youxingye/United deployment/service/start-united.sh": {
+      "sha256": "4a7a3b76c43a5a0f0d8c1afc517ab68b91b43d9ec9ba1404993dc6c0c40142f7",
+      "size_bytes": 1920
+    },
+    "/home/youxingye/United deployment/service/status-united.sh": {
+      "sha256": "b8b958b52ad4b2f4c6461fd9feaab77cf932663ac4aa61e20f6e8a4ecb6286cb",
+      "size_bytes": 644
+    },
+    "/home/youxingye/United deployment/service/stop-united.sh": {
+      "sha256": "93787f5672add15b5295b1d8411317e986a81453e5342947accf59848683dced",
+      "size_bytes": 357
+    },
+    "/home/youxingye/United deployment/service/tune-system.sh": {
+      "sha256": "f9b24de3956bc0c49f6eb849310dbfa7d26403d04fe56b763455f1850c8cc243",
+      "size_bytes": 919
+    },
+    "/home/youxingye/United deployment/service/united-common.sh": {
+      "sha256": "ffe62f2b85744a3d52f46be22959867ce867b752bd21e00c4ab0d34b04eeb99a",
+      "size_bytes": 1349
+    },
+    "/home/youxingye/United deployment/service/united-config.sh": {
+      "sha256": "feb8e8a0193c162fb96c5dd451b1bfd77dc28e7f0ef93300fc45a4adba5f79b3",
+      "size_bytes": 2788
+    },
+    "/home/youxingye/glm52-pd-1p1d/pd-config.sh": {
+      "sha256": "6afc18f56789f548e683639d5e8db33a8fdffd56af3f24ab512f625a3316c7ef",
+      "size_bytes": 493
+    },
+    "/home/youxingye/glm52-pd-1p1d/run-decode-container.sh": {
+      "sha256": "8fd11a0b97a330858fede4e4695d3f66aa6644d4888c5f05c85e9f52ad81fc11",
+      "size_bytes": 1146
+    },
+    "/home/youxingye/glm52-pd-1p1d/run-decode.sh": {
+      "sha256": "26a1b863c05193100bd1060ecfc5e8e2fbde536921da809fff000558217640bc",
+      "size_bytes": 1751
+    },
+    "/home/youxingye/United deployment/results/workload-concurrency-sweep_8k_1k/summary.tsv": {
+      "sha256": "fb319a9c81892dbad199414087ad68b5014c0297da7871023c61ed54632e3def",
+      "size_bytes": 1077
+    },
+    "/home/youxingye/United deployment/results/workload-concurrency-sweep_8k_1k/sweep-config.env": {
+      "sha256": "86e1e6604f4489be429c22439520056540ae4a4b3e20200ff000b7025ccc52c0",
+      "size_bytes": 944
+    },
+    "/home/youxingye/United deployment/results/workload-concurrency-sweep_8k_1k/status.tsv": {
+      "sha256": "7499d403a4831eda5603ad7cd51b18f9f9064507afa88ae49136913221d097a1",
+      "size_bytes": 937
+    }
+  },
+  "driver_version_file": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n",
+  "host_hccl_version_file": "Version=8.5.0\nversion_dir=cann\nrequired_package_hcomm_version=\">=8.5.0\"\nrequired_package_runtime_version=\">=8.5.0\"\nrequired_package_metadef_version=\">=8.5.0\"\ntimestamp=20250725_000000000\n",
+  "united_current_script_defaults": {
+    "SERVICE_HOST": "0.0.0.0",
+    "SERVICE_PORT": "8000",
+    "SERVICE_IP": "",
+    "IMAGE": "quay.io/ascend/sglang:cann9.0.0-a3-v0.5.16",
+    "MODEL_DIR": "/mnt/raid/user/data/models/glm-q",
+    "SERVED_MODEL_NAME": "glm-5",
+    "COMM_IFNAME": "bond4",
+    "HCCL_IF_BASE_PORT": "50000",
+    "NPU_DEVICE_COUNT": "16",
+    "TP_SIZE": "16",
+    "DP_SIZE": "2",
+    "EP_SIZE": "16",
+    "SHM_SIZE": "16g",
+    "MEM_FRACTION_STATIC": "0.90",
+    "CONTEXT_LENGTH": "180000",
+    "MAX_RUNNING_REQUESTS": "64",
+    "CHUNKED_PREFILL_SIZE": "16384",
+    "MAX_PREFILL_TOKENS": "32768",
+    "TOKENIZER_WORKER_NUM": "4",
+    "WATCHDOG_TIMEOUT": "9000",
+    "ENABLE_DP_ATTENTION": "1",
+    "ENABLE_DP_LM_HEAD": "1",
+    "ENABLE_DEEPEP": "1",
+    "DEEPEP_MODE": "auto",
+    "ENABLE_DECODE_GRAPH": "1",
+    "DECODE_GRAPH_MAX_BS": "32",
+    "DECODE_GRAPH_BATCHES": "8 16 24 32",
+    "UNITED_CONTAINER": "glm52-united",
+    "HEALTH_TIMEOUT": "1800",
+    "ENABLE_SYSTEM_TUNING": "1",
+    "SGLANG_NPU_PROFILING": "0",
+    "REFUSE_IF_PD_RUNNING": "1"
+  },
+  "historical_benchmark_configuration": {
+    "RUN_DIR": "/home/youxingye/United deployment/results/workload-concurrency-sweep_20260918_182357",
+    "CASES": "3",
+    "CASE1_CONCURRENCIES": "8 16 32 64",
+    "CASE2_CONCURRENCIES": "8 16 32 64",
+    "CASE3_CONCURRENCIES": "1 2 4 8 16 32",
+    "CASE4_CONCURRENCIES": "1 2 4 8",
+    "CASE5_CONCURRENCIES": "1 2",
+    "CASE6_CONCURRENCIES": "4 8 16 32",
+    "STANDARD_PROMPT_MULTIPLIER": "2",
+    "LONG_PROMPT_MULTIPLIER": "1",
+    "CACHE_CASE_MODE": "prefix32k",
+    "CACHE_NUM_GROUPS": "4",
+    "CACHE_PROMPTS_PER_GROUP": "5",
+    "REQUEST_RATE": "inf",
+    "RANDOM_RANGE_RATIO": "1",
+    "FLUSH_CACHE_BEFORE_POINT": "1",
+    "STOP_CASE_ON_ERROR": "1",
+    "EFFECTIVE_SERVER_CAPACITY": "64",
+    "DEPLOYMENT_MODE": "united",
+    "SERVICE_HOST": "0.0.0.0",
+    "SERVICE_PORT": "8000",
+    "MODEL_DIR": "/mnt/raid/user/data/models/glm-q",
+    "IMAGE": "quay.io/ascend/sglang:cann9.0.0-a3-v0.5.16",
+    "SERVED_MODEL_NAME": "glm-5",
+    "NPU_DEVICE_COUNT": "16",
+    "TP_SIZE": "16",
+    "DP_SIZE": "2",
+    "EP_SIZE": "16",
+    "CONTEXT_LENGTH": "180000",
+    "MAX_RUNNING_REQUESTS": "64",
+    "CHUNKED_PREFILL_SIZE": "16384",
+    "MAX_PREFILL_TOKENS": "32768",
+    "ENABLE_DP_ATTENTION": "1",
+    "ENABLE_DP_LM_HEAD": "1",
+    "ENABLE_DEEPEP": "1",
+    "DEEPEP_MODE": "auto",
+    "ENABLE_DECODE_GRAPH": "1"
+  },
+  "historical_8k1k_results": [
+    {
+      "case": "3-c0001",
+      "name": "long_context_8k_1k_c1",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "2",
+      "duration_s": "121.293",
+      "request_per_s": "0.016",
+      "input_tok_per_s": "135.078",
+      "output_tok_per_s": "16.885",
+      "mean_ttft_ms": "3949.756",
+      "p99_ttft_ms": "4503.744",
+      "mean_tpot_ms": "55.390",
+      "p99_tpot_ms": "55.460",
+      "mean_itl_ms": "55.444",
+      "p99_itl_ms": "56.274",
+      "actual_concurrency": "0.999",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    },
+    {
+      "case": "3-c0002",
+      "name": "long_context_8k_1k_c2",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "4",
+      "duration_s": "152.758",
+      "request_per_s": "0.026",
+      "input_tok_per_s": "214.509",
+      "output_tok_per_s": "26.814",
+      "mean_ttft_ms": "19012.898",
+      "p99_ttft_ms": "21350.766",
+      "mean_tpot_ms": "56.044",
+      "p99_tpot_ms": "56.146",
+      "mean_itl_ms": "56.058",
+      "p99_itl_ms": "57.123",
+      "actual_concurrency": "1.999",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    },
+    {
+      "case": "3-c0004",
+      "name": "long_context_8k_1k_c4",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "8",
+      "duration_s": "178.923",
+      "request_per_s": "0.045",
+      "input_tok_per_s": "366.281",
+      "output_tok_per_s": "45.785",
+      "mean_ttft_ms": "30578.291",
+      "p99_ttft_ms": "34518.782",
+      "mean_tpot_ms": "57.513",
+      "p99_tpot_ms": "58.124",
+      "mean_itl_ms": "57.527",
+      "p99_itl_ms": "58.556",
+      "actual_concurrency": "3.998",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    },
+    {
+      "case": "3-c0008",
+      "name": "long_context_8k_1k_c8",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "16",
+      "duration_s": "287.467",
+      "request_per_s": "0.056",
+      "input_tok_per_s": "455.955",
+      "output_tok_per_s": "56.994",
+      "mean_ttft_ms": "77955.828",
+      "p99_ttft_ms": "90863.587",
+      "mean_tpot_ms": "64.250",
+      "p99_tpot_ms": "87.084",
+      "mean_itl_ms": "64.274",
+      "p99_itl_ms": "60.161",
+      "actual_concurrency": "7.997",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    },
+    {
+      "case": "3-c0016",
+      "name": "long_context_8k_1k_c16",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "32",
+      "duration_s": "562.702",
+      "request_per_s": "0.057",
+      "input_tok_per_s": "465.867",
+      "output_tok_per_s": "58.233",
+      "mean_ttft_ms": "156760.598",
+      "p99_ttft_ms": "241650.348",
+      "mean_tpot_ms": "82.584",
+      "p99_tpot_ms": "156.366",
+      "mean_itl_ms": "82.614",
+      "p99_itl_ms": "61.923",
+      "actual_concurrency": "13.719",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    },
+    {
+      "case": "3-c0032",
+      "name": "long_context_8k_1k_c32",
+      "dataset": "random-ids",
+      "input_len": "8192",
+      "output_len": "1024",
+      "completed": "64",
+      "duration_s": "1025.723",
+      "request_per_s": "0.062",
+      "input_tok_per_s": "511.140",
+      "output_tok_per_s": "63.892",
+      "mean_ttft_ms": "317410.646",
+      "p99_ttft_ms": "472279.849",
+      "mean_tpot_ms": "102.575",
+      "p99_tpot_ms": "413.118",
+      "mean_itl_ms": "102.624",
+      "p99_itl_ms": "61.779",
+      "actual_concurrency": "26.352",
+      "cached_tokens": "",
+      "cache_hit_rate": ""
+    }
+  ],
+  "historical_limits": [
+    "Historical files are evidence of a prior run, not current startup verification.",
+    "Image tag in historical config does not prove the current image digest was used then.",
+    "No immutable full checkpoint revision is present in this benchmark configuration.",
+    "Current script defaults may differ from the effective settings of the historical server."
+  ]
+}

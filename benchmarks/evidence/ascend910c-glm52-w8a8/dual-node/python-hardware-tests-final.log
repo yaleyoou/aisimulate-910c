@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.3.2, pluggy-1.7.0 -- /usr/local/python3.12.13/bin/python3
+rootdir: /workspace/python/aisimulate
+configfile: pytest.ini
+plugins: xdist-3.6.1, anyio-4.15.1
+collecting ... collected 30 items / 24 deselected / 6 selected
+
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_supported_systems_exists PASSED [ 16%]
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_supported_systems_matches_yaml_files_and_folders PASSED [ 33%]
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_pcie_estimate_only_systems_are_registered PASSED [ 50%]
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_ascend910c_uses_runtime_chip_granularity PASSED [ 66%]
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_ascend910c_does_not_invent_unmeasured_compute_modes PASSED [ 83%]
+python/aisimulate/tests/unit/sdk/test_common.py::TestSupportedSystems::test_support_matrix_systems_sort_by_display_priority PASSED [100%]
+
+============================= slowest 10 durations =============================
+0.10s call     tests/unit/sdk/test_common.py::TestSupportedSystems::test_ascend910c_uses_runtime_chip_granularity
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+================= 6 passed, 24 deselected, 1 warning in 0.26s ==================

@@ -1,0 +1,138 @@
+{
+  "schema": "aisimulate-ascend910c-hardware-calibration/v1",
+  "created_at": "2026-10-21T09:00:55.189915+00:00",
+  "system": "ascend910c",
+  "hardware_definition_status": "measured hardware calibration; not qualified GLM operator or full serving prediction support",
+  "system_yaml": "python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml",
+  "device_granularity": "one Ascend910_9382 runtime chip; eight two-chip boards / sixteen chips per Atlas800TA3 node",
+  "topology_scope": {
+    "nodes": [
+      "npu1-32",
+      "npu1-19"
+    ],
+    "superpod_id": 1,
+    "maximum_measured_nodes": 2,
+    "local_server_index": 31,
+    "peer_server_index": 18,
+    "intra_pairs": 8,
+    "inter_pairs": 16,
+    "host_drivers": {
+      "npu1-32": "26.1.1",
+      "npu1-19": "25.5.0"
+    },
+    "hal": "7.35.23",
+    "transport_evidence": "Same SuperPod metadata; HCCN IP unset; measured cross-host bandwidth exceeds control-plane bond4. Do not infer a general Ethernet/RDMA or cross-SuperPod rate."
+  },
+  "runtime_inventory": "stage1/runtime-v0522/runtime-image-inventory.json",
+  "runtime_inventory_sha256": "3938b3c13a521b034446c66db71adb54bb3ea5a1fbb0866c9cb5f0c4a12dc8d9",
+  "runtime_image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "fields": {
+    "gpu.mem_capacity": {
+      "value": 65787658240,
+      "unit": "bytes per runtime chip",
+      "source": "single-node/run-20261020-231954/single.json",
+      "method": "Minimum acl/torch runtime total memory over 16 chips; not free memory and not 128GiB per board."
+    },
+    "gpu.mem_bw": {
+      "value": 1269033356802,
+      "unit": "bytes/second per runtime chip",
+      "source": "single-node/run-20261020-231954/single.json",
+      "method": "Median across all 16 devices of median repeated 512MiB Torch copy throughput, counting read plus write."
+    },
+    "gpu.mem_bw_empirical_scaling_factor": {
+      "value": 1.0,
+      "unit": "dimensionless",
+      "method": "Measured bandwidth already includes utilization; avoid a second arbitrary discount."
+    },
+    "gpu.bfloat16_tc_flops": {
+      "value": 321185140687191,
+      "unit": "arithmetic operations/second per runtime chip",
+      "source": "single-node/run-20261020-231954/single.json",
+      "method": "Median over 16 chips; 2*M*N*K, M=N=K=4096, torch.mm BF16; measured effective coefficient, not theoretical peak."
+    },
+    "gpu.int8_tc_flops": {
+      "value": 553066482547203,
+      "unit": "arithmetic operations/second per runtime chip",
+      "source": "single-node/run-20261020-231954/single.json",
+      "method": "Median over 16 chips; 4096-cube torch_npu.npu_quant_matmul, INT8 inputs, unit scale and BF16 output; activation quantization excluded; not theoretical peak."
+    },
+    "node.num_gpus_per_node": {
+      "value": 16,
+      "unit": "runtime-visible NPU chips",
+      "source": "dual-node/prelaunch-remote.json"
+    },
+    "node.intra_node_bw": {
+      "value": 130673385019,
+      "unit": "bytes/second per runtime chip, single direction",
+      "source": "dual-node/queued-20261021-151553/summary.json",
+      "method": "Median pair throughput at 256 MiB under concurrent pairs; maximum of local/cross small-payload medians for effective runtime P2P latency."
+    },
+    "node.inter_node_bw": {
+      "value": 126790338165,
+      "unit": "bytes/second per runtime chip, single direction",
+      "source": "dual-node/queued-20261021-151553/summary.json",
+      "method": "Median pair throughput at 256 MiB under concurrent pairs; maximum of local/cross small-payload medians for effective runtime P2P latency."
+    },
+    "node.p2p_latency": {
+      "value": 1.3283299803749998e-05,
+      "unit": "seconds",
+      "source": "dual-node/queued-20261021-151553/summary.json",
+      "method": "Median pair throughput at 256 MiB under concurrent pairs; maximum of local/cross small-payload medians for effective runtime P2P latency."
+    }
+  },
+  "qualification": {
+    "local_primitive_points": 81,
+    "p2p_samples": 6318,
+    "p2p_points": 702,
+    "max_repeat_cv": 0.08248497474962274,
+    "cv_threshold": 0.1,
+    "p2p_payload_correctness": "702 full payload checks before and 702 after timed repeats",
+    "collectives_initial_verified": 70,
+    "collectives_initial_unverified": 14,
+    "reducescatter_max_control_verified": 14,
+    "reducescatter_sum_status": "Unqualified vendor BF16 SUM: tool disables correctness due to its input range. MAX controls are distinct and do not validate SUM.",
+    "graph_capture_status": "Native P2P capture readiness returned ACL107025, retained as failed experiment; excluded from calibration.",
+    "timing": "ACL events after a host-callback gate; prequeue all HCCL calls and release after an MPI barrier. Device timing excludes enqueue gaps; wall timing includes queue preparation. Half round trip includes HCCL protocol, not bare-wire propagation.",
+    "held_out_inter_node_bulk_max_relative_error": 0.016093471528843845,
+    "held_out_inter_node_all_sizes_max_relative_error": 0.5803752287189714,
+    "prediction_accuracy_qualified": false,
+    "formal_fpm_profile_accepted": false,
+    "replay_qualified": false
+  },
+  "unmeasured_omitted_fields": [
+    "gpu.fp32_flops",
+    "gpu.fp8_tc_flops",
+    "gpu.fp4_tc_flops",
+    "gpu.power",
+    "gpu.mem_empirical_constant_latency",
+    "node.pcie_bw",
+    "node.num_gpus_per_rack",
+    "node.inter_rack_bw",
+    "misc.other_mem"
+  ],
+  "inapplicable_omitted_fields": [
+    "gpu.sm_version",
+    "misc.nccl_version",
+    "misc.nccl_mem"
+  ],
+  "limits": [
+    "Effective 4096-cube compute coefficients are not theoretical peaks; do not claim a strict SOL lower bound.",
+    "A scalar P2P formula misses protocol transitions: about58% error at256KiB; use native HCCL curves for accurate operator predictions.",
+    "No HCCL operator parquet/version mapping or HCCL serving-memory model is published.",
+    "No GLM-5.2 ModelSlim fused-kernel or end-to-end prediction accuracy qualification."
+  ],
+  "source_sha256": {
+    "single-node/run-20261020-231954/single.json": "333d06bba0679c6e6512927aa1952c8cedc1f1b817cff3a1e95d71835c62af99",
+    "dual-node/queued-20261021-151553/summary.json": "2d42545612c2a4b7198bfe751c80364c9e896360c387eee0d2ad4f5d79912af9",
+    "single-node/hardware-measured.json": "aa1115ba2d73a434e51d3579bbc8eda966edf331edb4cee6158771eb678f1b62",
+    "dual-node/queued-20261021-151553/manifest.json": "bfe31c4dfe7c3e3e201fdf48d91b078bb159ecd179cabd55b1913d73eda991e5",
+    "dual-node/run-20261021-145053/summary.json": "0d0a29e38e0bd65cf40d3993eceeec6479c89219879f39ae0f689cc412dfe411",
+    "dual-node/local-product.txt": "5589268233e761835c83738e983f54bc6e1bea462e46611ab19b7e1acd8ccecb",
+    "dual-node/local_spod.txt": "a4381f5f7f79647f12574c5bccfe37be37a53b5a731a913ecfaf54f23af405e6",
+    "dual-node/npu1-19-network.json": "20f256d8cef0b282b541b29fc5414d61a7f917969af02b1c263b4fa188521f12",
+    "dual-node/native-build-results.json": "6a67f896216d52bb7bffa0127436a15305375bed0bafa90fafa915cd1657d161",
+    "dual-node/npu1-19-native-build.log": "5c25757beb41464ed69bd1658f522cda07bcd82a74ad585ccbaf379e520655aa",
+    "dual-node/npu1-32-native-build.log": "ec93c84867201059ea427ee3c5bd830b897741a03faf7075725b06acdfd87468",
+    "stage1/runtime-v0522/runtime-image-inventory.json": "aebddac43ac38c23bc3e5200ba2c4b9b1ec6d49a8cfcf604afb9b25dfb730ab7"
+  }
+}

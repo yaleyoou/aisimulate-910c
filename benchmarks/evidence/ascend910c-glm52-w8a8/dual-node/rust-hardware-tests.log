@@ -1,0 +1,85 @@
+ Downloading crates ...
+  Downloaded futures-core v0.3.34
+  Downloaded futures-macro v0.3.34
+  Downloaded futures-io v0.3.34
+  Downloaded futures-sink v0.3.34
+  Downloaded futures-task v0.3.34
+  Downloaded futures-executor v0.3.34
+  Downloaded slab v0.4.12
+  Downloaded rustc_version v0.4.1
+  Downloaded futures-channel v0.3.34
+  Downloaded relative-path v1.9.3
+  Downloaded glob v0.3.4
+  Downloaded futures-timer v3.0.4
+  Downloaded rstest v0.18.2
+  Downloaded semver v1.0.28
+  Downloaded rstest_macros v0.18.2
+  Downloaded futures v0.3.34
+  Downloaded aho-corasick v1.1.5
+  Downloaded regex v1.13.1
+  Downloaded futures-util v0.3.34
+  Downloaded regex-syntax v0.8.11
+  Downloaded regex-automata v0.4.18
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling futures-core v0.3.34
+   Compiling futures-sink v0.3.34
+   Compiling memchr v2.8.3
+   Compiling semver v1.0.28
+   Compiling slab v0.4.12
+   Compiling futures-task v0.3.34
+   Compiling futures-channel v0.3.34
+   Compiling futures-io v0.3.34
+   Compiling rustc_version v0.4.1
+   Compiling regex-syntax v0.8.11
+   Compiling relative-path v1.9.3
+   Compiling glob v0.3.4
+   Compiling aho-corasick v1.1.5
+   Compiling rstest_macros v0.18.2
+   Compiling futures-timer v3.0.4
+   Compiling serde_json v1.0.151
+   Compiling regex-automata v0.4.18
+   Compiling futures-macro v0.3.34
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling darling_core v0.20.11
+   Compiling futures-util v0.3.34
+   Compiling thiserror v2.0.20
+   Compiling zerocopy-derive v0.8.56
+   Compiling tracing-attributes v0.1.31
+   Compiling regex v1.13.1
+   Compiling darling_macro v0.20.11
+   Compiling tracing v0.1.44
+   Compiling zerocopy v0.8.56
+   Compiling serde v1.0.229
+   Compiling darling v0.20.11
+   Compiling futures-executor v0.3.34
+   Compiling derive_builder_core v0.20.2
+   Compiling futures v0.3.34
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling bincode v1.3.3
+   Compiling pep440_rs v0.7.3
+   Compiling derive_builder_macro v0.20.2
+   Compiling derive_builder v0.20.2
+   Compiling rstest v0.18.2
+   Compiling ppv-lite86 v0.2.21
+   Compiling half v2.7.1
+   Compiling ahash v0.8.12
+   Compiling rand_chacha v0.3.1
+   Compiling rand_chacha v0.9.0
+   Compiling parquet v59.3.0
+   Compiling rand v0.9.5
+   Compiling rand v0.8.8
+   Compiling aisimulate-core v0.13.0 (/workspace/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 48s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 5 tests
+test perfmodel::common::system_spec::tests::p2p_bandwidth_falls_back_to_inter_node_when_inter_rack_unset ... ok
+test perfmodel::common::system_spec::tests::p2p_bandwidth_three_tier_selection ... ok
+test perfmodel::common::system_spec::tests::parse_ascend910c_runtime_chip_calibration ... ok
+test perfmodel::common::system_spec::tests::parse_gb200_rack_tier ... ok
+test perfmodel::common::system_spec::tests::parse_b200_sxm ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 1999 filtered out; finished in 0.00s
+

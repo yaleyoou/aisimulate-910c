@@ -1,0 +1,3877 @@
+{
+  "schema": "ascend-single-node-calibration/v1",
+  "scope": "hardware microbenchmark; not a serving operator profile or theoretical peak",
+  "started_at": "2026-10-20T15:20:48.839608+00:00",
+  "mode": "single",
+  "parameters": {
+    "mode": "single",
+    "devices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "output": "/results/single.json",
+    "warmup": 10,
+    "iterations": 20,
+    "repeats": 7
+  },
+  "versions": {
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post6",
+    "sglang": "0.5.22"
+  },
+  "cases": [
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 0,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1850245478151.2332,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.15156400203704834,
+            0.14523400068283082,
+            0.14564800262451172,
+            0.1450809955596924,
+            0.14470499753952026,
+            0.14436299800872804,
+            0.14423099756240845
+          ],
+          "median_ms": 0.1450809955596924,
+          "minimum_ms": 0.14423099756240845,
+          "maximum_ms": 0.15156400203704834,
+          "cv": 0.017661457493163273
+        },
+        "wall": {
+          "samples_ms": [
+            0.17359750345349312,
+            0.1526417676359415,
+            0.15137726441025734,
+            0.14961720444262028,
+            0.14880122616887093,
+            0.1488257199525833,
+            0.1484511885792017
+          ],
+          "median_ms": 0.14961720444262028,
+          "minimum_ms": 0.1484511885792017,
+          "maximum_ms": 0.17359750345349312,
+          "cv": 0.05914467438041842
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 0,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1266688965272.4507,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8479299545288086,
+            0.8477709770202637,
+            0.8487400054931641,
+            0.8476759910583496,
+            0.8469189643859864,
+            0.8476619720458984,
+            0.846679973602295
+          ],
+          "median_ms": 0.8476759910583496,
+          "minimum_ms": 0.846679973602295,
+          "maximum_ms": 0.8487400054931641,
+          "cv": 0.00079915147267307
+        },
+        "wall": {
+          "samples_ms": [
+            0.857506925240159,
+            0.8538303431123495,
+            0.8543393108993769,
+            0.85309031419456,
+            0.852435827255249,
+            0.8536208420991898,
+            0.8526518475264311
+          ],
+          "median_ms": 0.8536208420991898,
+          "minimum_ms": 0.852435827255249,
+          "maximum_ms": 0.857506925240159,
+          "cv": 0.002007873119447639
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 319951379788343.44,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42967901229858396,
+            0.42956199645996096,
+            0.4287829875946045,
+            0.4290180206298828,
+            0.42971000671386717,
+            0.4303569793701172,
+            0.42833700180053713
+          ],
+          "median_ms": 0.42956199645996096,
+          "minimum_ms": 0.42833700180053713,
+          "maximum_ms": 0.4303569793701172,
+          "cv": 0.001578152937429723
+        },
+        "wall": {
+          "samples_ms": [
+            0.43570753186941147,
+            0.4351400304585695,
+            0.43425997719168663,
+            0.4345775116235018,
+            0.434706499800086,
+            0.4356309771537781,
+            0.43362099677324295
+          ],
+          "median_ms": 0.434706499800086,
+          "minimum_ms": 0.43362099677324295,
+          "maximum_ms": 0.43570753186941147,
+          "cv": 0.0017234756836167961
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 552469541476969.44,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24885399341583253,
+            0.24879999160766603,
+            0.2487720012664795,
+            0.24881598949432374,
+            0.24848299026489257,
+            0.24832301139831542,
+            0.2483530044555664
+          ],
+          "median_ms": 0.2487720012664795,
+          "minimum_ms": 0.24832301139831542,
+          "maximum_ms": 0.24885399341583253,
+          "cv": 0.0009380913410607463
+        },
+        "wall": {
+          "samples_ms": [
+            0.25455793365836143,
+            0.25404738262295723,
+            0.2539349254220724,
+            0.25397296994924545,
+            0.2540409564971924,
+            0.25357441045343876,
+            0.2533844206482172
+          ],
+          "median_ms": 0.25397296994924545,
+          "minimum_ms": 0.2533844206482172,
+          "maximum_ms": 0.25455793365836143,
+          "cv": 0.0014790655179166834
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 0,
+      "size_bytes": 1073741824,
+      "traffic_bytes": 2147483648,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1275695952696.0525,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            1.6833820343017578,
+            1.6840959548950196,
+            1.6898790359497071,
+            1.6821950912475585,
+            1.6835649490356446,
+            1.6826910018920898,
+            1.6825139999389649
+          ],
+          "median_ms": 1.6833820343017578,
+          "minimum_ms": 1.6821950912475585,
+          "maximum_ms": 1.6898790359497071,
+          "cv": 0.0015768178382977286
+        },
+        "wall": {
+          "samples_ms": [
+            1.6928694676607847,
+            1.6914504580199718,
+            1.6982095781713724,
+            1.6877759248018265,
+            1.6882744617760181,
+            1.6883224714547396,
+            1.6876094043254852
+          ],
+          "median_ms": 1.6883224714547396,
+          "minimum_ms": 1.6876094043254852,
+          "maximum_ms": 1.6982095781713724,
+          "cv": 0.0023070638255075007
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8192,
+        8192,
+        8192
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 1099511627776,
+      "effective_ops_per_second": 312593575579440.2,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            3.5361480712890625,
+            3.5157508850097656,
+            3.5262290954589846,
+            3.519417953491211,
+            3.5173839569091796,
+            3.511381912231445,
+            3.5155181884765625
+          ],
+          "median_ms": 3.5173839569091796,
+          "minimum_ms": 3.511381912231445,
+          "maximum_ms": 3.5361480712890625,
+          "cv": 0.002372957680657777
+        },
+        "wall": {
+          "samples_ms": [
+            3.5427233204245567,
+            3.521861555054784,
+            3.535197675228119,
+            3.527028625831008,
+            3.5269761458039284,
+            3.5183935426175594,
+            3.5229841247200966
+          ],
+          "median_ms": 3.5269761458039284,
+          "minimum_ms": 3.5183935426175594,
+          "maximum_ms": 3.5427233204245567,
+          "cv": 0.0023873193059587294
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8192,
+        8192,
+        8192
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 1099511627776,
+      "effective_ops_per_second": 608577260953445.8,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            1.807288932800293,
+            1.806052017211914,
+            1.8072729110717773,
+            1.8049070358276367,
+            1.807073974609375,
+            1.8053300857543946,
+            1.8066919326782227
+          ],
+          "median_ms": 1.8066919326782227,
+          "minimum_ms": 1.8049070358276367,
+          "maximum_ms": 1.807288932800293,
+          "cv": 0.0005339445845916201
+        },
+        "wall": {
+          "samples_ms": [
+            1.8140319269150496,
+            1.8129318486899137,
+            1.8129589036107063,
+            1.810923358425498,
+            1.812884397804737,
+            1.8105913884937763,
+            1.8125728704035282
+          ],
+          "median_ms": 1.812884397804737,
+          "minimum_ms": 1.8105913884937763,
+          "maximum_ms": 1.8140319269150496,
+          "cv": 0.0006747471290481332
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        1,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 25165824,
+      "effective_ops_per_second": 1209720903725.3306,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.02092600017786026,
+            0.02136400043964386,
+            0.020859000086784363,
+            0.020803000032901763,
+            0.02030699998140335,
+            0.020367999374866486,
+            0.020483000576496123
+          ],
+          "median_ms": 0.020803000032901763,
+          "minimum_ms": 0.02030699998140335,
+          "maximum_ms": 0.02136400043964386,
+          "cv": 0.017977621557812115
+        },
+        "wall": {
+          "samples_ms": [
+            0.026004808023571968,
+            0.025467295199632645,
+            0.02516624517738819,
+            0.024492712691426277,
+            0.025454815477132797,
+            0.024825287982821465,
+            0.024747801944613457
+          ],
+          "median_ms": 0.02516624517738819,
+          "minimum_ms": 0.024492712691426277,
+          "maximum_ms": 0.026004808023571968,
+          "cv": 0.020661122774682
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 201326592,
+      "effective_ops_per_second": 9775033336689.03,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.02078399956226349,
+            0.02034900039434433,
+            0.02034900039434433,
+            0.02059600055217743,
+            0.020723000168800354,
+            0.020508000254631044,
+            0.02070100009441376
+          ],
+          "median_ms": 0.02059600055217743,
+          "minimum_ms": 0.02034900039434433,
+          "maximum_ms": 0.02078399956226349,
+          "cv": 0.008615835573400404
+        },
+        "wall": {
+          "samples_ms": [
+            0.025839777663350105,
+            0.024434737861156464,
+            0.02447781153023243,
+            0.024967314675450325,
+            0.024685822427272797,
+            0.024834787473082542,
+            0.024688802659511566
+          ],
+          "median_ms": 0.024688802659511566,
+          "minimum_ms": 0.024434737861156464,
+          "maximum_ms": 0.025839777663350105,
+          "cv": 0.01914342884136541
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        32,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 805306368,
+      "effective_ops_per_second": 52022375930933.65,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.015317000448703766,
+            0.015674999356269835,
+            0.015584999322891235,
+            0.015056000649929046,
+            0.01621299982070923,
+            0.015479999780654907,
+            0.015353000164031983
+          ],
+          "median_ms": 0.015479999780654907,
+          "minimum_ms": 0.015056000649929046,
+          "maximum_ms": 0.01621299982070923,
+          "cv": 0.023434843351743822
+        },
+        "wall": {
+          "samples_ms": [
+            0.022189226001501083,
+            0.02028774470090866,
+            0.021407241001725197,
+            0.0205987598747015,
+            0.020348746329545975,
+            0.021031266078352928,
+            0.020717782899737358
+          ],
+          "median_ms": 0.020717782899737358,
+          "minimum_ms": 0.02028774470090866,
+          "maximum_ms": 0.022189226001501083,
+          "cv": 0.03220117893111857
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        128,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 3221225472,
+      "effective_ops_per_second": 156241237148251.28,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.020616999268531798,
+            0.02055100053548813,
+            0.02067999988794327,
+            0.020705999433994295,
+            0.020566999912261963,
+            0.020534999668598175,
+            0.020777000486850737
+          ],
+          "median_ms": 0.020616999268531798,
+          "minimum_ms": 0.020534999668598175,
+          "maximum_ms": 0.020777000486850737,
+          "cv": 0.004389328242609306
+        },
+        "wall": {
+          "samples_ms": [
+            0.025242753326892853,
+            0.024440232664346695,
+            0.024434318765997887,
+            0.02436228096485138,
+            0.02419380471110344,
+            0.024312268942594528,
+            0.024354737251996994
+          ],
+          "median_ms": 0.02436228096485138,
+          "minimum_ms": 0.02419380471110344,
+          "maximum_ms": 0.025242753326892853,
+          "cv": 0.014201376198141512
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        512,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 12884901888,
+      "effective_ops_per_second": 249364291444336.5,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.05213299989700317,
+            0.051687002182006836,
+            0.051670998334884644,
+            0.05158799886703491,
+            0.05152999758720398,
+            0.05160199999809265,
+            0.05201200246810913
+          ],
+          "median_ms": 0.051670998334884644,
+          "minimum_ms": 0.05152999758720398,
+          "maximum_ms": 0.05213299989700317,
+          "cv": 0.004476795295351887
+        },
+        "wall": {
+          "samples_ms": [
+            0.05783168599009514,
+            0.05644615739583969,
+            0.05582715384662151,
+            0.05602617748081684,
+            0.05576815456151962,
+            0.05565662868320942,
+            0.05600969307124615
+          ],
+          "median_ms": 0.05600969307124615,
+          "minimum_ms": 0.05565662868320942,
+          "maximum_ms": 0.05783168599009514,
+          "cv": 0.013401214852899194
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        2048,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 51539607552,
+      "effective_ops_per_second": 293552542456965.0,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.1755720019340515,
+            0.17587599754333497,
+            0.17570799589157104,
+            0.1757480025291443,
+            0.17549699544906616,
+            0.17522300481796266,
+            0.17491999864578248
+          ],
+          "median_ms": 0.1755720019340515,
+          "minimum_ms": 0.17491999864578248,
+          "maximum_ms": 0.17587599754333497,
+          "cv": 0.0018957308675395497
+        },
+        "wall": {
+          "samples_ms": [
+            0.18052910454571247,
+            0.18060407601296902,
+            0.17954404465854168,
+            0.18029906786978245,
+            0.18048109486699104,
+            0.18019559793174267,
+            0.1794685609638691
+          ],
+          "median_ms": 0.18029906786978245,
+          "minimum_ms": 0.1794685609638691,
+          "maximum_ms": 0.18060407601296902,
+          "cv": 0.0025981771942519146
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 0,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8192,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 206158430208,
+      "effective_ops_per_second": 323508576658826.3,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.6375090122222901,
+            0.6372580051422119,
+            0.6370450019836426,
+            0.6375179767608643,
+            0.6372220039367675,
+            0.6372290134429932,
+            0.637382984161377
+          ],
+          "median_ms": 0.6372580051422119,
+          "minimum_ms": 0.6370450019836426,
+          "maximum_ms": 0.6375179767608643,
+          "cv": 0.0002682890746242982
+        },
+        "wall": {
+          "samples_ms": [
+            0.6430163979530334,
+            0.6422309204936028,
+            0.6421823985874653,
+            0.6429013796150684,
+            0.6420718971639872,
+            0.642112921923399,
+            0.6420348770916462
+          ],
+          "median_ms": 0.6421823985874653,
+          "minimum_ms": 0.6420348770916462,
+          "maximum_ms": 0.6430163979530334,
+          "cv": 0.0006424219622299002
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        1,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 25165824,
+      "effective_ops_per_second": 715263323001.371,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.03495399951934815,
+            0.036891001462936404,
+            0.035183998942375186,
+            0.03517000079154968,
+            0.03510499894618988,
+            0.035491999983787534,
+            0.036017000675201416
+          ],
+          "median_ms": 0.035183998942375186,
+          "minimum_ms": 0.03495399951934815,
+          "maximum_ms": 0.036891001462936404,
+          "cv": 0.019393613912519363
+        },
+        "wall": {
+          "samples_ms": [
+            0.042375968769192696,
+            0.04269448108971119,
+            0.041260430589318275,
+            0.0410120002925396,
+            0.04127752035856247,
+            0.041606929153203964,
+            0.040343450382351875
+          ],
+          "median_ms": 0.04127752035856247,
+          "minimum_ms": 0.040343450382351875,
+          "maximum_ms": 0.04269448108971119,
+          "cv": 0.01939115922716101
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 201326592,
+      "effective_ops_per_second": 5729923607845.115,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.0361380010843277,
+            0.036474999785423276,
+            0.034463000297546384,
+            0.034327998757362366,
+            0.035398998856544496,
+            0.03513599932193756,
+            0.03436099886894226
+          ],
+          "median_ms": 0.03513599932193756,
+          "minimum_ms": 0.034327998757362366,
+          "maximum_ms": 0.036474999785423276,
+          "cv": 0.024763527000136516
+        },
+        "wall": {
+          "samples_ms": [
+            0.04312950186431408,
+            0.04121549427509308,
+            0.04038345068693161,
+            0.04018591716885567,
+            0.0406049657613039,
+            0.040946947410702705,
+            0.04037553444504738
+          ],
+          "median_ms": 0.0406049657613039,
+          "minimum_ms": 0.04018591716885567,
+          "maximum_ms": 0.04312950186431408,
+          "cv": 0.02474565317318048
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        32,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 805306368,
+      "effective_ops_per_second": 23105134255998.793,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.036820000410079955,
+            0.035585999488830566,
+            0.03478899896144867,
+            0.03485400080680847,
+            0.03613399863243103,
+            0.03478600084781647,
+            0.03462300002574921
+          ],
+          "median_ms": 0.03485400080680847,
+          "minimum_ms": 0.03462300002574921,
+          "maximum_ms": 0.036820000410079955,
+          "cv": 0.023754726114394373
+        },
+        "wall": {
+          "samples_ms": [
+            0.044232048094272614,
+            0.042171962559223175,
+            0.04091793671250343,
+            0.04071751609444618,
+            0.040275976061820984,
+            0.040571484714746475,
+            0.04062047228217125
+          ],
+          "median_ms": 0.04071751609444618,
+          "minimum_ms": 0.040275976061820984,
+          "maximum_ms": 0.044232048094272614,
+          "cv": 0.03399406606123392
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        128,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 3221225472,
+      "effective_ops_per_second": 90119335238188.38,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.03553299903869629,
+            0.035743999481201175,
+            0.03626799881458283,
+            0.03581500053405762,
+            0.03490299880504608,
+            0.03591299951076508,
+            0.035618001222610475
+          ],
+          "median_ms": 0.035743999481201175,
+          "minimum_ms": 0.03490299880504608,
+          "maximum_ms": 0.03626799881458283,
+          "cv": 0.011730552864305395
+        },
+        "wall": {
+          "samples_ms": [
+            0.0425844918936491,
+            0.04170248284935951,
+            0.04104697145521641,
+            0.04212046042084694,
+            0.04124995321035385,
+            0.04126299172639847,
+            0.04123244434595108
+          ],
+          "median_ms": 0.04126299172639847,
+          "minimum_ms": 0.04104697145521641,
+          "maximum_ms": 0.0425844918936491,
+          "cv": 0.013625284116096599
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        512,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 12884901888,
+      "effective_ops_per_second": 264067334793644.0,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.04894300103187561,
+            0.049083998799324034,
+            0.04878300130367279,
+            0.04907099902629852,
+            0.04873400032520294,
+            0.048725000023841857,
+            0.04879400134086609
+          ],
+          "median_ms": 0.04879400134086609,
+          "minimum_ms": 0.048725000023841857,
+          "maximum_ms": 0.049083998799324034,
+          "cv": 0.0031708774073083467
+        },
+        "wall": {
+          "samples_ms": [
+            0.05331411957740784,
+            0.053205620497465134,
+            0.052809109911322594,
+            0.05297213792800903,
+            0.053034583106637,
+            0.05320911295711994,
+            0.052871135994791985
+          ],
+          "median_ms": 0.053034583106637,
+          "minimum_ms": 0.052809109911322594,
+          "maximum_ms": 0.05331411957740784,
+          "cv": 0.003567604307222259
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        2048,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 51539607552,
+      "effective_ops_per_second": 474682548166821.25,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.10821800231933594,
+            0.10824300050735473,
+            0.10819000005722046,
+            0.10877100229263306,
+            0.10859899520874024,
+            0.10857700109481812,
+            0.10877900123596192
+          ],
+          "median_ms": 0.10857700109481812,
+          "minimum_ms": 0.10819000005722046,
+          "maximum_ms": 0.10877900123596192,
+          "cv": 0.0023994280198997215
+        },
+        "wall": {
+          "samples_ms": [
+            0.11336635798215866,
+            0.11262083426117897,
+            0.11304831132292747,
+            0.11322381906211376,
+            0.11302079074084759,
+            0.11314628645777702,
+            0.11332430876791477
+          ],
+          "median_ms": 0.11314628645777702,
+          "minimum_ms": 0.11262083426117897,
+          "maximum_ms": 0.11336635798215866,
+          "cv": 0.0022159218924130064
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 0,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        8192,
+        6144,
+        2048
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 206158430208,
+      "effective_ops_per_second": 600330909829771.5,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.34281599521636963,
+            0.34276700019836426,
+            0.3435590028762817,
+            0.3434079885482788,
+            0.34340999126434324,
+            0.34395899772644045,
+            0.34319500923156737
+          ],
+          "median_ms": 0.3434079885482788,
+          "minimum_ms": 0.34276700019836426,
+          "maximum_ms": 0.34395899772644045,
+          "cv": 0.0012211360543550147
+        },
+        "wall": {
+          "samples_ms": [
+            0.34855850972235203,
+            0.3475095145404339,
+            0.34782099537551403,
+            0.34832549281418324,
+            0.3486595116555691,
+            0.34828148782253265,
+            0.3478395286947489
+          ],
+          "median_ms": 0.34828148782253265,
+          "minimum_ms": 0.3475095145404339,
+          "maximum_ms": 0.3486595116555691,
+          "cv": 0.0012237165954122092
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 1,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1484060950559.1414,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.18137600421905517,
+            0.1812019944190979,
+            0.18059699535369872,
+            0.1807979941368103,
+            0.18087899684906006,
+            0.18078999519348143,
+            0.1810479998588562
+          ],
+          "median_ms": 0.18087899684906006,
+          "minimum_ms": 0.18059699535369872,
+          "maximum_ms": 0.18137600421905517,
+          "cv": 0.0014840696681006028
+        },
+        "wall": {
+          "samples_ms": [
+            0.1919901929795742,
+            0.18535214476287365,
+            0.1846096944063902,
+            0.18467060290277004,
+            0.18417257815599442,
+            0.184621661901474,
+            0.18478059209883213
+          ],
+          "median_ms": 0.18467060290277004,
+          "minimum_ms": 0.18417257815599442,
+          "maximum_ms": 0.1919901929795742,
+          "cv": 0.01494984981069155
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 1,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269319848834.494,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.845277976989746,
+            0.8460410118103028,
+            0.8463020324707031,
+            0.8459190368652344,
+            0.8458840370178222,
+            0.8457659721374512,
+            0.846442985534668
+          ],
+          "median_ms": 0.8459190368652344,
+          "minimum_ms": 0.845277976989746,
+          "maximum_ms": 0.846442985534668,
+          "cv": 0.0004490953385986538
+        },
+        "wall": {
+          "samples_ms": [
+            0.8509253151714802,
+            0.8504703175276518,
+            0.8505918085575104,
+            0.8503397926688194,
+            0.8497362956404686,
+            0.8495627902448177,
+            0.8505092933773994
+          ],
+          "median_ms": 0.8504703175276518,
+          "minimum_ms": 0.8495627902448177,
+          "maximum_ms": 0.8509253151714802,
+          "cv": 0.0005704393134824547
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 1,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 318276119220285.56,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4320199966430664,
+            0.4318699836730957,
+            0.431505012512207,
+            0.4316309928894043,
+            0.4318230152130127,
+            0.43216500282287595,
+            0.4316110134124756
+          ],
+          "median_ms": 0.4318230152130127,
+          "minimum_ms": 0.431505012512207,
+          "maximum_ms": 0.43216500282287595,
+          "cv": 0.0005498747938503848
+        },
+        "wall": {
+          "samples_ms": [
+            0.43689804151654243,
+            0.43626902624964714,
+            0.43560550548136234,
+            0.43550352565944195,
+            0.43575051240623,
+            0.4358705598860979,
+            0.43516349978744984
+          ],
+          "median_ms": 0.43575051240623,
+          "minimum_ms": 0.43516349978744984,
+          "maximum_ms": 0.43689804151654243,
+          "cv": 0.0013024481207390415
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 1,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 550564036870363.3,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2494110107421875,
+            0.2496920108795166,
+            0.24976000785827637,
+            0.24895000457763672,
+            0.24906599521636963,
+            0.24963300228118895,
+            0.24993300437927246
+          ],
+          "median_ms": 0.24963300228118895,
+          "minimum_ms": 0.24895000457763672,
+          "maximum_ms": 0.24993300437927246,
+          "cv": 0.0014708637502296778
+        },
+        "wall": {
+          "samples_ms": [
+            0.2537154592573643,
+            0.25372146628797054,
+            0.2536384388804436,
+            0.2524349372833967,
+            0.25315540842711926,
+            0.25342744775116444,
+            0.2536969259381294
+          ],
+          "median_ms": 0.2536384388804436,
+          "minimum_ms": 0.2524349372833967,
+          "maximum_ms": 0.25372146628797054,
+          "cv": 0.0018648226192680406
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 2,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1458404833270.6274,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.18445299863815307,
+            0.18428000211715698,
+            0.18399800062179567,
+            0.18406100273132325,
+            0.18415199518203734,
+            0.18329499959945678,
+            0.18376799821853637
+          ],
+          "median_ms": 0.18406100273132325,
+          "minimum_ms": 0.18329499959945678,
+          "maximum_ms": 0.18445299863815307,
+          "cv": 0.002059095208180461
+        },
+        "wall": {
+          "samples_ms": [
+            0.27836267836391926,
+            0.18859370611608028,
+            0.18946919590234756,
+            0.1898542046546936,
+            0.18944218754768372,
+            0.188311655074358,
+            0.18911315128207207
+          ],
+          "median_ms": 0.18944218754768372,
+          "minimum_ms": 0.188311655074358,
+          "maximum_ms": 0.27836267836391926,
+          "cv": 0.16708453679519017
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 2,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1266786020867.8503,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8481049537658691,
+            0.8486769676208497,
+            0.8483280181884766,
+            0.8476110458374023,
+            0.8474789619445801,
+            0.8473779678344726,
+            0.8473329544067383
+          ],
+          "median_ms": 0.8476110458374023,
+          "minimum_ms": 0.8473329544067383,
+          "maximum_ms": 0.8486769676208497,
+          "cv": 0.0006207746316419948
+        },
+        "wall": {
+          "samples_ms": [
+            0.8569643367081881,
+            0.8546443190425634,
+            0.8548323530703783,
+            0.8530377876013517,
+            0.8529748301953077,
+            0.8525707758963108,
+            0.8524833712726831
+          ],
+          "median_ms": 0.8530377876013517,
+          "minimum_ms": 0.8524833712726831,
+          "maximum_ms": 0.8569643367081881,
+          "cv": 0.0019230725274616803
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 2,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 321831122291437.0,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42651901245117185,
+            0.4272019863128662,
+            0.42669100761413575,
+            0.42775697708129884,
+            0.42667398452758787,
+            0.42705302238464354,
+            0.42716097831726074
+          ],
+          "median_ms": 0.42705302238464354,
+          "minimum_ms": 0.42651901245117185,
+          "maximum_ms": 0.42775697708129884,
+          "cv": 0.0009913568457003575
+        },
+        "wall": {
+          "samples_ms": [
+            0.4328030161559582,
+            0.43314453214406967,
+            0.4338109865784645,
+            0.4338845144957304,
+            0.43218401260674,
+            0.432321522384882,
+            0.43168002739548683
+          ],
+          "median_ms": 0.4328030161559582,
+          "minimum_ms": 0.43168002739548683,
+          "maximum_ms": 0.4338845144957304,
+          "cv": 0.0019265865062993144
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 2,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 562140887756882.25,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24375100135803224,
+            0.24412798881530762,
+            0.24731700420379638,
+            0.2444920063018799,
+            0.24582200050354003,
+            0.24695999622344972,
+            0.24408400058746338
+          ],
+          "median_ms": 0.2444920063018799,
+          "minimum_ms": 0.24375100135803224,
+          "maximum_ms": 0.24731700420379638,
+          "cv": 0.005992927785827644
+        },
+        "wall": {
+          "samples_ms": [
+            0.24896636605262756,
+            0.24851239286363125,
+            0.2520959358662367,
+            0.2505923621356487,
+            0.2517949789762497,
+            0.2514299005270004,
+            0.24888738989830017
+          ],
+          "median_ms": 0.2505923621356487,
+          "minimum_ms": 0.24851239286363125,
+          "maximum_ms": 0.2520959358662367,
+          "cv": 0.00605566293301637
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 3,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1253007074602.309,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2146049976348877,
+            0.21435399055480958,
+            0.21416699886322021,
+            0.214136004447937,
+            0.2141429901123047,
+            0.21423299312591554,
+            0.21441500186920165
+          ],
+          "median_ms": 0.21423299312591554,
+          "minimum_ms": 0.214136004447937,
+          "maximum_ms": 0.2146049976348877,
+          "cv": 0.0008140202801524232
+        },
+        "wall": {
+          "samples_ms": [
+            0.22564060054719448,
+            0.22010053507983685,
+            0.21876255050301552,
+            0.2182404976338148,
+            0.21872506476938725,
+            0.21975752897560596,
+            0.22367453202605247
+          ],
+          "median_ms": 0.21975752897560596,
+          "minimum_ms": 0.2182404976338148,
+          "maximum_ms": 0.22564060054719448,
+          "cv": 0.012843464877035207
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 3,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1270226897632.2988,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8453149795532227,
+            0.8455060005187989,
+            0.8449589729309082,
+            0.8458840370178222,
+            0.8449689865112304,
+            0.8451539993286132,
+            0.8461199760437011
+          ],
+          "median_ms": 0.8453149795532227,
+          "minimum_ms": 0.8449589729309082,
+          "maximum_ms": 0.8461199760437011,
+          "cv": 0.0005312482444872419
+        },
+        "wall": {
+          "samples_ms": [
+            0.8517818059772253,
+            0.8501468226313591,
+            0.8502877317368984,
+            0.8505812846124172,
+            0.8494128007441759,
+            0.849861791357398,
+            0.8508302737027407
+          ],
+          "median_ms": 0.8502877317368984,
+          "minimum_ms": 0.8494128007441759,
+          "maximum_ms": 0.8517818059772253,
+          "cv": 0.000893838979216718
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 3,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 322256722265236.9,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4269320011138916,
+            0.4264890193939209,
+            0.42663397789001467,
+            0.4260859966278076,
+            0.4260779857635498,
+            0.42615399360656736,
+            0.4265850067138672
+          ],
+          "median_ms": 0.4264890193939209,
+          "minimum_ms": 0.4260779857635498,
+          "maximum_ms": 0.4269320011138916,
+          "cv": 0.00076540558679808
+        },
+        "wall": {
+          "samples_ms": [
+            0.4339995328336954,
+            0.4320410080254078,
+            0.4336354788392782,
+            0.43315901421010494,
+            0.4307439550757408,
+            0.4307269584387541,
+            0.43099746108055115
+          ],
+          "median_ms": 0.4320410080254078,
+          "minimum_ms": 0.4307269584387541,
+          "maximum_ms": 0.4339995328336954,
+          "cv": 0.0032693116818326095
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 3,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 551387930069707.75,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24894499778747559,
+            0.24932498931884767,
+            0.24907500743865968,
+            0.24941699504852294,
+            0.24925999641418456,
+            0.24920499324798584,
+            0.24934298992156984
+          ],
+          "median_ms": 0.24925999641418456,
+          "minimum_ms": 0.24894499778747559,
+          "maximum_ms": 0.24941699504852294,
+          "cv": 0.0006619569829790865
+        },
+        "wall": {
+          "samples_ms": [
+            0.25399443693459034,
+            0.25349087081849575,
+            0.2534594386816025,
+            0.25344896130263805,
+            0.2536423970013857,
+            0.2534504048526287,
+            0.2535904757678509
+          ],
+          "median_ms": 0.25349087081849575,
+          "minimum_ms": 0.25344896130263805,
+          "maximum_ms": 0.25399443693459034,
+          "cv": 0.00077571746263052
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 4,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1516104803183.9202,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.18136099576950074,
+            0.17755199670791627,
+            0.17633299827575682,
+            0.1768309950828552,
+            0.17800699472427367,
+            0.1770560026168823,
+            0.1770550012588501
+          ],
+          "median_ms": 0.1770560026168823,
+          "minimum_ms": 0.17633299827575682,
+          "maximum_ms": 0.18136099576950074,
+          "cv": 0.009459379078696742
+        },
+        "wall": {
+          "samples_ms": [
+            0.19665323197841644,
+            0.18243459053337574,
+            0.18142410553991795,
+            0.1819361001253128,
+            0.1830591820180416,
+            0.18242010846734047,
+            0.18194811418652534
+          ],
+          "median_ms": 0.18242010846734047,
+          "minimum_ms": 0.18142410553991795,
+          "maximum_ms": 0.19665323197841644,
+          "cv": 0.029768692568541977
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 4,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1268973353070.6182,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8466710090637207,
+            0.8473090171813965,
+            0.8460650444030762,
+            0.8458680152893067,
+            0.8459369659423828,
+            0.8470459938049316,
+            0.846150016784668
+          ],
+          "median_ms": 0.846150016784668,
+          "minimum_ms": 0.8458680152893067,
+          "maximum_ms": 0.8473090171813965,
+          "cv": 0.000678764928727535
+        },
+        "wall": {
+          "samples_ms": [
+            0.8550123777240515,
+            0.8530677761882544,
+            0.8520078379660845,
+            0.8509412873536348,
+            0.8510983549058437,
+            0.8525977842509747,
+            0.8509308099746704
+          ],
+          "median_ms": 0.8520078379660845,
+          "minimum_ms": 0.8509308099746704,
+          "maximum_ms": 0.8550123777240515,
+          "cv": 0.0017441689892247416
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 4,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 319905215205940.56,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4291059970855713,
+            0.43042798042297364,
+            0.43120899200439455,
+            0.43031702041625974,
+            0.4289400100708008,
+            0.42934699058532716,
+            0.42962398529052737
+          ],
+          "median_ms": 0.42962398529052737,
+          "minimum_ms": 0.4289400100708008,
+          "maximum_ms": 0.43120899200439455,
+          "cv": 0.0019194814216861732
+        },
+        "wall": {
+          "samples_ms": [
+            0.4348780494183302,
+            0.43528247624635696,
+            0.43558557517826557,
+            0.4351530224084854,
+            0.43400200083851814,
+            0.4337415099143982,
+            0.43470547534525394
+          ],
+          "median_ms": 0.4348780494183302,
+          "minimum_ms": 0.4337415099143982,
+          "maximum_ms": 0.43558557517826557,
+          "cv": 0.0015536884724931122
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 4,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 553693697982913.06,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24819800853729249,
+            0.24831900596618653,
+            0.24854700565338134,
+            0.2482219934463501,
+            0.24821999073028564,
+            0.2485260009765625,
+            0.2480560064315796
+          ],
+          "median_ms": 0.2482219934463501,
+          "minimum_ms": 0.2480560064315796,
+          "maximum_ms": 0.24854700565338134,
+          "cv": 0.0007257741146609665
+        },
+        "wall": {
+          "samples_ms": [
+            0.2538104075938463,
+            0.25308942422270775,
+            0.25325040332973003,
+            0.2529339399188757,
+            0.2528029028326273,
+            0.2530139870941639,
+            0.252650398761034
+          ],
+          "median_ms": 0.2530139870941639,
+          "minimum_ms": 0.252650398761034,
+          "maximum_ms": 0.2538104075938463,
+          "cv": 0.001486916897833759
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 5,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1504564985837.4893,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.17881799936294557,
+            0.17841399908065797,
+            0.1785380005836487,
+            0.17816900014877318,
+            0.1781790018081665,
+            0.1790869951248169,
+            0.17809799909591675
+          ],
+          "median_ms": 0.17841399908065797,
+          "minimum_ms": 0.17809799909591675,
+          "maximum_ms": 0.1790869951248169,
+          "cv": 0.0020754113286811197
+        },
+        "wall": {
+          "samples_ms": [
+            0.18987213261425495,
+            0.18244809471070766,
+            0.1821580808609724,
+            0.18179411999881268,
+            0.18199458718299866,
+            0.1833491027355194,
+            0.18291110172867775
+          ],
+          "median_ms": 0.18244809471070766,
+          "minimum_ms": 0.18179411999881268,
+          "maximum_ms": 0.18987213261425495,
+          "cv": 0.015582243055604756
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 5,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269322853960.469,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8460519790649415,
+            0.8456040382385254,
+            0.8455309867858887,
+            0.8462129592895508,
+            0.8458869934082032,
+            0.8460499763488769,
+            0.84591703414917
+          ],
+          "median_ms": 0.84591703414917,
+          "minimum_ms": 0.8455309867858887,
+          "maximum_ms": 0.8462129592895508,
+          "cv": 0.00029255712815749567
+        },
+        "wall": {
+          "samples_ms": [
+            0.854848325252533,
+            0.8507228456437588,
+            0.8495168294757605,
+            0.8503322955220938,
+            0.850237812846899,
+            0.8505388163030148,
+            0.8503368124365807
+          ],
+          "median_ms": 0.8503368124365807,
+          "minimum_ms": 0.8495168294757605,
+          "maximum_ms": 0.854848325252533,
+          "cv": 0.002076581615329313
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 5,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 319042301139223.75,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.43146700859069825,
+            0.43069000244140626,
+            0.4308780193328857,
+            0.4305870056152344,
+            0.4317180156707764,
+            0.4307859897613525,
+            0.4303840160369873
+          ],
+          "median_ms": 0.4307859897613525,
+          "minimum_ms": 0.4303840160369873,
+          "maximum_ms": 0.4317180156707764,
+          "cv": 0.0011233896661097067
+        },
+        "wall": {
+          "samples_ms": [
+            0.4369985777884722,
+            0.434674508869648,
+            0.4352400079369545,
+            0.43481248430907726,
+            0.43589002452790737,
+            0.43477099388837814,
+            0.43504354543983936
+          ],
+          "median_ms": 0.43504354543983936,
+          "minimum_ms": 0.434674508869648,
+          "maximum_ms": 0.4369985777884722,
+          "cv": 0.0019208731436582494
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 5,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 552589494010608.56,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.248403000831604,
+            0.24870400428771972,
+            0.24848599433898927,
+            0.248717999458313,
+            0.2487760066986084,
+            0.24881999492645263,
+            0.2496920108795166
+          ],
+          "median_ms": 0.248717999458313,
+          "minimum_ms": 0.248403000831604,
+          "maximum_ms": 0.2496920108795166,
+          "cv": 0.0016963820473328425
+        },
+        "wall": {
+          "samples_ms": [
+            0.25321589782834053,
+            0.2524519804865122,
+            0.25206590071320534,
+            0.25228490121662617,
+            0.2529979683458805,
+            0.25297990068793297,
+            0.2542579546570778
+          ],
+          "median_ms": 0.25297990068793297,
+          "minimum_ms": 0.25206590071320534,
+          "maximum_ms": 0.2542579546570778,
+          "cv": 0.0029032029913102215
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 6,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1249763463838.247,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.21514599323272704,
+            0.21487200260162354,
+            0.2148200035095215,
+            0.2147890090942383,
+            0.21455199718475343,
+            0.2139970064163208,
+            0.21412899494171142
+          ],
+          "median_ms": 0.2147890090942383,
+          "minimum_ms": 0.2139970064163208,
+          "maximum_ms": 0.21514599323272704,
+          "cv": 0.001942140693279651
+        },
+        "wall": {
+          "samples_ms": [
+            0.2473868429660797,
+            0.21938355639576912,
+            0.21909303031861782,
+            0.2189634833484888,
+            0.21870206110179424,
+            0.2190684899687767,
+            0.21886550821363926
+          ],
+          "median_ms": 0.2190684899687767,
+          "minimum_ms": 0.21870206110179424,
+          "maximum_ms": 0.2473868429660797,
+          "cv": 0.04808664513232943
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 6,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269093360532.9224,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8464229583740235,
+            0.8465769767761231,
+            0.8456350326538086,
+            0.8458270072937012,
+            0.8460700035095214,
+            0.8459950447082519,
+            0.8461310386657714
+          ],
+          "median_ms": 0.8460700035095214,
+          "minimum_ms": 0.8456350326538086,
+          "maximum_ms": 0.8465769767761231,
+          "cv": 0.0003845439733023377
+        },
+        "wall": {
+          "samples_ms": [
+            0.854987371712923,
+            0.8531968574970961,
+            0.8515758439898491,
+            0.851674284785986,
+            0.8515533525496721,
+            0.8510477840900421,
+            0.851535378023982
+          ],
+          "median_ms": 0.8515758439898491,
+          "minimum_ms": 0.8510477840900421,
+          "maximum_ms": 0.854987371712923,
+          "cv": 0.0016324194166541992
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 6,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 322538073723752.5,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.426570987701416,
+            0.4261169910430908,
+            0.4258409976959229,
+            0.4262710094451904,
+            0.42499499320983886,
+            0.42684497833251955,
+            0.4259669780731201
+          ],
+          "median_ms": 0.4261169910430908,
+          "minimum_ms": 0.42499499320983886,
+          "maximum_ms": 0.42684497833251955,
+          "cv": 0.0013920787421228494
+        },
+        "wall": {
+          "samples_ms": [
+            0.43280692771077156,
+            0.43147443793714046,
+            0.4311014898121357,
+            0.4317594226449728,
+            0.4297864157706499,
+            0.43169097043573856,
+            0.4305074457079172
+          ],
+          "median_ms": 0.43147443793714046,
+          "minimum_ms": 0.4297864157706499,
+          "maximum_ms": 0.43280692771077156,
+          "cv": 0.00224464144139017
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 6,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 551866174018864.0,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2490339994430542,
+            0.24987599849700928,
+            0.24821000099182128,
+            0.24904398918151854,
+            0.2489029884338379,
+            0.24928700923919678,
+            0.249114990234375
+          ],
+          "median_ms": 0.24904398918151854,
+          "minimum_ms": 0.24821000099182128,
+          "maximum_ms": 0.24987599849700928,
+          "cv": 0.0019860656569893912
+        },
+        "wall": {
+          "samples_ms": [
+            0.25483546778559685,
+            0.25502797216176987,
+            0.2537159714847803,
+            0.25428691878914833,
+            0.2547019626945257,
+            0.25484045036137104,
+            0.25483393110334873
+          ],
+          "median_ms": 0.25483393110334873,
+          "minimum_ms": 0.2537159714847803,
+          "maximum_ms": 0.25502797216176987,
+          "cv": 0.001786108544453162
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 7,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1490951867825.0654,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.18063700199127197,
+            0.17977499961853027,
+            0.18004300594329833,
+            0.18044300079345704,
+            0.18068699836730956,
+            0.1799149990081787,
+            0.1795959949493408
+          ],
+          "median_ms": 0.18004300594329833,
+          "minimum_ms": 0.1795959949493408,
+          "maximum_ms": 0.18068699836730956,
+          "cv": 0.0024038616790296387
+        },
+        "wall": {
+          "samples_ms": [
+            0.1915227621793747,
+            0.18483013845980167,
+            0.18599512986838818,
+            0.18517514690756798,
+            0.1852546352893114,
+            0.18470361828804016,
+            0.18398109823465347
+          ],
+          "median_ms": 0.18517514690756798,
+          "minimum_ms": 0.18398109823465347,
+          "maximum_ms": 0.1915227621793747,
+          "cv": 0.013681154114277415
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 7,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1266881808370.832,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8475469589233399,
+            0.8472470283508301,
+            0.8476140022277832,
+            0.8466099739074707,
+            0.8477319717407227,
+            0.8485079765319824,
+            0.8469889640808106
+          ],
+          "median_ms": 0.8475469589233399,
+          "minimum_ms": 0.8466099739074707,
+          "maximum_ms": 0.8485079765319824,
+          "cv": 0.0007134110521742998
+        },
+        "wall": {
+          "samples_ms": [
+            0.8550483733415604,
+            0.853063864633441,
+            0.8523593191057444,
+            0.8531738072633743,
+            0.853586383163929,
+            0.8559573441743851,
+            0.8529233280569315
+          ],
+          "median_ms": 0.8531738072633743,
+          "minimum_ms": 0.8523593191057444,
+          "maximum_ms": 0.8559573441743851,
+          "cv": 0.0015123595899569132
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 7,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 318794372148793.5,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4317200183868408,
+            0.43145198822021485,
+            0.43117799758911135,
+            0.4304150104522705,
+            0.4311210155487061,
+            0.43111400604248046,
+            0.4308509826660156
+          ],
+          "median_ms": 0.4311210155487061,
+          "minimum_ms": 0.4304150104522705,
+          "maximum_ms": 0.4317200183868408,
+          "cv": 0.0009670907369565508
+        },
+        "wall": {
+          "samples_ms": [
+            0.4376875702291727,
+            0.43656397610902786,
+            0.4362780135124922,
+            0.43474752455949783,
+            0.4359734710305929,
+            0.4354645498096943,
+            0.4355279728770256
+          ],
+          "median_ms": 0.4359734710305929,
+          "minimum_ms": 0.43474752455949783,
+          "maximum_ms": 0.4376875702291727,
+          "cv": 0.002158255975806688
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 7,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 556496120097262.1,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24694199562072755,
+            0.24692399501800538,
+            0.2469399929046631,
+            0.24748599529266357,
+            0.2469719886779785,
+            0.2474980115890503,
+            0.24758501052856446
+          ],
+          "median_ms": 0.2469719886779785,
+          "minimum_ms": 0.24692399501800538,
+          "maximum_ms": 0.24758501052856446,
+          "cv": 0.0012586144086710563
+        },
+        "wall": {
+          "samples_ms": [
+            0.25206287391483784,
+            0.25178492069244385,
+            0.2515149302780628,
+            0.25221691466867924,
+            0.251881405711174,
+            0.25216788053512573,
+            0.25209388695657253
+          ],
+          "median_ms": 0.25206287391483784,
+          "minimum_ms": 0.2515149302780628,
+          "maximum_ms": 0.25221691466867924,
+          "cv": 0.0009890975712131976
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 8,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1256120401524.151,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2135780096054077,
+            0.21460399627685547,
+            0.21370201110839843,
+            0.21371500492095946,
+            0.21362600326538086,
+            0.21363298892974852,
+            0.21389100551605225
+          ],
+          "median_ms": 0.21370201110839843,
+          "minimum_ms": 0.2135780096054077,
+          "maximum_ms": 0.21460399627685547,
+          "cv": 0.0016816915070034777
+        },
+        "wall": {
+          "samples_ms": [
+            0.2244980540126562,
+            0.21915151737630367,
+            0.21795905195176601,
+            0.21793697960674763,
+            0.21832906641066074,
+            0.21880296990275383,
+            0.21817549131810665
+          ],
+          "median_ms": 0.21832906641066074,
+          "minimum_ms": 0.21793697960674763,
+          "maximum_ms": 0.2244980540126562,
+          "cv": 0.010718987086372684
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 8,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269466973608.7773,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8468729972839355,
+            0.8455260276794434,
+            0.8454150199890137,
+            0.8461199760437011,
+            0.8460780143737793,
+            0.8458209991455078,
+            0.8457189559936523
+          ],
+          "median_ms": 0.8458209991455078,
+          "minimum_ms": 0.8454150199890137,
+          "maximum_ms": 0.8468729972839355,
+          "cv": 0.0005774701714436972
+        },
+        "wall": {
+          "samples_ms": [
+            0.8539428468793631,
+            0.8512022905051708,
+            0.8519833441823721,
+            0.8516883011907339,
+            0.8511053398251534,
+            0.8504447992891073,
+            0.8502942975610495
+          ],
+          "median_ms": 0.8512022905051708,
+          "minimum_ms": 0.8502942975610495,
+          "maximum_ms": 0.8539428468793631,
+          "cv": 0.0014418443037944421
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 8,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 322574387306672.1,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42606201171875,
+            0.42631001472473146,
+            0.4260690212249756,
+            0.4262819766998291,
+            0.4254930019378662,
+            0.42612900733947756,
+            0.42573299407958987
+          ],
+          "median_ms": 0.4260690212249756,
+          "minimum_ms": 0.4254930019378662,
+          "maximum_ms": 0.42631001472473146,
+          "cv": 0.000696563729920392
+        },
+        "wall": {
+          "samples_ms": [
+            0.4313284531235695,
+            0.4305729176849127,
+            0.4303794354200363,
+            0.43149846605956554,
+            0.4314485006034374,
+            0.43093892745673656,
+            0.43125348165631294
+          ],
+          "median_ms": 0.43125348165631294,
+          "minimum_ms": 0.4303794354200363,
+          "maximum_ms": 0.43149846605956554,
+          "cv": 0.001023443893225419
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 8,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 561566711510722.6,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24474198818206788,
+            0.24514501094818114,
+            0.24526400566101075,
+            0.24464800357818603,
+            0.24470000267028807,
+            0.24434099197387696,
+            0.2448620080947876
+          ],
+          "median_ms": 0.24474198818206788,
+          "minimum_ms": 0.24434099197387696,
+          "maximum_ms": 0.24526400566101075,
+          "cv": 0.0012741986061074236
+        },
+        "wall": {
+          "samples_ms": [
+            0.25570844300091267,
+            0.24958988651633263,
+            0.24986532516777515,
+            0.2492194063961506,
+            0.2488358411937952,
+            0.24835788644850254,
+            0.24885786697268486
+          ],
+          "median_ms": 0.2492194063961506,
+          "minimum_ms": 0.24835788644850254,
+          "maximum_ms": 0.25570844300091267,
+          "cv": 0.010157694849220385
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 9,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1506321066150.865,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.1795539975166321,
+            0.17812999486923217,
+            0.1780969977378845,
+            0.17820600271224976,
+            0.1785230040550232,
+            0.17841800451278686,
+            0.17820099592208863
+          ],
+          "median_ms": 0.17820600271224976,
+          "minimum_ms": 0.1780969977378845,
+          "maximum_ms": 0.1795539975166321,
+          "cv": 0.0028699182615800267
+        },
+        "wall": {
+          "samples_ms": [
+            0.19043618813157082,
+            0.1821541227400303,
+            0.18206103704869747,
+            0.18159905448555946,
+            0.18236758187413216,
+            0.18218313343822956,
+            0.18164310604333878
+          ],
+          "median_ms": 0.1821541227400303,
+          "minimum_ms": 0.18159905448555946,
+          "maximum_ms": 0.19043618813157082,
+          "cv": 0.017470500802886438
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 9,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1268710960532.96,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8460370063781738,
+            0.8463250160217285,
+            0.8461770057678223,
+            0.8466279983520508,
+            0.8461620330810546,
+            0.8465849876403808,
+            0.846619987487793
+          ],
+          "median_ms": 0.8463250160217285,
+          "minimum_ms": 0.8460370063781738,
+          "maximum_ms": 0.8466279983520508,
+          "cv": 0.0002927051940836037
+        },
+        "wall": {
+          "samples_ms": [
+            0.8539638482034206,
+            0.8516848087310791,
+            0.8513072971254587,
+            0.8520183153450489,
+            0.8515967987477779,
+            0.8510263171046972,
+            0.8507793303579092
+          ],
+          "median_ms": 0.8515967987477779,
+          "minimum_ms": 0.8507793303579092,
+          "maximum_ms": 0.8539638482034206,
+          "cv": 0.0012369571592435076
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 9,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 320391427877799.2,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42939200401306155,
+            0.4289720058441162,
+            0.42923197746276853,
+            0.4289360046386719,
+            0.42930102348327637,
+            0.428371000289917,
+            0.4280700206756592
+          ],
+          "median_ms": 0.4289720058441162,
+          "minimum_ms": 0.4280700206756592,
+          "maximum_ms": 0.42939200401306155,
+          "cv": 0.001161183866191667
+        },
+        "wall": {
+          "samples_ms": [
+            0.43427650816738605,
+            0.4330219700932503,
+            0.4331375006586313,
+            0.43314751237630844,
+            0.43339901603758335,
+            0.43247146531939507,
+            0.4324884619563818
+          ],
+          "median_ms": 0.4331375006586313,
+          "minimum_ms": 0.43247146531939507,
+          "maximum_ms": 0.43427650816738605,
+          "cv": 0.001411920516631647
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 9,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 543245576915121.44,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.25299599170684817,
+            0.2535559892654419,
+            0.253371000289917,
+            0.25211000442504883,
+            0.2540679931640625,
+            0.2529560089111328,
+            0.25241200923919677
+          ],
+          "median_ms": 0.25299599170684817,
+          "minimum_ms": 0.25211000442504883,
+          "maximum_ms": 0.2540679931640625,
+          "cv": 0.0026486644557168993
+        },
+        "wall": {
+          "samples_ms": [
+            0.25751199573278427,
+            0.25832047685980797,
+            0.2575424499809742,
+            0.2569919917732477,
+            0.2603285014629364,
+            0.2571544609963894,
+            0.2561784815043211
+          ],
+          "median_ms": 0.25751199573278427,
+          "minimum_ms": 0.2561784815043211,
+          "maximum_ms": 0.2603285014629364,
+          "cv": 0.0051246459608745715
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 10,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1244692899271.9822,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.21564700603485107,
+            0.21565799713134765,
+            0.2157589912414551,
+            0.21547799110412597,
+            0.21583399772644044,
+            0.2158440113067627,
+            0.21566400527954102
+          ],
+          "median_ms": 0.21566400527954102,
+          "minimum_ms": 0.21547799110412597,
+          "maximum_ms": 0.2158440113067627,
+          "cv": 0.0005903673563019302
+        },
+        "wall": {
+          "samples_ms": [
+            0.22753565572202206,
+            0.22056754678487778,
+            0.22136252373456955,
+            0.22006602957844734,
+            0.22093458101153374,
+            0.2212135586887598,
+            0.2213745377957821
+          ],
+          "median_ms": 0.2212135586887598,
+          "minimum_ms": 0.22006602957844734,
+          "maximum_ms": 0.22753565572202206,
+          "cv": 0.011470494543210965
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 10,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269662095336.897,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8456729888916016,
+            0.8456910133361817,
+            0.8451109886169433,
+            0.8453680038452148,
+            0.8460479736328125,
+            0.8457670211791992,
+            0.8461509704589844
+          ],
+          "median_ms": 0.8456910133361817,
+          "minimum_ms": 0.8451109886169433,
+          "maximum_ms": 0.8461509704589844,
+          "cv": 0.0004279100642929411
+        },
+        "wall": {
+          "samples_ms": [
+            0.8535968605428934,
+            0.8523632772266865,
+            0.8523862808942795,
+            0.8519058115780354,
+            0.8516598027199507,
+            0.8513772860169411,
+            0.8531557861715555
+          ],
+          "median_ms": 0.8523632772266865,
+          "minimum_ms": 0.8513772860169411,
+          "maximum_ms": 0.8535968605428934,
+          "cv": 0.0009367828698016533
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 10,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 321058298189076.44,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42875399589538576,
+            0.42891502380371094,
+            0.42807998657226565,
+            0.42808098793029786,
+            0.4281519889831543,
+            0.4280250072479248,
+            0.4275839805603027
+          ],
+          "median_ms": 0.42808098793029786,
+          "minimum_ms": 0.4275839805603027,
+          "maximum_ms": 0.42891502380371094,
+          "cv": 0.00106754838362124
+        },
+        "wall": {
+          "samples_ms": [
+            0.4346900153905153,
+            0.4340294748544693,
+            0.43277950026094913,
+            0.4326980095356703,
+            0.43263896368443966,
+            0.43252850882709026,
+            0.4321575164794922
+          ],
+          "median_ms": 0.4326980095356703,
+          "minimum_ms": 0.4321575164794922,
+          "maximum_ms": 0.4346900153905153,
+          "cv": 0.0021245324137028577
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 10,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 560035852801699.3,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24559600353240968,
+            0.2458630084991455,
+            0.24541099071502687,
+            0.24567298889160155,
+            0.24525799751281738,
+            0.24540700912475585,
+            0.24479999542236328
+          ],
+          "median_ms": 0.24541099071502687,
+          "minimum_ms": 0.24479999542236328,
+          "maximum_ms": 0.2458630084991455,
+          "cv": 0.0013931695977444042
+        },
+        "wall": {
+          "samples_ms": [
+            0.250934436917305,
+            0.2500543836504221,
+            0.25010835379362106,
+            0.2500713337212801,
+            0.24993037804961205,
+            0.24975291453301907,
+            0.24934490211308002
+          ],
+          "median_ms": 0.2500543836504221,
+          "minimum_ms": 0.24934490211308002,
+          "maximum_ms": 0.250934436917305,
+          "cv": 0.001919842009667587
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 11,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1248868078681.495,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.21553399562835693,
+            0.21523098945617675,
+            0.21479299068450927,
+            0.2150480031967163,
+            0.21438798904418946,
+            0.21494300365448,
+            0.2144589900970459
+          ],
+          "median_ms": 0.21494300365448,
+          "minimum_ms": 0.21438798904418946,
+          "maximum_ms": 0.21553399562835693,
+          "cv": 0.0019015274680984568
+        },
+        "wall": {
+          "samples_ms": [
+            0.22859862074255943,
+            0.22026957012712955,
+            0.22014901041984558,
+            0.22018654271960258,
+            0.21867048926651478,
+            0.21994351409375668,
+            0.21855398081243038
+          ],
+          "median_ms": 0.22014901041984558,
+          "minimum_ms": 0.21855398081243038,
+          "maximum_ms": 0.22859862074255943,
+          "cv": 0.015694954105599526
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 11,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1268400805272.4922,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8466959953308105,
+            0.8468609809875488,
+            0.8462400436401367,
+            0.8466850280761719,
+            0.8464400291442871,
+            0.8463170051574707,
+            0.8465319633483886
+          ],
+          "median_ms": 0.8465319633483886,
+          "minimum_ms": 0.8462400436401367,
+          "maximum_ms": 0.8468609809875488,
+          "cv": 0.000263324219284259
+        },
+        "wall": {
+          "samples_ms": [
+            0.8553173393011093,
+            0.8521383162587881,
+            0.8518613409250975,
+            0.8518032729625702,
+            0.8514943532645702,
+            0.8508407976478338,
+            0.8514788467437029
+          ],
+          "median_ms": 0.8518032729625702,
+          "minimum_ms": 0.8508407976478338,
+          "maximum_ms": 0.8553173393011093,
+          "cv": 0.0017159258468391067
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 11,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 322457859078292.56,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4262229919433594,
+            0.42659997940063477,
+            0.4261650085449219,
+            0.42630901336669924,
+            0.4259850025177002,
+            0.4260119915008545,
+            0.426531982421875
+          ],
+          "median_ms": 0.4262229919433594,
+          "minimum_ms": 0.4259850025177002,
+          "maximum_ms": 0.42659997940063477,
+          "cv": 0.0005580300564440565
+        },
+        "wall": {
+          "samples_ms": [
+            0.43171653524041176,
+            0.4309944808483124,
+            0.43018199503421783,
+            0.43063792400062084,
+            0.4302464425563812,
+            0.4303309600800276,
+            0.4310934338718653
+          ],
+          "median_ms": 0.43063792400062084,
+          "minimum_ms": 0.43018199503421783,
+          "maximum_ms": 0.43171653524041176,
+          "cv": 0.0012981188846093172
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 11,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 562271987383399.6,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.246232008934021,
+            0.24523000717163085,
+            0.24435300827026368,
+            0.2444350004196167,
+            0.24428999423980713,
+            0.2461319923400879,
+            0.24398601055145264
+          ],
+          "median_ms": 0.2444350004196167,
+          "minimum_ms": 0.24398601055145264,
+          "maximum_ms": 0.246232008934021,
+          "cv": 0.003765878990428816
+        },
+        "wall": {
+          "samples_ms": [
+            0.25174240581691265,
+            0.25051990523934364,
+            0.2488974016159773,
+            0.24959235452115536,
+            0.2498643472790718,
+            0.25233393535017967,
+            0.24925032630562782
+          ],
+          "median_ms": 0.2498643472790718,
+          "minimum_ms": 0.2488974016159773,
+          "maximum_ms": 0.25233393535017967,
+          "cv": 0.005163674911391444
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 12,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1443884495697.5842,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.19592100381851196,
+            0.1904360055923462,
+            0.1869920015335083,
+            0.18591200113296508,
+            0.1857609987258911,
+            0.18507100343704225,
+            0.18474600315093995
+          ],
+          "median_ms": 0.18591200113296508,
+          "minimum_ms": 0.18474600315093995,
+          "maximum_ms": 0.19592100381851196,
+          "cv": 0.02152049109107891
+        },
+        "wall": {
+          "samples_ms": [
+            0.20882189273834229,
+            0.195242278277874,
+            0.19072419963777065,
+            0.18942467868328094,
+            0.18976465798914433,
+            0.18908767960965633,
+            0.18853419460356236
+          ],
+          "median_ms": 0.18976465798914433,
+          "minimum_ms": 0.18853419460356236,
+          "maximum_ms": 0.20882189273834229,
+          "cv": 0.037762572065638794
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 12,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1268689945225.8354,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.847050952911377,
+            0.8472949981689453,
+            0.8461819648742676,
+            0.8468429565429687,
+            0.8463390350341797,
+            0.8463290214538575,
+            0.8458840370178222
+          ],
+          "median_ms": 0.8463390350341797,
+          "minimum_ms": 0.8458840370178222,
+          "maximum_ms": 0.8472949981689453,
+          "cv": 0.0006029651437322098
+        },
+        "wall": {
+          "samples_ms": [
+            0.8553238585591316,
+            0.8525018114596605,
+            0.8507622871547937,
+            0.851468788459897,
+            0.8510687854140997,
+            0.8511973079293966,
+            0.8502122946083546
+          ],
+          "median_ms": 0.8511973079293966,
+          "minimum_ms": 0.8502122946083546,
+          "maximum_ms": 0.8553238585591316,
+          "cv": 0.002005828962275776
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 12,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 322473732853983.06,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42620201110839845,
+            0.42585101127624514,
+            0.4263850212097168,
+            0.4264540195465088,
+            0.42604899406433105,
+            0.4260660171508789,
+            0.42635397911071776
+          ],
+          "median_ms": 0.42620201110839845,
+          "minimum_ms": 0.42585101127624514,
+          "maximum_ms": 0.4264540195465088,
+          "cv": 0.0005111977074585166
+        },
+        "wall": {
+          "samples_ms": [
+            0.4309309646487236,
+            0.43043196201324463,
+            0.43048146180808544,
+            0.43061450123786926,
+            0.43003144674003124,
+            0.430648447945714,
+            0.43008094653487206
+          ],
+          "median_ms": 0.43048146180808544,
+          "minimum_ms": 0.43003144674003124,
+          "maximum_ms": 0.4309309646487236,
+          "cv": 0.0007405888560404997
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 12,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 553065368241815.94,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2487190008163452,
+            0.24830501079559325,
+            0.24814400672912598,
+            0.24801199436187743,
+            0.24850399494171144,
+            0.24867000579833984,
+            0.24851300716400146
+          ],
+          "median_ms": 0.24850399494171144,
+          "minimum_ms": 0.24801199436187743,
+          "maximum_ms": 0.2487190008163452,
+          "cv": 0.0010685098918472638
+        },
+        "wall": {
+          "samples_ms": [
+            0.253373384475708,
+            0.25210087187588215,
+            0.2525168936699629,
+            0.2516379114240408,
+            0.2530723810195923,
+            0.25236192159354687,
+            0.25220238603651524
+          ],
+          "median_ms": 0.25236192159354687,
+          "minimum_ms": 0.2516379114240408,
+          "maximum_ms": 0.253373384475708,
+          "cv": 0.0023394073415259377
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 13,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1494271734701.2808,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.17978500127792357,
+            0.1801800012588501,
+            0.1796429991722107,
+            0.1796239972114563,
+            0.1793210029602051,
+            0.17911499738693237,
+            0.17988200187683107
+          ],
+          "median_ms": 0.1796429991722107,
+          "minimum_ms": 0.17911499738693237,
+          "maximum_ms": 0.1801800012588501,
+          "cv": 0.001965575011935243
+        },
+        "wall": {
+          "samples_ms": [
+            0.19175619818270206,
+            0.1844426617026329,
+            0.18419260159134865,
+            0.1837021205574274,
+            0.18379362300038338,
+            0.1838746014982462,
+            0.184300122782588
+          ],
+          "median_ms": 0.18419260159134865,
+          "minimum_ms": 0.1837021205574274,
+          "maximum_ms": 0.19175619818270206,
+          "cv": 0.015799405545624232
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 13,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1267631075352.5325,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8474590301513671,
+            0.8463740348815918,
+            0.8472720146179199,
+            0.8476240158081054,
+            0.8470459938049316,
+            0.846615982055664,
+            0.8464030265808106
+          ],
+          "median_ms": 0.8470459938049316,
+          "minimum_ms": 0.8463740348815918,
+          "maximum_ms": 0.8476240158081054,
+          "cv": 0.0006031550872545109
+        },
+        "wall": {
+          "samples_ms": [
+            0.8545763790607452,
+            0.851575331762433,
+            0.8525973185896873,
+            0.852980324998498,
+            0.8536783512681723,
+            0.8523013442754745,
+            0.8519852999597788
+          ],
+          "median_ms": 0.8525973185896873,
+          "minimum_ms": 0.851575331762433,
+          "maximum_ms": 0.8545763790607452,
+          "cv": 0.0012121377965887943
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 13,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 320665035198470.1,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4286059856414795,
+            0.42815799713134767,
+            0.42778000831604,
+            0.42946600914001465,
+            0.42788100242614746,
+            0.42862601280212403,
+            0.4289999961853027
+          ],
+          "median_ms": 0.4286059856414795,
+          "minimum_ms": 0.42778000831604,
+          "maximum_ms": 0.42946600914001465,
+          "cv": 0.0014223354140482187
+        },
+        "wall": {
+          "samples_ms": [
+            0.4343925043940544,
+            0.4336105193942785,
+            0.43357694521546364,
+            0.4358039703220129,
+            0.4329664632678032,
+            0.43327193707227707,
+            0.43377154506742954
+          ],
+          "median_ms": 0.4336105193942785,
+          "minimum_ms": 0.4329664632678032,
+          "maximum_ms": 0.4358039703220129,
+          "cv": 0.002173555882777942
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 13,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 551788627406209.6,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24898600578308105,
+            0.24937100410461427,
+            0.24888699054718016,
+            0.24980900287628174,
+            0.24871299266815186,
+            0.24967401027679442,
+            0.24907898902893066
+          ],
+          "median_ms": 0.24907898902893066,
+          "minimum_ms": 0.24871299266815186,
+          "maximum_ms": 0.24980900287628174,
+          "cv": 0.0016531079973874636
+        },
+        "wall": {
+          "samples_ms": [
+            0.25416892021894455,
+            0.2540189307183027,
+            0.2530554309487343,
+            0.2537669148296118,
+            0.2531378995627165,
+            0.25442345067858696,
+            0.2533234655857086
+          ],
+          "median_ms": 0.2537669148296118,
+          "minimum_ms": 0.2530554309487343,
+          "maximum_ms": 0.25442345067858696,
+          "cv": 0.002112054851698863
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 14,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1296645566290.1882,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.20858099460601806,
+            0.20709400177001952,
+            0.20585100650787352,
+            0.2070230007171631,
+            0.20638999938964844,
+            0.20692999362945558,
+            0.20804800987243652
+          ],
+          "median_ms": 0.2070230007171631,
+          "minimum_ms": 0.20585100650787352,
+          "maximum_ms": 0.20858099460601806,
+          "cv": 0.004487702300465611
+        },
+        "wall": {
+          "samples_ms": [
+            0.22036605514585972,
+            0.21311547607183456,
+            0.21181986667215824,
+            0.21176990121603012,
+            0.21081590093672276,
+            0.21174196153879166,
+            0.21302946843206882
+          ],
+          "median_ms": 0.21181986667215824,
+          "minimum_ms": 0.21081590093672276,
+          "maximum_ms": 0.22036605514585972,
+          "cv": 0.015212828902266565
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 14,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1270186343473.6052,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8456859588623047,
+            0.8449390411376954,
+            0.8452469825744628,
+            0.8460419654846192,
+            0.8447569847106934,
+            0.845341968536377,
+            0.8502510070800782
+          ],
+          "median_ms": 0.845341968536377,
+          "minimum_ms": 0.8447569847106934,
+          "maximum_ms": 0.8502510070800782,
+          "cv": 0.0022546750771100443
+        },
+        "wall": {
+          "samples_ms": [
+            0.8549238089472055,
+            0.8502267766743898,
+            0.8496937807649374,
+            0.8519628085196018,
+            0.8497987873852253,
+            0.8519573137164116,
+            0.8620004635304213
+          ],
+          "median_ms": 0.8519573137164116,
+          "minimum_ms": 0.8496937807649374,
+          "maximum_ms": 0.8620004635304213,
+          "cv": 0.005148746118400497
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 14,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 321385608205231.3,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.4273019790649414,
+            0.4276450157165527,
+            0.42764902114868164,
+            0.42776198387145997,
+            0.42710299491882325,
+            0.42743501663208006,
+            0.4294730186462402
+          ],
+          "median_ms": 0.4276450157165527,
+          "minimum_ms": 0.42710299491882325,
+          "maximum_ms": 0.4294730186462402,
+          "cv": 0.0018374261035236862
+        },
+        "wall": {
+          "samples_ms": [
+            0.43232194148004055,
+            0.43214247561991215,
+            0.43256846256554127,
+            0.43203900568187237,
+            0.43139499612152576,
+            0.43191746808588505,
+            0.4363125190138817
+          ],
+          "median_ms": 0.43214247561991215,
+          "minimum_ms": 0.43139499612152576,
+          "maximum_ms": 0.4363125190138817,
+          "cv": 0.003805665260088956
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 14,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 559149538506224.56,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.24535698890686036,
+            0.2471060037612915,
+            0.2464900016784668,
+            0.2461090087890625,
+            0.24579999446868897,
+            0.2456890106201172,
+            0.2457429885864258
+          ],
+          "median_ms": 0.24579999446868897,
+          "minimum_ms": 0.24535698890686036,
+          "maximum_ms": 0.2471060037612915,
+          "cv": 0.002392513933157373
+        },
+        "wall": {
+          "samples_ms": [
+            0.2503538504242897,
+            0.2516504377126694,
+            0.2507374156266451,
+            0.2501723822206259,
+            0.24973186664283276,
+            0.24978183209896088,
+            0.24999291636049747
+          ],
+          "median_ms": 0.2501723822206259,
+          "minimum_ms": 0.24973186664283276,
+          "maximum_ms": 0.2516504377126694,
+          "cv": 0.002682095482497215
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 15,
+      "size_bytes": 134217728,
+      "traffic_bytes": 268435456,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1744730120171.0266,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.16986900568008423,
+            0.15692299604415894,
+            0.1556589961051941,
+            0.1536020040512085,
+            0.15335400104522706,
+            0.15319299697875977,
+            0.15385500192642212
+          ],
+          "median_ms": 0.15385500192642212,
+          "minimum_ms": 0.15319299697875977,
+          "maximum_ms": 0.16986900568008423,
+          "cv": 0.03827991627287721
+        },
+        "wall": {
+          "samples_ms": [
+            0.1900381874293089,
+            0.1625483389943838,
+            0.16160393133759499,
+            0.1590047962963581,
+            0.15728631988167763,
+            0.15705828554928303,
+            0.1578263472765684
+          ],
+          "median_ms": 0.1590047962963581,
+          "minimum_ms": 0.15705828554928303,
+          "maximum_ms": 0.1900381874293089,
+          "cv": 0.07236363252935195
+        }
+      }
+    },
+    {
+      "operation": "hbm_copy",
+      "kernel_source": "torch.Tensor.copy_",
+      "device": 15,
+      "size_bytes": 536870912,
+      "traffic_bytes": 1073741824,
+      "traffic_definition": "one read plus one write; not physical counter traffic",
+      "effective_bytes_per_second": 1269771779218.5112,
+      "correctness": "full buffer byte equality",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.8454680442810059,
+            0.8457880020141602,
+            0.8456459999084472,
+            0.8450130462646485,
+            0.8448240280151367,
+            0.8456179618835449,
+            0.8456830024719239
+          ],
+          "median_ms": 0.8456179618835449,
+          "minimum_ms": 0.8448240280151367,
+          "maximum_ms": 0.8457880020141602,
+          "cv": 0.00043634607967819617
+        },
+        "wall": {
+          "samples_ms": [
+            0.8529123850166798,
+            0.8515948429703712,
+            0.8510187733918428,
+            0.8507357910275459,
+            0.8501597680151463,
+            0.8514008019119501,
+            0.8513608016073704
+          ],
+          "median_ms": 0.8513608016073704,
+          "minimum_ms": 0.8501597680151463,
+          "maximum_ms": 0.8529123850166798,
+          "cv": 0.0010055893586022931
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch.mm",
+      "device": 15,
+      "precision": "bf16",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": null,
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 321311983185306.2,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.42813501358032224,
+            0.42774300575256347,
+            0.427200984954834,
+            0.42741098403930666,
+            0.42792301177978515,
+            0.42824501991271974,
+            0.4273019790649414
+          ],
+          "median_ms": 0.42774300575256347,
+          "minimum_ms": 0.427200984954834,
+          "maximum_ms": 0.42824501991271974,
+          "cv": 0.000967922403888785
+        },
+        "wall": {
+          "samples_ms": [
+            0.4337805323302746,
+            0.4324485082179308,
+            0.4312314558774233,
+            0.4316799808293581,
+            0.4323764704167843,
+            0.4325409419834614,
+            0.43121944181621075
+          ],
+          "median_ms": 0.4323764704167843,
+          "minimum_ms": 0.43121944181621075,
+          "maximum_ms": 0.4337805323302746,
+          "cv": 0.002085678668131241
+        }
+      }
+    },
+    {
+      "operation": "matmul",
+      "kernel_source": "torch_npu.npu_quant_matmul",
+      "device": 15,
+      "precision": "int8",
+      "output_dtype": "bfloat16",
+      "shape_mkn": [
+        4096,
+        4096,
+        4096
+      ],
+      "weight_layout": "ND transposed view of [N,K]",
+      "quantization": "unit per-channel scale, no activation quantization",
+      "arithmetic_operations": 137438953472,
+      "effective_ops_per_second": 553067596852589.8,
+      "correctness": "up to nine output positions versus independent CPU FP32 dot products",
+      "timing": {
+        "device": {
+          "samples_ms": [
+            0.2481719970703125,
+            0.24734799861907958,
+            0.2477649927139282,
+            0.24878098964691162,
+            0.25119600296020506,
+            0.2485029935836792,
+            0.2488029956817627
+          ],
+          "median_ms": 0.2485029935836792,
+          "minimum_ms": 0.24734799861907958,
+          "maximum_ms": 0.25119600296020506,
+          "cv": 0.004993790554620611
+        },
+        "wall": {
+          "samples_ms": [
+            0.2530248835682869,
+            0.25136442855000496,
+            0.25217989459633827,
+            0.25494792498648167,
+            0.2586724702268839,
+            0.25332788936793804,
+            0.25327345356345177
+          ],
+          "median_ms": 0.25327345356345177,
+          "minimum_ms": 0.25136442855000496,
+          "maximum_ms": 0.2586724702268839,
+          "cv": 0.009475907175310414
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "devices": [
+    {
+      "id": 0,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65356681216,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 1,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65631395840,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 2,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65374916608,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 3,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65620148224,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 4,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65363013632,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 5,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65630883840,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 6,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65372913664,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 7,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65618489344,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 8,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65363910656,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 9,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65630953472,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 10,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65363759104,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 11,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65630232576,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 12,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65375723520,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 13,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65616424960,
+      "total_memory_bytes": 65796046848
+    },
+    {
+      "id": 14,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65375948800,
+      "total_memory_bytes": 65787658240
+    },
+    {
+      "id": 15,
+      "name": "Ascend910_9382",
+      "free_memory_bytes_before_cases": 65618898944,
+      "total_memory_bytes": 65796046848
+    }
+  ],
+  "finished_at": "2026-10-20T15:21:12.526477+00:00"
+}

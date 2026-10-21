@@ -1,0 +1,35 @@
+{
+  "decisions": {
+    "single_node_calibration": {
+      "authorization": "User requested implementation and execution of single-node collection.",
+      "scope": "16-chip memory and BF16/INT8 primitive calibration; five single-node HCCL groups; pause and restore only glm52-united-v0522.",
+      "quality": "Seven repeats, retain all samples, report CV above 10%; hardware evidence is not accepted FPM/operator data."
+    }
+  },
+  "research": {
+    "single_node_calibration": {
+      "status": "scripts implemented; API readiness and exclusive execution pending",
+      "confidence": "unmeasured",
+      "sources": ["single-node/collect.py", "single-node/run.py"],
+      "formal_profile_accepted": false
+    }
+  },
+  "artifacts": {
+    "hardware_calibration_collector": {"path": "single-node/collect.py", "kind": "file", "scope": "input"},
+    "hardware_calibration_runner": {"path": "single-node/run.py", "kind": "file", "scope": "input"}
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "next_action": "Execute authorized single-node hardware calibration, restore serving, then assess measured coefficients and integration gaps."
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "next_action": "Collect single-node hardware evidence; do not treat it as accepted formal FPM data."
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+the minbytes is 1024, maxbytes is 268435456, iters is 50, warmup_iters is 50
+Warning: The calculation result overflows, No verification is performed.
+data_size(Bytes): | aveg_time(us): | alg_bandwidth(GB/s): | check_result:
+1024              | 21.07          | 0.04859              | NULL
+8192              | 18.59          | 0.44077              | NULL
+65536             | 19.46          | 3.36807              | NULL
+524288            | 22.62          | 23.17889             | NULL
+4194304           | 52.91          | 79.26523             | NULL
+33554432          | 286.74         | 117.01992            | NULL
+268435456         | 1330.37        | 201.77546            | NULL

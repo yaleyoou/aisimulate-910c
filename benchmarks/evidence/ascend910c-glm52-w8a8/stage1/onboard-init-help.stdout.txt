@@ -1,0 +1,152 @@
+usage: aisimulate onboard init [-h] [--interactive] [--profile {onboarding}]
+                               [--model MODEL]
+                               [--model-revision MODEL_REVISION]
+                               [--model-kind {dense,moe}] [--framework {vllm}]
+                               [--framework-version FRAMEWORK_VERSION]
+                               [--gpu GPU] [--interconnect INTERCONNECT]
+                               [--worker-type {aggregated,prefill,decode}]
+                               [--sm SM]
+                               [--tokenizer-revision TOKENIZER_REVISION]
+                               [--chat-template-revision CHAT_TEMPLATE_REVISION]
+                               [--aisimulate-revision AISIMULATE_REVISION]
+                               [--tensor-parallel TENSOR_PARALLEL]
+                               [--attention-data-parallel ATTENTION_DATA_PARALLEL]
+                               [--moe-tensor-parallel MOE_TENSOR_PARALLEL]
+                               [--moe-expert-parallel MOE_EXPERT_PARALLEL]
+                               [--fpm-profile FPM_PROFILE | --model-config PATH]
+                               [--resource-overrides PATH]
+                               [--suggest-parallel] [--parallel-configs PATH]
+                               [--input-tokens INPUT_TOKENS]
+                               [--output-tokens OUTPUT_TOKENS]
+                               [--concurrency CONCURRENCY]
+                               [--request-count REQUEST_COUNT]
+                               [--context-length CONTEXT_LENGTH]
+                               [--max-num-tokens MAX_NUM_TOKENS]
+                               [--max-batch-size MAX_BATCH_SIZE]
+                               [--prefill-cudagraph-policy {runtime,explicit}]
+                               [--max-prefill-cudagraph-size MAX_PREFILL_CUDAGRAPH_SIZE]
+                               [--gpu-memory-utilization GPU_MEMORY_UTILIZATION]
+                               [--cudagraph-mode {NONE,PIECEWISE,FULL,FULL_DECODE_ONLY,FULL_AND_PIECEWISE}]
+                               [--cudagraph-capture-sizes TOKENS [TOKENS ...]]
+                               [--max-cudagraph-capture-size MAX_CUDAGRAPH_CAPTURE_SIZE]
+                               [--ttft-ms TTFT_MS] [--tpot-ms TPOT_MS]
+                               [--objective {throughput,throughput_per_gpu,throughput_per_user,goodput,goodput_per_gpu,ttft,e2e_latency,pareto}]
+                               [--seed SEED]
+                               [--output OUTPUT | --output-dir ROOT]
+                               [--overwrite]
+
+Use --interactive for terminal prompts. --model-config derives supported local
+model metadata; supply unresolved profile fields with --resource-overrides.
+Otherwise scripted setup requires --model, --model-revision, --model-kind,
+--gpu, and --interconnect. Collection GPUs are derived from the selected
+topology. Model-config setup suggests model/hardware-aware topologies; other
+routes default to TP1. AISimulate launches benchmark workers when collection
+is executed; no separately launched HTTP server is required. An existing vLLM
+launch configuration is optional evidence for reviewing settings, not a
+required input or automatically imported file. AISimulate sets runtime limits
+and optional capture overrides; Dynamo self-benchmark combines them with image
+sampling defaults and runtime feasibility checks to generate the exact grid. A
+complete grid does not establish query coverage. Synthetic workload and SLA
+options customize optional validation examples only. Set deployment replicas
+and GPU budgets in ordinary predict/recommend configs.
+
+options:
+  -h, --help            show this help message and exit
+  --interactive         Guide setup with terminal prompts; review and accept
+                        config-based profiles before saving.
+  --profile {onboarding}
+                        Optional alias; all setup uses onboarding.
+  --model MODEL
+  --model-revision MODEL_REVISION
+                        Pinned model revision; moving labels such as main are
+                        unsupported.
+  --model-kind {dense,moe}
+  --framework {vllm}    Collection runtime (default: vllm).
+  --framework-version FRAMEWORK_VERSION
+                        Backend data version label (custom strings accepted);
+                        omitted: detect in the collection image.
+  --gpu GPU             Target GPU system name, for example h200_sxm.
+  --interconnect INTERCONNECT
+                        Interconnect, for example nvswitch, pcie, or none.
+  --worker-type {aggregated,prefill,decode}
+                        Serving role: prefill/decode collect independently for
+                        P/D disaggregation; aggregated probes both phases.
+  --sm SM               GPU SM version override.
+  --tokenizer-revision TOKENIZER_REVISION
+  --chat-template-revision CHAT_TEMPLATE_REVISION
+  --aisimulate-revision AISIMULATE_REVISION
+                        Optional pinned AISimulate source revision.
+  --tensor-parallel TENSOR_PARALLEL
+                        Attention tensor-parallel size; bypasses model-config
+                        suggestions.
+  --attention-data-parallel ATTENTION_DATA_PARALLEL
+                        Attention data-parallel size (default: 1).
+  --moe-tensor-parallel MOE_TENSOR_PARALLEL
+                        Expert tensor-parallel size (default: TP for MoE).
+  --moe-expert-parallel MOE_EXPERT_PARALLEL
+                        Expert-parallel size (default: 1).
+  --fpm-profile FPM_PROFILE
+                        JSON/YAML identity and resource profile for class-
+                        independent FPM.
+  --model-config PATH   Local Hugging Face-style config.json.
+  --resource-overrides PATH
+                        JSON/YAML profile field overrides, including
+                        cache_groups/cache_block_sizes; requires --model-
+                        config. Resource bytes are per rank.
+  --suggest-parallel    Preview model-config topology suggestions as JSON; no
+                        prompts or writes, including to --output.
+  --parallel-configs PATH
+                        JSON/YAML list of parallel configurations with
+                        optional worker_type, collection and
+                        resource_overrides; requires --model-config and
+                        --output-dir; conflicts with topology flags and
+                        --suggest-parallel.
+  --input-tokens INPUT_TOKENS
+                        Synthetic validation input tokens (default: 1024).
+  --output-tokens OUTPUT_TOKENS
+                        Synthetic validation output tokens (default: 128).
+  --concurrency CONCURRENCY
+                        Synthetic validation concurrency (default: 1).
+  --request-count REQUEST_COUNT
+                        Synthetic validation request count (default: 4).
+  --context-length CONTEXT_LENGTH
+                        Runtime per-request context limit; defaults to
+                        min(model/profile context, AgentX reference 256000).
+  --max-num-tokens MAX_NUM_TOKENS
+                        Rank-local scheduled token budget; profile bound or
+                        initial policy 8192.
+  --max-batch-size MAX_BATCH_SIZE
+                        Rank-local scheduler sequence bound; profile bound or
+                        initial policy 256. Does not request every prefill
+                        batch.
+  --prefill-cudagraph-policy {runtime,explicit}
+                        Prefill CUDA graphs: runtime selection (new setup
+                        default), or explicit capture override.
+  --max-prefill-cudagraph-size MAX_PREFILL_CUDAGRAPH_SIZE
+                        Select explicit capture with this limit; explicit
+                        policy without a limit uses 2048. Conflicts with
+                        runtime policy; match the serving target.
+  --gpu-memory-utilization GPU_MEMORY_UTILIZATION
+                        Fraction of total GPU memory for collection and
+                        simulation, in (0, 1] (initial policy: 0.90).
+  --cudagraph-mode {NONE,PIECEWISE,FULL,FULL_DECODE_ONLY,FULL_AND_PIECEWISE}
+                        vLLM graph policy for this explicit worker role.
+  --cudagraph-capture-sizes TOKENS [TOKENS ...]
+                        Increasing, distinct vLLM capture sizes for this role;
+                        requires runtime prefill policy.
+  --max-cudagraph-capture-size MAX_CUDAGRAPH_CAPTURE_SIZE
+                        vLLM capture limit for this role; aggregated applies
+                        it to both launches. Requires runtime prefill policy.
+  --ttft-ms TTFT_MS     Synthetic validation TTFT target in ms (default:
+                        1000).
+  --tpot-ms TPOT_MS     Synthetic validation TPOT target in ms (default: 100).
+  --objective {throughput,throughput_per_gpu,throughput_per_user,goodput,goodput_per_gpu,ttft,e2e_latency,pareto}
+                        Recommendation objective (default: throughput).
+  --seed SEED           Recommendation search seed (default: 42).
+  --output OUTPUT       Save one request (default: support-request.yaml).
+  --output-dir ROOT     Save a request and FPM profile for each selected
+                        configuration in a fresh directory; requires --model-
+                        config. Interactive suggestions accept comma-separated
+                        choices.
+  --overwrite           Allow replacement of --output; unsupported with
+                        --output-dir.

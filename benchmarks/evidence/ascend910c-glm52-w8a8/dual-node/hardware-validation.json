@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "python": "3.12.13 (main, Aug  3 2026, 02:40:28) [GCC 11.4.0]",
+  "verified_hashes": 149,
+  "yaml_fields_checked": 9,
+  "unknown_compute_modes_rejected": [
+    "fp8",
+    "nvfp4"
+  ],
+  "source_integrity": "verified",
+  "serving_smoke": "8192/1024 passed",
+  "load_after_module_import_ms": 1.6681887209415436,
+  "warm_load_microseconds_mean_10000": 23.897391743957996,
+  "performance_scope": "Hardware loader only; import/native build time excluded. One static registry entry; no estimator hot-path changes.",
+  "formal_fpm_accepted": false,
+  "serving_prediction_accuracy_qualified": false
+}

@@ -1,0 +1,4 @@
+	SDID                           : 130023424
+	Super Pod Size                 : 384
+	Super Pod ID                   : 1
+	Server Index                   : 31

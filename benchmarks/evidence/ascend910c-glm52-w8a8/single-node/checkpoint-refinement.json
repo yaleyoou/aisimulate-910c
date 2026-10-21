@@ -1,0 +1,23 @@
+{
+  "artifacts": {
+    "hardware_calibration_runner": {
+      "path": "single-node/run-20261020-231954/source/run.py",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_calibration_collector": {
+      "path": "single-node/run-20261020-231954/source/collect.py",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "research": {
+    "single_node_calibration": {
+      "status": "Initial 181 points completed; all correctness checks passed; 16 HCCL points CV above 10 percent. Refining full 100-point communication protocol with CPU affinity and longer sample windows; initial evidence retained.",
+      "confidence": "high for raw measurements; 16 communication coordinates not repeatability-qualified",
+      "sources": [
+        "single-node/run-20261020-231954/summary.json"
+      ]
+    }
+  }
+}

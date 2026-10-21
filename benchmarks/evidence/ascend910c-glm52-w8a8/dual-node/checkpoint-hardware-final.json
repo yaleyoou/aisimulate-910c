@@ -1,0 +1,83 @@
+{
+  "research": {
+    "hardware_yaml_delivery": {
+      "status": "Completed measured hardware calibration and current-checkout system YAML registration; not a fully supported GLM/SGLang operator prediction cell.",
+      "date": "2026-10-21",
+      "confidence": "High for scoped measured hardware observations and repeatability; no claim of theoretical peaks or full serving-prediction accuracy.",
+      "system": "ascend910c",
+      "device_granularity": "One runtime Ascend910_9382 chip;16 chips per Atlas800TA3 node.",
+      "p2p_rank_size_points": 702,
+      "p2p_timing_samples": 6318,
+      "p2p_cv_failures_at_10_percent": 0,
+      "p2p_full_payload_checks": 1404,
+      "intra_node_bytes_per_second": 130673385019,
+      "inter_node_bytes_per_second": 126790338165,
+      "inter_node_effective_latency_seconds": 0.00001328329980375,
+      "topology_scope": "npu1-32/npu1-19 in SuperPod1,16 concurrent cross-node pairs; localdriver26.1.1 vs peer25.5.0; no cross-SuperPod or more-than-two-node qualification.",
+      "compute_coefficients": "Measured BF16/INT8 4096-cube effective rates; not theoretical peaks; no strict SOL physical-lower-bound claim.",
+      "quality_limits": "Canonical scalar cross-node P2P formula has at most1.61% error at held-out1-128MiB but about58% error at256KiB; protocol transitions still require operation curves. BF16 SUM ReduceScatter14 points lack vendor correctness checking and are unqualified; MAX14 points are distinct verified controls.",
+      "validation": "Actual Python system loader tests6/6, Rust SystemSpec tests5/5,9 YAML values against manifest,149 evidence hashes, pinned Ruff0.14.1 lint+format, CODEOWNERS tracked-tree coverage100%.",
+      "service": "United restored; health200,2short requests and exact8192/1024 request passed; cached_tokens0,num_retractions0. Client52.7835s,first_token2.5949s; functional smoke only.",
+      "cleanup": "Both task NPU containers removed; task SSH port22290 closed; existing peer container preserved. CPU validation container stopped with build cache retained.",
+      "sources": [
+        "hardware-calibration.json",
+        "dual-node/queued-20261021-151553/summary.json",
+        "dual-node/hardware-validation.json",
+        "dual-node/python-hardware-tests-final.log",
+        "dual-node/rust-hardware-tests.log",
+        "dual-node/restored-serving/serving-smoke.json",
+        "dual-node/remote-cleanup.json",
+        "dual-node/local-cleanup.json"
+      ],
+      "formal_fpm_profile_accepted": false,
+      "formal_fpm_collection": "not_started",
+      "resolved_serving_memory_profile": "not_finalized",
+      "replay_coverage": "not_checked",
+      "serving_prediction_accuracy": "not_assessed"
+    }
+  },
+  "decisions": {
+    "hardware_calibration_policy": {
+      "selected_campaign": "dual-node/queued-20261021-151553",
+      "timing_boundary": "Native HCCL prequeued behind independent host callback gate; no CPU enqueue gaps in device events; retain wall timing separately.",
+      "no_synthetic_values": "Omit unmeasured FP32/FP8/FP4,TDP,PCIe,memory fixed latency,rack and serving-overhead fields; no CUDA SM or NCCL metadata on Ascend.",
+      "acceptance_scope": "User authorized hardware collection and calibration delivery; this is not acceptance of an exact FPM resource profile or GLM serving accuracy."
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "blockers": [
+      "GLM-5.2 ModelSlim precision/fusion mapping, INT8 MoE, DSA/indexer and actual SGLang-Ascend operator collection/integration remain unfinished.",
+      "HCCL operation tables and serving-memory semantics remain absent; scalar hardware coefficients do not qualify protocol-transition shapes or complete model predictions.",
+      "Guided onboard init currently supports vllm only; no SGLang FPM profile was created or accepted."
+    ],
+    "next_action": "Hardware calibration delivered. Complete exact GLM/SGLang operator and precision mapping, add HCCL collection/data+memory support, then validate pure prefill/decode forward and8192/1024 request prediction accuracy."
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "blockers": [
+          "ModelSlim precision/fusion and GLM DSA/indexer/MoE model support need implementation and real operator measurements.",
+          "HCCL tables and serving-memory integration missing; hardware YAML alone cannot qualify prediction.",
+          "No supported guided SGLang FPM profile or exact acceptance; no formal FPM campaign or replay-accuracy validation."
+        ],
+        "next_action": "Use completed ascend910c hardware calibration and pinned0.5.22 United baseline to implement and collect the exact operator mapping."
+      }
+    }
+  },
+  "artifacts": {
+    "ascend910c_system_yaml": {"path": "../../../python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml", "kind": "file", "scope": "input"},
+    "ascend910c_hardware_calibration": {"path": "hardware-calibration.json", "kind": "file", "scope": "input"},
+    "ascend910c_queued_communication": {"path": "dual-node/queued-20261021-151553/summary.json", "kind": "file", "scope": "input"},
+    "ascend910c_hardware_validation": {"path": "dual-node/hardware-validation.json", "kind": "file", "scope": "input"},
+    "ascend910c_python_tests": {"path": "dual-node/python-hardware-tests-final.log", "kind": "file", "scope": "input"},
+    "ascend910c_rust_tests": {"path": "dual-node/rust-hardware-tests.log", "kind": "file", "scope": "input"},
+    "ascend910c_restored_serving": {"path": "dual-node/restored-serving/serving-smoke.json", "kind": "file", "scope": "input"},
+    "ascend910c_hardware_report": {"path": "../../../md/910c-hardware-adaptation.md", "kind": "file", "scope": "input"},
+    "ascend910c_peer_cleanup": {"path": "dual-node/remote-cleanup.json", "kind": "file", "scope": "input"},
+    "ascend910c_local_cleanup": {"path": "dual-node/local-cleanup.json", "kind": "file", "scope": "input"}
+  }
+}

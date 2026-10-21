@@ -1,0 +1,84 @@
+{
+  "image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "service": "glm52-united-v0522",
+  "scope": "single-node hardware calibration, not formal FPM collection",
+  "devices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "communication_groups": {
+    "sio-2": [
+      0,
+      1
+    ],
+    "hccs-2": [
+      0,
+      2
+    ],
+    "attention-8a": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "attention-8b": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "node-16": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "expected_single_device_points": 81,
+  "expected_communication_points": 100,
+  "warmup": 10,
+  "iterations_per_repeat": 20,
+  "repeats": 7,
+  "measurement": "eager; NPU events and wall time for local cases, max-rank synchronized wall time for HCCL",
+  "quality_policy": "retain every sample; flag CV above 0.10; do not discard or qualify unstable points",
+  "recovery": "restart the specified initially-running service in finally and verify /health",
+  "sources_sha256": {
+    "collect.py": "20c17457156b0257dadbe508ba63d562eac3df1687fe96e05e941ea7bb20749e",
+    "run.py": "6ffc1113531163e87eeb586d3c9cc454e9035c2be1bd1849ab02b4c6cc405075",
+    "checkpoint.py": "c276235db55230e2247b0e672bbd88e1cd952e7bd083c6c7df4c424f8cee4f88"
+  }
+}

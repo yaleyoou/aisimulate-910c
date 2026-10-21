@@ -1,0 +1,45 @@
+{
+  "decisions": {
+    "dual_node_hardware_goal": {
+      "authorization": "User explicitly requested collection and adaptation after inspecting npu1-19, with at least a validated b300_sxm-style hardware YAML and accurate measurements.",
+      "target": "ascend910c",
+      "nodes": [
+        "npu1-32",
+        "npu1-19"
+      ],
+      "runtime": "SGLang 0.5.22 / CANN 9.1.0 immutable image already present on both nodes",
+      "temporary_node": "npu1-19; use task containers and preserve existing containers",
+      "method": "Verify native HCCL Test device timing and original ACL/HCCL point-to-point measurements; do not substitute host bond bandwidth."
+    }
+  },
+  "research": {
+    "dual_node_preflight": {
+      "status": "Both nodes accessible. npu1-19 has 16 idle NPU chips and identical image digest. Host drivers differ (26.1.1 vs25.5.0), HAL both7.35.23. Both report Super Pod ID1; local Server Index31 and peer18.",
+      "confidence": "high for inspected metadata; cross-node communication not yet verified",
+      "sources": [
+        "dual-node/npu1-19-preflight.json",
+        "dual-node/npu1-19-network.json",
+        "dual-node/local_spod.txt",
+        "dual-node/local_driver.txt"
+      ],
+      "formal_profile_accepted": false
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "next_action": "Build isolated native communication tools, validate cross-node transport and measurement repeatability, then produce and test a sourced 910C system specification."
+  },
+  "artifacts": {
+    "peer_hardware_preflight": {
+      "path": "dual-node/npu1-19-preflight.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "peer_network_preflight": {
+      "path": "dual-node/npu1-19-network.json",
+      "kind": "file",
+      "scope": "input"
+    }
+  }
+}

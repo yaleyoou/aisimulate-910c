@@ -1,0 +1,422 @@
+{
+  "status": "ready",
+  "version": "0.5.22",
+  "max_total_num_tokens_per_attention_dp": 52992,
+  "max_req_input_len_reported": 52986,
+  "startup_time": {
+    "load_weight": 886.378444836475,
+    "kv_cache_allocation": 1.8186573144048452,
+    "scheduler_e2e": 1061.519318585284,
+    "cuda_graph": {
+      "prefill": 0.0,
+      "decode": 149.08019524998963,
+      "target_verify": 0.0,
+      "draft_prefill": 0.0,
+      "draft_decode": 0.0,
+      "draft_extend": 0.0
+    },
+    "tokenizer_e2e": 1076.5536744315177
+  },
+  "runtime_random_seed": 874573661,
+  "cache_observations": [
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 1,
+      "ep_rank": 1,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 13,
+      "ep_rank": 13,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 0,
+      "ep_rank": 0,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 12,
+      "ep_rank": 12,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 4,
+      "ep_rank": 4,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 5,
+      "ep_rank": 5,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 9,
+      "ep_rank": 9,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 11,
+      "ep_rank": 11,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 3,
+      "ep_rank": 3,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 10,
+      "ep_rank": 10,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 2,
+      "ep_rank": 2,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 14,
+      "ep_rank": 14,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 15,
+      "ep_rank": 15,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 1,
+      "tp_rank": 8,
+      "ep_rank": 8,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 7,
+      "ep_rank": 7,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:27:17",
+      "attention_dp_rank": 0,
+      "tp_rank": 6,
+      "ep_rank": 6,
+      "dtype": "torch.bfloat16",
+      "capacity_tokens": 52992,
+      "size_log_gb_rounded": 5.43
+    }
+  ],
+  "graph_capture_observations": [
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 13,
+      "ep_rank": 13,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.69,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.09
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 5,
+      "ep_rank": 5,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.74,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.1
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 9,
+      "ep_rank": 9,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.83,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.1
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 14,
+      "ep_rank": 14,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.91,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.86
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 3,
+      "ep_rank": 3,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.93,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.09
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 6,
+      "ep_rank": 6,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.93,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.86
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 1,
+      "ep_rank": 1,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.93,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.1
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 8,
+      "ep_rank": 8,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.94,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.85
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 11,
+      "ep_rank": 11,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.95,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.1
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 15,
+      "ep_rank": 15,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.97,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.09
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 10,
+      "ep_rank": 10,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 148.98,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.85
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 4,
+      "ep_rank": 4,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 149.0,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.85
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 2,
+      "ep_rank": 2,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 149.01,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.86
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 7,
+      "ep_rank": 7,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 149.05,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 2.09
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 0,
+      "tp_rank": 0,
+      "ep_rank": 0,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 149.05,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.79
+    },
+    {
+      "timestamp_container_utc": "2026-10-20 09:29:46",
+      "attention_dp_rank": 1,
+      "tp_rank": 12,
+      "ep_rank": 12,
+      "batch_sizes": [
+        8,
+        16,
+        24,
+        32
+      ],
+      "capture_seconds": 149.08,
+      "memory_log_gb_rounded": 4.27,
+      "available_log_gb_rounded": 1.86
+    }
+  ],
+  "scheduler_log_lines": [
+    "[2026-10-20 09:29:46 DP0 TP0 EP0] max_total_num_tokens=52992, chunked_prefill_size=8192, max_prefill_tokens=32768, max_running_requests=32, context_len=180000, available_gpu_mem=1.79 GB"
+  ],
+  "source_files": [
+    "serving-smoke/server-info.json",
+    "united-v0522-container.log"
+  ],
+  "limits": [
+    "Rounded GB log values are not exact allocation byte measurements.",
+    "TP ranks replicate a group's cache capacity; do not multiply token capacity by 16.",
+    "This is investigation evidence, not an imported or finalized FPM memory profile.",
+    "Configured context length180000 does not override the observed capacity/input limits."
+  ]
+}

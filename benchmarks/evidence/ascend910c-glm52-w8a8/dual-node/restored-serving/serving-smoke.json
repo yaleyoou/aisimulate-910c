@@ -1,0 +1,134 @@
+{
+  "observed_at": "2026-10-21T08:15:21.394861+00:00",
+  "base_url": "http://127.0.0.1:8000",
+  "cases": [
+    {
+      "case": "short_chat_0",
+      "elapsed_seconds": 3.2592352349311113,
+      "response": {
+        "id": "85218d85072a45378bafdf88690423f1",
+        "object": "chat.completion",
+        "created": 1792570525,
+        "model": "glm-5",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "1.  **分析请求：**\n    *   测试编号：0\n    *   问题：1加1等于几？（1 + 1 = ?）\n    *   约束条件：请简短回答（请简短回答）\n\n2.  **确定答案：**\n    *",
+              "reasoning_content": null
+            },
+            "logprobs": null,
+            "finish_reason": "length",
+            "matched_stop": null
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 27,
+          "total_tokens": 91,
+          "completion_tokens": 64,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "reasoning_tokens": 0
+        },
+        "metadata": {
+          "weight_version": "default",
+          "weight_versions": [
+            {
+              "version": "default",
+              "start": 0,
+              "end": 64
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "short_chat_1",
+      "elapsed_seconds": 3.3222304387018085,
+      "response": {
+        "id": "928867ef2e044802bc9a62c92f7029bf",
+        "object": "chat.completion",
+        "created": 1792570529,
+        "model": "glm-5",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "1.  **分析输入**：用户问“1加1等于几？请简短回答。”，测试编号1。\n2.  **确定意图**：这是一个简单的数学加法问题，要求简短回答。\n3.  **计算结果**：1 + 1 = 2。\n4",
+              "reasoning_content": null
+            },
+            "logprobs": null,
+            "finish_reason": "length",
+            "matched_stop": null
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 27,
+          "total_tokens": 91,
+          "completion_tokens": 64,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "reasoning_tokens": 0
+        },
+        "metadata": {
+          "weight_version": "default",
+          "weight_versions": [
+            {
+              "version": "default",
+              "start": 0,
+              "end": 64
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case": "8192_1024",
+      "elapsed_seconds": 52.78353881184012,
+      "meta_info": {
+        "id": "f7167574242a4767bea91d77c3e5e33a",
+        "finish_reason": {
+          "type": "length",
+          "length": 1024
+        },
+        "prompt_tokens": 8192,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "storage_prefetch_wait": 0.0,
+        "storage_staging_wait": 0.0,
+        "forward_entry_time": 1792570529.0318985,
+        "prefill_finished_time": 1792570531.6220393,
+        "queue_time": 0.00045227445662021637,
+        "reasoning_tokens": 0,
+        "completion_tokens": 1024,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 1024
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": 0,
+        "e2e_latency": 52.776945454999804,
+        "request_received_ts": 1792570529.0271757,
+        "first_token_latency": 2.5948637137189507,
+        "api_server_dispatch_finish_ts": 1792570529.0278244,
+        "request_finished_ts": 1792570581.804121,
+        "decode_throughput": 20.385762497342917,
+        "response_sent_to_client_ts": 1792570581.804519
+      },
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "health": {
+    "http_status": 200
+  },
+  "limits": "Single bounded functional request, not a statistically qualified performance benchmark or model accuracy evaluation. Short requests exercise scheduling but do not alone prove per-DP coverage."
+}

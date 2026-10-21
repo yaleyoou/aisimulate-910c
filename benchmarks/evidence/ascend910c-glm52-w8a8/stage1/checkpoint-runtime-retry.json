@@ -1,0 +1,31 @@
+{
+  "decisions": {
+    "loading_retry": {
+      "reason": "Original launch stayed in weight loading for about 25 minutes with 16 ranks and 8 loader threads per rank; py-spy and I/O observations showed file-page waits.",
+      "change": "Disable multithreaded weight loading using model_loader_extra_config; preserve inference parameters.",
+      "attempt1_preserved_container": "glm52-united-v0522-attempt1",
+      "active_container": "glm52-united-v0522",
+      "status": "retry_started; effectiveness not yet established"
+    }
+  },
+  "research": {
+    "effective_parallelism": {
+      "confidence": "high",
+      "source": "stage1/runtime-resolved-args.json",
+      "finding": "v0.5.22 converts legacy dp-size2 + enable-dp-attention into dp_size1 + attn_dp_size2, and divides global chunk16384 into per-attention-DP chunk8192."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "inputs": {
+        "source_cli_chunked_prefill_size": 16384,
+        "resolved_chunked_prefill_size_per_attention_dp": 8192,
+        "resolved_replica_dp_size": 1,
+        "resolved_attn_dp_size": 2,
+        "page_size": 128,
+        "model_loader_extra_config": {"enable_multithread_load": false}
+      },
+      "progress": {"stage": 1, "status": "in_progress", "next_action": "Observe serial-loading retry, then verify serving and exact8192/1024 request."}
+    }
+  }
+}

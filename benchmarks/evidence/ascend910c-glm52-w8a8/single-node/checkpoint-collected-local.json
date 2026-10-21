@@ -1,0 +1,16 @@
+{
+  "research": {
+    "single_node_calibration": {
+      "status": "81 local calibration points completed on all 16 chips; HCCL campaign running",
+      "confidence": "high for observed local timings; calibration qualification pending",
+      "sources": ["single-node/run-20261020-231954/single.json", "single-node/run-20261020-231954/plan.json"],
+      "local_correctness": "All copy equality and sampled GEMM CPU-reference checks passed.",
+      "serving_state": "Paused by authorized calibration runner; automatic restart pending.",
+      "formal_profile_accepted": false
+    }
+  },
+  "artifacts": {
+    "hardware_calibration_plan": {"path": "single-node/run-20261020-231954/plan.json", "kind": "file", "scope": "input"},
+    "hardware_local_measurements": {"path": "single-node/run-20261020-231954/single.json", "kind": "file", "scope": "input"}
+  }
+}

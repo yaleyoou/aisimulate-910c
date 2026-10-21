@@ -1,0 +1,22 @@
+{
+  "research": {
+    "native_communication_collection": {
+      "status": "First dual-node campaign finished; 6318 P2P samples, 702 rank/size points, 10 points exceed the unchanged CV 10% limit. Selected bulk-bandwidth points pass. 70 vendor collective points report success; 14 BF16 SUM ReduceScatter points report NULL and are unqualified.",
+      "confidence": "high for raw observations; initial small-payload timing includes CPU submission gaps and is not a fabric-latency estimate",
+      "sources": ["dual-node/run-20261021-145053/summary.json", "dual-node/run-20261021-145053/manifest.json"],
+      "follow_up": "Independent host-callback gate prequeues native HCCL work before device events; remote readiness passed full pre/post payload checks and measured about 8us instead of 60us. Repeat exact topology campaign with this boundary. Graph capture returned 107025 and is not used. ReduceScatter MAX will be a separately labeled correctness control; it does not qualify SUM."
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "next_action": "Complete device-queue measurement, validate selected points and held-out sizes, write a scoped 910C system YAML, then restore and verify United serving."
+  },
+  "artifacts": {
+    "native_dual_node_summary": {
+      "path": "dual-node/run-20261021-145053/summary.json",
+      "kind": "file",
+      "scope": "input"
+    }
+  }
+}

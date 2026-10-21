@@ -1,0 +1,47 @@
+[
+  {
+    "arguments": [
+      "onboard",
+      "--help"
+    ],
+    "exit_code": 0
+  },
+  {
+    "arguments": [
+      "onboard",
+      "init",
+      "--help"
+    ],
+    "exit_code": 0
+  },
+  {
+    "arguments": [
+      "onboard",
+      "checkpoint",
+      "--help"
+    ],
+    "exit_code": 0
+  },
+  {
+    "arguments": [
+      "onboard",
+      "checkpoint",
+      "--file",
+      "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/onboarding-checkpoint.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "arguments": [
+      "onboard",
+      "checkpoint",
+      "--file",
+      "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/onboarding-checkpoint.json",
+      "--expect-revision",
+      "1",
+      "--update",
+      "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/stage1/checkpoint-initial-update.json"
+    ],
+    "exit_code": 0
+  }
+]

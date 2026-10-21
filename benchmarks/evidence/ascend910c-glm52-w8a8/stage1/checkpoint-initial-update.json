@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "model": "/mnt/raid/user/data/models/glm-q",
+    "gpu": "ascend910c",
+    "framework": "sglang",
+    "requested_precision": "W8A8",
+    "worker_type": "aggregated"
+  },
+  "research": {
+    "basis": {
+      "confidence": "high",
+      "sources": [
+        "/mnt/raid/user/data/models/glm-q/config.json",
+        "/mnt/raid/user/data/models/glm-q/quant_model_description.json",
+        "/home/youxingye/United deployment/service/united-config.sh"
+      ],
+      "status": "Model headers inspected; candidate historical aggregated deployment found. Runtime and hardware qualification pending."
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "next_action": "Pin candidate runtime and device facts; verify quantization mapping and deployment feasibility."
+  },
+  "pending_questions": [
+    "Full checkpoint immutable revision is not established by metadata/header hashes.",
+    "910C performance coefficients and target runtime compatibility remain unverified."
+  ],
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "inputs": {
+        "framework": "sglang",
+        "framework_version": "0.5.16",
+        "worker_type": "aggregated",
+        "source_cli_topology": {
+          "tp_size": 16,
+          "dp_size": 2,
+          "ep_size": 16,
+          "enable_dp_attention": true
+        },
+        "runtime_image": "quay.io/ascend/sglang@sha256:d26b1aec41ac4bfe77ccea785e44eb8b7f4053e3ea3b2a02111cb90e876653c8"
+      },
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "next_action": "Inspect immutable image and verify effective rank layout; profile not yet accepted."
+      }
+    }
+  }
+}

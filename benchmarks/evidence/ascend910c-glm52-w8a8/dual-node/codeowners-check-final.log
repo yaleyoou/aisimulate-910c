@@ -1,0 +1,12 @@
+areas: 6 | tree files: 3794
+explicitly owned: 3794/3794 (100.00%) | catch-all only: 0
+globs matching no files: 1 (prune from areas.yaml when the paths are gone; never blocking):
+    /md/
+
+per-area glob counts:
+  replay                 27
+  infra                  25
+  maintainers            15
+  forward-pass-engine    12
+  sweeper                4
+  mocker                 1

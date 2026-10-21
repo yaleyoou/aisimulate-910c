@@ -1,0 +1,89 @@
+{
+  "image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "service": "glm52-united-v0522",
+  "scope": "single-node hardware calibration, not formal FPM collection",
+  "devices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "communication_groups": {
+    "sio-2": [
+      0,
+      1
+    ],
+    "hccs-2": [
+      0,
+      2
+    ],
+    "attention-8a": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "attention-8b": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "node-16": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "expected_single_device_points": 81,
+  "expected_communication_points": 100,
+  "warmup": 50,
+  "iterations_per_repeat": 200,
+  "repeats": 9,
+  "rank_affinity": true,
+  "reused_local_source": "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/single-node/run-20261020-231954/single.json",
+  "measurement": "eager; NPU events and wall time for local cases, max-rank synchronized wall time for HCCL",
+  "quality_policy": "retain every sample; flag CV above 0.10; do not discard or qualify unstable points",
+  "recovery": "restart the specified initially-running service in finally and verify /health",
+  "sources_sha256": {
+    "collect.py": "20c17457156b0257dadbe508ba63d562eac3df1687fe96e05e941ea7bb20749e",
+    "run.py": "55e87aebfa527230ac8b36c99da77815752fc50bd3e50ce4f46b86890048b04f",
+    "checkpoint.py": "c276235db55230e2247b0e672bbd88e1cd952e7bd083c6c7df4c424f8cee4f88",
+    "summarize.py": "6f29bfcced86b76b184c7c953c30427d29d68988bb1967e33505cac6184c90bb",
+    "affinity.py": "36bd5fa9bdeac8cf495e330c7b40f604bd8123b5976a9b7c0aad7dcb077aa8f1"
+  },
+  "reused_local_source_sha256": "333d06bba0679c6e6512927aa1952c8cedc1f1b817cff3a1e95d71835c62af99"
+}

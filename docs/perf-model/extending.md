@@ -113,6 +113,41 @@ consumer contracts. For whole-forward profiles, use the separate
 
 ## 4. Validate the intended public path
 
+### Hardware system YAML
+
+System definitions live in
+`python/aisimulate/src/aisimulate_core/systems/<system>.yaml`. Keep the unit of
+one simulator device consistent across memory, compute, topology and collected
+operator identities. Register the name in `SupportedSystems` and provide its
+`data_dir`; this registers hardware metadata, not a measured model/backend cell.
+
+| YAML field | Meaning and calibration requirement |
+| --- | --- |
+| `data_dir` | Per-system data root relative to the systems directory; an empty data root does not establish operation coverage. |
+| `gpu.mem_capacity` | Bytes exposed per runtime device; record whether this is physical or runtime-available capacity. |
+| `gpu.mem_bw` | Bytes/second per device; specify whether a benchmark counts reads, writes, or both. |
+| `gpu.mem_bw_empirical_scaling_factor` | Additional bandwidth multiplier; use 1.0 when the selected bandwidth already includes measured utilization. |
+| `gpu.mem_empirical_constant_latency` | Additional memory-operation latency in seconds; omission uses the native zero default and does not mean fixed latency was measured as zero. |
+| `gpu.bfloat16_tc_flops`, `gpu.int8_tc_flops` | Per-device arithmetic coefficients, counting a multiply-add as two operations. Normally hardware peaks; a measured calibration must label its shapes and effective throughput explicitly and cannot claim a strict physical SOL lower bound. |
+| `gpu.fp32_flops`, `gpu.fp8_tc_flops`, `gpu.fp4_tc_flops` | Define only supported, sourced coefficients. FP32 means scalar/vector throughput, not a TF32 matrix benchmark. Missing compute modes remain explicit errors. |
+| `gpu.sm_version`, `gpu.power` | CUDA architecture identifier and per-device TDP respectively; omit when inapplicable or unverified. |
+| `node.num_gpus_per_node` | Runtime devices per physical node; a board may expose multiple devices. The historical field name also applies to NPUs. |
+| `node.intra_node_bw`, `node.inter_node_bw` | Single-direction bytes/second per device for the measured topology and concurrency. Do not substitute host NIC bandwidth for an NPU fabric. |
+| `node.p2p_latency` | Seconds of fixed P2P protocol latency. Describe whether CPU submission is included. The native P2P formula uses inter-node bandwidth and omits this constant in SOL mode. |
+| `node.pcie_bw`, `node.num_gpus_per_rack`, `node.inter_rack_bw` | Optional measured or sourced PCIe and rack properties; omit unknown values. |
+| `misc.nccl_mem`, `misc.nccl_version`, `misc.other_mem` | Existing NCCL and serving-memory inputs; do not relabel HCCL observations as NCCL or invent reservations to make memory estimation pass. |
+
+The `ascend910c` definition is a scoped hardware calibration for Atlas 800T A3
+with 16 runtime-visible chips per node. Its packaged
+[calibration notes](../../python/aisimulate/src/aisimulate_core/systems/data/ascend910c/README.md)
+describe effective compute coefficients, same-SuperPod topology, omitted fields,
+and unsupported prediction paths. Hardware microbenchmarks are not GLM-5.2
+ModelSlim operator profiles. Keep raw runs and accuracy results under
+`benchmarks/evidence/`, and validate the existing loader, topology selection,
+precision resolution and missing-data behavior before claiming integration.
+
+### Public workflow checks
+
 Rebuild the editable package after native or packaging changes:
 
 ```bash

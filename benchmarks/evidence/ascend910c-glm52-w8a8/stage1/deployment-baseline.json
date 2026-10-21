@@ -1,0 +1,80 @@
+{
+  "observed_at": "2026-10-20T09:34:19.251257+00:00",
+  "container_name": "glm52-united-v0522",
+  "container_id": "4b4c93e395c46f8ba033e9e024a1f038cf7e7ab558645259509387e6a113caef",
+  "state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 2445513,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-20T09:11:13.927769258Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "image_id": "sha256:d4c350d7d4e233d3cd203d2f783467c5f5be1453b9eee073f71b758069392edb",
+  "image_digests": [
+    "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
+  ],
+  "image_architecture": "arm64",
+  "image_created": "2026-10-15T23:47:54.216949919Z",
+  "entrypoint": [
+    "/apps/run-united.sh"
+  ],
+  "environment": {
+    "SERVICE_PORT": "8000",
+    "COMM_IFNAME": "bond4",
+    "EP_SIZE": "16",
+    "CHUNKED_PREFILL_SIZE": "16384",
+    "DEEPEP_MODE": "auto",
+    "MODEL_LOADER_EXTRA_CONFIG": "{\"enable_multithread_load\":false}",
+    "CONTEXT_LENGTH": "180000",
+    "TOKENIZER_WORKER_NUM": "4",
+    "WATCHDOG_TIMEOUT": "9000",
+    "ENABLE_DP_ATTENTION": "1",
+    "DECODE_GRAPH_BATCHES": "8 16 24 32",
+    "SGLANG_NPU_PROFILING": "0",
+    "TP_SIZE": "16",
+    "DP_SIZE": "2",
+    "MEM_FRACTION_STATIC": "0.90",
+    "MAX_PREFILL_TOKENS": "32768",
+    "ENABLE_DP_LM_HEAD": "1",
+    "DECODE_GRAPH_MAX_BS": "32",
+    "WEIGHT_LOADER_DISABLE_MMAP": "1",
+    "SERVICE_HOST": "0.0.0.0",
+    "HCCL_IF_BASE_PORT": "50000",
+    "MAX_RUNNING_REQUESTS": "64",
+    "ENABLE_DEEPEP": "1",
+    "ENABLE_DECODE_GRAPH": "1",
+    "SERVED_MODEL_NAME": "glm-5"
+  },
+  "mounted_model_read_only": true,
+  "script_sha256": {
+    "/home/youxingye/United deployment/service/united-config.sh": "657152350549bbce2e475bb930ef4c9d4a779306f69dfe991985812aa8ca1580",
+    "/home/youxingye/United deployment/service/run-united.sh": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c",
+    "/home/youxingye/United deployment/service/run-united-container.sh": "bc55a183e28320f7f2294b4d94647a5b3ea0069fce6961ff99f08177cfeca459",
+    "/home/youxingye/United deployment/service/start-united.sh": "4a7a3b76c43a5a0f0d8c1afc517ab68b91b43d9ec9ba1404993dc6c0c40142f7",
+    "/home/youxingye/United deployment/service/start-united-v0522.sh": "d968fc71655c383ef056ce1de5c54b81facbf28f0bb1f57991dfae218e7c1b2f"
+  },
+  "canonical_parallelism": {
+    "attention_tp": 8,
+    "attention_dp": 2,
+    "moe_tp": 1,
+    "moe_ep": 16,
+    "pp": 1,
+    "cp": 1,
+    "device_count": 16
+  },
+  "workload": {
+    "input_tokens": 8192,
+    "output_tokens": 1024
+  },
+  "limitations": [
+    "Container running is not proof of serving readiness.",
+    "CLI environment values need comparison with resolved runtime settings.",
+    "Tiny device probe does not establish collective or full-model correctness."
+  ]
+}

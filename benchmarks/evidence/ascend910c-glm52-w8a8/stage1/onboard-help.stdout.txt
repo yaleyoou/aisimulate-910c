@@ -1,0 +1,35 @@
+usage: aisimulate onboard [-h]
+                          {checkpoint,resume,init,plan,collect-fpm,validate-fpm,validate-collection,validate-serving,finalize,probe-runtime,import-observations}
+                          ...
+
+Onboard a model for FPM simulation on a target hardware platform. Declare the
+model and hardware, generate a plan, and preview or execute FPM collection.
+
+positional arguments:
+  {checkpoint,resume,init,plan,collect-fpm,validate-fpm,validate-collection,validate-serving,finalize,probe-runtime,import-observations}
+    checkpoint          Save or inspect one resumable onboarding session.
+    resume              Verify and report saved onboarding context without
+                        executing work.
+    init                Declare a model, target hardware, worker topology, and
+                        FPM collection limits.
+    plan                Plan FPM collection and write predict/recommend
+                        configs for the target hardware.
+    collect-fpm         Preview FPM collection on the target hardware, or run
+                        with --execute.
+    validate-fpm        Check collected direct-FPM query coverage with a local
+                        Weka/AgentX trace.
+    validate-collection
+                        Inspect collection and interpolation with editable
+                        quality policy; GPU repeats require --execute.
+    validate-serving    Prepare, run, or assess matched serving and combine
+                        mandatory onboarding validation gates.
+    finalize            Resolve memory from collected runtime evidence and
+                        create fresh simulation inputs.
+    probe-runtime       Preview or execute cache observations before profile
+                        geometry is known.
+    import-observations
+                        Validate saved runtime evidence into fresh unaccepted
+                        profile drafts.
+
+options:
+  -h, --help            show this help message and exit

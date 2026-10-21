@@ -1,0 +1,20 @@
+	NPU ID                         : 0
+	Product Name                   : IT22HMDA_2_S
+	Model                          : NA
+	Manufacturer                   : Huawei
+Serial Number: omitted
+	Software Version               : 26.1.1
+	Firmware Version               : NA
+	Compatibility                  : NOT SUPPORT
+	Board ID                       : 0x71
+	Main Board ID                  : 0x14
+	PCB ID                         : B
+	BOM ID                         : 2
+	PCIe Bus Info                  : 0000:9D:00.0
+	Slot ID                        : 0
+	Class ID                       : NA
+	PCI Vendor ID                  : 0x19E5
+	PCI Device ID                  : 0xD803
+	Subsystem Vendor ID            : 0x19E5
+	Subsystem Device ID            : 0x3001
+	Chip Count                     : 2

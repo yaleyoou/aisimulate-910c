@@ -1,0 +1,89 @@
+{
+  "schema": "ascend-single-node-hardware-observations/v1",
+  "status": "measured_reference_not_a_production_aisimulate_system_spec",
+  "device_granularity": "one runtime-visible Ascend910_9382 chip",
+  "devices_per_node": 16,
+  "runtime_memory_bytes_minimum_per_device": 65787658240,
+  "measured_effective_per_device": {
+    "hbm_copy_read_plus_write_bytes_per_second": {
+      "median_across_devices": 1269033356801.7703,
+      "min_across_devices": 1266688965272.4507,
+      "max_across_devices": 1270226897632.2988,
+      "all_devices_repeat_cv_at_most_10_percent": true,
+      "source": "single.json"
+    },
+    "bf16_4096_cube_ops_per_second": {
+      "median_across_devices": 321185140687191.3,
+      "min_across_devices": 318276119220285.56,
+      "max_across_devices": 322574387306672.1,
+      "all_devices_repeat_cv_at_most_10_percent": true,
+      "source": "single.json"
+    },
+    "int8_4096_cube_ops_per_second": {
+      "median_across_devices": 553066482547202.9,
+      "min_across_devices": 543245576915121.44,
+      "max_across_devices": 562271987383399.6,
+      "all_devices_repeat_cv_at_most_10_percent": true,
+      "source": "single.json"
+    }
+  },
+  "topology": {
+    "same_board_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        14,
+        15
+      ]
+    ],
+    "same_board": "SIO",
+    "cross_board": "HCCS_SW"
+  },
+  "communication": {
+    "initial": "run-20261020-231954",
+    "refinement": "refined-20261020-2330",
+    "initial_cv_failed_points": 16,
+    "refinement_cv_failed_points": 30,
+    "quality": "partial; do not blend coordinates or infer bare link bandwidth from input throughput"
+  },
+  "not_measured": {
+    "inter_node_bandwidth": null,
+    "bare_link_latency": null,
+    "theoretical_compute_peaks": null,
+    "deepep_dispatch_combine": null
+  },
+  "source_runtime_image": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "sources": [
+    "run-20261020-231954/single.json",
+    "run-20261020-231954/topology.log",
+    "run-20261020-231954/summary.json",
+    "refined-20261020-2330/summary.json"
+  ],
+  "serving_prediction_qualified": false
+}

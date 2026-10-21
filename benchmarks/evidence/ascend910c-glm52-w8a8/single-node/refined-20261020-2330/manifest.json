@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-10-20T15:28:28.568068+00:00",
+  "status": "collected",
+  "service_id": "4b4c93e395c46f8ba033e9e024a1f038cf7e7ab558645259509387e6a113caef",
+  "image_id": "sha256:d4c350d7d4e233d3cd203d2f783467c5f5be1453b9eee073f71b758069392edb",
+  "service_restored": true,
+  "service_initially_healthy": false,
+  "service_stopped_at": "2026-10-20T15:29:19.059890+00:00",
+  "collection_finished_at": "2026-10-20T15:32:19.114432+00:00",
+  "service_restart_requested_at": "2026-10-20T15:32:19.285151+00:00",
+  "service_ready_at": "2026-10-20T15:41:50.807498+00:00"
+}

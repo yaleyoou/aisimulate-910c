@@ -1,0 +1,90 @@
+{
+  "artifacts": {
+    "hardware_collection_report": {
+      "path": "../../../md/910c-single-node-collection.md",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_collector_current": {
+      "path": "single-node/collect.py",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_runner_current": {
+      "path": "single-node/run.py",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_summary_tool": {
+      "path": "single-node/summarize.py",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_affinity_tool": {
+      "path": "single-node/affinity.py",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_run_manifest": {
+      "path": "single-node/run-20261020-231954/manifest.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_run_manifest": {
+      "path": "single-node/refined-20261020-2330/manifest.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_csv": {
+      "path": "single-node/run-20261020-231954/cases.csv",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_csv": {
+      "path": "single-node/refined-20261020-2330/cases.csv",
+      "kind": "file",
+      "scope": "input"
+    },
+    "post_calibration_serving_check": {
+      "path": "single-node/refined-20261020-2330/restored-serving-check.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "post_calibration_serving_response": {
+      "path": "single-node/refined-20261020-2330/restored-response-8192-1024.json",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "research": {
+    "single_node_calibration": {
+      "status": "Implementation and two measurement campaigns completed; raw data integrity/correctness passed; communication repeatability partial.",
+      "serving_state": "United restored; /health 200 and exact8192/1024 functional request passed, cached_tokens0 and retractions0.",
+      "collection_execution_complete": true,
+      "collection_quality": "Local 81/81 stable. Communication first 84/100 stable; refined 70/100 stable. No cross-campaign coordinate mixing or sample deletion.",
+      "production_hardware_integration_complete": false,
+      "formal_fpm_collection": "not_started",
+      "serving_accuracy": "not_assessed",
+      "handoff_at": "2026-10-20T15:48:26.089119+00:00"
+    },
+    "phase1_handoff": {
+      "confidence": "High for local inventory and single-chip measurements; communication repeatability partial; production integration unresolved.",
+      "hardware_performance_evidence": "Single-node hardware microbenchmarks completed; raw samples and quality reports retained.",
+      "functional_smoke": "Post-calibration exact8192/1024 request passed, cached_tokens0, num_retractions0."
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "next_action": "Integrate sourced single-node hardware definitions and actual SGLang-Ascend operator support; resolve communication quality before qualifying its full curves."
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "next_action": "Integrate sourced single-node hardware definitions and actual SGLang-Ascend operator support; resolve communication quality before qualifying its full curves."
+      }
+    }
+  }
+}

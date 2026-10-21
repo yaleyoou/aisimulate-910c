@@ -1,0 +1,1127 @@
+{
+  "schema": "ascend-single-node-calibration/v1",
+  "scope": "hardware microbenchmark; not a serving operator profile or theoretical peak",
+  "started_at": "2026-10-20T15:30:00.822625+00:00",
+  "mode": "communication",
+  "parameters": {
+    "mode": "communication",
+    "devices": [
+      0,
+      2
+    ],
+    "output": "/results/hccs-2.json",
+    "warmup": 50,
+    "iterations": 200,
+    "repeats": 9
+  },
+  "versions": {
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post6",
+    "sglang": "0.5.22"
+  },
+  "cases": [
+    {
+      "operation": "all_reduce",
+      "size_bytes": 4096,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_reduce (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.1919538974761963,
+          0.1916007548570633,
+          0.192297101020813,
+          0.18919217586517334,
+          0.18945741653442383,
+          0.18836496770381927,
+          0.18845941126346588,
+          0.1860816478729248,
+          0.18665623664855957
+        ],
+        [
+          0.19187940657138824,
+          0.19164559245109558,
+          0.19223889708518982,
+          0.18916307389736176,
+          0.1894122213125229,
+          0.1883695125579834,
+          0.18834806978702545,
+          0.1861342489719391,
+          0.186592698097229
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.1919538974761963,
+          0.19164559245109558,
+          0.192297101020813,
+          0.18919217586517334,
+          0.18945741653442383,
+          0.1883695125579834,
+          0.18845941126346588,
+          0.1861342489719391,
+          0.18665623664855957
+        ],
+        "median_ms": 0.18919217586517334,
+        "minimum_ms": 0.1861342489719391,
+        "maximum_ms": 0.192297101020813,
+        "cv": 0.01182732667545626
+      },
+      "input_bytes_per_second": 21649943.932771247,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_reduce",
+      "size_bytes": 65536,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_reduce (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.18752095103263855,
+          0.22802206873893738,
+          0.19054028391838074,
+          0.18988783657550812,
+          0.23803108930587769,
+          0.19230221211910248,
+          0.19351641833782196,
+          0.19078978896141052,
+          0.18801285326480865
+        ],
+        [
+          0.18744124472141266,
+          0.2280278205871582,
+          0.19057178497314453,
+          0.19009868800640106,
+          0.23787668347358704,
+          0.19230465590953827,
+          0.1935078650712967,
+          0.19076134264469147,
+          0.18794336915016174
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.18752095103263855,
+          0.2280278205871582,
+          0.19057178497314453,
+          0.19009868800640106,
+          0.23803108930587769,
+          0.19230465590953827,
+          0.19351641833782196,
+          0.19078978896141052,
+          0.18801285326480865
+        ],
+        "median_ms": 0.19078978896141052,
+        "minimum_ms": 0.18752095103263855,
+        "maximum_ms": 0.23803108930587769,
+        "cv": 0.09532587306741355
+      },
+      "input_bytes_per_second": 343498466.85587263,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_reduce",
+      "size_bytes": 1048576,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_reduce (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.18910017609596252,
+          0.18709684908390045,
+          0.18619659543037415,
+          0.18707804381847382,
+          0.18785139918327332,
+          0.18639199435710907,
+          0.1872878521680832,
+          0.18764860928058624,
+          0.19179300963878632
+        ],
+        [
+          0.1890038698911667,
+          0.18711529672145844,
+          0.1862349957227707,
+          0.1871141493320465,
+          0.18780025839805603,
+          0.18632398545742035,
+          0.1873801052570343,
+          0.187660351395607,
+          0.19184230268001556
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.18910017609596252,
+          0.18711529672145844,
+          0.1862349957227707,
+          0.1871141493320465,
+          0.18785139918327332,
+          0.18639199435710907,
+          0.1873801052570343,
+          0.187660351395607,
+          0.19184230268001556
+        ],
+        "median_ms": 0.1873801052570343,
+        "minimum_ms": 0.1862349957227707,
+        "maximum_ms": 0.19184230268001556,
+        "cv": 0.009137837612346248
+      },
+      "input_bytes_per_second": 5595983621.428967,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_reduce",
+      "size_bytes": 16777216,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_reduce (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.2005583494901657,
+          0.20166617631912231,
+          0.20498201251029968,
+          0.1987464874982834,
+          0.19577550888061523,
+          0.19793061912059784,
+          0.19823847711086273,
+          0.19814997911453247,
+          0.28543412685394287
+        ],
+        [
+          0.20069275796413422,
+          0.20164357125759125,
+          0.20502395927906036,
+          0.19873929023742676,
+          0.19578300416469574,
+          0.19791552424430847,
+          0.19825193285942078,
+          0.1981351226568222,
+          0.28549924492836
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.20069275796413422,
+          0.20166617631912231,
+          0.20502395927906036,
+          0.1987464874982834,
+          0.19578300416469574,
+          0.19793061912059784,
+          0.19825193285942078,
+          0.19814997911453247,
+          0.28549924492836
+        ],
+        "median_ms": 0.1987464874982834,
+        "minimum_ms": 0.19578300416469574,
+        "maximum_ms": 0.28549924492836,
+        "cv": 0.13764856518747107
+      },
+      "input_bytes_per_second": 84415157274.89226,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_reduce",
+      "size_bytes": 67108864,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_reduce (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.6778060793876648,
+          0.6777640581130981,
+          0.6778239607810974,
+          0.6778634190559387,
+          0.6780377626419067,
+          0.6778045296669006,
+          0.6782177686691284,
+          0.6780138611793518,
+          0.6778942942619324
+        ],
+        [
+          0.6777790784835815,
+          0.6777795553207397,
+          0.6779184341430664,
+          0.6779881119728088,
+          0.6781131625175476,
+          0.6778275370597839,
+          0.6781269907951355,
+          0.677980363368988,
+          0.677939772605896
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.6778060793876648,
+          0.6777795553207397,
+          0.6779184341430664,
+          0.6779881119728088,
+          0.6781131625175476,
+          0.6778275370597839,
+          0.6782177686691284,
+          0.6780138611793518,
+          0.677939772605896
+        ],
+        "median_ms": 0.677939772605896,
+        "minimum_ms": 0.6777795553207397,
+        "maximum_ms": 0.6782177686691284,
+        "cv": 0.0002146322512893965
+      },
+      "input_bytes_per_second": 98989418694.29474,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_gather",
+      "size_bytes": 4096,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_gather (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.19484789669513702,
+          0.19364412128925323,
+          0.1919846087694168,
+          0.19260290265083313,
+          0.1919703483581543,
+          0.19181835651397705,
+          0.1899377703666687,
+          0.1878376007080078,
+          0.18655754625797272
+        ],
+        [
+          0.1951686441898346,
+          0.19397497177124023,
+          0.19221560657024384,
+          0.1928844153881073,
+          0.1923414021730423,
+          0.19212201237678528,
+          0.19021283090114594,
+          0.18812701106071472,
+          0.18682830035686493
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.1951686441898346,
+          0.19397497177124023,
+          0.19221560657024384,
+          0.1928844153881073,
+          0.1923414021730423,
+          0.19212201237678528,
+          0.19021283090114594,
+          0.18812701106071472,
+          0.18682830035686493
+        ],
+        "median_ms": 0.19221560657024384,
+        "minimum_ms": 0.18682830035686493,
+        "maximum_ms": 0.1951686441898346,
+        "cv": 0.014051481338125662
+      },
+      "input_bytes_per_second": 21309403.919307385,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_gather",
+      "size_bytes": 65536,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_gather (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.18723034858703613,
+          0.17199492454528809,
+          0.17077285051345825,
+          0.17032675445079803,
+          0.17107930779457092,
+          0.17093171179294586,
+          0.17065507173538208,
+          0.23706547915935516,
+          0.18296009302139282
+        ],
+        [
+          0.1874554455280304,
+          0.1721498817205429,
+          0.17056511342525482,
+          0.1701156049966812,
+          0.17093580961227417,
+          0.17068710923194885,
+          0.17045095562934875,
+          0.2372056245803833,
+          0.1832328587770462
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.1874554455280304,
+          0.1721498817205429,
+          0.17077285051345825,
+          0.17032675445079803,
+          0.17107930779457092,
+          0.17093171179294586,
+          0.17065507173538208,
+          0.2372056245803833,
+          0.1832328587770462
+        ],
+        "median_ms": 0.17107930779457092,
+        "minimum_ms": 0.17032675445079803,
+        "maximum_ms": 0.2372056245803833,
+        "cv": 0.12016457868160382
+      },
+      "input_bytes_per_second": 383073796.85388076,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_gather",
+      "size_bytes": 1048576,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_gather (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.24079635739326477,
+          0.18051141500473022,
+          0.1791614592075348,
+          0.17908255755901337,
+          0.1777358502149582,
+          0.17745089530944824,
+          0.17749369144439697,
+          0.1776435375213623,
+          0.17773118615150452
+        ],
+        [
+          0.24051186442375183,
+          0.1806841790676117,
+          0.17929495871067047,
+          0.17892180383205414,
+          0.17755453288555145,
+          0.17769978940486908,
+          0.17770443856716156,
+          0.17781053483486176,
+          0.17793895304203033
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.24079635739326477,
+          0.1806841790676117,
+          0.17929495871067047,
+          0.17908255755901337,
+          0.1777358502149582,
+          0.17769978940486908,
+          0.17770443856716156,
+          0.17781053483486176,
+          0.17793895304203033
+        ],
+        "median_ms": 0.17793895304203033,
+        "minimum_ms": 0.17769978940486908,
+        "maximum_ms": 0.24079635739326477,
+        "cv": 0.11214064369160638
+      },
+      "input_bytes_per_second": 5892897435.180028,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_gather",
+      "size_bytes": 16777216,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_gather (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.19117045402526855,
+          0.19103799760341644,
+          0.1910695880651474,
+          0.18828366696834564,
+          0.18648579716682434,
+          0.18514493107795715,
+          0.18424366414546967,
+          0.18735665082931519,
+          0.19263456761837006
+        ],
+        [
+          0.19122634828090668,
+          0.19108319282531738,
+          0.19112174212932587,
+          0.18833181262016296,
+          0.18652695417404175,
+          0.1851290762424469,
+          0.18421012163162231,
+          0.18738019466400146,
+          0.1926683634519577
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.19122634828090668,
+          0.19108319282531738,
+          0.19112174212932587,
+          0.18833181262016296,
+          0.18652695417404175,
+          0.18514493107795715,
+          0.18424366414546967,
+          0.18738019466400146,
+          0.1926683634519577
+        ],
+        "median_ms": 0.18833181262016296,
+        "minimum_ms": 0.18424366414546967,
+        "maximum_ms": 0.1926683634519577,
+        "cv": 0.015984622431447867
+      },
+      "input_bytes_per_second": 89083282142.23228,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_gather",
+      "size_bytes": 67108864,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_gather (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.6189591288566589,
+          0.619133472442627,
+          0.6190779209136963,
+          0.6188743114471436,
+          0.6187891960144043,
+          0.6189166307449341,
+          0.6188199520111084,
+          0.6189247369766235,
+          0.6192883253097534
+        ],
+        [
+          0.6189565658569336,
+          0.6191309690475464,
+          0.6190438866615295,
+          0.6188598275184631,
+          0.6187611818313599,
+          0.6189461946487427,
+          0.618852436542511,
+          0.618971586227417,
+          0.6192412376403809
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.6189591288566589,
+          0.619133472442627,
+          0.6190779209136963,
+          0.6188743114471436,
+          0.6187891960144043,
+          0.6189461946487427,
+          0.618852436542511,
+          0.618971586227417,
+          0.6192883253097534
+        ],
+        "median_ms": 0.6189591288566589,
+        "minimum_ms": 0.6187891960144043,
+        "maximum_ms": 0.6192883253097534,
+        "cv": 0.00025100695443534593
+      },
+      "input_bytes_per_second": 108422124937.33386,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "reduce_scatter",
+      "size_bytes": 4096,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.reduce_scatter (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.1886359602212906,
+          0.19062058627605438,
+          0.19129514694213867,
+          0.18898361921310425,
+          0.18931911885738373,
+          0.18578854203224182,
+          0.18316170573234558,
+          0.1822182983160019,
+          0.18368616700172424
+        ],
+        [
+          0.18841461837291718,
+          0.19075554609298706,
+          0.1910768449306488,
+          0.188756063580513,
+          0.1889955699443817,
+          0.18556897342205048,
+          0.18292400240898132,
+          0.18198814988136292,
+          0.18348056077957153
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.1886359602212906,
+          0.19075554609298706,
+          0.19129514694213867,
+          0.18898361921310425,
+          0.18931911885738373,
+          0.18578854203224182,
+          0.18316170573234558,
+          0.1822182983160019,
+          0.18368616700172424
+        ],
+        "median_ms": 0.1886359602212906,
+        "minimum_ms": 0.1822182983160019,
+        "maximum_ms": 0.19129514694213867,
+        "cv": 0.01837097189962424
+      },
+      "input_bytes_per_second": 21713781.37654636,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "reduce_scatter",
+      "size_bytes": 65536,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.reduce_scatter (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.18430891633033752,
+          0.1832321584224701,
+          0.18163537979125977,
+          0.17912960052490234,
+          0.17821455001831055,
+          0.1815851777791977,
+          0.18378646671772003,
+          0.17811334133148193,
+          0.17750589549541473
+        ],
+        [
+          0.18406236171722412,
+          0.18294784426689148,
+          0.18138009309768677,
+          0.17886359989643097,
+          0.17809469997882843,
+          0.18128009140491486,
+          0.1836138665676117,
+          0.17791004478931427,
+          0.1773054301738739
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.18430891633033752,
+          0.1832321584224701,
+          0.18163537979125977,
+          0.17912960052490234,
+          0.17821455001831055,
+          0.1815851777791977,
+          0.18378646671772003,
+          0.17811334133148193,
+          0.17750589549541473
+        ],
+        "median_ms": 0.1815851777791977,
+        "minimum_ms": 0.17750589549541473,
+        "maximum_ms": 0.18430891633033752,
+        "cv": 0.014630061110140978
+      },
+      "input_bytes_per_second": 360910514.8421854,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "reduce_scatter",
+      "size_bytes": 1048576,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.reduce_scatter (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.17814414203166962,
+          0.17917005717754364,
+          0.1827620416879654,
+          0.26784172654151917,
+          0.18409831821918488,
+          0.2622414231300354,
+          0.1864669919013977,
+          0.18521343171596527,
+          0.18671868741512299
+        ],
+        [
+          0.177946537733078,
+          0.17900794744491577,
+          0.18305081129074097,
+          0.26795703172683716,
+          0.18433061242103577,
+          0.2620689570903778,
+          0.1862175464630127,
+          0.1853361278772354,
+          0.1865149885416031
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.17814414203166962,
+          0.17917005717754364,
+          0.18305081129074097,
+          0.26795703172683716,
+          0.18433061242103577,
+          0.2622414231300354,
+          0.1864669919013977,
+          0.1853361278772354,
+          0.18671868741512299
+        ],
+        "median_ms": 0.1853361278772354,
+        "minimum_ms": 0.17814414203166962,
+        "maximum_ms": 0.26795703172683716,
+        "cv": 0.17972578314613105
+      },
+      "input_bytes_per_second": 5657698863.195011,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "reduce_scatter",
+      "size_bytes": 16777216,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.reduce_scatter (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.19203419983386993,
+          0.1911001354455948,
+          0.19035279750823975,
+          0.18839316070079803,
+          0.18658354878425598,
+          0.18590039014816284,
+          0.18532657623291016,
+          0.18563367426395416,
+          0.18455341458320618
+        ],
+        [
+          0.1920381486415863,
+          0.1910609006881714,
+          0.19041594862937927,
+          0.1884247064590454,
+          0.18661630153656006,
+          0.1858595311641693,
+          0.18514198064804077,
+          0.18571093678474426,
+          0.18461157381534576
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.1920381486415863,
+          0.1911001354455948,
+          0.19041594862937927,
+          0.1884247064590454,
+          0.18661630153656006,
+          0.18590039014816284,
+          0.18532657623291016,
+          0.18571093678474426,
+          0.18461157381534576
+        ],
+        "median_ms": 0.18661630153656006,
+        "minimum_ms": 0.18461157381534576,
+        "maximum_ms": 0.1920381486415863,
+        "cv": 0.014793458606470463
+      },
+      "input_bytes_per_second": 89902199657.04962,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "reduce_scatter",
+      "size_bytes": 67108864,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.reduce_scatter (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.35845983028411865,
+          0.35839617252349854,
+          0.3586007058620453,
+          0.3583833575248718,
+          0.3583509027957916,
+          0.42194679379463196,
+          0.37326472997665405,
+          0.3585387170314789,
+          0.3586493134498596
+        ],
+        [
+          0.35843536257743835,
+          0.3584579527378082,
+          0.35859301686286926,
+          0.3583889603614807,
+          0.35842442512512207,
+          0.3705750107765198,
+          0.3733026385307312,
+          0.3585144579410553,
+          0.3586798310279846
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.35845983028411865,
+          0.3584579527378082,
+          0.3586007058620453,
+          0.3583889603614807,
+          0.35842442512512207,
+          0.42194679379463196,
+          0.3733026385307312,
+          0.3585387170314789,
+          0.3586798310279846
+        ],
+        "median_ms": 0.3585387170314789,
+        "minimum_ms": 0.3583889603614807,
+        "maximum_ms": 0.42194679379463196,
+        "cv": 0.057476327261410776
+      },
+      "input_bytes_per_second": 187173269753.48102,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_to_all",
+      "size_bytes": 4096,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_to_all (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.20846278965473175,
+          0.21140427887439728,
+          0.20984205603599548,
+          0.20612967014312744,
+          0.20872029662132263,
+          0.20340098440647125,
+          0.20214413106441498,
+          0.2030293345451355,
+          0.2019137740135193
+        ],
+        [
+          0.20810869336128235,
+          0.2111545205116272,
+          0.20957915484905243,
+          0.2057727724313736,
+          0.20842468738555908,
+          0.20308108627796173,
+          0.20182447135448456,
+          0.2027386724948883,
+          0.20160657167434692
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.20846278965473175,
+          0.21140427887439728,
+          0.20984205603599548,
+          0.20612967014312744,
+          0.20872029662132263,
+          0.20340098440647125,
+          0.20214413106441498,
+          0.2030293345451355,
+          0.2019137740135193
+        ],
+        "median_ms": 0.20612967014312744,
+        "minimum_ms": 0.2019137740135193,
+        "maximum_ms": 0.21140427887439728,
+        "cv": 0.017532496327794727
+      },
+      "input_bytes_per_second": 19870987.020723004,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_to_all",
+      "size_bytes": 65536,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_to_all (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.20437589287757874,
+          0.1890290230512619,
+          0.18445056676864624,
+          0.18866971135139465,
+          0.18996372818946838,
+          0.18893742561340332,
+          0.1906832903623581,
+          0.26834672689437866,
+          0.1954648345708847
+        ],
+        [
+          0.2040446400642395,
+          0.18880467116832733,
+          0.1841656118631363,
+          0.18897807598114014,
+          0.19025014340877533,
+          0.18922147154808044,
+          0.19091273844242096,
+          0.268561989068985,
+          0.19563119113445282
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.20437589287757874,
+          0.1890290230512619,
+          0.18445056676864624,
+          0.18897807598114014,
+          0.19025014340877533,
+          0.18922147154808044,
+          0.19091273844242096,
+          0.268561989068985,
+          0.19563119113445282
+        ],
+        "median_ms": 0.19025014340877533,
+        "minimum_ms": 0.18445056676864624,
+        "maximum_ms": 0.268561989068985,
+        "cv": 0.1311912506926169
+      },
+      "input_bytes_per_second": 344472802.100275,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_to_all",
+      "size_bytes": 1048576,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_to_all (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.27017220854759216,
+          0.20079044997692108,
+          0.19664031267166138,
+          0.19884493947029114,
+          0.19607076048851013,
+          0.19773636758327484,
+          0.19488798081874847,
+          0.19319777190685272,
+          0.1921789050102234
+        ],
+        [
+          0.2699148952960968,
+          0.2011171132326126,
+          0.19686755537986755,
+          0.19919349253177643,
+          0.19586250185966492,
+          0.19751876592636108,
+          0.19473673403263092,
+          0.19294506311416626,
+          0.19203124940395355
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.27017220854759216,
+          0.2011171132326126,
+          0.19686755537986755,
+          0.19919349253177643,
+          0.19607076048851013,
+          0.19773636758327484,
+          0.19488798081874847,
+          0.19319777190685272,
+          0.1921789050102234
+        ],
+        "median_ms": 0.19686755537986755,
+        "minimum_ms": 0.1921789050102234,
+        "maximum_ms": 0.27017220854759216,
+        "cv": 0.12095198223835774
+      },
+      "input_bytes_per_second": 5326301725.933004,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_to_all",
+      "size_bytes": 16777216,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_to_all (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.19742101430892944,
+          0.19595114886760712,
+          0.19600874185562134,
+          0.19433598220348358,
+          0.194753035902977,
+          0.19189195334911346,
+          0.18785496056079865,
+          0.18683089315891266,
+          0.18594883382320404
+        ],
+        [
+          0.19741997122764587,
+          0.19597195088863373,
+          0.1960257589817047,
+          0.19470009207725525,
+          0.1947203427553177,
+          0.19193105399608612,
+          0.1878310590982437,
+          0.18682964146137238,
+          0.18591172993183136
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.19742101430892944,
+          0.19597195088863373,
+          0.1960257589817047,
+          0.19470009207725525,
+          0.194753035902977,
+          0.19193105399608612,
+          0.18785496056079865,
+          0.18683089315891266,
+          0.18594883382320404
+        ],
+        "median_ms": 0.19470009207725525,
+        "minimum_ms": 0.18594883382320404,
+        "maximum_ms": 0.19742101430892944,
+        "cv": 0.022913186342256205
+      },
+      "input_bytes_per_second": 86169532951.95644,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    },
+    {
+      "operation": "all_to_all",
+      "size_bytes": 67108864,
+      "devices": [
+        0,
+        2
+      ],
+      "kernel_source": "torch.distributed.all_to_all (ProcessGroupHCCL)",
+      "dtype": "bfloat16",
+      "payload_definition": "input bytes per rank; all_gather output is world times input",
+      "measurement": "maximum rank wall time per repeat; barrier excluded; eager host submission included",
+      "rank_samples_ms": [
+        [
+          0.3188771605491638,
+          0.3680044412612915,
+          0.3186340630054474,
+          0.31882360577583313,
+          0.3187776505947113,
+          0.3186434507369995,
+          0.3187254071235657,
+          0.31856465339660645,
+          0.3186319172382355
+        ],
+        [
+          0.31876426935195923,
+          0.3680381178855896,
+          0.31861966848373413,
+          0.31882601976394653,
+          0.3188171684741974,
+          0.318676620721817,
+          0.3187895715236664,
+          0.31858134269714355,
+          0.31862521171569824
+        ]
+      ],
+      "timing": {
+        "samples_ms": [
+          0.3188771605491638,
+          0.3680381178855896,
+          0.3186340630054474,
+          0.31882601976394653,
+          0.3188171684741974,
+          0.318676620721817,
+          0.3187895715236664,
+          0.31858134269714355,
+          0.3186319172382355
+        ],
+        "median_ms": 0.3187895715236664,
+        "minimum_ms": 0.31858134269714355,
+        "maximum_ms": 0.3680381178855896,
+        "cv": 0.050697765900210086
+      },
+      "input_bytes_per_second": 210511478400.15826,
+      "correctness": "full output equality to rank-specific collective reference before warmup"
+    }
+  ],
+  "errors": [],
+  "complete": true,
+  "finished_at": "2026-10-20T15:30:14.476856+00:00"
+}

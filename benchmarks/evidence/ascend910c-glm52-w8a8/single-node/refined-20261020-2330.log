@@ -1,0 +1,22 @@
+2026-10-20T15:28:28.571028+00:00 npu-before
+2026-10-20T15:28:29.240960+00:00 topology
+2026-10-20T15:28:30.111926+00:00 stop-service
+2026-10-20T15:29:19.062574+00:00 npu-idle
+2026-10-20T15:29:22.034400+00:00 sio-2
+2026-10-20T15:29:50.739086+00:00 hccs-2
+2026-10-20T15:30:18.944956+00:00 attention-8a
+2026-10-20T15:30:55.364664+00:00 attention-8b
+2026-10-20T15:31:31.783629+00:00 node-16
+2026-10-20T15:32:19.117072+00:00 restore-service
+{
+  "started_at": "2026-10-20T15:28:28.568068+00:00",
+  "status": "collected",
+  "service_id": "4b4c93e395c46f8ba033e9e024a1f038cf7e7ab558645259509387e6a113caef",
+  "image_id": "sha256:d4c350d7d4e233d3cd203d2f783467c5f5be1453b9eee073f71b758069392edb",
+  "service_restored": true,
+  "service_initially_healthy": false,
+  "service_stopped_at": "2026-10-20T15:29:19.059890+00:00",
+  "collection_finished_at": "2026-10-20T15:32:19.114432+00:00",
+  "service_restart_requested_at": "2026-10-20T15:32:19.285151+00:00",
+  "service_ready_at": "2026-10-20T15:41:50.807498+00:00"
+}

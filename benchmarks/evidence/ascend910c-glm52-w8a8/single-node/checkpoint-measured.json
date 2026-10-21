@@ -1,0 +1,130 @@
+{
+  "artifacts": {
+    "hardware_measured_reference": {
+      "path": "single-node/hardware-measured.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_plan": {
+      "path": "single-node/run-20261020-231954/plan.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_summary": {
+      "path": "single-node/run-20261020-231954/summary.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_sio-2": {
+      "path": "single-node/run-20261020-231954/sio-2.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_hccs-2": {
+      "path": "single-node/run-20261020-231954/hccs-2.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_attention-8a": {
+      "path": "single-node/run-20261020-231954/attention-8a.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_attention-8b": {
+      "path": "single-node/run-20261020-231954/attention-8b.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_initial_node-16": {
+      "path": "single-node/run-20261020-231954/node-16.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_plan": {
+      "path": "single-node/refined-20261020-2330/plan.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_summary": {
+      "path": "single-node/refined-20261020-2330/summary.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_sio-2": {
+      "path": "single-node/refined-20261020-2330/sio-2.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_hccs-2": {
+      "path": "single-node/refined-20261020-2330/hccs-2.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_attention-8a": {
+      "path": "single-node/refined-20261020-2330/attention-8a.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_attention-8b": {
+      "path": "single-node/refined-20261020-2330/attention-8b.json",
+      "kind": "file",
+      "scope": "input"
+    },
+    "hardware_refined_node-16": {
+      "path": "single-node/refined-20261020-2330/node-16.json",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "research": {
+    "single_node_calibration": {
+      "status": "Both campaigns completed and all correctness/sample-integrity checks passed; service restart requested and health recovery pending.",
+      "confidence": "high for raw observations; communication repeatability remains partial",
+      "local_points": 81,
+      "communication_points_per_campaign": 100,
+      "initial_stable_points": 165,
+      "refined_stable_points": 151,
+      "initial_communication_cv_failures": 16,
+      "refined_communication_cv_failures": 30,
+      "hardware_effective_bandwidth_bytes_per_second": 1269033356801.7703,
+      "hardware_bf16_ops_per_second": 321185140687191.3,
+      "hardware_int8_ops_per_second": 553066482547202.9,
+      "formal_profile_accepted": false,
+      "sources": [
+        "single-node/hardware-measured.json",
+        "single-node/run-20261020-231954/summary.json",
+        "single-node/refined-20261020-2330/summary.json"
+      ]
+    }
+  },
+  "progress": {
+    "stage": 1,
+    "status": "in_progress",
+    "blockers": [
+      "Validated production 910C system spec and HCCL data integration remain absent; communication repeatability is partial (16/100 initial and 30/100 refined points above CV 10%).",
+      "ModelSlim operator precision, INT8 MoE and Ascend serving-operator collection require integration.",
+      "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+    ],
+    "next_action": "Verify serving restoration; integrate sourced single-node hardware observations and actual SGLang-Ascend operator boundaries, retaining communication quality flags."
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "blockers": [
+          "Validated production 910C system spec and HCCL data integration remain absent; communication repeatability is partial (16/100 initial and 30/100 refined points above CV 10%).",
+          "ModelSlim operator precision, INT8 MoE and Ascend serving-operator collection require integration.",
+          "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+        ],
+        "next_action": "Verify serving restoration; integrate sourced single-node hardware observations and actual SGLang-Ascend operator boundaries, retaining communication quality flags."
+      }
+    }
+  },
+  "pending_questions": [
+    "Full checkpoint immutable revision remains unresolved; metadata and headers are hashed only.",
+    "Validated production 910C system spec and HCCL data integration remain absent; communication repeatability is partial (16/100 initial and 30/100 refined points above CV 10%).",
+    "ModelSlim operator precision, INT8 MoE and Ascend serving-operator collection require integration.",
+    "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+  ]
+}

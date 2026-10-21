@@ -1,0 +1,66 @@
+{
+  "observed_at": "2026-10-20T07:34:07.911812+00:00",
+  "release_source": "https://api.github.com/repos/sgl-project/sglang/releases/latest",
+  "release": {
+    "tag_name": "v0.5.22",
+    "published_at": "2026-10-19T02:55:19Z",
+    "html_url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.22",
+    "prerelease": false,
+    "draft": false,
+    "target_commitish": "main"
+  },
+  "registry_source": "https://quay.io/api/v1/repository/ascend/sglang/tag/?limit=100&onlyActiveTags=true",
+  "registry_has_additional_pages": true,
+  "selected_tags": [
+    {
+      "name": "main-cann9.1.0-a3-arm64",
+      "manifest_digest": "sha256:b2077bd0e3ed43c25f267621aa95a721ff76ba99f5d8c9914ef9d32987aa542b",
+      "last_modified": "Mon, 19 Oct 2026 18:21:21 -0000",
+      "size": 6670257588
+    },
+    {
+      "name": "main-cann9.1.0-a3-amd64",
+      "manifest_digest": "sha256:767b5a40afff34897b56f37fe2825a11459574ffcf3ba20ec40f1508bde7146a",
+      "last_modified": "Mon, 19 Oct 2026 18:21:20 -0000",
+      "size": 6919775584
+    },
+    {
+      "name": "main-cann9.1.0-a3",
+      "manifest_digest": "sha256:2d53f1497f57eb0bee97bb8b95c9183e24ff1db4050decd5c99b88c7434774f1",
+      "last_modified": "Mon, 19 Oct 2026 18:21:18 -0000",
+      "size": null
+    },
+    {
+      "name": "v0.5.22-cann9.1.0-a3",
+      "manifest_digest": "sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+      "last_modified": "Fri, 16 Oct 2026 01:08:08 -0000",
+      "size": null
+    },
+    {
+      "name": "main-cann9.0.0-a3",
+      "manifest_digest": "sha256:42eb7f64074d01eaac85cdc19929d315edd2d7b16d8af1523195c5dc32adaabb",
+      "last_modified": "Wed, 23 Sep 2026 19:27:53 -0000",
+      "size": null
+    },
+    {
+      "name": "main-cann8.5.0-a3",
+      "manifest_digest": "sha256:1dfacab884e54a3181e51fd5443d95a372de9e3bd5d3c994f735fa605a12be70",
+      "last_modified": "Thu, 28 May 2026 21:02:04 -0000",
+      "size": null
+    },
+    {
+      "name": "main-cann8.2.rc1-a3",
+      "manifest_digest": "sha256:2bc0edb40f9d997fd832fb3b85246ebcef5c9b0f606c963097c4400ecbf5c8b1",
+      "last_modified": "Fri, 15 May 2026 13:54:30 -0000",
+      "size": 6665320455
+    },
+    {
+      "name": "main-cann8.3.rc1-a3",
+      "manifest_digest": "sha256:7815a126355453bb341cc9872767ee3f829b66f5d08cab76032fb6c682a42fce",
+      "last_modified": "Fri, 01 May 2026 11:57:28 -0000",
+      "size": 5770133322
+    }
+  ],
+  "selection_rule": "Latest upstream stable release with an available matching Ascend A3 image; moving main tags excluded from the baseline.",
+  "limits": "Registry tag metadata alone does not establish image package versions or driver compatibility."
+}

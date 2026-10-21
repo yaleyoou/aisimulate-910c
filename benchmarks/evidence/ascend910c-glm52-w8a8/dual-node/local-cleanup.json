@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-21T09:09:51.815802+00:00",
+  "queued_binary": "ca7d0e5fd32731a756b85f59d1da6df4ebee9cdea47cb0d10ac8ffaaffc2f91d  /tmp/p2p_queued\ne16606b261d85b723c79bb75dcd12925e8aa41fc26fe1323259afec3cc18c9a2  /tmp/p2p_queued.cpp\n",
+  "removed_task_container": "aisim-910c-hardware-20261021",
+  "containers_after": "aisim-910c-validation-20261021 Up 53 minutes\nglm52-united-v0522 Up 2 hours\nsglang0520_npu_cryang Up 9 days\n"
+}
