@@ -1,0 +1,57 @@
+{
+  "research": {
+    "operator_collection_delivery": {
+      "date": "2026-10-22",
+      "status": "Experimental collection implementation and first verified campaign delivered; full production operator database qualification remains incomplete.",
+      "mapping_commit": "2a0ad787",
+      "confidence": "High for fixed source mapping, complete checked captures and scoped synthetic numerical probes; no production prediction accuracy claim.",
+      "serving": "United fixed0.5.22, single8192/1024 request toDP0; control+3profiles;16ranks;3forwards/rank;480count assertions;474285device records;identical1024output IDs;zero cached/retracted tokens.",
+      "repeatability": "13954/15326 physical kernel groups CV<=10%;1372 groups unqualified. Failed pilot and earlier incomplete capture preserved; no cherry-picked replacement of individual points.",
+      "isolated": "npu1-19 synthetic probes36/36 passed sampled CPU checks and CV<=10%;8staticlinear,8dynamiclinear,6groupedmatmul,6dynamicquant,4indexer,4sparseattention. Context controls8192/8704/9216.",
+      "timing": "Independent probes warm both eager and graph execution;9NPU-event samples of16calls per replay. Cold-graph and initial environment failures retained.",
+      "limits": "Peer driver25.5.0 differs from local26.1.1; synthetic weights/routing/attention scale, eight active decode sequences differ from real single-request graph padding; no pooled production lookup data.",
+      "remaining": "Actual DeepEP dispatch/combine numerical qualification, stable HCCL curves, actual group lists/active KV metadata, production RustFPE query integration and forward/serving accuracy.",
+      "tests": "Collector7unit tests passed;4source/testfiles pass Ruff lint/format;36real-device probes passed.",
+      "cleanup": "Task peer container removed; existing peer service preserved; United remains healthy. Full trace archives local, compact reproducible kernel evidence committed.",
+      "sources": [
+        "operators/stage2-delivery.json",
+        "operators/verified-20261021/collection-validation.json",
+        "operators/isolated-20261022/results.json",
+        "operators/isolated-20261022/attention.json"
+      ]
+    }
+  },
+  "artifacts": {
+    "operator_collection_document": {
+      "kind": "file",
+      "scope": "input",
+      "path": "../../../md/910c-glm52-w8a8-operator-collection.md"
+    },
+    "operator_probe_sources": {
+      "kind": "file",
+      "scope": "input",
+      "path": "operators/probe-source-inventory.json"
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 1,
+        "status": "in_progress",
+        "next_action": "Use source-verified mapping and qualified experimental observations to design the Ascend production query contract, then validate full forward latency; do not bypass exact FPM profile acceptance.",
+        "blockers": [
+          "No supported guided SGLang FPM profile or exact accepted configuration; formal campaign not started.",
+          "Production Ascend model/query integration, actual routing metadata and stable communication tables remain incomplete.",
+          "Resolved serving memory, replay coverage and measured serving prediction accuracy remain unvalidated."
+        ]
+      },
+      "artifacts": {
+        "operator_delivery": {"kind": "file", "scope": "validation", "path": "operators/stage2-delivery.json"},
+        "serving_operator_validation": {"kind": "file", "scope": "validation", "path": "operators/verified-20261021/collection-validation.json"},
+        "isolated_quant_validation": {"kind": "file", "scope": "collection", "path": "operators/isolated-20261022/results.json"},
+        "isolated_attention_validation": {"kind": "file", "scope": "collection", "path": "operators/isolated-20261022/attention.json"},
+        "collector_tests": {"kind": "file", "scope": "validation", "path": "operators/collector-tests.log"}
+      }
+    }
+  }
+}

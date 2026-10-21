@@ -1,0 +1,88 @@
+{
+  "schema": "aisimulate-ascend-trace-report/v1",
+  "collection_integrity": "passed",
+  "canonical_fpm_data": false,
+  "runs": [
+    {
+      "case": "profile-1",
+      "ranks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "kernel_records": 151819,
+      "scheduler_spans": 48
+    },
+    {
+      "case": "profile-2",
+      "ranks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "kernel_records": 158095,
+      "scheduler_spans": 48
+    },
+    {
+      "case": "profile-3",
+      "ranks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "kernel_records": 158095,
+      "scheduler_spans": 48
+    }
+  ],
+  "kernel_groups": 15326,
+  "repeatable_groups": 13545,
+  "unqualified_groups": 1781,
+  "limitations": [
+    "Each group includes device rank and graph model ID; no pooling across ranks.",
+    "Graph padding and MoE buffer capacity are physical shapes, not active token counts.",
+    "Expert group-list contents and KV sequence lengths are not in kernel shape exports.",
+    "Profiler perturbs timings; unqualified groups cannot be used as calibrated lookup rows.",
+    "Communication summaries and their internal kernels overlap; never add both.",
+    "Scheduler CPU spans are asynchronous launch intervals, not device forward latency.",
+    "Serving correctness and stable output do not replace independent per-operator mathematical checks."
+  ]
+}

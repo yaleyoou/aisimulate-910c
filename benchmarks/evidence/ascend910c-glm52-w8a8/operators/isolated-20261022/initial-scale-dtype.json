@@ -1,0 +1,16 @@
+{
+  "schema": "aisimulate-ascend-quant-probe/v1",
+  "canonical_fpm_data": false,
+  "input_kind": "seeded synthetic activations and INT8 weights",
+  "group_list": "balanced synthetic cumulative group sizes; not observed routing",
+  "timing": {
+    "clock": "NPU events around graph replay, divided by calls in captured graph",
+    "warmup": 10,
+    "independent_replays": 9,
+    "calls_per_graph": 16,
+    "scope": "Device execution including graph dependencies; excludes eager Python launch overhead."
+  },
+  "cases": [],
+  "status": "failed",
+  "error": "RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnAscendQuantV3.\nSince the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.\nNote: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.\n[ERROR] 2026-10-21-16:00:27 (PID:29, Device:0, RankID:-1) ERR00100 PTA call acl api failed.\n"
+}

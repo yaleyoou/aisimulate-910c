@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.3.2, pluggy-1.7.0
+rootdir: /workspace/python/aisimulate
+configfile: pytest.ini
+plugins: xdist-3.6.1, anyio-4.15.1
+collected 7 items
+
+python/aisimulate/tests/unit/collector/test_ascend_trace.py .......      [100%]
+
+============================= slowest 10 durations =============================
+0.01s call     tests/unit/collector/test_ascend_trace.py::test_repeatability_rejects_jitter_and_missing_ranks
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+========================= 7 passed, 1 warning in 0.11s =========================

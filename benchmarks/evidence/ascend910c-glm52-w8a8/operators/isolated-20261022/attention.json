@@ -1,0 +1,229 @@
+{
+  "schema": "aisimulate-ascend-quant-probe/v1",
+  "canonical_fpm_data": false,
+  "input_kind": "seeded synthetic activations and INT8 weights",
+  "group_list": "balanced synthetic cumulative group sizes; not observed routing",
+  "timing": {
+    "clock": "NPU events around graph replay, divided by calls in captured graph",
+    "warmup": 10,
+    "warmup_scope": "Both eager invocation and captured graph replay",
+    "independent_replays": 9,
+    "calls_per_graph": 16,
+    "scope": "Device execution including graph dependencies; excludes eager Python launch overhead."
+  },
+  "cases": [
+    {
+      "op": "lightning_indexer",
+      "phase": "prefill",
+      "tokens": 8192,
+      "sequence_length": 8192,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        3852.426290512085,
+        3851.663827896118,
+        3851.5336513519287,
+        3851.3875007629395,
+        3851.3851165771484,
+        3851.6299724578857,
+        3851.6149520874023,
+        3851.546287536621,
+        3851.5937328338623
+      ],
+      "median_us": 3851.5937328338623,
+      "cv": 7.59636108774933e-05,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "prefill",
+      "tokens": 8192,
+      "sequence_length": 8192,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.0010448992252349854,
+        "samples": 12288
+      },
+      "samples_us": [
+        20538.408279418945,
+        20539.981842041016,
+        20539.798736572266,
+        20539.165496826172,
+        20536.216735839844,
+        20539.02244567871,
+        20538.591384887695,
+        20539.554595947266,
+        20538.24234008789
+      ],
+      "median_us": 20539.02244567871,
+      "cv": 5.2143394652164435e-05,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8192,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        34.61875021457672,
+        34.48500111699104,
+        34.43250060081482,
+        34.71999987959862,
+        34.61625054478645,
+        34.56375002861023,
+        34.79250147938728,
+        34.61625054478645,
+        34.60624814033508
+      ],
+      "median_us": 34.61625054478645,
+      "cv": 0.002963855033067148,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8192,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.001043170690536499,
+        "samples": 12288
+      },
+      "samples_us": [
+        88.5625034570694,
+        88.38749676942825,
+        88.55249732732773,
+        88.52250128984451,
+        88.33999931812286,
+        88.57125043869019,
+        88.38625252246857,
+        88.64875137805939,
+        88.66249769926071
+      ],
+      "median_us": 88.55249732732773,
+      "cv": 0.0012489106877884562,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8704,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        35.52374988794327,
+        35.44750064611435,
+        35.32874956727028,
+        35.624999552965164,
+        35.45000031590462,
+        36.223750561475754,
+        35.42124852538109,
+        36.71874850988388,
+        36.89749911427498
+      ],
+      "median_us": 35.52374988794327,
+      "cv": 0.015906094219551994,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8704,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.0011230707168579102,
+        "samples": 12288
+      },
+      "samples_us": [
+        88.8499990105629,
+        88.97875249385834,
+        88.89249712228775,
+        88.89374881982803,
+        88.83874863386154,
+        88.9274999499321,
+        88.88375014066696,
+        88.96999806165695,
+        88.8962522149086
+      ],
+      "median_us": 88.89374881982803,
+      "cv": 0.000508242251784665,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 9216,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        35.276249051094055,
+        34.87500175833702,
+        34.866251051425934,
+        35.64250096678734,
+        35.03875061869621,
+        35.53124889731407,
+        34.83999893069267,
+        35.7074998319149,
+        35.24500131607056
+      ],
+      "median_us": 35.24500131607056,
+      "cv": 0.009165205603262165,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 9216,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.001020669937133789,
+        "samples": 12288
+      },
+      "samples_us": [
+        88.76500278711319,
+        88.80750089883804,
+        88.82874995470047,
+        88.98250013589859,
+        88.80124986171722,
+        88.83625268936157,
+        89.01374787092209,
+        88.88249844312668,
+        88.81624788045883
+      ],
+      "median_us": 88.82874995470047,
+      "cv": 0.0009021224890246263,
+      "repeatable_at_10_percent": true
+    }
+  ],
+  "status": "completed"
+}

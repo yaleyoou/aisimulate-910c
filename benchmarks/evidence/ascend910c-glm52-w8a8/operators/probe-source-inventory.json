@@ -1,0 +1,122 @@
+{
+  "repository": "https://github.com/sgl-project/sglang",
+  "commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "container": "glm52-united-v0522",
+  "files": [
+    {
+      "path": "python/sglang/srt/models/glm4_moe.py",
+      "sha256": "b1a4a6333a581538e2c187168c579cae6c57c556e0d227b7be2e08b36e34e71f",
+      "matches_commit": true,
+      "lines": 1438
+    },
+    {
+      "path": "python/sglang/srt/models/deepseek_v2.py",
+      "sha256": "1edf877e54ca6acf37e2d7dccb1704054175e2b78b8737bb9b617ffc97a2134e",
+      "matches_commit": true,
+      "lines": 3497
+    },
+    {
+      "path": "python/sglang/srt/configs/model_config.py",
+      "sha256": "25e5f87f0dbebae2ae78201c9c20b1b74df4ed4fd0788ac55c333785f8e8ae4b",
+      "matches_commit": true,
+      "lines": 2694
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py",
+      "sha256": "65a95e5dd5b51c00f3515e42c0f4df65bb8c99b03f7e84bc2ab06c60ab819169",
+      "matches_commit": true,
+      "lines": 707
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/attention/ascend_backend.py",
+      "sha256": "afd18c1f3abc5793a72e324401ff973a41d9002ac5508b0cf69f5c9e0e39fb23",
+      "matches_commit": true,
+      "lines": 3483
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/quantization/linear_method_npu.py",
+      "sha256": "ee71ed98226135b519325f0ae1a84cfa4c2bdfc4eb9ab8027ae72800c82afa36",
+      "matches_commit": true,
+      "lines": 954
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/quantization/moe_methods.py",
+      "sha256": "efa998fa184c436aacfdc00a9ac1c7ca0ad80fa168f39ad90222c131c7e733ab",
+      "matches_commit": true,
+      "lines": 1250
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/moe/matmul.py",
+      "sha256": "103ee3efc3fb7472f123caa90f6bbee78ad54b539ea4c6029728292449343bca",
+      "matches_commit": true,
+      "lines": 89
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/moe/activation.py",
+      "sha256": "4076e0fcc38af54f4f20a661d39d1beb193617b0995c61038d5b996a2593f4ff",
+      "matches_commit": true,
+      "lines": 301
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/moe/quant.py",
+      "sha256": "3b509b138c80e56e1424994110915a12939cc98ffe7f8482b2e44c84f079ebcd",
+      "matches_commit": true,
+      "lines": 84
+    },
+    {
+      "path": "python/sglang/srt/hardware_backend/npu/utils.py",
+      "sha256": "c4b56ecd816b6e3f27bb40afadc8108a75f7d5d76c4aeb5236324a91d40124d5",
+      "matches_commit": true,
+      "lines": 479
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/modelslim/schemes/modelslim_w8a8_int8.py",
+      "sha256": "20220a1f8da70a2cfb73c81fa3114efc7e6f6058f684755e40eab86d5b426093",
+      "matches_commit": true,
+      "lines": 117
+    },
+    {
+      "path": "python/sglang/srt/layers/quantization/modelslim/schemes/modelslim_w8a8_int8_moe.py",
+      "sha256": "257a44e9071827dd4b6e094b9cfe809bb332fc3a23044b6809c863cf09e30ef8",
+      "matches_commit": true,
+      "lines": 100
+    },
+    {
+      "path": "python/sglang/srt/layers/attention/dsa/dsa_npu_indexer.py",
+      "sha256": "4137d207a35e971e65338c68047d154b7c153e9bc0f2bc307e26b928794439f7",
+      "matches_commit": true,
+      "lines": 440
+    },
+    {
+      "path": "python/sglang/srt/layers/moe/moe_runner/ascend.py",
+      "sha256": "8c790f384fec5970fc57a0b4cf471d2d8a99311dda98160496089700442097c3",
+      "matches_commit": true,
+      "lines": 415
+    },
+    {
+      "path": "python/sglang/srt/layers/moe/token_dispatcher/deepep.py",
+      "sha256": "bf13fb741e8059c104c1ded56a4a806e767973f91c28a89fdc83f8e4cf294cef",
+      "matches_commit": true,
+      "lines": 1135
+    },
+    {
+      "path": "python/sglang/srt/managers/scheduler_components/profiler_manager.py",
+      "sha256": "5bf4828dbb4471c87cbd6c363fe1ddd211efb9bf8b4ab9bebec1de6b710af90d",
+      "matches_commit": true,
+      "lines": 492
+    },
+    {
+      "path": "python/sglang/srt/managers/io_struct.py",
+      "sha256": "3d01e239ffb7918d7ab6959544007d8ec785932f548430b8dac8243a0afbbec0",
+      "matches_commit": true,
+      "lines": 2739
+    },
+    {
+      "path": "python/sglang/srt/entrypoints/http_server.py",
+      "sha256": "a89d20bb2fa8a86c511ab4d9d054f74d707423ab220f733ff25e62fcc0e49979",
+      "matches_commit": true,
+      "lines": 2961
+    }
+  ],
+  "scope": "Hashes and source locations only; upstream implementations are invoked, not copied."
+}

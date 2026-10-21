@@ -1,0 +1,38 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/contrib/transfer_to_npu.py:390: ImportWarning: 
+    *************************************************************************************************************
+    The torch.Tensor.cuda and torch.nn.Module.cuda are replaced with torch.Tensor.npu and torch.nn.Module.npu now..
+    The torch.cuda.DoubleTensor is replaced with torch.npu.FloatTensor cause the double type is not supported now..
+    The backend in torch.distributed.init_process_group set to hccl now..
+    The torch.cuda.* and torch.cuda.amp.* are replaced with torch.npu.* and torch.npu.amp.* now..
+    The device parameters have been replaced with npu in the function below:
+    torch.logspace, torch.randint, torch.hann_window, torch.rand, torch.full_like, torch.ones_like, torch.rand_like, torch.randperm, torch.arange, torch.frombuffer, torch.normal, torch._empty_per_channel_affine_quantized, torch.empty_strided, torch.empty_like, torch.scalar_tensor, torch.tril_indices, torch.bartlett_window, torch.ones, torch.sparse_coo_tensor, torch.randn, torch.kaiser_window, torch.tensor, torch.triu_indices, torch.as_tensor, torch.zeros, torch.randint_like, torch.full, torch.eye, torch._sparse_csr_tensor_unsafe, torch.empty, torch._sparse_coo_tensor_unsafe, torch.blackman_window, torch.zeros_like, torch.range, torch.sparse_csr_tensor, torch.randn_like, torch.from_file, torch._cudnn_init_dropout_state, torch._empty_affine_quantized, torch.linspace, torch.hamming_window, torch.empty_quantized, torch._pin_memory, torch.load, torch.set_default_device, torch.get_device_module, torch.sparse_compressed_tensor, torch.Tensor.new_empty, torch.Tensor.new_empty_strided, torch.Tensor.new_full, torch.Tensor.new_ones, torch.Tensor.new_tensor, torch.Tensor.new_zeros, torch.Tensor.to, torch.Tensor.pin_memory, torch.nn.Module.to, torch.nn.Module.to_empty
+    *************************************************************************************************************
+    
+  warnings.warn(msg, ImportWarning)
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/contrib/transfer_to_npu.py:311: RuntimeWarning: torch.jit.script and torch.jit.script_method will be disabled by transfer_to_npu, which currently does not support them, if you need to enable them, please do not use transfer_to_npu.
+  warnings.warn(msg, RuntimeWarning)
+[W1021 16:18:24.233348706 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=716) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+{"op": "static_linear", "m": 8, "k": 6144, "n": 2624, "median_us": 34.47499871253967, "cv": 0.37106866533357963}
+{"op": "static_linear", "m": 8192, "k": 6144, "n": 2624, "median_us": 728.6999821662903, "cv": 0.015756333734061233}
+{"op": "static_linear", "m": 8, "k": 2048, "n": 2048, "median_us": 23.705000057816505, "cv": 0.38724543750652135}
+{"op": "static_linear", "m": 8192, "k": 2048, "n": 2048, "median_us": 197.6274996995926, "cv": 0.055705917523639965}
+{"op": "static_linear", "m": 8, "k": 2048, "n": 4096, "median_us": 27.432499453425407, "cv": 0.3438000332778169}
+{"op": "static_linear", "m": 8192, "k": 2048, "n": 4096, "median_us": 320.16751170158386, "cv": 0.033789382408462014}
+{"op": "static_linear", "m": 8, "k": 2048, "n": 6144, "median_us": 31.298749148845673, "cv": 0.3117600432617494}
+{"op": "static_linear", "m": 8192, "k": 2048, "n": 6144, "median_us": 445.40125131607056, "cv": 0.029117252526470905}
+{"op": "dynamic_linear", "m": 16, "k": 6144, "n": 1536, "median_us": 22.815000265836716, "cv": 0.4073769471130223}
+{"op": "dynamic_linear", "m": 8192, "k": 6144, "n": 1536, "median_us": 390.63000679016113, "cv": 0.026559901171341396}
+{"op": "dynamic_linear", "m": 16, "k": 768, "n": 6144, "median_us": 20.707499235868454, "cv": 0.4450474671006703}
+{"op": "dynamic_linear", "m": 8192, "k": 768, "n": 6144, "median_us": 293.078750371933, "cv": 0.029565678439650075}
+{"op": "dynamic_linear", "m": 1, "k": 6144, "n": 4096, "median_us": 26.149999350309372, "cv": 0.36651122711741624}
+{"op": "dynamic_linear", "m": 1024, "k": 6144, "n": 4096, "median_us": 133.56000185012817, "cv": 0.07647813245351709}
+{"op": "dynamic_linear", "m": 1, "k": 2048, "n": 6144, "median_us": 21.14875055849552, "cv": 0.4337041688901159}
+{"op": "dynamic_linear", "m": 1024, "k": 2048, "n": 6144, "median_us": 84.33999866247177, "cv": 0.1195398711358529}
+{"op": "grouped_matmul", "m": 16, "k": 6144, "n": 4096, "experts": 16, "group_sizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "median_us": 276.85123682022095, "cv": 0.03428146379480985}
+{"op": "grouped_matmul", "m": 16, "k": 2048, "n": 6144, "experts": 16, "group_sizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "median_us": 132.6349973678589, "cv": 0.06640717393897826}
+{"op": "grouped_matmul", "m": 256, "k": 6144, "n": 4096, "experts": 16, "group_sizes": [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16], "median_us": 276.3262391090393, "cv": 0.035375840745550106}
+{"op": "grouped_matmul", "m": 256, "k": 2048, "n": 6144, "experts": 16, "group_sizes": [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16], "median_us": 138.22749257087708, "cv": 0.06379471408299972}
+{"op": "grouped_matmul", "m": 4096, "k": 6144, "n": 4096, "experts": 16, "group_sizes": [256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256], "median_us": 470.4187512397766, "cv": 0.022305940867011532}
+{"op": "grouped_matmul", "m": 4096, "k": 2048, "n": 6144, "experts": 16, "group_sizes": [256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256], "median_us": 361.48250102996826, "cv": 0.026788368741482698}

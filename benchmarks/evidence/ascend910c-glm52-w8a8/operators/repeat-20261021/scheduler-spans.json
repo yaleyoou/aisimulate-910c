@@ -1,0 +1,1010 @@
+[
+  {
+    "case": "profile-1",
+    "source": "npu1-32_394_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478625.680",
+    "duration_us": 2537787.92
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_394_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025785.130",
+    "duration_us": 13009.93
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_394_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049370.210",
+    "duration_us": 3982.18
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_395_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478572.710",
+    "duration_us": 2537698.23
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_395_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025840.180",
+    "duration_us": 15009.22
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_395_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049392.830",
+    "duration_us": 3914.19
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_396_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478413.160",
+    "duration_us": 2538728.2
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_396_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025852.210",
+    "duration_us": 9031.0
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_396_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049438.620",
+    "duration_us": 3769.08
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_397_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478458.740",
+    "duration_us": 2538435.6
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_397_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025909.290",
+    "duration_us": 13039.26
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_397_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049471.880",
+    "duration_us": 4118.68
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_398_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478427.510",
+    "duration_us": 2538420.46
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_398_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025887.360",
+    "duration_us": 14219.8
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_398_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049499.530",
+    "duration_us": 4093.42
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_399_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478674.990",
+    "duration_us": 2538194.9
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_399_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025857.070",
+    "duration_us": 15841.6
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_399_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049551.150",
+    "duration_us": 4635.22
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_400_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478597.810",
+    "duration_us": 2538120.22
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_400_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025762.340",
+    "duration_us": 12171.42
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_400_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049338.210",
+    "duration_us": 4229.51
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_401_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478654.600",
+    "duration_us": 2538376.56
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_401_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950025844.410",
+    "duration_us": 13648.03
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_401_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049381.570",
+    "duration_us": 4504.46
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_402_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479160.040",
+    "duration_us": 2536306.28
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_402_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026557.230",
+    "duration_us": 8486.1
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_402_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049872.850",
+    "duration_us": 2865.33
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_403_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479127.250",
+    "duration_us": 2536402.27
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_403_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026269.540",
+    "duration_us": 8568.63
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_403_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049766.310",
+    "duration_us": 2613.76
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_404_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479021.300",
+    "duration_us": 2535219.17
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_404_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026268.450",
+    "duration_us": 8858.61
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_404_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049817.430",
+    "duration_us": 2894.32
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_405_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479007.790",
+    "duration_us": 2535398.31
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_405_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026315.410",
+    "duration_us": 10705.97
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_405_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049721.060",
+    "duration_us": 2965.93
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_406_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478893.450",
+    "duration_us": 2535810.91
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_406_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026051.800",
+    "duration_us": 8383.18
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_406_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049578.100",
+    "duration_us": 2636.16
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_407_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947478896.560",
+    "duration_us": 2535312.99
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_407_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026123.670",
+    "duration_us": 11442.72
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_407_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049835.990",
+    "duration_us": 2723.55
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_408_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479031.090",
+    "duration_us": 2535123.54
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_408_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026004.210",
+    "duration_us": 12563.1
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_408_20261021123227244_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049750.070",
+    "duration_us": 2639.84
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_409_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585947479332.760",
+    "duration_us": 2535181.82
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_409_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950026129.250",
+    "duration_us": 13861.95
+  },
+  {
+    "case": "profile-1",
+    "source": "npu1-32_409_20261021123227245_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792585950049594.900",
+    "duration_us": 2699.45
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_394_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541780.140",
+    "duration_us": 2534706.09
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_394_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112360.640",
+    "duration_us": 14629.73
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_394_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136149.370",
+    "duration_us": 4044.76
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_395_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541811.880",
+    "duration_us": 2534757.37
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_395_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112373.720",
+    "duration_us": 10610.12
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_395_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136252.180",
+    "duration_us": 4009.52
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_396_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541882.400",
+    "duration_us": 2535728.15
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_396_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112402.860",
+    "duration_us": 8833.41
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_396_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136243.380",
+    "duration_us": 3825.54
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_397_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541909.890",
+    "duration_us": 2535210.42
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_397_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112465.430",
+    "duration_us": 14540.81
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_397_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136306.170",
+    "duration_us": 4029.63
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_398_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541918.920",
+    "duration_us": 2535258.47
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_398_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112396.720",
+    "duration_us": 16370.04
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_398_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136293.900",
+    "duration_us": 4061.54
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_399_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541978.920",
+    "duration_us": 2535224.54
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_399_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112403.440",
+    "duration_us": 16450.2
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_399_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136364.170",
+    "duration_us": 3974.68
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_400_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541784.490",
+    "duration_us": 2535418.34
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_400_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112416.910",
+    "duration_us": 12392.65
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_400_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136440.960",
+    "duration_us": 4169.94
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_401_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067541830.600",
+    "duration_us": 2535453.59
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_401_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112514.990",
+    "duration_us": 16205.72
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_401_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136572.120",
+    "duration_us": 4637.51
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_402_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542381.720",
+    "duration_us": 2533526.02
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_402_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112984.250",
+    "duration_us": 8586.74
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_402_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070137144.130",
+    "duration_us": 3574.27
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_403_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542311.710",
+    "duration_us": 2533409.57
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_403_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070113063.040",
+    "duration_us": 15425.59
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_403_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136993.780",
+    "duration_us": 3088.16
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_404_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542260.180",
+    "duration_us": 2532056.62
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_404_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112814.050",
+    "duration_us": 8710.11
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_404_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136832.000",
+    "duration_us": 2992.49
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_405_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542232.650",
+    "duration_us": 2532331.59
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_405_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112884.990",
+    "duration_us": 10890.58
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_405_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136817.780",
+    "duration_us": 3014.92
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_406_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542084.610",
+    "duration_us": 2532930.26
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_406_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112704.060",
+    "duration_us": 8358.12
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_406_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136905.520",
+    "duration_us": 2680.7
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_407_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542017.940",
+    "duration_us": 2532372.76
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_407_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112676.840",
+    "duration_us": 13447.21
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_407_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136535.900",
+    "duration_us": 2861.63
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_408_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542123.500",
+    "duration_us": 2532457.53
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_408_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112779.490",
+    "duration_us": 14860.73
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_408_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070136475.350",
+    "duration_us": 2843.71
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_409_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586067542152.280",
+    "duration_us": 2532854.67
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_409_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070112810.830",
+    "duration_us": 17718.98
+  },
+  {
+    "case": "profile-2",
+    "source": "npu1-32_409_20261021123427316_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586070137245.560",
+    "duration_us": 3071.57
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_394_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080519.550",
+    "duration_us": 2539055.5
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_394_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631063.210",
+    "duration_us": 12276.17
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_394_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656121.900",
+    "duration_us": 5225.13
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_395_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080338.590",
+    "duration_us": 2539561.41
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_395_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192630693.930",
+    "duration_us": 10230.59
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_395_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192655865.500",
+    "duration_us": 4145.94
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_396_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080486.080",
+    "duration_us": 2540245.44
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_396_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631142.130",
+    "duration_us": 15374.42
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_396_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656006.640",
+    "duration_us": 4816.68
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_397_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080431.240",
+    "duration_us": 2539718.25
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_397_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192630847.450",
+    "duration_us": 12481.64
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_397_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192655959.440",
+    "duration_us": 3825.16
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_398_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080382.730",
+    "duration_us": 2539726.17
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_398_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192630907.890",
+    "duration_us": 15099.78
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_398_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192655896.020",
+    "duration_us": 4090.35
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_399_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080446.710",
+    "duration_us": 2539713.85
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_399_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192630954.930",
+    "duration_us": 14106.19
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_399_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192655801.800",
+    "duration_us": 4019.79
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_400_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080601.370",
+    "duration_us": 2539574.56
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_400_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631257.480",
+    "duration_us": 10743.71
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_400_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192655869.030",
+    "duration_us": 4226.2
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_401_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080669.080",
+    "duration_us": 2539502.15
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_401_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631326.520",
+    "duration_us": 15536.82
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_401_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656179.420",
+    "duration_us": 5033.05
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_402_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190081331.500",
+    "duration_us": 2537504.57
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_402_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631531.380",
+    "duration_us": 8585.66
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_402_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656389.300",
+    "duration_us": 2807.36
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_403_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190081080.800",
+    "duration_us": 2537789.87
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_403_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631534.070",
+    "duration_us": 7374.23
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_403_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656371.630",
+    "duration_us": 2824.42
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_404_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190081103.070",
+    "duration_us": 2536486.58
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_404_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631628.410",
+    "duration_us": 8683.63
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_404_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656293.460",
+    "duration_us": 2826.92
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_405_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190081136.030",
+    "duration_us": 2536590.34
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_405_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631679.310",
+    "duration_us": 10761.72
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_405_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656221.190",
+    "duration_us": 2757.21
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_406_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080942.550",
+    "duration_us": 2537304.5
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_406_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631292.370",
+    "duration_us": 7897.45
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_406_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656176.410",
+    "duration_us": 2785.2
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_407_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080936.860",
+    "duration_us": 2536424.09
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_407_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631218.260",
+    "duration_us": 10649.12
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_407_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656121.530",
+    "duration_us": 2747.87
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_408_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190081359.270",
+    "duration_us": 2537489.07
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_408_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631876.910",
+    "duration_us": 12976.67
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_408_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656463.820",
+    "duration_us": 3656.72
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_409_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586190080921.140",
+    "duration_us": 2537739.53
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_409_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192631150.410",
+    "duration_us": 14481.14
+  },
+  {
+    "case": "profile-3",
+    "source": "npu1-32_409_20261021123629877_ascend_pt",
+    "name": "scheduler.run_batch",
+    "start_us": "1792586192656387.450",
+    "duration_us": 3519.45
+  }
+]

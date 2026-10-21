@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "detected_by": "validate_campaign.py exact per-rank expected operation counts",
+  "finding": "profile-1 contains only123/121/122/122 SparseFlashAttention graph kernels on ranks1/10/11/12, expected156; other ranks complete. Profile2/3 have156 on all16ranks.",
+  "root_cause_status": "Profiler boundary or export loss suspected; not proven. analyse.done proves export completion, not full kernel capture.",
+  "action": "Retain all failed measurements, block calibrated publication, collect a new independent campaign and require all rank/count assertions.",
+  "qualification": "Do not use aggregate repeatability report as proof of capture completeness."
+}

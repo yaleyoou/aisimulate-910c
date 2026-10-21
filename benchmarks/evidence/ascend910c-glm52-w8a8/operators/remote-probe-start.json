@@ -1,0 +1,1 @@
+{"container": "aisim-910c-ops-20261021", "pid": 110227, "output": "/tmp/aisim-910c-operator-probe-20261021", "command": ["docker", "exec", "aisim-910c-ops-20261021", "python3", "/campaign/probe.py", "--output", "/campaign/results.json"]}

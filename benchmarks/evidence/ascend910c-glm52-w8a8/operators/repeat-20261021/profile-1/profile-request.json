@@ -1,0 +1,13 @@
+{
+  "output_dir": "/tmp/aisim-ascend-repeat-20261021-1",
+  "num_steps": 3,
+  "activities": [
+    "CPU",
+    "GPU"
+  ],
+  "with_stack": false,
+  "record_shapes": true,
+  "detailed_annotations": true,
+  "profile_by_stage": false,
+  "profile_id": "aisim-repeat-20261021-1"
+}

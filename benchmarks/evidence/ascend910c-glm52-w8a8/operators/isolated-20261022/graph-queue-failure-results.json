@@ -1,0 +1,16 @@
+{
+  "schema": "aisimulate-ascend-quant-probe/v1",
+  "canonical_fpm_data": false,
+  "input_kind": "seeded synthetic activations and INT8 weights",
+  "group_list": "balanced synthetic cumulative group sizes; not observed routing",
+  "timing": {
+    "clock": "NPU events around graph replay, divided by calls in captured graph",
+    "warmup": 10,
+    "independent_replays": 9,
+    "calls_per_graph": 16,
+    "scope": "Device execution including graph dependencies; excludes eager Python launch overhead."
+  },
+  "cases": [],
+  "status": "failed",
+  "error": "RuntimeError: Do not support TASK_QUEUE_ENABLE = 2 during NPU graph capture, please export TASK_QUEUE_ENABLE=1/0.\n[ERROR] 2026-10-21-16:16:58 (PID:366, Device:0, RankID:-1) ERR00007 PTA feature not supported"
+}

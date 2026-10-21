@@ -1,0 +1,33 @@
+[W1021 16:00:24.724643787 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1021 16:00:24.929956963 TensorFactories.cpp:423] Warning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (function operator())
+[E1021 16:00:27.419380480 OpParamMaker.cpp:453] operator():../third_party/op-plugin/op_plugin/ops/opapi/QuantizeKernelNpuOpApi.cpp:117 NPU function error: call aclnnAscendQuantV3 failed, error code is 161002
+[ERROR] 2026-10-21-16:00:27 (PID:29, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+[PID: 29] 2026-10-21-16:00:27.846.448 Invalid_Argument(EH0012): aclrtAllocatorGetByStream failed. Parameter stream is invalid. Reason: The stream is not registered with any allocator.
+TraceBack (most recent call last):
+        dtype of input x:DT_BFLOAT16 is not compatible with scale:DT_FLOAT.
+
+Exception raised from operator() at ../third_party/op-plugin/op_plugin/ops/opapi/QuantizeKernelNpuOpApi.cpp:117 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xc8 (0xffffafe75978 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xc4 (0xffffafe19adc in /usr/local/python3.12.13/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x359a938 (0xffffa270a938 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x4b105c8 (0xffffa3c805c8 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0x1926fe0 (0xffffa0a96fe0 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0x192807c (0xffffa0a9807c in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0x1925aa8 (0xffffa0a95aa8 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0x7dcd24 (0xffff9ef9cd24 in /usr/local/Ascend/cann-9.1.0/lib64/libhccl.so)
+frame #8: <unknown function> + 0x803c8 (0xffffbc8e03c8 in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xe9fdc (0xffffbc949fdc in /lib/aarch64-linux-gnu/libc.so.6)
+
+Traceback (most recent call last):
+  File "/campaign/probe.py", line 187, in <module>
+    main()
+  File "/campaign/probe.py", line 161, in main
+    linear(tokens, input_dim, output_dim, False)
+  File "/campaign/probe.py", line 120, in linear
+    checked = compare(function()[row_ids][:, column_ids], expected)
+                      ~~~~~~~~~~^^^^^^^^^
+RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnAscendQuantV3.
+Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[ERROR] 2026-10-21-16:00:27 (PID:29, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+

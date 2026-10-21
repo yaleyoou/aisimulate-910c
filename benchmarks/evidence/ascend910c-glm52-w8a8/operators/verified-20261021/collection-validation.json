@@ -1,0 +1,314 @@
+{
+  "collection_integrity": "passed",
+  "workloads_passed": 4,
+  "output_ids_identical": true,
+  "ranks_per_profile": 16,
+  "profiled_forwards_per_rank": 3,
+  "operator_count_assertions": 480,
+  "kernel_records": 474285,
+  "repeatable_groups": 13954,
+  "unqualified_groups": 1372,
+  "families": {
+    "Add": {
+      "groups": 123,
+      "repeatable_groups": 121
+    },
+    "ArgMaxV2": {
+      "groups": 8,
+      "repeatable_groups": 8
+    },
+    "AscendQuantV2": {
+      "groups": 48,
+      "repeatable_groups": 48
+    },
+    "BroadcastTo": {
+      "groups": 40,
+      "repeatable_groups": 33
+    },
+    "CamMoeCombineNormal": {
+      "groups": 1191,
+      "repeatable_groups": 1154
+    },
+    "CamMoeDispatchNormal": {
+      "groups": 1191,
+      "repeatable_groups": 1037
+    },
+    "Cast": {
+      "groups": 432,
+      "repeatable_groups": 409
+    },
+    "ClipByValueV2": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "ConcatD": {
+      "groups": 48,
+      "repeatable_groups": 48
+    },
+    "Cumsum": {
+      "groups": 40,
+      "repeatable_groups": 22
+    },
+    "DispatchLayout": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "DynamicQuant": {
+      "groups": 112,
+      "repeatable_groups": 112
+    },
+    "Equal": {
+      "groups": 8,
+      "repeatable_groups": 7
+    },
+    "Fill": {
+      "groups": 88,
+      "repeatable_groups": 87
+    },
+    "FloorDiv": {
+      "groups": 24,
+      "repeatable_groups": 19
+    },
+    "FloorMod": {
+      "groups": 8,
+      "repeatable_groups": 8
+    },
+    "ForeachCopy": {
+      "groups": 24,
+      "repeatable_groups": 22
+    },
+    "GatherV2": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "GatherV3": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "GreaterEqual": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "GroupedMatmul": {
+      "groups": 2414,
+      "repeatable_groups": 2414
+    },
+    "Index": {
+      "groups": 48,
+      "repeatable_groups": 41
+    },
+    "IndexCheck": {
+      "groups": 40,
+      "repeatable_groups": 38
+    },
+    "IndexPutV2": {
+      "groups": 16,
+      "repeatable_groups": 15
+    },
+    "LayerNormV3": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "Less": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "LightningIndexer": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "LogicalAnd": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "LogicalNot": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "LogicalOr": {
+      "groups": 24,
+      "repeatable_groups": 22
+    },
+    "MaskedFill": {
+      "groups": 24,
+      "repeatable_groups": 23
+    },
+    "MatMulV2": {
+      "groups": 80,
+      "repeatable_groups": 80
+    },
+    "MatMulV3": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "MoeGatingTopK": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "MoeLowLatencyCombineV2": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "MoeLowLatencyDispatchV2": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "Mul": {
+      "groups": 96,
+      "repeatable_groups": 92
+    },
+    "NotifyDispatch": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "QuantBatchMatmulV3": {
+      "groups": 208,
+      "repeatable_groups": 208
+    },
+    "ReduceMax": {
+      "groups": 8,
+      "repeatable_groups": 8
+    },
+    "ReduceSum": {
+      "groups": 24,
+      "repeatable_groups": 19
+    },
+    "RmsNorm": {
+      "groups": 48,
+      "repeatable_groups": 48
+    },
+    "ScatterNdUpdate": {
+      "groups": 72,
+      "repeatable_groups": 70
+    },
+    "Slice": {
+      "groups": 104,
+      "repeatable_groups": 103
+    },
+    "SparseFlashAttention": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "StridedSlice": {
+      "groups": 8,
+      "repeatable_groups": 8
+    },
+    "Sub": {
+      "groups": 64,
+      "repeatable_groups": 56
+    },
+    "SwiGlu": {
+      "groups": 56,
+      "repeatable_groups": 56
+    },
+    "Transpose": {
+      "groups": 40,
+      "repeatable_groups": 40
+    },
+    "TransposeBatchMatMul": {
+      "groups": 32,
+      "repeatable_groups": 32
+    },
+    "ViewCopy": {
+      "groups": 32,
+      "repeatable_groups": 25
+    },
+    "ZerosLike": {
+      "groups": 160,
+      "repeatable_groups": 155
+    },
+    "_swiglu_quant_kernel": {
+      "groups": 1207,
+      "repeatable_groups": 1206
+    },
+    "add_rmsnorm_bias_kernel": {
+      "groups": 32,
+      "repeatable_groups": 32
+    },
+    "allgatherAicpuKernel": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "alloc_extend_kernel": {
+      "groups": 8,
+      "repeatable_groups": 8
+    },
+    "allreduceAicpuKernel": {
+      "groups": 32,
+      "repeatable_groups": 32
+    },
+    "batch_matmul_transpose_0": {
+      "groups": 16,
+      "repeatable_groups": 16
+    },
+    "compute_position_kernel": {
+      "groups": 8,
+      "repeatable_groups": 7
+    },
+    "fused_rope_qk_mqa_kernel_opt": {
+      "groups": 32,
+      "repeatable_groups": 32
+    },
+    "fused_split_qk_norm_kernel": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "hcom_allGather_": {
+      "groups": 3232,
+      "repeatable_groups": 3038
+    },
+    "hcom_allReduce_": {
+      "groups": 136,
+      "repeatable_groups": 93
+    },
+    "hcom_reduceScatter_": {
+      "groups": 3192,
+      "repeatable_groups": 2358
+    },
+    "memcpy_triton_kernel": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "reduce_scatterAicpuKernel": {
+      "groups": 24,
+      "repeatable_groups": 24
+    },
+    "write_req_to_token_pool_triton": {
+      "groups": 8,
+      "repeatable_groups": 4
+    }
+  },
+  "service_health": 200,
+  "retained_artifact_sha256": {
+    "verified-20261021/control/response.json": "7f117965cd00ba278b57c90458a83cd2cf2564b920a91d7f30828e23aeaba225",
+    "verified-20261021/kernel-counts.json": "edf45cffafbe3461bed15994077999f5b8cb6794abd31925313b3501998ac7b0",
+    "verified-20261021/kernel-groups.json": "263a7b5f3dbaf250105ea2f60209833f044ef9a112c9ca3d550d7ab302e905b3",
+    "verified-20261021/manifest.json": "91d53202af75e2a0af379afa575025825baecb42d30f0034ec5b075d9454bfea",
+    "verified-20261021/profile-1/diagnostics.tar.gz": "1223304a5649d3a00ce757f66323bbe1440d6c9b9a3d3b9d644ff344dba0cda8",
+    "verified-20261021/profile-1/kernel-evidence.tar.gz": "6d100df762a915f90f0ae1425b9fec8697a6a20b8b1d3c9b39743d640aa74647",
+    "verified-20261021/profile-1/profile-request.json": "6add12476ebe7c6c3053d81342fc820548a8c43d27e56fab5d62845b6ab28645",
+    "verified-20261021/profile-1/response.json": "7850bb9de47ae49ed73b6ed08de4dab72ac1e78a727591bd80475de829746a84",
+    "verified-20261021/profile-1/start-profile.json": "3cb4df221bc8adddd566109cb0eb04e79a10c583ec691e5559e1dac3872ff566",
+    "verified-20261021/profile-1/stop-profile.json": "8e794d8b48abe4dda9760ee56981d1017776830ce951d4a2abb2680d539c9c40",
+    "verified-20261021/profile-2/diagnostics.tar.gz": "f4e3bebfc68b2f7501ff471ec6930ec1bba02d5f310f80fab605bd8f68d9b2f3",
+    "verified-20261021/profile-2/kernel-evidence.tar.gz": "c67b5f6fc362d18937102ae64262913b3184bb0dd197dd23a12afdd2d0e4ecd9",
+    "verified-20261021/profile-2/profile-request.json": "e31b953d237683c83e94772f97bdf55294dc7dc889fd5ecd391419f955fefa1a",
+    "verified-20261021/profile-2/response.json": "a5f34a1621a020dc290ffaca5a55bc1bf37ae95dc6cc5e547d3a57324ad350e8",
+    "verified-20261021/profile-2/start-profile.json": "3cb4df221bc8adddd566109cb0eb04e79a10c583ec691e5559e1dac3872ff566",
+    "verified-20261021/profile-2/stop-profile.json": "8e794d8b48abe4dda9760ee56981d1017776830ce951d4a2abb2680d539c9c40",
+    "verified-20261021/profile-3/diagnostics.tar.gz": "9ca2a216ba8d3548f3c9b0a55066fa55e6836f0500a7f87c8ebf14a54c0f1c4b",
+    "verified-20261021/profile-3/kernel-evidence.tar.gz": "c7b571240105b0c2064e016e96ab46e425b72670b4b3c21ae45b8777d357b4c8",
+    "verified-20261021/profile-3/profile-request.json": "9ad7581ca054a91f3c0224d283a0bf7620e1370e0524968add4f469ba4a55468",
+    "verified-20261021/profile-3/response.json": "df8ada25b2165db9d15b3740501cd181c8682af5f9056136998e8fc7a9641bed",
+    "verified-20261021/profile-3/start-profile.json": "3cb4df221bc8adddd566109cb0eb04e79a10c583ec691e5559e1dac3872ff566",
+    "verified-20261021/profile-3/stop-profile.json": "8e794d8b48abe4dda9760ee56981d1017776830ce951d4a2abb2680d539c9c40",
+    "verified-20261021/request.json": "6d23d181a1ecb87f78d8012382006897094571b8b0bef5223e6b4ee1edd51ad0",
+    "verified-20261021/scheduler-spans.json": "4d8b0a3bbae62133cfbc9ec04555910cd603cbe5c684f51bfb7c80dd23c1c768",
+    "verified-20261021/server-info-after.json": "5832b26d854a58bff7b471c300cd6b69ae70d30e7c73c6a594115a2bc2d0d98b",
+    "verified-20261021/server-info-before.json": "8f190bfc315739fa46cb1b91690edf0151574619f58099af9abf9e6356e38ab9",
+    "verified-20261021/sha256.json": "c2edd6a9c37c01129d01c6c96afc5d95ca3d7952f99597f4b0375ee4013f1b91",
+    "verified-20261021/trace-report.json": "a00b0c7278d5e7b111a1027d7342a4d24ab937ad95a7636b97bd25dc33a939dc"
+  },
+  "qualification": "Repeated real-serving observations only; isolated numeric correctness and production FPM lookup remain incomplete.",
+  "pilot_failure": "Probe inference and traces succeeded; redundant stop_profile after automatic stop returned500. Fixed collector verifies completed exports and retains pilot failure evidence."
+}

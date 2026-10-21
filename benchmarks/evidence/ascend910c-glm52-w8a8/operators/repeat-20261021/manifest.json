@@ -1,0 +1,165 @@
+{
+  "schema": "aisimulate-ascend-serving-observations/v1",
+  "status": "collected_pending_trace_validation",
+  "timing_scope": "profiled serving kernels, not isolated operator benchmarks",
+  "canonical_fpm_data": false,
+  "cases": [
+    {
+      "path": "control",
+      "elapsed_seconds": 52.73211976327002,
+      "meta_info": {
+        "id": "08180e832a7642c7978607fa534d02d7",
+        "finish_reason": {
+          "type": "length",
+          "length": 1024
+        },
+        "prompt_tokens": 8192,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "storage_prefetch_wait": 0.0,
+        "storage_staging_wait": 0.0,
+        "forward_entry_time": 1792585894.4461966,
+        "prefill_finished_time": 1792585896.9898033,
+        "queue_time": 0.0006343461573123932,
+        "reasoning_tokens": 0,
+        "completion_tokens": 1024,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 1024
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": 0,
+        "e2e_latency": 52.72644275892526,
+        "request_received_ts": 1792585894.4407377,
+        "first_token_latency": 2.5490656308829784,
+        "api_server_dispatch_finish_ts": 1792585894.4412303,
+        "request_finished_ts": 1792585947.1671805,
+        "decode_throughput": 20.387673859267608,
+        "response_sent_to_client_ts": 1792585947.1675384
+      }
+    },
+    {
+      "path": "profile-1",
+      "elapsed_seconds": 70.15834106039256,
+      "meta_info": {
+        "id": "f6ff331efbaf446993fc781beec4ce59",
+        "finish_reason": {
+          "type": "length",
+          "length": 1024
+        },
+        "prompt_tokens": 8192,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "storage_prefetch_wait": 0.0,
+        "storage_staging_wait": 0.0,
+        "forward_entry_time": 1792585947.4721243,
+        "prefill_finished_time": 1792585950.039275,
+        "queue_time": 0.0005818363279104233,
+        "reasoning_tokens": 0,
+        "completion_tokens": 1024,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 1024
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": 0,
+        "e2e_latency": 70.15219793189317,
+        "request_received_ts": 1792585947.376012,
+        "first_token_latency": 2.6632628738880157,
+        "api_server_dispatch_finish_ts": 1792585947.376506,
+        "request_finished_ts": 1792586017.52821,
+        "decode_throughput": 15.158040338327394,
+        "response_sent_to_client_ts": 1792586017.5285597
+      }
+    },
+    {
+      "path": "profile-2",
+      "elapsed_seconds": 71.22296492103487,
+      "meta_info": {
+        "id": "6ac1b121930540a29febe42b88362101",
+        "finish_reason": {
+          "type": "length",
+          "length": 1024
+        },
+        "prompt_tokens": 8192,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "storage_prefetch_wait": 0.0,
+        "storage_staging_wait": 0.0,
+        "forward_entry_time": 1792586067.5348969,
+        "prefill_finished_time": 1792586070.127512,
+        "queue_time": 0.0007578097283840179,
+        "reasoning_tokens": 0,
+        "completion_tokens": 1024,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 1024
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": 0,
+        "e2e_latency": 71.21662933658808,
+        "request_received_ts": 1792586067.4422317,
+        "first_token_latency": 2.685280302539468,
+        "api_server_dispatch_finish_ts": 1792586067.4428148,
+        "request_finished_ts": 1792586138.658861,
+        "decode_throughput": 14.927475008433587,
+        "response_sent_to_client_ts": 1792586138.65924
+      }
+    },
+    {
+      "path": "profile-3",
+      "elapsed_seconds": 70.84056268911809,
+      "meta_info": {
+        "id": "4b74c3c211504a188272f5efcf9e4c34",
+        "finish_reason": {
+          "type": "length",
+          "length": 1024
+        },
+        "prompt_tokens": 8192,
+        "weight_version": "default",
+        "num_retractions": 0,
+        "storage_prefetch_wait": 0.0,
+        "storage_staging_wait": 0.0,
+        "forward_entry_time": 1792586190.0732603,
+        "prefill_finished_time": 1792586192.6439307,
+        "queue_time": 0.0007086284458637238,
+        "reasoning_tokens": 0,
+        "completion_tokens": 1024,
+        "cached_tokens": 0,
+        "weight_versions": [
+          {
+            "version": "default",
+            "start": 0,
+            "end": 1024
+          }
+        ],
+        "cached_tokens_details": null,
+        "dp_rank": 0,
+        "e2e_latency": 70.83429217431694,
+        "request_received_ts": 1792586189.985709,
+        "first_token_latency": 2.658221611753106,
+        "api_server_dispatch_finish_ts": 1792586189.9862108,
+        "request_finished_ts": 1792586260.8200011,
+        "decode_throughput": 15.005264920060375,
+        "response_sent_to_client_ts": 1792586260.8203516
+      }
+    }
+  ],
+  "limitations": [
+    "Profiler perturbs timing; compare independent repetitions and controls.",
+    "Only the captured forwards are covered, not the entire decode trajectory.",
+    "Kernel duration sums are not forward latency when streams overlap."
+  ]
+}

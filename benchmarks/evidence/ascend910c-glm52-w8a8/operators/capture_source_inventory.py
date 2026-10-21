@@ -1,6 +1,7 @@
 """Record installed serving source identity without redistributing vendor code."""
 
 import hashlib
+import argparse
 import json
 import subprocess
 from pathlib import Path
@@ -17,6 +18,10 @@ FILES = (
     "srt/hardware_backend/npu/quantization/moe_methods.py",
     "srt/hardware_backend/npu/moe/matmul.py",
     "srt/hardware_backend/npu/moe/activation.py",
+    "srt/hardware_backend/npu/moe/quant.py",
+    "srt/hardware_backend/npu/utils.py",
+    "srt/layers/quantization/modelslim/schemes/modelslim_w8a8_int8.py",
+    "srt/layers/quantization/modelslim/schemes/modelslim_w8a8_int8_moe.py",
     "srt/layers/attention/dsa/dsa_npu_indexer.py",
     "srt/layers/moe/moe_runner/ascend.py",
     "srt/layers/moe/token_dispatcher/deepep.py",
@@ -31,6 +36,13 @@ def command(*arguments):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path(__file__).with_name("serving-source-inventory.json"),
+    )
+    args = parser.parse_args()
     revision = command("git", "-C", SOURCE_ROOT, "rev-parse", "HEAD").decode().strip()
     inventory = {
         "repository": "https://github.com/sgl-project/sglang",
@@ -52,10 +64,10 @@ def main():
             }
         )
     if not all(item["matches_commit"] for item in inventory["files"]):
-        raise RuntimeError("Installed serving implementations differ from pinned commit")
-    Path(__file__).with_name("serving-source-inventory.json").write_text(
-        json.dumps(inventory, indent=2) + "\n"
-    )
+        raise RuntimeError(
+            "Installed serving implementations differ from pinned commit"
+        )
+    args.output.write_text(json.dumps(inventory, indent=2) + "\n")
 
 
 if __name__ == "__main__":

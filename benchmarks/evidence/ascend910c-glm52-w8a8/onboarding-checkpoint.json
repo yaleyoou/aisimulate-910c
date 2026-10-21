@@ -392,6 +392,14 @@
       "scope": "input",
       "sha256": "0d0a29e38e0bd65cf40d3993eceeec6479c89219879f39ae0f689cc412dfe411"
     },
+    "operator_collection_document": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "../../../md/910c-glm52-w8a8-operator-collection.md",
+      "scope": "input",
+      "sha256": "a022f1fdc3aeab7e215683e82b64aa678f9c1fa2cbf4af21f0706b5cf159a50a"
+    },
     "operator_mapping_document": {
       "archived": false,
       "context_sha256": null,
@@ -399,6 +407,14 @@
       "path": "../../../md/910c-glm52-w8a8-operator-mapping.md",
       "scope": "input",
       "sha256": "c3091f932560d0cb5aab6c0f9612304532456b08a477b48b4ef661c1558c935e"
+    },
+    "operator_probe_sources": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "operators/probe-source-inventory.json",
+      "scope": "input",
+      "sha256": "36ebc6dc01e9f085bb76bae084f0f438df7a2f84bd394dd424cac4a80aaaf645"
     },
     "peer_hardware_preflight": {
       "archived": false,
@@ -508,7 +524,48 @@
   "configurations": {
     "united-tp16-dp2-ep16": {
       "acceptance": null,
-      "artifacts": {},
+      "artifacts": {
+        "collector_tests": {
+          "archived": false,
+          "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
+          "kind": "file",
+          "path": "operators/collector-tests.log",
+          "scope": "validation",
+          "sha256": "e749d3402dbcc1535d3c4697ae9809d7d462a0e41ecdcb5e480a46e641226f4a"
+        },
+        "isolated_attention_validation": {
+          "archived": false,
+          "context_sha256": "8fbb3a099933ee4c6c11aa1104451da2e4477971f0e5b7a555a6274c422c1f28",
+          "kind": "file",
+          "path": "operators/isolated-20261022/attention.json",
+          "scope": "collection",
+          "sha256": "1df3470a1bfe2a70b4fb14eabaf797cc34cac95cdc7c89f57e65c05d28bd7936"
+        },
+        "isolated_quant_validation": {
+          "archived": false,
+          "context_sha256": "8fbb3a099933ee4c6c11aa1104451da2e4477971f0e5b7a555a6274c422c1f28",
+          "kind": "file",
+          "path": "operators/isolated-20261022/results.json",
+          "scope": "collection",
+          "sha256": "71c2712fce072cf609547af7cee2483612a7adc172f7de1267bd474f4378f9bf"
+        },
+        "operator_delivery": {
+          "archived": false,
+          "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
+          "kind": "file",
+          "path": "operators/stage2-delivery.json",
+          "scope": "validation",
+          "sha256": "b72e220832949202da141ebfb6d54999a9ec448ee2cd77b1621d6feb77638166"
+        },
+        "serving_operator_validation": {
+          "archived": false,
+          "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
+          "kind": "file",
+          "path": "operators/verified-20261021/collection-validation.json",
+          "scope": "validation",
+          "sha256": "c0ec7c0e656394887a5f9aeeb57f236efdf95ce4f341408a54435f7b0edeb4fd"
+        }
+      },
       "draft_request": {},
       "history": [],
       "inputs": {
@@ -559,11 +616,11 @@
       },
       "progress": {
         "blockers": [
-          "Ascend operator production query integration and exact accepted FPM profile remain absent.",
-          "Profiler observations cannot alone qualify isolated operator timings or complete 8k-to9k decode coverage.",
-          "Serving memory integration, replay coverage and measured serving prediction accuracy remain unvalidated."
+          "No supported guided SGLang FPM profile or exact accepted configuration; formal campaign not started.",
+          "Production Ascend model/query integration, actual routing metadata and stable communication tables remain incomplete.",
+          "Resolved serving memory, replay coverage and measured serving prediction accuracy remain unvalidated."
         ],
-        "next_action": "Finish trace collection quality checks and independent operator timing; preserve separate status from formal FPM onboarding.",
+        "next_action": "Use source-verified mapping and qualified experimental observations to design the Ascend production query contract, then validate full forward latency; do not bypass exact FPM profile acceptance.",
         "stage": 1,
         "status": "in_progress"
       },
@@ -752,6 +809,26 @@
       ],
       "status": "First dual-node campaign finished; 6318 P2P samples, 702 rank/size points, 10 points exceed the unchanged CV 10% limit. Selected bulk-bandwidth points pass. 70 vendor collective points report success; 14 BF16 SUM ReduceScatter points report NULL and are unqualified."
     },
+    "operator_collection_delivery": {
+      "cleanup": "Task peer container removed; existing peer service preserved; United remains healthy. Full trace archives local, compact reproducible kernel evidence committed.",
+      "confidence": "High for fixed source mapping, complete checked captures and scoped synthetic numerical probes; no production prediction accuracy claim.",
+      "date": "2026-10-22",
+      "isolated": "npu1-19 synthetic probes36/36 passed sampled CPU checks and CV<=10%;8staticlinear,8dynamiclinear,6groupedmatmul,6dynamicquant,4indexer,4sparseattention. Context controls8192/8704/9216.",
+      "limits": "Peer driver25.5.0 differs from local26.1.1; synthetic weights/routing/attention scale, eight active decode sequences differ from real single-request graph padding; no pooled production lookup data.",
+      "mapping_commit": "2a0ad787",
+      "remaining": "Actual DeepEP dispatch/combine numerical qualification, stable HCCL curves, actual group lists/active KV metadata, production RustFPE query integration and forward/serving accuracy.",
+      "repeatability": "13954/15326 physical kernel groups CV<=10%;1372 groups unqualified. Failed pilot and earlier incomplete capture preserved; no cherry-picked replacement of individual points.",
+      "serving": "United fixed0.5.22, single8192/1024 request toDP0; control+3profiles;16ranks;3forwards/rank;480count assertions;474285device records;identical1024output IDs;zero cached/retracted tokens.",
+      "sources": [
+        "operators/stage2-delivery.json",
+        "operators/verified-20261021/collection-validation.json",
+        "operators/isolated-20261022/results.json",
+        "operators/isolated-20261022/attention.json"
+      ],
+      "status": "Experimental collection implementation and first verified campaign delivered; full production operator database qualification remains incomplete.",
+      "tests": "Collector7unit tests passed;4source/testfiles pass Ruff lint/format;36real-device probes passed.",
+      "timing": "Independent probes warm both eager and graph execution;9NPU-event samples of16calls per replay. Cold-graph and initial environment failures retained."
+    },
     "operator_mapping": {
       "attention_indexer": "BF16 LightningIndexer21 and SparseFlashAttention78 per active forward; INT8 linear projections; full/shared layers21/57.",
       "confidence": "High for installed-source identity, observed dtype/shape/counts and fixed deployment; no generic deployment claim.",
@@ -831,7 +908,7 @@
       "status": "Implementation and two measurement campaigns completed; raw data integrity/correctness passed; communication repeatability partial."
     }
   },
-  "revision": 15,
+  "revision": 16,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

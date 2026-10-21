@@ -1,0 +1,21 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/__init__.py:402: UserWarning: Can't get ascend_hal device count
+  warnings.warn("Can't get ascend_hal device count")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/__init__.py:402: UserWarning: Can't get ascend_hal device count
+  warnings.warn("Can't get ascend_hal device count")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/__init__.py:402: UserWarning: Can't get ascend_hal device count
+  warnings.warn("Can't get ascend_hal device count")
+DrvMngGetConsoleLogLevel failed. (ret=4)
+Traceback (most recent call last):
+  File "/campaign/probe.py", line 184, in <module>
+    main()
+  File "/campaign/probe.py", line 27, in main
+    from sglang.srt.hardware_backend.npu.quantization.linear_method_npu import (
+  File "/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/quantization/linear_method_npu.py", line 7, in <module>
+    from sglang.srt.hardware_backend.npu.utils import NPUACLFormat, npu_format_cast
+  File "/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/utils.py", line 22, in <module>
+    _is_npu = is_npu()
+              ^^^^^^^^
+  File "/sgl-workspace/sglang/python/sglang/srt/utils/common.py", line 193, in is_npu
+    raise RuntimeError(
+RuntimeError: torch_npu detected, but NPU device is not available or visible.
+[ERROR] 2026-10-21-15:33:12 (PID:7, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

@@ -646,6 +646,60 @@ of the GPU system and kernel optimization.
 
 # Known Issues
 
+## Experimental Ascend serving observations
+
+`sglang/ascend_trace.py` records a dedicated live SGLang Ascend service through
+its `/start_profile` API. It runs an unprofiled control and independent profiled
+requests, validates token/cache/retraction counts, and preserves rank-specific
+device kernel shapes, dtypes, layouts and durations. Cache flushing requires
+the explicit `--allow-flush-cache` flag. Run from the repository root:
+
+```bash
+python3 python/aisimulate/collector/sglang/ascend_trace.py \
+  --container glm52-united-v0522 --model glm-5 \
+  --output /tmp/ascend-observations --repeats 3 --allow-flush-cache
+python3 python/aisimulate/collector/sglang/ascend_trace_report.py \
+  /tmp/ascend-observations --expected-ranks 16
+```
+
+The default request is exactly 8192 input and 1024 output tokens, routed to
+attention DP0; only the first three forwards are profiled. `--input-tokens`,
+`--output-tokens`, `--dp-rank`, `--steps`, and `--repeats` specify that scope.
+Outputs are experimental JSON and compressed profiler evidence, not canonical
+performance tables. The report retains physical identities and marks groups
+with missing repetitions or CV above 10% unqualified. Completed exports alone
+do not prove complete forward capture: require model-specific per-rank kernel
+counts before accepting a campaign. CPU spans, communication summaries, and
+their nested kernels must not be added together as forward latency.
+
+`sglang/ascend_quant_probe.py` runs framework-dispatched W8A8 probes on an idle
+NPU. It requires SGLang commit `baa9befa381511cd4d56f83980951e5a45fffc6d`,
+the corresponding Ascend image, and `TASK_QUEUE_ENABLE=1`. The default
+`--family quant` covers static/dynamic linear, grouped matmul and dynamic
+quantization. `--family attention` covers BF16 LightningIndexer and sparse
+attention at 8192/8704/9216 context lengths. It warms eager execution and graph
+replay, measures NPU events, and compares sampled outputs with CPU references.
+Inputs, weights, balanced expert routing and attention scaling are synthetic
+controls. Decode attention probes use eight active sequences; serving graph
+padding can include idle sequences, so these are distinct cases.
+
+Source contracts for probe inputs, all relative to `python/sglang/` at that
+commit: ModelSlim weight/scales use the builder in
+`srt/layers/quantization/modelslim/schemes/modelslim_w8a8_int8.py:36`;
+GMM expert counts, cumulative group lists, output dtype and per-token scales
+follow `srt/hardware_backend/npu/moe/matmul.py:23` and
+`srt/hardware_backend/npu/quantization/moe_methods.py:681`;
+indexer Q/K/weights, cumulative Q lengths, KV lengths, paged block table,
+TND/PA_BSND layouts and top-k2048 follow
+`srt/layers/attention/dsa/dsa_npu_indexer.py:244` and `:354`;
+sparse attention Q/K/V, RoPE, indices, lengths, layouts and mode flags follow
+`srt/hardware_backend/npu/attention/ascend_backend.py:1471`.
+The probes call installed implementations without copying vendor kernel code.
+
+Neither entry point registers a production model plan or publishes FPM rows.
+Host/driver identity, routing distribution, active sequence lengths and graph
+padding remain required inputs for a future coordinated consumer integration.
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.

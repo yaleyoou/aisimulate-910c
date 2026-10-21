@@ -1,0 +1,1 @@
+{"pid": 297899, "retained_failure": "/tmp/aisim-910c-operator-probe-20261021/initial-device-access.log", "reason": "Driver runtime requires task-container privileged device access in this host environment."}

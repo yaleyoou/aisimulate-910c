@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/campaign/probe.py", line 184, in <module>
+    main()
+  File "/campaign/probe.py", line 27, in main
+    from sglang.srt.hardware_backend.npu.quantization.linear_method_npu import (
+  File "/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/quantization/linear_method_npu.py", line 8, in <module>
+    from sglang.srt.layers.quantization.base_config import LinearMethodBase
+  File "/sgl-workspace/sglang/python/sglang/srt/layers/quantization/__init__.py", line 9, in <module>
+    from sglang.srt.layers.quantization.awq import (
+  File "/sgl-workspace/sglang/python/sglang/srt/layers/quantization/awq/__init__.py", line 8, in <module>
+    from .awq import (
+  File "/sgl-workspace/sglang/python/sglang/srt/layers/quantization/awq/awq.py", line 24, in <module>
+    from sglang.srt.layers.quantization.unquant import UnquantizedLinearMethod
+  File "/sgl-workspace/sglang/python/sglang/srt/layers/quantization/unquant.py", line 61, in <module>
+    from sglang.srt.hardware_backend.npu.quantization.moe_methods import (
+  File "/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/quantization/moe_methods.py", line 22, in <module>
+    from sglang.srt.hardware_backend.npu.quantization.linear_method_npu import (
+ImportError: cannot import name '_get_float4_e2m1fn_x2_dtype' from partially initialized module 'sglang.srt.hardware_backend.npu.quantization.linear_method_npu' (most likely due to a circular import) (/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/quantization/linear_method_npu.py)
+[ERROR] 2026-10-21-15:42:38 (PID:7, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
