@@ -1,0 +1,98 @@
+[
+  {
+    "ranks": 2,
+    "returncode": 0,
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1800",
+      "python3",
+      "-m",
+      "torch.distributed.run",
+      "--nproc_per_node=2",
+      "--master_addr=127.0.0.1",
+      "--master_port=29922",
+      "/campaign/ascend_hccl_qualified.py",
+      "--serving-setup",
+      "/campaign/serving-setup.json",
+      "--output",
+      "/campaign/qualified/hccl-2.json",
+      "--ranks-per-node",
+      "2"
+    ]
+  },
+  {
+    "ranks": 4,
+    "returncode": 0,
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1800",
+      "python3",
+      "-m",
+      "torch.distributed.run",
+      "--nproc_per_node=4",
+      "--master_addr=127.0.0.1",
+      "--master_port=29922",
+      "/campaign/ascend_hccl_qualified.py",
+      "--serving-setup",
+      "/campaign/serving-setup.json",
+      "--output",
+      "/campaign/qualified/hccl-4.json",
+      "--ranks-per-node",
+      "4"
+    ]
+  },
+  {
+    "ranks": 8,
+    "returncode": 0,
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1800",
+      "python3",
+      "-m",
+      "torch.distributed.run",
+      "--nproc_per_node=8",
+      "--master_addr=127.0.0.1",
+      "--master_port=29922",
+      "/campaign/ascend_hccl_qualified.py",
+      "--serving-setup",
+      "/campaign/serving-setup.json",
+      "--output",
+      "/campaign/qualified/hccl-8.json",
+      "--ranks-per-node",
+      "8"
+    ]
+  },
+  {
+    "ranks": 16,
+    "returncode": 0,
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1800",
+      "python3",
+      "-m",
+      "torch.distributed.run",
+      "--nproc_per_node=16",
+      "--master_addr=127.0.0.1",
+      "--master_port=29922",
+      "/campaign/ascend_hccl_qualified.py",
+      "--serving-setup",
+      "/campaign/serving-setup.json",
+      "--output",
+      "/campaign/qualified/hccl-16.json",
+      "--ranks-per-node",
+      "16"
+    ]
+  }
+]

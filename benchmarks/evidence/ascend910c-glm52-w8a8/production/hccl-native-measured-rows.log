@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/validate_hccl_native.py", line 60, in <module>
+    main()
+  File "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/validate_hccl_native.py", line 34, in main
+    "schema_version": _runtime.engine_config_schema_version(),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'aisimulate._runtime' has no attribute 'engine_config_schema_version'. Did you mean: 'engine_spec_schema_version'?

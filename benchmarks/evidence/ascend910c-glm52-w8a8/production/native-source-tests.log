@@ -1,0 +1,27 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 20 tests
+test perfmodel::perf_database::source_resolution::tests::framework_agnostic_comm_basename_stays_primary_only ... ok
+test perfmodel::perf_database::source_resolution::tests::fixed_resolver_keeps_retired_map_semantics ... ok
+test perfmodel::perf_database::source_resolution::tests::newest_first_key_ranks_parseable_above_raw ... ok
+test perfmodel::perf_database::source_resolution::tests::legacy_comm_primary_preserves_mismatched_physical_backend ... ok
+test perfmodel::perf_database::source_resolution::tests::legacy_comm_primary_preserves_unknown_physical_backend ... ok
+test perfmodel::perf_database::source_resolution::tests::mismatched_comm_storage_backend_fails_closed ... ok
+test perfmodel::perf_database::source_resolution::tests::incomplete_family_dir_is_skipped_by_the_resolver_walk ... ok
+test perfmodel::perf_database::source_resolution::tests::missing_framework_comm_primary_infers_family ... ok
+test perfmodel::perf_database::source_resolution::tests::ambiguous_legacy_comm_basename_fails_closed ... ok
+test perfmodel::perf_database::source_resolution::tests::strict_primary_missing_sidecar_fails_closed ... ok
+test perfmodel::perf_database::source_resolution::tests::strict_legacy_provenance_graces_uncovered_table ... ok
+test perfmodel::perf_database::source_resolution::tests::framework_comm_uses_only_earlier_same_backend ... ok
+test perfmodel::perf_database::source_resolution::tests::strict_malformed_reuse_yaml_raises_with_python_message ... ok
+test perfmodel::perf_database::source_resolution::tests::strict_declared_donor_requires_coverage_for_admitted_table ... ok
+test perfmodel::perf_database::source_resolution::tests::unknown_comm_storage_backend_fails_closed ... ok
+test perfmodel::perf_database::source_resolution::tests::strict_primary_rejects_any_uncovered_table_in_version_dir ... ok
+test perfmodel::perf_database::source_resolution::tests::legacy_comm_primary_blocks_declared_and_cross_backend_sources ... ok
+test perfmodel::perf_database::source_resolution::tests::legacy_incomplete_primary_vetoed_donors_still_fill ... ok
+test perfmodel::perf_database::source_resolution::tests::unparseable_sibling_excluded_and_newer_never_implicit ... ok
+test perfmodel::perf_database::source_resolution::tests::full_channel_order_declared_then_fallback_nearest_then_cross_backend ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 1989 filtered out; finished in 0.01s
+

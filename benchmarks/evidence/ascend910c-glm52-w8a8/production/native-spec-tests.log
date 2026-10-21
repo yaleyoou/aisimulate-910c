@@ -1,0 +1,44 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 22 tests
+test perfmodel::engine::spec::tests::from_bincode_invalid_engine_json_names_json_stage ... ok
+test perfmodel::engine::spec::tests::from_bincode_rejects_empty_buffer ... ok
+test perfmodel::engine::spec::tests::engine_spec_round_trips_through_bincode ... ok
+test perfmodel::engine::spec::tests::dsv41_layout_round_trip_and_stale_v18_payload_rejection ... ok
+test perfmodel::engine::spec::tests::from_bincode_rejects_v11_dsa_producer_at_the_version_gate ... ok
+test perfmodel::engine::spec::tests::from_bincode_matching_version_corrupt_ops_names_op_payload_stage ... ok
+test perfmodel::engine::spec::tests::fpm_interpolation_and_dcp_round_trip_and_stale_layout_rejection ... ok
+test perfmodel::engine::spec::tests::fpm_selector_json_default_and_schema19_rejection ... ok
+test perfmodel::engine::spec::tests::from_bincode_rejects_v13_gdn_producer_at_the_version_gate ... ok
+test perfmodel::engine::spec::tests::from_bincode_round_trips_and_preserves_version ... ok
+test perfmodel::engine::spec::tests::from_bincode_version_gate_fires_with_intact_payload ... ok
+test perfmodel::engine::spec::tests::every_op_variant_round_trips_through_bincode ... ok
+test perfmodel::engine::spec::tests::glm53_measured_round_trip_and_stale_v27_rejection ... ok
+test perfmodel::engine::spec::tests::merged_schema_preserves_fpm_selectors ... ok
+test perfmodel::engine::spec::tests::mla_module_none_native_round_trips_followed_by_another_op ... ok
+test perfmodel::engine::spec::tests::moe_and_fpm_fields_round_trip_and_reject_concurrent_schema20 ... ok
+test perfmodel::engine::spec::tests::recorded_dcp_and_legacy_absence_round_trip ... ok
+test perfmodel::engine::spec::tests::recursive_fallback_round_trips_with_nested_children ... ok
+test perfmodel::engine::spec::tests::op_variant_indices_are_pinned ... FAILED
+test perfmodel::engine::spec::tests::version_skew_reports_unsupported_before_payload_decode ... ok
+test perfmodel::engine::spec::tests::recursive_overlap_round_trips_with_nested_children ... ok
+test perfmodel::engine::spec::tests::speculative_width_json_defaults_and_bincode_version_gate ... ok
+
+failures:
+
+---- perfmodel::engine::spec::tests::op_variant_indices_are_pinned stdout ----
+
+thread 'perfmodel::engine::spec::tests::op_variant_indices_are_pinned' (2674) panicked at crates/core/src/perfmodel/engine/spec.rs:1011:9:
+assertion `left == right` failed: GLM appended indices moved
+  left: [41, 42, 43, 44, 45, 46]
+ right: [41, 42, 43, 44, 45]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    perfmodel::engine::spec::tests::op_variant_indices_are_pinned
+
+test result: FAILED. 21 passed; 1 failed; 0 ignored; 0 measured; 1987 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p aisimulate-core --lib`

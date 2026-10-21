@@ -29,7 +29,7 @@ use crate::operators::util_empirical::{DeltaLookupCache, ProvenanceTier, UtilGri
 /// Keep textually identical to the CANONICAL `_KNOWN_BACKEND_DIRS` in
 /// `python/aisimulate/src/aisimulate_core/sdk/operations/base.py`, which lists
 /// every copy that must stay in sync (Rust cannot import the Python set).
-const KNOWN_BACKEND_DIRS: [&str; 5] = ["trtllm", "sglang", "vllm", "nccl", "oneccl"];
+const KNOWN_BACKEND_DIRS: [&str; 6] = ["trtllm", "sglang", "vllm", "nccl", "oneccl", "hccl"];
 
 /// Test-only compatibility shim over [`SourceResolver::fixed`]'s map
 /// semantics (present-but-empty = veto, absent = default-primary with the
@@ -195,6 +195,7 @@ pub mod dsv4_megamoe;
 pub mod fpm_forward;
 pub mod gemm;
 pub mod glm53flash;
+pub mod hccl;
 mod interpolation;
 pub mod mhc;
 pub mod mla;
@@ -221,6 +222,7 @@ pub use dsv41::Dsv41Table;
 pub use fpm_forward::FpmForwardTable;
 pub use gemm::GemmTable;
 pub use glm53flash::Glm53AttentionTable;
+pub use hccl::HcclTable;
 pub use mhc::MhcTable;
 pub use mla::MlaTable;
 pub use moe::MoeTable;
@@ -250,6 +252,7 @@ pub struct PerfTables {
     pub moe_a2a: MoeA2aTable,
     pub moe_expert_compute: MoeExpertComputeTable,
     pub communication: CommunicationTable,
+    pub hccl: HcclTable,
     pub dsa: DsaTable,
     pub msa: MsaTable,
     pub dsv4: Dsv4Table,
@@ -508,6 +511,11 @@ impl PerfDatabase {
             .oneccl_version
             .as_ref()
             .map(|v| comm_root(&system_data_root, "oneccl", v));
+        let hccl_root = spec
+            .misc
+            .hccl_version
+            .as_ref()
+            .map(|version| comm_root(&system_data_root, "hccl", version));
         let tables = PerfTables {
             system: system.to_string(),
             backend: backend.to_string(),
@@ -536,6 +544,7 @@ impl PerfDatabase {
                 oneccl_root,
                 &resolver,
             )?,
+            hccl: HcclTable::new(hccl_root),
             dsa: DsaTable::with_sources(data_root.clone(), &resolver)?.with_backend(backend),
             dsv4: Dsv4Table::with_sources(data_root.clone(), &resolver)?,
             // Exact backend/version only: V41 module provenance must not be

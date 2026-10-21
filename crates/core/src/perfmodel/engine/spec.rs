@@ -833,6 +833,20 @@ mod tests {
                 children: vec![],
                 measured: vec![],
             }),
+            OpSpec::Hccl(crate::operators::HcclOp {
+                name: "ascend_collective".into(),
+                scale_factor: 78.0,
+                key: crate::perf_database::hccl::HcclKey {
+                    dtype: "bfloat16".into(),
+                    operation: "all_gather".into(),
+                    num_ranks: 8,
+                    ranks_per_node: 8,
+                    rank_layout: "contiguous".into(),
+                    execution_mode: "graph".into(),
+                },
+                elements_per_token: 6144,
+                token_split: 1,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -854,6 +868,7 @@ mod tests {
                 | OpSpec::MoeDispatch(_)
                 | OpSpec::CustomAllReduce(_)
                 | OpSpec::Nccl(_)
+                | OpSpec::Hccl(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -992,14 +1007,24 @@ mod tests {
             "V41 appended indices moved"
         );
         // GLM-5.3-Flash variants append after the V41 variants.
-        let glm_appended: Vec<_> = all_op_variants().iter().skip(41).map(index_of).collect();
+        let glm_appended: Vec<_> = all_op_variants()
+            .iter()
+            .skip(41)
+            .take(5)
+            .map(index_of)
+            .collect();
         assert_eq!(
             glm_appended,
             vec![41, 42, 43, 44, 45],
             "GLM appended indices moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[46]),
             46,
+            "HCCL appended index moved"
+        );
+        assert_eq!(
+            47,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

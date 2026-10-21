@@ -325,6 +325,23 @@ These additional public YAML fields are concrete controls:
 | `engine.nextn`, `nextn_accepted` | Compute-side MTP identity and separate expected acceptance assumption; both are required for explicit MTP. |
 | `engine.enable_chunked_prefill` | Override chunked prefill; omission preserves the backend default. |
 
+GEMM identities `w8a8` and `w8a8_dynamic` distinguish static and per-token
+dynamic INT8 activation quantization with INT8 weights. MoE
+`w8a8_dynamic` selects the dynamic INT8 expert-compute identity. These use
+`gpu.int8_tc_flops` for arithmetic accounting and keep separate lookup keys
+from weight-only INT8, SmoothQuant and FP8. The identities do not imply that
+attention, KV cache, normalization or communication are INT8. Mixed checkpoints
+still require per-component model composition and matching measured data;
+declaring a precision alone does not establish a supported runtime cell.
+
+For a local `GlmMoeDsaForCausalLM` checkpoint, the model reader recognizes
+`quant_model_description.json` and retains a compact per-layer precision plan.
+Fused projections must agree, every routed expert declaration is checked, and
+unquantized `FLOAT` entries retain their meaning without assuming a runtime
+dtype. Unsupported mixed expert precisions and conflicting checkpoint metadata
+fail explicitly. This metadata normalization does not by itself qualify
+operator coverage or deployment accuracy.
+
 These controls require default timing on language roles. AFD and analytical
 encoder configurations reject the unsupported controls. Use `--stack engine`
 and the supported model/backend; an older external adapter can reject them at

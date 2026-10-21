@@ -1,0 +1,31 @@
+{
+  "research": {
+    "checkpoint_context_transition": "Reviewed revision18 resume issues: adding the new production-goal input plan invalidated five earlier experimental-stage validation references. Their file contents are unchanged; archive these historical references rather than claim they qualify the new production goal. New native-interface controls remain explicitly distinct from serving-profile validation.",
+    "production_goal": {
+      "status": "active",
+      "current_implementation": "Native HCCL table/op, appended wire variant46, strict dtype/rank/placement/execution identity, system misc.hccl_version selector and qualified raw-to-parquet exporter implemented. W8A8 model/precision integration and PD/search remain pending.",
+      "current_collection": "Peer task container aisim-910c-production-20261022 is collecting serving-matched raw-v2 HCCL grids2/4/8/16. Local control320HCCL+36probes completed and original United restoration was healthyHTTP200 at last check.",
+      "source_parity_correction": "Read live United process environment: TASK_QUEUE_ENABLE0,HCCL_BUFFSIZE650,SGLANG_NPU_USE_MULTI_STREAM1. Earlier controls usedqueue1/defaultbuffers and are NOT qualified serving-profile data. Producer now calls pinned SGLang group-options factory and records resolved options; exporter requires v2 and refuses mismatches.",
+      "diagnostic_findings": "Increasing iterations and disablingGC did not eliminate eager timing spikes; GC callbacks measured0. CPU affinity improved some points but not all. Retain controls; no claim of fixed root cause.",
+      "native_validation": "5native HCCL tests passed;3initial exporter tests passed,expanded4tests pending;both existing GPU parity suites390passed in1971.32s. Actual292control rows reproduced exactly through existing native engine/spec interface. Additional source-resolution registration and pinned-op-count changes need final focused rebuild/checks.",
+      "native_binary_sha256": "bf9621744d83b89ec513573cb28e7d09a8b9d22c2db2fd30c78c86c86912c89e",
+      "cross_host_controls": "Local36/36correct andCV<=10%;median absolute latency difference2.239% butmaximum484.79% on tiny standalone dynamicquant; no blanket cross-driver borrowing.",
+      "next": "Finish serving-matched HCCL collection and native consumer qualification, commit completed HCCL foundation, then implement source-driven W8A8 precision/model composition and missing operator/module grids before memory/PD/search validation."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "collector_tests": {"archived": true},
+        "isolated_attention_validation": {"archived": true},
+        "isolated_quant_validation": {"archived": true},
+        "operator_delivery": {"archived": true},
+        "serving_operator_validation": {"archived": true},
+        "hccl_gpu_regression": {"kind": "file", "scope": "validation", "path": "production/native-parity-final.log"},
+        "hccl_native_control_rows": {"kind": "file", "scope": "validation", "path": "production/hccl-native-measured-rows-final.log"},
+        "cross_host_operator_controls": {"kind": "file", "scope": "validation", "path": "production/cross-host-probe-comparison.json"},
+        "local_reference_campaign": {"kind": "collector_checkpoint", "scope": "collection", "path": "production/local-reference-20261022/campaign.json"}
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "stage": "production-foundation",
+  "status": "validated",
+  "goal_complete": false,
+  "baseline_commit": "cfe57b6f",
+  "checks": {
+    "gpu_parity": {
+      "path": "foundation-parity.log",
+      "sha256": "b18333485a597923e81ad4057ce28f8df910c08ccf9c59f8ccada9489ebc9524",
+      "expected_result": "390 passed"
+    },
+    "precision_native": {
+      "path": "precision-native-tests-final.log",
+      "sha256": "6f5d2aec155ebe253f45dbb150a8f8dc4136e0bb85271a8c57f458a4c3422011",
+      "expected_result": "9 passed"
+    },
+    "hccl_native": {
+      "path": "hccl-native-tests-final.log",
+      "sha256": "76b94aed845ae00ea795a83df82c4aee46ab65abb06e2ce6322494bbab53b44a",
+      "expected_result": "5 passed"
+    },
+    "wire_spec": {
+      "path": "native-spec-tests-final.log",
+      "sha256": "daabf03bbd40692f3d3d464ba0f908345d72a1e5f50be621f172715988ef039a",
+      "expected_result": "22 passed"
+    },
+    "source_resolution": {
+      "path": "native-source-tests.log",
+      "sha256": "4d235c04a6aef57c5047d8be635bfedcf828cb3fd8943d3a856679eca97ac633",
+      "expected_result": "20 passed"
+    },
+    "python_foundation": {
+      "path": "foundation-python-tests-final.log",
+      "sha256": "2e5775be05417ae59e7d6d0d0955edb4f53780e8e2017d23f0fc34d08a4cf4b3",
+      "expected_result": "10 passed"
+    },
+    "measured_hccl_queries": {
+      "path": "hccl-serving-native-query.log",
+      "sha256": "c4e01ab4aae5a37cd1f552f3f6ad0ddbb7ee357d1c56b01b366f81b31bb7bfa4",
+      "expected_result": "\"checked_measured_rows\": 296"
+    }
+  },
+  "model_checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
+  "missing": [
+    "complete Ascend execution composition",
+    "complete operator/module data",
+    "memory calibration",
+    "PD transfer/request validation",
+    "canonical predict/recommend strategy search validation"
+  ]
+}

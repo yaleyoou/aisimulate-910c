@@ -1,0 +1,11 @@
+   Compiling aisimulate-core v0.13.0 (/workspace/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 37.56s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 3 tests
+test perfmodel::operators::hccl::tests::payload_is_input_bytes_and_rounds_token_shards_up ... ok
+test perfmodel::perf_database::hccl::tests::interpolation_preserves_exact_identity_and_refuses_extrapolation ... ok
+test perfmodel::perf_database::hccl::tests::missing_configuration_is_distinct_from_corrupt_data ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 2004 filtered out; finished in 0.00s
+

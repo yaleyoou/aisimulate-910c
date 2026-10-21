@@ -1,0 +1,36 @@
+{
+  "research": {
+    "production_goal": {
+      "status": "active",
+      "date": "2026-10-22",
+      "objective": "Canonical Ascend910C + local GLM5.2W8A8 operator prediction, memory, replay, aggregated/PD and parallelism/replica search.",
+      "authorization": "User explicitly authorized both nodes, missing-data collection, coordinated producer/consumer implementation and local stage commits; no remote publication requested.",
+      "baseline_commit": "cfe57b6f",
+      "guide_help_inspected": "onboard and onboard init current help; guided init still restricts framework to vLLM, so no fabricated SGLang profile acceptance.",
+      "coverage": "production/coverage-plan.json",
+      "current_implementation": "Draft native HCCL table and appended Hccl op, exact dtype/placement/graph identities and strict bracket interpolation; no HCCL-as-NCCL reuse.",
+      "current_collection": "npu1-19 dedicated task container aisim-910c-production-20261022;16 two-rank smoke points passed full-payload pre/post checks and CV<=10%;2/4/8/16rank campaign running sequentially.",
+      "tests": "Initial native loader test exposed decimal floating comparison tolerance only; corrected test, expanded native operator roundtrip and full checks pending.",
+      "confidence": "High for inspected source and completed smoke; production dataset and broad goal remain incomplete.",
+      "next": "Finish HCCL producer/native consumer tests and measured data publication, then W8A8 identity/model composition, complete operator coverage, memory/PD and search validation."
+    }
+  },
+  "artifacts": {
+    "production_coverage_plan": {"kind": "file", "scope": "input", "path": "production/coverage-plan.json"},
+    "production_goal_document": {"kind": "file", "scope": "input", "path": "../../../md/910c-glm52-w8a8-full-adaptation.md"}
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "next_action": "Complete production HCCL/precision identity and collection coverage before proposing additional deployment cells; exact profile acceptance remains separate.",
+        "blockers": [
+          "Guided direct-FPM init currently only supports vLLM; operator-level SGLang/Ascend integration is the authorized path under development.",
+          "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
+          "Full forward/serving prediction accuracy and search coverage unvalidated."
+        ]
+      }
+    }
+  }
+}

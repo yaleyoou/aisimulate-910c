@@ -700,6 +700,45 @@ Neither entry point registers a production model plan or publishes FPM rows.
 Host/driver identity, routing distribution, active sequence lengths and graph
 padding remain required inputs for a future coordinated consumer integration.
 
+`sglang/ascend_hccl.py` collects unquantized HCCL collectives with `torchrun`.
+The pinned SGLang runtime dispatches AllReduce through
+`srt/distributed/device_communicators/npu_communicator.py:23`; AllGather and
+ReduceScatter follow `srt/distributed/parallel_state.py:1297` and `:1124`,
+with PyTorch aliases selected in `srt/distributed/utils.py:21` at the same
+commit. This does not benchmark DeepEP's fused dispatch/combine path.
+For example, inside the allocated Ascend container:
+
+```bash
+TASK_QUEUE_ENABLE=0 HCCL_BUFFSIZE=650 python3 -m torch.distributed.run --nproc_per_node=2 \
+  collector/sglang/ascend_hccl.py --ranks-per-node 2 --output /tmp/hccl-2.json \
+  --serving-setup /path/to/serving-setup.json
+```
+
+The collector records input bytes per rank, full signed-pattern checks before
+and after timing, every rank's NPU-event and host timings, and the maximum rank
+duration per repetition. Eager and graph samples remain separate; graph replay
+is warmed independently. Match the serving environment: the recorded United
+uses queue mode 0 and a 650-MB HCCL buffer. Process-group options come from
+SGLang's `get_torch_distributed_pg_options`; the environment and resolved HCCL
+options are preserved and cannot be merged across measurement protocols.
+`--serving-setup` applies a recorded `sglang-runtime-setup/v1` environment and
+each local rank's observed CPU mask before importing the runtime. Capture the
+launcher exports and live scheduler CPU masks; worker process-title rewriting
+can obscure `/proc/<worker>/environ`. The exporter rejects missing setup,
+environment mismatches and CPU affinity mismatches. Runs without a setup remain
+controls and cannot be published as serving-profile data.
+`--gc-policy enabled` preserves Python GC and records
+its duration during each timing interval; `disabled` collects before timing and
+temporarily disables GC to diagnose harness-induced pauses. The choice is
+retained in measurement provenance. Graph/eager or GC protocols cannot be merged
+silently. `ascend_hccl_export.py` recomputes quality statistics, reports every
+unqualified point, rejects duplicate keys and incomplete correctness checks,
+and writes `hccl_perf.parquet` plus `provenance.json` into a fresh directory.
+Its runtime manifest requires the immutable image/source, CANN/HCCL build,
+driver versions, hardware and collector source digest. The native HCCL reader
+uses the exact system selector documented in
+[hardware extensions](../../../docs/perf-model/extending.md#hardware-system-yaml).
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.

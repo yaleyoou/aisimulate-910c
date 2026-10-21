@@ -1,0 +1,7 @@
+   Compiling pyo3-build-config v0.23.5
+   Compiling pyo3-ffi v0.23.5
+   Compiling pyo3-macros-backend v0.23.5
+   Compiling pyo3 v0.23.5
+   Compiling pyo3-macros v0.23.5
+   Compiling aisimulate-core v0.13.0 (/workspace/crates/core)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 36.73s

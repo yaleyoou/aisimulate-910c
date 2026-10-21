@@ -595,6 +595,13 @@ impl Availability<'_> {
             Nccl(comm) if comm.num_gpus > 1 => {
                 self.any(&["nccl_perf.parquet", "oneccl_perf.parquet"])
             }
+            Hccl(comm) => match self.db.database_mode {
+                DatabaseMode::Sol | DatabaseMode::SolFull => Ok(()),
+                DatabaseMode::Empirical => Err(AicError::EmpiricalNotImplemented(
+                    "HCCL has no empirical source".into(),
+                )),
+                _ => self.db.hccl.ensure_key(&comm.key),
+            },
             // Dispatch chooses its comm legs from topology at query time. A
             // single-rank graph needs no communication table.
             MoeDispatch(dispatch) if dispatch.moe_tp_size * dispatch.moe_ep_size > 1 => {

@@ -1,0 +1,22 @@
+   Compiling aisimulate-core v0.13.0 (/workspace/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 46.35s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 2 tests
+
+thread 'perfmodel::perf_database::hccl::tests::interpolation_preserves_exact_identity_and_refuses_extrapolation' (331) panicked at crates/core/src/perfmodel/perf_database/hccl.rs:155:9:
+assertion `left == right` failed
+  left: 0.019999999999999997
+ right: 0.02
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test perfmodel::perf_database::hccl::tests::interpolation_preserves_exact_identity_and_refuses_extrapolation ... FAILED
+test perfmodel::perf_database::hccl::tests::missing_configuration_is_distinct_from_corrupt_data ... ok
+
+failures:
+
+failures:
+    perfmodel::perf_database::hccl::tests::interpolation_preserves_exact_identity_and_refuses_extrapolation
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 2004 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p aisimulate-core --lib`

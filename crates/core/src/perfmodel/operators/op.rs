@@ -190,6 +190,7 @@ pub enum Op {
     Glm53Router(Glm53RouterOp),
     Glm53Ffn(Glm53FfnOp),
     Glm53Primitive(Glm53PrimitiveOp),
+    Hccl(crate::operators::HcclOp),
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -326,6 +327,7 @@ impl Op {
             | Op::MoeDispatch(_)
             | Op::CustomAllReduce(_)
             | Op::Nccl(_)
+            | Op::Hccl(_)
             | Op::P2P(_)
             | Op::Vision(_)
             | Op::MsaContext(_)
@@ -370,6 +372,7 @@ impl Op {
             Op::MoeDispatch(o) => &o.name,
             Op::CustomAllReduce(o) => &o.name,
             Op::Nccl(o) => &o.name,
+            Op::Hccl(o) => &o.name,
             Op::P2P(o) => &o.name,
             Op::Vision(o) => &o.name,
             Op::DsaContext(o) => &o.name,
@@ -424,6 +427,7 @@ impl Op {
             Op::MoeDispatch(o) => o.name = name,
             Op::CustomAllReduce(o) => o.name = name,
             Op::Nccl(o) => o.name = name,
+            Op::Hccl(o) => o.name = name,
             Op::P2P(o) => o.name = name,
             Op::Vision(o) => o.name = name,
             Op::DsaContext(o) => o.name = name,
@@ -466,6 +470,7 @@ impl Op {
             Op::MoeDispatch(o) => o.scale_factor = scale_factor,
             Op::CustomAllReduce(o) => o.scale_factor = scale_factor,
             Op::Nccl(o) => o.scale_factor = scale_factor,
+            Op::Hccl(o) => o.scale_factor = scale_factor,
             Op::P2P(o) => o.scale_factor = scale_factor,
             Op::Vision(o) => o.scale_factor = scale_factor,
             Op::DsaContext(o) => o.scale_factor = scale_factor,
@@ -513,6 +518,7 @@ impl Op {
             Op::Elementwise(o) => o.seq_split,
             Op::CustomAllReduce(o) => o.seq_split,
             Op::Nccl(o) => o.seq_split,
+            Op::Hccl(o) => o.token_split,
             Op::P2P(o) => o.seq_split,
             Op::Mhc(o) => o.seq_split,
             _ => 1,
@@ -615,6 +621,7 @@ impl Op {
             Op::MoeDispatch(op) => op.query(db, ctx.num_tokens),
             Op::CustomAllReduce(op) => op.query(db, ctx.num_tokens),
             Op::Nccl(op) => op.query(db, ctx.num_tokens),
+            Op::Hccl(op) => op.query(db, ctx.num_tokens),
             Op::P2P(op) => op.query(db, ctx.num_tokens),
             Op::Vision(op) => op.query(db, ctx.num_image_tokens),
             Op::DsaContext(op) => op.query_context(db, ctx.batch_size, ctx.s, ctx.prefix),

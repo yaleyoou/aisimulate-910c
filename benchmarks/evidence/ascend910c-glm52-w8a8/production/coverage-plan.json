@@ -1,0 +1,47 @@
+{
+  "schema": "aisimulate-ascend-production-coverage/v1",
+  "goal": "Production operator-level prediction and aggregated/PD parallelism search for the supplied GLM-5.2 ModelSlim W8A8 checkpoint on Ascend910C.",
+  "authorization": "2026-10-22 user explicitly authorized producer/consumer adaptation, both nodes, missing-data collection, search/PD integration and per-stage local commits.",
+  "baseline_commit": "cfe57b6f",
+  "checkpoint": "../onboarding-checkpoint.json",
+  "runtime_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "nodes": ["npu1-32", "npu1-19"],
+  "phases": [
+    {"id": "A", "deliverable": "Typed Ascend precision/communication identities, exact consumer contracts and complete collection coverage manifest", "status": "in_progress"},
+    {"id": "B", "deliverable": "Framework-selected operator/module collection and correctness/repeatability on source-matched hardware", "status": "partial_experimental_evidence"},
+    {"id": "C", "deliverable": "Canonical Rust FPE model composition, lookup, diagnostics and source-qualified memory", "status": "not_started"},
+    {"id": "D", "deliverable": "Measured aggregated and PD forward/request validation including KV handoff", "status": "not_started"},
+    {"id": "E", "deliverable": "Native predict/recommend searches over supported TP/attention-DP/EP/PP and PD replica ratios with coverage diagnostics", "status": "not_started"}
+  ],
+  "missing_data": [
+    {"family": "linear", "present": "16 independent static/dynamic W8A8 controls", "missing": "Model-specific weight scales, token/head/TP grids, unquantized router/indexer/lm-head paths; exact static/dynamic identity"},
+    {"family": "attention", "present": "4 indexer +4 sparse attention controls; real TP8 trace", "missing": "Full/skip modules, MLA BMM, norm/RoPE/cache, actual active/padded sequence metadata, additional TP/ADP and cached-prefill grids"},
+    {"family": "moe", "present": "6 balanced synthetic GMM controls; real dispatch/combine traces", "missing": "Actual per-expert group lists, skew/empty-expert cases, activation fusion, dispatch/combine correctness and phase-specific EP paths"},
+    {"family": "hccl", "present": "Hardware-level curves and serving traces", "missing": "Strict transport/dtype/rank-placement/execution identity; full-payload SUM correctness and stable eager/graph curves for2/4/8/16/32ranks"},
+    {"family": "memory", "present": "Measured TP16 attentionDP2 United capacity", "missing": "Per-configuration resident weights/scales, HCCL/workspaces/graphs, indexer sharing KV representation, runtime reserve and PP ownership"},
+    {"family": "pd", "present": "Same-SuperPod P2P bandwidth and latency; earlier deployment scripts", "missing": "Pinned-runtime actual KV payload/packing, sender/receiver rank mappings, transfer overlap, receiving reservation and end-to-end validation"},
+    {"family": "validation", "present": "One8k/1k serving control and repeated operation traces", "missing": "Independent full-forward measurements across batches/contexts and deployment candidates; serving TTFT/TPOT/throughput comparisons"}
+  ],
+  "contracts": {
+    "hccl": {
+      "file": "comm/hccl/<runtime-and-hardware-provenance>/hccl_perf.parquet",
+      "yaml_selector": "misc.hccl_version",
+      "exact_key": ["dtype", "operation", "num_ranks", "ranks_per_node", "rank_layout", "execution_mode"],
+      "interpolation_axis": "input_bytes_per_rank",
+      "value": "latency_ms",
+      "provenance": ["image_digest", "framework_commit", "cann_hccl_build", "driver", "host", "devices", "timing_method", "warmup", "samples", "correctness", "cv"],
+      "rules": "No HCCL-as-NCCL labels; no fallback to another transport, precision, placement or graph mode; unmeasured rank tuples fail. Interpolate measured payload brackets only until extrapolation is validated."
+    },
+    "w8a8": {
+      "gemm_modes": ["w8a8", "w8a8_dynamic"],
+      "moe_mode": "w8a8_dynamic",
+      "rules": "INT8 weights/activations, distinct static/dynamic scale paths; BF16 attention/KV/router remain separate. Do not label as weight-only INT8 or FP8."
+    }
+  },
+  "scope_limits": [
+    "32 available runtime devices total; memory feasibility must precede search. The checkpoint payload is720.708GiB including disabled/replicated components, not per-worker resident memory.",
+    "Peer driver differs from serving driver; keep provenance cells separate and validate transferability before sharing curves.",
+    "Unmeasured topologies and larger node counts cannot be presented as measured-optimal results.",
+    "Formal direct-FPM onboarding acceptance remains separate from operator-level integration; do not fabricate accepted profiles."
+  ]
+}

@@ -1,0 +1,43 @@
+Looking in indexes: https://pypi.org/simple/
+Collecting matplotlib==3.10.8
+  Downloading matplotlib-3.10.8-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (52 kB)
+Collecting plotly==6.6.0
+  Downloading plotly-6.6.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting contourpy>=1.0.1 (from matplotlib==3.10.8)
+  Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl.metadata (3.8 kB)
+Collecting cycler>=0.10 (from matplotlib==3.10.8)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib==3.10.8)
+  Downloading fonttools-4.67.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (137 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib==3.10.8)
+  Downloading kiwisolver-1.5.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (5.2 kB)
+Requirement already satisfied: numpy>=1.23 in /usr/local/python3.12.13/lib/python3.12/site-packages (from matplotlib==3.10.8) (2.2.6)
+Requirement already satisfied: packaging>=20.0 in /usr/local/python3.12.13/lib/python3.12/site-packages (from matplotlib==3.10.8) (26.3)
+Requirement already satisfied: pillow>=8 in /usr/local/python3.12.13/lib/python3.12/site-packages (from matplotlib==3.10.8) (11.3.0)
+Collecting pyparsing>=3 (from matplotlib==3.10.8)
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/python3.12.13/lib/python3.12/site-packages (from matplotlib==3.10.8) (2.9.0.post0)
+Requirement already satisfied: narwhals>=1.15.1 in /usr/local/python3.12.13/lib/python3.12/site-packages (from plotly==6.6.0) (2.27.1)
+Requirement already satisfied: six>=1.5 in /usr/local/python3.12.13/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.8) (1.17.0)
+Downloading matplotlib-3.10.8-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (9.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.6/9.6 MB 1.0 MB/s  0:00:09
+Downloading plotly-6.6.0-py3-none-any.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 1.6 MB/s  0:00:06
+Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (356 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.67.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 2.2 MB/s  0:00:02
+Downloading kiwisolver-1.5.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 2.2 MB/s  0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Installing collected packages: pyparsing, plotly, kiwisolver, fonttools, cycler, contourpy, matplotlib
+  Attempting uninstall: plotly
+    Found existing installation: plotly 7.1.0
+    Uninstalling plotly-7.1.0:
+      Successfully uninstalled plotly-7.1.0
+
+Successfully installed contourpy-1.4.0 cycler-0.12.1 fonttools-4.67.0 kiwisolver-1.5.1 matplotlib-3.10.8 plotly-6.6.0 pyparsing-3.3.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 26.2 -> 26.2.2
+[notice] To update, run: pip install --upgrade pip

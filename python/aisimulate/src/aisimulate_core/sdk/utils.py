@@ -1921,6 +1921,15 @@ def _load_model_config_from_model_path(model_path: str) -> dict:
     # Check if it's a local path
     if os.path.isdir(model_path):
         config = _attach_llama4_processor_config(_load_local_config(model_path), model_path)
+        from aisimulate_core.modelslim import read_glm_modelslim
+
+        modelslim = read_glm_modelslim(model_path, config)
+        if modelslim is not None:
+            existing = (_get_language_quantization_config(config) or {}).get("quant_method")
+            if existing not in {None, "modelslim"}:
+                raise ValueError("ModelSlim sidecar conflicts with config.json quantization method")
+            config["modelslim_metadata"] = modelslim
+            config["quant_algo"] = "modelslim"
         return _attach_inferred_quant_fields(_attach_hf_quant_config(config, _load_local_quant_config(model_path)))
 
     # Otherwise treat as HuggingFace path

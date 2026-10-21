@@ -36,6 +36,8 @@ class GEMMQuantMode(Enum):
     w4a16_nvfp4 = QuantMapping(
         9 / 16, 1, "w4a16_nvfp4", "bfloat16"
     )  # NVFP4 weights + 1 fp8 scale per 16 weights, dequantized into the bf16 MMA lane.
+    w8a8 = QuantMapping(1, 2, "w8a8", "int8")
+    w8a8_dynamic = QuantMapping(1, 2, "w8a8_dynamic", "int8")
 
 
 class MoEQuantMode(Enum):
@@ -69,6 +71,7 @@ class MoEQuantMode(Enum):
     # Scale-aware NVFP4 weights dequantized into the BF16 MoE compute lane.
     w4a16_mxfp4_humming = QuantMapping(0.5, 1, "w4a16_mxfp4_humming", "bfloat16")
     # Native Humming E2M1/E8M0 block-32 experts with unquantized BF16 inputs.
+    w8a8_dynamic = QuantMapping(1, 2, "w8a8_dynamic", "int8")
 
 
 class FMHAQuantMode(Enum):

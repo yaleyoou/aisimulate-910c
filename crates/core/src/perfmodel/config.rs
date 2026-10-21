@@ -358,6 +358,8 @@ pub enum DataType {
     W4a16Nvfp4,
     #[serde(rename = "w4a16_mxfp4_humming")]
     W4a16Mxfp4Humming,
+    W8a8,
+    W8a8Dynamic,
 }
 
 #[cfg(test)]

@@ -1,0 +1,236 @@
+{
+  "schema": "aisimulate-ascend-quant-probe/v1",
+  "canonical_fpm_data": false,
+  "input_kind": "seeded synthetic activations and INT8 weights",
+  "runtime": {
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post6",
+    "sglang_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+    "device": "Ascend910_9382",
+    "family": "attention"
+  },
+  "group_list": "balanced synthetic cumulative group sizes; not observed routing",
+  "timing": {
+    "clock": "NPU events around graph replay, divided by calls in captured graph",
+    "warmup": 10,
+    "warmup_scope": "Both eager invocation and captured graph replay",
+    "independent_replays": 9,
+    "calls_per_graph": 16,
+    "scope": "Device execution including graph dependencies; excludes eager Python launch overhead."
+  },
+  "cases": [
+    {
+      "op": "lightning_indexer",
+      "phase": "prefill",
+      "tokens": 8192,
+      "sequence_length": 8192,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        3845.0286388397217,
+        3845.1125621795654,
+        3845.337390899658,
+        3845.081329345703,
+        3845.1526165008545,
+        3845.324993133545,
+        3844.9811935424805,
+        3845.2062606811523,
+        3845.4012870788574
+      ],
+      "median_us": 3845.1526165008545,
+      "cv": 3.604786258515674e-05,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "prefill",
+      "tokens": 8192,
+      "sequence_length": 8192,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.0010448992252349854,
+        "samples": 12288
+      },
+      "samples_us": [
+        20486.59324645996,
+        20482.105255126953,
+        20482.67364501953,
+        20484.30061340332,
+        20486.02294921875,
+        20481.788635253906,
+        20478.622436523438,
+        20486.087799072266,
+        20482.040405273438
+      ],
+      "median_us": 20482.67364501953,
+      "cv": 0.00012021530418841071,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8192,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        36.95375099778175,
+        36.77750006318092,
+        36.844998598098755,
+        36.838751286268234,
+        37.04125061631203,
+        36.75749897956848,
+        36.72875091433525,
+        37.105001509189606,
+        36.912500858306885
+      ],
+      "median_us": 36.844998598098755,
+      "cv": 0.003311387326482194,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8192,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.001043170690536499,
+        "samples": 12288
+      },
+      "samples_us": [
+        90.61124920845032,
+        90.88250249624252,
+        90.64749628305435,
+        90.79500287771225,
+        90.74749797582626,
+        90.89375287294388,
+        90.73249995708466,
+        90.7287523150444,
+        90.71999788284302
+      ],
+      "median_us": 90.73249995708466,
+      "cv": 0.0009832642281436103,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8704,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        37.68875077366829,
+        37.77625039219856,
+        37.744998931884766,
+        37.755001336336136,
+        37.81500086188316,
+        37.67000138759613,
+        37.847500294446945,
+        37.74375095963478,
+        37.76999935507774
+      ],
+      "median_us": 37.755001336336136,
+      "cv": 0.0013859201227309343,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 8704,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.0011230707168579102,
+        "samples": 12288
+      },
+      "samples_us": [
+        89.97750282287598,
+        89.9987518787384,
+        89.96500074863434,
+        90.09875357151031,
+        90.18625319004059,
+        90.02500027418137,
+        90.02500027418137,
+        89.93875235319138,
+        90.03125131130219
+      ],
+      "median_us": 90.02500027418137,
+      "cv": 0.0007890446581208473,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "lightning_indexer",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 9216,
+      "correctness": {
+        "passed": true,
+        "sampled_queries": 3,
+        "min_topk_overlap": 1.0,
+        "threshold": 0.99
+      },
+      "samples_us": [
+        38.50499913096428,
+        38.388751447200775,
+        38.520000874996185,
+        38.55250030755997,
+        38.66500034928322,
+        38.60250115394592,
+        38.29624876379967,
+        38.60874846577644,
+        38.561251014471054
+      ],
+      "median_us": 38.55250030755997,
+      "cv": 0.002816381577575007,
+      "repeatable_at_10_percent": true
+    },
+    {
+      "op": "sparse_attention",
+      "phase": "decode",
+      "tokens": 8,
+      "sequence_length": 9216,
+      "scale": 0.0625,
+      "scale_scope": "Synthetic numerical control, not loaded model RoPE scaling.",
+      "correctness": {
+        "passed": true,
+        "max_abs_error": 0.001020669937133789,
+        "samples": 12288
+      },
+      "samples_us": [
+        90.81249684095383,
+        90.79500287771225,
+        90.9074991941452,
+        90.76625108718872,
+        90.87750315666199,
+        90.97500145435333,
+        91.13624691963196,
+        90.77624976634979,
+        90.7987505197525
+      ],
+      "median_us": 90.81249684095383,
+      "cv": 0.0012542312216754972,
+      "repeatable_at_10_percent": true
+    }
+  ],
+  "status": "completed"
+}

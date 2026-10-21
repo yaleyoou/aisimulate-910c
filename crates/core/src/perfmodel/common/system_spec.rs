@@ -142,6 +142,8 @@ pub struct MiscSpec {
     /// Python `sdk/operations/communication.py:301-303`.
     #[serde(default)]
     pub oneccl_version: Option<String>,
+    #[serde(default)]
+    pub hccl_version: Option<String>,
 }
 
 fn default_mem_bw_scaling() -> f64 {

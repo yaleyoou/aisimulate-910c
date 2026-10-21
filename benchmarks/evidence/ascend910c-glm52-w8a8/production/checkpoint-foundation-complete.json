@@ -1,0 +1,28 @@
+{
+  "research": {
+    "production_goal": {
+      "status": "active",
+      "foundation_status": "Implemented and validated; this is not full model/PD/search completion.",
+      "final_foundation_tests": "390GPU parity tests,9precision-native,22wire-spec,20source-resolution,5HCCL-native,10Python foundation tests passed.296serving-setup peer HCCL rows reproduced through the native engine. Ruff14source/testfiles passed.",
+      "model_transfer": "196files and774079436873bytes copied to fresh private peer directory. Both full SHA256 manifests match: b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc.",
+      "qualified_hccl": "320points with complete recorded United environment/CPU setup on npu1-19;296qualified and24CV failures retained. Peer-driver scope remains explicit; no automatic local-driver borrowing.",
+      "current_collection": "Own peer recording server aisim-glm52-state-20261022 starts on18000 with verified weights and state-only graph-safe count copies. Original local United remains healthy.",
+      "next": "Validate real-model per-layer/rank routing state, collect model-specific operator/module performance, implement memory and full execution composition, then PD and canonical search validation."
+    },
+    "model_content_pin": {
+      "checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
+      "scope": "SHA256 of canonical sorted per-file relative paths, sizes and full SHA256 values;196files, including all weight bytes and tokenizer/config assets.",
+      "source_manifest": "production/model-source-fingerprint.json",
+      "target_manifest": "production/model-target-fingerprint.json",
+      "target_path": "npu1-19:/mnt/raid/aisimulate-youxingye-20261022/glm-q"
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "production_foundation_validation": {"kind": "file", "scope": "validation", "path": "production/foundation-validation.json"},
+        "verified_peer_checkpoint": {"kind": "file", "scope": "validation", "path": "production/model-transfer-verified.json"}
+      }
+    }
+  }
+}

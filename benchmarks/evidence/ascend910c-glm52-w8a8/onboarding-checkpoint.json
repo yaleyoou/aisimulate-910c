@@ -448,6 +448,22 @@
       "scope": "input",
       "sha256": "acc64b9fd07acac2384b429475b6fad6a0cc81ead449899606a337897fc030f4"
     },
+    "production_coverage_plan": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "production/coverage-plan.json",
+      "scope": "input",
+      "sha256": "df1f0b9c7c0210025a0d2fbc1ea10e167dd12a83efbc5783929e3f5b283feeb1"
+    },
+    "production_goal_document": {
+      "archived": false,
+      "context_sha256": null,
+      "kind": "file",
+      "path": "../../../md/910c-glm52-w8a8-full-adaptation.md",
+      "scope": "input",
+      "sha256": "9b0fea466547db33233d8af1962065f945bc1b5c92e855df8eaaf5325a6bfe91"
+    },
     "published_version_metadata": {
       "archived": false,
       "context_sha256": null,
@@ -525,16 +541,48 @@
     "united-tp16-dp2-ep16": {
       "acceptance": null,
       "artifacts": {
-        "collector_tests": {
+        "captured_event_capability": {
           "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/captured-event-capability.json",
+          "scope": "validation",
+          "sha256": "61e53a9e5199407ddb62d03d6dda71de8a80b0f45d7f406765186ea69b9aa3f5"
+        },
+        "collector_tests": {
+          "archived": true,
           "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
           "kind": "file",
           "path": "operators/collector-tests.log",
           "scope": "validation",
           "sha256": "e749d3402dbcc1535d3c4697ae9809d7d462a0e41ecdcb5e480a46e641226f4a"
         },
-        "isolated_attention_validation": {
+        "cross_host_operator_controls": {
           "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/cross-host-probe-comparison.json",
+          "scope": "validation",
+          "sha256": "6b9741a81215dbeba6de7df37c13bc83960db60c9b1e2c36532dc338cbd7e03c"
+        },
+        "hccl_gpu_regression": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/native-parity-final.log",
+          "scope": "validation",
+          "sha256": "592490e2e98a475273730bed248b0c735fcb632224205f21d13d456195dd86ef"
+        },
+        "hccl_native_control_rows": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/hccl-native-measured-rows-final.log",
+          "scope": "validation",
+          "sha256": "95dcb21e3730af1c116e38e522bbfee439cf25c813f487b414ed4980fb1fccd4"
+        },
+        "isolated_attention_validation": {
+          "archived": true,
           "context_sha256": "8fbb3a099933ee4c6c11aa1104451da2e4477971f0e5b7a555a6274c422c1f28",
           "kind": "file",
           "path": "operators/isolated-20261022/attention.json",
@@ -542,28 +590,60 @@
           "sha256": "1df3470a1bfe2a70b4fb14eabaf797cc34cac95cdc7c89f57e65c05d28bd7936"
         },
         "isolated_quant_validation": {
-          "archived": false,
+          "archived": true,
           "context_sha256": "8fbb3a099933ee4c6c11aa1104451da2e4477971f0e5b7a555a6274c422c1f28",
           "kind": "file",
           "path": "operators/isolated-20261022/results.json",
           "scope": "collection",
           "sha256": "71c2712fce072cf609547af7cee2483612a7adc172f7de1267bd474f4378f9bf"
         },
-        "operator_delivery": {
+        "local_reference_campaign": {
           "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "collector_checkpoint",
+          "path": "production/local-reference-20261022/campaign.json",
+          "scope": "collection",
+          "sha256": null
+        },
+        "modelslim_normalization": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/modelslim-normalization.log",
+          "scope": "validation",
+          "sha256": "4984a8842a7f216de6a19348f082e48d2281981f2eb2b8d102500ddd8f9b2ae8"
+        },
+        "operator_delivery": {
+          "archived": true,
           "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
           "kind": "file",
           "path": "operators/stage2-delivery.json",
           "scope": "validation",
           "sha256": "b72e220832949202da141ebfb6d54999a9ec448ee2cd77b1621d6feb77638166"
         },
-        "serving_operator_validation": {
+        "production_foundation_validation": {
           "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/foundation-validation.json",
+          "scope": "validation",
+          "sha256": "8a5f394342b20f7bf12620290cd78c7bae3e33a16157dd159a03544bb2e55f5b"
+        },
+        "serving_operator_validation": {
+          "archived": true,
           "context_sha256": "93c820a3ea2bd86ef6d4ec4a64d06a0ab0103421a07394ab78ebafb64636d895",
           "kind": "file",
           "path": "operators/verified-20261021/collection-validation.json",
           "scope": "validation",
           "sha256": "c0ec7c0e656394887a5f9aeeb57f236efdf95ce4f341408a54435f7b0edeb4fd"
+        },
+        "verified_peer_checkpoint": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/model-transfer-verified.json",
+          "scope": "validation",
+          "sha256": "46f48f8257b16d5ad9d8c8c57b27472d2900d343dc33077870b6fe99975e57b5"
         }
       },
       "draft_request": {},
@@ -616,12 +696,12 @@
       },
       "progress": {
         "blockers": [
-          "No supported guided SGLang FPM profile or exact accepted configuration; formal campaign not started.",
-          "Production Ascend model/query integration, actual routing metadata and stable communication tables remain incomplete.",
-          "Resolved serving memory, replay coverage and measured serving prediction accuracy remain unvalidated."
+          "Guided direct-FPM init currently only supports vLLM; operator-level SGLang/Ascend integration is the authorized path under development.",
+          "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
+          "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "Use source-verified mapping and qualified experimental observations to design the Ascend production query contract, then validate full forward latency; do not bypass exact FPM profile acceptance.",
-        "stage": 1,
+        "next_action": "Complete production HCCL/precision identity and collection coverage before proposing additional deployment cells; exact profile acceptance remains separate.",
+        "stage": 2,
         "status": "in_progress"
       },
       "validation_inputs": {}
@@ -700,6 +780,7 @@
       ],
       "status": "Model headers inspected; candidate historical aggregated deployment found. Runtime and hardware qualification pending."
     },
+    "checkpoint_context_transition": "Reviewed revision18 resume issues: adding the new production-goal input plan invalidated five earlier experimental-stage validation references. Their file contents are unchanged; archive these historical references rather than claim they qualify the new production goal. New native-interface controls remain explicitly distinct from serving-profile validation.",
     "cli_limitation": {
       "confidence": "high",
       "finding": "Guided FPM onboarding currently allows only framework=vllm. No SGLang profile was fabricated or accepted.",
@@ -808,6 +889,13 @@
         "https://quay.io/api/v1/repository/ascend/sglang/tag/?limit=100&onlyActiveTags=true"
       ]
     },
+    "model_content_pin": {
+      "checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
+      "scope": "SHA256 of canonical sorted per-file relative paths, sizes and full SHA256 values;196files, including all weight bytes and tokenizer/config assets.",
+      "source_manifest": "production/model-source-fingerprint.json",
+      "target_manifest": "production/model-target-fingerprint.json",
+      "target_path": "npu1-19:/mnt/raid/aisimulate-youxingye-20261022/glm-q"
+    },
     "native_communication_collection": {
       "confidence": "high for raw observations; initial small-payload timing includes CPU submission gaps and is not a fabric-latency estimate",
       "follow_up": "Independent host-callback gate prequeues native HCCL work before device events; remote readiness passed full pre/post payload checks and measured about 8us instead of 60us. Repeat exact topology campaign with this boundary. Graph capture returned 107025 and is not used. ReduceScatter MAX will be a separately labeled correctness control; it does not qualify SUM.",
@@ -864,6 +952,36 @@
         "stage1/serving-smoke/serving-smoke.json",
         "stage1/runtime-v0522/runtime-image-inventory.json"
       ]
+    },
+    "production_goal": {
+      "authorization": "User explicitly authorized both nodes, missing-data collection, coordinated producer/consumer implementation and local stage commits; no remote publication requested.",
+      "baseline_commit": "cfe57b6f",
+      "collection_status": "Full-setup two-rank smoke16points passed correctness andCV<=10%. Complete full-setup collection deferred while model transfer loads peer; older controls/basic-env campaigns remain separate.",
+      "confidence": "High for inspected source and completed smoke; production dataset and broad goal remain incomplete.",
+      "coverage": "production/coverage-plan.json",
+      "cross_host_controls": "Local36/36correct andCV<=10%;median absolute latency difference2.239% butmaximum484.79% on tiny standalone dynamicquant; no blanket cross-driver borrowing.",
+      "current_collection": "Own peer recording server aisim-glm52-state-20261022 starts on18000 with verified weights and state-only graph-safe count copies. Original local United remains healthy.",
+      "current_implementation": "HCCL native op/table/selector and strict publication gates; distinct static/dynamic W8A8 GEMM and dynamic W8A8 MoE identities; local GLM ModelSlim sidecar normalization with compact per-layer precision metadata.",
+      "date": "2026-10-22",
+      "diagnostic_findings": "Increasing iterations and disablingGC did not eliminate eager timing spikes; GC callbacks measured0. CPU affinity improved some points but not all. Retain controls; no claim of fixed root cause.",
+      "final_foundation_tests": "390GPU parity tests,9precision-native,22wire-spec,20source-resolution,5HCCL-native,10Python foundation tests passed.296serving-setup peer HCCL rows reproduced through the native engine. Ruff14source/testfiles passed.",
+      "foundation_status": "Implemented and validated; this is not full model/PD/search completion.",
+      "graph_event_capability": "Captured NPU timing events cannot be read after graph replay: event recorder null507000. Do not build module timing on that assumption.",
+      "guide_help_inspected": "onboard and onboard init current help; guided init still restricts framework to vLLM, so no fabricated SGLang profile acceptance.",
+      "handoff": "production/NEXT.md",
+      "metadata_validation": "Actual checkpoint:78layers,75MoE,21declared indexers;primary GEMMw8a8,MoEw8a8_dynamic. About19MB source becomes33257bytes retained metadata; cold parse0.145s; existing model-config cache reused.",
+      "model_transfer": "196files and774079436873bytes copied to fresh private peer directory. Both full SHA256 manifests match: b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc.",
+      "native_binary_sha256": "bf9621744d83b89ec513573cb28e7d09a8b9d22c2db2fd30c78c86c86912c89e",
+      "native_validation": "5native HCCL tests passed;3initial exporter tests passed,expanded4tests pending;both existing GPU parity suites390passed in1971.32s. Actual292control rows reproduced exactly through existing native engine/spec interface. Additional source-resolution registration and pinned-op-count changes need final focused rebuild/checks.",
+      "next": "Validate real-model per-layer/rank routing state, collect model-specific operator/module performance, implement memory and full execution composition, then PD and canonical search validation.",
+      "objective": "Canonical Ascend910C + local GLM5.2W8A8 operator prediction, memory, replay, aggregated/PD and parallelism/replica search.",
+      "qualified_hccl": "320points with complete recorded United environment/CPU setup on npu1-19;296qualified and24CV failures retained. Peer-driver scope remains explicit; no automatic local-driver borrowing.",
+      "routing_collection_source": "Pinned SGLang includes RoutedExpertsCapturer and enable_return_routed_experts. Both Ascend DeepEP normal/LL adapters use group_list_type1 per-expert counts; prior balanced cumulative probes are controls only.",
+      "service": "Original local United restored and healthyHTTP200; local reference task container removed; existing peer service preserved.",
+      "serving_setup": "production/serving-setup.json captures complete launcher exports and live scheduler CPU masks. Collector applies these before runtime imports. Worker proctitle makes worker/proc/environ unreliable; launcher/script provenance is explicit.",
+      "source_parity_correction": "Read live United process environment: TASK_QUEUE_ENABLE0,HCCL_BUFFSIZE650,SGLANG_NPU_USE_MULTI_STREAM1. Earlier controls usedqueue1/defaultbuffers and are NOT qualified serving-profile data. Producer now calls pinned SGLang group-options factory and records resolved options; exporter requires v2 and refuses mismatches.",
+      "status": "active",
+      "tests": "Native HCCL5, wire-spec22, source-resolution20, precision enums9 and Python foundation10passed. EarlierGPU parity390passed; final foundation parity is running on rebuilt binary in production/foundation-parity.log."
     },
     "runtime_v0522": {
       "cann": "9.1.0 B243",
@@ -923,7 +1041,7 @@
       "remaining_work": "Production Ascend query integration, actual-route communication qualification, full-forward and serving prediction accuracy."
     }
   },
-  "revision": 17,
+  "revision": 21,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

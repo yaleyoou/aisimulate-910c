@@ -1,0 +1,9 @@
+{
+  "destination": "/mnt/raid/aisimulate-youxingye-20261022/glm-q",
+  "free_bytes": 8285706477568,
+  "owner_uid": 5034,
+  "pid": 2768913,
+  "source": "/mnt/raid/user/data/models/glm-q",
+  "status": "transfer_running",
+  "scope": "Fresh private directory, no existing model or service overwritten"
+}

@@ -1,0 +1,1 @@
+{"pid": 2307584, "command": ["python3", "/tmp/aisim-910c-production-20261022/fingerprint_model.py", "/mnt/raid/aisimulate-youxingye-20261022/glm-q", "--output", "/tmp/aisim-910c-production-20261022/model-target-fingerprint.json"]}

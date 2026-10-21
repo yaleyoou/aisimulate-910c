@@ -136,6 +136,18 @@ operator identities. Register the name in `SupportedSystems` and provide its
 | `node.p2p_latency` | Seconds of fixed P2P protocol latency. Describe whether CPU submission is included. The native P2P formula uses inter-node bandwidth and omits this constant in SOL mode. |
 | `node.pcie_bw`, `node.num_gpus_per_rack`, `node.inter_rack_bw` | Optional measured or sourced PCIe and rack properties; omit unknown values. |
 | `misc.nccl_mem`, `misc.nccl_version`, `misc.other_mem` | Existing NCCL and serving-memory inputs; do not relabel HCCL observations as NCCL or invent reservations to make memory estimation pass. |
+| `misc.hccl_version` | Selects the exact HCCL provenance directory at `data/<system>/comm/hccl/<value>/hccl_perf.parquet`; optional. Different driver/runtime identities use different directories. |
+
+HCCL tables retain exact dtype, operation, rank count, ranks per node, contiguous
+rank placement and eager/graph execution identities. The payload axis is input
+bytes per rank; AllGather output is larger by the group size, while ReduceScatter
+input is the complete send tensor. Qualified points require full-payload checks
+before and after timing on every rank, at least three samples and CV at most 10%.
+Only measured payload brackets interpolate; missing tuples and out-of-range
+payloads fail explicitly. Malformed files, duplicate physical keys and mixed
+runtime identities are errors. HCCL data is never relabeled as NCCL or borrowed
+from another transport. Declaring the directory does not qualify a model or
+establish collective coverage.
 
 The `ascend910c` definition is a scoped hardware calibration for Atlas 800T A3
 with 16 runtime-visible chips per node. Its packaged

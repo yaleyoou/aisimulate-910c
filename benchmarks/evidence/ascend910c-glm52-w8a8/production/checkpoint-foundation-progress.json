@@ -1,0 +1,26 @@
+{
+  "research": {
+    "production_goal": {
+      "status": "active",
+      "handoff": "production/NEXT.md",
+      "current_implementation": "HCCL native op/table/selector and strict publication gates; distinct static/dynamic W8A8 GEMM and dynamic W8A8 MoE identities; local GLM ModelSlim sidecar normalization with compact per-layer precision metadata.",
+      "metadata_validation": "Actual checkpoint:78layers,75MoE,21declared indexers;primary GEMMw8a8,MoEw8a8_dynamic. About19MB source becomes33257bytes retained metadata; cold parse0.145s; existing model-config cache reused.",
+      "tests": "Native HCCL5, wire-spec22, source-resolution20, precision enums9 and Python foundation10passed. EarlierGPU parity390passed; final foundation parity is running on rebuilt binary in production/foundation-parity.log.",
+      "serving_setup": "production/serving-setup.json captures complete launcher exports and live scheduler CPU masks. Collector applies these before runtime imports. Worker proctitle makes worker/proc/environ unreliable; launcher/script provenance is explicit.",
+      "collection_status": "Full-setup two-rank smoke16points passed correctness andCV<=10%. Complete full-setup collection deferred while model transfer loads peer; older controls/basic-env campaigns remain separate.",
+      "model_transfer": "Fresh private npu1-19:/mnt/raid/aisimulate-youxingye-20261022/glm-q; source /mnt/raid/user/data/models/glm-q. Running rsync PID and progress in production/model-transfer.json and model-transfer.log. Remote UID5034, localUID5031. Verify completion and fingerprints before model use.",
+      "service": "Original local United restored and healthyHTTP200; local reference task container removed; existing peer service preserved.",
+      "graph_event_capability": "Captured NPU timing events cannot be read after graph replay: event recorder null507000. Do not build module timing on that assumption.",
+      "routing_collection_source": "Pinned SGLang includes RoutedExpertsCapturer and enable_return_routed_experts. Both Ascend DeepEP normal/LL adapters use group_list_type1 per-expert counts; prior balanced cumulative probes are controls only.",
+      "next": "Finish final foundation regressions and commit that stage; verify model transfer; collect complete serving-matched profiles and actual routing; implement full model/memory/PD composition and validate canonical search."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "modelslim_normalization": {"kind": "file", "scope": "validation", "path": "production/modelslim-normalization.log"},
+        "captured_event_capability": {"kind": "file", "scope": "validation", "path": "production/captured-event-capability.json"}
+      }
+    }
+  }
+}

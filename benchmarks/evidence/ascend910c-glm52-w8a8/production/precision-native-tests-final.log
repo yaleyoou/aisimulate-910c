@@ -1,0 +1,17 @@
+   Compiling aisimulate-core v0.13.0 (/workspace/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 22.56s
+     Running unittests src/lib.rs (/tmp/aisim-target/debug/deps/aisimulate_core-ebb66dd983bafe3a)
+
+running 9 tests
+test perfmodel::common::enums::tests::backend_kind_string_keys_match_python ... ok
+test perfmodel::common::enums::tests::database_mode_default_is_silicon ... ok
+test perfmodel::common::enums::tests::gemm_quant_payloads_match_python_quant_mapping ... ok
+test perfmodel::common::enums::tests::kvcache_compute_is_zero ... ok
+test perfmodel::common::enums::tests::humming_moe_wire_identity_is_additive ... ok
+test perfmodel::common::enums::tests::model_family_string_round_trip ... ok
+test perfmodel::common::enums::tests::moe_quant_payloads_match_python_quant_mapping ... ok
+test perfmodel::common::enums::tests::perf_data_filenames_match_python_enum ... ok
+test perfmodel::common::enums::tests::w8a8_precision_preserves_static_dynamic_and_weight_only_identities ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 2001 filtered out; finished in 0.00s
+

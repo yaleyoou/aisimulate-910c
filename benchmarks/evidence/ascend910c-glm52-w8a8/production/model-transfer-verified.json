@@ -1,0 +1,8 @@
+{
+  "status": "verified",
+  "files": 196,
+  "total_bytes": 774079436873,
+  "checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
+  "source": "/mnt/raid/user/data/models/glm-q",
+  "target": "npu1-19:/mnt/raid/aisimulate-youxingye-20261022/glm-q"
+}

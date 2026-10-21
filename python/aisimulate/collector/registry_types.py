@@ -80,6 +80,7 @@ class PerfFile(str, Enum):
     GLM5_DSA_ATTN_MODULE = "glm5_dsa_attn_module_perf.txt"
     DSV4_MEGAMOE_MODULE = "dsv4_megamoe_module_perf.txt"
     NCCL = "nccl_perf.txt"
+    HCCL = "hccl_perf.txt"
     CUSTOM_ALLREDUCE = "custom_allreduce_perf.txt"
     TRTLLM_ALLTOALL = "trtllm_alltoall_perf.txt"
 

@@ -215,6 +215,8 @@ pub enum GemmQuantMode {
     Nvfp4,
     Nvfp4Wo,
     W4a16Nvfp4,
+    W8a8,
+    W8a8Dynamic,
 }
 
 impl GemmQuantMode {
@@ -286,6 +288,18 @@ impl GemmQuantMode {
                 name: "w4a16_nvfp4",
                 compute_dtype: Some(ComputeDtype::Bfloat16),
             },
+            Self::W8a8 => QuantMapping {
+                memory: 1.0,
+                compute: 2.0,
+                name: "w8a8",
+                compute_dtype: Some(ComputeDtype::Int8),
+            },
+            Self::W8a8Dynamic => QuantMapping {
+                memory: 1.0,
+                compute: 2.0,
+                name: "w8a8_dynamic",
+                compute_dtype: Some(ComputeDtype::Int8),
+            },
         }
     }
 
@@ -322,6 +336,7 @@ pub enum MoeQuantMode {
     /// Native Humming MXFP4 experts with unquantized BF16 activations.
     /// Distinct from the Triton and FlashInfer CUTLASS W4A16 kernels.
     W4a16Mxfp4Humming,
+    W8a8Dynamic,
 }
 
 impl MoeQuantMode {
@@ -404,6 +419,12 @@ impl MoeQuantMode {
                 compute: 1.0,
                 name: "w4a16_mxfp4_humming",
                 compute_dtype: Some(ComputeDtype::Bfloat16),
+            },
+            Self::W8a8Dynamic => QuantMapping {
+                memory: 1.0,
+                compute: 2.0,
+                name: "w8a8_dynamic",
+                compute_dtype: Some(ComputeDtype::Int8),
             },
         }
     }
@@ -627,6 +648,7 @@ pub enum PerfDataFilename {
     Dsv4MegamoeModule,
     MoeA2a,
     MoeExpertCompute,
+    Hccl,
 }
 
 impl PerfDataFilename {
@@ -636,6 +658,7 @@ impl PerfDataFilename {
             Self::Gemm => "gemm_perf.parquet",
             Self::Nccl => "nccl_perf.parquet",
             Self::Oneccl => "oneccl_perf.parquet",
+            Self::Hccl => "hccl_perf.parquet",
             Self::GenerationAttention => "generation_attention_perf.parquet",
             Self::ContextAttention => "context_attention_perf.parquet",
             Self::EncoderAttention => "encoder_attention_perf.parquet",
@@ -675,6 +698,28 @@ impl PerfDataFilename {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn w8a8_precision_preserves_static_dynamic_and_weight_only_identities() {
+        for (name, mode, index) in [
+            ("w8a8", GemmQuantMode::W8a8, 11_u32),
+            ("w8a8_dynamic", GemmQuantMode::W8a8Dynamic, 12_u32),
+        ] {
+            assert_eq!(
+                serde_json::from_str::<GemmQuantMode>(&format!("\"{name}\"")).unwrap(),
+                mode
+            );
+            assert_eq!(mode.mapping().compute_dtype, Some(ComputeDtype::Int8));
+            assert_eq!(mode.mapping().memory, 1.0);
+            assert_eq!(bincode::serialize(&mode).unwrap(), index.to_le_bytes());
+            assert_ne!(mode, GemmQuantMode::Sq);
+            assert_ne!(mode, GemmQuantMode::Int8Wo);
+        }
+        let mode = MoeQuantMode::W8a8Dynamic;
+        assert_eq!(mode.mapping().compute_dtype, Some(ComputeDtype::Int8));
+        assert_eq!(serde_json::to_string(&mode).unwrap(), "\"w8a8_dynamic\"");
+        assert_eq!(bincode::serialize(&mode).unwrap(), 13_u32.to_le_bytes());
+    }
 
     #[test]
     fn backend_kind_string_keys_match_python() {

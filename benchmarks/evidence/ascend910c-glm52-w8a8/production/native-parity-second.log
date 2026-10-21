@@ -1,0 +1,49 @@
+ERROR: Unknown config option: asyncio_mode
+
+
+
+==================================== ERRORS ====================================
+_ ERROR collecting crates/core/parity_tests/perfmodel/test_engine_step_parity.py _
+ImportError while importing test module '/workspace/crates/core/parity_tests/perfmodel/test_engine_step_parity.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/local/python3.12.13/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+crates/core/parity_tests/perfmodel/test_engine_step_parity.py:29: in <module>
+    from aisimulate.legacy_cli.api import cli_estimate
+python/aisimulate/src/aisimulate/legacy_cli/__init__.py:49: in <module>
+    from aisimulate.legacy_cli.api import (
+python/aisimulate/src/aisimulate/legacy_cli/api.py:20: in <module>
+    from aisimulate.legacy_cli.main import (
+python/aisimulate/src/aisimulate/legacy_cli/main.py:29: in <module>
+    from aisimulate.legacy_cli.report_and_save import log_final_summary, save_results
+python/aisimulate/src/aisimulate/legacy_cli/report_and_save.py:26: in <module>
+    from aisimulate.sdk import pareto_analysis
+python/aisimulate/src/aisimulate/sdk/pareto_analysis.py:12: in <module>
+    import plotext
+E   ModuleNotFoundError: No module named 'plotext'
+_ ERROR collecting crates/core/parity_tests/perfmodel/test_compile_engine_parity.py _
+ImportError while importing test module '/workspace/crates/core/parity_tests/perfmodel/test_compile_engine_parity.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/local/python3.12.13/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+crates/core/parity_tests/perfmodel/test_compile_engine_parity.py:45: in <module>
+    from test_engine_step_parity import (
+crates/core/parity_tests/perfmodel/test_engine_step_parity.py:29: in <module>
+    from aisimulate.legacy_cli.api import cli_estimate
+python/aisimulate/src/aisimulate/legacy_cli/__init__.py:49: in <module>
+    from aisimulate.legacy_cli.api import (
+python/aisimulate/src/aisimulate/legacy_cli/api.py:20: in <module>
+    from aisimulate.legacy_cli.main import (
+python/aisimulate/src/aisimulate/legacy_cli/main.py:29: in <module>
+    from aisimulate.legacy_cli.report_and_save import log_final_summary, save_results
+python/aisimulate/src/aisimulate/legacy_cli/report_and_save.py:26: in <module>
+    from aisimulate.sdk import pareto_analysis
+python/aisimulate/src/aisimulate/sdk/pareto_analysis.py:12: in <module>
+    import plotext
+E   ModuleNotFoundError: No module named 'plotext'
+=========================== short test summary info ============================
+ERROR crates/core/parity_tests/perfmodel/test_engine_step_parity.py
+ERROR crates/core/parity_tests/perfmodel/test_compile_engine_parity.py
+2 errors in 2.10s

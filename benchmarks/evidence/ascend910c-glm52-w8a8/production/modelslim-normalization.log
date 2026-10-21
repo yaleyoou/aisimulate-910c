@@ -1,0 +1,1 @@
+{"architecture": "GlmMoeDsaForCausalLM", "layers": 78, "num_moe_layers": 75, "quant_modes": {"gemm_quant_mode": "w8a8", "moe_quant_mode": "w8a8_dynamic"}}

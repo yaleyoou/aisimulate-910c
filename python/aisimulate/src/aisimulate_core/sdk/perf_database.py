@@ -2711,7 +2711,13 @@ class PerfDatabase:
             return
         system_data_root = os.path.join(self.systems_root, self.system_spec["data_dir"])
         for filename_enum in PerfDataFilename:
-            primary_path = resolve_op_data_path(system_data_root, self.backend, self.version, filename_enum.value)
+            if filename_enum is PerfDataFilename.hccl:
+                version = (self.system_spec.get("misc") or {}).get("hccl_version")
+                if version is None:
+                    continue
+                primary_path = resolve_op_data_path(system_data_root, "hccl", version, filename_enum.value)
+            else:
+                primary_path = resolve_op_data_path(system_data_root, self.backend, self.version, filename_enum.value)
             self._build_op_sources(filename_enum, primary_path, system_data_root)
         # Set only AFTER the sweep completes: a strict-provenance failure
         # mid-sweep must leave the next call free to retry (and fail closed

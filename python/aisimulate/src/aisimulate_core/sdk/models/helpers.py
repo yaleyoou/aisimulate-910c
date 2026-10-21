@@ -661,6 +661,13 @@ def _infer_quant_modes_from_raw_config(raw_config: dict, architecture: str | Non
     elif quant_algo == "nvfp4":
         overrides["gemm_quant_mode"] = common.GEMMQuantMode.nvfp4
         overrides["moe_quant_mode"] = common.MoEQuantMode.nvfp4
+    elif quant_algo == "modelslim":
+        metadata = raw_config.get("modelslim_metadata")
+        if not isinstance(metadata, dict):
+            raise ValueError("ModelSlim inference requires the checkpoint's quant_model_description.json")
+        overrides["gemm_quant_mode"] = common.GEMMQuantMode[metadata["primary_gemm_mode"]]
+        if metadata["moe_mode"] is not None:
+            overrides["moe_quant_mode"] = common.MoEQuantMode[metadata["moe_mode"]]
     elif quant_algo == "mixed_precision":
         overrides.update(_infer_mixed_precision_quant_modes(raw_config, quant_dynamic))
     elif quant_algo == "mxfp4":

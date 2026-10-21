@@ -568,6 +568,8 @@ pub(crate) fn gemm_quant_by_name(name: &str) -> Option<GemmQuantMode> {
         "nvfp4" => Nvfp4,
         "nvfp4_wo" => Nvfp4Wo,
         "w4a16_nvfp4" => W4a16Nvfp4,
+        "w8a8" => W8a8,
+        "w8a8_dynamic" => W8a8Dynamic,
         _ => return None,
     })
 }
