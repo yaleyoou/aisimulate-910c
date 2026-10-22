@@ -1,0 +1,89 @@
+{
+  "status": "completed",
+  "source": "/mnt/raid/user/data/models/glm-q",
+  "destination": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides",
+  "expected_sha256": "9a0e120fdc2838a98a8c9927761beb7f1669d1b41f703a5855cc049a55047297",
+  "started_at_unix": 1792666075.3579915,
+  "files": [
+    {
+      "path": "quant_model_weights-00005-of-00181.safetensors",
+      "bytes": 4294138848,
+      "sha256": "49b3a40f6b9dd1422c63bf4e89701b6b0c67b83e33baed9fc31ce00b1e67f45f",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00002-of-00181.safetensors",
+      "bytes": 4287620432,
+      "sha256": "64842ba7c22cfb14fb94785c8a7c1bc61d9e791b6bf50585d91c32a4d6c2f935",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00001-of-00181.safetensors",
+      "bytes": 4284316944,
+      "sha256": "ab335b89df4efd0b8806d460d272cd82e3eeafc2c5f2ad25f2a56080568a98b8",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00003-of-00181.safetensors",
+      "bytes": 4294138488,
+      "sha256": "90918ab85a64711c37166ef2f29123665b3a2cf31caf32f76fa4fb5aab64c452",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00016-of-00181.safetensors",
+      "bytes": 4287587800,
+      "sha256": "dc9803f59a703724bc65fada072957712dd3699301cdc25042bdc36d11866e3b",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00010-of-00181.safetensors",
+      "bytes": 4294138416,
+      "sha256": "a9ef13ea310d98805a6d86883395e99ecee70e9f6fc1d4d8a0b19a2b05514402",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00021-of-00181.safetensors",
+      "bytes": 4287588888,
+      "sha256": "ca97e34475169c9eba648a4d6435e58370a4c762710783e5906a50bb5e5319af",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00027-of-00181.safetensors",
+      "bytes": 4287621032,
+      "sha256": "03b16fcdb9c0e12ef364f270a4b2a67fbe0e4badb34bb90e6bae44f2bf065e65",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00035-of-00181.safetensors",
+      "bytes": 4291929776,
+      "sha256": "f766af25f55bffd20fad031c12ce2b8e7a0abba67b9ee1224102982df16e9efd",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00059-of-00181.safetensors",
+      "bytes": 4294171728,
+      "sha256": "439df823b15347522daf6c6ddb9388df8ddca5af4501819af9e1cc2b709a3817",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00064-of-00181.safetensors",
+      "bytes": 4287588312,
+      "sha256": "e2e61819b49834be69000ec951e22cbac635942835de30e55752a576bfe53b1b",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00084-of-00181.safetensors",
+      "bytes": 4294172120,
+      "sha256": "871198a2fc78e47f700c6e28eec8bd7605389ff27e62cacac42ff6605b816ad0",
+      "verified_existing": false
+    },
+    {
+      "path": "quant_model_weights-00137-of-00181.safetensors",
+      "bytes": 4291929336,
+      "sha256": "76d01edec1242ca7b59ddc76b23e30b852f918b6034c3fa6f8ee809e44b4b424",
+      "verified_existing": false
+    }
+  ],
+  "checkpoint_sha256": "9a0e120fdc2838a98a8c9927761beb7f1669d1b41f703a5855cc049a55047297",
+  "elapsed_seconds": 17.754171133041382
+}

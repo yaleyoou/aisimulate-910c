@@ -5,12 +5,13 @@ Atlas 800T A3 node. A node exposes **16 chips on eight dual-chip boards**.
 Memory capacity and throughput are per chip, never per board or per node.
 
 This directory contains an experimental source-qualified linear table under
-`gemm/sglang/0.5.22/ascend_linear_perf.parquet`: 657 stable measurements from
-660 attempted cases, with raw provenance and collection metadata alongside it.
-It distinguishes static W8A8, dynamic W8A8, BF16, bias, storage format and
+`gemm/sglang/0.5.22/ascend_linear_perf.parquet`: 1,241 stable measurements from
+1,246 attempted cases, with raw provenance and collection metadata alongside it.
+It distinguishes static W8A8, dynamic W8A8, BF16, the indexer weighting projection's
+FP32-input/BF16-weight/FP32-output path, bias, storage format and
 eager/graph execution. Native queries use exact keys and interpolate only inside
-measured token brackets. The eager QKV-A M=1 point is unqualified; its curve
-starts at M=2. All graph grid points passed the recorded stability check.
+measured token brackets. Five unstable measurements are excluded and retained
+in provenance. Missing curves and out-of-bracket queries fail explicitly.
 
 This is **partial operator support**, not a complete GLM prediction database.
 The system-specific query-version override pins SGLang to `0.5.22`; the Ascend
@@ -27,10 +28,11 @@ Linear collection uses the pinned image below, driver 26.1.1, 64 independent
 weight copies and 128 calls per timing sample. All attempted cases pass sampled
 CPU-reference checks through the actual eager invocation or captured replay.
 Matched M=8 controls on nodes 31 and 32 differ by at most 4.4% in paired means.
-Working-set sensitivity reaches 9.4%. Independent held-out evaluation has 187
-stable points: 13 exceed 10% relative error, with a maximum of 34.8%; its accuracy
-gate fails. Complete cache convergence, whole-forward accuracy and serving
-accuracy are not established by the table. The original observations and intentional graph-noop failure are
+Working-set sensitivity reaches 9.4%. Earlier linear grids failed independent
+held-out accuracy checks, including kernel-tiling discontinuities. The current
+mixed-precision grid has verified execution and native table lookup, but its
+interpolation, whole-forward and serving accuracy remain uncalibrated. Functional
+bring-up takes priority over prediction-accuracy tuning. Original observations and intentional graph-noop failures are
 under `benchmarks/evidence/ascend910c-glm52-w8a8/production/linear*`.
 
 The retained calibration manifest is

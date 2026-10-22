@@ -1,0 +1,90 @@
+{
+  "schema": "aisimulate-readonly-model-view/v1",
+  "status": "verified_readonly_mount_plan",
+  "model_path_on_both_nodes": "/mnt/raid/user/data/models/glm-q",
+  "target_checkpoint_sha256": "41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c",
+  "node31_base_checkpoint_sha256": "371121b22244cfd5827a4ee4935f525fc4f0f114e3e4968c3b915151764f18ed",
+  "node31_model_mount": "/models/glm-q",
+  "scope": "Mount node31 original directory read-only, then the13 verified override files read-only. Original directories unchanged. Sources must remain immutable.",
+  "overrides": [
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00001-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00001-of-00181.safetensors",
+      "sha256": "ab335b89df4efd0b8806d460d272cd82e3eeafc2c5f2ad25f2a56080568a98b8",
+      "bytes": 4284316944
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00002-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00002-of-00181.safetensors",
+      "sha256": "64842ba7c22cfb14fb94785c8a7c1bc61d9e791b6bf50585d91c32a4d6c2f935",
+      "bytes": 4287620432
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00003-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00003-of-00181.safetensors",
+      "sha256": "90918ab85a64711c37166ef2f29123665b3a2cf31caf32f76fa4fb5aab64c452",
+      "bytes": 4294138488
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00005-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00005-of-00181.safetensors",
+      "sha256": "49b3a40f6b9dd1422c63bf4e89701b6b0c67b83e33baed9fc31ce00b1e67f45f",
+      "bytes": 4294138848
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00010-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00010-of-00181.safetensors",
+      "sha256": "a9ef13ea310d98805a6d86883395e99ecee70e9f6fc1d4d8a0b19a2b05514402",
+      "bytes": 4294138416
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00016-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00016-of-00181.safetensors",
+      "sha256": "dc9803f59a703724bc65fada072957712dd3699301cdc25042bdc36d11866e3b",
+      "bytes": 4287587800
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00021-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00021-of-00181.safetensors",
+      "sha256": "ca97e34475169c9eba648a4d6435e58370a4c762710783e5906a50bb5e5319af",
+      "bytes": 4287588888
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00027-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00027-of-00181.safetensors",
+      "sha256": "03b16fcdb9c0e12ef364f270a4b2a67fbe0e4badb34bb90e6bae44f2bf065e65",
+      "bytes": 4287621032
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00035-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00035-of-00181.safetensors",
+      "sha256": "f766af25f55bffd20fad031c12ce2b8e7a0abba67b9ee1224102982df16e9efd",
+      "bytes": 4291929776
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00059-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00059-of-00181.safetensors",
+      "sha256": "439df823b15347522daf6c6ddb9388df8ddca5af4501819af9e1cc2b709a3817",
+      "bytes": 4294171728
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00064-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00064-of-00181.safetensors",
+      "sha256": "e2e61819b49834be69000ec951e22cbac635942835de30e55752a576bfe53b1b",
+      "bytes": 4287588312
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00084-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00084-of-00181.safetensors",
+      "sha256": "871198a2fc78e47f700c6e28eec8bd7605389ff27e62cacac42ff6605b816ad0",
+      "bytes": 4294172120
+    },
+    {
+      "source": "/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides/quant_model_weights-00137-of-00181.safetensors",
+      "destination": "/models/glm-q/quant_model_weights-00137-of-00181.safetensors",
+      "sha256": "76d01edec1242ca7b59ddc76b23e30b852f918b6034c3fa6f8ee809e44b4b424",
+      "bytes": 4291929336
+    }
+  ],
+  "verification": "All13 override destination files rehashed; composed196file manifest equals current32. Container mount and model startup remain to verify."
+}

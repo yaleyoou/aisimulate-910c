@@ -1,0 +1,15 @@
+{
+  "schema": "aisimulate-tensor-payload-fingerprint/v1",
+  "model": "/mnt/raid/user/data/models/glm-q",
+  "files": [
+    {
+      "path": "quant_model_weights-00001-of-00181.safetensors",
+      "bytes": 4284316944,
+      "header_length": 99440,
+      "tensor_descriptors_sha256": "78822231b08d713f37a448cd7eaab3ab3a8707188cec27921a2715f130f816c7",
+      "payload_sha256": "d668d09de05b1620f8e5e73c94ce0ce34c35a754f76572e606db55bc03ee5554",
+      "tensors": 832,
+      "metadata": null
+    }
+  ]
+}

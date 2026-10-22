@@ -1,0 +1,189 @@
+{
+  "logs": [
+    {
+      "path": "operator-input-state-node31-20261022/npu-before.log",
+      "sha256": "52687bffc138cebef5b2e84340d07b94df532236db90d7db74dc2b3c8174c460",
+      "archive": "operator-input-state-node31-20261022/npu-before.log.gz"
+    },
+    {
+      "path": "operator-input-state-node31-20261022/startup.log",
+      "sha256": "26e18680336c671044f34c699a5b5d605b2579e18637a4c42a29beed9bb069eb",
+      "archive": "operator-input-state-node31-20261022/startup.log.gz"
+    },
+    {
+      "path": "operator-input-state-node31-20261022-attempt2/npu-before.log",
+      "sha256": "c52accb461e4046cb48a419af68dc27e755a25425a6bbe0ae3bd5c9ed5e6498e",
+      "archive": "operator-input-state-node31-20261022-attempt2/npu-before.log.gz"
+    },
+    {
+      "path": "operator-input-state-node31-20261022-attempt2/request.log",
+      "sha256": "e280d67bcac42a707b7f27d724a75894e108ac938ce43f7f87e9be055b0bdf73",
+      "archive": "operator-input-state-node31-20261022-attempt2/request.log.gz"
+    },
+    {
+      "path": "operator-input-state-node31-20261022-attempt2/request-c10.log",
+      "sha256": "36aba7e76c08ec15ab9395b3f4a7ed2a1900da439190b395d7a12a7e9d7cc874",
+      "archive": "operator-input-state-node31-20261022-attempt2/request-c10.log.gz"
+    },
+    {
+      "path": "operator-input-state-node31-20261022-attempt2/startup.log",
+      "sha256": "30ea37ebfc1d1f7f5a2f4fd7b92e6ec96aee56a68066de2cc8e1e84022ef7972",
+      "archive": "operator-input-state-node31-20261022-attempt2/startup.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/npu-before.log",
+      "sha256": "c310e45380262c8cf980c666e349636ece882af05700caffc18a6575ff5a7ebc",
+      "archive": "linear-dense-node32-20261022/npu-before.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/containers-before.log",
+      "sha256": "a05f27d395f54872daf1035fd3634db09487bcad908a9d4559b8410b3cd0a829",
+      "archive": "linear-dense-node32-20261022/containers-before.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/disk-before.log",
+      "sha256": "30480dcfc79569b3a10aa573edce6c3f79031a8301dba35915c57442f942e411",
+      "archive": "linear-dense-node32-20261022/disk-before.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "linear-dense-node32-20261022/driver.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/shard-0.log",
+      "sha256": "5befb220a1855aa36a9fcdee5e7602c679b53da57f1beda86540b23022860eee",
+      "archive": "linear-dense-node32-20261022/shard-0.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/shard-1.log",
+      "sha256": "d19e058df672a53b15c54de4a2421e2a257762d5847a08ba18ef85488690af5f",
+      "archive": "linear-dense-node32-20261022/shard-1.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/shard-2.log",
+      "sha256": "a1a2a5efb389340c8a108e85d8f8d135068a30b0cc101cdc72304dca3527c227",
+      "archive": "linear-dense-node32-20261022/shard-2.log.gz"
+    },
+    {
+      "path": "linear-dense-node32-20261022/shard-3.log",
+      "sha256": "922cbd650d64c16ca542fae972347e34620283d5d18b25ecf2ded5e22548eb57",
+      "archive": "linear-dense-node32-20261022/shard-3.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/npu-before.log",
+      "sha256": "feb1bf33bea42d9ebbffc1b9a6956d1974ca19cd4c045fb4f00ba8d59c59e383",
+      "archive": "linear-holdout-node32-20261022/npu-before.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/containers-before.log",
+      "sha256": "9f25a521f5dfc9a48adcdc8482c22de3f0386c21659b4196da806851a0521019",
+      "archive": "linear-holdout-node32-20261022/containers-before.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/disk-before.log",
+      "sha256": "30480dcfc79569b3a10aa573edce6c3f79031a8301dba35915c57442f942e411",
+      "archive": "linear-holdout-node32-20261022/disk-before.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "linear-holdout-node32-20261022/driver.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/shard-0.log",
+      "sha256": "2c22c95fc3da203fb31be3cfeb54ebd2f7aded9900ea76025466fc45a9fa8953",
+      "archive": "linear-holdout-node32-20261022/shard-0.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/shard-1.log",
+      "sha256": "78137a2fee0638c325d8a7c37aa5d2e3e64d9bb64180fc18a2adddfde8654dbd",
+      "archive": "linear-holdout-node32-20261022/shard-1.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/shard-2.log",
+      "sha256": "7d1d6d6b209f7c52dabe6dbffdb7fe18b2ee884b12b7450873932e0bc73bc8a8",
+      "archive": "linear-holdout-node32-20261022/shard-2.log.gz"
+    },
+    {
+      "path": "linear-holdout-node32-20261022/shard-3.log",
+      "sha256": "c00cfea262a43bdb135998d2457b28e5abd657a374a734cf8501b9924f7a89b2",
+      "archive": "linear-holdout-node32-20261022/shard-3.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/npu-before.log",
+      "sha256": "79f9256c0c0c08ff12ee80c1527aef25aa0e8966bedf663604e8c3678227ab74",
+      "archive": "linear-mixed-controls-20261022/npu-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/containers-before.log",
+      "sha256": "4c06c887f92c3467294892493bab8ce7670889ea439bc5c0641cd4a1b05c08a7",
+      "archive": "linear-mixed-controls-20261022/containers-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/disk-before.log",
+      "sha256": "30480dcfc79569b3a10aa573edce6c3f79031a8301dba35915c57442f942e411",
+      "archive": "linear-mixed-controls-20261022/disk-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "linear-mixed-controls-20261022/driver.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/m8-0-copies64.log",
+      "sha256": "e540812f03b7841d1b0090e711e1c3755bd6c7939353f87f9d484db3710f97eb",
+      "archive": "linear-mixed-controls-20261022/m8-0-copies64.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/large16384.log",
+      "sha256": "0a2bccc2374ab9c04a05df3b6210c5fe34c555a14f5555f38422a0457f87b253",
+      "archive": "linear-mixed-controls-20261022/large16384.log.gz"
+    },
+    {
+      "path": "linear-mixed-controls-20261022/graph-noop.log",
+      "sha256": "2199f71ef554b216f7ef1782c2c0d1fa935f07e0943497abf269088a62d9beca",
+      "archive": "linear-mixed-controls-20261022/graph-noop.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/npu-before.log",
+      "sha256": "7d7d4364738e6ac4deb062592825963739a3ea2597e1601bd5d8b8ee969f8ce7",
+      "archive": "linear-mixed-full-20261022/npu-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/containers-before.log",
+      "sha256": "4c06c887f92c3467294892493bab8ce7670889ea439bc5c0641cd4a1b05c08a7",
+      "archive": "linear-mixed-full-20261022/containers-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/disk-before.log",
+      "sha256": "30480dcfc79569b3a10aa573edce6c3f79031a8301dba35915c57442f942e411",
+      "archive": "linear-mixed-full-20261022/disk-before.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "linear-mixed-full-20261022/driver.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/shard-0.log",
+      "sha256": "9d8f73c2eb7dc52dde26b5e446feeede12bfc99482c5474fe7cb3c5703e2a4e0",
+      "archive": "linear-mixed-full-20261022/shard-0.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/shard-1.log",
+      "sha256": "b52ac6374991e2032231cc4457f2b33281a15f90f4b4bb83a589eb0ec01ce088",
+      "archive": "linear-mixed-full-20261022/shard-1.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/shard-2.log",
+      "sha256": "467848fddb4bccf64a3510d4ba992f1cbcb703dccdca079c07e5f3b0d02c06c6",
+      "archive": "linear-mixed-full-20261022/shard-2.log.gz"
+    },
+    {
+      "path": "linear-mixed-full-20261022/shard-3.log",
+      "sha256": "52a198ab016e31d46f926ee089c524de315f502a61b336fb5f2670bfbec56944",
+      "archive": "linear-mixed-full-20261022/shard-3.log.gz"
+    }
+  ]
+}

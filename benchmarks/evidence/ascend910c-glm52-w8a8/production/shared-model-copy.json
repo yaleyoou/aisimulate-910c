@@ -1,0 +1,12 @@
+{
+  "status": "terminated_content_mismatch",
+  "source": "/mnt/raid/user/data/models/glm-q",
+  "destination": "/tgm_rent_data/data/youxingye/model-baselines/glm52-w8a8-b3645035",
+  "expected_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
+  "started_at_unix": 1792664670.469002,
+  "files": [],
+  "quarantine": "/tgm_rent_data/data/youxingye/model-baselines/glm52-w8a8-b3645035-rejected-20261022",
+  "reason": "Current node32 first weight shard differs from archived source manifest; worker futures were still draining after first validation error. Coordinator terminated task PID3164848; no verified baseline was published.",
+  "current_first_shard_sha256": "ab335b89df4efd0b8806d460d272cd82e3eeafc2c5f2ad25f2a56080568a98b8",
+  "expected_first_shard_sha256": "1aa4556bc891623a5c17f86b897793ec55a7148fa736311a0dff74115e9c9789"
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "Kernel dispatch/block metadata; profiled durations notpredictioninputs",
+  "archives": [
+    {
+      "path": "profiles/m112-n128/npu1-32_7_20261022110038957_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "860fce9099bc181a34e393f23cbe047625da2e50bd6f92f54ebcae672b0155dc",
+      "archive": "m112-n128-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m2816-n128/npu1-32_7_20261022110044972_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "1c9b728ee1003c9c84896dcd3bea543cf3e76f085d87e4847c07ee20d6c4387d",
+      "archive": "m2816-n128-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m3072-n128/npu1-32_7_20261022110051065_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "5eb6bb105a4d668b2a663630607aa50bb80e1206a87b27471b7aa574b9094c90",
+      "archive": "m3072-n128-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m3328-n128/npu1-32_7_20261022110057233_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "564486f5a1998a71f4a4b0ed7b1ea8ca885314680e9a329a60a4158315492b7d",
+      "archive": "m3328-n128-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m40-n32/npu1-32_7_20261022110008508_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "482af5a159b74aa4b4e135d92ad13542414879841c2775c80e502ce77d44bc22",
+      "archive": "m40-n32-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m48-n32/npu1-32_7_20261022110014700_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "71648e7ca0d0fa97d926f4bff83bef88bef6ad592f0ee8cf05ceee7822fb09cf",
+      "archive": "m48-n32-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m56-n32/npu1-32_7_20261022110020890_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "b0d9b5593f5dde5d3d4a7d83ffab65a1d74c2bb9fb01222098c457515d711d04",
+      "archive": "m56-n32-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m80-n128/npu1-32_7_20261022110026894_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "8f5ef9be9de90b8081259c744bcecdbc741fbd91ec9212f9c0e74a8dbd35aee5",
+      "archive": "m80-n128-kernel-details.csv.gz"
+    },
+    {
+      "path": "profiles/m96-n128/npu1-32_7_20261022110032924_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+      "sha256": "0cae41b47016ff3e2d42455c101d9f39b36ec30bbbb6fa69e608b0a1de15f240",
+      "archive": "m96-n128-kernel-details.csv.gz"
+    }
+  ]
+}

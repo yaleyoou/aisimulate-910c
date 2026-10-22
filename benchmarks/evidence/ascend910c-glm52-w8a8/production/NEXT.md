@@ -1,5 +1,54 @@
 # Current goal handoff
 
+UPDATE AFTER ABOVE-SUMMARY WORK: checkpointrevision38. Native mixedsourcecommitted
+c774dc37;inputobservercommittedd501ecf1. New1241stablemixedrowsfrom1246casesinstalled
+standardascend910c/gemm/sglang/0.5.22 andfrozenlinear-mixed-published-20261022.
+Native1241querieszeroerror;7Rust,14collector,13versiontestsand390GPUparityPASS.
+Ascendquery_versions.yaml overridepins0.5.22soNPUdata cannotpromoteCUDAfleetnext
+(firstparityrunhad6version-gatefailures;fixedrootcause,neverchangedgoldens).
+CurrentRELEASEnativeSHA4f3e65299344a4477dba034c0e32cc2e743a1d2e580b6e329ba57ea9391f5ad5.
+AllNPUcollectionjobsended. Own31recordingattempt2STOPPEDafter11requests;noactiveNPUjobs.
+CPUvalidationandlocalidleaisim-linear-tiling-20261022available.
+Data/evidencestagecommitstillneeded;manynewartifactfilesuntracked. Preserveoldmd/test.md
+andoldPID/lock/logleftovers. Inputplainjsonlarchivedtogzipwithinput-archives.json;
+originalplainfilesignoredlocally. Donotmodifyregisteredimmutableinputreport.
+Immediatepriority: commonnativeNPUprimitivecontract forBMM/vector/attention/indexer,
+source-correctcollection,actualGLMcomposition;thenMoE/DeepEP,memory,PD/search.
+DoNOTresumeaccuracytuningoradditionalheldoutcampaigns(userexplicitlydeferredthem).
+
+LATEST USER PRIORITY: complete collection/adaptation and makepredict/search/PDusableFIRST.
+DEFERpredictionaccuracytuning. Preservebasicnumerical/source/shape/precisionchecks;
+failed10%heldoutgateisnotafunctionalbringupblocker. No moredensity/heldoutcampaigns now.
+Checkpointrevision37(afterfunctionalpriorityupdate),integrity[].
+
+Latestverifiedinputcampaign:
+operator-input-state-node31-20261022-attempt2/report.json:96rankforwards,11complete
+8192/1024requests(C1earlyandC10late). C1prefillattn8192,dense8192,shared/router1024;
+graphC1andC10attn8,dense16,shared/router1. PaddingKVlength0. Fullindexer21/sparse78.
+IndexerweightsprojectionactuallyFP32input/BF16weight/FP32outputthenBF16cast!
+Mixedfloat32_bfloat16variantaddedtoAscendLinearkey/collector/exporter/cases;
+7Rusttestsand14Pythontests pass,mixedM8+M16384/64copysmokeandnoopnegativepass.
+Pendingfullmixed1246gridon32:linear-mixed-full-20261022,hostPID2745420;
+releasebuild /tmp/aisim-mixed-release.log alsoactive. RebuildinstallandGPUparity
+neededafternewmixednativechanges;oldreleasecurrentlyinCPUcontaineris5aac6ea3.
+
+Newoptionalascend_input_capture.py+ascend_recording_server.py changesuncommitted.
+Initial31capturefailedcustomtorch.opswrapperlost.default. FixedObservedCallable
+proxyforattributes,4CPUtestsandrealcustomNPUgraphchecks2pass. Fullcapturepassed.
+LMheadnotcapturedbyF.linear(ituseslogits_processor torch.matmul),sourceauditpending.
+Observerstate/evidenceonly;notforwardtiming.
+
+Currentmodel32fullidentity41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c.
+31differs13files;verified13overridesread-onlymountedforfullservingcapture.
+model-view-plan.json/completedmodel-overrides-copy.json provecomposed196filesmatch.
+Originaldirectoriesnotmodified. Own31captureattempt2nowSTOPPED;earlierfailedkept.
+AllNPUjobsendedexcept32mixedfull. CPUvalidation+localtilingcalibrationcontainersalive.
+
+Initiallinear657tableinstalledatstandardpathandcommittedfcbbfc9c. Denser1242candidate
+underCPUcontainer/tmp/aisim-linear-dense-published NOTinstalled(maxheldouterror43%).
+ProfileridentifiedMatMulV2blockcountjumps(3072->3328 M gives24->13blocks),butstop
+accuracyinvestigationperuser. Preservelinear-dense* andlinear-tiling*evidencewhencommitting.
+
 Full explicit goal remains ACTIVE: actual operator-level Ascend910C/GLM5.2
 ModelSlim W8A8 prediction, resource accounting, PD handoff and canonical
 predict/recommend searches over supported parallelism and P/D replicas.

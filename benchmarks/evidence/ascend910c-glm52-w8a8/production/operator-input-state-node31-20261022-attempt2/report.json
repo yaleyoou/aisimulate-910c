@@ -1,0 +1,539 @@
+{
+  "scope": "Observed invocation state only; no performance or predictive accuracy claim",
+  "checkpoint_sha256": "41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c",
+  "workloads": [
+    {
+      "case": "current8k_c1",
+      "rank_forward_records": 48,
+      "representative_forwards": [
+        {
+          "rank": 0,
+          "ordinal": 0,
+          "execution": "eager",
+          "logical_batch": 1,
+          "global_num_tokens_cpu": [
+            8192,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 156,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8192,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              8192,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1024,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            8192
+          ]
+        },
+        {
+          "rank": 0,
+          "ordinal": 1,
+          "execution": "graph",
+          "logical_batch": 1,
+          "global_num_tokens_cpu": [
+            1,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            8193,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 0,
+          "ordinal": 2,
+          "execution": "graph",
+          "logical_batch": 1,
+          "global_num_tokens_cpu": [
+            1,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            8194,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "ordinal": 0,
+          "execution": "eager",
+          "logical_batch": 0,
+          "global_num_tokens_cpu": [
+            8192,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 6
+          },
+          "projection_inputs": {
+            "model.layers.0.mlp.gate_up_proj": [
+              8192,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": null
+        },
+        {
+          "rank": 8,
+          "ordinal": 1,
+          "execution": "graph",
+          "logical_batch": 0,
+          "global_num_tokens_cpu": [
+            1,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "ordinal": 2,
+          "execution": "graph",
+          "logical_batch": 0,
+          "global_num_tokens_cpu": [
+            1,
+            0
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "completed_requests": 1
+    },
+    {
+      "case": "current8k_c10_late",
+      "rank_forward_records": 48,
+      "representative_forwards": [
+        {
+          "rank": 0,
+          "ordinal": 0,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9095,
+            9095,
+            9095,
+            9095,
+            9095,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 0,
+          "ordinal": 1,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9096,
+            9096,
+            9096,
+            9096,
+            9096,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 0,
+          "ordinal": 2,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9097,
+            9097,
+            9097,
+            9097,
+            9097,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "ordinal": 0,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9094,
+            9094,
+            9094,
+            9094,
+            9094,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "ordinal": 1,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9095,
+            9095,
+            9095,
+            9095,
+            9095,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "rank": 8,
+          "ordinal": 2,
+          "execution": "graph",
+          "logical_batch": 5,
+          "global_num_tokens_cpu": [
+            5,
+            5
+          ],
+          "kernel_counts": {
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8LinearMethod": 255,
+            "torch_npu.npu_transpose_batchmatmul": 78,
+            "torch.nn.functional.linear": 117,
+            "torch_npu.npu_lightning_indexer": 21,
+            "torch_npu.npu_sparse_flash_attention": 78,
+            "torch.ops.npu.batch_matmul_transpose": 78,
+            "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod": 156
+          },
+          "projection_inputs": {
+            "model.layers.0.self_attn.q_b_proj": [
+              8,
+              2048
+            ],
+            "model.layers.0.mlp.gate_up_proj": [
+              16,
+              6144
+            ],
+            "model.layers.3.mlp.shared_experts.gate_up_proj": [
+              1,
+              6144
+            ]
+          },
+          "indexer_sequence_lengths": [
+            9096,
+            9096,
+            9096,
+            9096,
+            9096,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "completed_requests": 10
+    }
+  ],
+  "sources": {
+    "capture/current8k_c1/inputs-rank-0.jsonl": "4b880580d3a6a721a1d2c26a9a6486ed3e3d4398489361d5ad17cd6b562b5bf6",
+    "capture/current8k_c1/inputs-rank-1.jsonl": "112b63c44821588c487f054d181d2a0b5eb857c9fdc808c77ebcf17b5fae8ab8",
+    "capture/current8k_c1/inputs-rank-10.jsonl": "3c0a08bcea18451fb727d1575ea3fa937a9d11b884d0495aedbda193f2c76b07",
+    "capture/current8k_c1/inputs-rank-11.jsonl": "ada8710afbec6f59afe77c5c761a9bdd9925d1fd5a40d0265a578ae4a651e277",
+    "capture/current8k_c1/inputs-rank-12.jsonl": "edd560efb22751531fbc98c6d6826f6df3f5a721f3b1280985370054e9bc530a",
+    "capture/current8k_c1/inputs-rank-13.jsonl": "9725b7493f9fd3148b69f269cd26ad694b058d0b2e1a5e2e05adfda9f735f5aa",
+    "capture/current8k_c1/inputs-rank-14.jsonl": "921b5bfab94f8a060f347fa27fab7f99fadbd5a012a981634e6040af53428b39",
+    "capture/current8k_c1/inputs-rank-15.jsonl": "12d0d913f240de6017cdf147368a406f4ab00aa1148ec91c794a26dcf5703b3d",
+    "capture/current8k_c1/inputs-rank-2.jsonl": "c5b6e6a343ce793b98c57770161beac4f607290cda497a32dc7ef673d0428138",
+    "capture/current8k_c1/inputs-rank-3.jsonl": "29461b5ed36bd0c2c6030ea21f27b537e3638c61e897f65881f8b1d1cc3db96b",
+    "capture/current8k_c1/inputs-rank-4.jsonl": "5efcd1793ae6913b3c63d2d3fe377792ba8b8114d7e1b78dd976c6d4d2d487ff",
+    "capture/current8k_c1/inputs-rank-5.jsonl": "8a8366d4cd4871f370866df15b695ccde7839a47cbbbde7df454d8e742e0a51c",
+    "capture/current8k_c1/inputs-rank-6.jsonl": "7e62eac4f2ac7b62303c223879c7db1637ada9284ad5208c861b1cc4dd8dbb8b",
+    "capture/current8k_c1/inputs-rank-7.jsonl": "ed72c12ddabe44a0a85c0bcc2a2305c6f90380437a5ad56c131450c5bfecaf96",
+    "capture/current8k_c1/inputs-rank-8.jsonl": "e1e1cb48c9a878cf3be0bb5bbac69a63c9c17f298e4c3590844427cff2b03fa7",
+    "capture/current8k_c1/inputs-rank-9.jsonl": "c489273e4b30fcefab6b0adb851f8cd95fe956744fb5dc6711ec6ef97b8274f1",
+    "capture/current8k_c10_late/inputs-rank-0.jsonl": "4092e62fa87fd8b9f282f8d28748e98d658f79947245c381c051839e62080c9c",
+    "capture/current8k_c10_late/inputs-rank-1.jsonl": "b4631c5c08b4e96cc63dcec7d06d0a82a7e869392144bd3b73dd2f6a30cdec9c",
+    "capture/current8k_c10_late/inputs-rank-10.jsonl": "89947ba625eae32c5398cf294e624f08c2680e5aa0b98049bd66b98130f572dc",
+    "capture/current8k_c10_late/inputs-rank-11.jsonl": "f3571afe208c7510171eeb3d7e56051945b588b38254a5153004d3edbd53aa80",
+    "capture/current8k_c10_late/inputs-rank-12.jsonl": "f57db7ead69b9c9c9033909c9180f5272c9175a5abb6cb06c500fad7d661df68",
+    "capture/current8k_c10_late/inputs-rank-13.jsonl": "07fac770149d8d2e04034500870b369bec638de79183e859dff742e3f2225e69",
+    "capture/current8k_c10_late/inputs-rank-14.jsonl": "63d6d5cd6ebb967f6e2216acbd1867b695499ecb1bb4821cf6cb21e72191278e",
+    "capture/current8k_c10_late/inputs-rank-15.jsonl": "3239ea1b1d41c5cb5bae6ea139691f65e1e02497b01bd2f979802c591b308b9e",
+    "capture/current8k_c10_late/inputs-rank-2.jsonl": "b714230b63d96054f8f1267b9cab194f639dba621594cd4f4d07dbc9a4d140a2",
+    "capture/current8k_c10_late/inputs-rank-3.jsonl": "9a58e39fe62e296baf87cb95e0bd2f27169fdc7fb571d58ded9b14889065ca53",
+    "capture/current8k_c10_late/inputs-rank-4.jsonl": "59880fd490367c01de50f2f453d9efe4fdb8b2e9c50f545ad633743232fd98fc",
+    "capture/current8k_c10_late/inputs-rank-5.jsonl": "a1738d4d31cd33d15d500f82b499b7edde603077651af803525e85c99e032980",
+    "capture/current8k_c10_late/inputs-rank-6.jsonl": "fa906458b88dec1c016618c6b15706ea2df1424c09c7c9135c0e90596499d482",
+    "capture/current8k_c10_late/inputs-rank-7.jsonl": "99710011f5c1467e52159ccd305711df43e5144d0101817633ba37833343b0d2",
+    "capture/current8k_c10_late/inputs-rank-8.jsonl": "580879afa1e8db78b781bde6042b6449489857bc940d713220b50547b8e8f761",
+    "capture/current8k_c10_late/inputs-rank-9.jsonl": "0336ec60c7e49216aacf4776233d619590e915ae3913dcfe2e246b2c0f03423e"
+  }
+}

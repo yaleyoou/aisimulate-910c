@@ -7,7 +7,7 @@
       "torch_npu": "2.10.0.post6",
       "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
       "hardware": "Ascend910_9382",
-      "collector_source_sha256": "bbe02103352b904ce3119678c2a41e276d540721d41a2f50da4f9c3cf7be47dd"
+      "collector_source_sha256": "fd4354f17ec9cc54c1ba23adc4b99b8d9d16103350567858e54ddba6d31148fe"
     },
     "protocol": {
       "weight_copies": 64,
@@ -712,24 +712,34 @@
       "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
       "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
     },
-    "plan_sha256": "f34033b365f92932a4120008183484e3a15c902abd8cfd9990b575194a2cf233"
+    "plan_sha256": "4246adf7bcd4c2c4acead2bfe927aa6b0e93b9f78de87f0dfc71276413ba9fbd"
   },
-  "attempted": 660,
-  "qualified": 657,
+  "attempted": 1246,
+  "qualified": 1241,
   "unqualified": [
     {
-      "plan_index": 0,
-      "cv": 0.13557535885747404,
+      "plan_index": 36,
+      "cv": 0.13137848796682206,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 172,
-      "cv": 0.15657186478776258,
+      "plan_index": 84,
+      "cv": 0.22469025179422875,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 384,
-      "cv": 0.11205280488506734,
+      "plan_index": 620,
+      "cv": 0.22562383693291035,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 218,
+      "cv": 0.13678521675404431,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 310,
+      "cv": 0.1008913760317776,
       "reason": "CV exceeds10%"
     }
   ]

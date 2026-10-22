@@ -1,0 +1,83 @@
+"""Launch the verified current-model view for operator-input observations on31."""
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import socket
+import subprocess
+import re
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--suffix", default="")
+    args = parser.parse_args()
+    if not re.fullmatch(r"[a-z0-9-]*", args.suffix):
+        parser.error("Use a simple suffix")
+    suffix = "-" + args.suffix if args.suffix else ""
+    if socket.gethostname() != "npu1-31":
+        raise RuntimeError("This frozen campaign is assigned to npu1-31")
+    production = Path(__file__).resolve().parent
+    repository = production.parents[3]
+    view = json.loads((production / "model-view-plan.json").read_text())
+    copied = json.loads((production / "model-overrides-copy.json").read_text())
+    if view["status"] != "verified_readonly_mount_plan" or copied["status"] != "completed":
+        raise ValueError("Current model view is not verified")
+    output = production / ("operator-input-state-node31-20261022" + suffix)
+    output.mkdir(exist_ok=False)
+    (output / "source").mkdir()
+    (output / "capture").mkdir()
+    before = subprocess.check_output(["npu-smi", "info"], text=True)
+    (output / "npu-before.log").write_text(before)
+    if before.count("No running processes found in NPU") != 8:
+        raise RuntimeError("NPU process inventory is not empty")
+    with socket.socket() as probe:
+        probe.bind(("0.0.0.0", 18000))
+    source_hashes = {}
+    for name in ("ascend_state_capture.py", "ascend_input_capture.py", "ascend_recording_server.py"):
+        source = repository / "python/aisimulate/collector/sglang" / name
+        shutil.copyfile(source, output / "source" / name)
+        source_hashes[name] = hashlib.sha256(source.read_bytes()).hexdigest()
+    setup = json.loads((production / "serving-setup.json").read_text())
+    container = "aisim-current-inputs-20261022" + suffix
+    command = ["docker", "run", "-d", "--name", container, "--network", "host", "--privileged", "--shm-size", "32g",
+               "--mount", "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/models/glm-q,readonly",
+               "--mount", f"type=bind,src={output},dst=/campaign",
+               "-e", "AISIM_CAPTURE_DIR=/campaign/capture", "-e", "AISIM_CAPTURE_INPUTS=1",
+               "-e", "HCCL_IF_BASE_PORT=39000", "-e", "OMP_NUM_THREADS=1", "-e", "MKL_NUM_THREADS=1"]
+    for override in view["overrides"]:
+        command.extend(("--mount", f"type=bind,src={override['source']},dst={override['destination']},readonly"))
+    for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
+        command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
+    for name, value in setup["environment"].items():
+        if value is not None:
+            command.extend(("-e", f"{name}={value}"))
+    command.extend(("--entrypoint", "python3",
+                    "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+                    "/campaign/source/ascend_recording_server.py"))
+    command.extend([
+        "--model-path", "/models/glm-q", "--host", "0.0.0.0", "--port", "18000",
+        "--context-length", "180000", "--nnodes", "1", "--node-rank", "0", "--tp-size", "16",
+        "--dp-size", "2", "--ep-size", "16", "--mem-fraction-static", "0.90",
+        "--max-running-requests", "64", "--attention-backend", "ascend", "--device", "npu",
+        "--quantization", "modelslim", "--dtype", "bfloat16", "--served-model-name", "glm-5-aisim",
+        "--chunked-prefill-size", "16384", "--max-prefill-tokens", "32768", "--disable-shared-experts-fusion",
+        "--enable-dp-attention", "--enable-dp-lm-head", "--moe-a2a-backend", "deepep", "--deepep-mode", "auto",
+        "--enable-cache-report", "--load-balance-method", "round_robin", "--trust-remote-code",
+        "--model-loader-extra-config", '{"enable_multithread_load":false}', "--weight-loader-disable-mmap",
+        "--cuda-graph-backend-decode", "full", "--cuda-graph-max-bs-decode", "32", "--cuda-graph-bs-decode",
+        "8", "16", "24", "32",
+    ])
+    result = subprocess.run(command, capture_output=True, text=True)
+    record = {"command": command, "returncode": result.returncode, "stdout": result.stdout, "stderr": result.stderr,
+              "checkpoint_sha256": view["target_checkpoint_sha256"], "source_sha256": source_hashes,
+              "scope": "Instrumented operator input and routing state, not performance"}
+    (output / "launch.json").write_text(json.dumps(record, indent=2) + "\n")
+    result.check_returncode()
+    print(json.dumps({"container": container, "port": 18000, "checkpoint_sha256": view["target_checkpoint_sha256"]}))
+
+
+if __name__ == "__main__":
+    main()

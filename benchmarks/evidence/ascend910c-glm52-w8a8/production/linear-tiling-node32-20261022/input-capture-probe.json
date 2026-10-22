@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "checks": 2,
+  "calls": [
+    {
+      "kernel": "npu.batch_matmul_transpose",
+      "module_id": null,
+      "arguments": {
+        "positional": [
+          {
+            "shape": [
+              8,
+              8,
+              512
+            ],
+            "stride": [
+              4096,
+              512,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "device": "npu:0",
+            "data_ptr": 20623359213568,
+            "format": 2
+          },
+          {
+            "shape": [
+              8,
+              512,
+              256
+            ],
+            "stride": [
+              131072,
+              256,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "device": "npu:0",
+            "data_ptr": 20697449512960,
+            "format": 2
+          },
+          {
+            "shape": [
+              8,
+              8,
+              256
+            ],
+            "stride": [
+              2048,
+              256,
+              1
+            ],
+            "dtype": "torch.bfloat16",
+            "device": "npu:0",
+            "data_ptr": 20623359279616,
+            "format": 2
+          }
+        ]
+      },
+      "output": null
+    }
+  ],
+  "default_overload_preserved": true
+}

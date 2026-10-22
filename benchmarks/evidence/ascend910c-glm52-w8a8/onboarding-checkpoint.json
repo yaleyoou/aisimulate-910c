@@ -565,6 +565,14 @@
           "scope": "validation",
           "sha256": "6b9741a81215dbeba6de7df37c13bc83960db60c9b1e2c36532dc338cbd7e03c"
         },
+        "current_operator_input_report": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/operator-input-state-node31-20261022-attempt2/report.json",
+          "scope": "collection",
+          "sha256": "0c4d1fee009483f5e91a7d0b0f1cfa39d8410222c357fb4166b50ad87932ed59"
+        },
         "hccl_gpu_regression": {
           "archived": false,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -708,6 +716,22 @@
           "path": "production/linear-published-20261022/ascend_linear_perf.parquet",
           "scope": "collection",
           "sha256": "bfbae21e2d727684eb6717492b57336684a91be2e9343256bdc93f4e965f2e88"
+        },
+        "linear_mixed_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/linear-mixed-published-20261022/provenance.json",
+          "scope": "collection",
+          "sha256": "7a5b7ea2767e86475360c77ec93d1394da9740de6f64ea6568326456e242cdb7"
+        },
+        "linear_mixed_table": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/linear-mixed-published-20261022/ascend_linear_perf.parquet",
+          "scope": "collection",
+          "sha256": "451a8d68f09d276b932b0a46d97660ea23866afda720421ba3e545fe91a83e18"
         },
         "linear_node_controls": {
           "archived": false,
@@ -876,7 +900,7 @@
           "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
           "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "Linearprimitive/dataavailablebutheldoutaccuracyfails;refinegridthencontinuefullAscendmodel. Use31/32withverifiedsharedweightbaselineforrealserving/PD.",
+        "next_action": "Userprioritizesfunctionality:completeoperator/data/nativecompositionthenPD/search;deferpredictionaccuracytuning.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -947,6 +971,15 @@
     "status": "in_progress"
   },
   "research": {
+    "actual_operator_inputs": {
+      "checkpoint_sha256": "41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c",
+      "geometry": "C1decodeattentionM8,denseM16,shared/routerM1. C1prefillattentionM8192,denseM8192,shared/routerM1024. C10latewith5activeperDPusesattentionM8,denseM16,shared/routerM1. PaddingKVlengths0; lateactive9094..9097. Contextcapacityphysical417pages,blocktabledecodewidth1407.",
+      "limits": "Noinstrumentedtimingsusedasaccuracy. LMheadusesmatmuloutsideobservedF.linearhook; sourceauditstillneeded. Shared/paddedsemanticsmustentercomposition.",
+      "observer": "OptionalAISIM_CAPTURE_INPUTS recordslinear/BMM/indexer/attentionmetadatawithoutretaininglargeactivations. Initialcustomopwrapperlost.defaultandfailedgraphinit;fixedattributedeliveryandrealNPUgraphprobechecks2pass.4CPUtests pass. Fullservingcapturepassedafterfix.",
+      "precision_correction": "Indexerweights_projobservedFP32input/BF16weight/FP32outputbeforeBF16cast,notBF16input. Sourcematchesdsa_npu_indexer.py135-169. Mixedidentityimplementedinnative/collector;7Rust+14Pythontestsandmixedsmokepassed;fullcollectionneeded.",
+      "source": "production/operator-input-state-node31-20261022-attempt2/report.json",
+      "status": "validated96rankforwardrecords,11complete8192/1024requests"
+    },
     "ascend_kv_model": {
       "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
       "confidence": "99focused/adjacent tests and390GPUparity tests passed; per-rank physical pool independently measured",
@@ -969,19 +1002,28 @@
       "status": "validated_kv_component"
     },
     "ascend_linear_adapter": {
+      "accuracy": "Userdeferredpredictionaccuracyoptimization. No newheldouttuning. Historicalfailedgateandtilingdiagnosticsretained. Currentmixedgridaccuracyuncalibrated.",
       "cache_protocol": "Old16/32weight-copy comparison also changed graph call count; inconclusive. New protocol fixes128calls forbothcopies, runs16/32/32/16 order, largestM16384 and graph-noop controls beforefull660casegrid.",
       "case_population": "768recipes deduplicated to660physical invocations; full plan executed on32 with64weightcopies,128calls,10warmup batches,11repeats. Eager and graph each numerically checked before and after actual execution.",
       "collection": "660numerical passes;657CV<=10% rows;3unstable eager points retained/excluded (plan indices0,172,384). M1 eager qkv_a remains outside the qualified bracket. No substitute measurements.",
+      "commits": [
+        "5aac6ea3 linearprimitive",
+        "fcbbfc9c initialdata",
+        "b177ccf7 density",
+        "d501ecf1 actualinputobserver",
+        "c774dc37 mixedindexerprecisionandruntimepin"
+      ],
       "contract": "Exact static/dynamicW8A8/BF16,ND/NZ,executionmode,N/K; independentquantbias curves. Op supports token/request axis,sharding/padding andmaxoverTPbiasvariants. RawmeasuredM interpolation onlywithinbrackets; no GPU/quant/layout substitution or SOLclamp.",
       "controls": "Fixed128calls16/32and32/64working-set experiments preserved.40M8cases on31/32 at64copies differ by at most4.3964% in paired means. Cache32/64 sensitivity reaches9.3743%, so full cache convergence and serving accuracy are not claimed. FinalM16384/64copies checks and intentionalgraph-noop detection passed.",
       "data_stage": "Initial657rowpublication frozeninproduction/linear-published-20261022,includingcollector_ref5aac6ea3. IndependentheldoutaccuracyFAILEDandisrecorded,notmasked. Native exactlookup/wire andfullGPUparitypassed.",
+      "density_trial": "1246newtrainingcases completed,1242stable/4CVfailures. Allnewrows reproduceexactlyinnative. Testedagainstsameindependent188heldouts(nooverlap):187stable,15over10%,max42%. Densification alone didnotfixnon-smoothshapeperformance. CandidateNOTinstalledoverinitial657rowtable.",
       "host_cost": "Lazy exact-primary table preparation only onascend910c/sglang. Bucket lookup and token interpolation use prepared ordered maps. Export hashes each source once instead of onceperrow. Nonewper-query Pythonmath.",
       "interpolation_accuracy": "FAILED10%per-case target:188independentheldouts,187stable,13over10%,max34.7575%. LargeerrorsconcentrateBF16smallN andM3072. Do notclaimaccuracyfromexactrowlookup. Refinetraininggridwithoutinsertingtheseheldouts.",
       "limits": "FullAscendGLMmodelcomposition,attention/vector/MoE/DeepEPcompletecurves,residentaccounting,PDandsearchstillrequired. Do notpresentthisprimitiveascompleteadaptation.",
       "native": "AscendLinear appended atwireindex47; existingindices andschema28unchanged. Lazytable onlyprepared fortargetascend910c/sglang. No new publicpredictor.",
-      "next_action": "Commitdata/evidence; densifytraininggridandindependentlyrevalidate; thencontinueattention/indexer/MoE/DeepEPmodelcomposition,residentmemoryandPD/search.",
+      "next_action": "RemainingBMM/vector/attention/indexer/MoE/DeepEPcontractsanddata,actualshapecomposition,memory/PD/search.",
       "previous_smoke": "40 M8 cases and34 M8192 cases passed actual before/after output verification; intentional graph-noop failed. Initial dynamic-quant reference discrepancy diagnosed as <=1INT8bin with equal scales; separate quant checks and actual checked quantized GEMM reference now used.",
-      "publication": "657rows installed atpython/aisimulate/src/aisimulate_core/systems/data/ascend910c/gemm/sglang/0.5.22, sourceclosure/runtime/plan provenance attached.3unstablecases excludedandretained.",
+      "publication": "1241stable rowsfrom1246attempts,includingFP32input/BF16weight/FP32outputindexerprojection. Allactualexecutionnumericalchecks passed;5CVexcluded. Nativeexact1241querieszeroerror. Publishedstandardgemm/sglang/0.5.22 andfrozenproduction/linear-mixed-published-20261022.",
       "runtime_smoke": "Historicalinitialdynamicreferencefailure diagnosed/fixed; all660fullgridcases andfinal64copylargestMchecks pass actualoutputchecks; graph-noop rejected.",
       "source_commit": "5aac6ea3",
       "sources": [
@@ -990,8 +1032,9 @@
         "production/linear-holdout-report.json",
         "production/linear-validation-20261022"
       ],
-      "status": "complete_primitive_collection_and_native_lookup; model_composition_pending",
-      "validation": "6Rusttable/operator tests;657realnative exact-rowqueries havezeroerror;390GPUparity cases pass in110.31s;60collector/provenance tests pass. Finalwire/lint checks and stagecommits pending."
+      "status": "mixedprecisioncompletegridpublished;wholemodelcompositionpending",
+      "validation": "7native+14collector+13queryversiontests pass;390GPUparitypassafterseparatingAscend0.5.22versiondomain. Source/lintchecks pass.",
+      "version_fix": "InstallingAscenddatahadpromotedCUDAfleetnextto0.5.22andbroke6GPUversion-gatecases. Addedexistingper-systemoverrideascend910c/sglang=current0.5.22;CUDAfleetunchanged. No golden changes."
     },
     "basis": {
       "confidence": "high",
@@ -1041,29 +1084,33 @@
       "source": "stage1/runtime-resolved-args.json"
     },
     "execution_nodes_20261022": {
-      "active_jobs": [
-        {
-          "host": "npu1-32",
-          "output": "production/model-current-node32-fingerprint.json",
-          "pid": 3369695,
-          "task": "currentread-onlyfullmodelfingerprintasroot"
-        }
-      ],
+      "active_jobs": [],
       "authorized_nodes": [
         "npu1-31",
         "npu1-32"
       ],
+      "baseline_decision": "Useuserdesignatedcurrentlocal32modelastargetfornewrealservingchecks. Unifynode31viewusing13verifiedread-onlyfileoverridesfrom32;remainingfilesalreadyhash-match. Avoidcopyingentire720GiB. Existingmodeldirectoriesremainread-onlyandunchanged.",
       "confidence": "Runtime preflight observed; new peer transport/topology and whole-model serving remain unvalidated. Historical19 data cannot qualify31 transport.",
       "copy_attempt": "TerminatedowncopyPID3164848 aftercurrent32source mismatchwasconfirmed. Non-rootcopyalso couldnotread.msc;failedfuturesweredraininginbackground. Errorhandlingfixedtofailandsavecancelsbeforewaiting. Partialdestination quarantined asglm52-w8a8-b3645035-rejected-20261022; no originalmodelmodified.",
       "excluded_nodes": [
         "npu1-19"
       ],
+      "model_baseline": "Current32manifest41795173...931c verified196files;current31differs13files.13overridefilescopiedandrehashverified;composed31read-onlyviewequals32manifest. Instrumented31serviceusedthisviewandcompleted11requests. Originaldirectoriesunchanged.",
       "model_baseline_review": "User confirms bothcurrentpaths/mnt/raid/user/data/models/glm-q. Node31fullbytehashdiffersfromarchivedoriginal32;current32firstshardalso differsfromarchiveandnode31. Actualpayloads differwithsamecanonicalheader. No corruptioncauseassumed. Stopusingarchivedweightidentityasproofofcurrentweights.",
       "model_node31": "Full196filefingerprintcompleted:126weightfilesdifferfromoriginal32;config/quant/indexandfilesizesmatch. Firstshardcanonicaltensorheader matches butpayloadhashdiffers,so actualweightidentitydiffers.",
+      "model_node32_current": "Full196filefingerprint41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c;128filesdifferfromarchiveb364. Config/quant/indexandtotalbytesunchanged. Current31and32differin13files,55776942120bytes. Firstshard832tensorsofwhich9INT8weightsdiffer;notjustheaders.",
       "next_action": "Comparecurrentmodelhashes/tensors andestablishonecurrentweightbaselineforrealserving/PD. Keeppriorrouting/servingevidenceboundtooriginalweightrevision;syntheticoperatorcollectiondoesnotdependonweightvalues.",
+      "remaining_uncertainty": "Causeofweightchangesnotestablished. Priorrealrouting/servingbaselinesremainhistoricalwiththeiroriginalidentity. Newcurrentmodelneedsfunctionalservingandaccuracychecks.",
       "runtime": "Pinned0.5.22 image retained on32; pulling identical digest on31. Host /tmp campaign/deps lost on reboot; archived evidence and CPU-container native/cargo cache survived. CLI dependency ijson restored in isolated container path.",
-      "services": "Linearcontrol/full/heldoutcontainersstoppedaftercompletion. ExistingUnitedservicesremainstoppedasfoundafterreboot. CPUvalidationcontaineractive;19excluded.",
+      "services": "AllNPUcollectorsand31recordingserverfinished/stopped. CPUvalidationandownidlecalibrationcontaineravailable. Originalservicesremainasfoundafterreboot;19excluded.",
       "source": "User explicitly switched temporary peer from19 to31; password/sudo authorization retained only in conversation.",
+      "sources": [
+        "production/model-current-node32-fingerprint.json",
+        "production/model-node31-fingerprint.json",
+        "production/model-view-plan.json",
+        "production/tensors-first-node31.json",
+        "production/tensors-first-node32.json"
+      ],
       "storage": "Local RAID5 is degraded [4/3] [UUU_] and was not mounted after reboot. Mounted existing filesystem read-only,norecovery at /mnt/raid; exact original model directory is accessible. No array rebuild, filesystem repair or write mount performed.",
       "verified": "Both31/32 have16 visible Ascend devices, driver26.1.1, no running NPU processes at preflight. Both rebooted earlier today. Local validation container restarted. Checkpoint resumed at revision31 with no integrity issues."
     },
@@ -1260,6 +1307,11 @@
         "stage1/runtime-v0522/runtime-image-inventory.json"
       ]
     },
+    "priority_20261022": {
+      "decision": "Pause numerical-prediction accuracy optimization and heldout threshold chasing. Prioritize complete necessaryoperatorcollection,canonicalFPEcomposition,memory/PDandpredict/recommend usability. Preserve basicnumerical execution checks,source/shape/precisionmatchingand honestcoverage. Measured predictionaccuracy remainsuncalibrated; failed10%gates do notblockfunctionalbringup.",
+      "next_action": "Finishmixedindexerlinearpublication; implementremainingNPUattention/indexer/BMM/vector/MoE/DeepEPoperatorcontractsandcollecttheirrequiredgrids,wireactualshapecomposition,thenmemoryandPD/search. Noadditionaldensitytuningorheldoutcampaigns now.",
+      "source": "User: \u51c6\u786e\u6027\u7684\u8c03\u6574\u53ef\u4ee5\u5148\u4e0d\u6025\u7740\u505a\uff0c\u4f18\u5148\u5b8c\u6210\u5168\u90e8\u91c7\u96c6\u4e0e\u9002\u914d\uff0c\u4f18\u5148\u4f7f\u5f97\u8fd9\u4e2a\u529f\u80fd\u53ef\u7528\uff0c\u51c6\u786e\u6027\u540e\u9762\u5728\u8c03"
+    },
     "production_goal": {
       "authorization": "User explicitly authorized both nodes, missing-data collection, coordinated producer/consumer implementation and local stage commits; no remote publication requested.",
       "baseline_commit": "cfe57b6f",
@@ -1376,7 +1428,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 35,
+  "revision": 38,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

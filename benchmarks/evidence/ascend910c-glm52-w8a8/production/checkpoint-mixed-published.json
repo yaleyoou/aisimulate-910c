@@ -1,0 +1,23 @@
+{
+  "research": {
+    "ascend_linear_adapter": {
+      "status": "mixedprecisioncompletegridpublished;wholemodelcompositionpending",
+      "commits": ["5aac6ea3 linearprimitive", "fcbbfc9c initialdata", "b177ccf7 density", "d501ecf1 actualinputobserver", "c774dc37 mixedindexerprecisionandruntimepin"],
+      "publication": "1241stable rowsfrom1246attempts,includingFP32input/BF16weight/FP32outputindexerprojection. Allactualexecutionnumericalchecks passed;5CVexcluded. Nativeexact1241querieszeroerror. Publishedstandardgemm/sglang/0.5.22 andfrozenproduction/linear-mixed-published-20261022.",
+      "validation": "7native+14collector+13queryversiontests pass;390GPUparitypassafterseparatingAscend0.5.22versiondomain. Source/lintchecks pass.",
+      "version_fix": "InstallingAscenddatahadpromotedCUDAfleetnextto0.5.22andbroke6GPUversion-gatecases. Addedexistingper-systemoverrideascend910c/sglang=current0.5.22;CUDAfleetunchanged. No golden changes.",
+      "accuracy": "Userdeferredpredictionaccuracyoptimization. No newheldouttuning. Historicalfailedgateandtilingdiagnosticsretained. Currentmixedgridaccuracyuncalibrated.",
+      "active_job": null,
+      "next_action": "RemainingBMM/vector/attention/indexer/MoE/DeepEPcontractsanddata,actualshapecomposition,memory/PD/search."
+    },
+    "execution_nodes_20261022": {"active_jobs": [],"services":"AllNPUcollectorsand31recordingserverfinished/stopped. CPUvalidationandownidlecalibrationcontaineravailable. Originalservicesremainasfoundafterreboot;19excluded."}
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "linear_mixed_table": {"path":"production/linear-mixed-published-20261022/ascend_linear_perf.parquet","kind":"file","scope":"collection"},
+        "linear_mixed_provenance": {"path":"production/linear-mixed-published-20261022/provenance.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

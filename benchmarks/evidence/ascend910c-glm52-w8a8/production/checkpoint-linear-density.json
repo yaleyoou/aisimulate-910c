@@ -1,0 +1,17 @@
+{
+  "research": {
+    "ascend_linear_adapter": {
+      "commits": ["5aac6ea3 nativecollector", "fcbbfc9c initial657rowdataandevidence", "b177ccf7 densertraininggrid"],
+      "density_trial": "1246newtrainingcases completed,1242stable/4CVfailures. Allnewrows reproduceexactlyinnative. Testedagainstsameindependent188heldouts(nooverlap):187stable,15over10%,max42%. Densification alone didnotfixnon-smoothshapeperformance. CandidateNOTinstalledoverinitial657rowtable.",
+      "next_action": "Complete same188heldouts on32 toseparatecross-nodeeffectsfrominterpolation/shapealignment. Do notpublishcandidateasaccuracyqualified. Thencontinue actualAscendgraph/auxiliary/attention/MoErequiredoperators.",
+      "active_job": {"host":"npu1-32","pid":3667347,"container":"aisim-linear-holdout32-20261022","output":"production/linear-holdout-node32-20261022"}
+    },
+    "execution_nodes_20261022": {
+      "model_node32_current": "Full196filefingerprint41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c;128filesdifferfromarchiveb364. Config/quant/indexandtotalbytesunchanged. Current31and32differin13files,55776942120bytes. Firstshard832tensorsofwhich9INT8weightsdiffer;notjustheaders.",
+      "baseline_decision": "Useuserdesignatedcurrentlocal32modelastargetfornewrealservingchecks. Unifynode31viewusing13verifiedread-onlyfileoverridesfrom32;remainingfilesalreadyhash-match. Avoidcopyingentire720GiB. Existingmodeldirectoriesremainread-onlyandunchanged.",
+      "active_jobs": [{"host":"npu1-32","task":"copy13currentmodeloverridesandverifydestinationSHA256","destination":"/tgm_rent_data/data/youxingye/model-baselines/glm52-current41795173-overrides","report":"production/model-overrides-copy.json"}],
+      "sources": ["production/model-current-node32-fingerprint.json","production/model-node31-fingerprint.json","production/model-view-plan.json","production/tensors-first-node31.json","production/tensors-first-node32.json"],
+      "remaining_uncertainty": "Causeofweightchangesnotestablished. Priorrealrouting/servingbaselinesremainhistoricalwiththeiroriginalidentity. Newcurrentmodelneedsfunctionalservingandaccuracychecks."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "research": {
+    "priority_20261022": {
+      "source": "User: 准确性的调整可以先不急着做，优先完成全部采集与适配，优先使得这个功能可用，准确性后面在调",
+      "decision": "Pause numerical-prediction accuracy optimization and heldout threshold chasing. Prioritize complete necessaryoperatorcollection,canonicalFPEcomposition,memory/PDandpredict/recommend usability. Preserve basicnumerical execution checks,source/shape/precisionmatchingand honestcoverage. Measured predictionaccuracy remainsuncalibrated; failed10%gates do notblockfunctionalbringup.",
+      "next_action": "Finishmixedindexerlinearpublication; implementremainingNPUattention/indexer/BMM/vector/MoE/DeepEPoperatorcontractsandcollecttheirrequiredgrids,wireactualshapecomposition,thenmemoryandPD/search. Noadditionaldensitytuningorheldoutcampaigns now."
+    },
+    "actual_operator_inputs": {
+      "status": "validated96rankforwardrecords,11complete8192/1024requests",
+      "checkpoint_sha256": "41795173ae457a64056e1c05be9bbbf889f935431f4a42fa4f4e4c6a32aa931c",
+      "source": "production/operator-input-state-node31-20261022-attempt2/report.json",
+      "geometry": "C1decodeattentionM8,denseM16,shared/routerM1. C1prefillattentionM8192,denseM8192,shared/routerM1024. C10latewith5activeperDPusesattentionM8,denseM16,shared/routerM1. PaddingKVlengths0; lateactive9094..9097. Contextcapacityphysical417pages,blocktabledecodewidth1407.",
+      "precision_correction": "Indexerweights_projobservedFP32input/BF16weight/FP32outputbeforeBF16cast,notBF16input. Sourcematchesdsa_npu_indexer.py135-169. Mixedidentityimplementedinnative/collector;7Rust+14Pythontestsandmixedsmokepassed;fullcollectionneeded.",
+      "observer": "OptionalAISIM_CAPTURE_INPUTS recordslinear/BMM/indexer/attentionmetadatawithoutretaininglargeactivations. Initialcustomopwrapperlost.defaultandfailedgraphinit;fixedattributedeliveryandrealNPUgraphprobechecks2pass.4CPUtests pass. Fullservingcapturepassedafterfix.",
+      "limits": "Noinstrumentedtimingsusedasaccuracy. LMheadusesmatmuloutsideobservedF.linearhook; sourceauditstillneeded. Shared/paddedsemanticsmustentercomposition."
+    },
+    "execution_nodes_20261022": {
+      "model_baseline": "Current32manifest41795173...931c verified196files;current31differs13files.13overridefilescopiedandrehashverified;composed31read-onlyviewequals32manifest. Instrumented31serviceusedthisviewandcompleted11requests. Originaldirectoriesunchanged.",
+      "services": "Owninputrecordingserviceattempt2stoppedafterC1/C10capture. Firstfailedattemptpreserved. LocalCPUvalidationrunning;smallcalibrationcontaineravailable.19notused.",
+      "active_jobs": []
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {"stage":2,"status":"in_progress","next_action":"Userprioritizesfunctionality:completeoperator/data/nativecompositionthenPD/search;deferpredictionaccuracytuning."},
+      "artifacts": {
+        "current_operator_input_report": {"path":"production/operator-input-state-node31-20261022-attempt2/report.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

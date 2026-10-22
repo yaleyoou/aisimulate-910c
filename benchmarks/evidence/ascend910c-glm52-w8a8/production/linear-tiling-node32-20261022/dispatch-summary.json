@@ -1,0 +1,113 @@
+{
+  "scope": "Kernel identity and block count only; profiler timings not used for prediction",
+  "cases": [
+    {
+      "case": "m112-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "21",
+          "input_shapes": "\"112,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m2816-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "22",
+          "input_shapes": "\"2816,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m3072-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "24",
+          "input_shapes": "\"3072,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m3328-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "13",
+          "input_shapes": "\"3328,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m40-n32",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "6",
+          "input_shapes": "\"40,6144;32,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m48-n32",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "6",
+          "input_shapes": "\"48,6144;32,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m56-n32",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "8",
+          "input_shapes": "\"56,6144;32,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m80-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "20",
+          "input_shapes": "\"80,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    },
+    {
+      "case": "m96-n128",
+      "invocations": 128,
+      "kernels": [
+        {
+          "name": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "block_num": "24",
+          "input_shapes": "\"96,6144;128,6144\"",
+          "count": 128
+        }
+      ]
+    }
+  ]
+}
