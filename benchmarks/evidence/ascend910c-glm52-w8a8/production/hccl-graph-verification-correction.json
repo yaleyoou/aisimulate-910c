@@ -1,0 +1,7 @@
+{
+  "status": "v2_publications_withdrawn_pending_recollection",
+  "finding": "The v2 collector's verify() invoked eager collectives before and after timing, including when the measured operation was an NPUGraph replay. Those checks did not establish correctness of the captured execution path.",
+  "affected": "All HCCL v2 observations and previously exported HCCL tables in this campaign. Raw measurements and historical native-query equality checks are retained; they are not current graph correctness qualification.",
+  "correction": "v3 verifies the actual timed eager batch or captured graph. AllReduce has one independent buffer per invocation, so nonzero full-payload checks do not repeatedly sum/overflow the same buffer. Publication binds observer/framework hashes and execution verification, and the native reader requires the matching execution-verification column.",
+  "validation_plan": "Real-NPU negative control replaces graph replay with no-op and must fail full-payload checks; positive controls cover all four supported dtypes; fresh local/peer/two-node measurements replace v2 publications."
+}

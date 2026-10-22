@@ -1,0 +1,197 @@
+{
+  "status": "collected",
+  "commands": [
+    {
+      "label": "npu-before",
+      "command": [
+        "npu-smi",
+        "info"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "pause-united",
+      "command": [
+        "docker",
+        "stop",
+        "--time",
+        "120",
+        "glm52-united-v0522"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "create-task-container",
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "aisim-910c-hccl-v3-local-20261022",
+        "--network",
+        "host",
+        "--privileged",
+        "--shm-size",
+        "16g",
+        "--mount",
+        "type=bind,src=/usr/local/Ascend/driver,dst=/usr/local/Ascend/driver,readonly",
+        "--mount",
+        "type=bind,src=/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/hccl-replay-verified-20261022/local,dst=/campaign",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "-e",
+        "MKL_NUM_THREADS=1",
+        "-e",
+        "HCCL_IF_BASE_PORT=28500",
+        "-e",
+        "HCCL_CONNECT_TIMEOUT=120",
+        "-e",
+        "HCCL_EXEC_TIMEOUT=300",
+        "--entrypoint",
+        "/bin/sleep",
+        "--mount",
+        "type=bind,src=/etc/ascend_install.info,dst=/etc/ascend_install.info,readonly",
+        "--mount",
+        "type=bind,src=/usr/local/Ascend/firmware,dst=/usr/local/Ascend/firmware,readonly",
+        "--mount",
+        "type=bind,src=/usr/local/sbin,dst=/usr/local/sbin,readonly",
+        "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+        "infinity"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "hccl-2",
+      "command": [
+        "docker",
+        "exec",
+        "aisim-910c-hccl-v3-local-20261022",
+        "timeout",
+        "1800",
+        "python3",
+        "-m",
+        "torch.distributed.run",
+        "--nproc_per_node=2",
+        "--master_addr=127.0.0.1",
+        "--master_port=29924",
+        "/campaign/source/hccl.py",
+        "--output",
+        "/campaign/hccl-2.json",
+        "--ranks-per-node",
+        "2",
+        "--serving-setup",
+        "/campaign/serving-setup.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "hccl-4",
+      "command": [
+        "docker",
+        "exec",
+        "aisim-910c-hccl-v3-local-20261022",
+        "timeout",
+        "1800",
+        "python3",
+        "-m",
+        "torch.distributed.run",
+        "--nproc_per_node=4",
+        "--master_addr=127.0.0.1",
+        "--master_port=29924",
+        "/campaign/source/hccl.py",
+        "--output",
+        "/campaign/hccl-4.json",
+        "--ranks-per-node",
+        "4",
+        "--serving-setup",
+        "/campaign/serving-setup.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "hccl-8",
+      "command": [
+        "docker",
+        "exec",
+        "aisim-910c-hccl-v3-local-20261022",
+        "timeout",
+        "1800",
+        "python3",
+        "-m",
+        "torch.distributed.run",
+        "--nproc_per_node=8",
+        "--master_addr=127.0.0.1",
+        "--master_port=29924",
+        "/campaign/source/hccl.py",
+        "--output",
+        "/campaign/hccl-8.json",
+        "--ranks-per-node",
+        "8",
+        "--serving-setup",
+        "/campaign/serving-setup.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "hccl-16",
+      "command": [
+        "docker",
+        "exec",
+        "aisim-910c-hccl-v3-local-20261022",
+        "timeout",
+        "1800",
+        "python3",
+        "-m",
+        "torch.distributed.run",
+        "--nproc_per_node=16",
+        "--master_addr=127.0.0.1",
+        "--master_port=29924",
+        "/campaign/source/hccl.py",
+        "--output",
+        "/campaign/hccl-16.json",
+        "--ranks-per-node",
+        "16",
+        "--serving-setup",
+        "/campaign/serving-setup.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "hccl-32",
+      "command": [
+        "docker",
+        "exec",
+        "aisim-910c-hccl-v3-local-20261022",
+        "timeout",
+        "1800",
+        "python3",
+        "-m",
+        "torch.distributed.run",
+        "--nnodes=2",
+        "--node_rank=0",
+        "--nproc_per_node=16",
+        "--master_addr=10.120.72.32",
+        "--master_port=29925",
+        "/campaign/source/hccl.py",
+        "--output",
+        "/campaign/hccl-32.json",
+        "--ranks-per-node",
+        "16",
+        "--serving-setup",
+        "/campaign/serving-setup.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "restore-united",
+      "command": [
+        "docker",
+        "start",
+        "glm52-united-v0522"
+      ],
+      "returncode": 0
+    }
+  ],
+  "restore_started": true,
+  "service_healthy": true
+}

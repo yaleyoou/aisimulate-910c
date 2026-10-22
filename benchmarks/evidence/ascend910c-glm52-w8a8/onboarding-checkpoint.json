@@ -573,6 +573,14 @@
           "scope": "validation",
           "sha256": "592490e2e98a475273730bed248b0c735fcb632224205f21d13d456195dd86ef"
         },
+        "hccl_graph_verification_correction": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/hccl-graph-verification-correction.json",
+          "scope": "validation",
+          "sha256": "81c8cd938031d0c65a7f0c98525b52fd0f73f7078f0b9492a638abe7ce846bc3"
+        },
         "hccl_group_options_probe": {
           "archived": false,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -588,6 +596,46 @@
           "path": "production/hccl-native-measured-rows-final.log",
           "scope": "validation",
           "sha256": "95dcb21e3730af1c116e38e522bbfee439cf25c813f487b414ed4980fb1fccd4"
+        },
+        "hccl_v3_archive_seal": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/hccl-replay-verified-20261022/sealed-validation.json",
+          "scope": "validation",
+          "sha256": "cd97d849d3ff3c9781f0469d7204dba550eaab72167fe2b5bcab625678789d1f"
+        },
+        "hccl_v3_dual_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/hccl-replay-verified-20261022/published-dual/provenance.json",
+          "scope": "collection",
+          "sha256": "9b280b15e43a44263ba967ad9f8f0228c080e710fd66c0604377f5376ebb2a0f"
+        },
+        "hccl_v3_local_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/hccl-replay-verified-20261022/published-local/provenance.json",
+          "scope": "collection",
+          "sha256": "7db36668409fe8a563cf2dfad736fd6e873035fc04f9763080a285664b5f91aa"
+        },
+        "hccl_v3_peer_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/hccl-replay-verified-20261022/published-peer/provenance.json",
+          "scope": "collection",
+          "sha256": "3cc8757617d72894b0a94039a36111a250bf8934d7bd9aec1c4b7f1c0a9c29be"
+        },
+        "hccl_v3_validation": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/hccl-replay-verified-20261022/validation.json",
+          "scope": "validation",
+          "sha256": "02efdd797d5e9577bd6a8f3261897e6a67d11faa389611fdbde929babd6931ca"
         },
         "initialized_memory_report": {
           "archived": false,
@@ -788,7 +836,7 @@
           "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
           "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "Complete source-matched HCCLcalibration andservice restoration, then complete missing operatorcurves, canonicalAscendcomposition/residentmemory, PDtransfer andsupportedstrategysearch.",
+        "next_action": "CompletecanonicalAscendGLMoperatorgraph andmissingcompute/DeepEPdata, thenresidentmemory/forwardaccuracy,PDKVhandoff andqualifiedparallelism/replica searches.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -967,15 +1015,39 @@
       "topology_scope": "npu1-32/npu1-19 in SuperPod1,16 concurrent cross-node pairs; localdriver26.1.1 vs peer25.5.0; no cross-SuperPod or more-than-two-node qualification.",
       "validation": "Actual Python system loader tests6/6, Rust SystemSpec tests5/5,9 YAML values against manifest,149 evidence hashes, pinned Ruff0.14.1 lint+format, CODEOWNERS tracked-tree coverage100%."
     },
+    "hccl_graph_quality_correction": {
+      "archive_format": "Raw JSON stored as gzip with both compressed and original-byte hashes; original v2 files remain explicitly historical. All720v3 observations and623qualified points remain reviewable.",
+      "controls": {
+        "negative": "No-op graph replay must fail fullpayloadverification",
+        "peer_runner_pid": 3439322,
+        "positive": "2rank,all4dtypes,small/largepayloads,bothmodes,4operations",
+        "remote_root": "/tmp/aisim-910c-production-20261022/hccl-v3"
+      },
+      "data_roots": [
+        "production/hccl-replay-verified-20261022/published-local",
+        "production/hccl-replay-verified-20261022/published-peer",
+        "production/hccl-replay-verified-20261022/published-dual"
+      ],
+      "finding": "v2verify invoked eager collectives even for NPUGraph timing. All prior HCCLpublications inthiscampaign are historical pendingv3recollection; do not reuse them as currentlyqualifiedgraphdata.",
+      "fix": "Actual timedexecution is checked before/after. AllReduceuses separatebuffers perinvocation to permit finite nonzero graphverification. Exporterrequiresv3andboundsource hashes; Rustrequires matchingexecution_verification column.",
+      "handoff": "Allcollection,testsandservice restoration complete. Nextpriority isproductionoperatorcomposition andremainingcompute/DeepEPdata,notmore state-only captures.",
+      "next_action": "Use onlyv3sources. ImplementcompleteAscendoperatorcomposition andremaininglinear/attention/DeepEPcurves, residentmemory,PDandsearch.",
+      "results": "Actual timedgraph/eager checks pass; injectedno-opgraph is rejected;64positivecontrolcases cover4dtypes. Fresh720points produce623CVqualified rows,97unstable retained. Newnativequeries reproduceall623; oldv2publication is rejected.",
+      "service_state": "LocalUnited restoredhealthy; peerNPUsidle, alltaskcollectorsfinished; unrelatedcontainerspreserved.",
+      "source": "production/hccl-graph-verification-correction.json",
+      "status": "validated_and_recollected_v3",
+      "tests": "6Pythonexport tests,5nativeHCCLloader tests and390GPUparity tests pass. Parallelpytest initially lacked nativeextension discovery; workerbootstrap fixedtheenvironment and390passed in135.89s."
+    },
     "hccl_local_and_dual": {
       "local_runner_pid": 3576363,
-      "next_action": "Inspect32rankcompletion, restorehealth, validate/exportactualqualifiedrows and runnativequerychecks.",
+      "next_action": "Use v3published-local/peer/dual withseparatenode/driverprovenance.",
       "peer_launcher_pid": 2583067,
       "peer_ready_signal": "production/hccl-local-serving-20261022/peer-ready.json",
       "progress_file": "production/hccl-local-serving-20261022/campaign.json",
+      "results": "Local320points293CVqualified; dual80points59CVqualified;352nativeequalityqueriespassed underpreviousreader. Those results do not establish captured-graph numerical correctness.",
       "scope": "Actual Unitedsetup onlocaldriver26.1.1 for2/4/8/16ranks, then32ranks acrossbothnodes. Preserve driver-specific provenance and rawCVfailures.",
-      "service_state": "Localglm52-united-v0522temporarily paused by managedrunner; finally removes only owncalibrationcontainer and restartsUnited, waitingup to1800sforhealth. Peer originalxqcontainer unchanged.",
-      "status": "running"
+      "service_state": "BothmanagedlocalcampaignsrestoredUnited. Allv2artifactsretainedashistorical,notcurrentpublisheddata.",
+      "status": "superseded_by_v3_recollection"
     },
     "historical_runtime": {
       "actual_package_version": "0.5.17.dev386+gc5bd3d7dc",
@@ -1009,6 +1081,7 @@
         "https://quay.io/api/v1/repository/ascend/sglang/tag/?limit=100&onlyActiveTags=true"
       ]
     },
+    "memory_component_commit": "f5349d2f: KV layout component, complete startup memory observations and unprofiled serving baselines;99+5tests and390GPUparitypassed.",
     "model_content_pin": {
       "checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
       "scope": "SHA256 of canonical sorted per-file relative paths, sizes and full SHA256 values;196files, including all weight bytes and tokenizer/config assets.",
@@ -1210,7 +1283,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 27,
+  "revision": 30,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

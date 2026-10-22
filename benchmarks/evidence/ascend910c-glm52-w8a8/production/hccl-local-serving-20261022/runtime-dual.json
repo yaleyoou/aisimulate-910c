@@ -1,0 +1,16 @@
+{
+  "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "cann_hccl_build": "9.1.0.B243",
+  "collector_source_sha256": "eef5bf1522c387b0777ca4675ab24a6e115e12e2d1654cfeaa0a8eac9561f2f4",
+  "driver_versions": {
+    "npu1-32": "26.1.1",
+    "npu1-19": "25.5.0"
+  },
+  "hardware": {
+    "device": "Ascend910_9382",
+    "runtime_devices_per_node": 16,
+    "placement": "ranks0..15on npu1-32,16..31on npu1-19; same measured SuperPod"
+  },
+  "scope": "This actual two-node mixed-driver placement only; not a general cross-SuperPod or PD KV transfer measurement."
+}

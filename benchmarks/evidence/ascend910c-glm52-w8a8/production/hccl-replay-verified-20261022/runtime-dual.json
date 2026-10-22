@@ -1,0 +1,17 @@
+{
+  "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "cann_hccl_build": "9.1.0.B243",
+  "collector_source_sha256": "11632a2674b0bc8be382682d82da81c2ffffe9f66ef1f5eeeec102a8f7f6ba43",
+  "hardware": {
+    "device": "Ascend910_9382",
+    "runtime_chips_per_node": 16,
+    "rank_layout": "contiguous"
+  },
+  "observation_schema": "aisimulate-hccl-observations/v3",
+  "driver_versions": {
+    "npu1-32": "26.1.1",
+    "npu1-19": "25.5.0"
+  },
+  "scope": "Actual recorded node placement only; same measured SuperPod fordual. This is HCCL, not PD KV handoff."
+}

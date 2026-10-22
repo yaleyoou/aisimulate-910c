@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/validate_hccl_native.py", line 64, in <module>
+    main()
+  File "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/validate_hccl_native.py", line 56, in main
+    values = handle.evaluate_ops_json(json.dumps([operation]), is_context=False, batch_size=1, s=8192)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/python/aisimulate/src/aisimulate_core/sdk/engine.py", line 1478, in evaluate_ops_json
+    return self._engine.evaluate_ops_json(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid performance data: perf database error: parquet column "execution_verification" missing at /tmp/tmp_uosdnm1/data/ascend910c/comm/hccl/peer-test/hccl_perf.parquet (have: [dtype, operation, execution_mode, input_bytes_per_rank, num_ranks, ranks_per_node, rank_layout, latency_ms, cv, sample_count, correctness_checks, kernel_source, source_sha256, runtime_identity_sha256])

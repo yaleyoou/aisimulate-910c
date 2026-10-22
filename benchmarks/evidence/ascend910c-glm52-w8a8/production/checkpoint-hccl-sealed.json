@@ -1,0 +1,15 @@
+{
+  "research": {
+    "hccl_graph_quality_correction": {
+      "archive_format": "Raw JSON stored as gzip with both compressed and original-byte hashes; original v2 files remain explicitly historical. All720v3 observations and623qualified points remain reviewable.",
+      "handoff": "Allcollection,testsandservice restoration complete. Nextpriority isproductionoperatorcomposition andremainingcompute/DeepEPdata,notmore state-only captures."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "hccl_v3_archive_seal": {"path":"production/hccl-replay-verified-20261022/sealed-validation.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

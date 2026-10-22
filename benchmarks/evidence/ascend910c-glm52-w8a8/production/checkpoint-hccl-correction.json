@@ -1,0 +1,28 @@
+{
+  "research": {
+    "memory_component_commit": "f5349d2f: KV layout component, complete startup memory observations and unprofiled serving baselines;99+5tests and390GPUparitypassed.",
+    "hccl_local_and_dual": {
+      "status": "v2_collected_but_publication_withdrawn_for_graph_verification_gap",
+      "service_state": "Local United restored andhealth200; bothlocal andpeer HCCLjobsfinished; peerNPUsidle. Originalothercontainerspreserved.",
+      "results": "Local320points293CVqualified; dual80points59CVqualified;352nativeequalityqueriespassed underpreviousreader. Those results do not establish captured-graph numerical correctness.",
+      "next_action": "Replace v2publication with freshv3data after actualgraph positive/negativecontrols."
+    },
+    "hccl_graph_quality_correction": {
+      "status": "fix_and_real_npu_controls_in_progress",
+      "source": "production/hccl-graph-verification-correction.json",
+      "finding": "v2verify invoked eager collectives even for NPUGraph timing. All prior HCCLpublications inthiscampaign are historical pendingv3recollection; do not reuse them as currentlyqualifiedgraphdata.",
+      "fix": "Actual timedexecution is checked before/after. AllReduceuses separatebuffers perinvocation to permit finite nonzero graphverification. Exporterrequiresv3andboundsource hashes; Rustrequires matchingexecution_verification column.",
+      "controls": {"peer_runner_pid":3439322,"remote_root":"/tmp/aisim-910c-production-20261022/hccl-v3","negative":"No-op graph replay must fail fullpayloadverification","positive":"2rank,all4dtypes,small/largepayloads,bothmodes,4operations"},
+      "tests": "6Pythonexport tests pass; RustHCCLtests building inexecsession48863,log/tmp/aisim-hccl-v3-native-tests.log",
+      "next_action": "Inspect controls, rebuildnativeextension, recollectbothnodes and32rankv3cells, runnativequerychecks andGPUparity, restorelocalUnited, thencommit thequalifiedfix/data."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "hccl_graph_verification_correction": {"path":"production/hccl-graph-verification-correction.json","kind":"file","scope":"validation"}
+      },
+      "progress": {"stage":2,"status":"in_progress","next_action":"Qualify correctedHCCLgraphmeasurement before continuing fullAscendoperatorcomposition, residentmemory,PDandsearch."}
+    }
+  }
+}

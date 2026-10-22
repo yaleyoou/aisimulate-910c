@@ -1,0 +1,44 @@
+{
+  "schema": "aisimulate-hccl-v3-validation/v1",
+  "status": "qualified_component",
+  "full_goal_complete": false,
+  "observations": 720,
+  "qualified": 623,
+  "cv_rejections": 97,
+  "graph_noop_detected": true,
+  "positive_control_cases": 64,
+  "native_hccl_tests": 5,
+  "gpu_parity_tests": 390,
+  "gpu_parity_seconds": 135.89,
+  "scopes": {
+    "local": {
+      "qualified": 278,
+      "unqualified": 42,
+      "table_sha256": "d233a341889e8939f24482ed495048add03981cb5954d5535f29d447ad1fefa2",
+      "provenance_sha256": "7db36668409fe8a563cf2dfad736fd6e873035fc04f9763080a285664b5f91aa",
+      "native_query_sha256": "a59db37913965a7789933d4564c9e59c3e65f3b159e5fc15975ab27a54aca689"
+    },
+    "peer": {
+      "qualified": 285,
+      "unqualified": 35,
+      "table_sha256": "a368d266658892c99a009c6a89e6d3c7531b28bb0d8ff64b3c1b1f682edbae75",
+      "provenance_sha256": "3cc8757617d72894b0a94039a36111a250bf8934d7bd9aec1c4b7f1c0a9c29be",
+      "native_query_sha256": "1a9b166452160ef9c89f6072d327b81a0cf00314161f7699febb3f417f4299f3"
+    },
+    "dual": {
+      "qualified": 60,
+      "unqualified": 20,
+      "table_sha256": "70b2cfc2828f4c8c937d1fec507f8d5f18a52eb28ff5cfa427e5f3d863c7c717",
+      "provenance_sha256": "9b280b15e43a44263ba967ad9f8f0228c080e710fd66c0604377f5376ebb2a0f",
+      "native_query_sha256": "35bea61114b0f00832442a4c3a3bc198eb2814f7fe9a07ec68da208f92b98c8b"
+    }
+  },
+  "native_binary": "36018c4b8a01cd16a6cf3a7f541a4dd2fd448312d8ea92678ba94ab53fa20c23  /tmp/aisim-native/_runtime.abi3.so",
+  "source_sha256": {
+    "python/aisimulate/collector/sglang/ascend_hccl.py": "11632a2674b0bc8be382682d82da81c2ffffe9f66ef1f5eeeec102a8f7f6ba43",
+    "python/aisimulate/collector/sglang/ascend_hccl_export.py": "35910613ca301e0a4b0b50ee90966896ba31575f24ce11427ad3fe2a00c088ed",
+    "crates/core/src/perfmodel/perf_database/hccl.rs": "1815b805fb43dcdd54d33f13d0122d7beeacdb8f8683fbd7474ab20402ec8a7c"
+  },
+  "old_v2_publications": "withdrawn; historical raw files retained",
+  "service_restore": "local United healthy; peer NPUs released"
+}

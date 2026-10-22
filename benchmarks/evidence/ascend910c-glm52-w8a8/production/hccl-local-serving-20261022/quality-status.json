@@ -1,0 +1,6 @@
+{
+  "status": "historical_v2_publication_withdrawn",
+  "reason": "Graph timings were checked through eager invocations, not captured replay. The previous native equality checks do not establish graph numerical correctness.",
+  "replacement": "../hccl-replay-verified-20261022/",
+  "policy": "Preserve original files. Do not relabel them as v3 or use them as current qualified prediction inputs."
+}

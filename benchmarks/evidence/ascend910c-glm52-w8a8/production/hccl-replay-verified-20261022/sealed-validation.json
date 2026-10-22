@@ -1,0 +1,154 @@
+{
+  "schema": "aisimulate-hccl-v3-sealed-evidence/v1",
+  "assessment": {
+    "schema": "aisimulate-hccl-v3-validation/v1",
+    "status": "qualified_component",
+    "full_goal_complete": false,
+    "observations": 720,
+    "qualified": 623,
+    "cv_rejections": 97,
+    "graph_noop_detected": true,
+    "positive_control_cases": 64,
+    "native_hccl_tests": 5,
+    "gpu_parity_tests": 390,
+    "gpu_parity_seconds": 135.89,
+    "scopes": {
+      "local": {
+        "qualified": 278,
+        "unqualified": 42,
+        "table_sha256": "d233a341889e8939f24482ed495048add03981cb5954d5535f29d447ad1fefa2",
+        "provenance_sha256": "7db36668409fe8a563cf2dfad736fd6e873035fc04f9763080a285664b5f91aa",
+        "native_query_sha256": "a59db37913965a7789933d4564c9e59c3e65f3b159e5fc15975ab27a54aca689"
+      },
+      "peer": {
+        "qualified": 285,
+        "unqualified": 35,
+        "table_sha256": "a368d266658892c99a009c6a89e6d3c7531b28bb0d8ff64b3c1b1f682edbae75",
+        "provenance_sha256": "3cc8757617d72894b0a94039a36111a250bf8934d7bd9aec1c4b7f1c0a9c29be",
+        "native_query_sha256": "1a9b166452160ef9c89f6072d327b81a0cf00314161f7699febb3f417f4299f3"
+      },
+      "dual": {
+        "qualified": 60,
+        "unqualified": 20,
+        "table_sha256": "70b2cfc2828f4c8c937d1fec507f8d5f18a52eb28ff5cfa427e5f3d863c7c717",
+        "provenance_sha256": "9b280b15e43a44263ba967ad9f8f0228c080e710fd66c0604377f5376ebb2a0f",
+        "native_query_sha256": "35bea61114b0f00832442a4c3a3bc198eb2814f7fe9a07ec68da208f92b98c8b"
+      }
+    },
+    "native_binary": "36018c4b8a01cd16a6cf3a7f541a4dd2fd448312d8ea92678ba94ab53fa20c23  /tmp/aisim-native/_runtime.abi3.so",
+    "source_sha256": {
+      "python/aisimulate/collector/sglang/ascend_hccl.py": "11632a2674b0bc8be382682d82da81c2ffffe9f66ef1f5eeeec102a8f7f6ba43",
+      "python/aisimulate/collector/sglang/ascend_hccl_export.py": "35910613ca301e0a4b0b50ee90966896ba31575f24ce11427ad3fe2a00c088ed",
+      "crates/core/src/perfmodel/perf_database/hccl.rs": "1815b805fb43dcdd54d33f13d0122d7beeacdb8f8683fbd7474ab20402ec8a7c"
+    },
+    "old_v2_publications": "withdrawn; historical raw files retained",
+    "service_restore": "local United healthy; peer NPUs released"
+  },
+  "assessment_sha256": "02efdd797d5e9577bd6a8f3261897e6a67d11faa389611fdbde929babd6931ca",
+  "archived_files": {
+    "local/create-task-container.log.gz": {
+      "sha256": "5451b88811cfed4f3fa5b4f3b1e59e13bb60a74fea307e91fd515318bc76a694"
+    },
+    "local/hccl-16.json.gz": {
+      "sha256": "a0b75c8a75b582d3e1f1926fddcdeba3d3e0a3123e4bcd6ea88257d410616137",
+      "uncompressed_sha256": "46402dc43047f64713562ed7f35ff282c5f76f2415de4acbcfab51c315489b90"
+    },
+    "local/hccl-16.log.gz": {
+      "sha256": "1c8f35d5ef79eaf0cb4dcd622c834ae113293ad1e9f83c16391d1957c79d7582"
+    },
+    "local/hccl-2.json.gz": {
+      "sha256": "d223baaf5757586199eaa794a887f119fc536fda8a86ac0bd68ede576b2dfe19",
+      "uncompressed_sha256": "e9e4d36801aad5c67cb2712caef257ded890c5f58e2b216f4d93fc19ce158980"
+    },
+    "local/hccl-2.log.gz": {
+      "sha256": "79c2e626183a6a808243d2f202d04faac1b4b452ebae8d8443527d8a1b4ecb55"
+    },
+    "local/hccl-32.json.gz": {
+      "sha256": "d6059acf97a2ca924cac7419b395033d63a063f07da98754e1f232e76d80da24",
+      "uncompressed_sha256": "4a660e037fba12a8295d72ba4874546d79af606cc8a57673b11bb18419f38866"
+    },
+    "local/hccl-32.log.gz": {
+      "sha256": "44c9272ba289b1308bb7d76d92ea4096f6589c5bdade9c112dcb68a6c9e47681"
+    },
+    "local/hccl-4.json.gz": {
+      "sha256": "f83925ac084b48c6be65bc8a4a433f2830044cd09c90daad80c6d72f38de0563",
+      "uncompressed_sha256": "df19386460cfa43e14744c93859cd7ee4ff7e721af581c3545627639405657d5"
+    },
+    "local/hccl-4.log.gz": {
+      "sha256": "6663b5a42e92d43479b9296318b70f56fffb07b662d3b6ae78eea42d3b037d06"
+    },
+    "local/hccl-8.json.gz": {
+      "sha256": "0f91a072829b6cd302d6bf37ca9aad83961463f151c9e1e268a0a18a12cde2dd",
+      "uncompressed_sha256": "01ea7ac7da1f5468e041905c6a3a694a5fb243ccfab0df243d641368bb500018"
+    },
+    "local/hccl-8.log.gz": {
+      "sha256": "83a051d392ed3b27fd23235860d5e4c12b5d3cec97223808769b0a5655810a79"
+    },
+    "local/npu-after-pause.log.gz": {
+      "sha256": "79c7e4b32e99e2e90d359c3c158d9539510a8d8807c7b264ad07f9b37f64d1e3"
+    },
+    "local/npu-before.log.gz": {
+      "sha256": "feadd94ca6e634fee5d809c684893558280b0c15e11260252d95dd01432021a7"
+    },
+    "local/pause-united.log.gz": {
+      "sha256": "bb5b720952d41e5f89296e2eb4d3cfa8017da05851df7331fd95fd2c75533af2"
+    },
+    "local/restore-united.log.gz": {
+      "sha256": "bb5b720952d41e5f89296e2eb4d3cfa8017da05851df7331fd95fd2c75533af2"
+    },
+    "native-tests.log.gz": {
+      "sha256": "c841042bc2985ff7938b20594116b615038d0b9db290b2edaefc6711048c585a"
+    },
+    "peer/hccl-16.json.gz": {
+      "sha256": "876a6e2da626c8704f98f79dbc50cff3f5da668703b657c0018f0bf74df535ba",
+      "uncompressed_sha256": "0f99eb9a3ea7be8b60c2a10a24bac1011404b2e2aca9267c1906083320c1817a"
+    },
+    "peer/hccl-16.log.gz": {
+      "sha256": "90be9e52ba35c64d76b34c827f98f4bef3a4732bf9d44037f4c27c59f20cca82"
+    },
+    "peer/hccl-2.json.gz": {
+      "sha256": "edd2509378c79503f8c6ef4048fdfcff4a4e422614c1ebaa9ded3651f120e4d4",
+      "uncompressed_sha256": "fac527adeeb59a744ea222107d2ad9145a50a1ba8e0c4a529798dcf33585aff3"
+    },
+    "peer/hccl-2.log.gz": {
+      "sha256": "c576c354e8be02a3b42d0c472088decef5ba4b9b84c8436c948ec420b736ac4f"
+    },
+    "peer/hccl-32-peer.log.gz": {
+      "sha256": "18d1fa2b0678936eff3cf947796764b71a5272a655c7872964c6462076502021"
+    },
+    "peer/hccl-4.json.gz": {
+      "sha256": "2e1a955bf6cff3e44c15cc5a01f0c967737079d9bf07a5de7a92ad943fd8c01f",
+      "uncompressed_sha256": "b55ca9b57f90faf497ecaa0dfcca10eab1f25b71d882fcd4e4ced52d3731919a"
+    },
+    "peer/hccl-4.log.gz": {
+      "sha256": "16a9c839fdc12d57bd2be42308fe4dabdef383c3418253ee4e805c914d93fc89"
+    },
+    "peer/hccl-8.json.gz": {
+      "sha256": "aef288830051081d4fbadd6b47dce3c66520f43d9f14b0a2af66021c412fd064",
+      "uncompressed_sha256": "aee4d44fc28e4d77a1e7ec5a03fc3403634665495786b940d657ecf53f8254f3"
+    },
+    "peer/hccl-8.log.gz": {
+      "sha256": "db07bedb9befcfae677def592f44d5b07835ad2481d9e4ad907cf6926e3cda96"
+    },
+    "probes/noop.log.gz": {
+      "sha256": "e68ca61bd0c21a6ed7578543a5d91b761a2162b957ecf28f2c8253d55d9ad53f"
+    },
+    "probes/positive.json.gz": {
+      "sha256": "87a2d181af2113ed28ef64624907b2814e862919927046c3989ad7270e65d936",
+      "uncompressed_sha256": "4b4d6b5f660b48b99a3345cf31e6c36d11de3bb501ad393a6e95839f1f291dc0"
+    },
+    "probes/positive.log.gz": {
+      "sha256": "62166219ae7d647b2195a983017d5b56ba603649b1a33f2af45318f5932c5dee"
+    },
+    "published-dual/hccl_perf.parquet": {
+      "sha256": "70b2cfc2828f4c8c937d1fec507f8d5f18a52eb28ff5cfa427e5f3d863c7c717"
+    },
+    "published-local/hccl_perf.parquet": {
+      "sha256": "d233a341889e8939f24482ed495048add03981cb5954d5535f29d447ad1fefa2"
+    },
+    "published-peer/hccl_perf.parquet": {
+      "sha256": "a368d266658892c99a009c6a89e6d3c7531b28bb0d8ff64b3c1b1f682edbae75"
+    }
+  },
+  "raw_access": "gzip-compressed JSON preserves original bytes; decompress to the same basename to rerun the exporter. Parquet is directly queryable."
+}

@@ -120,6 +120,7 @@ fn load(path: &std::path::Path) -> Result<BTreeMap<HcclKey, HcclCurve>, AicError
     let ranks_per_node = reader.col("ranks_per_node")?;
     let rank_layout = reader.col("rank_layout")?;
     let execution_mode = reader.col("execution_mode")?;
+    let execution_verification = reader.col("execution_verification")?;
     let input_bytes = reader.col("input_bytes_per_rank")?;
     let latency = reader.col("latency_ms")?;
     let cv = reader.col("cv")?;
@@ -140,6 +141,16 @@ fn load(path: &std::path::Path) -> Result<BTreeMap<HcclKey, HcclCurve>, AicError
             execution_mode: row.str_owned(execution_mode)?,
         };
         key.validate()?;
+        let expected_verification = if key.execution_mode == "graph" {
+            "captured_graph_replay"
+        } else {
+            "eager_invocation"
+        };
+        if row.str_owned(execution_verification)? != expected_verification {
+            return Err(AicError::InvalidPerfData(
+                "HCCL row does not verify its actual execution path".into(),
+            ));
+        }
         let bytes = row.u64(input_bytes)?;
         let value = row.f64(latency)?;
         let variability = row.f64(cv)?;
@@ -223,6 +234,7 @@ mod tests {
                 vec!["1111111111111111111111111111111111111111111111111111111111111111"; 2],
             ),
             Col::Str("kernel_source", vec!["torch.distributed.hccl"; 2]),
+            Col::Str("execution_verification", vec!["captured_graph_replay"; 2]),
         ]
     }
 
@@ -256,6 +268,10 @@ mod tests {
             (8, Col::F64("cv", vec![0.01, 0.3])),
             (10, Col::I64("correctness_checks", vec![16, 1])),
             (
+                13,
+                Col::Str("execution_verification", vec!["eager_invocation"; 2]),
+            ),
+            (
                 11,
                 Col::Str(
                     "runtime_identity_sha256",
@@ -277,6 +293,19 @@ mod tests {
                 Err(AicError::InvalidPerfData(_))
             ));
         }
+    }
+
+    #[test]
+    fn graph_rows_without_replay_verification_are_not_publishable() {
+        let root = tempfile::tempdir().unwrap();
+        let mut values = columns();
+        values.pop();
+        write_parquet(&root.path().join(BASENAME), &values);
+        let table = HcclTable::new(Some(root.path().to_owned()));
+        assert!(matches!(
+            table.query(&key(), 1024),
+            Err(AicError::InvalidPerfData(_))
+        ));
     }
 
     fn key() -> HcclKey {

@@ -1,0 +1,28 @@
+{
+  "research": {
+    "hccl_graph_quality_correction": {
+      "status": "validated_and_recollected_v3",
+      "results": "Actual timedgraph/eager checks pass; injectedno-opgraph is rejected;64positivecontrolcases cover4dtypes. Fresh720points produce623CVqualified rows,97unstable retained. Newnativequeries reproduceall623; oldv2publication is rejected.",
+      "tests": "6Pythonexport tests,5nativeHCCLloader tests and390GPUparity tests pass. Parallelpytest initially lacked nativeextension discovery; workerbootstrap fixedtheenvironment and390passed in135.89s.",
+      "service_state": "LocalUnited restoredhealthy; peerNPUsidle, alltaskcollectorsfinished; unrelatedcontainerspreserved.",
+      "data_roots": ["production/hccl-replay-verified-20261022/published-local", "production/hccl-replay-verified-20261022/published-peer", "production/hccl-replay-verified-20261022/published-dual"],
+      "next_action": "Use onlyv3sources. ImplementcompleteAscendoperatorcomposition andremaininglinear/attention/DeepEPcurves, residentmemory,PDandsearch."
+    },
+    "hccl_local_and_dual": {
+      "status": "superseded_by_v3_recollection",
+      "service_state": "BothmanagedlocalcampaignsrestoredUnited. Allv2artifactsretainedashistorical,notcurrentpublisheddata.",
+      "next_action": "Use v3published-local/peer/dual withseparatenode/driverprovenance."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "hccl_v3_validation": {"path":"production/hccl-replay-verified-20261022/validation.json","kind":"file","scope":"validation"},
+        "hccl_v3_local_provenance": {"path":"production/hccl-replay-verified-20261022/published-local/provenance.json","kind":"file","scope":"collection"},
+        "hccl_v3_peer_provenance": {"path":"production/hccl-replay-verified-20261022/published-peer/provenance.json","kind":"file","scope":"collection"},
+        "hccl_v3_dual_provenance": {"path":"production/hccl-replay-verified-20261022/published-dual/provenance.json","kind":"file","scope":"collection"}
+      },
+      "progress": {"stage":2,"status":"in_progress","next_action":"CompletecanonicalAscendGLMoperatorgraph andmissingcompute/DeepEPdata, thenresidentmemory/forwardaccuracy,PDKVhandoff andqualifiedparallelism/replica searches."}
+    }
+  }
+}

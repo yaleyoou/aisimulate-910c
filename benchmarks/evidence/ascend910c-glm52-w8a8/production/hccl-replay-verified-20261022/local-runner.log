@@ -1,0 +1,9 @@
+npu-before
+pause-united
+create-task-container
+hccl-2
+hccl-4
+hccl-8
+hccl-16
+hccl-32
+restore-united

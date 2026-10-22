@@ -33,11 +33,24 @@ def validated_rows(campaigns, runtime_identity):
     protocol = None
     for path in campaigns:
         data = json.loads(path.read_text())
-        if data.get("schema") != "aisimulate-hccl-observations/v2":
-            raise ValueError("HCCL publication requires v2 serving-environment observations")
+        if data.get("schema") != "aisimulate-hccl-observations/v3":
+            raise ValueError("HCCL publication requires v3 verification of the actual timed execution path")
+        if (
+            data.get("collector_source_sha256") != runtime_identity["collector_source_sha256"]
+            or data.get("framework_commit") != runtime_identity["framework_commit"]
+        ):
+            raise ValueError("Observed source differs from the selected runtime identity")
         if data.get("status") != "completed":
             raise ValueError(f"Incomplete collection: {path}")
         current_protocol = {field: data[field] for field in ("warmup", "repeats", "iterations")}
+        if (
+            data.get("warmup_scope") != "batches_of_iterations"
+            or data.get("all_reduce_buffer_policy") != "one_buffer_per_invocation"
+        ):
+            raise ValueError("Missing independent AllReduce buffers or batch warmup protocol")
+        current_protocol.update(
+            warmup_scope=data["warmup_scope"], all_reduce_buffer_policy=data["all_reduce_buffer_policy"]
+        )
         current_protocol["gc_policy"] = data.get("gc_policy", "enabled")
         current_protocol["runtime_environment"] = data.get("runtime_environment")
         current_protocol["hccl_group_options"] = data.get("hccl_group_options")
@@ -82,6 +95,13 @@ def validated_rows(campaigns, runtime_identity):
                 raise ValueError(f"Incomplete timing samples: {key}")
             if case["full_payload_correctness_checks"] != 2 * world:
                 raise ValueError(f"Missing pre/post correctness on every rank: {key}")
+            verification = "captured_graph_replay" if row["execution_mode"] == "graph" else "eager_invocation"
+            buffers = data["iterations"] if row["operation"] == "all_reduce" else 1
+            if (
+                case.get("execution_verification") != verification
+                or case.get("verification_buffers_per_rank") != buffers
+            ):
+                raise ValueError(f"Correctness was not checked on the actual timed buffers/execution path: {key}")
             for samples in rank_samples:
                 values = samples["device_ms"]
                 if len(values) != repeats or any(not math.isfinite(value) or value <= 0 for value in values):
@@ -96,6 +116,7 @@ def validated_rows(campaigns, runtime_identity):
                 cv=variation,
                 sample_count=repeats,
                 correctness_checks=2 * world,
+                execution_verification=verification,
                 kernel_source="torch.distributed.hccl",
                 source_sha256=source_digest,
             )

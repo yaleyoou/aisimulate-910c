@@ -98,6 +98,26 @@ Changed-operation manifests identify which family/system evidence a collector or
 runtime change requires. CI checks that evidence separately from per-directory
 execution status. See [CI](../../ci/README.md) for the repository gates.
 
+## HCCL execution verification
+
+HCCL publication requires raw observation schema `aisimulate-hccl-observations/v3`.
+The full-payload checks must execute the same eager batch or captured graph that
+is timed. Every AllReduce invocation owns an independent input/output buffer;
+nonzero signed verification inputs therefore undergo one reduction each and
+remain finite across all supported collector dtypes. Timing inputs are reset to
+zero. Warmup uses batches of the recorded number of invocations.
+
+| Field | Contract |
+| --- | --- |
+| `execution_verification` | Published rows use `eager_invocation` or `captured_graph_replay`, matching `execution_mode`. The native reader rejects a mismatch or missing column. |
+| `verification_buffers_per_rank` | Raw observations check every AllReduce invocation buffer, or the final output buffer for the other collectives, both before and after timing. |
+| `collector_source_sha256`, `framework_commit` | Raw observations must match the publication's pinned source/runtime identity. |
+
+Earlier v2 observations checked eager invocations even for graph timing rows.
+Their graph correctness was not established by those checks. Preserve those
+artifacts as historical observations and recollect before publication; changing
+the schema label or adding a verification field cannot qualify old measurements.
+
 ## Reuse and source priority
 
 With shared-layer sourcing enabled, primary measured rows take precedence and

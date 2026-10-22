@@ -1,18 +1,22 @@
 """Collect HCCL curves with explicit placement, dtype and execution identity.
 
 Run with torchrun inside the pinned Ascend runtime. AllReduce uses zero payloads
-during repeated timing to avoid in-place overflow; signed rank/index patterns
-are checked over the full output before and after timing for every operation.
+during repeated timing. Every AllReduce invocation owns a separate buffer so
+signed patterns can validate the timed batch without repeated-sum overflow.
+Full outputs are checked through the actual eager batch or captured graph both
+before and after timing.
 These are raw observations pending producer/consumer qualification.
 """
 
 import argparse
 import datetime
 import gc
+import hashlib
 import json
 import os
 import socket
 import statistics
+import subprocess
 import time
 from pathlib import Path
 
@@ -113,7 +117,7 @@ def main():
     identities = [None] * world
     distributed.all_gather_object(identities, identity, group=control)
     result = {
-        "schema": "aisimulate-hccl-observations/v2",
+        "schema": "aisimulate-hccl-observations/v3",
         "status": "running",
         "num_ranks": world,
         "ranks_per_node": args.ranks_per_node,
@@ -122,6 +126,12 @@ def main():
         "warmup": args.warmup,
         "repeats": args.repeats,
         "iterations": args.iterations,
+        "warmup_scope": "batches_of_iterations",
+        "all_reduce_buffer_policy": "one_buffer_per_invocation",
+        "collector_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "framework_commit": subprocess.check_output(
+            ["git", "-C", "/sgl-workspace/sglang", "rev-parse", "HEAD"], text=True
+        ).strip(),
         "canonical_fpm_data": False,
         "cases": [],
         "gc_policy": args.gc_policy,
@@ -147,27 +157,35 @@ def main():
             raise ValueError("Payload is not aligned to the collective element/partition size")
         count = size_bytes // element_size
         source = torch.zeros(count, dtype=dtype, device="npu")
+        source_buffers = [source]
         if operation == "all_reduce":
             target = source
-            invoke = lambda: distributed.all_reduce(target)
+            source_buffers.extend(torch.zeros_like(source) for _ in range(args.iterations - 1))
+            invoke = lambda index: distributed.all_reduce(source_buffers[index])
         elif operation == "all_gather":
             target = torch.empty(count * world, dtype=dtype, device="npu")
-            invoke = lambda: distributed.all_gather_into_tensor(target, source)
+            invoke = lambda index: distributed.all_gather_into_tensor(target, source)
         elif operation == "reduce_scatter":
             target = torch.empty(count // world, dtype=dtype, device="npu")
-            invoke = lambda: distributed.reduce_scatter_tensor(target, source)
+            invoke = lambda index: distributed.reduce_scatter_tensor(target, source)
         else:
             target = torch.empty_like(source)
-            invoke = lambda: distributed.all_to_all_single(target, source)
+            invoke = lambda index: distributed.all_to_all_single(target, source)
 
-        def verify():
+        def invoke_batch():
+            for index in range(args.iterations):
+                invoke(index)
+
+        def verify(execute):
             pattern = (torch.arange(count, dtype=torch.int32, device="npu") % 5 - 2).to(dtype)
-            source.copy_(pattern + (rank % 7 - 3))
-            invoke()
+            for buffer in source_buffers:
+                buffer.copy_(pattern + (rank % 7 - 3))
+            execute()
             torch.npu.synchronize()
             rank_sum = sum(peer % 7 - 3 for peer in range(world))
             if operation == "all_reduce":
-                passed = torch.equal(target, pattern * world + rank_sum)
+                expected = pattern * world + rank_sum
+                passed = all(torch.equal(buffer, expected) for buffer in source_buffers)
             elif operation == "reduce_scatter":
                 portion = pattern[rank * (count // world) : (rank + 1) * (count // world)]
                 passed = torch.equal(target, portion * world + rank_sum)
@@ -185,23 +203,24 @@ def main():
             if not all(states):
                 failed_ranks = [index for index, state in enumerate(states) if not state]
                 raise ValueError(f"Full-payload correctness failure on ranks {failed_ranks}")
-            source.zero_()
+            for buffer in source_buffers:
+                buffer.zero_()
             torch.npu.synchronize()
 
-        verify()
         for _ in range(args.warmup):
-            invoke()
+            invoke_batch()
         torch.npu.synchronize()
         graph = None
         if mode == "graph":
             graph = torch.npu.NPUGraph()
             barrier()
             with torch.npu.graph(graph):
-                for _ in range(args.iterations):
-                    invoke()
+                invoke_batch()
             for _ in range(args.warmup):
                 graph.replay()
             torch.npu.synchronize()
+        execute = graph.replay if graph is not None else invoke_batch
+        verify(execute)
         samples = []
         wall_samples = []
         gc_samples = []
@@ -226,11 +245,7 @@ def main():
                 gc_state["duration"] = 0.0
                 start_event.record()
                 started = time.perf_counter()
-                if graph is not None:
-                    graph.replay()
-                else:
-                    for _ in range(args.iterations):
-                        invoke()
+                execute()
                 end_event.record()
                 end_event.synchronize()
                 wall_samples.append((time.perf_counter() - started) * 1000 / args.iterations)
@@ -240,7 +255,7 @@ def main():
             gc.callbacks.remove(observe_gc)
             if gc_was_enabled:
                 gc.enable()
-        verify()
+        verify(execute)
         rank_samples = [None] * world
         distributed.all_gather_object(
             rank_samples, {"device_ms": samples, "wall_ms": wall_samples, "gc_ms": gc_samples}, group=control
@@ -254,6 +269,8 @@ def main():
             "rank_samples": rank_samples,
             "critical_device": summarize(critical),
             "full_payload_correctness_checks": 2 * world,
+            "execution_verification": "captured_graph_replay" if graph is not None else "eager_invocation",
+            "verification_buffers_per_rank": len(source_buffers),
             "timing_scope": "NPU events over collective calls; eager includes device idle gaps from host submission",
         }
         row["repeatable_at_10_percent"] = row["critical_device"]["cv"] <= 0.10

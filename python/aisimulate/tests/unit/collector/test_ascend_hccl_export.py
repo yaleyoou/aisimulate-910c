@@ -28,6 +28,8 @@ def campaign(tmp_path, name, samples=None, iterations=16):
         "execution_mode": "graph",
         "input_bytes_per_rank": 1024,
         "full_payload_correctness_checks": 4,
+        "execution_verification": "captured_graph_replay",
+        "verification_buffers_per_rank": iterations,
         "rank_samples": [{"device_ms": [1.0] * 3}, {"device_ms": samples or [2.0] * 3}],
     }
     path.write_text(
@@ -37,7 +39,11 @@ def campaign(tmp_path, name, samples=None, iterations=16):
                 "warmup": 10,
                 "repeats": 3,
                 "iterations": iterations,
-                "schema": "aisimulate-hccl-observations/v2",
+                "schema": "aisimulate-hccl-observations/v3",
+                "warmup_scope": "batches_of_iterations",
+                "all_reduce_buffer_policy": "one_buffer_per_invocation",
+                "collector_source_sha256": "test-fixture",
+                "framework_commit": "test-fixture",
                 "runtime_environment": {"TASK_QUEUE_ENABLE": "0", "HCCL_BUFFSIZE": "650"},
                 "hccl_group_options": {"hccl_buffer_size": 650},
                 "serving_setup": {
@@ -65,6 +71,7 @@ def test_critical_rank_timing_and_exact_transport_identity(tmp_path):
     assert rows[0]["kernel_source"] == "torch.distributed.hccl"
     assert rows[0]["dtype"] == "bfloat16"
     assert rows[0]["correctness_checks"] == 4
+    assert rows[0]["execution_verification"] == "captured_graph_replay"
     assert report["unqualified"] == []
 
 
@@ -97,5 +104,32 @@ def test_unrecorded_or_mismatched_runtime_options_cannot_be_published(tmp_path):
         validated_rows([path], runtime())
     value["schema"] = "aisimulate-hccl-observations/v1"
     path.write_text(json.dumps(value))
-    with pytest.raises(ValueError, match="requires v2"):
+    with pytest.raises(ValueError, match="requires v3"):
+        validated_rows([path], runtime())
+
+
+def test_eager_checks_cannot_qualify_graph_timings(tmp_path):
+    path = campaign(tmp_path, "graph.json")
+    value = json.loads(path.read_text())
+    value["cases"][0]["execution_verification"] = "eager_invocation"
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="actual timed buffers/execution path"):
+        validated_rows([path], runtime())
+    value["cases"][0]["execution_verification"] = "captured_graph_replay"
+    value["cases"][0]["verification_buffers_per_rank"] = 1
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="actual timed buffers/execution path"):
+        validated_rows([path], runtime())
+    value["schema"] = "aisimulate-hccl-observations/v2"
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="requires v3"):
+        validated_rows([path], runtime())
+
+
+def test_runtime_source_must_match_observation(tmp_path):
+    path = campaign(tmp_path, "source.json")
+    value = json.loads(path.read_text())
+    value["framework_commit"] = "another-commit"
+    path.write_text(json.dumps(value))
+    with pytest.raises(ValueError, match="source differs"):
         validated_rows([path], runtime())
