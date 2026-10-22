@@ -1,11 +1,16 @@
-"""Launch the pinned serving implementation with count-only instrumentation."""
+"""Launch pinned serving with routing and optional operator-input observations."""
 
 import importlib.metadata
+import os
 import sys
 
 from ascend_state_capture import install
 
-install()
+state = install()
+if os.environ.get("AISIM_CAPTURE_INPUTS") == "1":
+    from ascend_input_capture import install as install_inputs
+
+    install_inputs(state)
 
 
 if __name__ == "__main__":

@@ -748,6 +748,16 @@ copies count tensors; optional `AISIM_CAPTURE_COPY_COUNTS=0` retains references
 and fails if the runtime reuses their storage. Both modes are state observations,
 not qualified performance measurements.
 
+With `AISIM_CAPTURE_INPUTS=1`, the same launcher also installs
+`ascend_input_capture.py` and writes `inputs-rank-*.jsonl` beside the routing
+records. It observes linear, MLA BMM, indexer and sparse-attention calls, including
+shapes, strides, dtypes, storage formats and static quant-bias selection. Small
+sequence-length tensors are read after actual graph replay; large activations
+and attention buffers are represented by metadata only. These records distinguish
+logical active requests from the physical padded graph geometry. The optional
+observer preserves custom-op overload attributes such as `.default`; its
+instrumented service must not supply performance timings.
+
 `ascend_state_requests.py` drives bounded prefill/early-decode captures, and
 `ascend_state_sweep.py` waits until all dedicated requests have produced their
 first token before arming steady decode capture. The latter is currently scoped
