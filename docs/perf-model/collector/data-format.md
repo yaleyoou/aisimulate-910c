@@ -118,6 +118,45 @@ Their graph correctness was not established by those checks. Preserve those
 artifacts as historical observations and recollect before publication; changing
 the schema label or adding a verification field cannot qualify old measurements.
 
+## Ascend linear measurements
+
+The experimental `collector.sglang.ascend_linear_cases.get_ascend_linear_cases`
+plan checks a local ModelSlim artifact against the model's declared geometry.
+It combines `cases/base_ops/ascend_linear.yaml` workload axes with
+`model_case_values.ascend_linear` matrices and deduplicates identical physical
+invocations. It is separate from default CUDA collection plans.
+
+`ascend_linear_perf.parquet` belongs to the `gemm` family. Its native consumer
+requires the exact system/backend/version primary, in either supported directory
+layout. Donor versions, other systems, kernel filters and extrapolation outside
+measured token brackets are rejected. Bias variants have separate measured curves;
+the TP group policy takes their maximum because bias need not always be slower.
+
+| Field | Contract |
+| --- | --- |
+| `quant_mode` | Exact `w8a8`, `w8a8_dynamic`, or `bfloat16` invocation. |
+| `m`, `n`, `k` | Rank-local matrix dimensions; only `m` interpolates between measured brackets. |
+| `quant_bias` | Static W8A8 INT32 bias actually passed to the kernel; RowParallel rank zero differs from other ranks. |
+| `weight_format` | Observed NPU storage format, with ND (`2`) and NZ (`29`) kept separate. |
+| `execution_mode`, `execution_verification` | Eager or graph execution, numerically checked through that same path before and after timing. |
+| `input_dtype`, `output_dtype`, `kernel_source` | Observed BF16 boundary types and exact framework-selected implementation. |
+| `latency_ms`, `cv`, `sample_count` | Median per-invocation event time, coefficient of variation and number of samples. Publication excludes CV above 10%. |
+| `numerical_checks`, `source_sha256`, `runtime_identity_sha256` | Sampled check count, original observation bytes and frozen runtime/protocol identity. |
+
+The base YAML protocol declares `weight_copies`, `iterations`, `warmup` and
+`repeats`. Each timed batch rotates through the weight copies for `iterations`
+calls; iterations must be a positive multiple of copies. Warmup is a number of
+batches. Compare weight working sets with the call count held fixed. Graph
+outputs remain live for actual replay checks, so the largest shape must pass a
+memory smoke under the selected protocol. Eager measurements include device idle
+gaps caused by host dispatch; they are not isolated kernel-only timings.
+
+The exporter checks complete attempted plan coverage, numerical check metadata,
+runtime/driver identity, CPU affinity and timing stability before publication.
+Incomplete smoke runs remain observations. Synthetic tensor values validate
+the declared implementation and shape; they do not establish whole-model
+forward accuracy, serving accuracy, or compatibility of another node's network.
+
 ## Reuse and source priority
 
 With shared-layer sourcing enabled, primary measured rows take precedence and

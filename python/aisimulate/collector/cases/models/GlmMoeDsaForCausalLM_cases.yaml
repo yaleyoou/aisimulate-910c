@@ -22,6 +22,24 @@ description: >
   GLM-5 DSA/MoE model-centric collection plan.
 
 model_case_values:
+  ascend_linear:
+    - checkpoint_quantization: modelslim_w8a8
+      hidden_size: 6144
+      num_attention_heads: 64
+      q_lora_rank: 2048
+      kv_lora_rank: 512
+      qk_nope_head_dim: 192
+      qk_rope_head_dim: 64
+      v_head_dim: 256
+      index_n_heads: 32
+      index_head_dim: 128
+      intermediate_size: 12288
+      moe_intermediate_size: 2048
+      n_routed_experts: 256
+      n_shared_experts: 1
+      vocab_size: 154880
+      tensor_parallel_sizes: [4, 8, 16]
+      global_tensor_parallel_sizes: [16]
   moe:
     - model_path: zai-org/GLM-5
       hidden_size: 6144

@@ -167,6 +167,7 @@ pub(crate) fn wrap_op(py: Python<'_>, op: Op) -> PyResult<Py<PyAny>> {
         // BASE-wrapped engine op for list assembly.
         Op::FpmForward(_)
         | Op::Hccl(_)
+        | Op::AscendLinear(_)
         | Op::Dsv41Attention(_)
         | Op::Dsv41Mhc(_)
         | Op::Dsv41Engram(_)

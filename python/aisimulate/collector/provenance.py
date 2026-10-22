@@ -56,6 +56,7 @@ STANDALONE_COLLECTOR_MODULES: frozenset[str] = frozenset(
         "collector.wideep.trtllm.collect_moe_a2a",
         "collector.network.slurm.collect_trtllm_alltoall",
         "collector.sglang.glm53flash_attention_runner",
+        "collector.sglang.ascend_linear",
         "collector.vllm.glm53flash_attention_runner",
     }
 )

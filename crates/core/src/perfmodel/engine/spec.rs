@@ -847,6 +847,21 @@ mod tests {
                 elements_per_token: 6144,
                 token_split: 1,
             }),
+            OpSpec::AscendLinear(crate::operators::AscendLinearOp {
+                name: "ascend_o_proj".into(),
+                scale_factor: 78.0,
+                key: crate::perf_database::ascend_linear::AscendLinearKey {
+                    quant_mode: "w8a8".into(),
+                    n: 6144,
+                    k: 2048,
+                    weight_format: 29,
+                    execution_mode: "graph".into(),
+                },
+                bias: crate::operators::ascend_linear::AscendLinearBias::TpGroupMax,
+                token_axis: crate::operators::ascend_linear::AscendLinearTokens::Tokens,
+                token_split: 1,
+                token_multiple: 8,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -869,6 +884,7 @@ mod tests {
                 | OpSpec::CustomAllReduce(_)
                 | OpSpec::Nccl(_)
                 | OpSpec::Hccl(_)
+                | OpSpec::AscendLinear(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1024,7 +1040,12 @@ mod tests {
             "HCCL appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[47]),
             47,
+            "Ascend linear appended index moved"
+        );
+        assert_eq!(
+            48,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

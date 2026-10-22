@@ -185,6 +185,7 @@ pub(crate) fn kernel_source_ok(
     }
 }
 
+pub mod ascend_linear;
 pub mod attention;
 mod axis_curve;
 pub mod communication;
@@ -253,6 +254,7 @@ pub struct PerfTables {
     pub moe_expert_compute: MoeExpertComputeTable,
     pub communication: CommunicationTable,
     pub hccl: HcclTable,
+    pub ascend_linear: ascend_linear::AscendLinearTable,
     pub dsa: DsaTable,
     pub msa: MsaTable,
     pub dsv4: Dsv4Table,
@@ -545,6 +547,11 @@ impl PerfDatabase {
                 &resolver,
             )?,
             hccl: HcclTable::new(hccl_root),
+            ascend_linear: if system == "ascend910c" && backend == "sglang" {
+                ascend_linear::AscendLinearTable::with_sources(&data_root, &resolver)?
+            } else {
+                ascend_linear::AscendLinearTable::new(None)
+            },
             dsa: DsaTable::with_sources(data_root.clone(), &resolver)?.with_backend(backend),
             dsv4: Dsv4Table::with_sources(data_root.clone(), &resolver)?,
             // Exact backend/version only: V41 module provenance must not be

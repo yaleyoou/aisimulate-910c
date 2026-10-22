@@ -24,6 +24,7 @@ class PerfFile(str, Enum):
         return self.value
 
     GEMM = "gemm_perf.txt"
+    ASCEND_LINEAR = "ascend_linear_perf.txt"
     CONTEXT_ATTENTION = "context_attention_perf.txt"
     GENERATION_ATTENTION = "generation_attention_perf.txt"
     ENCODER_ATTENTION = "encoder_attention_perf.txt"

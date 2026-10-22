@@ -179,7 +179,7 @@ families:
           - {backend: wideep, framework_name: WIDEEP, constraints: "wide-EP MoE", source: "create_moe.py:152-153"}
 
   - family: gemm
-    op_files: [gemm_perf]
+    op_files: [gemm_perf, ascend_linear_perf]
 
   - family: mlp
     op_files: [wideep_context_mlp_perf, wideep_generation_mlp_perf]

@@ -1,0 +1,12 @@
+schema_version: 1
+op: ascend_linear
+description: Source-qualified Ascend linear measurements with explicit bias and execution identity.
+common_case_values:
+  ascend_linear:
+    token_counts: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 768, 1024, 1536, 2048, 4096, 8192, 16384]
+    request_counts: [1, 2, 4, 8, 16, 24, 32, 64]
+    execution_modes: [eager, graph]
+    weight_copies: 64
+    iterations: 128
+    warmup: 10
+    repeats: 11

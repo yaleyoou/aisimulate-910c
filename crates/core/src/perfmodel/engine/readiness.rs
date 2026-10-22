@@ -602,6 +602,7 @@ impl Availability<'_> {
                 )),
                 _ => self.db.hccl.ensure_key(&comm.key),
             },
+            AscendLinear(linear) => linear.ensure_ready(self.db),
             // Dispatch chooses its comm legs from topology at query time. A
             // single-rank graph needs no communication table.
             MoeDispatch(dispatch) if dispatch.moe_tp_size * dispatch.moe_ep_size > 1 => {
