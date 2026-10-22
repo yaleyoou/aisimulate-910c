@@ -3,8 +3,42 @@ op: ascend_linear
 description: Source-qualified Ascend linear measurements with explicit bias and execution identity.
 common_case_values:
   ascend_linear:
-    token_counts: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 768, 1024, 1536, 2048, 4096, 8192, 16384]
-    request_counts: [1, 2, 4, 8, 16, 24, 32, 64]
+    token_counts:
+      - 1
+      - 2
+      - 4
+      - 6
+      - 8
+      - 10
+      - 11
+      - 13
+      - 14
+      - 16
+      - 24
+      - 32
+      - 40
+      - 56
+      - 64
+      - 80
+      - 112
+      - 128
+      - 256
+      - 512
+      - 768
+      - 1024
+      - 1536
+      - 1792
+      - 2048
+      - 2304
+      - 2560
+      - 2816
+      - 3328
+      - 3584
+      - 3840
+      - 4096
+      - 8192
+      - 16384
+    request_counts: [1, 2, 4, 6, 8, 10, 11, 13, 14, 16, 24, 32, 40, 56, 64]
     execution_modes: [eager, graph]
     weight_copies: 64
     iterations: 128
