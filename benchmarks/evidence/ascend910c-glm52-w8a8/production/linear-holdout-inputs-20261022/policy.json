@@ -1,0 +1,5 @@
+{
+  "purpose": "Independent held-out token interpolation; these measurements must not be inserted into the tested table.",
+  "quality": "Exclude observations with CV>10%; report every exclusion. Query exact source/layout/precision in native engine.",
+  "acceptance": "Report median,p90,maximum absolute relative error by execution/quantization; 10% is the per-case comparison target, not whole-forward qualification."
+}

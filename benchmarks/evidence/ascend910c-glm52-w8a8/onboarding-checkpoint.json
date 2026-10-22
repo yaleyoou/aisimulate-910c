@@ -677,6 +677,46 @@
           "scope": "collection",
           "sha256": "35fbf6ceb44c17e3ed4d9c775e001378037fd2f576a0fec3b888592348558e3f"
         },
+        "linear_initial_holdout_report": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/linear-holdout-report.json",
+          "scope": "validation",
+          "sha256": "892c2145fb08a0a638a36bff84bb75982c1ea09b163e0ef850b47fe70406af40"
+        },
+        "linear_initial_plan": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/linear-full-node32-20261022/plan.json",
+          "scope": "collection",
+          "sha256": "f34033b365f92932a4120008183484e3a15c902abd8cfd9990b575194a2cf233"
+        },
+        "linear_initial_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/linear-published-20261022/provenance.json",
+          "scope": "collection",
+          "sha256": "28860c67b69ae33bbdb97675d93343d32f4024df75cb49f6b53081bf4628ebd9"
+        },
+        "linear_initial_table": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/linear-published-20261022/ascend_linear_perf.parquet",
+          "scope": "collection",
+          "sha256": "bfbae21e2d727684eb6717492b57336684a91be2e9343256bdc93f4e965f2e88"
+        },
+        "linear_node_controls": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/linear-controls-analysis.json",
+          "scope": "validation",
+          "sha256": "cebdc265f76d853417b34279c3db885c229c623954b13c353777dd9942632f2e"
+        },
         "local_reference_campaign": {
           "archived": false,
           "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
@@ -836,7 +876,7 @@
           "Missing stable source-matched communication, full model-specific kernel grids, actual routing and memory/PD metadata.",
           "Full forward/serving prediction accuracy and search coverage unvalidated."
         ],
-        "next_action": "CompletecanonicalAscendGLMoperatorgraph andmissingcompute/DeepEPdata, thenresidentmemory/forwardaccuracy,PDKVhandoff andqualifiedparallelism/replica searches.",
+        "next_action": "Linearprimitive/dataavailablebutheldoutaccuracyfails;refinegridthencontinuefullAscendmodel. Use31/32withverifiedsharedweightbaselineforrealserving/PD.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -928,6 +968,31 @@
       ],
       "status": "validated_kv_component"
     },
+    "ascend_linear_adapter": {
+      "cache_protocol": "Old16/32weight-copy comparison also changed graph call count; inconclusive. New protocol fixes128calls forbothcopies, runs16/32/32/16 order, largestM16384 and graph-noop controls beforefull660casegrid.",
+      "case_population": "768recipes deduplicated to660physical invocations; full plan executed on32 with64weightcopies,128calls,10warmup batches,11repeats. Eager and graph each numerically checked before and after actual execution.",
+      "collection": "660numerical passes;657CV<=10% rows;3unstable eager points retained/excluded (plan indices0,172,384). M1 eager qkv_a remains outside the qualified bracket. No substitute measurements.",
+      "contract": "Exact static/dynamicW8A8/BF16,ND/NZ,executionmode,N/K; independentquantbias curves. Op supports token/request axis,sharding/padding andmaxoverTPbiasvariants. RawmeasuredM interpolation onlywithinbrackets; no GPU/quant/layout substitution or SOLclamp.",
+      "controls": "Fixed128calls16/32and32/64working-set experiments preserved.40M8cases on31/32 at64copies differ by at most4.3964% in paired means. Cache32/64 sensitivity reaches9.3743%, so full cache convergence and serving accuracy are not claimed. FinalM16384/64copies checks and intentionalgraph-noop detection passed.",
+      "data_stage": "Initial657rowpublication frozeninproduction/linear-published-20261022,includingcollector_ref5aac6ea3. IndependentheldoutaccuracyFAILEDandisrecorded,notmasked. Native exactlookup/wire andfullGPUparitypassed.",
+      "host_cost": "Lazy exact-primary table preparation only onascend910c/sglang. Bucket lookup and token interpolation use prepared ordered maps. Export hashes each source once instead of onceperrow. Nonewper-query Pythonmath.",
+      "interpolation_accuracy": "FAILED10%per-case target:188independentheldouts,187stable,13over10%,max34.7575%. LargeerrorsconcentrateBF16smallN andM3072. Do notclaimaccuracyfromexactrowlookup. Refinetraininggridwithoutinsertingtheseheldouts.",
+      "limits": "FullAscendGLMmodelcomposition,attention/vector/MoE/DeepEPcompletecurves,residentaccounting,PDandsearchstillrequired. Do notpresentthisprimitiveascompleteadaptation.",
+      "native": "AscendLinear appended atwireindex47; existingindices andschema28unchanged. Lazytable onlyprepared fortargetascend910c/sglang. No new publicpredictor.",
+      "next_action": "Commitdata/evidence; densifytraininggridandindependentlyrevalidate; thencontinueattention/indexer/MoE/DeepEPmodelcomposition,residentmemoryandPD/search.",
+      "previous_smoke": "40 M8 cases and34 M8192 cases passed actual before/after output verification; intentional graph-noop failed. Initial dynamic-quant reference discrepancy diagnosed as <=1INT8bin with equal scales; separate quant checks and actual checked quantized GEMM reference now used.",
+      "publication": "657rows installed atpython/aisimulate/src/aisimulate_core/systems/data/ascend910c/gemm/sglang/0.5.22, sourceclosure/runtime/plan provenance attached.3unstablecases excludedandretained.",
+      "runtime_smoke": "Historicalinitialdynamicreferencefailure diagnosed/fixed; all660fullgridcases andfinal64copylargestMchecks pass actualoutputchecks; graph-noop rejected.",
+      "source_commit": "5aac6ea3",
+      "sources": [
+        "production/linear-full-node32-20261022/plan.json",
+        "production/linear-controls-analysis.json",
+        "production/linear-holdout-report.json",
+        "production/linear-validation-20261022"
+      ],
+      "status": "complete_primitive_collection_and_native_lookup; model_composition_pending",
+      "validation": "6Rusttable/operator tests;657realnative exact-rowqueries havezeroerror;390GPUparity cases pass in110.31s;60collector/provenance tests pass. Finalwire/lint checks and stagecommits pending."
+    },
     "basis": {
       "confidence": "high",
       "sources": [
@@ -974,6 +1039,33 @@
       "confidence": "high",
       "finding": "v0.5.22 converts legacy dp-size2 + enable-dp-attention into dp_size1 + attn_dp_size2, and divides global chunk16384 into per-attention-DP chunk8192.",
       "source": "stage1/runtime-resolved-args.json"
+    },
+    "execution_nodes_20261022": {
+      "active_jobs": [
+        {
+          "host": "npu1-32",
+          "output": "production/model-current-node32-fingerprint.json",
+          "pid": 3369695,
+          "task": "currentread-onlyfullmodelfingerprintasroot"
+        }
+      ],
+      "authorized_nodes": [
+        "npu1-31",
+        "npu1-32"
+      ],
+      "confidence": "Runtime preflight observed; new peer transport/topology and whole-model serving remain unvalidated. Historical19 data cannot qualify31 transport.",
+      "copy_attempt": "TerminatedowncopyPID3164848 aftercurrent32source mismatchwasconfirmed. Non-rootcopyalso couldnotread.msc;failedfuturesweredraininginbackground. Errorhandlingfixedtofailandsavecancelsbeforewaiting. Partialdestination quarantined asglm52-w8a8-b3645035-rejected-20261022; no originalmodelmodified.",
+      "excluded_nodes": [
+        "npu1-19"
+      ],
+      "model_baseline_review": "User confirms bothcurrentpaths/mnt/raid/user/data/models/glm-q. Node31fullbytehashdiffersfromarchivedoriginal32;current32firstshardalso differsfromarchiveandnode31. Actualpayloads differwithsamecanonicalheader. No corruptioncauseassumed. Stopusingarchivedweightidentityasproofofcurrentweights.",
+      "model_node31": "Full196filefingerprintcompleted:126weightfilesdifferfromoriginal32;config/quant/indexandfilesizesmatch. Firstshardcanonicaltensorheader matches butpayloadhashdiffers,so actualweightidentitydiffers.",
+      "next_action": "Comparecurrentmodelhashes/tensors andestablishonecurrentweightbaselineforrealserving/PD. Keeppriorrouting/servingevidenceboundtooriginalweightrevision;syntheticoperatorcollectiondoesnotdependonweightvalues.",
+      "runtime": "Pinned0.5.22 image retained on32; pulling identical digest on31. Host /tmp campaign/deps lost on reboot; archived evidence and CPU-container native/cargo cache survived. CLI dependency ijson restored in isolated container path.",
+      "services": "Linearcontrol/full/heldoutcontainersstoppedaftercompletion. ExistingUnitedservicesremainstoppedasfoundafterreboot. CPUvalidationcontaineractive;19excluded.",
+      "source": "User explicitly switched temporary peer from19 to31; password/sudo authorization retained only in conversation.",
+      "storage": "Local RAID5 is degraded [4/3] [UUU_] and was not mounted after reboot. Mounted existing filesystem read-only,norecovery at /mnt/raid; exact original model directory is accessible. No array rebuild, filesystem repair or write mount performed.",
+      "verified": "Both31/32 have16 visible Ascend devices, driver26.1.1, no running NPU processes at preflight. Both rebooted earlier today. Local validation container restarted. Checkpoint resumed at revision31 with no integrity issues."
     },
     "git_stage_policy": {
       "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed.",
@@ -1049,6 +1141,7 @@
       "service_state": "BothmanagedlocalcampaignsrestoredUnited. Allv2artifactsretainedashistorical,notcurrentpublisheddata.",
       "status": "superseded_by_v3_recollection"
     },
+    "hccl_v3_commit": "dd1eb7ab: corrected graph execution verification and623qualified rows from720freshpoints; allservices restored.",
     "historical_runtime": {
       "actual_package_version": "0.5.17.dev386+gc5bd3d7dc",
       "confidence": "high",
@@ -1283,7 +1376,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 30,
+  "revision": 35,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

@@ -1,0 +1,1 @@
+{"pid": 2778190, "command": ["docker", "exec", "aisim-910c-production-20261022", "python3", "/campaign/linear/ascend_linear_v2.py", "--plan", "/campaign/linear/plan.json", "--serving-setup", "/campaign/serving-setup-nodes.json", "--output", "/campaign/linear/smoke-m8-v2.json", "--case-filter", "\"m\": 8,"]}

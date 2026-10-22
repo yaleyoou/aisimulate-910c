@@ -1,0 +1,371 @@
+{
+  "scope": "Original log bytes preserved in deterministic gzip archives",
+  "logs": [
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/containers-before.log",
+      "sha256": "65f115dca1762179d6a3c5ea91aeab8117629231250a954cc02c8c2201a53d91",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/containers-before.log.gz",
+      "archive_sha256": "5040830b30bee05bdae447ba77839873ab570ee5c6ad1c152d2a43ccb821d6a2"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/disk-before.log",
+      "sha256": "4cf7130172820cdb58beeb867d7a5022c752845c4a78d8addc2c35ac667d09b1",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/disk-before.log.gz",
+      "archive_sha256": "32497e27f87102fcb4cbdb04b6f74084ad422d40257de7d2358c166e553f69b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/graph-noop.log",
+      "sha256": "796d6e19d913fb06d289e0f5d53979cfbdcdf930d6eb585896b2bd98b18ff788",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/graph-noop.log.gz",
+      "archive_sha256": "6cf20d15dd5556dc54bf4bc7d991a45bc6afabe7b60ae0d9e7b1be8221cb8076"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/large16384.log",
+      "sha256": "9943e6bc256e3bcdf759ae5f6b55ea9bc6dba6de47b9830dd73e2a373224741e",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/large16384.log.gz",
+      "archive_sha256": "e525a5f585a1e9d4c53ac19f3f5d6e63e9c49acfca75b1057fd475dbb3e3aca4"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/m8-0-copies64.log",
+      "sha256": "2edafe6a303aefd07d0a3cf62294366ece6fc1a782644dbbe12455899ec43629",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/m8-0-copies64.log.gz",
+      "archive_sha256": "d8ff74a8028dca13fa80c423f90c1e13e592729c9a8193428493882cc4af6fa9"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/npu-before.log",
+      "sha256": "c63b886f73663cdcec12770eb84dc87e34c2c22e44a62c7f240f9df6da9f7b96",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-boundary64-20261022/npu-before.log.gz",
+      "archive_sha256": "109c4eea2e5c501cdb747d42897e6aa65b1d7dfc5864a27d8b772f867720e36d"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/containers-before.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/containers-before.log.gz",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/disk-before.log",
+      "sha256": "4cf7130172820cdb58beeb867d7a5022c752845c4a78d8addc2c35ac667d09b1",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/disk-before.log.gz",
+      "archive_sha256": "32497e27f87102fcb4cbdb04b6f74084ad422d40257de7d2358c166e553f69b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/graph-noop.log",
+      "sha256": "76fee6798203128b0de024e483a1c342a30c72ad53da9a16db42bdc447e4b3be",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/graph-noop.log.gz",
+      "archive_sha256": "30dfa015e5ca6b2f443a3ba3b10022c39d5e314404971cfc60d2a6988b5bce75"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/large16384.log",
+      "sha256": "e60d97c50ff2f99c6b247cad5475e5404d1c6e1df56a7c9b182b68fc4a15f973",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/large16384.log.gz",
+      "archive_sha256": "da1694c6185e2bbfff13b7d766302a9b9f18f9dd66d61d14cb11026f31e87800"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-0-copies32.log",
+      "sha256": "b688222731f1c41d327c1c9934c27c331d55b5c41904d408a1990f871ab35e99",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-0-copies32.log.gz",
+      "archive_sha256": "783bfb9dd936a3d6f516223feb7a3807dd8e966e94b8eca59c33b5d54f8319f1"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-1-copies64.log",
+      "sha256": "1497930310705dca54197253efb07b976b6b67346750512d8d7c2356c8e72696",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-1-copies64.log.gz",
+      "archive_sha256": "57936999292a129e894717387153081c1b5948b3336a83d73b4bea3261e987be"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-2-copies64.log",
+      "sha256": "8e9cad1f4a1cfbeb3c50d570b930aead62dbd19cc3a567b682786d5b3a11c5b8",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-2-copies64.log.gz",
+      "archive_sha256": "007a4c2bc1e49598abd34c4881db4bdda38db858f804c2b2f65465023a450c12"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-3-copies32.log",
+      "sha256": "53b2e17e1e4f8b4c49789fd42d8df11f6db48be099e3317cda7d28c5d0eef19f",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/m8-3-copies32.log.gz",
+      "archive_sha256": "e05e57e82cde6e3acab1035b3c95a278adb5b94f0494ec768427fe232806a01f"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/npu-before.log",
+      "sha256": "58aa47d2cd977e66f9ac59496f1c5959821287c8b24dc978a7011812195f1398",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node31-20261022/npu-before.log.gz",
+      "archive_sha256": "b78a15e68f258255855aa3077462a3cebd0239f75ab31144521f81d42c5a1c71"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/containers-before.log",
+      "sha256": "cc9b294b9a1221383021ff922315d7aed616db9d8526a7548c77d30f4aa1f03b",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/containers-before.log.gz",
+      "archive_sha256": "6a5e758b4e828ef78a0fc9ef4b13780607f1b16c1b94c5f1d211acea1641d50a"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/disk-before.log",
+      "sha256": "4cf7130172820cdb58beeb867d7a5022c752845c4a78d8addc2c35ac667d09b1",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/disk-before.log.gz",
+      "archive_sha256": "32497e27f87102fcb4cbdb04b6f74084ad422d40257de7d2358c166e553f69b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/graph-noop.log",
+      "sha256": "025ad4891d9bf5951941e643337c72e7f09e99fc40e7d523072bad2967cdd1d9",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/graph-noop.log.gz",
+      "archive_sha256": "0c0488f769c0b20f81722f4c0e2b8f554e4a9a9347b64fcceaade33a3e3a7575"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/large16384.log",
+      "sha256": "0bd3cd393fec0d012a5ac017db2c8068b2a101901a1a3c643421e29cfb2f171d",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/large16384.log.gz",
+      "archive_sha256": "e1c27668782c5e4876999b3395962826963aa6a5cf479dc7c880263cc27e9fa9"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-0-copies32.log",
+      "sha256": "e04205f7c2884bfe2bead030483feb118045ff6eeebaad6454d748225d546c99",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-0-copies32.log.gz",
+      "archive_sha256": "32c98c739a2dd28be70442b1fb5ce2f54930797b3335f890210e93e6ad0946fc"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-1-copies64.log",
+      "sha256": "508ec4bcfd4a0ef8389acd5f67564e5a8c8f1b349a564f7244dfcf7b7ba642c0",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-1-copies64.log.gz",
+      "archive_sha256": "260a49ffb9ad65645a943d1c90fa9794e1ab83e71dbb42b8c9814c7c527c513e"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-2-copies64.log",
+      "sha256": "e9a3bb55c82f088f6c38a8527fedfb7c6f0c2594b32a22ba90f38e11d7762abd",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-2-copies64.log.gz",
+      "archive_sha256": "0ed59ddd04dfe8a43ef6b2e1ca4316fcddfaae68d8a96356738df9661b69bc70"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-3-copies32.log",
+      "sha256": "73401d7242895e3e20d35f5db7e2a0ae793bd07211a4619f1c19a0a0d818ca18",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/m8-3-copies32.log.gz",
+      "archive_sha256": "8f21ce740dbb50960850d00d3b1c1493848a5d5e3fe0117bbd65fdd129bf8e20"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/npu-before.log",
+      "sha256": "ca9bc25ffa995804fb0576d022b19c77888399f12bc17115f9822468771faba4",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-cache64-node32-20261022/npu-before.log.gz",
+      "archive_sha256": "f14ab824f17bd33037b2865d895b789777e235b3e06b0ab2d05f398cd6dd8f63"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/containers-before.log",
+      "sha256": "a62ce7160a2ae069f47b4260ba8746bccda8486410d04ff9c80f9526faa8df75",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/containers-before.log.gz",
+      "archive_sha256": "b890dad883f55ecb67fefa039428d1d95bd13f2719b8144c09eeff1c7ae7e92e"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/disk-before.log",
+      "sha256": "4cf7130172820cdb58beeb867d7a5022c752845c4a78d8addc2c35ac667d09b1",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/disk-before.log.gz",
+      "archive_sha256": "32497e27f87102fcb4cbdb04b6f74084ad422d40257de7d2358c166e553f69b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/graph-noop.log",
+      "sha256": "dc565dfd8374477a0e42568c2a8a45903c25a2f813d2be36b94913f8ed16d130",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/graph-noop.log.gz",
+      "archive_sha256": "dd7f66cb0513858a0c3eceddc192cdc3807c05b78670349c47c6584a309d11ac"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/large16384.log",
+      "sha256": "94b0d1ba2a27953b8b5fb1995a199d974dad6efec6aba148ce14c8d88a66a09d",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/large16384.log.gz",
+      "archive_sha256": "d120825e14271b13319ea2297b6fa25285b0bff3d8689ba15fb60591abbe0a42"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-0-copies16.log",
+      "sha256": "3028217a18237012a6ad2b5a215b7fb9269393344265882694da041a67e0ee12",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-0-copies16.log.gz",
+      "archive_sha256": "76c9843a20407bfeba03db27ea5501b2d149a68135750475999804ba66505e85"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-1-copies32.log",
+      "sha256": "6b5fe1577a9b4f6694f01fe764bd1d62c293565e4a3890956b8c2a20a37a3359",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-1-copies32.log.gz",
+      "archive_sha256": "a5e6fc214bed54ef1be62cc9d20ecb2a9e8876eb7b6d6fadb10ae10ad6bb8df7"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-2-copies32.log",
+      "sha256": "bce18e4ab667d3df2c1102bbf32687d7ef5c8982d04f87931015ad9855ee53e8",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-2-copies32.log.gz",
+      "archive_sha256": "c2c69d4779eeedeaa4b8524851ea0478a4423e724c61885a47f800ca141f1f6f"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-3-copies16.log",
+      "sha256": "a1200a7f197a9e4be0356fcd100f24ad49147f3f85dc50967525b709e04e7e8c",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/m8-3-copies16.log.gz",
+      "archive_sha256": "649b1425667b0f06a0c93ded556cd288eadd5e70cde3122f09caa8ee9ba22a31"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/npu-before.log",
+      "sha256": "67a5b4e22452553ec1cd586da75b430e0ca00fe473c2e6fd45ce17cba974d7fb",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-fixed128-20261022/npu-before.log.gz",
+      "archive_sha256": "ef4e962678cc9d5550c52e9acfbe5e1ad5a78c734622e28e5c0ccd478b02e5b4"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/containers-before.log",
+      "sha256": "3c54a9b06ad9c34835d753f41d4d6afbefc086389cf7baf120e39065e0ea17f6",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/containers-before.log.gz",
+      "archive_sha256": "a76f0f198406cdcf7fbc4f9509de04873d2fb61288ad36c06275e33a2ad9c5b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/disk-before.log",
+      "sha256": "4cf7130172820cdb58beeb867d7a5022c752845c4a78d8addc2c35ac667d09b1",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/disk-before.log.gz",
+      "archive_sha256": "32497e27f87102fcb4cbdb04b6f74084ad422d40257de7d2358c166e553f69b8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/npu-before.log",
+      "sha256": "982f8ec9d913b2e6a2522e32c067fff63387b743a6ef7e25fb21da90688ef79b",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/npu-before.log.gz",
+      "archive_sha256": "4959c6e1a851f4cef9447f8df7ecb34b7e4fb097a076c7b61c023f8b9a4679d8"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-0.log",
+      "sha256": "5ae73c3cd1f2b3202955cd84f69b1fdf7decf4c1ca909b7d8679c00472cd9fa2",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-0.log.gz",
+      "archive_sha256": "994770f1d95fb7316efbe5adce2ec6a9688320f6ee3cf271a516e84f0662336c"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-1.log",
+      "sha256": "5ea051b187e6bcb131d68617ff26aece2b939c41c8738ff5e3a563133612d0ce",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-1.log.gz",
+      "archive_sha256": "8c80a348cdb24ebc5414a8a4113d5868ce9a8550efd2571768f4e1dea0c2f9c7"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-2.log",
+      "sha256": "e03d392400f5d0d8d46d9ee01a45f6308960e562a542955f4c92c4b0a8505380",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-2.log.gz",
+      "archive_sha256": "709a8a1122c7c3515c006aa974e04fcbd130582ad901705a089473c1addb7413"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-3.log",
+      "sha256": "dc4fc13d2edf179df4df0acf34183e6103dc1f41976413f67950aa6dbfa3995b",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-full-node32-20261022/shard-3.log.gz",
+      "archive_sha256": "da8a85ccb3abb3ca4839361018f03c6d9cb55ec92c37d79d8c7bd065ca8d4e35"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/containers-before.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/containers-before.log.gz",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/disk-before.log",
+      "sha256": "a648af85f22319c43a6e2fd5a826c357a89b2df7a2fb68fe30c14310fc8b9b50",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/disk-before.log.gz",
+      "archive_sha256": "96ad726f21902b82405a52e833f98c1513c77b9d5dc253cfd2fa4055a2185404"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/driver.log",
+      "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/driver.log.gz",
+      "archive_sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/npu-before.log",
+      "sha256": "64d35438fbe0fbc3575b5a46186e83858a55a0094e8e5ca58230451e5a88ea96",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/npu-before.log.gz",
+      "archive_sha256": "b9cf04f2f2943920dcebb4c9806a717940ef6c158387df6007bd8ec03cad0ad9"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-0.log",
+      "sha256": "20a966c68d03ecd068065d41f6ac9e5e6919d63b2ffd6da936b4340f9b346ce9",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-0.log.gz",
+      "archive_sha256": "e6082d5606b1bb9d28755f645ab00c8c4e999cb3f040f7229d771e648677fecf"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-1.log",
+      "sha256": "d6da7695c54f4e8a63c31dcf0b2e3c6c2484856a03f0c92a2d94db17cd48f7c3",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-1.log.gz",
+      "archive_sha256": "4c69891cc8a8d18f240b16009eb27cc994c33d248f6bf2813f5c67f68c69f7c0"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-2.log",
+      "sha256": "756ca0b69a35fdcba959329934b60a3155b52ed8d871fc714b66e4a65278f660",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-2.log.gz",
+      "archive_sha256": "cbc48f507000695952a74ad6c2557a3166abda586c1b45c5704681ad988aea37"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-3.log",
+      "sha256": "51fae552779729e46cec071112d194677418e94e354fb8ced149b5d7993aef8b",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-holdout-node31-20261022/shard-3.log.gz",
+      "archive_sha256": "a1b833694d372ef9792114feb1bc23e9daef172e320735530428f0bbcc2ee50f"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-gpu-parity.log",
+      "sha256": "888485997078485e5f0328aca6d83598c8e7e64bfd0efc5d08326acc94f17512",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-gpu-parity.log.gz",
+      "archive_sha256": "064afcccda7dbcea0bc57ab40b0448dc761d086b199b2337203ce0593e058a7d"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-holdout-validation.log",
+      "sha256": "49b2bdf384d06c334c3007e6e6c05d58dcf15b97ef478dcb51d1e8693b52ea0a",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-holdout-validation.log.gz",
+      "archive_sha256": "3e788a28427c2a35d3883d23b14313a5227be69346adedf165828f2b66dc8a89"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-installed-native.log",
+      "sha256": "423dcd07a633860545eab9c342d385595f170e115f6a8bfc90125816220099d6",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-installed-native.log.gz",
+      "archive_sha256": "2e96bb51f0e5002d006ac8b0be5a4d756dc441187fb09c5533be43bf25e338d3"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-native-current.log",
+      "sha256": "b98587be3a0cb94ec7c1ff31558e7076afe41c85be170ff1b3fbe49b8a4c7450",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-native-current.log.gz",
+      "archive_sha256": "5654cc7de978a297e22f8b3a7ce99c34408c186901f1af7801779fe3491cff02"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-native-measured.log",
+      "sha256": "423dcd07a633860545eab9c342d385595f170e115f6a8bfc90125816220099d6",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-native-measured.log.gz",
+      "archive_sha256": "2e96bb51f0e5002d006ac8b0be5a4d756dc441187fb09c5533be43bf25e338d3"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-publish-tests.log",
+      "sha256": "ed79f3f2e1ba30eba5528722e8b7c04dfa6043f5ea2cc1f37da401e7ac3b4981",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-publish-tests.log.gz",
+      "archive_sha256": "02585343d747a8f906080d73fbece6acd967f87116fc7f24c2ffe15387336aa1"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-release-build.log",
+      "sha256": "d73f4acc663d34b9bea08b44097d4dec78323ccdc80db9ecd0015c6e644fa57b",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-release-build.log.gz",
+      "archive_sha256": "8b35dab58bc72733c44459ace0c42b7b925f235403a54f8a00aeda5df7f675a6"
+    },
+    {
+      "path": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-wire-current.log",
+      "sha256": "5f2cb0de79061f468687878269162388690e0e6a08a1f1c5133c8f1bd6bd7276",
+      "archive": "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-validation-20261022/aisim-linear-wire-current.log.gz",
+      "archive_sha256": "9c757c995c89717f6a374f2e3b729c6780f5202c4f4d42f46479708defd2f82d"
+    }
+  ]
+}

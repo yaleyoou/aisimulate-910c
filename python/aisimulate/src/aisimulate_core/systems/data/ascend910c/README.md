@@ -4,12 +4,31 @@
 Atlas 800T A3 node. A node exposes **16 chips on eight dual-chip boards**.
 Memory capacity and throughput are per chip, never per board or per node.
 
-This directory contains **no published operation database**. Registering the
-hardware name does not qualify GLM-5.2, SGLang-Ascend, ModelSlim INT8 MoE,
+This directory contains an experimental source-qualified linear table under
+`gemm/sglang/0.5.22/ascend_linear_perf.parquet`: 657 stable measurements from
+660 attempted cases, with raw provenance and collection metadata alongside it.
+It distinguishes static W8A8, dynamic W8A8, BF16, bias, storage format and
+eager/graph execution. Native queries use exact keys and interpolate only inside
+measured token brackets. The eager QKV-A M=1 point is unqualified; its curve
+starts at M=2. All graph grid points passed the recorded stability check.
+
+This is **partial operator support**, not a complete GLM prediction database.
+Registering the hardware name or loading this table does not qualify GLM-5.2,
+SGLang-Ascend, ModelSlim INT8 MoE,
 whole-forward prediction, or replay accuracy. No NVIDIA communication data or
 backend version is inherited. The existing NCCL-based memory estimator also
 requires a separate HCCL integration; `misc` deliberately has no invented NCCL
 version, communication-memory reservation, or serving-memory allowance.
+
+Linear collection uses the pinned image below, driver 26.1.1, 64 independent
+weight copies and 128 calls per timing sample. All attempted cases pass sampled
+CPU-reference checks through the actual eager invocation or captured replay.
+Matched M=8 controls on nodes 31 and 32 differ by at most 4.4% in paired means.
+Working-set sensitivity reaches 9.4%. Independent held-out evaluation has 187
+stable points: 13 exceed 10% relative error, with a maximum of 34.8%; its accuracy
+gate fails. Complete cache convergence, whole-forward accuracy and serving
+accuracy are not established by the table. The original observations and intentional graph-noop failure are
+under `benchmarks/evidence/ascend910c-glm52-w8a8/production/linear*`.
 
 The retained calibration manifest is
 `benchmarks/evidence/ascend910c-glm52-w8a8/hardware-calibration.json` in the
@@ -37,8 +56,9 @@ made on 2026-10-20 and 2026-10-21. Runtime image:
   held-out cross-node messages of 1–128 MiB have at most 1.61% error in this
   campaign, but the 256 KiB point has about 58% error. Use collected HCCL
   operation curves before claiming accurate small-message serving predictions.
-- Local driver 26.1.1 and peer driver 25.5.0 differ; both report HAL 7.35.23.
-  Recollect after a driver/runtime/topology change. Results are not qualified
+- Historical hardware calibration used local driver 26.1.1 and peer driver
+  25.5.0; both report HAL 7.35.23. Revalidate affected measurements after a
+  driver/runtime/topology change. Results are not qualified
   for more than the two measured nodes or for loaded/co-tenant hardware.
 
 Unmeasured scalar FP32, FP8, FP4, PCIe bandwidth, TDP, memory fixed latency,

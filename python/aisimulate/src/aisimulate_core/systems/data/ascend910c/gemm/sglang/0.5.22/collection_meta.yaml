@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+schema_version: 1
+provenance: collected
+runtime:
+  framework: sglang
+  version: 0.5.22
+  image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+  source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+  abi:
+    torch: 2.10.0+cpu
+    torch_npu: 2.10.0.post6
+    driver_version_info: 'Version=26.1.1
+
+      ascendhal_version=7.35.23
+
+      aicpu_version=1.0
+
+      tdt_version=1.0
+
+      log_version=1.0
+
+      prof_version=2.0
+
+      dvppkernels_version=1.1
+
+      tsfw_version=1.0
+
+      Innerversion=V100R001C10SPC009B220
+
+      compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+      compatible_version_fw=[7.0.0,9.9.9]
+
+      package_version=26.1.1
+
+      '
+tables:
+  ascend_linear_perf:
+    collector_ref: 5aac6ea3
+    collector_hash: sha256:bef9b61cb131e4965b38fc5bb06eca5ba2160b5b0d248be259a28ca847621502
+    case_plan_hash: sha256:b25f476b9aa47465182df25536b9794260c2dd01a534c83f70d2f78eb6ca7365
+    collected_at: '2026-10-22T10:01:46.486538+00:00'
+    rows: 657
+    classified_failures: 3
+    status: complete

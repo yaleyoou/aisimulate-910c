@@ -1,0 +1,259 @@
+# Current goal handoff
+
+Full explicit goal remains ACTIVE: actual operator-level Ascend910C/GLM5.2
+ModelSlim W8A8 prediction, resource accounting, PD handoff and canonical
+predict/recommend searches over supported parallelism and P/D replicas.
+Do not mark complete from foundation/data-capture tests. No blocked condition.
+
+User currently authorizes nodes31and32; do not use19. Coordinated collector/consumer work, own-service
+pauses, collection and local commits after completed stages. No branch/push/PR.
+Git as youxingye; command author youxingye <youxingye@npu1-32>. Use runuser only fromroot.
+Local UID5031. Never persist credentials. Preserve md/test.md,
+checkpoint lock and old PID files. Root-created task files need chown to5031.
+
+## State now
+
+- Latest commits:
+  - 5aac6ea3: AscendLinear native operator/table, explicit ModelSlim collector, exporter and provenance.
+  - 76454223: observed-count MoE compute and cache-protocol experiments.
+  - f5349d2f: Ascend KV layout component and startup/serving observations.
+  - dd1eb7ab: fix actual HCCL graph correctness, recollect and qualify v3.
+- Uncommitted linear evidence/data publication and heldout validation remain.
+  Source primitive is committed; canonical whole-GLM composition still missing.
+- Nodes31/32 rebooted on2026-10-22 around12:20. All prior Docker services were
+  already stopped when resumed. Do not claimUnitedhealthy. Both modelRAID5 arrays
+  are degraded4/3 and were unmounted; mounted read-only,norecovery for modelreads.
+  No filesystem repair, rebuild or write mount performed. Other workloads untouched.
+- CPUvalidationcontainer restarted; image/native/cargo caches survived initslayer.
+  Host/tmp campaign/deps vanished. MinimalCLI ijson restored viaCPUcontainer;
+  single-node/checkpoint.py worksagain. Its failures hideCLI stdout; inspect
+  CalledProcessError.stdout whenneeded. Root-created checkpoint needschown5031.
+- Checkpoint revision33, integrity issues[]:
+  ../onboarding-checkpoint.json. Resume CLI FIRST on continuation with
+  single-node/checkpoint.py --log /tmp/<fresh>.json.
+  Current configuration united-tp16-dp2-ep16 remains stage2/in_progress.
+  Formal exact FPM profile is not accepted; onboard init is vLLM-only.
+  Operator adaptation can continue. Do not invent accepted direct-FPM profiles.
+- Current goal is incomplete. Next priority is canonical Ascend operator
+  composition and required compute curves, not more state-only collection.
+
+## Linear phase just completed
+
+- Full660physicalcases from768recipes,64weightcopies,128calls,10warmupbatches,
+  11repeats. Allnumericalchecks pass;657CVqualified,3unstableeagerpoints retained
+  (indices0,172,384). EagerQKV_A M1isabsent; no extrapolationbelowM2.
+- Exactnative657queriesgivezeroerror.6Rusttests,22wiretests,60collector/provenance
+  tests,390GPUparitytests(110.31s),focusedRuffcheck/formatpass.
+- Dataset installed(generated, notyetdatacommitted)under
+  python/aisimulate/src/aisimulate_core/systems/data/ascend910c/gemm/sglang/0.5.22/.
+  Exportercollector_ref=5aac6ea3;metadataclosure/sourcehashes retained.
+- M8paired31/32comparison40cases max4.3964%;32/64copy sensitivitymax9.3743%.
+  Thisisboundedobservedsensitivity,notfullcacheconvergence/wholemodelaccuracy.
+  Sources:linear-controls-analysis.json,linear-cache64-node31/node32-20261022.
+- Native RELEASE /tmp/aisim-native/_runtime.abi3.so insideCPUcontainer nowincludes
+  AscendLinear;SHA676dac63c5d87a512f7ce0b60fa566b209d356a0f5183de0fe2af33136becb12.
+  Oldbinarybackup /tmp/aisim-native/_runtime-before-linear.so.
+- Completed heldout188casecampaign on31 useslinear-holdout-inputs-20261022/plan.json,
+  outputlinear-holdout-node31-20261022;containeraisim-linear-holdout-20261022.
+  PlanM3/12/48/96/3072,headrequests3/12/48. Validatewithvalidate_linear_native.py
+  --holdout-plan --observations --report; neverinsertheldoutrowsintotestedtable.
+  linear-holdout-report.json:187stable,13over10%,max34.7575%;accuracygateFAILED.
+  Nextdensifytraininggridwhilekeepingtheseholdoutcoordinatesindependent.
+-31existingmodelhas196files/samebytes/config/sidecar/indexbut126weightfilesdiffer
+  from32originalcontentmanifest. Fullbytehash371121b22244cfd5827a4ee4935f525fc4f0f114e3e4968c3b915151764f18ed.
+  tensor-first-node31/32.jsonconfirmsfirstshardhassamecanonicaltensorheaderbut
+  DIFFERENTpayload. Current32firstshardalso differsfromarchivedb364manifest:
+  currentab335b89df4efd0b8806d460d272cd82e3eeafc2c5f2ad25f2a56080568a98b8.
+  Sharedcopytaskterminated;partialdirectoryrenamed
+  /tgm_rent_data/data/youxingye/model-baselines/glm52-w8a8-b3645035-rejected-20261022.
+  Source/destinationoriginalsnotmodified. Originalcopyranasuserandcouldnotread
+  .msc;executorerrorwasdelayeduntilotherfuturesdrained. Fixedfailurehandlingin
+  copy_verified_model.py,butdonotrestartagainstoldmanifest. Current32fullhash
+  runningasroot(model-current-node32-fingerprint.json)toestablishactualbaseline.
+  Allpriorrealrouting/servingobservationsretainoldweightidentity;syntheticlinear
+  curvesremainshape/runtime-qualified. NeedresolveweightsbeforePDserving.
+- Preserveallfailedinitialsmokesinlinear-20261022. Dynamicquantreferencefixedafter
+  <=1binCPUroundingdifferencewithmatching scales;separatequantchecks remain.
+- Rawlinearpointtablesuseparquet;syntheticinputs/weights,source-selectedkernels.
+  FullAscendGLMmodel,attention/MoE/DeepEP/resident/PD/searchareNOTcomplete.
+
+Frozen initial shared-input md/910c-glm52-w8a8-full-adaptation.md mustremainunchanged;
+currentupdatesgo tomd/910c-glm52-w8a8-production-progress.md andresearchcheckpoint.
+Changing the initialscope docinvalidatescheckpointinputhashes.
+
+## Runtime and model
+
+Pinned image:
+quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+SGLang0.5.22 commit baa9befa381511cd4d56f83980951e5a45fffc6d,
+CANN/HCCL9.1.0B243, Torch2.10.0+cpu, torch-npu2.10.0.post6, Python3.12.
+Current31/32drivers26.1.1;historical19driver25.5.0. Actual device Ascend910_9382, arch query2201.
+Do not treat as arch35 or CUDA SM.
+
+Model source /mnt/raid/user/data/models/glm-q, mounted /models/glm-q in United.
+Peer exact copy /mnt/raid/aisimulate-youxingye-20261022/glm-q.
+196files,774079436873bytes; full content manifest:
+b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc.
+Index filename is quant_model_weights.safetensors.index.json.
+Copy verified; no need to retransmit or rehash720GiB without new concerns.
+
+United: global SGLangTP16, attentionDP2/TP8, MoEEP16/TP1, PP1 CP1 DCP1,
+MTPoff, BF16activations/KV; static W8A8 attention linears; dynamic W8A8 MLPs.
+78layers=3dense+75MoE,256routed experts top8 +1shared; hidden6144,
+denseinter12288,expertinter2048. MLA64heads,qLoRA2048,kvLoRA512,
+qkNoPE192,RoPE64,V256; indexer32heads x128,topk2048.
+21full indexers (0,1,2,6,...74),57skip. Actual resident indexer modules also
+appear only on full layers, but A3 allocates index KV for all78layers.
+
+serving-setup.json records actual queue0,HCCL650,expandable segments,
+multi/overlapstream flags,dispatchlimit32,and40logicalCPUs perrank.
+CLI chunk16384 becomes8192 perattentionDP; maxrunning64global/32perDP.
+Decode graphs8/16/24/32; prefill graph disabled; shared fusion disabled.
+Context limit180000, actual usable pool52992tokens perattentionDP,
+maxinput52986. Capacity is not multiplied by TP.
+
+## IMPORTANT: HCCL v2 was withdrawn
+
+Code review found v2 verify() ran EAGER even for graph measurements.
+Historical row equality checks did not prove graph replay correctness.
+All pre-v3 HCCL publications in this campaign are historical, NOT current
+qualified inputs. Do not relabel/reuse old graphs or copy their timings.
+
+dd1eb7ab fixes this:
+- Actual timed eager batch/captured graph verified before and after timing.
+- Separate AllReduce buffer per invocation permits finite nonzero checks,
+  while timing/warmup use zeros. Warmup is batches of iterations.
+- Rawv3 binds collector/framework source hashes and execution verification.
+- Exporter rejectsv2; native loader requires execution_verification matching mode.
+- Real2rank graph-noop injection failed as expected.64positive cases passed
+  across BF16/FP16/FP32/INT32,4collectives,bothmodes,256/100663296bytes.
+- Fresh full data: local320=>278qualified, peer320=>285, dual32rank80=>60.
+  All720 numerical checks passed;97CV>10% points retained and excluded.
+- All623 published rows reproduced by real native queries.
+- 6export tests,5native table tests,390GPU parity tests passed.
+- v2 rejection tested against real old table with new native binary.
+
+Use hccl-replay-verified-20261022/published-{local,peer,dual}/ only.
+Local/peer/mixed-driver placement remain distinct scopes. Dual is same measured
+SuperPod, not general Ethernet/cross-SuperPod or actual PD KV handoff.
+Raw JSONs are gzip archived with original-byte hashes in sealed-validation.json;
+plaintext local copies remain ignored. Decompress to rerun JSON exporter.
+Old v2 local campaign retained under hccl-local-serving-20261022 with
+quality-status.json. Global explanation: hccl-graph-verification-correction.json.
+
+## KV/memory integration and observations
+
+f5349d2f:
+- build_model_config now takes existing internal system identity; canonical
+  compile_engine and KVCacheEstimator pass it. Task role builder already did.
+- DeepSeekV32Model target-specific KV methods: all78BF16 indexer layers;
+  109824bytes/token,14057472byte fixed128token sentinel, capacity rounded128.
+- BaseModel fixed pool-overhead hook defaults0; BaseBackend adds it once perpool.
+- Unsupported PP/CP/DCP/MTP/cache variants reject; invalid-config error cannot
+  silently fall back to naive resource sizing.
+- 99target/adjacent tests,5memory report tests,390GPU parity passed.
+- Request admission must still use matching128-token pages.
+- TOTAL resident memory model is not finished. ascend910c.yaml misc is
+  intentionally empty; do not invent nccl_mem/other_mem values.
+
+worker-memory-20261022 holds16ranks x6startup boundaries, tensor/storage inventory,
+raw gzip records, report and frozen observer. Hooks only load_model,
+alloc_memory_pool,init_cuda_graphs; no forward/replay hooks.
+Allranks52992usabletokens,5833850880KVbytes=5.433GiB.
+Rank0 model-reachable unique storage afterload52471997948bytes,4640tensors,
+4565storages. Includes parameters/buffers/direct tensorattrs, not onlyweights.
+lm_head and embedding each[19360,6144]BF16 (attentionTP8).
+Routed weights[16,6144,4096] and[16,2048,6144]INT8;
+MoE scalesBF16,offsetsFP32. Static linear inputscale/offsetBF16,deqscaleFP32,
+quant_biasINT32. Do not infer resident bytes by checkpointbytes/16.
+
+Critical memory fact:
+graph phase device free dropped4587425792bytes;
+Torchallocated rose23031296,reserved203423744.
+Unmanaged/other allocator domains are material. Do not double-charge HCCL/graph
+or infer their split from a single delta. Rank0aftergraphfree1910497280bytes.
+
+Unprofiled controls: same frozen8192/1024requests as late state captures,
+concurrency1and10,1warmup+3measured trials each.44requests allcomplete,cache0,
+retractions0. Client metrics means:
+C1 TTFT2534.15ms,TPOT48.09085ms,output19.79464tok/s.
+C10 TTFT10759.47ms,TPOT53.39581ms,output156.63764tok/s.
+Raw token arrivals and common all-admitted/output900 windows preserved.
+These are client serving timings, not isolated forwards or prediction accuracy.
+Private peer server stopped after completion.
+
+## MoE state and compute evidence
+
+real-moe-state-20261022:8workloads,28800layer/rank invocations,12662unique GMM1
+states.1k/2k/4k/8k early and8kdecode concurrency2/4/8/10.
+late-state-20261022: full8192/1024C1/C10, captureafter900outputs,
+16ranks x3forwards x75layers each,KV9094..9097;11requests complete.
+Group lists are type1 COUNTS, not cumulative offsets.
+Prefill8k globalrows65536/layer; maxrank6150..15964 vsuniform4096.
+Singledecode physicalbuffer4096,globalroutedrows128 duepadding.
+Do not price as1request x8routes or full4096validrows.
+Same input first16outputs match acrosshosts, but route distributions differ;
+keep provenance separate.
+
+moe-compute-20261022:
+ascend_moe_compute.py calls actual installed W8A8GMM + DeepEPSwiGLUquant.
+8observed vectors cover0..15964rows, graphbuffers4096.
+176measurement groups (16smoke+64full+96reverse);2CVfailures retained.
+Nonempty numerical CPU checks passed; emptycase only execution validated.
+8/16weightcopy convergence<2% on GMM/chain. Sumcomponents/chain differs up5.7%.
+Changing graphcalls16->32 moveszero-work chain11%.
+Synthetic tensor/weight values, actualcounts; eager-source cases timed in graphs.
+NOT production timing publication. Full profile/serving equivalence still needed.
+Collector can be made efficient by reusing weight pools pergeometry if expanding
+manycases; current protocol script regeneratesweights eachcase.
+
+## Validation environment
+
+CPU container aisim-910c-validation-20261021:
+repoRO /workspace, current RELEASE native /tmp/aisim-native/_runtime.abi3.so.
+Old pre-v3 binary backup /tmp/aisim-native/_runtime-before-hccl-v3.so.
+Cargo target /tmp/aisim-target, cargo/rustfmt /root/.cargo/bin.
+Build: cargo build --manifest-path /workspace/Cargo.toml --release
+-p aisimulate-core --features extension-module; PYO3_PYTHON points
+/usr/local/python3.12.13/bin/python3. Copy release/libaisimulate_core.so to runtime.
+
+Use TORCH_DEVICE_BACKEND_AUTOLOAD=0 for CPUtests.
+PYTHONPATH=/tmp/aisim-native:/workspace/python/aisimulate:
+/workspace/python/aisimulate/src:/cli-deps
+The /tmp/aisim-native/sitecustomize.py (tracked source validation_sitecustomize.py)
+appends nativepath for EVERY pytest worker. Parent-only __path__.append does not
+reach xdist children.
+Bothparity suites with --noconftest -p no:cacheprovider -n4 passed390 in135.89s.
+Use this for future relevant checks; serial earlier binaries took33min.
+No CPU-performance speedup claim is made from unlike builds/testexecution.
+Collector-wide suite attempts hit pre-existing Torch duplicate-triton registration;
+focused Ascend tests and collector-wideRuff passed. Do not fix unrelatedtests.
+
+## Next implementation priorities
+
+1. Actual source-specific Ascend GLM op graph through canonical best_available.
+   Generic DeepSeekV32 still constructs GPU DSA/MoE paths. Inspect __init__
+   around line345; choose a scoped early branch after commongeometry setup.
+   Existing native base-wrapped ops can be emitted via core.op_from_spec_json,
+   like glm53flash.py; not a second predictor. Append wire variants only.
+2. Define complete invocation keys and collect missing linear/attention/vector,
+   MoE and DeepEP data. Static W8A8 O-proj differs by TP rank: quant_bias is
+   passed only on RowParallel rank0 (linear_method_npu.py:106-121 atpinnedSHA).
+   Generic GEMM(m,n,k,quant) cannot distinguish that bias/execution/layout state.
+   Prefer typed Ascend ops/tables, exact runtime sources, measured brackets and
+   explicit misses. Never label as CUDA/FP8 or SOL-clamp measuredNPU data using
+   observed4096-cube throughput as a proven peak.
+3. Attention metadata must mirror actualgraphpadding: linears mayprocessbatch8
+   while only1..5requests perDP have8k/9k KV; dummy rows have runtime padlengths.
+   Verify source graph input buffers/blocktable stride/pool geometry before
+   construction. Earlier attention probes withall8sequences active arecontrols,
+   not proof of the real1request padded workload.
+4. Legacy sweeper batch is perattentionDP (global_bs=bs*attention_dp_size);
+   inspect canonical replay/query normalization and attention_dp (not only
+   attention_dp_size) before deriving shapes. Do not assume scheduling absent.
+5. Finish resident accounting and fullforward/request accuracy. Then realPD
+   KVbytes/packing/rankmaps/overlap/reservation, and predict/recommend searches.
+   CollectedHCCL32 does not qualify PDtransport.
+6. Keep checkpoint updated with findings/edits/results; mutableprogress only under
+   research, not sharedinput artifacts. Recheck integrity on resume; no fabricated
+   profile acceptance. Commit completed stages and keep fullgoalactive.

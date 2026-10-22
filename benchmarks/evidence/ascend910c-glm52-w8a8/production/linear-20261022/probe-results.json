@@ -1,0 +1,80 @@
+[
+  {
+    "name": "cache32",
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1200",
+      "python3",
+      "/campaign/linear/ascend_linear_v2.py",
+      "--plan",
+      "/campaign/linear/plan.json",
+      "--serving-setup",
+      "/campaign/serving-setup-nodes.json",
+      "--device",
+      "0",
+      "--weight-copies",
+      "32",
+      "--case-filter",
+      "\"m\": 8,",
+      "--output",
+      "/campaign/linear/cache32.json"
+    ],
+    "returncode": 0,
+    "expected_outcome": true,
+    "cases": 40
+  },
+  {
+    "name": "large8192",
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1200",
+      "python3",
+      "/campaign/linear/ascend_linear_v2.py",
+      "--plan",
+      "/campaign/linear/plan.json",
+      "--serving-setup",
+      "/campaign/serving-setup-nodes.json",
+      "--device",
+      "2",
+      "--case-filter",
+      "\"m\": 8192,",
+      "--output",
+      "/campaign/linear/large8192.json"
+    ],
+    "returncode": 0,
+    "expected_outcome": true,
+    "cases": 34
+  },
+  {
+    "name": "graph-noop",
+    "command": [
+      "docker",
+      "exec",
+      "aisim-910c-production-20261022",
+      "timeout",
+      "1200",
+      "python3",
+      "/campaign/hccl_graph_noop_probe.py",
+      "/campaign/linear/ascend_linear_v2.py",
+      "--plan",
+      "/campaign/linear/plan.json",
+      "--serving-setup",
+      "/campaign/serving-setup-nodes.json",
+      "--device",
+      "4",
+      "--case-filter",
+      "\"execution_mode\": \"graph\"",
+      "--output",
+      "/campaign/linear/graph-noop.json"
+    ],
+    "returncode": 1,
+    "expected_outcome": true,
+    "cases": 0
+  }
+]

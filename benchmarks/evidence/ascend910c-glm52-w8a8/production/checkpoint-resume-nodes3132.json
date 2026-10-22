@@ -1,0 +1,25 @@
+{
+  "research": {
+    "execution_nodes_20261022": {
+      "authorized_nodes": ["npu1-31", "npu1-32"],
+      "excluded_nodes": ["npu1-19"],
+      "source": "User explicitly switched temporary peer from19 to31; password/sudo authorization retained only in conversation.",
+      "verified": "Both31/32 have16 visible Ascend devices, driver26.1.1, no running NPU processes at preflight. Both rebooted earlier today. Local validation container restarted. Checkpoint resumed at revision31 with no integrity issues.",
+      "storage": "Local RAID5 is degraded [4/3] [UUU_] and was not mounted after reboot. Mounted existing filesystem read-only,norecovery at /mnt/raid; exact original model directory is accessible. No array rebuild, filesystem repair or write mount performed.",
+      "runtime": "Pinned0.5.22 image retained on32; pulling identical digest on31. Host /tmp campaign/deps lost on reboot; archived evidence and CPU-container native/cargo cache survived. CLI dependency ijson restored in isolated container path.",
+      "confidence": "Runtime preflight observed; new peer transport/topology and whole-model serving remain unvalidated. Historical19 data cannot qualify31 transport."
+    },
+    "ascend_linear_adapter": {
+      "status": "draft_native_and_collector; fixed128call_protocol_controls_pending",
+      "previous_smoke": "40 M8 cases and34 M8192 cases passed actual before/after output verification; intentional graph-noop failed. Initial dynamic-quant reference discrepancy diagnosed as <=1INT8bin with equal scales; separate quant checks and actual checked quantized GEMM reference now used.",
+      "cache_protocol": "Old16/32weight-copy comparison also changed graph call count; inconclusive. New protocol fixes128calls forbothcopies, runs16/32/32/16 order, largestM16384 and graph-noop controls beforefull660casegrid.",
+      "active_job": null,
+      "next_action": "Run controls on32, audit source/data/native contracts while31 pinnedimage prepares; fullgrid onlyafter protocolchecks. FullAscendcomposition,remainingoperatorfamilies,resourceaccounting,PDandsearchstillincomplete."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {"stage": 2, "status": "in_progress", "next_action": "Qualify linear collector protocol on32; use31/32 for subsequent compute/communication/PD measurements. Preserve unaccepted exact FPM profile and distinguish operator-stage progress."}
+    }
+  }
+}

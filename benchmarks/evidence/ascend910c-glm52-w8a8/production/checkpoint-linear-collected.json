@@ -1,0 +1,19 @@
+{
+  "research": {
+    "ascend_linear_adapter": {
+      "status": "complete_primitive_collection_and_native_lookup; model_composition_pending",
+      "case_population": "768recipes deduplicated to660physical invocations; full plan executed on32 with64weightcopies,128calls,10warmup batches,11repeats. Eager and graph each numerically checked before and after actual execution.",
+      "collection": "660numerical passes;657CV<=10% rows;3unstable eager points retained/excluded (plan indices0,172,384). M1 eager qkv_a remains outside the qualified bracket. No substitute measurements.",
+      "controls": "Fixed128calls16/32and32/64working-set experiments preserved.40M8cases on31/32 at64copies differ by at most4.3964% in paired means. Cache32/64 sensitivity reaches9.3743%, so full cache convergence and serving accuracy are not claimed. FinalM16384/64copies checks and intentionalgraph-noop detection passed.",
+      "validation": "6Rusttable/operator tests;657realnative exact-rowqueries havezeroerror;390GPUparity cases pass in110.31s;60collector/provenance tests pass. Finalwire/lint checks and stagecommits pending.",
+      "host_cost": "Lazy exact-primary table preparation only onascend910c/sglang. Bucket lookup and token interpolation use prepared ordered maps. Export hashes each source once instead of onceperrow. Nonewper-query Pythonmath.",
+      "active_job": null,
+      "next_action": "Freeze source/data provenance, commit linear primitive, installmeasuredtable throughcanonicalfamilylayout. Validate heldout interpolation, then continue actualAscendmodelcomposition andremainingfamilies/PD/search."
+    },
+    "execution_nodes_20261022": {
+      "model_node31": "Existing /mnt/raid array also degraded4/3 and unmounted afterreboot; mountedread-only,norecovery. config/quantdescription/weightindex hashes exactly match32. Full196filefingerprint running read-only toverify payload identity before realmodelserving. No modelcopy needed if hashes match.",
+      "active_jobs": [{"host":"npu1-31","pid":2649836,"task":"read-onlymodel-fingerprint","output":"production/model-node31-fingerprint.json"}],
+      "services": "Existingservices were already stopped after reboot. All tasklinearcollectors finishedandtheircontainersstopped; CPUvalidationcontainer remainsrunning.19notusedafteruser switchednodes."
+    }
+  }
+}

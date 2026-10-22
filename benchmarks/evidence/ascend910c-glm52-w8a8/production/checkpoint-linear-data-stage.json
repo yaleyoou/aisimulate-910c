@@ -1,0 +1,21 @@
+{
+  "research": {
+    "execution_nodes_20261022": {
+      "model_baseline_review": "User confirms bothcurrentpaths/mnt/raid/user/data/models/glm-q. Node31fullbytehashdiffersfromarchivedoriginal32;current32firstshardalso differsfromarchiveandnode31. Actualpayloads differwithsamecanonicalheader. No corruptioncauseassumed. Stopusingarchivedweightidentityasproofofcurrentweights.",
+      "copy_attempt": "TerminatedowncopyPID3164848 aftercurrent32source mismatchwasconfirmed. Non-rootcopyalso couldnotread.msc;failedfuturesweredraininginbackground. Errorhandlingfixedtofailandsavecancelsbeforewaiting. Partialdestination quarantined asglm52-w8a8-b3645035-rejected-20261022; no originalmodelmodified.",
+      "active_jobs": [{"host":"npu1-32","pid":3369695,"task":"currentread-onlyfullmodelfingerprintasroot","output":"production/model-current-node32-fingerprint.json"}],
+      "next_action": "Comparecurrentmodelhashes/tensors andestablishonecurrentweightbaselineforrealserving/PD. Keeppriorrouting/servingevidenceboundtooriginalweightrevision;syntheticoperatorcollectiondoesnotdependonweightvalues."
+    },
+    "ascend_linear_adapter": {
+      "data_stage": "Initial657rowpublication frozeninproduction/linear-published-20261022,includingcollector_ref5aac6ea3. IndependentheldoutaccuracyFAILEDandisrecorded,notmasked. Native exactlookup/wire andfullGPUparitypassed."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "linear_initial_table": {"path":"production/linear-published-20261022/ascend_linear_perf.parquet","kind":"file","scope":"collection"},
+        "linear_initial_provenance": {"path":"production/linear-published-20261022/provenance.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

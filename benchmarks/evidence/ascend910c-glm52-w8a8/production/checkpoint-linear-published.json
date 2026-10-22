@@ -1,0 +1,27 @@
+{
+  "research": {
+    "ascend_linear_adapter": {
+      "source_commit": "5aac6ea3",
+      "publication": "657rows installed atpython/aisimulate/src/aisimulate_core/systems/data/ascend910c/gemm/sglang/0.5.22, sourceclosure/runtime/plan provenance attached.3unstablecases excludedandretained.",
+      "runtime_smoke": "Historicalinitialdynamicreferencefailure diagnosed/fixed; all660fullgridcases andfinal64copylargestMchecks pass actualoutputchecks; graph-noop rejected.",
+      "interpolation_accuracy": "FAILED10%per-case target:188independentheldouts,187stable,13over10%,max34.7575%. LargeerrorsconcentrateBF16smallN andM3072. Do notclaimaccuracyfromexactrowlookup. Refinetraininggridwithoutinsertingtheseheldouts.",
+      "sources": ["production/linear-full-node32-20261022/plan.json","production/linear-controls-analysis.json","production/linear-holdout-report.json","production/linear-validation-20261022"],
+      "next_action": "Commitdata/evidence; densifytraininggridandindependentlyrevalidate; thencontinueattention/indexer/MoE/DeepEPmodelcomposition,residentmemoryandPD/search."
+    },
+    "execution_nodes_20261022": {
+      "model_node31": "Full196filefingerprintcompleted:126weightfilesdifferfromoriginal32;config/quant/indexandfilesizesmatch. Firstshardcanonicaltensorheader matches butpayloadhashdiffers,so actualweightidentitydiffers.",
+      "active_jobs": [{"host":"npu1-32","task":"copyandverifyoriginalmodeltosharedprivatebaseline","destination":"/tgm_rent_data/data/youxingye/model-baselines/glm52-w8a8-b3645035","report":"production/shared-model-copy.json"}],
+      "services": "Linearcontrol/full/heldoutcontainersstoppedaftercompletion. ExistingUnitedservicesremainstoppedasfoundafterreboot. CPUvalidationcontaineractive;19excluded."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {"stage":2,"status":"in_progress","next_action":"Linearprimitive/dataavailablebutheldoutaccuracyfails;refinegridthencontinuefullAscendmodel. Use31/32withverifiedsharedweightbaselineforrealserving/PD."},
+      "artifacts": {
+        "linear_initial_plan": {"path":"production/linear-full-node32-20261022/plan.json","kind":"file","scope":"collection"},
+        "linear_node_controls": {"path":"production/linear-controls-analysis.json","kind":"file","scope":"validation"},
+        "linear_initial_holdout_report": {"path":"production/linear-holdout-report.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

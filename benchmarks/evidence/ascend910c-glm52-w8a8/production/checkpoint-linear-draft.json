@@ -1,0 +1,22 @@
+{
+  "research": {
+    "hccl_v3_commit": "dd1eb7ab: corrected graph execution verification and623qualified rows from720freshpoints; allservices restored.",
+    "ascend_linear_adapter": {
+      "status": "implemented_draft_with_runtime_smoke_failure_under_investigation",
+      "sources": ["crates/core/src/perfmodel/operators/ascend_linear.rs", "crates/core/src/perfmodel/perf_database/ascend_linear.rs", "python/aisimulate/collector/sglang/ascend_linear.py", "production/linear-20261022/plan.json"],
+      "contract": "Exact static/dynamicW8A8/BF16,ND/NZ,executionmode,N/K; independentquantbias curves. Op supports token/request axis,sharding/padding andmaxoverTPbiasvariants. RawmeasuredM interpolation onlywithinbrackets; no GPU/quant/layout substitution or SOLclamp.",
+      "native": "AscendLinear appended atwireindex47; existingindices andschema28unchanged. Lazytable onlyprepared fortargetascend910c/sglang. No new publicpredictor.",
+      "case_population": "Canonicalbase/modelYAML plusactualconfig/ModelSlimsidecar verification:768recipes->660uniqueinvocations. Actual duplicates includeqkvA acrossTPs andindexerQ vsTP4QB. Biasvariantsremainseparate.",
+      "validation": "4nativeoperator/tabletests pass;4casegenerator tests pass. Fullwire/GPUparity stillneeded afterimplementation/datafinalization.",
+      "runtime_smoke": "PeerM8smokecompleted26cases thenfailedanumericalcheck onfirstdynamiclinear. No tolerancechanged; debugrunrecordsCPUquantbin/scale differences andGEMMerroragainstactualdevicequantizedinputs.",
+      "active_job": {"peer_pid":2449588,"root":"/tmp/aisim-910c-production-20261022/linear","output":"smoke-m8-debug.json"},
+      "limits": "FullAscendGLMmodelcomposition,attention/vector/MoE/DeepEPcompletecurves,residentaccounting,PDandsearchstillrequired. Do notpresentthisprimitiveascompleteadaptation.",
+      "next_action": "Inspectdiagnostic,fix numericalreference ifproven,validateactualgraphoutputs,qualifycacheprotocol,collectcompletegridandpublishthroughnativecontract."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {"stage":2,"status":"in_progress","next_action":"Finishlinearprimitive/dataandwire/source/GPUchecks, thencompleteAscendmodelcompositionandremainingrequiredfamilies/PD/search."}
+    }
+  }
+}
