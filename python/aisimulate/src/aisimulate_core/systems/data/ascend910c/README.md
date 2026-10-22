@@ -13,6 +13,9 @@ measured token brackets. The eager QKV-A M=1 point is unqualified; its curve
 starts at M=2. All graph grid points passed the recorded stability check.
 
 This is **partial operator support**, not a complete GLM prediction database.
+The system-specific query-version override pins SGLang to `0.5.22`; the Ascend
+runtime belongs to a separate compatibility domain and does not promote the
+CUDA systems' fleet-wide `next` version. This pin is not a model coverage claim.
 Registering the hardware name or loading this table does not qualify GLM-5.2,
 SGLang-Ascend, ModelSlim INT8 MoE,
 whole-forward prediction, or replay accuracy. No NVIDIA communication data or

@@ -131,7 +131,10 @@ impl AscendLinearOp {
         f64::from(self.key.n)
             * f64::from(self.key.k)
             * self.scale_factor
-            * if self.key.quant_mode == "bfloat16" {
+            * if matches!(
+                self.key.quant_mode.as_str(),
+                "bfloat16" | "float32_bfloat16"
+            ) {
                 2.0
             } else {
                 1.0

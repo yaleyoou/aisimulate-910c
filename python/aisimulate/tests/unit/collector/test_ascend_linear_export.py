@@ -130,3 +130,25 @@ def test_runtime_changes_require_a_distinct_campaign(campaign, field):
     observation.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="Runtime"):
         validated_rows(plan, [observation], identity)
+
+
+def test_mixed_indexer_linear_keeps_fp32_boundary_types(campaign):
+    plan, observation, identity, data = campaign
+    declared = json.loads(plan.read_text())
+    declared["cases"][0]["quant_mode"] = "float32_bfloat16"
+    plan.write_text(json.dumps(declared))
+    data["plan_sha256"] = hashlib.sha256(plan.read_bytes()).hexdigest()
+    row = data["cases"][0]
+    row.update(
+        quant_mode="float32_bfloat16",
+        input_dtype="float32",
+        output_dtype="float32",
+        kernel_source="torch.nn.functional.linear",
+    )
+    observation.write_text(json.dumps(data))
+    rows, _ = validated_rows(plan, [observation], identity)
+    assert rows[0]["input_dtype"] == rows[0]["output_dtype"] == "float32"
+    row["input_dtype"] = "bfloat16"
+    observation.write_text(json.dumps(data))
+    with pytest.raises(ValueError, match="consumer contract"):
+        validated_rows(plan, [observation], identity)

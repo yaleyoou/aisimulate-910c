@@ -134,12 +134,12 @@ the TP group policy takes their maximum because bias need not always be slower.
 
 | Field | Contract |
 | --- | --- |
-| `quant_mode` | Exact `w8a8`, `w8a8_dynamic`, or `bfloat16` invocation. |
+| `quant_mode` | Exact `w8a8`, `w8a8_dynamic`, `bfloat16`, or `float32_bfloat16` invocation; the last uses FP32 inputs/output with BF16 weights. |
 | `m`, `n`, `k` | Rank-local matrix dimensions; only `m` interpolates between measured brackets. |
 | `quant_bias` | Static W8A8 INT32 bias actually passed to the kernel; RowParallel rank zero differs from other ranks. |
 | `weight_format` | Observed NPU storage format, with ND (`2`) and NZ (`29`) kept separate. |
 | `execution_mode`, `execution_verification` | Eager or graph execution, numerically checked through that same path before and after timing. |
-| `input_dtype`, `output_dtype`, `kernel_source` | Observed BF16 boundary types and exact framework-selected implementation. |
+| `input_dtype`, `output_dtype`, `kernel_source` | Observed boundary types and exact framework-selected implementation. |
 | `latency_ms`, `cv`, `sample_count` | Median per-invocation event time, coefficient of variation and number of samples. Publication excludes CV above 10%. |
 | `numerical_checks`, `source_sha256`, `runtime_identity_sha256` | Sampled check count, original observation bytes and frozen runtime/protocol identity. |
 
@@ -156,6 +156,13 @@ runtime/driver identity, CPU affinity and timing stability before publication.
 Incomplete smoke runs remain observations. Synthetic tensor values validate
 the declared implementation and shape; they do not establish whole-model
 forward accuracy, serving accuracy, or compatibility of another node's network.
+
+The GLM NPU indexer's weighting projection explicitly converts its input to
+FP32 while retaining BF16 weights, then casts its FP32 output to BF16. Its
+mixed-precision linear curve is distinct from the BF16-input curve; the
+surrounding casts belong to model composition. This follows
+`dsa_npu_indexer.py:135-169` at the pinned SGLang revision
+`baa9befa381511cd4d56f83980951e5a45fffc6d` and observed serving invocations.
 
 ## Reuse and source priority
 

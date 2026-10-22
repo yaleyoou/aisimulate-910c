@@ -56,6 +56,8 @@ def test_dense_and_shared_shapes_follow_their_actual_parallel_axes(artifact):
             assert (case["n"], case["k"]) == (4096, 6144)
         if any(owner.startswith("lm_head") for owner in case["owners"]):
             assert case["m"] <= 64
+        if "indexer_weights" in case["owners"]:
+            assert case["quant_mode"] == "float32_bfloat16"
 
 
 def test_artifact_mismatch_never_uses_declared_default_shapes(artifact):

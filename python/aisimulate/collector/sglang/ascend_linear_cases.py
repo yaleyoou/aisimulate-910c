@@ -121,7 +121,7 @@ def get_ascend_linear_cases(model_path, case_root=None):
     add("shared_down", "w8a8_dynamic", hidden, expert_intermediate)
     add("indexer_q", "w8a8", config["index_n_heads"] * config["index_head_dim"], query_rank, True)
     add("indexer_k", "bfloat16", config["index_head_dim"], hidden)
-    add("indexer_weights", "bfloat16", config["index_n_heads"], hidden)
+    add("indexer_weights", "float32_bfloat16", config["index_n_heads"], hidden)
     add("router", "bfloat16", config["n_routed_experts"], hidden)
     cases = {}
     requested = 0

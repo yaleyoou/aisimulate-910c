@@ -74,10 +74,12 @@ def validated_rows(plan_path, observations, runtime_identity):
                     "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod"
                 ),
                 "bfloat16": "torch.nn.functional.linear",
+                "float32_bfloat16": "torch.nn.functional.linear",
             }
+            boundary_dtype = "float32" if row["quant_mode"] == "float32_bfloat16" else "bfloat16"
             if (
-                row["input_dtype"] != "bfloat16"
-                or row["output_dtype"] != "bfloat16"
+                row["input_dtype"] != boundary_dtype
+                or row["output_dtype"] != boundary_dtype
                 or row["weight_format"] not in (2, 29)
                 or row["kernel_source"] != kernels.get(row["quant_mode"])
                 or (row["quant_bias"] and row["quant_mode"] != "w8a8")

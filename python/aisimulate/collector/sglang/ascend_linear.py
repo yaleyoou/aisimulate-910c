@@ -116,18 +116,20 @@ def main():
     def prepare(case):
         output_width, input_width = case["n"], case["k"]
         quant = case["quant_mode"]
-        if quant not in {"bfloat16", "w8a8", "w8a8_dynamic"} or (case["quant_bias"] and quant != "w8a8"):
+        if quant not in {"bfloat16", "float32_bfloat16", "w8a8", "w8a8_dynamic"} or (
+            case["quant_bias"] and quant != "w8a8"
+        ):
             raise ValueError("Unsupported declared precision/bias")
         raw = (
             torch.randn(output_width, input_width, device="npu", dtype=torch.bfloat16) / input_width**0.5
-            if quant == "bfloat16"
+            if quant in {"bfloat16", "float32_bfloat16"}
             else torch.randint(-3, 4, (output_width, input_width), device="npu", dtype=torch.int8)
         )
         bias = ((torch.arange(output_width, device="npu", dtype=torch.int32) % 11) - 5) * 128
         layers = []
         scheme = None
         for _ in range(protocol["weight_copies"]):
-            if quant == "bfloat16":
+            if quant in {"bfloat16", "float32_bfloat16"}:
                 layer = SimpleNamespace(weight=raw.clone())
             else:
                 layer = RowParallelLinear.__new__(RowParallelLinear)
@@ -159,7 +161,8 @@ def main():
     def collect(index, case, prepared):
         layers, scheme, columns, reference, bias_reference, kernel_source = prepared
         tokens, input_width = case["m"], case["k"]
-        inputs = torch.randn(tokens, input_width, device="npu", dtype=torch.bfloat16)
+        boundary_dtype = torch.float32 if case["quant_mode"] == "float32_bfloat16" else torch.bfloat16
+        inputs = torch.randn(tokens, input_width, device="npu", dtype=boundary_dtype)
         row_indices = sorted({0, tokens // 2, tokens - 1})
 
         def invoke(layer):
@@ -193,7 +196,7 @@ def main():
             inputs.neg_()
             original = inputs[row_indices].float().cpu()
             quant_bin_error, scale_error = 0.0, 0.0
-            if case["quant_mode"] == "bfloat16":
+            if case["quant_mode"] in {"bfloat16", "float32_bfloat16"}:
                 expected = original @ reference
             else:
                 scale = (
@@ -220,7 +223,7 @@ def main():
             torch.npu.synchronize()
             maximum = 0.0
             for output in outputs:
-                if output.dtype != torch.bfloat16 or list(output.shape) != [tokens, case["n"]]:
+                if output.dtype != boundary_dtype or list(output.shape) != [tokens, case["n"]]:
                     raise ValueError("Unexpected linear output")
                 observed = output[row_indices][:, columns].float().cpu()
                 difference = (observed - expected).abs()
@@ -251,8 +254,8 @@ def main():
             **case,
             "plan_index": index,
             "weight_format": torch_npu.get_npu_format(layers[0].weight),
-            "input_dtype": "bfloat16",
-            "output_dtype": "bfloat16",
+            "input_dtype": str(boundary_dtype).removeprefix("torch."),
+            "output_dtype": str(boundary_dtype).removeprefix("torch."),
             "kernel_source": kernel_source,
             "execution_verification": "captured_graph_replay" if graph is not None else "eager_invocation",
             "checks": checks,

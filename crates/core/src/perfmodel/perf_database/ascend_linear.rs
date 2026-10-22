@@ -26,7 +26,7 @@ impl AscendLinearKey {
     pub fn validate(&self) -> Result<(), AicError> {
         if !matches!(
             self.quant_mode.as_str(),
-            "w8a8" | "w8a8_dynamic" | "bfloat16"
+            "w8a8" | "w8a8_dynamic" | "bfloat16" | "float32_bfloat16"
         ) || !matches!(self.execution_mode.as_str(), "eager" | "graph")
             || !matches!(self.weight_format, 2 | 29)
             || self.n == 0
@@ -48,6 +48,14 @@ impl AscendLinearKey {
                 "sglang.srt.hardware_backend.npu.quantization.linear_method_npu.NPUW8A8Int8DynamicLinearMethod"
             }
             _ => "torch.nn.functional.linear",
+        }
+    }
+
+    pub fn boundary_dtype(&self) -> &'static str {
+        if self.quant_mode == "float32_bfloat16" {
+            "float32"
+        } else {
+            "bfloat16"
         }
     }
 }
@@ -221,8 +229,8 @@ fn load(path: &Path) -> Result<Grids, AicError> {
             || !(0.0..=0.1).contains(&variation)
             || row.u32(checks)? == 0
             || row.u32(samples)? < 3
-            || row.str(input_dtype)? != "bfloat16"
-            || row.str(output_dtype)? != "bfloat16"
+            || row.str(input_dtype)? != key.boundary_dtype()
+            || row.str(output_dtype)? != key.boundary_dtype()
             || row.str(kernel)? != key.kernel_source()
             || row.str(verification)? != verification_mode
             || (has_bias && key.quant_mode != "w8a8")
@@ -392,6 +400,39 @@ mod tests {
         assert_eq!(op.query(&database, 9, 1).unwrap().latency_ms, 10.0);
         assert_eq!(op.weight_bytes(), 16384.0);
         assert_eq!(op.query(&database, 0, 0).unwrap().latency_ms, 0.0);
+    }
+
+    #[test]
+    fn mixed_indexer_precision_cannot_use_bfloat16_input_rows() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let mut data = columns();
+        data[0] = Col::Str("quant_mode", vec!["float32_bfloat16"; 4]);
+        data[5] = Col::Bool("quant_bias", vec![false; 4]);
+        data[6] = Col::I64("m", vec![1, 9, 17, 25]);
+        data[8] = Col::Str("input_dtype", vec!["float32"; 4]);
+        data[9] = Col::Str("output_dtype", vec!["float32"; 4]);
+        data[10] = Col::Str("kernel_source", vec!["torch.nn.functional.linear"; 4]);
+        write_parquet(&path, &data);
+        let table = AscendLinearTable::new(Some(path.clone()));
+        let mut mixed = key();
+        mixed.quant_mode = "float32_bfloat16".into();
+        assert_eq!(table.query(&mixed, false, 5).unwrap().latency, 3.0);
+        let mut bf16 = mixed.clone();
+        bf16.quant_mode = "bfloat16".into();
+        assert!(
+            table
+                .query(&bf16, false, 5)
+                .unwrap_err()
+                .is_missing_perf_data()
+        );
+        data[8] = Col::Str("input_dtype", vec!["bfloat16"; 4]);
+        write_parquet(&path, &data);
+        let table = AscendLinearTable::new(Some(path));
+        assert!(matches!(
+            table.query(&mixed, false, 5),
+            Err(AicError::InvalidPerfData(_))
+        ));
     }
 
     #[test]

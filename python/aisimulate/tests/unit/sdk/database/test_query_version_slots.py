@@ -13,6 +13,7 @@ file = gate off (synthetic/external trees unchanged).
 """
 
 import os
+from pathlib import Path
 
 import pytest
 import yaml
@@ -75,6 +76,19 @@ def test_marker_only_dirs_do_not_qualify_as_dev(systems_root):
 
 def test_override_baseline_has_no_dev(systems_root):
     assert pdb.get_version_slots("a100_sxm", "trtllm", systems_root) == {"current": "1.0.0"}
+
+
+def test_packaged_ascend_pin_does_not_promote_cuda_fleet_next(tmp_path):
+    packaged = Path(pdb.__file__).resolve().parents[1] / "systems/query_versions.yaml"
+    document = yaml.safe_load(packaged.read_text())
+    assert document["overrides"]["ascend910c"]["sglang"]["current"] == "0.5.22"
+    (tmp_path / "query_versions.yaml").write_text(yaml.safe_dump(document))
+    for system in ("ascend910c", "gb300"):
+        (tmp_path / f"{system}.yaml").write_text(f"data_dir: data/{system}\n")
+    _touch_data(tmp_path, "gb300", "gemm", "sglang", "0.5.17")
+    _touch_data(tmp_path, "ascend910c", "gemm", "sglang", "0.5.22", "ascend_linear_perf.parquet")
+    assert pdb.get_version_slots("ascend910c", "sglang", str(tmp_path)) == {"current": "0.5.22"}
+    assert pdb.get_version_slots("gb300", "sglang", str(tmp_path))["next"] == "0.5.17"
 
 
 def test_aliases_resolve(systems_root):
