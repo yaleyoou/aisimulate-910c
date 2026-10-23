@@ -541,6 +541,38 @@
     "united-tp16-dp2-ep16": {
       "acceptance": null,
       "artifacts": {
+        "attention_campaign": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/attention-full-node32-20261023/campaign.json",
+          "scope": "collection",
+          "sha256": "75b87bc2aba1a591fa84b82f5b266e9ef407f5ff101c9d3a3437947a84efaca4"
+        },
+        "attention_native_validation": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/attention-validation-20261023/native-report.json",
+          "scope": "validation",
+          "sha256": "b1af0dbdb35fdd5ab0c0eb3533380cac5dc53bb0657d02fe82940a0ce7262769"
+        },
+        "attention_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/attention-published-20261023/provenance.json",
+          "scope": "collection",
+          "sha256": "d96228a106de2562c1a63394109818a46995b9f7581127ae8678d92f91de18d4"
+        },
+        "attention_table": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/attention-published-20261023/ascend_attention_perf.parquet",
+          "scope": "collection",
+          "sha256": "54ab154fe96ce89292ad8fcd8c4690978279337c806507c134d3c92224937a8f"
+        },
         "captured_event_capability": {
           "archived": false,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -979,6 +1011,18 @@
       "precision_correction": "Indexerweights_projobservedFP32input/BF16weight/FP32outputbeforeBF16cast,notBF16input. Sourcematchesdsa_npu_indexer.py135-169. Mixedidentityimplementedinnative/collector;7Rust+14Pythontestsandmixedsmokepassed;fullcollectionneeded.",
       "source": "production/operator-input-state-node31-20261022-attempt2/report.json",
       "status": "validated96rankforwardrecords,11complete8192/1024requests"
+    },
+    "ascend_attention_adapter": {
+      "accuracy": "Prediction accuracy tuning deferred by user; no heldout calibration claim. Full adaptation remains incomplete.",
+      "collection": "528/528 planned attention/indexer cases completed; before/after numerical checks passed. Two graph-noop negative controls rejected. 23 cases have CV>10% and will be retained as unqualified observations, not published timing rows.",
+      "commit": "0a6ac76e",
+      "limitations": "Only single-request prefill; active-batch interpolation requires brackets within the exact graph capture bucket. No extrapolation, other-runtime borrowing, or whole-forward accuracy claim.",
+      "next_action": "Collect source-matched MLA BMM and vector/norm/RoPE/cache paths; complete remaining attention batch coverage, MoE/DeepEP and model composition. Accuracy tuning stays deferred.",
+      "publication": "attention-published-20261023 frozen copy and standard systems/data/ascend910c/attention/sglang/0.5.22;528attempts,505stable,23CVexcluded;all numerical checks passed;both graph-noop negative controls rejected.",
+      "runtime": "npu1-32, Ascend910_9382, driver26.1.1, pinned SGLang0.5.22 baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "source": "production/attention-full-node32-20261023/campaign.json",
+      "status": "primitive_and_505_qualified_rows_published_model_composition_pending",
+      "validation": "505 exact native queries zero error;5 Rust behavior tests,22 wire tests,9 collector tests,11 API contract tests,390 GPU parity tests passed. Native SHA44fe026f8b862675e2969cb61eb247c0e2d7da5f41215789728d866a67008587. No golden changes."
     },
     "ascend_kv_model": {
       "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
@@ -1428,7 +1472,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 38,
+  "revision": 40,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

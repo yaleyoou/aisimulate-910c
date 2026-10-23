@@ -1,5 +1,20 @@
 # Current goal handoff
 
+## 2026-10-23 attention collection and native integration
+
+Source commit0a6ac76e.528/528attention/indexer cases completed;505stablepublished,
+23CVexcluded;all before/after numerical checks and both graph-noop negative controls passed.
+Frozen attention-published-20261023, installed attention/sglang/0.5.22.
+505nativeexactquerieszeroerror;5Rust+22wire+9collector+11API+390GPUparitypass.
+NativeSHA44fe026f8b862675e2969cb61eb247c0e2d7da5f41215789728d866a67008587.
+Attention query distinguishes active batch, capture padding and KV length. Prefill
+currently single request; graph decode intermediate batches need same-bucket brackets.
+No accuracy calibration claim. Full model composition/PD/search remains incomplete.
+Next collect actual MLA BMM paths: query input slice stride[heads*256,256,1],
+w_kc stride[98304,1,192]; prefill output torch_npu transpose BMM, decode output
+custom torch.ops.npu.batch_matmul_transpose with explicit destination.
+Current node32 rootPTY24914; CPUcontainer alive, attentioncollector stopped.
+
 UPDATE AFTER ABOVE-SUMMARY WORK: checkpointrevision38. Native mixedsourcecommitted
 c774dc37;inputobservercommittedd501ecf1. New1241stablemixedrowsfrom1246casesinstalled
 standardascend910c/gemm/sglang/0.5.22 andfrozenlinear-mixed-published-20261022.

@@ -14,6 +14,17 @@ measured token brackets. Five unstable measurements are excluded and retained
 in provenance. Missing curves and out-of-bracket queries fail explicitly.
 
 This is **partial operator support**, not a complete GLM prediction database.
+The attention family also contains 505 qualified measurements from 528 attempts
+under `attention/sglang/0.5.22/ascend_attention_perf.parquet`. It covers the
+BF16 lightning indexer and sparse attention, with exact local-head and
+eager/graph identities. Active requests and padded capture rows are separate;
+padded KV lengths are zero. All attempts passed numerical execution checks,
+and two graph-noop negative controls failed as expected. The 23 unstable rows
+remain in provenance. Native queries reproduce all 505 measured rows exactly.
+Prefill currently supports one request; intermediate decode batches require
+measured brackets within their capture bucket. Missing coverage fails explicitly.
+These results qualify table loading and execution, not whole-model accuracy.
+
 The system-specific query-version override pins SGLang to `0.5.22`; the Ascend
 runtime belongs to a separate compatibility domain and does not promote the
 CUDA systems' fleet-wide `next` version. This pin is not a model coverage claim.

@@ -1,0 +1,37 @@
+[
+  {
+    "path": "npu-before.log",
+    "sha256": "a30af0680c96bec8b7661da6446e2aa919e82c083554fd6e622ae9e359b97fdf",
+    "bytes": 8541
+  },
+  {
+    "path": "negative-lightning_indexer.log",
+    "sha256": "c20a4a89446a2c0f7d351620807cbc763f38064d3221b2fbe831c550811e269d",
+    "bytes": 989
+  },
+  {
+    "path": "negative-sparse_attention.log",
+    "sha256": "ba4d6f7a2df1b74d45b70c501493381a09174d6b4030eb65685fdbc42aacb770",
+    "bytes": 1008
+  },
+  {
+    "path": "shard-0.log",
+    "sha256": "a6103a871dfcb18991848b6bcc1ee37f0fcd5636c2d3a18ced04c8cb0e0090a6",
+    "bytes": 11050
+  },
+  {
+    "path": "shard-1.log",
+    "sha256": "b17f45f4bce44454baad85933ebf6d0d44ef259d5aa1004590f24120d43036ee",
+    "bytes": 11064
+  },
+  {
+    "path": "shard-2.log",
+    "sha256": "c816c29a573334fc6ca33c72b5893edd41b2b684eb69e30da275715fc2176783",
+    "bytes": 11049
+  },
+  {
+    "path": "shard-3.log",
+    "sha256": "98c9430ea9b361e8975dfbacaad3b0c9207e52f2ab83cb0c788d0be98653c5c3",
+    "bytes": 11054
+  }
+]

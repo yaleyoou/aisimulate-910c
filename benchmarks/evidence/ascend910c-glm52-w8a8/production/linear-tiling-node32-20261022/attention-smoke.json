@@ -1,0 +1,5564 @@
+{
+  "schema": "aisimulate-ascend-attention-observations/v1",
+  "status": "completed",
+  "scope": "Syntheticvalues;actualsource/layout/active-paddingcontract;notwholeforwardaccuracy",
+  "plan_sha256": "c05ad061c4132d4a2af71f2a1e1963194479748eb5a01bac274dd88cb2edd88c",
+  "collector_source_sha256": "becda1cebb1b4c8f239c1f1ca636001be60dc68ded6e895f0acef56270e30e0f",
+  "protocol": {
+    "iterations": 8,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "selected_plan_indices": [
+    8,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    56,
+    63,
+    74,
+    80,
+    87,
+    94,
+    101,
+    108,
+    115,
+    122,
+    129,
+    140,
+    146,
+    153,
+    160,
+    167,
+    174,
+    181,
+    188,
+    195,
+    206,
+    212,
+    219,
+    226,
+    233,
+    240,
+    247,
+    254,
+    261,
+    272,
+    278,
+    285,
+    292,
+    299,
+    306,
+    313,
+    320,
+    327,
+    338,
+    344,
+    351,
+    358,
+    365,
+    372,
+    379,
+    386,
+    393,
+    404,
+    410,
+    417,
+    424,
+    431,
+    438,
+    445,
+    452,
+    459,
+    470,
+    476,
+    483,
+    490,
+    497,
+    504,
+    511,
+    518,
+    525
+  ],
+  "cases": [
+    {
+      "operation": "lightning_indexer",
+      "phase": "prefill",
+      "local_heads": 32,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 8,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        3.868720054626465,
+        3.858449935913086,
+        3.855987548828125,
+        3.8548874855041504,
+        3.8542675971984863,
+        3.8562724590301514,
+        3.8551623821258545
+      ],
+      "wall_samples_ms": [
+        3.949778750211408,
+        3.8732703751520603,
+        3.8707366247763275,
+        3.867516499667545,
+        3.8767128753534053,
+        3.870669124808046,
+        3.8691527497576317
+      ],
+      "latency_ms": 3.855987548828125,
+      "cv": 0.0012123155221612
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 1,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 14,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.06318999826908112,
+        0.055649999529123306,
+        0.05296500027179718,
+        0.0512549988925457,
+        0.05011500045657158,
+        0.05086499825119972,
+        0.05245000123977661
+      ],
+      "wall_samples_ms": [
+        0.0867435001055128,
+        0.07123212526494171,
+        0.06577825024578488,
+        0.0638882502244087,
+        0.06363074953696923,
+        0.06285575000219978,
+        0.06494700028270017
+      ],
+      "latency_ms": 0.05245000123977661,
+      "cv": 0.07786903263274797
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 2,
+      "active_batch": 2,
+      "padded_batch": 2,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 21,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.05852000042796135,
+        0.05138750001788139,
+        0.05389250069856644,
+        0.051045000553131104,
+        0.050634998828172684,
+        0.05172500014305115,
+        0.06317999958992004
+      ],
+      "wall_samples_ms": [
+        0.08241599971370306,
+        0.06392324939952232,
+        0.06615824986511143,
+        0.06330199994408758,
+        0.06263700015551876,
+        0.06133824990683934,
+        0.08968224938143976
+      ],
+      "latency_ms": 0.05172500014305115,
+      "cv": 0.08110127378301092
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 4,
+      "active_batch": 4,
+      "padded_batch": 4,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 28,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.06131500005722046,
+        0.05398999899625778,
+        0.05087500065565109,
+        0.049502499401569366,
+        0.053690001368522644,
+        0.049035001546144485,
+        0.04924749955534935
+      ],
+      "wall_samples_ms": [
+        0.08976099979918217,
+        0.06720574947394198,
+        0.06543824929394759,
+        0.06292825037235161,
+        0.06782825039408635,
+        0.0623657497271779,
+        0.06263325030886335
+      ],
+      "latency_ms": 0.05087500065565109,
+      "cv": 0.07735510973474662
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 5,
+      "active_batch": 5,
+      "padded_batch": 5,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 35,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.08513999730348587,
+        0.06609500199556351,
+        0.058364998549222946,
+        0.05702750012278557,
+        0.05697749927639961,
+        0.05906499922275543,
+        0.05470750108361244
+      ],
+      "wall_samples_ms": [
+        0.11842512503790203,
+        0.080412124589202,
+        0.07141825062717544,
+        0.06796712477807887,
+        0.07020700013526948,
+        0.0711444999978994,
+        0.06558950008184183
+      ],
+      "latency_ms": 0.058364998549222946,
+      "cv": 0.15722585067997796
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 42,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.07778249680995941,
+        0.055717501789331436,
+        0.05468500033020973,
+        0.0538174994289875,
+        0.05434500053524971,
+        0.055594999343156815,
+        0.05632999911904335
+      ],
+      "wall_samples_ms": [
+        0.10865125022974098,
+        0.06799587572459131,
+        0.06554700030392269,
+        0.06512199979624711,
+        0.06503075019281823,
+        0.06537325043609599,
+        0.06682450020889519
+      ],
+      "latency_ms": 0.055594999343156815,
+      "cv": 0.13689263549158304
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 49,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.06157499924302101,
+        0.0519150011241436,
+        0.05046999827027321,
+        0.05035749822854996,
+        0.051989998668432236,
+        0.05209999904036522,
+        0.04974750056862831
+      ],
+      "wall_samples_ms": [
+        0.08913224974094192,
+        0.06574325016117655,
+        0.06346187547023874,
+        0.0637331249890849,
+        0.06455575021391269,
+        0.06345825022435747,
+        0.06269450022955425
+      ],
+      "latency_ms": 0.0519150011241436,
+      "cv": 0.0716290864140182
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 56,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.06446749716997147,
+        0.055182501673698425,
+        0.055264998227357864,
+        0.054705001413822174,
+        0.05448000133037567,
+        0.05449749901890755,
+        0.05481500178575516
+      ],
+      "wall_samples_ms": [
+        0.08616849936515791,
+        0.06403074985428248,
+        0.06377575027727289,
+        0.06422200021916069,
+        0.06354699962685117,
+        0.0627132494628313,
+        0.06345312522171298
+      ],
+      "latency_ms": 0.05481500178575516,
+      "cv": 0.060253273302842705
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 63,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.08598999679088593,
+        0.07192999869585037,
+        0.06916750222444534,
+        0.0693650022149086,
+        0.06923999637365341,
+        0.06912750005722046,
+        0.06952749937772751
+      ],
+      "wall_samples_ms": [
+        0.10682124957384076,
+        0.0846860002639005,
+        0.07806462508597178,
+        0.07927337446744787,
+        0.07902224933786783,
+        0.07809837552485988,
+        0.07879712484282209
+      ],
+      "latency_ms": 0.0693650022149086,
+      "cv": 0.08001590627475116
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "prefill",
+      "local_heads": 32,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 74,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        3.859070062637329,
+        3.8557701110839844,
+        3.8553099632263184,
+        3.857957601547241,
+        3.855867385864258,
+        3.855609893798828,
+        3.8562850952148438
+      ],
+      "wall_samples_ms": [
+        3.8782991241532727,
+        3.868836500259931,
+        4.0435085002172855,
+        3.8865555006850627,
+        3.872776625030383,
+        3.8684952505718684,
+        3.867821625135548
+      ],
+      "latency_ms": 3.855867385864258,
+      "cv": 0.00033805394752550386
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 1,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 80,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.0399399995803833,
+        0.03916500136256218,
+        0.03926999866962433,
+        0.039604999125003815,
+        0.03982999920845032,
+        0.03896750137209892,
+        0.03996500000357628
+      ],
+      "wall_samples_ms": [
+        0.056331875384785235,
+        0.049710624807630666,
+        0.04900924977846444,
+        0.050636875130294356,
+        0.04983175040251808,
+        0.04891437492915429,
+        0.05023062476539053
+      ],
+      "latency_ms": 0.039604999125003815,
+      "cv": 0.009415972904081742
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 2,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 87,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.04444750025868416,
+        0.041747499257326126,
+        0.04181250184774399,
+        0.04101499915122986,
+        0.03773999959230423,
+        0.04109250009059906,
+        0.037790000438690186
+      ],
+      "wall_samples_ms": [
+        0.0608157497481443,
+        0.052380624765646644,
+        0.05291937486617826,
+        0.05077562491351273,
+        0.04763549986819271,
+        0.0519806253578281,
+        0.04785925011674408
+      ],
+      "latency_ms": 0.04109250009059906,
+      "cv": 0.053835334287937756
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 4,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 94,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.04453999921679497,
+        0.03773000091314316,
+        0.03756999969482422,
+        0.0406625010073185,
+        0.041782498359680176,
+        0.03864249959588051,
+        0.0419749990105629
+      ],
+      "wall_samples_ms": [
+        0.061940750128997024,
+        0.04866800009040162,
+        0.05039687493990641,
+        0.050864375225501135,
+        0.05152924950380111,
+        0.0481904999105609,
+        0.051764374802587554
+      ],
+      "latency_ms": 0.0406625010073185,
+      "cv": 0.05901915767901549
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 5,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 101,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.04165999963879585,
+        0.03884249925613403,
+        0.04210750013589859,
+        0.038362499326467514,
+        0.03891000151634216,
+        0.03863000124692917,
+        0.041450001299381256
+      ],
+      "wall_samples_ms": [
+        0.05815937493025558,
+        0.0487068755319342,
+        0.05086925011710264,
+        0.04699187502410496,
+        0.04824425013794098,
+        0.04718437503470341,
+        0.05035550020693336
+      ],
+      "latency_ms": 0.03891000151634216,
+      "cv": 0.038254385658197144
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 108,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.04318249970674515,
+        0.04012250155210495,
+        0.03942999988794327,
+        0.03729499876499176,
+        0.039739999920129776,
+        0.03976000100374222,
+        0.03939000144600868
+      ],
+      "wall_samples_ms": [
+        0.058841875215875916,
+        0.049506875257065985,
+        0.04843799979425967,
+        0.0471331250082585,
+        0.04824925053981133,
+        0.0482892501167953,
+        0.04798049940291094
+      ],
+      "latency_ms": 0.039739999920129776,
+      "cv": 0.04037378538534797
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 115,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.04776500165462494,
+        0.04513999819755554,
+        0.04523000121116638,
+        0.04530499875545502,
+        0.04538999870419502,
+        0.04510749876499176,
+        0.04540500044822693
+      ],
+      "wall_samples_ms": [
+        0.06437950014515081,
+        0.059502000112843234,
+        0.05606187460216461,
+        0.05600937492999947,
+        0.05571562451223144,
+        0.05459812473418424,
+        0.05553312530537369
+      ],
+      "latency_ms": 0.04530499875545502,
+      "cv": 0.019331828174635027
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 122,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.05379749834537506,
+        0.050645001232624054,
+        0.050517499446868896,
+        0.050542499870061874,
+        0.050530001521110535,
+        0.050574999302625656,
+        0.05052249878644943
+      ],
+      "wall_samples_ms": [
+        0.07022087538643973,
+        0.060498125094454736,
+        0.05912074993830174,
+        0.05948562466073781,
+        0.05954824973741779,
+        0.059250624872220214,
+        0.05998825054120971
+      ],
+      "latency_ms": 0.050542499870061874,
+      "cv": 0.02225133570653901
+    },
+    {
+      "operation": "lightning_indexer",
+      "phase": "decode",
+      "local_heads": 32,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 129,
+      "cache_format": 30,
+      "cache_stride": [
+        16384,
+        128,
+        128,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_lightning_indexer",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.06881749629974365,
+        0.0657074972987175,
+        0.06566750258207321,
+        0.06590250134468079,
+        0.06599999964237213,
+        0.06591250002384186,
+        0.06595499813556671
+      ],
+      "wall_samples_ms": [
+        0.08419724963459885,
+        0.07483337503799703,
+        0.07484462457796326,
+        0.0748696247683256,
+        0.07490324969694484,
+        0.07510199975513387,
+        0.07466462466254598
+      ],
+      "latency_ms": 0.06591250002384186,
+      "cv": 0.015724240922101028
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 16,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 140,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011423230171203613,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011272728443145752,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        21.212200164794922,
+        21.206790924072266,
+        21.209762573242188,
+        21.208297729492188,
+        21.211090087890625,
+        21.207998275756836,
+        21.209999084472656
+      ],
+      "wall_samples_ms": [
+        21.23401049993845,
+        21.221779124971363,
+        21.22957299980044,
+        21.228099250038213,
+        21.232586750556948,
+        21.22811300068861,
+        21.22947550014942
+      ],
+      "latency_ms": 21.209762573242188,
+      "cv": 8.197150244035595e-05
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 1,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 146,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0012136101722717285,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.001366347074508667,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.0983550027012825,
+        0.0940999984741211,
+        0.09619250148534775,
+        0.09341499954462051,
+        0.09347750246524811,
+        0.09313750267028809,
+        0.0934624969959259
+      ],
+      "wall_samples_ms": [
+        0.11440750040492276,
+        0.105052375147352,
+        0.10816000030899886,
+        0.10452862534293672,
+        0.10477624982740963,
+        0.10372862561780494,
+        0.10446362557559041
+      ],
+      "latency_ms": 0.09347750246524811,
+      "cv": 0.019155746155815466
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 2,
+      "active_batch": 2,
+      "padded_batch": 2,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 153,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0014317035675048828,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0011822879314422607,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10044500231742859,
+        0.09587249904870987,
+        0.09566249698400497,
+        0.09508749842643738,
+        0.09531249850988388,
+        0.09455999732017517,
+        0.0950774997472763
+      ],
+      "wall_samples_ms": [
+        0.11584500043682056,
+        0.10649612522684038,
+        0.10582612503640121,
+        0.10595625008136267,
+        0.10577750072116032,
+        0.10595000003377208,
+        0.10552749972703168
+      ],
+      "latency_ms": 0.09531249850988388,
+      "cv": 0.019334812941401627
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 4,
+      "active_batch": 4,
+      "padded_batch": 4,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 160,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011417865753173828,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0015094876289367676,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10085750371217728,
+        0.09701000154018402,
+        0.09468749910593033,
+        0.09471499919891357,
+        0.09476999938488007,
+        0.09499750286340714,
+        0.0956375002861023
+      ],
+      "wall_samples_ms": [
+        0.11867762532347115,
+        0.1077525002983748,
+        0.10446499982208479,
+        0.10468237542227143,
+        0.1044037508108886,
+        0.10481249955773819,
+        0.10518987528485013
+      ],
+      "latency_ms": 0.09499750286340714,
+      "cv": 0.021747866272637032
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 5,
+      "active_batch": 5,
+      "padded_batch": 5,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 167,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011500418186187744,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0018320083618164062,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10392750054597855,
+        0.09786749631166458,
+        0.09691750258207321,
+        0.09688500314950943,
+        0.09651249647140503,
+        0.09646499902009964,
+        0.09711000323295593
+      ],
+      "wall_samples_ms": [
+        0.1224063753397786,
+        0.11016500047844602,
+        0.10781737455545226,
+        0.10730987560236827,
+        0.10683362506824778,
+        0.10680112518457463,
+        0.10841612493095454
+      ],
+      "latency_ms": 0.09691750258207321,
+      "cv": 0.02527709562090948
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 174,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012808740139007568,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0014013051986694336,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10302499681711197,
+        0.09792999923229218,
+        0.0974700003862381,
+        0.0970425009727478,
+        0.0966774970293045,
+        0.09678249806165695,
+        0.09675250202417374
+      ],
+      "wall_samples_ms": [
+        0.1190725006381399,
+        0.10727237531682476,
+        0.10705612567107892,
+        0.10621112505759811,
+        0.10603374994389014,
+        0.10593250044621527,
+        0.10766374998638639
+      ],
+      "latency_ms": 0.0970425009727478,
+      "cv": 0.021561884858205628
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 181,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001217871904373169,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011067688465118408,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10365500301122665,
+        0.09974999725818634,
+        0.09897000342607498,
+        0.09949500113725662,
+        0.09897000342607498,
+        0.0987050011754036,
+        0.0987199991941452
+      ],
+      "wall_samples_ms": [
+        0.12059012533427449,
+        0.11146875021950109,
+        0.11045874998671934,
+        0.11037750027753646,
+        0.10891375040955609,
+        0.10907249998126645,
+        0.1087437494788901
+      ],
+      "latency_ms": 0.09897000342607498,
+      "cv": 0.016377998015246267
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 188,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001028507947921753,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0018610954284667969,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.1382399946451187,
+        0.10565750300884247,
+        0.10243500024080276,
+        0.10195250064134598,
+        0.10231249779462814,
+        0.1039699986577034,
+        0.10233999788761139
+      ],
+      "wall_samples_ms": [
+        0.16958074957074132,
+        0.11840887509606546,
+        0.11360624921508133,
+        0.11269250080658821,
+        0.11263124997640261,
+        0.11667750004562549,
+        0.11255749996053055
+      ],
+      "latency_ms": 0.10243500024080276,
+      "cv": 0.11423267281532322
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 195,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011831820011138916,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011951625347137451,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.16709749400615692,
+        0.1616625040769577,
+        0.16177749633789062,
+        0.16184000670909882,
+        0.16078999638557434,
+        0.16126249730587006,
+        0.16147249937057495
+      ],
+      "wall_samples_ms": [
+        0.18369837471254868,
+        0.17255949933314696,
+        0.17266074974031653,
+        0.17247699997824384,
+        0.17135575035354123,
+        0.17180949998873984,
+        0.172048124113644
+      ],
+      "latency_ms": 0.1616625040769577,
+      "cv": 0.012312375400852511
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 16,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 206,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011439919471740723,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001317054033279419,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        21.249927520751953,
+        21.241479873657227,
+        21.24005699157715,
+        21.23892593383789,
+        21.246030807495117,
+        21.238609313964844,
+        21.239154815673828
+      ],
+      "wall_samples_ms": [
+        21.269793374813162,
+        21.25458325008367,
+        21.253056999739783,
+        21.253556875308277,
+        21.26168575068732,
+        21.256861999972898,
+        21.255080750052002
+      ],
+      "latency_ms": 21.24005699157715,
+      "cv": 0.0001884535227765979
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 1,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 212,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0011074841022491455,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.001110166311264038,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09013500064611435,
+        0.08686749637126923,
+        0.08734750002622604,
+        0.08721999824047089,
+        0.08692750334739685,
+        0.08721250295639038,
+        0.08658750355243683
+      ],
+      "wall_samples_ms": [
+        0.10737874981714413,
+        0.09900362510961713,
+        0.09823737582337344,
+        0.09761737510416424,
+        0.09642237455409486,
+        0.09832737487158738,
+        0.0966260004133801
+      ],
+      "latency_ms": 0.08721250295639038,
+      "cv": 0.012732100534152913
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 2,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 219,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0010319948196411133,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.001156836748123169,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09084749966859818,
+        0.08891499787569046,
+        0.08861249685287476,
+        0.08844249695539474,
+        0.08863750100135803,
+        0.08882249891757965,
+        0.08867999911308289
+      ],
+      "wall_samples_ms": [
+        0.10664000001270324,
+        0.09895237508317223,
+        0.09851362483459525,
+        0.09720862453832524,
+        0.09766987568582408,
+        0.09917862462316407,
+        0.09807362494029803
+      ],
+      "latency_ms": 0.08867999911308289,
+      "cv": 0.00864831730162462
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 4,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 226,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012940168380737305,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012463927268981934,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.0930275022983551,
+        0.09053750336170197,
+        0.09041000157594681,
+        0.09021250158548355,
+        0.09029500186443329,
+        0.09037750214338303,
+        0.09029249846935272
+      ],
+      "wall_samples_ms": [
+        0.10846737495739944,
+        0.10040487450169167,
+        0.10090987507282989,
+        0.10099737482960336,
+        0.09935112484527053,
+        0.09946862519427668,
+        0.09876862441160483
+      ],
+      "latency_ms": 0.09037750214338303,
+      "cv": 0.010364072882263568
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 5,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 233,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001015394926071167,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011795461177825928,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09463749825954437,
+        0.09056749939918518,
+        0.08954499661922455,
+        0.08958999812602997,
+        0.0912024974822998,
+        0.08951999992132187,
+        0.08976499736309052
+      ],
+      "wall_samples_ms": [
+        0.12072887511749286,
+        0.10127362475031987,
+        0.10104862485604826,
+        0.09995737491408363,
+        0.21637499958160333,
+        0.10037237461801851,
+        0.1010212499750196
+      ],
+      "latency_ms": 0.08976499736309052,
+      "cv": 0.018918635680981528
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 240,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012982487678527832,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0013968944549560547,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09288500249385834,
+        0.0904650017619133,
+        0.0906824991106987,
+        0.09037499874830246,
+        0.09027250111103058,
+        0.0903875008225441,
+        0.0904724970459938
+      ],
+      "wall_samples_ms": [
+        0.1187862499136827,
+        0.10134737476619193,
+        0.10127737550646998,
+        0.09995487471314846,
+        0.0998948753476725,
+        0.10091500007547438,
+        0.10007362561736954
+      ],
+      "latency_ms": 0.0904650017619133,
+      "cv": 0.009501348301742511
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 247,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012508928775787354,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011365711688995361,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09597250074148178,
+        0.09367000311613083,
+        0.09348499774932861,
+        0.09364250302314758,
+        0.09360499680042267,
+        0.09345249831676483,
+        0.0933699980378151
+      ],
+      "wall_samples_ms": [
+        0.11133374937344342,
+        0.10348612522648182,
+        0.10511624986975221,
+        0.10278612444380997,
+        0.10264874981658068,
+        0.10231487522105454,
+        0.10216862483503064
+      ],
+      "latency_ms": 0.09360499680042267,
+      "cv": 0.009139006813010928
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 254,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011923015117645264,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011289417743682861,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09896750003099442,
+        0.09610500186681747,
+        0.09620749950408936,
+        0.095940001308918,
+        0.09591999650001526,
+        0.09606750309467316,
+        0.09607250243425369
+      ],
+      "wall_samples_ms": [
+        0.11533387532836059,
+        0.10593112529022619,
+        0.10587374981696485,
+        0.10582499999145512,
+        0.1060525000866619,
+        0.10703737461881246,
+        0.10564500007603783
+      ],
+      "latency_ms": 0.09607250243425369,
+      "cv": 0.010617025592794996
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 16,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 261,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011140406131744385,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0018584728240966797,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.15972749888896942,
+        0.15655000507831573,
+        0.1565224975347519,
+        0.15323500335216522,
+        0.1532900035381317,
+        0.15350750088691711,
+        0.15323500335216522
+      ],
+      "wall_samples_ms": [
+        0.18742462543741567,
+        0.16914687512326054,
+        0.16665687508066185,
+        0.16399937430833234,
+        0.16497187516506528,
+        0.16352312468370656,
+        0.16302187486871844
+      ],
+      "latency_ms": 0.15350750088691711,
+      "cv": 0.01507403022880485
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 8,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 272,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001105666160583496,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011051297187805176,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        20.559539794921875,
+        20.556737899780273,
+        20.562725067138672,
+        20.561315536499023,
+        20.565479278564453,
+        20.566715240478516,
+        20.564666748046875
+      ],
+      "wall_samples_ms": [
+        20.585180624948407,
+        20.577710499310342,
+        20.589363125509408,
+        20.58869312531897,
+        20.589888125869038,
+        20.594054375578708,
+        20.58619687522878
+      ],
+      "latency_ms": 20.562725067138672,
+      "cv": 0.00015891336863258182
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 1,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 278,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0008839964866638184,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0012309849262237549,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09781499952077866,
+        0.09335249662399292,
+        0.09208499640226364,
+        0.09239000082015991,
+        0.09231749922037125,
+        0.09201750159263611,
+        0.09195250272750854
+      ],
+      "wall_samples_ms": [
+        0.11664875000860775,
+        0.10483862570254132,
+        0.10343375015509082,
+        0.1046198749463656,
+        0.10450987520016497,
+        0.10379000013926998,
+        0.10390362513135187
+      ],
+      "latency_ms": 0.09231749922037125,
+      "cv": 0.02105749137354267
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 2,
+      "active_batch": 2,
+      "padded_batch": 2,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 285,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.001087576150894165,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0010752677917480469,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09957999736070633,
+        0.09345249831676483,
+        0.09369000047445297,
+        0.0944024994969368,
+        0.09431000053882599,
+        0.09382999688386917,
+        0.09401249885559082
+      ],
+      "wall_samples_ms": [
+        0.11794375041063176,
+        0.10592237504170043,
+        0.10516737438592827,
+        0.10574125008133706,
+        0.1057937497535022,
+        0.10487374947842909,
+        0.10538487549638376
+      ],
+      "latency_ms": 0.09401249885559082,
+      "cv": 0.021047117894895877
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 4,
+      "active_batch": 4,
+      "padded_batch": 4,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 292,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012215971946716309,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010283291339874268,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.1004524976015091,
+        0.09578750282526016,
+        0.09447500109672546,
+        0.09450250118970871,
+        0.09450750052928925,
+        0.09580250084400177,
+        0.09457500278949738
+      ],
+      "wall_samples_ms": [
+        0.12048387543472927,
+        0.10950500018225284,
+        0.10710750029829796,
+        0.10952624961646507,
+        0.10792250031954609,
+        0.1074325000445242,
+        0.10604875024000648
+      ],
+      "latency_ms": 0.09457500278949738,
+      "cv": 0.02097455363296685
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 5,
+      "active_batch": 5,
+      "padded_batch": 5,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 299,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010945498943328857,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010890066623687744,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.1003125011920929,
+        0.09420750290155411,
+        0.09417500346899033,
+        0.0939825028181076,
+        0.09412000328302383,
+        0.09524250030517578,
+        0.09464249759912491
+      ],
+      "wall_samples_ms": [
+        0.11990512575721368,
+        0.10869749985431554,
+        0.10738874971139012,
+        0.10651750017132144,
+        0.10745999952632701,
+        0.10700625080062309,
+        0.1065162496161065
+      ],
+      "latency_ms": 0.09420750290155411,
+      "cv": 0.022139732811798936
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 306,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011644363403320312,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012127161026000977,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.1025025025010109,
+        0.1002575010061264,
+        0.09539750218391418,
+        0.095722496509552,
+        0.09450499713420868,
+        0.09647250175476074,
+        0.09649000316858292
+      ],
+      "wall_samples_ms": [
+        0.12321637495915638,
+        0.1144551251854864,
+        0.10910000037256395,
+        0.10986624965880765,
+        0.10843875043065054,
+        0.1088937506210641,
+        0.1095137495212839
+      ],
+      "latency_ms": 0.09647250175476074,
+      "cv": 0.027748659574471823
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 313,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010118484497070312,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010828971862792969,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10541749745607376,
+        0.09750249981880188,
+        0.09731250256299973,
+        0.09726499766111374,
+        0.09758249670267105,
+        0.09767500311136246,
+        0.09650000184774399
+      ],
+      "wall_samples_ms": [
+        0.12629512457351666,
+        0.10995499997079605,
+        0.1094250001187902,
+        0.11001500024576671,
+        0.109193750176928,
+        0.10984624987031566,
+        0.10862112503673416
+      ],
+      "latency_ms": 0.09750249981880188,
+      "cv": 0.029055695710653428
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 320,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010327398777008057,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001095116138458252,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.11371999979019165,
+        0.10108999907970428,
+        0.10033249855041504,
+        0.10005000233650208,
+        0.10488750040531158,
+        0.1020824983716011,
+        0.1020824983716011
+      ],
+      "wall_samples_ms": [
+        0.1375165002173162,
+        0.11675762470986228,
+        0.11314262519590557,
+        0.11387250015104655,
+        0.11782387446146458,
+        0.11682387503242353,
+        0.1148676246884861
+      ],
+      "latency_ms": 0.1020824983716011,
+      "cv": 0.04293407210188242
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 327,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001095414161682129,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.000951230525970459,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.16346749663352966,
+        0.15907500684261322,
+        0.15791000425815582,
+        0.15727749466896057,
+        0.15848499536514282,
+        0.1574224978685379,
+        0.15757499635219574
+      ],
+      "wall_samples_ms": [
+        0.1820671250243322,
+        0.17247449977730867,
+        0.16964437509159325,
+        0.1702107501841965,
+        0.17018574999383418,
+        0.16880937528185314,
+        0.17072699938580627
+      ],
+      "latency_ms": 0.15791000425815582,
+      "cv": 0.012699060639570487
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 8,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 338,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011286735534667969,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010442137718200684,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        20.654232025146484,
+        20.64931297302246,
+        20.658315658569336,
+        20.659137725830078,
+        20.652868270874023,
+        20.653423309326172,
+        20.651573181152344
+      ],
+      "wall_samples_ms": [
+        20.682189249782823,
+        20.679242875303316,
+        20.686456749899662,
+        20.690009249847208,
+        20.68558925020625,
+        20.67149287540815,
+        20.66882400049508
+      ],
+      "latency_ms": 20.653423309326172,
+      "cv": 0.00015788694249284336
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 1,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 344,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0009432435035705566,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.001180022954940796,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09048250317573547,
+        0.08728499710559845,
+        0.08755750209093094,
+        0.08763249963521957,
+        0.08751250058412552,
+        0.08773499727249146,
+        0.0878250002861023
+      ],
+      "wall_samples_ms": [
+        0.10680987543310039,
+        0.11243637436564313,
+        0.09721237529447535,
+        0.09683600001153536,
+        0.0963572492764797,
+        0.09690987462818157,
+        0.09750237495609326
+      ],
+      "latency_ms": 0.08763249963521957,
+      "cv": 0.011638379461286074
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 2,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 351,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.001074373722076416,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0010229945182800293,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.093469999730587,
+        0.08827999979257584,
+        0.08812999725341797,
+        0.08844249695539474,
+        0.08762499690055847,
+        0.08797500282526016,
+        0.08787500113248825
+      ],
+      "wall_samples_ms": [
+        0.12098762545065256,
+        0.10040737470262684,
+        0.09925987524184166,
+        0.09931862496159738,
+        0.097959875347442,
+        0.0990773751254892,
+        0.0981897501333151
+      ],
+      "latency_ms": 0.08812999725341797,
+      "cv": 0.021515061854557854
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 4,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 358,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012152791023254395,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011182129383087158,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09391249716281891,
+        0.08955500274896622,
+        0.08876749873161316,
+        0.0887250006198883,
+        0.08894749730825424,
+        0.08900249749422073,
+        0.08886250108480453
+      ],
+      "wall_samples_ms": [
+        0.1159063749582856,
+        0.10035237482952652,
+        0.09905112528940663,
+        0.09879862500383751,
+        0.09895237417367753,
+        0.10029112490883563,
+        0.09913112535286928
+      ],
+      "latency_ms": 0.08894749730825424,
+      "cv": 0.019468188140940534
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 5,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 365,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010668635368347168,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012080669403076172,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09262750297784805,
+        0.08934249728918076,
+        0.08919999748468399,
+        0.08917000144720078,
+        0.08901499956846237,
+        0.08907750248908997,
+        0.0890674963593483
+      ],
+      "wall_samples_ms": [
+        0.10914999984379392,
+        0.09947237504093209,
+        0.0987673756753793,
+        0.09892487469187472,
+        0.09811862491915235,
+        0.09805862464418169,
+        0.09765225058799842
+      ],
+      "latency_ms": 0.08917000144720078,
+      "cv": 0.013638344012455639
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 372,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010590553283691406,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001080542802810669,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.0925849974155426,
+        0.09043750166893005,
+        0.0903875008225441,
+        0.09016499668359756,
+        0.09008750319480896,
+        0.09005499631166458,
+        0.09057749807834625
+      ],
+      "wall_samples_ms": [
+        0.10878374996536877,
+        0.10078749983222224,
+        0.09914612473949092,
+        0.09884112478175666,
+        0.0989923746601562,
+        0.09924487494572531,
+        0.09914362544805044
+      ],
+      "latency_ms": 0.0903875008225441,
+      "cv": 0.00910032300263337
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 379,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.00106126070022583,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010909736156463623,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09547249972820282,
+        0.09260000288486481,
+        0.09249500185251236,
+        0.0925849974155426,
+        0.09269750118255615,
+        0.09290499985218048,
+        0.09279999881982803
+      ],
+      "wall_samples_ms": [
+        0.11461387475719675,
+        0.10204362479271367,
+        0.1015562502288958,
+        0.10402487441751873,
+        0.10175737497775117,
+        0.1022761252897908,
+        0.10185237442783546
+      ],
+      "latency_ms": 0.09269750118255615,
+      "cv": 0.01058662506143886
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 386,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011934936046600342,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011638104915618896,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09831249713897705,
+        0.09588500112295151,
+        0.09561750292778015,
+        0.0957299992442131,
+        0.09560249745845795,
+        0.09588500112295151,
+        0.09565500169992447
+      ],
+      "wall_samples_ms": [
+        0.11436375007178867,
+        0.10554237451287918,
+        0.10461125020810869,
+        0.10469237531651743,
+        0.10477000068931375,
+        0.10543000007601222,
+        0.1045586250256747
+      ],
+      "latency_ms": 0.0957299992442131,
+      "cv": 0.009474465275755151
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 8,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 393,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011172592639923096,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001965165138244629,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.15565750002861023,
+        0.1516149938106537,
+        0.15174500644207,
+        0.15139499306678772,
+        0.1515350043773651,
+        0.1517225056886673,
+        0.15142250061035156
+      ],
+      "wall_samples_ms": [
+        0.17287687478528824,
+        0.16346437496395083,
+        0.16304562450386584,
+        0.16345937456208048,
+        0.16256937487924006,
+        0.16215562573052011,
+        0.16252187469945056
+      ],
+      "latency_ms": 0.1516149938106537,
+      "cv": 0.009430528822181592
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 4,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 404,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010571181774139404,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010777711868286133,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        20.38141441345215,
+        20.37387466430664,
+        20.375629425048828,
+        20.37601089477539,
+        20.378387451171875,
+        20.37997817993164,
+        20.381723403930664
+      ],
+      "wall_samples_ms": [
+        20.41308112529805,
+        20.39062337462383,
+        20.391897124682146,
+        20.395783500134712,
+        20.401184749971435,
+        20.401551000759355,
+        20.405996000590676
+      ],
+      "latency_ms": 20.378387451171875,
+      "cv": 0.0001388363085757252
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 1,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 410,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0006674826145172119,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0008669495582580566,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.0991624966263771,
+        0.09498749673366547,
+        0.0963824987411499,
+        0.09425749629735947,
+        0.09372500330209732,
+        0.09393499791622162,
+        0.09371250122785568
+      ],
+      "wall_samples_ms": [
+        0.1168501248685061,
+        0.10747499982244335,
+        0.10800375002872897,
+        0.1060799995684647,
+        0.10535125056776451,
+        0.10549624948907876,
+        0.10522862521611387
+      ],
+      "latency_ms": 0.09425749629735947,
+      "cv": 0.01946244590293942
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 2,
+      "active_batch": 2,
+      "padded_batch": 2,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 417,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.00104561448097229,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0011947154998779297,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.0997375026345253,
+        0.09472250193357468,
+        0.0942699983716011,
+        0.09495999664068222,
+        0.09384249895811081,
+        0.09417500346899033,
+        0.0941774994134903
+      ],
+      "wall_samples_ms": [
+        0.11734012514352798,
+        0.10618624946800992,
+        0.107878749986412,
+        0.10657612529030303,
+        0.10557487530604703,
+        0.10542749987507705,
+        0.10561750059423503
+      ],
+      "latency_ms": 0.0942699983716011,
+      "cv": 0.020119301608550896
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 4,
+      "active_batch": 4,
+      "padded_batch": 4,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 424,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0013110637664794922,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010729730129241943,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09988000243902206,
+        0.09591250121593475,
+        0.09452749788761139,
+        0.09298499673604965,
+        0.09290499985218048,
+        0.09595250338315964,
+        0.0946274995803833
+      ],
+      "wall_samples_ms": [
+        0.11823012482636841,
+        0.10987874975398881,
+        0.10822000058396952,
+        0.10552999992796686,
+        0.1074187493941281,
+        0.11164500028826296,
+        0.10958750044665067
+      ],
+      "latency_ms": 0.0946274995803833,
+      "cv": 0.023105232998674504
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 5,
+      "active_batch": 5,
+      "padded_batch": 5,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 431,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010863244533538818,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011530518531799316,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09926000237464905,
+        0.09509249776601791,
+        0.09502749890089035,
+        0.09382999688386917,
+        0.09504750370979309,
+        0.09480000287294388,
+        0.09495499730110168
+      ],
+      "wall_samples_ms": [
+        0.11882012495334493,
+        0.10865625063161133,
+        0.10760749955807114,
+        0.10688499969546683,
+        0.10965374985971721,
+        0.10702249983296497,
+        0.10800625022966415
+      ],
+      "latency_ms": 0.09502749890089035,
+      "cv": 0.016930793553051233
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 438,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010771453380584717,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011356472969055176,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10102750360965729,
+        0.09628000110387802,
+        0.09592500329017639,
+        0.09569499641656876,
+        0.095660001039505,
+        0.09562999755144119,
+        0.0958774983882904
+      ],
+      "wall_samples_ms": [
+        0.12280512510187691,
+        0.10933124940493144,
+        0.10886499967455165,
+        0.10848362489923602,
+        0.1086687498172978,
+        0.11062625071645016,
+        0.10772375026135705
+      ],
+      "latency_ms": 0.0958774983882904,
+      "cv": 0.01889948784732218
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 445,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011038780212402344,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.001051187515258789,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10216499865055084,
+        0.09639749675989151,
+        0.09667500108480453,
+        0.09804999828338623,
+        0.09782250225543976,
+        0.09814749658107758,
+        0.09762000292539597
+      ],
+      "wall_samples_ms": [
+        0.12044012510159519,
+        0.11139374964841409,
+        0.1090437499442487,
+        0.11265000011917436,
+        0.11029125016648322,
+        0.11110749983345158,
+        0.1104675002352451
+      ],
+      "latency_ms": 0.09782250225543976,
+      "cv": 0.017968394079137893
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 452,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0009888708591461182,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010156631469726562,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.10785499960184097,
+        0.10048499703407288,
+        0.10019999742507935,
+        0.10008250176906586,
+        0.10019999742507935,
+        0.10008750110864639,
+        0.09998500347137451
+      ],
+      "wall_samples_ms": [
+        0.12767899988830322,
+        0.11309387446090113,
+        0.11214999994990649,
+        0.11196249943168368,
+        0.11217624978598906,
+        0.11144499967485899,
+        0.11189875021955231
+      ],
+      "latency_ms": 0.10019999742507935,
+      "cv": 0.026582184786837233
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "eager",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 459,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "eager_invocation",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011249184608459473,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0008954703807830811,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.16319499909877777,
+        0.15893250703811646,
+        0.15632499754428864,
+        0.15712499618530273,
+        0.15769250690937042,
+        0.15641750395298004,
+        0.15759749710559845
+      ],
+      "wall_samples_ms": [
+        0.18252950030728243,
+        0.17097562522394583,
+        0.16868700004124548,
+        0.16930687434069114,
+        0.168940624462266,
+        0.16746062465244904,
+        0.1685156248640851
+      ],
+      "latency_ms": 0.15759749710559845,
+      "cv": 0.013923033577581834
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "prefill",
+      "local_heads": 4,
+      "tokens": 8192,
+      "active_batch": 1,
+      "padded_batch": 1,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 64,
+      "plan_index": 470,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0018262863159179688,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012211799621582031,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        20.309837341308594,
+        20.310245513916016,
+        20.30527687072754,
+        20.310152053833008,
+        20.30788803100586,
+        20.309452056884766,
+        20.306209564208984
+      ],
+      "wall_samples_ms": [
+        20.33306400062429,
+        20.331615249233437,
+        20.331490250100615,
+        20.325795124335855,
+        20.326437749645265,
+        20.32255262565741,
+        20.31985000030545
+      ],
+      "latency_ms": 20.309452056884766,
+      "cv": 9.203175862613821e-05
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 1,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 476,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0009673237800598145,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 8,
+          "max_abs_error": 0.0008058249950408936,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.08924499899148941,
+        0.08633500337600708,
+        0.0866049975156784,
+        0.08633749932050705,
+        0.08623749762773514,
+        0.0862250030040741,
+        0.08664750307798386
+      ],
+      "wall_samples_ms": [
+        0.10433987517899368,
+        0.09523737480776617,
+        0.09572987528372323,
+        0.09530112492939224,
+        0.09509224946668837,
+        0.09494237565377261,
+        0.09558987494528992
+      ],
+      "latency_ms": 0.08633749932050705,
+      "cv": 0.01161543399683389
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 2,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 483,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0010797381401062012,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 16,
+          "max_abs_error": 0.0009954869747161865,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09029500186443329,
+        0.08729249984025955,
+        0.08769749850034714,
+        0.08723749965429306,
+        0.08758000284433365,
+        0.08715999871492386,
+        0.08737000077962875
+      ],
+      "wall_samples_ms": [
+        0.10461750025569927,
+        0.0961511250352487,
+        0.09666974983701948,
+        0.0961322493822081,
+        0.0961136247497052,
+        0.09626487553759944,
+        0.09612112535251072
+      ],
+      "latency_ms": 0.08737000077962875,
+      "cv": 0.011751066523502529
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 4,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 490,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011119842529296875,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010861456394195557,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09039749950170517,
+        0.08813749998807907,
+        0.08823750168085098,
+        0.08803749829530716,
+        0.08810249716043472,
+        0.08837749809026718,
+        0.0885625034570694
+      ],
+      "wall_samples_ms": [
+        0.10705874956329353,
+        0.09761112414707895,
+        0.09723237508296734,
+        0.09713112467579776,
+        0.0976773753791349,
+        0.09996612516260939,
+        0.0993398753053043
+      ],
+      "latency_ms": 0.08823750168085098,
+      "cv": 0.008720299969669446
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 5,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 417,
+      "block_table_width": 1407,
+      "plan_index": 497,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0012087523937225342,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0009298324584960938,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "samples_ms": [
+        0.09324250370264053,
+        0.08924499899148941,
+        0.08916249871253967,
+        0.08930999785661697,
+        0.08911249786615372,
+        0.089369997382164,
+        0.0891525000333786
+      ],
+      "wall_samples_ms": [
+        0.12283387513889465,
+        0.0995611244434258,
+        0.10016237501986325,
+        0.10070612552226521,
+        0.10029987515736138,
+        0.09915250029735034,
+        0.10308862511010375
+      ],
+      "latency_ms": 0.08924499899148941,
+      "cv": 0.015682199239711363
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 8,
+      "active_batch": 8,
+      "padded_batch": 8,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 513,
+      "block_table_width": 1407,
+      "plan_index": 504,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0009788870811462402,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011061429977416992,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09364750236272812,
+        0.09053999930620193,
+        0.09034000337123871,
+        0.09019999951124191,
+        0.09031999856233597,
+        0.09032999724149704,
+        0.09013500064611435
+      ],
+      "wall_samples_ms": [
+        0.11078624993388075,
+        0.10260750059387647,
+        0.10101987572852522,
+        0.10065737478726078,
+        0.10011362519435352,
+        0.0992273753581685,
+        0.0985936248980579
+      ],
+      "latency_ms": 0.09032999724149704,
+      "cv": 0.012925913051101917
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 16,
+      "active_batch": 16,
+      "padded_batch": 16,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1025,
+      "block_table_width": 1407,
+      "plan_index": 511,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011436641216278076,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011650621891021729,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09485749900341034,
+        0.0919874981045723,
+        0.09205000102519989,
+        0.09217499941587448,
+        0.09209749847650528,
+        0.09189999848604202,
+        0.09169749915599823
+      ],
+      "wall_samples_ms": [
+        0.11057249957957538,
+        0.10164987452299101,
+        0.10234500041406136,
+        0.10222362470813096,
+        0.10137612480320968,
+        0.10102750002261018,
+        0.10029237455455586
+      ],
+      "latency_ms": 0.09205000102519989,
+      "cv": 0.010989897636704006
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 24,
+      "active_batch": 24,
+      "padded_batch": 24,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 1537,
+      "block_table_width": 1407,
+      "plan_index": 518,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011166930198669434,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0009402632713317871,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.09748750180006027,
+        0.0950774997472763,
+        0.09471999853849411,
+        0.09489250183105469,
+        0.09485500305891037,
+        0.09465000033378601,
+        0.09482499957084656
+      ],
+      "wall_samples_ms": [
+        0.11403874941606773,
+        0.1046473753376631,
+        0.10440000005473848,
+        0.10375612509960774,
+        0.10405749981146073,
+        0.10424987522128504,
+        0.10631625082169194
+      ],
+      "latency_ms": 0.09485500305891037,
+      "cv": 0.009830709283206463
+    },
+    {
+      "operation": "sparse_attention",
+      "phase": "decode",
+      "local_heads": 4,
+      "tokens": 32,
+      "active_batch": 32,
+      "padded_batch": 32,
+      "sequence_length": 8192,
+      "prefix": 0,
+      "execution_mode": "graph",
+      "page_size": 128,
+      "sparse_topk": 2048,
+      "kv_lora_rank": 512,
+      "rope_dim": 64,
+      "index_heads": 32,
+      "index_dim": 128,
+      "pool_pages": 2049,
+      "block_table_width": 1407,
+      "plan_index": 525,
+      "cache_format": 30,
+      "cache_stride": [
+        65536,
+        512,
+        512,
+        1
+      ],
+      "kernel_source": "torch_npu.npu_sparse_flash_attention",
+      "execution_verification": "captured_graph_replay",
+      "checks": [
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0010416507720947266,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        },
+        {
+          "sampled_queries": 24,
+          "max_abs_error": 0.0011084675788879395,
+          "minimum_topk_overlap": 1.0,
+          "padding_kv_lengths": []
+        }
+      ],
+      "samples_ms": [
+        0.1531275063753128,
+        0.15012750029563904,
+        0.15027500689029694,
+        0.15041500329971313,
+        0.15028999745845795,
+        0.1503175050020218,
+        0.15029999613761902
+      ],
+      "wall_samples_ms": [
+        0.16954937564150896,
+        0.16054312527558068,
+        0.16083812533906894,
+        0.16049549958552234,
+        0.1602068741703988,
+        0.1606868745511747,
+        0.1608454995221109
+      ],
+      "latency_ms": 0.15029999613761902,
+      "cv": 0.006615333790872371
+    }
+  ],
+  "runtime": {
+    "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+    "host": "npu1-32",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post6",
+    "device": "Ascend910_9382",
+    "driver_version_info": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n",
+    "device_index": 0,
+    "serving_setup": {
+      "schema": "sglang-runtime-setup/v1",
+      "environment": {
+        "DEEPEP_HCCL_BUFFSIZE": null,
+        "GLOO_SOCKET_IFNAME": "bond4",
+        "HCCL_ALGO": null,
+        "HCCL_BUFFSIZE": "650",
+        "HCCL_DETERMINISTIC": null,
+        "HCCL_OP_EXPANSION_MODE": null,
+        "HCCL_SOCKET_IFNAME": "bond4",
+        "PYTORCH_NPU_ALLOC_CONF": "expandable_segments:True",
+        "SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK": "32",
+        "SGLANG_ENABLE_OVERLAP_PLAN_STREAM": "1",
+        "SGLANG_NPU_USE_MULTI_STREAM": "1",
+        "SGLANG_SET_CPU_AFFINITY": "1",
+        "STREAMS_PER_DEVICE": "32",
+        "TASK_QUEUE_ENABLE": "0"
+      },
+      "environment_scope": "Launcher exports, verified against run-united.sh; worker proctitle can obscure /proc/environ.",
+      "worker_cpu_affinity": {
+        "0": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339
+        ],
+        "1": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359
+        ],
+        "2": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379
+        ],
+        "3": [
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          399
+        ],
+        "4": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419
+        ],
+        "5": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          420,
+          421,
+          422,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428,
+          429,
+          430,
+          431,
+          432,
+          433,
+          434,
+          435,
+          436,
+          437,
+          438,
+          439
+        ],
+        "6": [
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          440,
+          441,
+          442,
+          443,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459
+        ],
+        "7": [
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          478,
+          479
+        ],
+        "8": [
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          480,
+          481,
+          482,
+          483,
+          484,
+          485,
+          486,
+          487,
+          488,
+          489,
+          490,
+          491,
+          492,
+          493,
+          494,
+          495,
+          496,
+          497,
+          498,
+          499
+        ],
+        "9": [
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          509,
+          510,
+          511,
+          512,
+          513,
+          514,
+          515,
+          516,
+          517,
+          518,
+          519
+        ],
+        "10": [
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          520,
+          521,
+          522,
+          523,
+          524,
+          525,
+          526,
+          527,
+          528,
+          529,
+          530,
+          531,
+          532,
+          533,
+          534,
+          535,
+          536,
+          537,
+          538,
+          539
+        ],
+        "11": [
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          540,
+          541,
+          542,
+          543,
+          544,
+          545,
+          546,
+          547,
+          548,
+          549,
+          550,
+          551,
+          552,
+          553,
+          554,
+          555,
+          556,
+          557,
+          558,
+          559
+        ],
+        "12": [
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          560,
+          561,
+          562,
+          563,
+          564,
+          565,
+          566,
+          567,
+          568,
+          569,
+          570,
+          571,
+          572,
+          573,
+          574,
+          575,
+          576,
+          577,
+          578,
+          579
+        ],
+        "13": [
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          580,
+          581,
+          582,
+          583,
+          584,
+          585,
+          586,
+          587,
+          588,
+          589,
+          590,
+          591,
+          592,
+          593,
+          594,
+          595,
+          596,
+          597,
+          598,
+          599
+        ],
+        "14": [
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          600,
+          601,
+          602,
+          603,
+          604,
+          605,
+          606,
+          607,
+          608,
+          609,
+          610,
+          611,
+          612,
+          613,
+          614,
+          615,
+          616,
+          617,
+          618,
+          619
+        ],
+        "15": [
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          620,
+          621,
+          622,
+          623,
+          624,
+          625,
+          626,
+          627,
+          628,
+          629,
+          630,
+          631,
+          632,
+          633,
+          634,
+          635,
+          636,
+          637,
+          638,
+          639
+        ]
+      },
+      "scope": "Observed United16-workers/node; not an inferred NUMA policy.",
+      "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
+      "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
+    },
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339
+    ]
+  }
+}

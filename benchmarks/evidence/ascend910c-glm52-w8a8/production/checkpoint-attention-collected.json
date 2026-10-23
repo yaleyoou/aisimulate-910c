@@ -1,0 +1,19 @@
+{
+  "research": {
+    "ascend_attention_adapter": {
+      "status": "collection_complete_native_integration_in_progress",
+      "runtime": "npu1-32, Ascend910_9382, driver26.1.1, pinned SGLang0.5.22 baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "collection": "528/528 planned attention/indexer cases completed; before/after numerical checks passed. Two graph-noop negative controls rejected. 23 cases have CV>10% and will be retained as unqualified observations, not published timing rows.",
+      "source": "production/attention-full-node32-20261023/campaign.json",
+      "next_action": "Export qualified observations with exact runtime provenance; implement strict Rust native attention/indexer lookup and typed operation. Then complete BMM/vector/MoE/DeepEP and model composition.",
+      "accuracy": "Prediction accuracy tuning deferred by user; no heldout calibration claim. Full adaptation remains incomplete."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "attention_campaign": {"path": "production/attention-full-node32-20261023/campaign.json", "kind": "file", "scope": "collection"}
+      }
+    }
+  }
+}
