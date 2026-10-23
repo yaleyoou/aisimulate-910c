@@ -1,5 +1,50 @@
 # Current goal handoff
 
+## Newest: native compute data published; DeepEP contract probe on19
+
+Sourcecommits589804d8(MoEchain+multi-requestprefillnative),5621929e(attentionproducer/failurehandling).
+Loadednative3c2a659b421b8e02d61e0b6dde8e9272a17ddb5f6de047f7516d8d87210cc2b7.
+OpindicesAscendLinear47,Attention48,Bmm49,Vector50,MoeChain51;total52,schema28unchanged.
+MoE217stablephysical/220attempts→225profilerows (8aliasesone-token). Publishedstandardmoe,
+frozenmoe-chain-published-20261024;225nativequerieszeroerror,4Rust22wire19Python/API390GPUparitypass114.84s.
+Attentionnew1576gridcompleteattempted1517stable58CVexcluded1numericfailure;publishedstandardattention,
+frozenattention-expanded-published-20261024;1517nativequerieszeroerror11collectortests.
+Failure1137 deterministiconeelementactual0versusCPU-.0673 evenactualeager+rawBF16copy+FP64reference.
+Readcollector/failure_handling.md:isolatedrecordedfailuredoesnotinvalidatedataset. Addedper-case
+unexpectednumericalfailure records,no timingrow,no weakenedthreshold;systematicfailuresabort.
+No moreaccuracytuning/debugloopneeded;failurefullyrecorded. Originalprobesinlinear-tiling-node32-20261022.
+HCCLnow449stable,95excluded,frozenlarge-localpublished;installedYAMLunchangedselectsnew449table.
+Allmajorcomputeprimitivespublished;fullGLMcomposition,DeepEP/memory/PD/searchNOTdone.
+DeepEPprobeon19 owncontaineraisim-deepep-contract-20261024 (rank16hostPID1851613),
+production/deepep-contract-node19-20261024;hostlog/tmp/aisim-deepep-contract-20261024.log.
+UsesactualSGLang_ImplNormal(async_finish=True)and_ImplLowLatency(return_recv_hook=True),
+DeepEPMode.AUTO,dispatcher_output_dtypeint8. Sourcepinnedframeworkbaa9befa,DeepEP1.0.0+0234a271.
+Defaultstrategiesselected,DEEP_USE_MODEunset. Probenotperftiming;normalidentityroundtripmayneed
+Ascendrunnerpermutation/weighting. Inspectresult/logbeforelaunchingmore19NPUwork.
+32NPUsidle;31occupied. Rootsessions32=24914,19=89706,31=47855. Checkpointlast45beforelatestpatch.
+
+## Newest 2026-10-24: MoE collected, attention extension has numerical failure
+
+User says finishcurrentadaptation;19reauthorized. Currentcommittedvector/evidencestage
+aded309b;sourcebd6f41f5,observer75584894;HCCLselector10b7a5ff. Checkpoint44beforelatestpatch.
+MoEchaincollectedon19:moe-chain-full-node19-20261023-attempt2 completed220cases217stable,
+8negativecontrolsrejected.220physicalfrom228recipes;balanced/single_expert syntheticprofiles,
+8weightcopies. Firstattemptemptyfiltererrorretained. Own19containerstopped.
+NativeMoEtable/opdraftappendedindex51,total52(notbuilt/tested);exporter/testsnotyetwritten.
+Attentionmulti-requestprefill/nativechangesdraft+basegrid1576. Three394shardscomplete,
+shard1failsindex1137after284. Existing505publishedtableNOTreplaced.
+Failcase1137:decodegraphheads8M8active8KV8192pool513. Oneoutputelementqueryrow4zero,
+CPUreference-0.0673,tolerance.0208;allothersclose. Diagnosticv2comparesactualeagerkernel.
+Inspect/tmp/aisim-attention-case1137-diagnostic-v2.log (root24914) andfrozenprobeoutputs
+inproduction/linear-tiling-node32-20261022 beforeadjustments. Do notwaivenumericchecks.
+Nativeattention5Rusttests passed;Pythonoldfixtureselectorfixedactive1,rerunneeded.
+Releaselibrary/tmp/aisim-target/releasebuiltwithattentionmulti;loaded/tmp/aisim-native
+stillvector539802dc. NativeMoEnewdraftnotbuilt. Frozenvectorreportexact765passed.
+HCCLlarge64rowsmerged:installed449stable95excluded,sameYAMLselector;frozen
+hccl-large-local-node32-20261023/published. Native449validationoutput/tmp/aisim-hccl-large-native.json.
+Needarchive+committhisdatastage andfinishMoEexport/native,DeepEP,model/memory/PD/search.
+32rootPTY24914;19rootPTY89706;31rootPTY47855otherworkload. NPUjobonly32diagnosticv2.
+
 ## Latest: vector complete; switch future peer to19
 
 User: firstfunctionality,accuracydeferred;now31occupied,19reauthorized,finishcurrentadaptation.

@@ -6,7 +6,7 @@
       "torch": "2.10.0+cpu",
       "torch_npu": "2.10.0.post6",
       "hardware": "Ascend910_9382",
-      "collector_source_sha256": "0a38ad601e131e8f2cba6b91e2973da83d8a25e596e9f71af534530272b96c60",
+      "collector_source_sha256": "53db19d34b0af6a934535a31e0e45b06ac4a3b25cafc190feb400f5a5beebe28",
       "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
     },
     "protocol": {
@@ -711,124 +711,305 @@
       "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
       "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
     },
-    "plan_sha256": "c05ad061c4132d4a2af71f2a1e1963194479748eb5a01bac274dd88cb2edd88c"
+    "plan_sha256": "fa8b813e602561400989c997fcf51f78766f9ba9f6cf1494b0a48dd532cad7a4"
   },
-  "attempted": 528,
-  "qualified": 505,
+  "attempted": 1576,
+  "qualified": 1517,
   "unqualified": [
     {
       "plan_index": 0,
-      "cv": 0.1312475563567527,
+      "cv": 0.14122566730148645,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 44,
-      "cv": 0.117170859713533,
+      "cv": 0.1576919132510199,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 132,
-      "cv": 0.10214263830835636,
+      "plan_index": 72,
+      "cv": 0.11220284106209695,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 76,
+      "cv": 0.11285724595333604,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 124,
+      "cv": 0.11201701739182786,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 164,
+      "cv": 0.125038162490818,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 184,
+      "cv": 0.11480749367795245,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 380,
+      "cv": 0.102990044677445,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 416,
+      "cv": 0.20646552221802014,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 528,
+      "cv": 0.1833780998397583,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 556,
+      "cv": 0.23806945037096378,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 792,
+      "cv": 0.2895789566143978,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 832,
+      "cv": 0.14796052414813168,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 840,
+      "cv": 0.13355098997353906,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 852,
+      "cv": 0.10262302078447347,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 872,
+      "cv": 0.12829515056698176,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1212,
+      "cv": 0.2993315638199308,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1240,
+      "cv": 0.1426615718585863,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1324,
+      "cv": 0.15802811329614713,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1137,
+      "reason": "numerical execution check failed",
+      "source": "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/attention-expanded-node32-20261024/shard-1.json",
+      "error": "Traceback (most recent call last):\n  File \"/campaign/collector.py\", line 302, in main\n    collect(index, case)\n  File \"/campaign/collector.py\", line 268, in collect\n    checks = [verify()]\n              ^^^^^^^^\n  File \"/campaign/collector.py\", line 257, in verify\n    raise ValueError(\nValueError: Sparse attention execution numerical check failed: {\"query_row\": 4, \"failing_elements\": 1, \"checked_elements\": 4096, \"max_abs_error\": 0.06731945276260376, \"rms_error\": 0.0010646138107404113, \"reference_rms\": 0.08554749935865402, \"worst_actual\": 0.0, \"worst_expected\": -0.06731945276260376, \"worst_tolerance\": 0.02080783247947693, \"head\": 1, \"dimension\": 309, \"eager_control\": 0.0, \"raw_bf16_cpu_control\": 0.0, \"reference_float64\": -0.06731943525994556, \"reference_bf16_weights\": -0.06732842326164246}\n"
+    },
+    {
+      "plan_index": 1,
+      "cv": 0.12645318368803335,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 37,
-      "cv": 0.1626042592825181,
+      "cv": 0.10963210891038334,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 45,
-      "cv": 0.111053175351608,
+      "plan_index": 125,
+      "cv": 0.26017838540902444,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 149,
-      "cv": 0.19067003464643723,
+      "plan_index": 133,
+      "cv": 0.29668056454789105,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 341,
-      "cv": 0.6069374325913459,
+      "plan_index": 157,
+      "cv": 0.20603035953802357,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 421,
-      "cv": 0.12310458187959414,
+      "plan_index": 557,
+      "cv": 0.19489152410775207,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 577,
+      "cv": 0.10607882768080382,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1025,
+      "cv": 0.11373482779606628,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1365,
+      "cv": 0.11683117804989379,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 2,
-      "cv": 0.11251865492870534,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 30,
-      "cv": 0.13704465219988385,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 42,
-      "cv": 0.1798027609666304,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 46,
-      "cv": 0.1302897205192503,
+      "cv": 0.1909463794124248,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 54,
-      "cv": 0.10858149409976957,
+      "cv": 0.10237590855725187,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 31,
-      "cv": 0.14272641996575489,
+      "plan_index": 58,
+      "cv": 0.1223498914819441,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 55,
-      "cv": 0.16679986797233837,
+      "plan_index": 138,
+      "cv": 0.13128473722576892,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 155,
-      "cv": 0.10234489729612528,
+      "plan_index": 146,
+      "cv": 0.12119859729282689,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 163,
-      "cv": 0.12755657429789516,
+      "plan_index": 154,
+      "cv": 0.10114820780312826,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 162,
+      "cv": 0.21233717772057134,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 166,
+      "cv": 0.24203416029718275,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 190,
+      "cv": 0.10488315369414408,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 402,
+      "cv": 0.15973753389854523,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 450,
+      "cv": 0.10265399866174424,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 466,
+      "cv": 0.8242830516249925,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 542,
+      "cv": 0.11542684752574817,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 822,
+      "cv": 0.2060904073929244,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 846,
+      "cv": 0.15758812294128652,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 950,
+      "cv": 0.11971120658012153,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 962,
+      "cv": 0.14926142728758351,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1222,
+      "cv": 0.25049834836017953,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1302,
+      "cv": 0.12511069201799807,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 3,
+      "cv": 0.259126474918097,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 7,
+      "cv": 0.13229521351268647,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 27,
+      "cv": 0.22935183255615635,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 127,
+      "cv": 0.11031266081436757,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 139,
+      "cv": 0.21838147026166443,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 159,
+      "cv": 0.18455858468990743,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 167,
-      "cv": 0.6651700290829635,
+      "cv": 0.11394548228737607,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 191,
-      "cv": 0.12629269958502845,
+      "plan_index": 359,
+      "cv": 0.1910477588152819,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 295,
-      "cv": 0.19483269948188614,
+      "plan_index": 471,
+      "cv": 0.1494542668607314,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 419,
-      "cv": 0.16070618060952865,
+      "plan_index": 539,
+      "cv": 0.9129769627868861,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 427,
-      "cv": 0.16972275630779138,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 455,
-      "cv": 0.16220623964436834,
+      "plan_index": 971,
+      "cv": 1.4433909635012312,
       "reason": "CV exceeds10%"
     }
   ]

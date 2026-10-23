@@ -14,6 +14,17 @@ measured token brackets. Five unstable measurements are excluded and retained
 in provenance. Missing curves and out-of-bracket queries fail explicitly.
 
 This is **partial operator support**, not a complete GLM prediction database.
+The MoE chain table adds 225 profile rows from 217 stable physical observations
+(220 attempted) under `moe/sglang/0.5.22/ascend_moe_chain_perf.parquet`.
+Balanced and single-expert count distributions are explicit synthetic inputs;
+their identical one-token cases reuse one measurement. Each timed invocation
+contains GMM1, quantized SwiGLU and GMM2 with NZ INT8 weights, BF16 channel
+scales and FP32 token scales. Eight weight copies rotate. All attempted cases
+pass sampled chain/quantization checks before and after actual execution; eight
+graph-noop controls fail as expected. Three unstable observations are excluded.
+Native queries reproduce every published row. These data exclude dispatch and
+combine and do not qualify real routing skew or a whole deployment's performance.
+
 The vector family adds 765 stable observations from 768 cases under
 `vector/sglang/0.5.22/ascend_vector_perf.parquet`. It distinguishes 17 logical
 boundaries and 24 physical geometries, including ModelSlim normalization bias,
@@ -23,25 +34,30 @@ every published row. Cache indices use INT64 in eager and INT32 in graph mode;
 the current grid writes distinct valid slots and does not separately qualify
 repeated sentinel writes. Three unstable timings remain in provenance.
 
-The attention family also contains 505 qualified measurements from 528 attempts
+The attention family contains 1,517 qualified measurements from 1,576 attempts
 under `attention/sglang/0.5.22/ascend_attention_perf.parquet`. It covers the
 BF16 lightning indexer and sparse attention, with exact local-head and
 eager/graph identities. Active requests and padded capture rows are separate;
-padded KV lengths are zero. All attempts passed numerical execution checks,
-and two graph-noop negative controls failed as expected. The 23 unstable rows
-remain in provenance. Native queries reproduce all 505 measured rows exactly.
-Prefill currently supports one request; intermediate decode batches require
-measured brackets within their capture bucket. Missing coverage fails explicitly.
+padded KV lengths are zero. Two graph-noop negative controls failed as expected.
+The 58 unstable timings and one numerical execution failure remain in provenance;
+the latter has no timing row. Native queries reproduce all 1,517 published rows.
+Prefill partitions by active batch with equal query lengths and a total budget
+of 8,192 new tokens. Decode includes lower capture-bucket edges 9, 17 and 25.
+The isolated failed input produces one zero output in eager and graph despite
+an FP32/FP64 CPU reference near -0.0673; the original reproducer is retained.
+Interpolation at a missing coordinate does not qualify that input's numerical
+behavior. Missing interpolation brackets still fail explicitly.
 These results qualify table loading and execution, not whole-model accuracy.
 
 `misc.hccl_version` now selects `9.1.0-b243-drv26.1.1-nodes31-32-v3`.
-Its 385 qualified rows combine 278 single-node npu1-32 observations with 107
+Its 449 qualified rows combine 342 single-node npu1-32 observations with 107
 new npu1-31/npu1-32 measurements. The latter cover 16 ranks with 8 per node and
 32 ranks with 16 per node. Both nodes use driver 26.1.1 and the same pinned image,
 collector and serving setup. All 160 new cases pass full-payload numerical checks
 before and after actual eager/captured execution; 53 unstable cases remain in
-provenance. The combined 480 attempts include 95 unstable observations.
-Native queries using the installed YAML reproduce all 385 published rows.
+provenance. An additional 64 stable local observations cover 192/384 MiB input
+payloads. The combined 544 attempts include 95 unstable observations.
+Native queries using the installed YAML reproduce all 449 published rows.
 Some small eager payloads, especially in the 32-rank group, lack measured
 brackets and fail explicitly. These are collective measurements; actual PD KV
 transport, packing and overlap still require separate integration.

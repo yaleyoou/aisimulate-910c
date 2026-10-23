@@ -557,6 +557,30 @@
           "scope": "collection",
           "sha256": "75b87bc2aba1a591fa84b82f5b266e9ef407f5ff101c9d3a3437947a84efaca4"
         },
+        "attention_expanded_native_validation": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/attention-expanded-node32-20261024/native-validation.json",
+          "scope": "validation",
+          "sha256": "39dc7dcf0cf9155b2444209aa2a74215170cb90a91badc1d6b270b1af2d1bb00"
+        },
+        "attention_expanded_provenance": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/attention-expanded-published-20261024/provenance.json",
+          "scope": "collection",
+          "sha256": "3204f3d7234ee413186a445ff8b1ee5d68e0f07170f96016ea84276865fd7c4d"
+        },
+        "attention_expanded_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/attention-expanded-published-20261024/ascend_attention_perf.parquet",
+          "scope": "collection",
+          "sha256": "2413509de477f1006ce0bfd99ac65296571bb0925ec488a532ceff9ac34bade0"
+        },
         "attention_native_validation": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -773,6 +797,30 @@
           "scope": "validation",
           "sha256": "807d59e93e6d3c8b722b2d6a0ea3c0e4eb4c0afc3e766dc5b3b2d49971a69452"
         },
+        "hccl_large_native_validation": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/hccl-large-local-node32-20261023/native-validation.json",
+          "scope": "validation",
+          "sha256": "11c5863904cef4208b0c2b6707b2dc627ae5786dadc9326c5acd559793ea2177"
+        },
+        "hccl_large_provenance": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/hccl-large-local-node32-20261023/published/provenance.json",
+          "scope": "collection",
+          "sha256": "4e75bda787bff4c090804c059949a26571738c564689160b2fb4cf8e1f7c0ca1"
+        },
+        "hccl_large_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/hccl-large-local-node32-20261023/published/hccl_perf.parquet",
+          "scope": "collection",
+          "sha256": "b17770797d092572004884d4ac927346b565c5db8f686d593c29c52e7d09d5f8"
+        },
         "hccl_native_control_rows": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -932,6 +980,38 @@
           "path": "production/modelslim-normalization.log",
           "scope": "validation",
           "sha256": "4984a8842a7f216de6a19348f082e48d2281981f2eb2b8d102500ddd8f9b2ae8"
+        },
+        "moe_chain_campaign": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/moe-chain-full-node19-20261023-attempt2/campaign.json",
+          "scope": "collection",
+          "sha256": "4692e8adf08403ac843556a8e626a90c2dae64cc1d65c4ba19c90dc422955803"
+        },
+        "moe_chain_native_validation": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/moe-chain-full-node19-20261023-attempt2/native-validation.json",
+          "scope": "validation",
+          "sha256": "4fbad9885f8d3e584907ae2e0c09a924a4cd052340c60509602983574da8dceb"
+        },
+        "moe_chain_provenance": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/moe-chain-published-20261024/provenance.json",
+          "scope": "collection",
+          "sha256": "0a245bb1926ff5a656fcf2f14977f52ae6837dc76c9d1670b897a20124671cb6"
+        },
+        "moe_chain_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/moe-chain-published-20261024/ascend_moe_chain_perf.parquet",
+          "scope": "collection",
+          "sha256": "66a7979919f7be83ae2d59a88bff50cd67e0d4297910a4170beb00c6f3489938"
         },
         "moe_compute_protocol_raw": {
           "archived": true,
@@ -1231,12 +1311,36 @@
       "validation": "7native+14collector+13queryversiontests pass;390GPUparitypassafterseparatingAscend0.5.22versiondomain. Source/lintchecks pass.",
       "version_fix": "InstallingAscenddatahadpromotedCUDAfleetnextto0.5.22andbroke6GPUversion-gatecases. Addedexistingper-systemoverrideascend910c/sglang=current0.5.22;CUDAfleetunchanged. No golden changes."
     },
+    "ascend_moe_chain_adapter": {
+      "campaign": "production/moe-chain-full-node19-20261023-attempt2",
+      "collection": "228profile recipes deduplicatedto220physical invocations;217stable3CVexcluded;allbefore/afternumericalchecks pass;8graphnoopcontrols rejected. Balanced/single-expert profiles are synthetic,notcurrentweight routing. Prefillphysical=received;decodecapacity4096atEP16observed,8192atEP32requiresdistributedverification.",
+      "failed_attempt": "InitialsmokefiltermatchedcommaafterlastJSONfieldandselectedzero;fixedrunnerfilter,freshattempt2completed. Preservefirstfailure.",
+      "limitations": "Syntheticbalanced/single-expert profilesnotactualrouting;zero-receivedchainnotqualified;EP32decode8192capacityawaitsdistributedverification. Dispatch/combineexcluded.",
+      "next_action": "Finishnative/exporter/tests andpublishchain;thenDeepEPdispatch/combine andcanonicalmodelcomposition.",
+      "node": "npu1-19",
+      "publication": "220physical attempts/217stable/3CVexcluded;225profile rows including8aliases for identicalone-token inputs. Frozenmoe-chain-published-20261024;standardmoe/sglang/0.5.22.",
+      "source_commit": "589804d8",
+      "status": "native_primitive_and_table_published",
+      "validation": "225nativeexactqueriespass;4Rust+22wire+19Python/API+390GPUparitypass114.84s. NativeSHA3c2a659b421b8e02d61e0b6dde8e9272a17ddb5f6de047f7516d8d87210cc2b7."
+    },
     "ascend_vector_adapter": {
       "publication": "768cases,765stable,3CVexcluded;17graph-noop controls rejected;allactualnumericalchecks pass. Frozenvector-published-20261023 andstandardvector/sglang/0.5.22.",
       "scope": "17logicalroles/24physicalgeometries;BF16normbias,FP32indexernorm,stridedRoPE,INT64eager/INT32graphcacheindices. Cachewritegridusesdistinctvalidslots,notduplicatepaddingwrites. Wholemodelandinterpolationaccuracyuncalibrated.",
       "source_commit": "bd6f41f5",
       "status": "765_qualified_rows_published_primitive_complete_model_composition_pending",
       "validation": "765nativeexactquerieszeroerror;4Rust+22wire+17Python/API+390GPUparitypass112.32s. NativeSHA539802dc5399caa9ca9519717b3f151bbb2c92fea5f2242e9efa4fba31d91c85. Ruffcheckpass;measuredcollector retains one formatting-only difference to preserve exact source bytes."
+    },
+    "attention_expansion": {
+      "campaign": "production/attention-expanded-node32-20261023",
+      "failure": "1137 graphdecodeheads8active8KV8192:queryrow4/head1/dim309actual0,eagercontrol0,rawBF16CPUcopy0,FP32reference-0.06731945,FP64reference-0.067319435. Alloriginaldiagnosticfilesretained. Isolatedinputnumericsunresolved,notusedasatimingrow.",
+      "native": "Multi-requestprefillpartitionimplementedand5Rusttestspass;rebuiltbinarynotyetinstalled. ExistingPythontestselectedtotalM8192butneededactive1;fixedassertselector,rerunpending.",
+      "next_action": "ContinueDeepEPandmodelcomposition;do nottuneperformanceaccuracy.",
+      "plan": "production/attention-expanded-plan-20261023.json",
+      "publication": "1576attempted;1517stable,58CVexcluded,1numericalfailureexcluded. Allfailedcase metadata/diagnostics retained;no weakenedthreshold/no skip. Addedper-caseunexpectednumericalfailure recordingpercollector/failure_handling.md;systematic failures still abort. Frozenattention-expanded-published-20261024;installedstandardattentiontable.",
+      "scope": "1576casesmulti-requestprefill(total<=8192),smallprefilltokensanddecodebucketedges9/17/25. Three394caseshardscomplete;shard1failedafter284atindex1137. Existing505rowtableunchanged.",
+      "source_commit": "5621929e",
+      "status": "full_grid_attempted_1517_qualified_rows_published",
+      "validation": "1517nativeexactqueriespass;11collectortests;native5attentionbehaviorchecks and390GPUparitypasswithcurrentbinary. No servingaccuracyclaim."
     },
     "basis": {
       "confidence": "high",
@@ -1339,14 +1443,28 @@
       "verified": "Both31/32 have16 visible Ascend devices, driver26.1.1, no running NPU processes at preflight. Both rebooted earlier today. Local validation container restarted. Checkpoint resumed at revision31 with no integrity issues."
     },
     "execution_nodes_20261023": {
-      "active_jobs": [],
+      "active_jobs": [
+        "node32 case1137 diagnosticv2 only; inspectbeforestartingotherNPUwork"
+      ],
       "authorized_next_nodes": [
         "npu1-32",
         "npu1-19"
       ],
       "node19": "Userreauthorized19after31occupied;checkedNPUidle,driver26.1.1/HAL7.35.23. Existingxqcontaineronlysleep/bash. /mnt/raid/.../glm-qabsent;othercontainerROmodelmountat/data_lib/data/models/glm-qnotyetidentityqualified.",
       "node31": "Other service occupiesall16chips. Firststart14:43:48CSTafterourHCCLfinished14:06;Docker event timelinechecked. Existingserviceuntouched.",
-      "services": "Both HCCL task containers stopped after successful completion. Original serving services remain as found; no service was started for this campaign."
+      "services": "Both HCCL task containers stopped after successful completion. Original serving services remain as found; no service was started for this campaign.",
+      "sessions": "32root24914;19root89706;31root47855occupiedbyotherworkload"
+    },
+    "execution_nodes_20261024": {
+      "active_jobs": [
+        "19DeepEPcontractprobe16ranks,owncontaineraisim-deepep-contract-20261024;inspectlogandresultbeforecontinuing"
+      ],
+      "authorized_nodes": [
+        "npu1-32",
+        "npu1-19"
+      ],
+      "node31": "occupiedbyotherworkload;untouched",
+      "sessions": "32root24914;19root89706;31root47855"
     },
     "git_stage_policy": {
       "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed.",
@@ -1448,8 +1566,8 @@
     },
     "large_hccl_payloads": {
       "directory": "production/hccl-large-local-node32-20261023",
-      "result": "64/64stableandnumericallycorrect;2/4/8/16ranks,192/384MiB,eager/graph;neededfortwoDPprefilldenseM16384.",
-      "status": "collected_not_yet_merged"
+      "result": "449qualifiedrows,95excluded;native449queriesusinginstalledYAMLpass. Added64stable192/384MiBcases. Frozenhccl-large-local-node32-20261023/published.",
+      "status": "merged_selected_verified"
     },
     "late_state_commit": "e095a871: complete late decode routing at output900+ for8192/1024 workloads; peer recording service stopped and original local service preserved.",
     "latest_runtime": {
@@ -1671,7 +1789,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 44,
+  "revision": 46,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

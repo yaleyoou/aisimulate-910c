@@ -1,0 +1,27 @@
+[
+  {
+    "path": "npu-before.log",
+    "sha256": "2118902c0d7f60b7b2773e03d983306ab0a92d37eb3711018ae076fe48ad8607",
+    "bytes": 8541
+  },
+  {
+    "path": "smoke-0.log",
+    "sha256": "416da0f6d66ae6bbe3f82ff9469499ee0172a3b3965b0f0472af5d829b407234",
+    "bytes": 2786
+  },
+  {
+    "path": "smoke-1.log",
+    "sha256": "436ef31014d434840875f439b8534828a14c6092fc63d967d6a9c3e211b50509",
+    "bytes": 2786
+  },
+  {
+    "path": "smoke-2.log",
+    "sha256": "65cabfe04183a7c2a12f51a7c7b93a7df4fe905deb9e3663350105f4e54a0ca4",
+    "bytes": 2786
+  },
+  {
+    "path": "smoke-3.log",
+    "sha256": "06d1995324005a38364532bf8b5346de98bd1531e2859de6a0cfb09a74a3854f",
+    "bytes": 2786
+  }
+]

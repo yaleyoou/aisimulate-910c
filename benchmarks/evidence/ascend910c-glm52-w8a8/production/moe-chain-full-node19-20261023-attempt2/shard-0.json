@@ -1,0 +1,4943 @@
+{
+  "schema": "aisimulate-ascend-moe-chain-observations/v1",
+  "status": "completed",
+  "scope": "Synthetic balanced/single-expert count profiles; exact 6144/2048/INT8NZ/BF16 geometry. EP16 decode capacity4096 observed; EP32 capacity8192 is a declared standalone buffer case until distributed dispatch verifies it. Not real checkpoint routing distributions.",
+  "plan_sha256": "38e1e7714a8fc69b874e6035dceed0384440b89919735bc02e992ec16ae3ed8b",
+  "collector_source_sha256": "39d20ee7eae7e342eaa6b8db79eb976ba7f35271de97ea486b8689002837f7d5",
+  "protocol": {
+    "weight_copies": 8,
+    "iterations": 8,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "selected_plan_indices": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60,
+    64,
+    68,
+    72,
+    76,
+    80,
+    84,
+    88,
+    92,
+    96,
+    100,
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    140,
+    144,
+    148,
+    152,
+    156,
+    160,
+    164,
+    168,
+    172,
+    176,
+    180,
+    184,
+    188,
+    192,
+    196,
+    200,
+    204,
+    208,
+    212,
+    216
+  ],
+  "cases": [
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ],
+      "plan_index": 0,
+      "checks": [
+        {
+          "sampled_elements": 49408,
+          "max_abs_error": 0.12473297119140625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 49408,
+          "max_abs_error": 7.360107421875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.295960009098053,
+        0.27928251028060913,
+        0.26847249269485474,
+        0.2641575038433075,
+        0.26646000146865845,
+        0.26905500888824463,
+        0.2660774886608124
+      ],
+      "wall_samples_ms": [
+        0.3644608750619227,
+        0.2952187496703118,
+        0.2822259993990883,
+        0.28012850088998675,
+        0.2767134992609499,
+        0.28019975070492364,
+        0.2762208750937134
+      ],
+      "latency_ms": 0.26847249269485474,
+      "cv": 0.03847971425364531
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 4,
+      "checks": [
+        {
+          "sampled_elements": 197632,
+          "max_abs_error": 0.12470245361328125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 197632,
+          "max_abs_error": 7.8955078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.29023250937461853,
+        0.2761949896812439,
+        0.2736850082874298,
+        0.27227500081062317,
+        0.2729400098323822,
+        0.27205249667167664,
+        0.27001500129699707
+      ],
+      "wall_samples_ms": [
+        0.31503512400377076,
+        0.2869936251954641,
+        0.286158625385724,
+        0.28456612562877126,
+        0.2882473745557945,
+        0.29516987524402793,
+        0.28608975117094815
+      ],
+      "latency_ms": 0.2729400098323822,
+      "cv": 0.02295233576315225
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 8,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12478256225585938,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.991455078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.445077508687973,
+        0.4404999911785126,
+        0.43973249197006226,
+        0.4384925067424774,
+        0.43907248973846436,
+        0.4403024911880493,
+        0.45046499371528625
+      ],
+      "wall_samples_ms": [
+        0.4616107507899869,
+        0.4506193745328346,
+        0.4505231263465248,
+        0.44972437353862915,
+        0.4504643748077797,
+        0.45231200056150556,
+        0.4612020002241479
+      ],
+      "latency_ms": 0.4403024911880493,
+      "cv": 0.009061113041103536
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 12,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.1246185302734375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.99560546875,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.45837000012397766,
+        0.44895249605178833,
+        0.44648000597953796,
+        0.4469675123691559,
+        0.44830501079559326,
+        0.4479624927043915,
+        0.44661250710487366
+      ],
+      "wall_samples_ms": [
+        0.4759458752232604,
+        0.4597469996951986,
+        0.4573544993036194,
+        0.4579782507789787,
+        0.46083574852673337,
+        0.4595344998961082,
+        0.45733062506769784
+      ],
+      "latency_ms": 0.4479624927043915,
+      "cv": 0.008643692865172666
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 16,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12487030029296875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.7939677238464355e-09
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.996826171875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.45824751257896423,
+        0.452114999294281,
+        0.45399001240730286,
+        0.4514875113964081,
+        0.45178499817848206,
+        0.45345500111579895,
+        0.4534825086593628
+      ],
+      "wall_samples_ms": [
+        0.47386599908350036,
+        0.46316712541738525,
+        0.4669646241381997,
+        0.4650845003197901,
+        0.4635645000234945,
+        0.4640646238840418,
+        0.46384462621062994
+      ],
+      "latency_ms": 0.45345500111579895,
+      "cv": 0.004691681290967714
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 20,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12459564208984375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.998291015625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.5313774943351746,
+        0.5248900055885315,
+        0.5248200297355652,
+        0.5243350267410278,
+        0.5266425013542175,
+        0.5289499759674072,
+        0.9354575276374817
+      ],
+      "wall_samples_ms": [
+        0.5479718747665174,
+        0.5371854986151448,
+        0.5373179992602672,
+        0.5369467489799717,
+        0.537440499101649,
+        0.5393480005295714,
+        0.9461981244385242
+      ],
+      "latency_ms": 0.5266425013542175,
+      "cv": 0.24436922648327378
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 24,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12450790405273438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.7939677238464355e-09
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.997802734375,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        1.0421350002288818,
+        1.0388749837875366,
+        1.0372575521469116,
+        1.0387824773788452,
+        1.037214994430542,
+        1.037542462348938,
+        1.0367449522018433
+      ],
+      "wall_samples_ms": [
+        1.0589807516225846,
+        1.0533357490203343,
+        1.0527695012569893,
+        1.0545082495809766,
+        1.0498906249267748,
+        1.0484906251804205,
+        1.0477481264388189
+      ],
+      "latency_ms": 1.037542462348938,
+      "cv": 0.0016479723947432012
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 28,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12481307983398438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.997314453125,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        3.133467435836792,
+        3.1268224716186523,
+        3.1267974376678467,
+        3.1316823959350586,
+        3.127969980239868,
+        3.1529500484466553,
+        3.1375300884246826
+      ],
+      "wall_samples_ms": [
+        3.151471999444766,
+        3.1382581237267004,
+        3.138615500574815,
+        3.1456793749384815,
+        3.141378125292249,
+        3.1639197513868567,
+        3.1506157502008136
+      ],
+      "latency_ms": 3.1316823959350586,
+      "cv": 0.002741990756094672
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 32,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12490081787109375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.713134765625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.27414000034332275,
+        0.26061999797821045,
+        0.25819748640060425,
+        0.25681251287460327,
+        0.2523750066757202,
+        0.2584100067615509,
+        0.2521975040435791
+      ],
+      "wall_samples_ms": [
+        0.29989124959683977,
+        0.27096475059806835,
+        0.27168087581230793,
+        0.2693233745958423,
+        0.2645708755153464,
+        0.2713321264309343,
+        0.2629307491588406
+      ],
+      "latency_ms": 0.25819748640060425,
+      "cv": 0.02642407031584203
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 36,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12395095825195312,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.27978515625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2776249945163727,
+        0.2625400125980377,
+        0.26019251346588135,
+        0.25999748706817627,
+        0.25853249430656433,
+        0.2582550048828125,
+        0.2561050057411194
+      ],
+      "wall_samples_ms": [
+        0.2932923744083382,
+        0.27401462466514204,
+        0.27147712535224855,
+        0.2711883753363509,
+        0.27097587553726044,
+        0.2704121252463665,
+        0.26910587439488154
+      ],
+      "latency_ms": 0.25999748706817627,
+      "cv": 0.02550954658188899
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 40,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12426376342773438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.7314453125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2884100079536438,
+        0.2620449960231781,
+        0.27090999484062195,
+        0.2618750035762787,
+        0.2606525123119354,
+        0.26242250204086304,
+        0.2579500079154968
+      ],
+      "wall_samples_ms": [
+        0.30907637483323924,
+        0.2792984996631276,
+        0.28722237584588584,
+        0.2784822499961592,
+        0.2792960003716871,
+        0.2795572490867926,
+        0.2754185006779153
+      ],
+      "latency_ms": 0.2620449960231781,
+      "cv": 0.03658209007288944
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 44,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11139678955078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.893798828125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2668924927711487,
+        0.2590925097465515,
+        0.25263750553131104,
+        0.2549774944782257,
+        0.25365251302719116,
+        0.2538749873638153,
+        0.25468501448631287
+      ],
+      "wall_samples_ms": [
+        0.29194250055297744,
+        0.2705758743104525,
+        0.26572450042294804,
+        0.2671958754945081,
+        0.26458212596480735,
+        0.2686233747226652,
+        0.2652669991221046
+      ],
+      "latency_ms": 0.25468501448631287,
+      "cv": 0.018058523883568205
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 48,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.10570526123046875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.953369140625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.276592493057251,
+        0.26283249258995056,
+        0.26067250967025757,
+        0.2612600028514862,
+        0.2585049867630005,
+        0.26095250248908997,
+        0.25766250491142273
+      ],
+      "wall_samples_ms": [
+        0.30100750154815614,
+        0.27690712522598915,
+        0.27664349909173325,
+        0.27525725090526976,
+        0.2702246256376384,
+        0.27393962591304444,
+        0.26947712467517704
+      ],
+      "latency_ms": 0.26095250248908997,
+      "cv": 0.02253493024444209
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 52,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.1240386962890625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.64453125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.8073124885559082,
+        0.8037449717521667,
+        0.8028550148010254,
+        0.8025000095367432,
+        0.8024975061416626,
+        0.8023650050163269,
+        0.8028200268745422
+      ],
+      "wall_samples_ms": [
+        0.8225202491303207,
+        0.8151465008268133,
+        0.8154140014084987,
+        0.8131015001708874,
+        0.8145013762259623,
+        0.8156527510436717,
+        0.8141952494042926
+      ],
+      "latency_ms": 0.8028200268745422,
+      "cv": 0.0020366590810741584
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 56,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12083053588867188,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.93115234375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        3.018970012664795,
+        3.0104401111602783,
+        3.0118775367736816,
+        3.012515068054199,
+        3.0098674297332764,
+        3.0138750076293945,
+        3.0190200805664062
+      ],
+      "wall_samples_ms": [
+        3.0381755004782462,
+        3.0240378764574416,
+        3.024590374479885,
+        3.025790500032599,
+        3.022649125341559,
+        3.024672874744283,
+        3.0298003748612246
+      ],
+      "latency_ms": 3.012515068054199,
+      "cv": 0.0011635900697005933
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 60,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.10359573364257812,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.619873046875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2712174952030182,
+        0.2615149915218353,
+        0.2556299865245819,
+        0.257687509059906,
+        0.25489750504493713,
+        0.25651249289512634,
+        0.25564250349998474
+      ],
+      "wall_samples_ms": [
+        0.2932874995167367,
+        0.27271225008007605,
+        0.26735837491287384,
+        0.2685444997041486,
+        0.26626587532518897,
+        0.26812462419911753,
+        0.2653920000739163
+      ],
+      "latency_ms": 0.25651249289512634,
+      "cv": 0.02078899179994986
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 64,
+      "checks": [
+        {
+          "sampled_elements": 395264,
+          "max_abs_error": 0.12301254272460938,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 395264,
+          "max_abs_error": 7.98095703125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.28608250617980957,
+        0.2665325105190277,
+        0.2602800130844116,
+        0.2733975052833557,
+        0.26167750358581543,
+        0.2935749888420105,
+        0.26340749859809875
+      ],
+      "wall_samples_ms": [
+        0.3059988757740939,
+        0.27710212452802807,
+        0.2716833751037484,
+        0.29459374854923226,
+        0.27280587528366596,
+        0.3040576248167781,
+        0.2735797497734893
+      ],
+      "latency_ms": 0.2665325105190277,
+      "cv": 0.04421042459408558
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 68,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12474441528320312,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.986328125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.4655674993991852,
+        0.4554550051689148,
+        0.45403000712394714,
+        0.45568498969078064,
+        0.4542275071144104,
+        0.4520775079727173,
+        0.4535749852657318
+      ],
+      "wall_samples_ms": [
+        0.4848248754569795,
+        0.46710212518519256,
+        0.46563962496293243,
+        0.46740212565055117,
+        0.4657695008063456,
+        0.46366199967451394,
+        0.46453337381535675
+      ],
+      "latency_ms": 0.4542275071144104,
+      "cv": 0.009081832547546215
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 72,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12404632568359375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 8.0,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.46848249435424805,
+        0.45868998765945435,
+        0.46197250485420227,
+        0.45608749985694885,
+        0.4576700031757355,
+        0.4584699869155884,
+        0.4543449878692627
+      ],
+      "wall_samples_ms": [
+        0.4874222504440695,
+        0.4704558741650544,
+        0.47338712647615466,
+        0.46696462595718913,
+        0.4689196248364169,
+        0.46964712419139687,
+        0.46545449913537595
+      ],
+      "latency_ms": 0.4584699869155884,
+      "cv": 0.009380728003638664
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 76,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12482452392578125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.989013671875,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.4904699921607971,
+        0.48762500286102295,
+        0.4838224947452545,
+        0.4854075014591217,
+        0.48745250701904297,
+        0.48524248600006104,
+        0.48705750703811646
+      ],
+      "wall_samples_ms": [
+        0.5056863756180974,
+        0.49936499999603257,
+        0.49470500016468577,
+        0.49526624934514984,
+        0.49808625044533983,
+        0.4951287501171464,
+        0.49753987514122855
+      ],
+      "latency_ms": 0.48705750703811646,
+      "cv": 0.004096820163545397
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 80,
+      "checks": [
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 0.12415313720703125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 1581056,
+          "max_abs_error": 7.96435546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.6465824842453003,
+        0.6419749855995178,
+        0.6454924941062927,
+        0.640749990940094,
+        0.6422250270843506,
+        0.643060028553009,
+        0.6410424709320068
+      ],
+      "wall_samples_ms": [
+        0.6630121260968735,
+        0.6539457499457058,
+        0.6572406255145324,
+        0.6524306245410116,
+        0.6539657497341977,
+        0.654499499432859,
+        0.6520843744510785
+      ],
+      "latency_ms": 0.6422250270843506,
+      "cv": 0.0031976236180455268
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 84,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.10043716430664062,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.529541015625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.28181999921798706,
+        0.26131749153137207,
+        0.2622624933719635,
+        0.26034000515937805,
+        0.26159998774528503,
+        0.26458001136779785,
+        0.25758999586105347
+      ],
+      "wall_samples_ms": [
+        0.2982087498821784,
+        0.27397600024414714,
+        0.272104749456048,
+        0.27404100001149345,
+        0.27522600066731684,
+        0.2746471254795324,
+        0.2712233745114645
+      ],
+      "latency_ms": 0.26159998774528503,
+      "cv": 0.02817865769208859
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 88,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.1167449951171875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.990966796875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.27016499638557434,
+        0.25271499156951904,
+        0.2559950053691864,
+        0.2495100051164627,
+        0.2563525140285492,
+        0.25097501277923584,
+        0.25505000352859497
+      ],
+      "wall_samples_ms": [
+        0.29580999944300856,
+        0.2659571255207993,
+        0.26699712543631904,
+        0.26143575087189674,
+        0.2655008756846655,
+        0.2628207512316294,
+        0.26701199931267183
+      ],
+      "latency_ms": 0.25505000352859497,
+      "cv": 0.024705450238020857
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 92,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.124298095703125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.984130859375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2728700041770935,
+        0.26468250155448914,
+        0.26071250438690186,
+        0.2523925006389618,
+        0.25705501437187195,
+        0.2543550133705139,
+        0.25687751173973083
+      ],
+      "wall_samples_ms": [
+        0.2976737487188075,
+        0.27702100123860873,
+        0.27305837465974037,
+        0.2646357515914133,
+        0.26947712467517704,
+        0.2660707486938918,
+        0.26743337548396084
+      ],
+      "latency_ms": 0.25705501437187195,
+      "cv": 0.025028210184518916
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 96,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11389541625976562,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.95263671875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.27487999200820923,
+        0.2552174925804138,
+        0.25460249185562134,
+        0.25593748688697815,
+        0.25624749064445496,
+        0.2531749904155731,
+        0.25466999411582947
+      ],
+      "wall_samples_ms": [
+        0.29086112408549525,
+        0.26755212456919253,
+        0.26897337374975905,
+        0.26670462466427125,
+        0.2686883763090009,
+        0.2624694989208365,
+        0.26770587464852724
+      ],
+      "latency_ms": 0.2552174925804138,
+      "cv": 0.027256898817503587
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 100,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11553573608398438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.88671875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2637600004673004,
+        0.25036749243736267,
+        0.2518549859523773,
+        0.2484399974346161,
+        0.24960750341415405,
+        0.24904249608516693,
+        0.24906249344348907
+      ],
+      "wall_samples_ms": [
+        0.2886761249101255,
+        0.2632507494126912,
+        0.2612870011944324,
+        0.26157950014749076,
+        0.260062000961625,
+        0.2609194998512976,
+        0.26058450021082535
+      ],
+      "latency_ms": 0.24960750341415405,
+      "cv": 0.019933659626311467
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 104,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.10916519165039062,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.377685546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.4311400055885315,
+        0.42676499485969543,
+        0.42684999108314514,
+        0.42714500427246094,
+        0.4271000027656555,
+        0.42669999599456787,
+        0.42777499556541443
+      ],
+      "wall_samples_ms": [
+        0.44789437379222363,
+        0.4380767495604232,
+        0.43741049921663944,
+        0.4382378756417893,
+        0.43880799967155326,
+        0.43736050065490417,
+        0.4383704999781912
+      ],
+      "latency_ms": 0.4271000027656555,
+      "cv": 0.0034320104944125115
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ],
+      "plan_index": 108,
+      "checks": [
+        {
+          "sampled_elements": 49408,
+          "max_abs_error": 0.05930900573730469,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 49408,
+          "max_abs_error": 7.869140625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.27297499775886536,
+        0.2601050138473511,
+        0.25861498713493347,
+        0.2607400119304657,
+        0.25765249133110046,
+        0.26139751076698303,
+        0.26011499762535095
+      ],
+      "wall_samples_ms": [
+        0.2946724998764694,
+        0.2728308754740283,
+        0.2702021247387165,
+        0.27172725094715133,
+        0.2704608759813709,
+        0.2770621249510441,
+        0.2717996248975396
+      ],
+      "latency_ms": 0.26011499762535095,
+      "cv": 0.01821916258212637
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 112,
+      "checks": [
+        {
+          "sampled_elements": 197632,
+          "max_abs_error": 0.12117767333984375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 197632,
+          "max_abs_error": 7.85546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2835724949836731,
+        0.26606249809265137,
+        0.26752251386642456,
+        0.2645750045776367,
+        0.2686325013637543,
+        0.26519250869750977,
+        0.26596999168395996
+      ],
+      "wall_samples_ms": [
+        0.29934499980299734,
+        0.2786959994409699,
+        0.27822724950965494,
+        0.27807475089502987,
+        0.28098237453377806,
+        0.2766322504612617,
+        0.2807597502396675
+      ],
+      "latency_ms": 0.26606249809265137,
+      "cv": 0.022944889410123865
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 116,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12422561645507812,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.915771484375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2981075048446655,
+        0.27286750078201294,
+        0.2659600079059601,
+        0.27038249373435974,
+        0.2717224955558777,
+        0.27014249563217163,
+        0.2893575131893158
+      ],
+      "wall_samples_ms": [
+        0.3152265016979072,
+        0.28425100026652217,
+        0.28736724925693125,
+        0.281873501080554,
+        0.2825459996529389,
+        0.27980099912383594,
+        0.30137625071802177
+      ],
+      "latency_ms": 0.2717224955558777,
+      "cv": 0.03992717885837123
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 120,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12145233154296875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.99072265625,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2801400125026703,
+        0.2701750099658966,
+        0.2622075080871582,
+        0.2674824893474579,
+        0.2612924873828888,
+        0.26322999596595764,
+        0.26396751403808594
+      ],
+      "wall_samples_ms": [
+        0.3059176233364269,
+        0.281444750726223,
+        0.2733321252890164,
+        0.2773572505248012,
+        0.27305087496642955,
+        0.27294962455926,
+        0.27447087450127583
+      ],
+      "latency_ms": 0.26396751403808594,
+      "cv": 0.022914805326213556
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 124,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12488937377929688,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.958984375,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.29012250900268555,
+        0.29417750239372253,
+        0.27542251348495483,
+        0.27483001351356506,
+        0.2741925120353699,
+        0.27597999572753906,
+        0.27474749088287354
+      ],
+      "wall_samples_ms": [
+        0.30686262471135706,
+        0.3091627495450666,
+        0.29048362557659857,
+        0.2855961247405503,
+        0.2849223747034557,
+        0.28647362523770425,
+        0.28486612427514046
+      ],
+      "latency_ms": 0.27542251348495483,
+      "cv": 0.027953005283620685
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 128,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.124237060546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.9970703125,
+          "max_quant_bin_error": 1.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.3444975018501282,
+        0.3345850110054016,
+        0.33322250843048096,
+        0.33543500304222107,
+        0.3343450129032135,
+        0.3346950113773346,
+        0.3345850110054016
+      ],
+      "wall_samples_ms": [
+        0.3592844986997079,
+        0.3464943747530924,
+        0.3433142501307884,
+        0.34746312485367525,
+        0.3443317491473863,
+        0.34430187406542245,
+        0.34462187613826245
+      ],
+      "latency_ms": 0.3345850110054016,
+      "cv": 0.010593008303122606
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 132,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12345123291015625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.971435546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.9290149807929993,
+        0.9256924986839294,
+        0.9268850088119507,
+        0.9261775016784668,
+        0.9265549778938293,
+        0.924809992313385,
+        0.9263074994087219
+      ],
+      "wall_samples_ms": [
+        0.9454406244913116,
+        0.9367830007249722,
+        0.9380606261402136,
+        0.9378118757012999,
+        0.9370392490382073,
+        0.937311875532032,
+        0.9369168747070944
+      ],
+      "latency_ms": 0.9263074994087219,
+      "cv": 0.0012981063246830142
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 136,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12447357177734375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.991455078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        3.0795249938964844,
+        3.0753824710845947,
+        3.0741775035858154,
+        3.0739026069641113,
+        3.074157476425171,
+        3.0744025707244873,
+        3.073387384414673
+      ],
+      "wall_samples_ms": [
+        3.0983153737906832,
+        3.0925216251489474,
+        3.0891602491465164,
+        3.088220249992446,
+        3.0878590005158912,
+        3.0874839994794456,
+        3.08763525026734
+      ],
+      "latency_ms": 3.0741775035858154,
+      "cv": 0.0006287867506348353
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 140,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12459182739257812,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.732177734375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2676975131034851,
+        0.26401498913764954,
+        0.27333250641822815,
+        0.2576324939727783,
+        0.2728300094604492,
+        0.2576049864292145,
+        0.2632899880409241
+      ],
+      "wall_samples_ms": [
+        0.29613249898829963,
+        0.2813861246977467,
+        0.2888261242333101,
+        0.2734697500272887,
+        0.28776112412742805,
+        0.2761010000540409,
+        0.2802523740683682
+      ],
+      "latency_ms": 0.26401498913764954,
+      "cv": 0.022561293218564888
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 144,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12080764770507812,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.9580078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2691799998283386,
+        0.26225000619888306,
+        0.2531225085258484,
+        0.257022500038147,
+        0.25911250710487366,
+        0.25472500920295715,
+        0.2599925100803375
+      ],
+      "wall_samples_ms": [
+        0.29173500115575735,
+        0.27309725010127295,
+        0.2650983751664171,
+        0.26904087462753523,
+        0.2698485004657414,
+        0.26765212533064187,
+        0.2705258757487172
+      ],
+      "latency_ms": 0.25911250710487366,
+      "cv": 0.019063255830100583
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 148,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.107391357421875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.704833984375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2830924987792969,
+        0.2664699852466583,
+        0.2667900025844574,
+        0.2626124918460846,
+        0.2637825012207031,
+        0.26399749517440796,
+        0.2580150067806244
+      ],
+      "wall_samples_ms": [
+        0.299447625366156,
+        0.2831811252690386,
+        0.2788760011753766,
+        0.27428225075709634,
+        0.28035349896526895,
+        0.27974349904980045,
+        0.2710358749027364
+      ],
+      "latency_ms": 0.26399749517440796,
+      "cv": 0.027514531680814084
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 152,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.06085395812988281,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.834228515625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2784624993801117,
+        0.260497510433197,
+        0.263667494058609,
+        0.26043251156806946,
+        0.2582949995994568,
+        0.2624950110912323,
+        0.25746750831604004
+      ],
+      "wall_samples_ms": [
+        0.29604125120386016,
+        0.273358375125099,
+        0.27404962565924507,
+        0.27392100128054153,
+        0.27044724993174896,
+        0.2727959999901941,
+        0.2696358733373927
+      ],
+      "latency_ms": 0.260497510433197,
+      "cv": 0.025109442100354595
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 156,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11754989624023438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.853515625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2742775082588196,
+        0.2638624906539917,
+        0.269569993019104,
+        0.26023000478744507,
+        0.2667100131511688,
+        0.2625024914741516,
+        0.2633725106716156
+      ],
+      "wall_samples_ms": [
+        0.2976337509608129,
+        0.2739297488005832,
+        0.2808760000334587,
+        0.2715808750508586,
+        0.2814547497109743,
+        0.27436474920250475,
+        0.2731509994191583
+      ],
+      "latency_ms": 0.2638624906539917,
+      "cv": 0.01673267104669272
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 160,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.118682861328125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.93896484375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.803534984588623,
+        0.8000400066375732,
+        0.8015375137329102,
+        0.8004375100135803,
+        0.7993599772453308,
+        0.7997300028800964,
+        0.7995849847793579
+      ],
+      "wall_samples_ms": [
+        0.8182553756341804,
+        0.8113715011859313,
+        0.8130377500492614,
+        0.8106790010060649,
+        0.8096576257230481,
+        0.8100502509478247,
+        0.8096327492239652
+      ],
+      "latency_ms": 0.8000400066375732,
+      "cv": 0.0017124771025174782
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 164,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.1227264404296875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.96875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        3.012697458267212,
+        3.0091874599456787,
+        3.0087575912475586,
+        3.008044958114624,
+        3.009732484817505,
+        3.0117526054382324,
+        3.0071725845336914
+      ],
+      "wall_samples_ms": [
+        3.032490876648808,
+        3.0208919997676276,
+        3.0206306255422533,
+        3.0233556262828643,
+        3.0225831251300406,
+        3.025467000043136,
+        3.020450625626836
+      ],
+      "latency_ms": 3.0091874599456787,
+      "cv": 0.0006079273836174163
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 168,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11346054077148438,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.71875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.3062025010585785,
+        0.28315749764442444,
+        0.28235000371932983,
+        0.2788600027561188,
+        0.28196749091148376,
+        0.2817474901676178,
+        0.2789574861526489
+      ],
+      "wall_samples_ms": [
+        0.3295041260571452,
+        0.30738387431483716,
+        0.2995824997924501,
+        0.29286249991855584,
+        0.2926673751062481,
+        0.2939474998129299,
+        0.2923399988503661
+      ],
+      "latency_ms": 0.28196749091148376,
+      "cv": 0.03122849484949354
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 172,
+      "checks": [
+        {
+          "sampled_elements": 395264,
+          "max_abs_error": 0.12469482421875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 395264,
+          "max_abs_error": 7.984130859375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2922325134277344,
+        0.2717849910259247,
+        0.27424249053001404,
+        0.2711699903011322,
+        0.2771975100040436,
+        0.2721549868583679,
+        0.27153000235557556
+      ],
+      "wall_samples_ms": [
+        0.3137677504128078,
+        0.2834611241269158,
+        0.2848748754331609,
+        0.28274100077396724,
+        0.28862362523796037,
+        0.2860248732758919,
+        0.2814398758346215
+      ],
+      "latency_ms": 0.2721549868583679,
+      "cv": 0.025401908084839407
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 176,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.1212310791015625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.982666015625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2907424867153168,
+        0.2646450102329254,
+        0.265577495098114,
+        0.2644524872303009,
+        0.2687475085258484,
+        0.2662050127983093,
+        0.270565003156662
+      ],
+      "wall_samples_ms": [
+        0.30789512493356597,
+        0.2761209998425329,
+        0.2767772512015654,
+        0.2751383744907798,
+        0.2792822488117963,
+        0.277139748504851,
+        0.28102987380407285
+      ],
+      "latency_ms": 0.2662050127983093,
+      "cv": 0.032072132273682316
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 180,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12344741821289062,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.987060546875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.283160001039505,
+        0.26993000507354736,
+        0.2668924927711487,
+        0.26615750789642334,
+        0.267769992351532,
+        0.26454249024391174,
+        0.26836249232292175
+      ],
+      "wall_samples_ms": [
+        0.3064588763663778,
+        0.2808773751894478,
+        0.2771972503978759,
+        0.2765609988273354,
+        0.2774697495624423,
+        0.2744072498899186,
+        0.27909487471333705
+      ],
+      "latency_ms": 0.267769992351532,
+      "cv": 0.021431742389932482
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 184,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.12401199340820312,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.986572265625,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2935374975204468,
+        0.2842249870300293,
+        0.28309500217437744,
+        0.2838425040245056,
+        0.28356748819351196,
+        0.28308001160621643,
+        0.28251001238822937
+      ],
+      "wall_samples_ms": [
+        0.3086690012423787,
+        0.2955700001621153,
+        0.2972175007016631,
+        0.29794762485835236,
+        0.29429374990286306,
+        0.29261375129863154,
+        0.29394112425507046
+      ],
+      "latency_ms": 0.28356748819351196,
+      "cv": 0.012603264512782413
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 188,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.124481201171875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 1.862645149230957e-09
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.960205078125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.5617125034332275,
+        0.5599125027656555,
+        0.5576574802398682,
+        0.5594249963760376,
+        0.5557674765586853,
+        0.5572999715805054,
+        0.55867999792099
+      ],
+      "wall_samples_ms": [
+        0.5771060004917672,
+        0.5721084999095183,
+        0.5707072505174438,
+        0.5711433750548167,
+        0.5674346248270012,
+        0.5700158744730288,
+        0.5699622506654123
+      ],
+      "latency_ms": 0.55867999792099,
+      "cv": 0.003222819193283273
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ],
+      "plan_index": 192,
+      "checks": [
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 0.1249847412109375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 9.313225746154785e-10
+        },
+        {
+          "sampled_elements": 790528,
+          "max_abs_error": 7.981689453125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        1.606447458267212,
+        1.6010375022888184,
+        1.6004974842071533,
+        1.5993324518203735,
+        1.6001224517822266,
+        1.5989199876785278,
+        1.5999000072479248
+      ],
+      "wall_samples_ms": [
+        1.6264481255348073,
+        1.6128291263157735,
+        1.6125291258504149,
+        1.6109103744383901,
+        1.611242874787422,
+        1.611235375094111,
+        1.6106715011119377
+      ],
+      "latency_ms": 1.6001224517822266,
+      "cv": 0.0014732304505398496
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 196,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.11481094360351562,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.8564453125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2753775119781494,
+        0.26946499943733215,
+        0.25766000151634216,
+        0.26459500193595886,
+        0.25694000720977783,
+        0.25583750009536743,
+        0.26256251335144043
+      ],
+      "wall_samples_ms": [
+        0.2983150006912183,
+        0.2805397507472662,
+        0.2699008746276377,
+        0.2744097491813591,
+        0.26951212385029066,
+        0.26891962443187367,
+        0.27406849949329626
+      ],
+      "latency_ms": 0.26256251335144043,
+      "cv": 0.025445269467187413
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 200,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12453460693359375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.9345703125,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2767375111579895,
+        0.26687249541282654,
+        0.26001250743865967,
+        0.2619974911212921,
+        0.25857749581336975,
+        0.264802485704422,
+        0.266510009765625
+      ],
+      "wall_samples_ms": [
+        0.2920961251220433,
+        0.27968599897576496,
+        0.2703783738979837,
+        0.27457600117486436,
+        0.2723197503655683,
+        0.2743972509051673,
+        0.2781960010906914
+      ],
+      "latency_ms": 0.264802485704422,
+      "cv": 0.02108658420370017
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 204,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.06246376037597656,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.7841796875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.27371248602867126,
+        0.2616249918937683,
+        0.26271748542785645,
+        0.2556000053882599,
+        0.25816500186920166,
+        0.25656500458717346,
+        0.2541249990463257
+      ],
+      "wall_samples_ms": [
+        0.29726374850724824,
+        0.27434587354946416,
+        0.2736172500590328,
+        0.26815212549990974,
+        0.2686721254576696,
+        0.26902087665803265,
+        0.2673608760233037
+      ],
+      "latency_ms": 0.25816500186920166,
+      "cv": 0.023685513697020565
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 208,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12346267700195312,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.6318359375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.2735374867916107,
+        0.2615149915218353,
+        0.25575751066207886,
+        0.25858500599861145,
+        0.2543950080871582,
+        0.2570450007915497,
+        0.2574574947357178
+      ],
+      "wall_samples_ms": [
+        0.2952212507807417,
+        0.2715808750508586,
+        0.267963374426472,
+        0.2692635007406352,
+        0.2678408764040796,
+        0.2700233744690195,
+        0.26761087428894825
+      ],
+      "latency_ms": 0.2574574947357178,
+      "cv": 0.02308738334374576
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 212,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.12378311157226562,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.335693359375,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 2.9802322387695312e-08
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.29763999581336975,
+        0.2794874906539917,
+        0.27959999442100525,
+        0.27720749378204346,
+        0.28150248527526855,
+        0.27467748522758484,
+        0.27430999279022217
+      ],
+      "wall_samples_ms": [
+        0.31374150057672523,
+        0.2908223759732209,
+        0.2909998747782083,
+        0.28808487513742875,
+        0.2922624989878386,
+        0.2855160000763135,
+        0.28445737552829087
+      ],
+      "latency_ms": 0.2794874906539917,
+      "cv": 0.02623925112094202
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ],
+      "plan_index": 216,
+      "checks": [
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 0.10857391357421875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        },
+        {
+          "sampled_elements": 98816,
+          "max_abs_error": 7.990966796875,
+          "max_quant_bin_error": 0.0,
+          "max_quant_scale_error": 0.0
+        }
+      ],
+      "weight_format": 29,
+      "weight_copies": 8,
+      "input_dtype": "int8",
+      "output_dtype": "bfloat16",
+      "scale_dtypes": [
+        "float32",
+        "bfloat16"
+      ],
+      "kernel_sources": {
+        "gmm": "sglang.srt.hardware_backend.npu.moe.matmul.GroupedMatmul",
+        "activation": "sgl_kernel_npu.activation.swiglu_quant.swiglu_quant"
+      },
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.806927502155304,
+        0.8145074844360352,
+        0.8039500117301941,
+        0.8033300042152405,
+        0.8029549717903137,
+        0.8035299777984619,
+        0.8031024932861328
+      ],
+      "wall_samples_ms": [
+        0.8222978740377584,
+        0.8258429988927674,
+        0.815032874015742,
+        0.8141427497321274,
+        0.8145339998009149,
+        0.8159677490766626,
+        0.8142877504724311
+      ],
+      "latency_ms": 0.8035299777984619,
+      "cv": 0.004839938416286131
+    }
+  ],
+  "runtime": {
+    "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post6",
+    "device": "Ascend910_9382",
+    "host": "npu1-19",
+    "device_index": 0,
+    "driver_version_info": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n",
+    "serving_setup": {
+      "schema": "sglang-runtime-setup/v1",
+      "environment": {
+        "DEEPEP_HCCL_BUFFSIZE": null,
+        "GLOO_SOCKET_IFNAME": "bond4",
+        "HCCL_ALGO": null,
+        "HCCL_BUFFSIZE": "650",
+        "HCCL_DETERMINISTIC": null,
+        "HCCL_OP_EXPANSION_MODE": null,
+        "HCCL_SOCKET_IFNAME": "bond4",
+        "PYTORCH_NPU_ALLOC_CONF": "expandable_segments:True",
+        "SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK": "32",
+        "SGLANG_ENABLE_OVERLAP_PLAN_STREAM": "1",
+        "SGLANG_NPU_USE_MULTI_STREAM": "1",
+        "SGLANG_SET_CPU_AFFINITY": "1",
+        "STREAMS_PER_DEVICE": "32",
+        "TASK_QUEUE_ENABLE": "0"
+      },
+      "environment_scope": "Launcher exports, verified against run-united.sh; worker proctitle can obscure /proc/environ.",
+      "worker_cpu_affinity": {
+        "0": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339
+        ],
+        "1": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359
+        ],
+        "2": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379
+        ],
+        "3": [
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          399
+        ],
+        "4": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419
+        ],
+        "5": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          420,
+          421,
+          422,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428,
+          429,
+          430,
+          431,
+          432,
+          433,
+          434,
+          435,
+          436,
+          437,
+          438,
+          439
+        ],
+        "6": [
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          440,
+          441,
+          442,
+          443,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459
+        ],
+        "7": [
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          478,
+          479
+        ],
+        "8": [
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          480,
+          481,
+          482,
+          483,
+          484,
+          485,
+          486,
+          487,
+          488,
+          489,
+          490,
+          491,
+          492,
+          493,
+          494,
+          495,
+          496,
+          497,
+          498,
+          499
+        ],
+        "9": [
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          509,
+          510,
+          511,
+          512,
+          513,
+          514,
+          515,
+          516,
+          517,
+          518,
+          519
+        ],
+        "10": [
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          520,
+          521,
+          522,
+          523,
+          524,
+          525,
+          526,
+          527,
+          528,
+          529,
+          530,
+          531,
+          532,
+          533,
+          534,
+          535,
+          536,
+          537,
+          538,
+          539
+        ],
+        "11": [
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          540,
+          541,
+          542,
+          543,
+          544,
+          545,
+          546,
+          547,
+          548,
+          549,
+          550,
+          551,
+          552,
+          553,
+          554,
+          555,
+          556,
+          557,
+          558,
+          559
+        ],
+        "12": [
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          560,
+          561,
+          562,
+          563,
+          564,
+          565,
+          566,
+          567,
+          568,
+          569,
+          570,
+          571,
+          572,
+          573,
+          574,
+          575,
+          576,
+          577,
+          578,
+          579
+        ],
+        "13": [
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          580,
+          581,
+          582,
+          583,
+          584,
+          585,
+          586,
+          587,
+          588,
+          589,
+          590,
+          591,
+          592,
+          593,
+          594,
+          595,
+          596,
+          597,
+          598,
+          599
+        ],
+        "14": [
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          600,
+          601,
+          602,
+          603,
+          604,
+          605,
+          606,
+          607,
+          608,
+          609,
+          610,
+          611,
+          612,
+          613,
+          614,
+          615,
+          616,
+          617,
+          618,
+          619
+        ],
+        "15": [
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          620,
+          621,
+          622,
+          623,
+          624,
+          625,
+          626,
+          627,
+          628,
+          629,
+          630,
+          631,
+          632,
+          633,
+          634,
+          635,
+          636,
+          637,
+          638,
+          639
+        ]
+      },
+      "scope": "Observed United16-workers/node; not an inferred NUMA policy.",
+      "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
+      "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
+    },
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339
+    ]
+  }
+}

@@ -1,0 +1,5954 @@
+{
+  "schema": "aisimulate-ascend-moe-chain-plan/v1",
+  "status": "experimental_collection_plan",
+  "model_path": "/mnt/raid/user/data/models/glm-q",
+  "cases": [
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 4096,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 4096,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 4096,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 4096,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 4096,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 4096,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 4096,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 4096,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 4096,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 4096,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 4096,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 4096,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 4096,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 4096,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 16,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 1,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048,
+        2048
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 2,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 4,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 16,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 32,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 64,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 128,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 256,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 512,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 1024,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 2048,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 4096,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "prefill",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16384,
+      "physical_rows": 16384,
+      "expert_counts": [
+        16384,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced",
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 8192,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 8192,
+      "expert_counts": [
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 8192,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 8192,
+      "expert_counts": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512,
+        512
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "balanced"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 16,
+      "physical_rows": 8192,
+      "expert_counts": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 8192,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 32,
+      "physical_rows": 8192,
+      "expert_counts": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 64,
+      "physical_rows": 8192,
+      "expert_counts": [
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 8192,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 128,
+      "physical_rows": 8192,
+      "expert_counts": [
+        128,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 256,
+      "physical_rows": 8192,
+      "expert_counts": [
+        256,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 512,
+      "physical_rows": 8192,
+      "expert_counts": [
+        512,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 1024,
+      "physical_rows": 8192,
+      "expert_counts": [
+        1024,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 2048,
+      "physical_rows": 8192,
+      "expert_counts": [
+        2048,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 4096,
+      "physical_rows": 8192,
+      "expert_counts": [
+        4096,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "eager",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    },
+    {
+      "phase": "decode",
+      "local_experts": 8,
+      "hidden_size": 6144,
+      "intermediate_size": 2048,
+      "received_tokens": 8192,
+      "physical_rows": 8192,
+      "expert_counts": [
+        8192,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "execution_mode": "graph",
+      "group_list_type": 1,
+      "distributions": [
+        "single_expert"
+      ]
+    }
+  ],
+  "recipe_invocations": 228,
+  "unique_invocations": 220,
+  "protocol": {
+    "weight_copies": 8,
+    "iterations": 8,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "10d4da7ce266947e1a4cadee361d7b0ca8bb33f3451e80bbde59f920406ec562",
+    "ascend_moe_chain.yaml": "6d4c1f9104b87affceaa2f82246953d37ce748b7311bda210b68e6108e373dce"
+  },
+  "scope": "Synthetic balanced/single-expert count profiles; exact 6144/2048/INT8NZ/BF16 geometry. EP16 decode capacity4096 observed; EP32 capacity8192 is a declared standalone buffer case until distributed dispatch verifies it. Not real checkpoint routing distributions."
+}

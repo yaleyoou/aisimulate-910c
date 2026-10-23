@@ -1,0 +1,31 @@
+{
+  "research": {
+    "ascend_moe_chain_adapter": {
+      "status": "collected_native_draft_not_yet_published",
+      "node": "npu1-19",
+      "campaign": "production/moe-chain-full-node19-20261023-attempt2",
+      "collection": "228profile recipes deduplicatedto220physical invocations;217stable3CVexcluded;allbefore/afternumericalchecks pass;8graphnoopcontrols rejected. Balanced/single-expert profiles are synthetic,notcurrentweight routing. Prefillphysical=received;decodecapacity4096atEP16observed,8192atEP32requiresdistributedverification.",
+      "failed_attempt": "InitialsmokefiltermatchedcommaafterlastJSONfieldandselectedzero;fixedrunnerfilter,freshattempt2completed. Preservefirstfailure.",
+      "next_action": "Finishnative/exporter/tests andpublishchain;thenDeepEPdispatch/combine andcanonicalmodelcomposition."
+    },
+    "attention_expansion": {
+      "status": "numerical_failure_under_investigation_not_published",
+      "campaign": "production/attention-expanded-node32-20261023",
+      "plan": "production/attention-expanded-plan-20261023.json",
+      "scope": "1576casesmulti-requestprefill(total<=8192),smallprefilltokensanddecodebucketedges9/17/25. Three394caseshardscomplete;shard1failedafter284atindex1137. Existing505rowtableunchanged.",
+      "failure": "Index1137 sparse_attention decodegraphM8active8heads8KV8192 pool513. Oneof4096checked values inqueryrow4:actual0,reference-0.06731945,tolerance0.02080783. RMSerror0.0010646. Donotloosentolerancesorhideskip. Detailedprobeinproduction/linear-tiling-node32-20261022/attention-expanded-case1137-diagnostic*.json;v2comparesactualeagerkernel.",
+      "native": "Multi-requestprefillpartitionimplementedand5Rusttestspass;rebuiltbinarynotyetinstalled. ExistingPythontestselectedtotalM8192butneededactive1;fixedassertselector,rerunpending."
+    },
+    "large_hccl_payloads": {"status":"merged_and_installed_native_validation_done","result":"449stablefrom544attempts,95CVexcluded. Added64largepayloadrows;unchangedYAMLselector. Frozenproduction/hccl-large-local-node32-20261023/published. Save /tmp/aisim-hccl-large-native.json andcommitstage."},
+    "execution_nodes_20261023": {"authorized_next_nodes":["npu1-32","npu1-19"],"active_jobs":["node32 case1137 diagnosticv2 only; inspectbeforestartingotherNPUwork"],"sessions":"32root24914;19root89706;31root47855occupiedbyotherworkload"}
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "hccl_large_table":{"path":"production/hccl-large-local-node32-20261023/published/hccl_perf.parquet","kind":"file","scope":"collection"},
+        "hccl_large_provenance":{"path":"production/hccl-large-local-node32-20261023/published/provenance.json","kind":"file","scope":"collection"},
+        "moe_chain_campaign":{"path":"production/moe-chain-full-node19-20261023-attempt2/campaign.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

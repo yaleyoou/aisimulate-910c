@@ -16,9 +16,12 @@ import threading
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", default="vector-full-node32-20261023")
+    parser.add_argument("--operation", choices=("vector", "moe_chain"), default="vector")
+    parser.add_argument("--node", choices=("npu1-32", "npu1-19"), default="npu1-32")
+    parser.add_argument("--existing-plan", type=Path)
     args = parser.parse_args()
-    if socket.gethostname() != "npu1-32" or not re.fullmatch(r"[a-z0-9-]+", args.run_name):
-        parser.error("Use node32 and a simple fresh run name")
+    if socket.gethostname() != args.node or not re.fullmatch(r"[a-z0-9-]+", args.run_name):
+        parser.error("Use the requested node and a simple fresh run name")
     os.umask(0o022)
     os.sched_setaffinity(0, [300, 620])
     production = Path(__file__).resolve().parent
@@ -27,9 +30,17 @@ def main():
     output.mkdir(exist_ok=False)
     image = "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
     planner = ["docker", "run", "--rm", "--network", "none", "-e", "PYTHONDONTWRITEBYTECODE=1", "-e", "PYTHONPATH=/workspace/python/aisimulate", "--mount", f"type=bind,src={repository},dst=/workspace,readonly", "--mount", "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/model,readonly", "--entrypoint", "python3", image, "-c", "import json;from collector.sglang.ascend_vector_cases import get_ascend_vector_cases;plan=get_ascend_vector_cases('/model');plan['model_path']='/mnt/raid/user/data/models/glm-q';print(json.dumps(plan,indent=2))"]
-    plan = json.loads(subprocess.check_output(planner, text=True))
+    planner[-1] = planner[-1].replace("ascend_vector", "ascend_" + args.operation)
+    if args.existing_plan:
+        planner = ["frozen-plan", str(args.existing_plan.resolve())]
+        plan = json.loads(args.existing_plan.read_text())
+    else:
+        plan = json.loads(subprocess.check_output(planner, text=True))
     (output / "plan.json").write_text(json.dumps(plan, indent=2) + "\n")
-    for name in ("ascend_vector.py", "ascend_vector_kernels.py"):
+    source_names = ["ascend_" + args.operation + ".py"]
+    if args.operation == "vector":
+        source_names.append("ascend_vector_kernels.py")
+    for name in source_names:
         shutil.copyfile(repository / "python/aisimulate/collector/sglang" / name, output / name)
     shutil.copyfile(production / "serving-setup.json", output / "serving-setup-nodes.json")
     shutil.copyfile(production / "hccl_graph_noop_probe.py", output / "graph_noop.py")
@@ -42,7 +53,7 @@ def main():
     for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
         command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
     command.extend(("--entrypoint", "/bin/sleep", image, "infinity"))
-    state = {"status": "preflight", "planner_command": planner, "create_command": command, "jobs": [], "source_sha256": {name: hashlib.sha256((output / name).read_bytes()).hexdigest() for name in ("ascend_vector.py", "ascend_vector_kernels.py")}}
+    state = {"status": "preflight", "operation": args.operation, "node": args.node, "planner_command": planner, "create_command": command, "jobs": [], "source_sha256": {name: hashlib.sha256((output / name).read_bytes()).hexdigest() for name in source_names}}
     done = threading.Event()
     contamination = []
 
@@ -76,13 +87,13 @@ def main():
         arguments = ["python3"]
         if negative:
             arguments.append("/campaign/graph_noop.py")
-        arguments.extend(("/campaign/ascend_vector.py", "--plan", "/campaign/plan.json", "--serving-setup", "/campaign/serving-setup-nodes.json", "--device", str(device), "--output", f"/campaign/{name}.json", *extra))
+        arguments.extend(("/campaign/ascend_" + args.operation + ".py", "--plan", "/campaign/plan.json", "--serving-setup", "/campaign/serving-setup-nodes.json", "--device", str(device), "--output", f"/campaign/{name}.json", *extra))
         invocation = ["docker", "exec", container, "timeout", "7200", *arguments]
         with (output / (name + ".log")).open("w") as stream:
             result = subprocess.run(invocation, stdout=stream, stderr=subprocess.STDOUT)
         path = output / (name + ".json")
         record = json.loads(path.read_text()) if path.is_file() else {}
-        expected = (result.returncode != 0 and record.get("status") == "failed" and "Vector execution numerical check failed" in record.get("error", "")) if negative else result.returncode == 0 and record.get("status") == "completed"
+        expected = (result.returncode != 0 and record.get("status") == "failed" and "execution numerical check failed" in record.get("error", "")) if negative else result.returncode == 0 and record.get("status") == "completed"
         return {"name": name, "command": invocation, "returncode": result.returncode, "expected_outcome": expected, "cases": len(record.get("cases", []))}
 
     def parallel(prefix, extra):
@@ -101,12 +112,20 @@ def main():
     try:
         state["status"] = "smoke"
         save()
-        parallel("smoke", ["--case-filter", '"tokens": 8}'])
+        smoke_filter = '"tokens": 8}' if args.operation == "vector" else '"received_tokens": 8}'
+        parallel("smoke", ["--case-filter", smoke_filter])
         state["status"] = "negative_controls"
         save()
-        for role in sorted({case["role"] for case in plan["cases"]}):
-            index = next(index for index, case in enumerate(plan["cases"]) if case["role"] == role and case["tokens"] == 8 and case["execution_mode"] == "graph")
-            job = run("negative-" + role, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True)
+        controls = {}
+        for index, case in enumerate(plan["cases"]):
+            if case["execution_mode"] != "graph":
+                continue
+            if args.operation == "vector" and case["tokens"] == 8:
+                controls.setdefault(case["role"], index)
+            elif args.operation == "moe_chain" and case["received_tokens"] == 8:
+                controls[case["phase"] + "-" + str(case["local_experts"]) + "-" + "-".join(case["distributions"])] = index
+        for label, index in sorted(controls.items()):
+            job = run("negative-" + label, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True)
             state["jobs"].append(job)
             save()
             if contamination or not job["expected_outcome"]:

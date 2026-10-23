@@ -1,0 +1,34 @@
+{
+  "research": {
+    "ascend_moe_chain_adapter": {
+      "status": "native_primitive_and_table_published",
+      "source_commit": "589804d8",
+      "publication": "220physical attempts/217stable/3CVexcluded;225profile rows including8aliases for identicalone-token inputs. Frozenmoe-chain-published-20261024;standardmoe/sglang/0.5.22.",
+      "validation": "225nativeexactqueriespass;4Rust+22wire+19Python/API+390GPUparitypass114.84s. NativeSHA3c2a659b421b8e02d61e0b6dde8e9272a17ddb5f6de047f7516d8d87210cc2b7.",
+      "limitations": "Syntheticbalanced/single-expert profilesnotactualrouting;zero-receivedchainnotqualified;EP32decode8192capacityawaitsdistributedverification. Dispatch/combineexcluded."
+    },
+    "attention_expansion": {
+      "status": "full_grid_attempted_1517_qualified_rows_published",
+      "source_commit": "5621929e",
+      "publication": "1576attempted;1517stable,58CVexcluded,1numericalfailureexcluded. Allfailedcase metadata/diagnostics retained;no weakenedthreshold/no skip. Addedper-caseunexpectednumericalfailure recordingpercollector/failure_handling.md;systematic failures still abort. Frozenattention-expanded-published-20261024;installedstandardattentiontable.",
+      "validation": "1517nativeexactqueriespass;11collectortests;native5attentionbehaviorchecks and390GPUparitypasswithcurrentbinary. No servingaccuracyclaim.",
+      "failure": "1137 graphdecodeheads8active8KV8192:queryrow4/head1/dim309actual0,eagercontrol0,rawBF16CPUcopy0,FP32reference-0.06731945,FP64reference-0.067319435. Alloriginaldiagnosticfilesretained. Isolatedinputnumericsunresolved,notusedasatimingrow.",
+      "next_action": "ContinueDeepEPandmodelcomposition;do nottuneperformanceaccuracy."
+    },
+    "large_hccl_payloads": {"status":"merged_selected_verified","result":"449qualifiedrows,95excluded;native449queriesusinginstalledYAMLpass. Added64stable192/384MiBcases. Frozenhccl-large-local-node32-20261023/published."},
+    "execution_nodes_20261024": {"authorized_nodes":["npu1-32","npu1-19"],"node31":"occupiedbyotherworkload;untouched","active_jobs":["19DeepEPcontractprobe16ranks,owncontaineraisim-deepep-contract-20261024;inspectlogandresultbeforecontinuing"],"sessions":"32root24914;19root89706;31root47855"}
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "moe_chain_table":{"path":"production/moe-chain-published-20261024/ascend_moe_chain_perf.parquet","kind":"file","scope":"collection"},
+        "moe_chain_provenance":{"path":"production/moe-chain-published-20261024/provenance.json","kind":"file","scope":"collection"},
+        "moe_chain_native_validation":{"path":"production/moe-chain-full-node19-20261023-attempt2/native-validation.json","kind":"file","scope":"validation"},
+        "attention_expanded_table":{"path":"production/attention-expanded-published-20261024/ascend_attention_perf.parquet","kind":"file","scope":"collection"},
+        "attention_expanded_provenance":{"path":"production/attention-expanded-published-20261024/provenance.json","kind":"file","scope":"collection"},
+        "attention_expanded_native_validation":{"path":"production/attention-expanded-node32-20261024/native-validation.json","kind":"file","scope":"validation"},
+        "hccl_large_native_validation":{"path":"production/hccl-large-local-node32-20261023/native-validation.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}
