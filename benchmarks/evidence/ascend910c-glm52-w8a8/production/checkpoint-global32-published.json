@@ -1,0 +1,26 @@
+{
+  "research": {
+    "global32_compute_extension": {
+      "status": "installed_and_native_verified",
+      "native": "1378 linear and792 vector exact queries passed with zero mismatch; native SHA36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf;390GPUparitypassed111.01s.",
+      "source_commit": "434f8503"
+    },
+    "deepep_adapter": {
+      "status": "first_full_local_and_dual_campaigns_completed_sampling_extension_running",
+      "source_commit": "434f8503",
+      "validation": "3Rust behavior and22wire tests;15Python/API tests afteraddingfailure-recordtest;390GPUparitypassed111.01s. Serial one-call graph lifecycle and actual dispatch/combine no-op checks pass.",
+      "first_campaign": "88configurations attempted across world16and32 on19/32.84executed;4normalM2048tiling failures retained.168timing boundaries;83stable/85CVexcluded. Preview only because essential graph keys are missing; no DeepEP table installed.",
+      "timing_correction": "Each graph captures one transport; unmeasured rank barriers between invocations; keep graphs alive while transport handles reference graph storage. Failedinitialwarmup/allocatorattempts preserved.",
+      "active_jobs": ["19: deepep-full-node19-20261024-v3,64individualcalls/sample; aftercompletionrepeatdual32+19withsameplan-v2"],
+      "next_action": "Complete qualified transport coverage and publication; proceed to actual GLM graph/memory and canonical predict/recommend/PD. Do not confuse exact table lookup with forward accuracy."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "global32_linear_native": {"path":"production/linear-global32-full-node32-20261024/native-validation.json","kind":"file","scope":"validation"},
+        "global32_vector_native": {"path":"production/vector-global32-node32-20261024/native-validation.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

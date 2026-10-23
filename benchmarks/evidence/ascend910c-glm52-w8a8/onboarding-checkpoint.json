@@ -773,6 +773,38 @@
           "scope": "collection",
           "sha256": "98776f98f8877781b7a5f2b9c557718beb31373a2ce8fe33f5714b8df6e2a8c5"
         },
+        "global32_linear_native": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/linear-global32-full-node32-20261024/native-validation.json",
+          "scope": "validation",
+          "sha256": "9dc82b28674af3542a6091da2e271ce9524f51663cc3b7331d60a25edbd36ec6"
+        },
+        "global32_linear_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/linear-global32-published-20261024/ascend_linear_perf.parquet",
+          "scope": "collection",
+          "sha256": "84d68ba7899b3e836f0e52cccb4d490c714425543155e82814f8acee2e93b9fb"
+        },
+        "global32_vector_native": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/vector-global32-node32-20261024/native-validation.json",
+          "scope": "validation",
+          "sha256": "57c20d84c82521a919ee2a7c69b838d8842cf0ef0d98a25e50cf3f01463d77a5"
+        },
+        "global32_vector_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/vector-global32-published-20261024/ascend_vector_perf.parquet",
+          "scope": "collection",
+          "sha256": "6ec3148bd7aa8ca2b0f007025540e01a2fd67d28d13cb9e203804409bbd62bec"
+        },
         "hccl_gpu_regression": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -1387,6 +1419,22 @@
       "source_commit": "75584894",
       "status": "complete"
     },
+    "deepep_adapter": {
+      "active_jobs": [
+        "19: deepep-full-node19-20261024-v3,64individualcalls/sample; aftercompletionrepeatdual32+19withsameplan-v2"
+      ],
+      "contract": "Actual pinned SGLang _DeepEPDispatcherImplNormal/_DeepEPDispatcherImplLowLatency; INT8 dispatch, BF16 combine; world16/32,16ranks pernode; balanced/single-expert-group routing; eager/actual graph execution. Separate transport boundaries, all-rank samples and full valid payload verification.",
+      "first_campaign": "88configurations attempted across world16and32 on19/32.84executed;4normalM2048tiling failures retained.168timing boundaries;83stable/85CVexcluded. Preview only because essential graph keys are missing; no DeepEP table installed.",
+      "first_graph_smoke": "v1 was stopped after no progress; v2 instrumented rerun completed. No v1 timing rows. Full run additionally synchronizes ranks outside timing around CPU verification and graph capture.",
+      "native": "3 hand-derived Rust tests pass; append-only Op variant52, total53, schema28 unchanged; release build running.",
+      "next_action": "Complete qualified transport coverage and publication; proceed to actual GLM graph/memory and canonical predict/recommend/PD. Do not confuse exact table lookup with forward accuracy.",
+      "probe": "16rank normal identity roundtrip and lowlat graph mutation checks pass. Internal graph events are invalid and are not used. Outer events only.",
+      "remaining": "Finish local/cross-node observations; publish qualified table; native exact queries; GLM composition and canonical predict/recommend including PD still incomplete.",
+      "source_commit": "434f8503",
+      "status": "first_full_local_and_dual_campaigns_completed_sampling_extension_running",
+      "timing_correction": "Each graph captures one transport; unmeasured rank barriers between invocations; keep graphs alive while transport handles reference graph storage. Failedinitialwarmup/allocatorattempts preserved.",
+      "validation": "3Rust behavior and22wire tests;15Python/API tests afteraddingfailure-recordtest;390GPUparitypassed111.01s. Serial one-call graph lifecycle and actual dispatch/combine no-op checks pass."
+    },
     "device_probe": {
       "bf16_matmul_device0_passed": true,
       "confidence": "high",
@@ -1470,6 +1518,19 @@
       "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed.",
       "hardware_commit": "93011105",
       "user_request": "Commit corresponding work after each completed stage; local commits authorized, no push requested."
+    },
+    "global32_compute_extension": {
+      "artifacts": [
+        "production/linear-global32-full-node32-20261024",
+        "production/linear-global32-published-20261024",
+        "production/vector-global32-node32-20261024",
+        "production/vector-global32-published-20261024"
+      ],
+      "linear": "1382 planned cases all executed; 1378 stable rows exported, 4 CV exclusions. Adds global TP32 dense FFN dimensions.",
+      "native": "1378 linear and792 vector exact queries passed with zero mismatch; native SHA36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf;390GPUparitypassed111.01s.",
+      "source_commit": "434f8503",
+      "status": "installed_and_native_verified",
+      "vector": "800 planned cases all executed; 792 stable rows exported, 8 CV exclusions. Adds SwiGLU intermediate384. All17 graph-noop controls rejected."
     },
     "hardware_definition_hccl": {
       "change": "Only misc.hccl_version is added; compute, memory and link coefficients unchanged. Historical hardware snapshot retained.",
@@ -1789,7 +1850,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 46,
+  "revision": 48,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

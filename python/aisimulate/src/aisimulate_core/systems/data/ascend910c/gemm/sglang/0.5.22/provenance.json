@@ -712,34 +712,29 @@
       "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
       "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
     },
-    "plan_sha256": "4246adf7bcd4c2c4acead2bfe927aa6b0e93b9f78de87f0dfc71276413ba9fbd"
+    "plan_sha256": "4ba45ec09ec7433c49c6e72562a952aceb14d4b08a2f5b9d84021af5d5e1d53f"
   },
-  "attempted": 1246,
-  "qualified": 1241,
+  "attempted": 1382,
+  "qualified": 1378,
   "unqualified": [
     {
-      "plan_index": 36,
-      "cv": 0.13137848796682206,
+      "plan_index": 152,
+      "cv": 0.1707401760039701,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 84,
-      "cv": 0.22469025179422875,
+      "plan_index": 472,
+      "cv": 0.17010506227929034,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 620,
-      "cv": 0.22562383693291035,
+      "plan_index": 624,
+      "cv": 0.16070123988522828,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 218,
-      "cv": 0.13678521675404431,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 310,
-      "cv": 0.1008913760317776,
+      "plan_index": 478,
+      "cv": 0.14344970403524504,
       "reason": "CV exceeds10%"
     }
   ]

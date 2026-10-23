@@ -1,0 +1,27 @@
+{
+  "research": {
+    "global32_compute_extension": {
+      "status": "collected_and_exported_pending_native_install_validation",
+      "linear": "1382 planned cases all executed; 1378 stable rows exported, 4 CV exclusions. Adds global TP32 dense FFN dimensions.",
+      "vector": "800 planned cases all executed; 792 stable rows exported, 8 CV exclusions. Adds SwiGLU intermediate384. All17 graph-noop controls rejected.",
+      "artifacts": ["production/linear-global32-full-node32-20261024", "production/linear-global32-published-20261024", "production/vector-global32-node32-20261024", "production/vector-global32-published-20261024"]
+    },
+    "deepep_adapter": {
+      "status": "producer_and_native_consumer_drafted_actual_collection_running",
+      "contract": "Actual pinned SGLang _DeepEPDispatcherImplNormal/_DeepEPDispatcherImplLowLatency; INT8 dispatch, BF16 combine; world16/32,16ranks pernode; balanced/single-expert-group routing; eager/actual graph execution. Separate transport boundaries, all-rank samples and full valid payload verification.",
+      "probe": "16rank normal identity roundtrip and lowlat graph mutation checks pass. Internal graph events are invalid and are not used. Outer events only.",
+      "first_graph_smoke": "v1 was stopped after no progress; v2 instrumented rerun completed. No v1 timing rows. Full run additionally synchronizes ranks outside timing around CPU verification and graph capture.",
+      "native": "3 hand-derived Rust tests pass; append-only Op variant52, total53, schema28 unchanged; release build running.",
+      "active_jobs": ["19: deepep-full-node19-20261024", "32: deepep-negative-combine-node32-20261024"],
+      "remaining": "Finish local/cross-node observations; publish qualified table; native exact queries; GLM composition and canonical predict/recommend including PD still incomplete."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "global32_linear_table": {"path": "production/linear-global32-published-20261024/ascend_linear_perf.parquet", "kind": "file", "scope": "collection"},
+        "global32_vector_table": {"path": "production/vector-global32-published-20261024/ascend_vector_perf.parquet", "kind": "file", "scope": "collection"}
+      }
+    }
+  }
+}

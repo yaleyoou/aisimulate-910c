@@ -1,5 +1,26 @@
 # Current goal handoff
 
+## Latest 2026-10-24: TP32 compute published, DeepEP first complete grid attempted
+
+Source434f8503 adds DeepEP native Op52 (53variants,schema28) and globalTP32 shapes.
+Installed linear1378rows/1382attempts,vector792/800. Exact native2170queries pass;
+3newRust+22wire+15Python/API+390GPUparitypassed111.01s. Loadednative36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf.
+FirstDeepEPlocal16anddual32/19 complete:88configs,84valid executions,4normalM2048tiling failures.
+83stable timingrows outof168executedboundaries;85CVexcluded;previewonlyinCPUcontainer/tmp/deepep-published-final-20261024.
+Essentialdecodegraphcoverage missing,so extended averaging8→64 inbaseYAML,plan-v2.json.
+ACTIVE:19deepep-full-node19-20261024-v3,port30020+attempt. Inspectcampaign/observationsbeforeanythingelse.
+Then runnewdual32/19 withsameplan-v2/source,coordinatedrunner. Olddualcompleteowncontainersstopped.
+Producerretainsgraphs,onecall/capture,per-callouterevents+unmeasuredbarriers;bothnoopcontrolsrejected.
+Initialwarmuphangandallocatorerrorpreservedinoldercampaigns. Failuresaredata;runnerrestartsaftereachrecordedfailedcase.
+Exporteracceptscompleteplanacrosspartialattempts,neverfabricatesfailedrows;CVgateunchanged10%.
+RootPTY32=24914and93967;19=89706. User31occupied,leaveuntouched. Checkpoint47beforelatestpatch.
+Modelcompositionnotstarted:SDKbatchisper-attention-DP(base_backend.py1146global_bs=bs*ADP).
+NativeTokenScale scalesbothbatchandtokens. ActualModelSlimindexerparametersonly21layers[0,1,2,6,...74],
+FLOATkv_b,staticW8A8q/kv_a/q_b/o,indexerwq_b;dynamicMLPs;FLOATindexerwk/weights/router/lmhead/embedding.
+Rotationdeclaredoptional/quarot.safetensors;sourceauditneededbeforecomposing(unconfirmedruntimework).
+Memoryreachablemodelstorage~52.472GB/rank16;rawreportdoesnotyetclaimproductionmemorymodelready.
+FullGLMcomposition,memory/PD andcanonicalpredict/recommend stillrequired;goalNOTcomplete.
+
 ## Newest: native compute data published; DeepEP contract probe on19
 
 Sourcecommits589804d8(MoEchain+multi-requestprefillnative),5621929e(attentionproducer/failurehandling).

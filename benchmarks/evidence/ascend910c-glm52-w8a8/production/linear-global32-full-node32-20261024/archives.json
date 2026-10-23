@@ -1,0 +1,62 @@
+[
+  {
+    "file": "containers-before.log",
+    "sha256": "6e5b8c307c414388ba0a0b500bf90a53124f5b4bf91c5d64d78a358ef732a2f3",
+    "archive": "containers-before.log.gz"
+  },
+  {
+    "file": "disk-before.log",
+    "sha256": "aa1f8d555cc99234805976a739bbea83f9e1cb1d8f9728844ef31a569566df27",
+    "archive": "disk-before.log.gz"
+  },
+  {
+    "file": "driver.log",
+    "sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+    "archive": "driver.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "0b778348c0373133f71372eef5131a05d52d76692ab4bbc0deca778312f0304a",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "shard-0.json",
+    "sha256": "afbedfef7cb240e886ca73465342f8d4f08a25295742d521846eb3a2c836af93",
+    "archive": "shard-0.json.gz"
+  },
+  {
+    "file": "shard-0.log",
+    "sha256": "898ce8fe75d6770d16ffb8c9e084a71364b3cfb36a915ca6d55d50d58e17df8d",
+    "archive": "shard-0.log.gz"
+  },
+  {
+    "file": "shard-1.json",
+    "sha256": "ee0bdd6f1473004e114592076e4f5f83c87674817144f385dc9fe51ea069983e",
+    "archive": "shard-1.json.gz"
+  },
+  {
+    "file": "shard-1.log",
+    "sha256": "d8630451702b669ad4071e2d36ff058a6576503c64afdd54eaeb3dd0cb11d21f",
+    "archive": "shard-1.log.gz"
+  },
+  {
+    "file": "shard-2.json",
+    "sha256": "ca5b3ef55cea6fa3a8227c30963155e3401738ad6d13b5cfdaece12b710954bd",
+    "archive": "shard-2.json.gz"
+  },
+  {
+    "file": "shard-2.log",
+    "sha256": "4c4d6fe0b893f52a873cb272db79ca0a7ebc99ff935f517b81c325fba0232308",
+    "archive": "shard-2.log.gz"
+  },
+  {
+    "file": "shard-3.json",
+    "sha256": "803433199cc44e6fb9346bd34e12825dda6a2551aa21db2fb37908f041222284",
+    "archive": "shard-3.json.gz"
+  },
+  {
+    "file": "shard-3.log",
+    "sha256": "cab55cb0bac8796cf7907a38ffb80546a890f18ce4d0e2fe83fea48c6286019b",
+    "archive": "shard-3.log.gz"
+  }
+]

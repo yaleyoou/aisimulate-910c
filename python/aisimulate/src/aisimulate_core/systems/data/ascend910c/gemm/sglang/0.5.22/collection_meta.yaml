@@ -38,10 +38,10 @@ runtime:
       '
 tables:
   ascend_linear_perf:
-    collector_ref: c774dc37c5930c2fda97254a2b34b70ff928d8ec
-    collector_hash: sha256:1befb97f9824edfe46c238984b661f6cb5dfc29aab7c5df0af9f06f48ca8ae7a
-    case_plan_hash: sha256:82d051fc566bf6547778bcc6e8f3024e8b03f20697d3693be24bc88dad6f0322
-    collected_at: '2026-10-22T13:36:10.472840+00:00'
-    rows: 1241
-    classified_failures: 5
+    collector_ref: b88c2a9e
+    collector_hash: sha256:79cdf7612ecebbb6f46269ae919c84582ad8d0ed131ad9ef3751fb52aab1082b
+    case_plan_hash: sha256:a8803f4e5aa5e370a2f9a4edaf34d1fa7dd096f45347fde6a6345668d75c63cb
+    collected_at: '2026-10-23T17:32:28.123434+00:00'
+    rows: 1378
+    classified_failures: 4
     status: complete

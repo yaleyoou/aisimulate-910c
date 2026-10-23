@@ -1,0 +1,22 @@
+[
+  {
+    "original": "aisim-deepep-native-tests.log",
+    "sha256": "cb58be90518114e3d29cbbbbe3efdcd69d18bb98ebcf6cdb9430a81bfa341cd5"
+  },
+  {
+    "original": "aisim-deepep-wire-tests.log",
+    "sha256": "2d8ddc708fd542cb907ea12888d26a7808a87deb561c9a6124a63e4aa3ca76f2"
+  },
+  {
+    "original": "aisim-deepep-native-build.log",
+    "sha256": "6608b6d67eba1d3d050734e1aa635862a0ac3b93a505683722976c782ecb8029"
+  },
+  {
+    "original": "aisim-deepep-python-tests.log",
+    "sha256": "471294c44d23a150b1ef2d6862401bd9cf4b77472cd7b1b4742eb0c276ab0251"
+  },
+  {
+    "original": "aisim-deepep-parity.log",
+    "sha256": "1e9224f19f29a751f4173b483337f92e715d74d35dc205389f1c99e1c09ba136"
+  }
+]
