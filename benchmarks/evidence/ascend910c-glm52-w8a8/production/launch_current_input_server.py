@@ -1,4 +1,4 @@
-"""Launch the verified current-model view for operator-input observations on31."""
+"""Launch a verified current-model view for bounded operator-input observations."""
 
 import argparse
 import hashlib
@@ -13,19 +13,34 @@ import re
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--suffix", default="")
+    parser.add_argument("--capture-vectors", action="store_true")
+    parser.add_argument("--capture-memory", action="store_true")
+    parser.add_argument("--node", choices=("npu1-31", "npu1-32"), default="npu1-31")
     args = parser.parse_args()
     if not re.fullmatch(r"[a-z0-9-]*", args.suffix):
         parser.error("Use a simple suffix")
     suffix = "-" + args.suffix if args.suffix else ""
-    if socket.gethostname() != "npu1-31":
-        raise RuntimeError("This frozen campaign is assigned to npu1-31")
+    if socket.gethostname() != args.node:
+        raise RuntimeError("Collection host differs from the requested node")
     production = Path(__file__).resolve().parent
     repository = production.parents[3]
     view = json.loads((production / "model-view-plan.json").read_text())
     copied = json.loads((production / "model-overrides-copy.json").read_text())
     if view["status"] != "verified_readonly_mount_plan" or copied["status"] != "completed":
         raise ValueError("Current model view is not verified")
-    output = production / ("operator-input-state-node31-20261022" + suffix)
+    overrides = view["overrides"] if args.node == "npu1-31" else []
+    checked_files = []
+    if args.node == "npu1-32":
+        fingerprint = json.loads((production / "model-current-node32-fingerprint.json").read_text())
+        if fingerprint["checkpoint_sha256"] != view["target_checkpoint_sha256"]:
+            raise ValueError("Current model identities differ")
+        for item in fingerprint["files"]:
+            if Path(item["path"]).suffix == ".json":
+                path = Path(fingerprint["model_path"]) / item["path"]
+                if hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+                    raise ValueError(f"Current model metadata changed: {path.name}")
+                checked_files.append(item["path"])
+    output = production / ("operator-input-state-" + args.node.replace("npu1-", "node") + "-20261022" + suffix)
     output.mkdir(exist_ok=False)
     (output / "source").mkdir()
     (output / "capture").mkdir()
@@ -36,7 +51,10 @@ def main():
     with socket.socket() as probe:
         probe.bind(("0.0.0.0", 18000))
     source_hashes = {}
-    for name in ("ascend_state_capture.py", "ascend_input_capture.py", "ascend_recording_server.py"):
+    names = ["ascend_state_capture.py", "ascend_input_capture.py", "ascend_recording_server.py"]
+    if args.capture_memory:
+        names.append("ascend_memory_capture.py")
+    for name in names:
         source = repository / "python/aisimulate/collector/sglang" / name
         shutil.copyfile(source, output / "source" / name)
         source_hashes[name] = hashlib.sha256(source.read_bytes()).hexdigest()
@@ -47,7 +65,11 @@ def main():
                "--mount", f"type=bind,src={output},dst=/campaign",
                "-e", "AISIM_CAPTURE_DIR=/campaign/capture", "-e", "AISIM_CAPTURE_INPUTS=1",
                "-e", "HCCL_IF_BASE_PORT=39000", "-e", "OMP_NUM_THREADS=1", "-e", "MKL_NUM_THREADS=1"]
-    for override in view["overrides"]:
+    if args.capture_vectors:
+        command.extend(("-e", "AISIM_CAPTURE_VECTORS=1"))
+    if args.capture_memory:
+        command.extend(("-e", "AISIM_MEMORY_DIR=/campaign/memory"))
+    for override in overrides:
         command.extend(("--mount", f"type=bind,src={override['source']},dst={override['destination']},readonly"))
     for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
         command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
@@ -73,7 +95,8 @@ def main():
     result = subprocess.run(command, capture_output=True, text=True)
     record = {"command": command, "returncode": result.returncode, "stdout": result.stdout, "stderr": result.stderr,
               "checkpoint_sha256": view["target_checkpoint_sha256"], "source_sha256": source_hashes,
-              "scope": "Instrumented operator input and routing state, not performance"}
+              "node": args.node, "checked_model_metadata": checked_files,
+              "scope": "Instrumented operator/routing state and optional memory; graph memory can include observer allocations; not performance"}
     (output / "launch.json").write_text(json.dumps(record, indent=2) + "\n")
     result.check_returncode()
     print(json.dumps({"container": container, "port": 18000, "checkpoint_sha256": view["target_checkpoint_sha256"]}))

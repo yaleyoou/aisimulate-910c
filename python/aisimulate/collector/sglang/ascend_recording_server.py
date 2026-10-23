@@ -12,6 +12,11 @@ if os.environ.get("AISIM_CAPTURE_INPUTS") == "1":
 
     install_inputs(state)
 
+if os.environ.get("AISIM_MEMORY_DIR"):
+    from ascend_memory_capture import install as install_memory
+
+    install_memory()
+
 
 if __name__ == "__main__":
     entrypoint = next(

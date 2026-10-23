@@ -7,7 +7,9 @@ sequence-length tensors remain referenced for replay snapshots. These hooks
 produce invocation metadata, never performance measurements.
 """
 
+import dataclasses
 import functools
+import importlib
 import json
 import os
 
@@ -48,9 +50,31 @@ class InputCapture:
                 if value.numel() > 256:
                     raise ValueError("Unexpected large sequence-length metadata")
                 result["captured_values"] = value
+            elif label == "cache_locations" and value.numel() <= 256:
+                result["captured_values"] = value
             return result
         if isinstance(value, (list, tuple)):
             return [self.describe(item, label) for item in value]
+        if isinstance(value, self.torch.nn.Module):
+            return {
+                "python_type": type(value).__module__ + "." + type(value).__name__,
+                "parameters": {
+                    name: self.describe(parameter, name) for name, parameter in value.named_parameters(recurse=False)
+                },
+                "attributes": {
+                    name: self.describe(getattr(value, name), name)
+                    for name in ("variance_epsilon", "eps", "normalized_shape")
+                    if hasattr(value, name)
+                },
+            }
+        if dataclasses.is_dataclass(value) and not isinstance(value, type):
+            return {
+                "python_type": type(value).__module__ + "." + type(value).__name__,
+                "fields": {
+                    field.name: self.describe(getattr(value, field.name), field.name)
+                    for field in dataclasses.fields(value)
+                },
+            }
         if isinstance(value, dict):
             return {str(key): self.describe(item, str(key)) for key, item in value.items()}
         if value is None or isinstance(value, (bool, int, float, str)):
@@ -113,7 +137,12 @@ def install(state):
         @functools.wraps(original)
         def invoke(*args, **kwargs):
             output = original(*args, **kwargs)
-            observer.record(kind, {"positional": args, **kwargs}, output)
+            arguments = {"positional": args, **kwargs}
+            if kind == "torch_npu.npu_scatter_nd_update_":
+                if len(args) < 3:
+                    raise ValueError("Expected the audited positional cache scatter signature")
+                arguments["cache_locations"] = args[1]
+            observer.record(kind, arguments, output)
             return output
 
         setattr(owner, name, ObservedCallable(original, invoke) if preserve_attributes else invoke)
@@ -152,6 +181,37 @@ def install(state):
         "torch.ops.npu.batch_matmul_transpose",
         preserve_attributes=True,
     )
+
+    if os.environ.get("AISIM_CAPTURE_VECTORS") == "1":
+        for name in ("matmul", "cat"):
+            wrap_function(torch, name, "torch." + name)
+        for name in ("layer_norm", "embedding"):
+            wrap_function(torch.nn.functional, name, "torch.nn.functional." + name)
+        for name in (
+            "npu_rms_norm",
+            "npu_add_rms_norm",
+            "npu_swiglu",
+            "npu_scatter_nd_update_",
+            "npu_rotary_mul",
+            "npu_mrope",
+        ):
+            wrap_function(torch_npu, name, "torch_npu." + name)
+        wrap_function(torch.ops.npu, "npu_moe_gating_top_k", "torch.ops.npu.npu_moe_gating_top_k", True)
+        for module_name, function_name in (
+            ("sglang.srt.hardware_backend.npu.modules.deepseek_v2_attention_mla_npu", "fused_split_qk_norm"),
+            ("sglang.srt.layers.rotary_embedding.base", "fused_rope_qk_mqa"),
+            ("sglang.srt.hardware_backend.npu.moe.topk", "fused_topk_npu"),
+        ):
+            module = importlib.import_module(module_name)
+            function = getattr(module, function_name)
+            if function is None:
+                raise ValueError(f"Expected pinned NPU vector implementation: {module_name}.{function_name}")
+            wrap_function(module, function_name, function.__module__ + "." + function.__name__)
+        activation = importlib.import_module("sglang.srt.hardware_backend.npu.moe.activation")
+        wrap_function(activation.NPUSwigluDeepEPKernel, "_apply_activation", "NPUSwigluDeepEPKernel._apply_activation")
+        dispatcher = importlib.import_module("sglang.srt.layers.moe.token_dispatcher.deepep")
+        for name in ("dispatch_a", "dispatch_b", "combine_a", "combine_b"):
+            wrap_function(dispatcher.DeepEPDispatcher, name, "DeepEPDispatcher." + name)
 
     original_begin = torch_npu.npu.NPUGraph.capture_begin
 
