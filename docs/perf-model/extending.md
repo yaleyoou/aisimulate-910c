@@ -149,6 +149,36 @@ runtime identities are errors. HCCL data is never relabeled as NCCL or borrowed
 from another transport. Declaring the directory does not qualify a model or
 establish collective coverage.
 
+The NPU DSA collector publishes `attention/sglang/<version>/ascend_attention_perf.parquet`.
+Its typed native `AscendAttention` operation accepts these fields:
+
+| Field | Meaning |
+| --- | --- |
+| `name`, `scale_factor` | Operation label and number of identical invocations. |
+| `key.operation` | `lightning_indexer` or `sparse_attention`, matching the measured NPU kernel. |
+| `key.phase` | `prefill` or `decode`; sequence length means new tokens for prefill and full KV length for decode. |
+| `key.local_heads` | Per-rank heads: 32 for the indexer, or 4/8/16 for sparse attention. |
+| `key.execution_mode` | Exact `eager` or `graph` dispatch; these tables never substitute for one another. |
+| `graph_buckets` | Strictly increasing capture sizes for graph decode. Empty for other execution paths. |
+
+This primitive currently describes BF16 TND queries and PA_BSND caches with
+page size 128, sparse top-k 2048, MLA rank 512, RoPE width 64 and 32×128 indexer
+heads. Cache views retain NCDHW format 30. Decode uses a block-table width of
+1407; prefill derives its width from the KV length. The pool has at least 417
+pages, including the sentinel page. Other geometries require separate collection
+and an explicit contract extension.
+
+The runtime batch is the number of active requests per attention rank. Graph
+padding selects a measured capture bucket, while padded KV lengths remain zero.
+The native table interpolates KV length and active batch only within that same
+bucket. Prefill currently supports one request, interpolating new-token count
+and prefix length. Out-of-range coordinates and missing brackets are coverage
+errors; neither another runtime nor an analytic estimate fills the gap. Data is
+indexed once on first use, and repeated queries access bounded axis curves.
+An operator table does not by itself complete model composition or validate
+whole-forward prediction accuracy. Production models still use
+`ForwardPassPerfModel::best_available` as their construction interface.
+
 The `ascend910c` definition is a scoped hardware calibration for Atlas 800T A3
 with 16 runtime-visible chips per node. Its packaged
 [calibration notes](../../python/aisimulate/src/aisimulate_core/systems/data/ascend910c/README.md)

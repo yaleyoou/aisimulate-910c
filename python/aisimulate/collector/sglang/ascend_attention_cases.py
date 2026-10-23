@@ -1,0 +1,88 @@
+"""Declare the observed NPU DSA cache, layout and graph-padding contracts."""
+
+import hashlib
+import json
+from pathlib import Path
+
+import yaml
+
+
+def get_ascend_attention_cases(model_path, case_root=None):
+    model_path = Path(model_path)
+    case_root = Path(case_root) if case_root else Path(__file__).resolve().parents[1] / "cases"
+    config_file = model_path / "config.json"
+    config = json.loads(config_file.read_text())
+    model_file = case_root / "models" / f"{config['architectures'][0]}_cases.yaml"
+    profiles = yaml.safe_load(model_file.read_text())["model_case_values"]["ascend_attention"]
+    matching = [value for value in profiles if value["checkpoint_quantization"] == "modelslim_w8a8"]
+    if len(matching) != 1:
+        raise ValueError("Expected one declared NPU DSA geometry")
+    geometry = matching[0]
+    for name in ("num_attention_heads", "kv_lora_rank", "qk_rope_head_dim", "index_n_heads", "index_head_dim"):
+        if config.get(name) != geometry[name]:
+            raise ValueError(f"Model differs from declared {name}")
+    base_file = case_root / "base_ops/ascend_attention.yaml"
+    base = yaml.safe_load(base_file.read_text())["common_case_values"]["ascend_attention"]
+    cases = []
+
+    def add(kind, heads, phase, tokens, active, padded, length, prefix, mode):
+        if phase == "prefill":
+            pages_per_request = (tokens + prefix + geometry["page_size"] - 1) // geometry["page_size"]
+            table_width = pages_per_request
+        else:
+            pages_per_request = (length + geometry["page_size"] - 1) // geometry["page_size"]
+            table_width = (geometry["context_limit"] + geometry["page_size"] - 1) // geometry["page_size"]
+        cases.append(
+            {
+                "operation": kind,
+                "phase": phase,
+                "local_heads": heads,
+                "tokens": tokens,
+                "active_batch": active,
+                "padded_batch": padded,
+                "sequence_length": length,
+                "prefix": prefix,
+                "execution_mode": mode,
+                "page_size": geometry["page_size"],
+                "sparse_topk": geometry["sparse_topk"],
+                "kv_lora_rank": geometry["kv_lora_rank"],
+                "rope_dim": geometry["qk_rope_head_dim"],
+                "index_heads": geometry["index_n_heads"],
+                "index_dim": geometry["index_head_dim"],
+                "pool_pages": max(geometry["minimum_pool_pages"], 1 + active * pages_per_request),
+                "block_table_width": table_width,
+            }
+        )
+
+    for operation in ("lightning_indexer", "sparse_attention"):
+        head_counts = (
+            [geometry["index_n_heads"]]
+            if operation == "lightning_indexer"
+            else [geometry["num_attention_heads"] // parallel for parallel in geometry["tensor_parallel_sizes"]]
+        )
+        for heads in head_counts:
+            for mode in base["execution_modes"]:
+                for tokens in base["prefill_tokens"]:
+                    for prefix in base["prefix_tokens"]:
+                        add(operation, heads, "prefill", tokens, 1, 1, tokens + prefix, prefix, mode)
+                for active in base["decode_batches"]:
+                    padded = (
+                        next(value for value in base["graph_buckets"] if value >= active) if mode == "graph" else active
+                    )
+                    for length in base["context_lengths"]:
+                        add(operation, heads, "decode", padded, active, padded, length, 0, mode)
+    return {
+        "schema": "aisimulate-ascend-attention-plan/v1",
+        "status": "experimental_collection_plan",
+        "model_path": str(model_path),
+        "cases": cases,
+        "source_sha256": {
+            path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in (config_file, model_file, base_file)
+        },
+        "protocol": {key: base[key] for key in ("iterations", "warmup", "repeats")},
+        "source_contract": (
+            "SGLang baa9befa381511cd4d56f83980951e5a45fffc6d; "
+            "operator-input-state-node31-20261022-attempt2 confirms TND/PA_BSND, "
+            "128page_size,2048topk,zero-length padding and decode blocktable width1407."
+        ),
+    }

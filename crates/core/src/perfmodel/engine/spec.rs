@@ -862,6 +862,17 @@ mod tests {
                 token_split: 1,
                 token_multiple: 8,
             }),
+            OpSpec::AscendAttention(crate::operators::AscendAttentionOp {
+                name: "ascend_sparse_attention".into(),
+                scale_factor: 78.0,
+                key: crate::perf_database::ascend_attention::AscendAttentionKey {
+                    operation: "sparse_attention".into(),
+                    phase: "decode".into(),
+                    local_heads: 8,
+                    execution_mode: "graph".into(),
+                },
+                graph_buckets: vec![8, 16, 24, 32],
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -885,6 +896,7 @@ mod tests {
                 | OpSpec::Nccl(_)
                 | OpSpec::Hccl(_)
                 | OpSpec::AscendLinear(_)
+                | OpSpec::AscendAttention(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1045,7 +1057,12 @@ mod tests {
             "Ascend linear appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[48]),
             48,
+            "Ascend attention appended index moved"
+        );
+        assert_eq!(
+            49,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

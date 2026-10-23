@@ -1,0 +1,46 @@
+import json
+from pathlib import Path
+
+import pytest
+
+from collector.sglang.ascend_attention_cases import get_ascend_attention_cases
+
+pytestmark = pytest.mark.unit
+
+
+@pytest.fixture
+def model(tmp_path):
+    config = Path(__file__).resolve().parents[3] / "src/aisimulate_core/model_configs/zai-org--GLM-5.2_config.json"
+    (tmp_path / "config.json").write_bytes(config.read_bytes())
+    return tmp_path
+
+
+def test_active_requests_and_graph_padding_remain_separate(model):
+    cases = get_ascend_attention_cases(model)["cases"]
+    case = next(
+        row
+        for row in cases
+        if row["operation"] == "lightning_indexer"
+        and row["phase"] == "decode"
+        and row["execution_mode"] == "graph"
+        and row["active_batch"] == 5
+        and row["sequence_length"] == 9216
+    )
+    assert case["tokens"] == case["padded_batch"] == 8
+    assert case["block_table_width"] == 1407
+    assert case["pool_pages"] == 417
+    assert case["page_size"] == 128
+    assert len({json.dumps(row, sort_keys=True) for row in cases}) == len(cases)
+
+
+def test_prefix_cache_and_head_geometry_follow_declared_model(model):
+    cases = get_ascend_attention_cases(model)["cases"]
+    assert {row["local_heads"] for row in cases if row["operation"] == "sparse_attention"} == {4, 8, 16}
+    assert {row["local_heads"] for row in cases if row["operation"] == "lightning_indexer"} == {32}
+    case = next(row for row in cases if row["phase"] == "prefill" and row["tokens"] == 8192 and row["prefix"] == 8192)
+    assert case["sequence_length"] == 16384 and case["block_table_width"] == 128
+    config = json.loads((model / "config.json").read_text())
+    config["kv_lora_rank"] = 256
+    (model / "config.json").write_text(json.dumps(config))
+    with pytest.raises(ValueError, match="kv_lora_rank"):
+        get_ascend_attention_cases(model)

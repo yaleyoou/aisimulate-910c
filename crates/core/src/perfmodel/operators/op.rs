@@ -192,6 +192,7 @@ pub enum Op {
     Glm53Primitive(Glm53PrimitiveOp),
     Hccl(crate::operators::HcclOp),
     AscendLinear(crate::operators::AscendLinearOp),
+    AscendAttention(crate::operators::AscendAttentionOp),
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -317,7 +318,8 @@ impl Op {
                 o.group_a.iter().map(Op::weight_bytes).sum::<f64>()
                     + o.group_b.iter().map(Op::weight_bytes).sum::<f64>()
             }
-            Op::Elementwise(_)
+            Op::AscendAttention(_)
+            | Op::Elementwise(_)
             | Op::ContextAttention(_)
             | Op::GenerationAttention(_)
             | Op::EncoderAttention(_)
@@ -376,6 +378,7 @@ impl Op {
             Op::Nccl(o) => &o.name,
             Op::Hccl(o) => &o.name,
             Op::AscendLinear(o) => &o.name,
+            Op::AscendAttention(o) => &o.name,
             Op::P2P(o) => &o.name,
             Op::Vision(o) => &o.name,
             Op::DsaContext(o) => &o.name,
@@ -432,6 +435,7 @@ impl Op {
             Op::Nccl(o) => o.name = name,
             Op::Hccl(o) => o.name = name,
             Op::AscendLinear(o) => o.name = name,
+            Op::AscendAttention(o) => o.name = name,
             Op::P2P(o) => o.name = name,
             Op::Vision(o) => o.name = name,
             Op::DsaContext(o) => o.name = name,
@@ -476,6 +480,7 @@ impl Op {
             Op::Nccl(o) => o.scale_factor = scale_factor,
             Op::Hccl(o) => o.scale_factor = scale_factor,
             Op::AscendLinear(o) => o.scale_factor = scale_factor,
+            Op::AscendAttention(o) => o.scale_factor = scale_factor,
             Op::P2P(o) => o.scale_factor = scale_factor,
             Op::Vision(o) => o.scale_factor = scale_factor,
             Op::DsaContext(o) => o.scale_factor = scale_factor,
@@ -629,6 +634,7 @@ impl Op {
             Op::Nccl(op) => op.query(db, ctx.num_tokens),
             Op::Hccl(op) => op.query(db, ctx.num_tokens),
             Op::AscendLinear(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
+            Op::AscendAttention(op) => op.query(db, ctx.batch_size, ctx.s, ctx.prefix),
             Op::P2P(op) => op.query(db, ctx.num_tokens),
             Op::Vision(op) => op.query(db, ctx.num_image_tokens),
             Op::DsaContext(op) => op.query_context(db, ctx.batch_size, ctx.s, ctx.prefix),
