@@ -19,7 +19,7 @@ def prepare(case, torch, torch_npu):
         return torch.randn(*shape, device="npu", dtype=dtype or torch.bfloat16)
 
     def cpu(value):
-        return value[rows].float().cpu()
+        return value[rows].cpu().float()
 
     def reset():
         return None
@@ -254,6 +254,34 @@ def prepare(case, torch, torch_npu):
         def perturb():
             values.neg_()
 
+    elif role == "logits_finalize":
+        from sglang.srt.layers.logits_processor import LogitsProcessor
+
+        parallel, vocabulary = dimensions
+        gathered = random((parallel, tokens, vocabulary // parallel))
+        buffer = (
+            torch.empty((32, vocabulary), device="npu", dtype=torch.float32)[:tokens]
+            if case["execution_mode"] == "graph"
+            else None
+        )
+        metadata = SimpleNamespace(next_token_logits_buffer=buffer)
+        processor = SimpleNamespace(vocab_size=vocabulary)
+        method = LogitsProcessor._copy_logits_to_buffer
+        inputs = {"gathered_logits": gathered, "logits_buffer": buffer}
+        kernel = method.__module__ + "." + method.__qualname__
+
+        def invoke():
+            logits = gathered.permute(1, 0, 2).reshape(tokens, vocabulary)
+            return method(processor, logits, metadata)
+
+        def reference():
+            return torch.stack(
+                [torch.cat([gathered[rank, row].cpu().float() for rank in range(parallel)]) for row in rows]
+            )
+
+        def perturb():
+            gathered.neg_()
+
     elif role in {"embedding", "rope_cache_gather"}:
         vocabulary, width = dimensions
         weight = random((vocabulary, width))
@@ -329,6 +357,8 @@ def prepare(case, torch, torch_npu):
         for tensor, target in zip(actual, wanted, strict=True):
             value = sample_output(tensor)
             error = (value - target).abs()
+            if role == "logits_finalize" and not torch.equal(value, target):
+                raise ValueError("Vector execution numerical check failed: logits reordering/cast")
             if not torch.all(error <= 0.02 + 0.02 * target.abs()):
                 raise ValueError(f"Vector execution numerical check failed: {role}, max={error.max().item()}")
             count += value.numel()

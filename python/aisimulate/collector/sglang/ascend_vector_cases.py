@@ -63,6 +63,7 @@ def get_ascend_vector_cases(model_path, case_root=None):
             )
         )
         sites.append(("embedding", [geometry["vocab_size"] // parallel, hidden]))
+        sites.append(("logits_finalize", [parallel, geometry["vocab_size"]]))
     for parallel in geometry["global_tensor_parallel_sizes"]:
         if geometry["intermediate_size"] % parallel:
             raise ValueError("Dense MLP shard is not integral")
@@ -73,7 +74,7 @@ def get_ascend_vector_cases(model_path, case_root=None):
         {"role": role, "dimensions": dimensions, "tokens": tokens, "execution_mode": mode}
         for role, dimensions in sites
         for mode in base["execution_modes"]
-        for tokens in base["token_counts"]
+        for tokens in (base["request_counts"] if role == "logits_finalize" else base["token_counts"])
     ]
     return {
         "schema": "aisimulate-ascend-vector-plan/v1",

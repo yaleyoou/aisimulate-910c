@@ -801,6 +801,19 @@ there is no CUDA data substitution or analytic fallback. Normal-mode graph
 execution is not a declared serving branch. This primitive measures transport
 boundaries, excluding expert compute and whole-forward stream overlap.
 
+The Ascend vector role `logits_finalize` measures the operations after the
+logits collective: BF16 `[TP, requests, vocabulary/TP]` is reordered into
+request-major logits, then passed through the installed
+`LogitsProcessor._copy_logits_to_buffer`. The source contract at the same pinned
+SGLang commit is `srt/layers/logits_processor.py:1061-1080,1153-1182`.
+Eager calls allocate FP32 output; decode graph calls copy into the shared FP32
+buffer described by `model_executor/runner/decode_cuda_graph_runner.py:419-427,992`.
+The campaign uses the United32-request graph capacity and checks the entire
+vocabulary for sampled requests against independently reordered CPU values.
+The collective and LM-head multiplication remain separate measurements. The
+existing `router_topk` measurement already includes its BF16-to-FP32 input
+conversion; do not count a second router cast.
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.

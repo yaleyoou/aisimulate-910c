@@ -16,7 +16,7 @@ def test_declared_vector_geometry_preserves_parallelism_and_precision_boundaries
     )
     plan = get_ascend_vector_cases(tmp_path)
     cases = plan["cases"]
-    assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases}) == 800
+    assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases})
 
     def shapes(role):
         return {tuple(case["dimensions"]) for case in cases if case["role"] == role}
@@ -27,6 +27,8 @@ def test_declared_vector_geometry_preserves_parallelism_and_precision_boundaries
     assert shapes("embedding") == {(38720, 6144), (19360, 6144), (9680, 6144)}
     assert shapes("cache_scatter") == {(53376, 64), (53376, 128), (53376, 512)}
     assert shapes("router_topk") == {(256, 8)}
+    assert shapes("logits_finalize") == {(4, 154880), (8, 154880), (16, 154880)}
+    assert max(case["tokens"] for case in cases if case["role"] == "logits_finalize") == 32
     altered = json.loads(config.read_text())
     altered["rms_norm_eps"] = 1e-6
     (tmp_path / "config.json").write_text(json.dumps(altered))

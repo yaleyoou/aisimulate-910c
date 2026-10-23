@@ -37,6 +37,7 @@ impl AscendVectorKey {
             | ("rope_cache_gather", [1048576, 64]) => true,
             ("rope_attention", [heads, 64, 256, 64]) => matches!(heads, 4 | 8 | 16),
             ("swiglu", [width]) => matches!(width, 384 | 768 | 2048),
+            ("logits_finalize", [parallel, 154880]) => matches!(parallel, 4 | 8 | 16),
             ("cache_scatter", [53376, width]) => matches!(width, 64 | 128 | 512),
             ("embedding", [vocabulary, 6144]) => matches!(vocabulary, 9680 | 19360 | 38720),
             _ => false,
@@ -63,6 +64,9 @@ impl AscendVectorKey {
             "cache_scatter" => "torch_npu.npu_scatter_nd_update_",
             "swiglu" => "torch_npu.npu_swiglu",
             "router_topk" => "torch.ops.npu.npu_moe_gating_top_k",
+            "logits_finalize" => {
+                "sglang.srt.layers.logits_processor.LogitsProcessor._copy_logits_to_buffer"
+            }
             "cast_hidden_fp32" | "cast_weights_bf16" => "torch.Tensor.to",
             "embedding" => "torch.nn.functional.embedding",
             "rope_cache_gather" => "torch.Tensor.index_select",

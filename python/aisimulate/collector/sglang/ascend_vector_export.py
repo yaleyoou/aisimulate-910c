@@ -111,6 +111,17 @@ def expected_invocation(case):
         return {"input": tensor([tokens, 6144])}, tensor([tokens, 6144], "float32"), "torch.Tensor.to"
     if role == "cast_weights_bf16" and dimensions == [32]:
         return {"input": tensor([tokens, 32], "float32")}, tensor([tokens, 32]), "torch.Tensor.to"
+    if role == "logits_finalize" and dimensions in ([4, 154880], [8, 154880], [16, 154880]):
+        parallel, vocabulary = dimensions
+        output = tensor([tokens, vocabulary], "float32")
+        return (
+            {
+                "gathered_logits": tensor([parallel, tokens, vocabulary // parallel]),
+                "logits_buffer": output if case["execution_mode"] == "graph" else None,
+            },
+            output,
+            "sglang.srt.layers.logits_processor.LogitsProcessor._copy_logits_to_buffer",
+        )
     if (role == "embedding" and dimensions in ([9680, 6144], [19360, 6144], [38720, 6144])) or (
         role == "rope_cache_gather" and dimensions == [1048576, 64]
     ):
@@ -279,7 +290,6 @@ def main():
     rows, report = validated_rows(args.plan, args.observations, json.loads(args.runtime_identity.read_text()))
     import pyarrow as arrow
     import pyarrow.parquet as parquet
-
     from collector.provenance import case_plan_hash, collector_hash, load_closures, write_collection_meta
 
     package = Path(__file__).resolve().parents[2]
