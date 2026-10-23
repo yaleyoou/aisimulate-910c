@@ -1,5 +1,6 @@
 """Collect the complete declared NPU attention grid after graph negative control."""
 
+import argparse
 import concurrent.futures
 import hashlib
 import json
@@ -10,14 +11,20 @@ import subprocess
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--run-name", default="attention-full-node32-20261023")
+    parser.add_argument("--plan", type=Path)
+    args = parser.parse_args()
+    if Path(args.run_name).name != args.run_name:
+        parser.error("Use a simple fresh run name")
     os.umask(0o022)
     production = Path(__file__).resolve().parent
     repository = production.parents[3]
-    output = production / "attention-full-node32-20261023"
+    output = production / args.run_name
     output.mkdir(exist_ok=False)
     for source, name in (
         (repository / "python/aisimulate/collector/sglang/ascend_attention.py", "collector.py"),
-        (production / "attention-plan-20261022.json", "plan.json"),
+        (args.plan or production / "attention-plan-20261022.json", "plan.json"),
         (production / "serving-setup.json", "serving-setup-nodes.json"),
         (production / "hccl_graph_noop_probe.py", "graph_noop.py"),
     ):
@@ -26,7 +33,7 @@ def main():
     (output / "npu-before.log").write_text(before)
     if before.count("No running processes found in NPU") != 8:
         raise RuntimeError("NPU process inventory is not empty")
-    container = "aisim-attention-full-20261023"
+    container = "aisim-" + args.run_name
     command = ["docker", "run", "-d", "--name", container, "--network", "host", "--privileged", "--shm-size", "16g",
                "--mount", f"type=bind,src={output},dst=/campaign"]
     for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
@@ -46,6 +53,8 @@ def main():
             arguments.append("/campaign/graph_noop.py")
         arguments.extend(("/campaign/collector.py", "--plan", "/campaign/plan.json", "--serving-setup",
                           "/campaign/serving-setup-nodes.json", "--device", str(device), "--output", f"/campaign/{name}.json", *extra))
+        if negative:
+            arguments.append("--fail-fast")
         command = ["docker", "exec", container, "timeout", "7200", *arguments]
         with (output / (name + ".log")).open("w") as stream:
             result = subprocess.run(command, stdout=stream, stderr=subprocess.STDOUT)
@@ -53,7 +62,7 @@ def main():
         record = json.loads(path.read_text()) if path.is_file() else {}
         expected = (result.returncode != 0 and record.get("status") == "failed" and "numerical check failed" in record.get("error", "")) if negative else result.returncode == 0 and record.get("status") == "completed"
         return {"name": name, "command": command, "returncode": result.returncode,
-                "expected_outcome": expected, "cases": len(record.get("cases", []))}
+                "expected_outcome": expected, "cases": len(record.get("cases", [])), "failures": len(record.get("failures", []))}
 
     save()
     try:

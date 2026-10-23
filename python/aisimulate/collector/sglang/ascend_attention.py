@@ -30,6 +30,7 @@ def main():
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--num-shards", type=int, default=1)
     parser.add_argument("--case-filter")
+    parser.add_argument("--fail-fast", action="store_true")
     args = parser.parse_args()
     if args.output.exists() or not 0 <= args.shard_index < args.num_shards:
         parser.error("Use a fresh output and valid shard index")
@@ -69,6 +70,7 @@ def main():
         "protocol": protocol,
         "selected_plan_indices": [index for index, _ in selected],
         "cases": [],
+        "failures": [],
         "runtime": {
             "framework_commit": revision,
             "host": socket.gethostname(),
@@ -90,6 +92,9 @@ def main():
         torch.manual_seed(910 + index)
         tokens, active, padded = case["tokens"], case["active_batch"], case["padded_batch"]
         page_size, length, prefix = case["page_size"], case["sequence_length"], case["prefix"]
+        query_tokens = tokens // active if case["phase"] == "prefill" else 1
+        if case["phase"] == "prefill" and (tokens % active or length != query_tokens + prefix):
+            raise ValueError("Prefill requires equal query lengths per active request")
         pages_per_request = (length + page_size - 1) // page_size
         table = torch.zeros(padded, case["block_table_width"], device="npu", dtype=torch.int32)
         for request in range(active):
@@ -97,7 +102,7 @@ def main():
                 1 + request * pages_per_request, 1 + (request + 1) * pages_per_request, device="npu", dtype=torch.int32
             )
         query_lengths = (
-            torch.tensor([tokens], device="npu", dtype=torch.int32)
+            torch.arange(query_tokens, tokens + 1, query_tokens, device="npu", dtype=torch.int32)
             if case["phase"] == "prefill"
             else torch.arange(1, padded + 1, device="npu", dtype=torch.int32)
         )
@@ -117,7 +122,7 @@ def main():
         rope_cache = rope_owner[0]
         indices_cpu = torch.full((tokens, 1, case["sparse_topk"]), -1, dtype=torch.int32)
         for row in range(tokens if case["phase"] == "prefill" else active):
-            visible = prefix + row + 1 if case["phase"] == "prefill" else length
+            visible = prefix + row % query_tokens + 1 if case["phase"] == "prefill" else length
             count = min(visible, case["sparse_topk"])
             indices_cpu[row, 0, :count] = torch.arange(max(0, visible - count), visible, dtype=torch.int32)
         indices = indices_cpu.to("npu")
@@ -186,8 +191,8 @@ def main():
             row_ids = sorted({0, count // 2, count - 1})
             maximum_error, minimum_overlap = 0.0, 1.0
             for row in row_ids:
-                request = 0 if case["phase"] == "prefill" else row
-                visible = prefix + row + 1 if case["phase"] == "prefill" else length
+                request = row // query_tokens if case["phase"] == "prefill" else row
+                visible = prefix + row % query_tokens + 1 if case["phase"] == "prefill" else length
                 start = 1 + request * pages_per_request
                 keys = cache[start : start + pages_per_request].reshape(-1, width)[:visible].float().cpu()
                 query_cpu = query[row].float().cpu()
@@ -223,7 +228,35 @@ def main():
                         actual = result[row].float().cpu()
                         error = (actual - expected).abs()
                         if not torch.all(error <= 0.02 + 0.012 * expected.abs()):
-                            raise ValueError("Sparse attention execution numerical check failed")
+                            tolerance = 0.02 + 0.012 * expected.abs()
+                            location = (error - tolerance).flatten().argmax().item()
+                            details = {
+                                "query_row": row,
+                                "failing_elements": int((error > tolerance).sum().item()),
+                                "checked_elements": error.numel(),
+                                "max_abs_error": error.max().item(),
+                                "rms_error": error.square().mean().sqrt().item(),
+                                "reference_rms": expected.square().mean().sqrt().item(),
+                                "worst_actual": actual.flatten()[location].item(),
+                                "worst_expected": expected.flatten()[location].item(),
+                                "worst_tolerance": tolerance.flatten()[location].item(),
+                                "head": location // expected.shape[-1],
+                                "dimension": location % expected.shape[-1],
+                            }
+                            eager_control = invoke()
+                            torch.npu.synchronize()
+                            details["eager_control"] = eager_control[row].float().cpu().flatten()[location].item()
+                            details["raw_bf16_cpu_control"] = result[row].cpu().float().flatten()[location].item()
+                            dense_weights = logits.softmax(-1)
+                            details["reference_float64"] = (
+                                (logits.double().softmax(-1) @ keys.double()).flatten()[location].item()
+                            )
+                            details["reference_bf16_weights"] = (
+                                (dense_weights.to(torch.bfloat16).float() @ keys).flatten()[location].item()
+                            )
+                            raise ValueError(
+                                "Sparse attention execution numerical check failed: " + json.dumps(details)
+                            )
                         maximum_error = max(maximum_error, error.max().item())
             return {
                 "sampled_queries": len(row_ids) * len(observed),
@@ -265,7 +298,29 @@ def main():
     save()
     try:
         for index, case in selected:
-            collect(index, case)
+            try:
+                collect(index, case)
+            except ValueError as error:
+                if "execution numerical check failed" not in str(error):
+                    raise
+                record["failures"].append(
+                    {
+                        "plan_index": index,
+                        "case": case,
+                        "classification": "unexpected",
+                        "exception_type": type(error).__name__,
+                        "error": traceback.format_exc(),
+                    }
+                )
+                save()
+                if args.fail_fast:
+                    raise
+                same_family = [
+                    failure for failure in record["failures"] if failure["case"]["operation"] == case["operation"]
+                ]
+                attempts = len(same_family) + sum(row["operation"] == case["operation"] for row in record["cases"])
+                if len(same_family) >= 3 and len(same_family) / attempts >= 0.1:
+                    raise RuntimeError("Systematic numerical failures require investigation") from error
             gc.collect()
             torch.npu.empty_cache()
         record["status"] = "completed"

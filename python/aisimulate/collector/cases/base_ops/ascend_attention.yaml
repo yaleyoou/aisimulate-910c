@@ -3,9 +3,11 @@ op: ascend_attention
 description: Source-qualified BF16 DSA attention and indexer with active and padded rows.
 common_case_values:
   ascend_attention:
-    prefill_tokens: [128, 512, 2048, 4096, 8192]
+    prefill_tokens: [1, 2, 4, 8, 16, 32, 128, 512, 2048, 4096, 8192]
+    prefill_batches: [1, 2, 4, 8, 16, 24, 32]
+    max_prefill_tokens: 8192
     prefix_tokens: [0, 8192]
-    decode_batches: [1, 2, 4, 5, 8, 16, 24, 32]
+    decode_batches: [1, 2, 4, 5, 8, 9, 16, 17, 24, 25, 32]
     context_lengths: [128, 1024, 2048, 4096, 8192, 9216, 16384]
     graph_buckets: [8, 16, 24, 32]
     execution_modes: [eager, graph]

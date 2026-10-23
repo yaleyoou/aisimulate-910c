@@ -37,10 +37,33 @@ def test_prefix_cache_and_head_geometry_follow_declared_model(model):
     cases = get_ascend_attention_cases(model)["cases"]
     assert {row["local_heads"] for row in cases if row["operation"] == "sparse_attention"} == {4, 8, 16}
     assert {row["local_heads"] for row in cases if row["operation"] == "lightning_indexer"} == {32}
-    case = next(row for row in cases if row["phase"] == "prefill" and row["tokens"] == 8192 and row["prefix"] == 8192)
+    case = next(
+        row
+        for row in cases
+        if row["phase"] == "prefill" and row["active_batch"] == 1 and row["tokens"] == 8192 and row["prefix"] == 8192
+    )
     assert case["sequence_length"] == 16384 and case["block_table_width"] == 128
     config = json.loads((model / "config.json").read_text())
     config["kv_lora_rank"] = 256
     (model / "config.json").write_text(json.dumps(config))
     with pytest.raises(ValueError, match="kv_lora_rank"):
         get_ascend_attention_cases(model)
+
+
+def test_multi_request_prefill_and_lower_graph_bucket_edges_are_covered(model):
+    cases = get_ascend_attention_cases(model)["cases"]
+    prefill = next(
+        row
+        for row in cases
+        if row["phase"] == "prefill" and row["active_batch"] == 4 and row["tokens"] == 8192 and row["prefix"] == 8192
+    )
+    assert prefill["sequence_length"] == 10240 and prefill["padded_batch"] == 4
+    assert all(row["tokens"] <= 8192 for row in cases if row["phase"] == "prefill")
+    for active, padded in ((9, 16), (17, 24), (25, 32)):
+        assert any(
+            row["phase"] == "decode"
+            and row["active_batch"] == active
+            and row["padded_batch"] == padded
+            and row["execution_mode"] == "graph"
+            for row in cases
+        )

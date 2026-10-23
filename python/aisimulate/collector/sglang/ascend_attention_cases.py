@@ -27,7 +27,7 @@ def get_ascend_attention_cases(model_path, case_root=None):
 
     def add(kind, heads, phase, tokens, active, padded, length, prefix, mode):
         if phase == "prefill":
-            pages_per_request = (tokens + prefix + geometry["page_size"] - 1) // geometry["page_size"]
+            pages_per_request = (length + geometry["page_size"] - 1) // geometry["page_size"]
             table_width = pages_per_request
         else:
             pages_per_request = (length + geometry["page_size"] - 1) // geometry["page_size"]
@@ -63,8 +63,21 @@ def get_ascend_attention_cases(model_path, case_root=None):
         for heads in head_counts:
             for mode in base["execution_modes"]:
                 for tokens in base["prefill_tokens"]:
-                    for prefix in base["prefix_tokens"]:
-                        add(operation, heads, "prefill", tokens, 1, 1, tokens + prefix, prefix, mode)
+                    for active in base["prefill_batches"]:
+                        if active * tokens > base["max_prefill_tokens"]:
+                            continue
+                        for prefix in base["prefix_tokens"]:
+                            add(
+                                operation,
+                                heads,
+                                "prefill",
+                                active * tokens,
+                                active,
+                                active,
+                                tokens + prefix,
+                                prefix,
+                                mode,
+                            )
                 for active in base["decode_batches"]:
                     padded = (
                         next(value for value in base["graph_buckets"] if value >= active) if mode == "graph" else active

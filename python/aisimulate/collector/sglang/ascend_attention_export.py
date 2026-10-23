@@ -52,8 +52,30 @@ def validated_rows(plan_path, observations, runtime_identity):
         if protocol is not None and (protocol != current or environment != setup):
             raise ValueError("Cannot merge different protocols or serving setups")
         protocol, environment = current, setup
-        if [row["plan_index"] for row in record["cases"]] != record["selected_plan_indices"]:
+        failures = record.get("failures", [])
+        attempted = [row["plan_index"] for row in record["cases"]] + [failure["plan_index"] for failure in failures]
+        if sorted(attempted) != record["selected_plan_indices"]:
             raise ValueError("Missing planned shard results")
+        for failure in failures:
+            index = failure["plan_index"]
+            if type(index) is not int or not 0 <= index < len(plan["cases"]) or index in seen:
+                raise ValueError("Duplicate or unknown failed case identity")
+            if (
+                failure["case"] != plan["cases"][index]
+                or failure["classification"] != "unexpected"
+                or failure["exception_type"] != "ValueError"
+                or "execution numerical check failed" not in failure["error"]
+            ):
+                raise ValueError("Invalid numerical failure record")
+            seen.add(index)
+            rejected.append(
+                {
+                    "plan_index": index,
+                    "reason": "numerical execution check failed",
+                    "source": str(path),
+                    "error": failure["error"],
+                }
+            )
         for row in record["cases"]:
             index = row["plan_index"]
             if type(index) is not int or not 0 <= index < len(plan["cases"]) or index in seen:

@@ -46,7 +46,7 @@ def main():
             }}
             assert json.loads(_runtime.op_from_spec_json(json.dumps(operation))._spec_json()) == operation
             started = time.perf_counter()
-            values = handle.evaluate_ops_json(json.dumps([operation]), is_context=row["phase"] == "prefill", batch_size=row["active_batch"], s=row["tokens"] if row["phase"] == "prefill" else row["sequence_length"], prefix=row["prefix"])
+            values = handle.evaluate_ops_json(json.dumps([operation]), is_context=row["phase"] == "prefill", batch_size=row["active_batch"], s=row["tokens"] // row["active_batch"] if row["phase"] == "prefill" else row["sequence_length"], prefix=row["prefix"])
             durations.append((time.perf_counter() - started) * 1000)
             error = abs(values[0][1] - row["latency_ms"])
             assert error <= 1e-12, (row, values)

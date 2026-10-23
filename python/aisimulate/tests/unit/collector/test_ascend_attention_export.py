@@ -142,3 +142,25 @@ def test_mixed_runtime_and_duplicate_cases_fail(campaign):
     observation.write_text(json.dumps(record))
     with pytest.raises(ValueError, match="Runtime"):
         validated_rows(plan, [observation], identity)
+
+
+def test_recorded_numerical_failure_remains_visible_without_a_timing_row(campaign):
+    plan, observation, identity, record = campaign
+    failed = record["cases"].pop()
+    record["failures"] = [
+        {
+            "plan_index": failed["plan_index"],
+            "case": json.loads(plan.read_text())["cases"][1],
+            "classification": "unexpected",
+            "exception_type": "ValueError",
+            "error": "Sparse attention execution numerical check failed: actual0",
+        }
+    ]
+    observation.write_text(json.dumps(record))
+    rows, report = validated_rows(plan, [observation], identity)
+    assert len(rows) == 1 and report["attempted"] == 2
+    assert report["unqualified"][0]["reason"] == "numerical execution check failed"
+    record["failures"][0]["error"] = "Skipped without execution"
+    observation.write_text(json.dumps(record))
+    with pytest.raises(ValueError, match="failure record"):
+        validated_rows(plan, [observation], identity)
