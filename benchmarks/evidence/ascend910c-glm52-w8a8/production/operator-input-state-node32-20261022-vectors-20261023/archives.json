@@ -1,0 +1,110 @@
+[
+  {
+    "path": "memory/rank-0.jsonl",
+    "archive": "memory/rank-0.jsonl.gz",
+    "sha256": "dc05fe67d3e92a788acf653820cdd890f048c53a3e720b1650d4b453cfd0b72d",
+    "bytes": 2103857
+  },
+  {
+    "path": "memory/rank-1.jsonl",
+    "archive": "memory/rank-1.jsonl.gz",
+    "sha256": "6cdfca594df010ba247c985dab75a5d4d7ef1135d0e4d277d64492761d0e48a5",
+    "bytes": 2103917
+  },
+  {
+    "path": "memory/rank-10.jsonl",
+    "archive": "memory/rank-10.jsonl.gz",
+    "sha256": "92189c4267ed6b7d9a746e0d0be611f4f62a52503f8066f94c1c44159eeacbdb",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-11.jsonl",
+    "archive": "memory/rank-11.jsonl.gz",
+    "sha256": "2ae80f0c182168d3bcf9e642726ebcd08685890ca011105162909bec712767d2",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-12.jsonl",
+    "archive": "memory/rank-12.jsonl.gz",
+    "sha256": "944270eac734b0f747c8ed3ed971a68cb088aa33f6ca0fdf08ba3555ae5c48e4",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-13.jsonl",
+    "archive": "memory/rank-13.jsonl.gz",
+    "sha256": "6dd2414a3c781a8d87487d127f88fcc3d7966702f4b333e78646cac6e4b3c516",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-14.jsonl",
+    "archive": "memory/rank-14.jsonl.gz",
+    "sha256": "61cbe25358323e23710b02637416acd96caf585da63e67bca331c8d4e7132bcb",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-15.jsonl",
+    "archive": "memory/rank-15.jsonl.gz",
+    "sha256": "9f8b2257417f3e1b12c4c49e96d11b77afff25416410f8e843118edad5d32ef6",
+    "bytes": 2113330
+  },
+  {
+    "path": "memory/rank-2.jsonl",
+    "archive": "memory/rank-2.jsonl.gz",
+    "sha256": "c31b6341ff654633d5b74b2fff12f877724d44b8ec140e699b6ce75524ddae41",
+    "bytes": 2103917
+  },
+  {
+    "path": "memory/rank-3.jsonl",
+    "archive": "memory/rank-3.jsonl.gz",
+    "sha256": "9866b36ef5323abb26950bbbcd0f90f353a960cac645198bcfa2abd4250ac464",
+    "bytes": 2103917
+  },
+  {
+    "path": "memory/rank-4.jsonl",
+    "archive": "memory/rank-4.jsonl.gz",
+    "sha256": "13afba1ecaca47f5a1232ef64292b673546ca766d3f850d37e459c6f40c6c6ec",
+    "bytes": 2103917
+  },
+  {
+    "path": "memory/rank-5.jsonl",
+    "archive": "memory/rank-5.jsonl.gz",
+    "sha256": "568c1b00076b758543bc5e521f0917246517ab4fc42abd1a29a73b9684411054",
+    "bytes": 2104037
+  },
+  {
+    "path": "memory/rank-6.jsonl",
+    "archive": "memory/rank-6.jsonl.gz",
+    "sha256": "e420ac9a280ee4e9c6725ae7cd7f63c6c7e20d793a204c66f0b30b55d54896c5",
+    "bytes": 2104037
+  },
+  {
+    "path": "memory/rank-7.jsonl",
+    "archive": "memory/rank-7.jsonl.gz",
+    "sha256": "fbcba71c91ed458669a9689163bdc7bff26964e629dbe2afe14a17508b1ba898",
+    "bytes": 2104037
+  },
+  {
+    "path": "memory/rank-8.jsonl",
+    "archive": "memory/rank-8.jsonl.gz",
+    "sha256": "46b4638d9ace3fa20ae6cd58aa1993b481b0649938906c24526a4e81bac599d4",
+    "bytes": 2104037
+  },
+  {
+    "path": "memory/rank-9.jsonl",
+    "archive": "memory/rank-9.jsonl.gz",
+    "sha256": "4ba0e29fe9093d73072842605e2ed24230e6edd8804af84780ab9540b013a263",
+    "bytes": 2104037
+  },
+  {
+    "path": "npu-before.log",
+    "archive": "npu-before.log.gz",
+    "sha256": "d0f81bde731e9e569bf57bbcbf506a9ac98b10edb34abd90e7315f002ac895e5",
+    "bytes": 8541
+  },
+  {
+    "path": "startup.log",
+    "archive": "startup.log.gz",
+    "sha256": "01bfad9dc6c3193e25478eea471d058e34c9905c9208ab362c6394a2a63b3c2d",
+    "bytes": 225698
+  }
+]

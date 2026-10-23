@@ -1,0 +1,1 @@
+{"pid": 1759, "scope": "state_only_not_performance", "instrumentation_version": 3, "capture_storage": "cloned", "hooks": ["NPUW8A8Int8MoEMethod.apply", "ModelRunner.forward", "NPUGraph.capture_begin", "NPUGraph.replay"]}

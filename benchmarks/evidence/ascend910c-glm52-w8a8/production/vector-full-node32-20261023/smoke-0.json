@@ -1,0 +1,2017 @@
+{
+  "schema": "aisimulate-ascend-vector-observations/v1",
+  "status": "completed",
+  "scope": "Source-matched standalone vector boundaries; synthetic values and warm buffers; not whole-forward accuracy",
+  "plan_sha256": "be8e9dc426902faafb7aec479391ad0bac055ff1107ecc8dba1452c0edcb1157",
+  "collector_source_sha256": {
+    "collector": "4e51e79a1a4b648db9534cbc51b4a90b8d62d5b3fa246be6cbff570aca8d2aa5",
+    "kernels": "d56180dfe2ad46f2a3b751c316a9ddec6d28d8f0364238115a048d8c928e41e5"
+  },
+  "protocol": {
+    "iterations": 16,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "selected_plan_indices": [
+    3,
+    67,
+    131,
+    195,
+    259,
+    323,
+    387,
+    451,
+    515,
+    579,
+    643,
+    707
+  ],
+  "cases": [
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 3,
+      "kernel_source": "sglang.srt.layers.quantization.modelslim.modelslim.npu_wrapper_rmsnorm_forward",
+      "input_signature": {
+        "input": {
+          "shape": [
+            8,
+            6144
+          ],
+          "stride": [
+            6144,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "weight": {
+          "shape": [
+            6144
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "bias": {
+          "shape": [
+            6144
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "residual": null
+      },
+      "output_signature": {
+        "shape": [
+          8,
+          6144
+        ],
+        "stride": [
+          6144,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 2
+      },
+      "checks": [
+        {
+          "sampled_elements": 294912,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 294912,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.0788474977016449,
+        0.07718375325202942,
+        0.07291000336408615,
+        0.07258625328540802,
+        0.0725412517786026,
+        0.07140374928712845,
+        0.07059124857187271
+      ],
+      "wall_samples_ms": [
+        0.10625556205923203,
+        0.08407593759329757,
+        0.07885462491685757,
+        0.07730018660367932,
+        0.07850650035834406,
+        0.07632212509633973,
+        0.07624649970239261
+      ],
+      "latency_ms": 0.07258625328540802,
+      "cv": 0.03862953746209138
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 67,
+      "kernel_source": "sgl_kernel_npu.norm.fused_split_qk_norm.fused_split_qk_norm",
+      "input_signature": {
+        "input": {
+          "shape": [
+            8,
+            2624
+          ],
+          "stride": [
+            2624,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "query_weight": {
+          "shape": [
+            2048
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "query_bias": {
+          "shape": [
+            2048
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key_weight": {
+          "shape": [
+            512
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key_bias": {
+          "shape": [
+            512
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            2048
+          ],
+          "stride": [
+            2048,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            512
+          ],
+          "stride": [
+            512,
+            512,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 125952,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 125952,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.15225750207901,
+        0.1425050050020218,
+        0.142573744058609,
+        0.1407487541437149,
+        0.13947874307632446,
+        0.14093874394893646,
+        0.14000749588012695
+      ],
+      "wall_samples_ms": [
+        0.1622300005692523,
+        0.14830856252956437,
+        0.1475835624660249,
+        0.14677606213808758,
+        0.14505481249216245,
+        0.14655606173619162,
+        0.1450866875529755
+      ],
+      "latency_ms": 0.14093874394893646,
+      "cv": 0.02852749820172467
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 131,
+      "kernel_source": "sgl_kernel_npu.norm.fused_rope_qk_mqa.fused_rope_qk_mqa",
+      "input_signature": {
+        "query": {
+          "shape": [
+            8,
+            32,
+            64
+          ],
+          "stride": [
+            4096,
+            128,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key": {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            128,
+            128,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "cos_sin": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            32,
+            64
+          ],
+          "stride": [
+            2048,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 101376,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 101376,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.11174750328063965,
+        0.10563500225543976,
+        0.10735125094652176,
+        0.10575249791145325,
+        0.10513749718666077,
+        0.10549625009298325,
+        0.10534249991178513
+      ],
+      "wall_samples_ms": [
+        0.12142012474214425,
+        0.11135187560284976,
+        0.11223000001336914,
+        0.11130437451356556,
+        0.11058937434427207,
+        0.11092999920947477,
+        0.11036187515856
+      ],
+      "latency_ms": 0.10563500225543976,
+      "cv": 0.020557222221161874
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 195,
+      "kernel_source": "torch.cat",
+      "input_signature": {
+        "leading": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "trailing": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            128,
+            1
+          ],
+          "storage_offset": 64,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": {
+        "shape": [
+          8,
+          128
+        ],
+        "stride": [
+          128,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 2
+      },
+      "checks": [
+        {
+          "sampled_elements": 6144,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 6144,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.028866250067949295,
+        0.027352500706911087,
+        0.026822499930858612,
+        0.027300000190734863,
+        0.02772749960422516,
+        0.027176249772310257,
+        0.026733750477433205
+      ],
+      "wall_samples_ms": [
+        0.03692662448884221,
+        0.03220662529201945,
+        0.03196600027877139,
+        0.033015375265676994,
+        0.03464287419774337,
+        0.031868499718257226,
+        0.03191974974470213
+      ],
+      "latency_ms": 0.027300000190734863,
+      "cv": 0.024234628793254765
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 259,
+      "kernel_source": "torch.ops.npu.npu_moe_gating_top_k",
+      "input_signature": {
+        "logits": {
+          "shape": [
+            8,
+            256
+          ],
+          "stride": [
+            256,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "bias": {
+          "shape": [
+            256
+          ],
+          "stride": [
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            8
+          ],
+          "stride": [
+            8,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            8
+          ],
+          "stride": [
+            8,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int32",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            256
+          ],
+          "stride": [
+            256,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 768,
+          "max_abs_error": 1.4901161193847656e-08
+        },
+        {
+          "sampled_elements": 768,
+          "max_abs_error": 2.2351741790771484e-08
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.0736050009727478,
+        0.0723937526345253,
+        0.07188499718904495,
+        0.0705225020647049,
+        0.07124374806880951,
+        0.07238875329494476,
+        0.07004375010728836
+      ],
+      "wall_samples_ms": [
+        0.080087813330465,
+        0.07842149989301106,
+        0.07700962487433571,
+        0.07603525045851711,
+        0.07711649959674105,
+        0.07796462432452245,
+        0.0750101871744846
+      ],
+      "latency_ms": 0.07188499718904495,
+      "cv": 0.01576645108864075
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 323,
+      "kernel_source": "torch.Tensor.to",
+      "input_signature": {
+        "input": {
+          "shape": [
+            8,
+            32
+          ],
+          "stride": [
+            32,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.float32",
+          "format": 2
+        }
+      },
+      "output_signature": {
+        "shape": [
+          8,
+          32
+        ],
+        "stride": [
+          32,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 2
+      },
+      "checks": [
+        {
+          "sampled_elements": 1536,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 1536,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.028097499161958694,
+        0.027117500081658363,
+        0.025232499465346336,
+        0.024656249210238457,
+        0.025622500106692314,
+        0.024897500872612,
+        0.025836249813437462
+      ],
+      "wall_samples_ms": [
+        0.03786793695326196,
+        0.032367249332310166,
+        0.03107968768745195,
+        0.03052093779842835,
+        0.03197975001967279,
+        0.03159912466799142,
+        0.031036624932312407
+      ],
+      "latency_ms": 0.025622500106692314,
+      "cv": 0.04466969750729149
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 387,
+      "kernel_source": "torch.Tensor.add_",
+      "input_signature": {
+        "input": {
+          "shape": [
+            8,
+            6144
+          ],
+          "stride": [
+            6144,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "shared": {
+          "shape": [
+            8,
+            6144
+          ],
+          "stride": [
+            6144,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": {
+        "shape": [
+          8,
+          6144
+        ],
+        "stride": [
+          6144,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 2
+      },
+      "checks": [
+        {
+          "sampled_elements": 18432,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 18432,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.01532249990850687,
+        0.015010000206530094,
+        0.01518625020980835,
+        0.014812500216066837,
+        0.014962499961256981,
+        0.01460999995470047,
+        0.017401250079274178
+      ],
+      "wall_samples_ms": [
+        0.0246096251430572,
+        0.021856500097783282,
+        0.019807686840067618,
+        0.019801499547611456,
+        0.020822750229854137,
+        0.01981587502086768,
+        0.022422125766752288
+      ],
+      "latency_ms": 0.015010000206530094,
+      "cv": 0.05694742875446768
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 451,
+      "kernel_source": "sgl_kernel_npu.norm.fused_rope_qk_mqa.fused_rope_qk_mqa",
+      "input_signature": {
+        "query": {
+          "shape": [
+            8,
+            16,
+            64
+          ],
+          "stride": [
+            4096,
+            256,
+            1
+          ],
+          "storage_offset": 192,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key": {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "cos_sin": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            16,
+            64
+          ],
+          "stride": [
+            1024,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 52224,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 52224,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.11636625230312347,
+        0.10699374973773956,
+        0.10690875351428986,
+        0.10577374696731567,
+        0.10787375271320343,
+        0.10555125027894974,
+        0.1071537509560585
+      ],
+      "wall_samples_ms": [
+        0.1702350627965643,
+        0.11268937487329822,
+        0.11294068735878682,
+        0.11112756237707799,
+        0.14035475032869726,
+        0.11105312478321139,
+        0.1395734379912028
+      ],
+      "latency_ms": 0.10699374973773956,
+      "cv": 0.032015668905303656
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 515,
+      "kernel_source": "sgl_kernel_npu.norm.fused_rope_qk_mqa.fused_rope_qk_mqa",
+      "input_signature": {
+        "query": {
+          "shape": [
+            8,
+            8,
+            64
+          ],
+          "stride": [
+            2048,
+            256,
+            1
+          ],
+          "storage_offset": 192,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key": {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "cos_sin": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            8,
+            64
+          ],
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 27648,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 27648,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.11219625174999237,
+        0.10766375064849854,
+        0.1053912490606308,
+        0.10680250078439713,
+        0.10572750121355057,
+        0.3473162353038788,
+        0.1068662479519844
+      ],
+      "wall_samples_ms": [
+        0.12260081257409183,
+        0.11375256235623965,
+        0.11164312491018791,
+        0.11314818766550161,
+        0.11187818745383993,
+        0.3544071878422983,
+        0.1118806876547751
+      ],
+      "latency_ms": 0.1068662479519844,
+      "cv": 0.5925147963683021
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 579,
+      "kernel_source": "sgl_kernel_npu.norm.fused_rope_qk_mqa.fused_rope_qk_mqa",
+      "input_signature": {
+        "query": {
+          "shape": [
+            8,
+            4,
+            64
+          ],
+          "stride": [
+            1024,
+            256,
+            1
+          ],
+          "storage_offset": 192,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "key": {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        "cos_sin": {
+          "shape": [
+            8,
+            64
+          ],
+          "stride": [
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": [
+        {
+          "shape": [
+            8,
+            4,
+            64
+          ],
+          "stride": [
+            256,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        },
+        {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      ],
+      "checks": [
+        {
+          "sampled_elements": 15360,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 15360,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.11418499797582626,
+        0.10928499698638916,
+        0.10610374808311462,
+        0.10731250047683716,
+        0.10625124722719193,
+        0.10890000313520432,
+        0.10553500056266785
+      ],
+      "wall_samples_ms": [
+        0.12319262532400899,
+        0.11486881248856662,
+        0.11180124965903815,
+        0.11258443737460766,
+        0.1110631874325918,
+        0.1134306876338087,
+        0.11072875076933997
+      ],
+      "latency_ms": 0.10731250047683716,
+      "cv": 0.025560256860428256
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 643,
+      "kernel_source": "torch_npu.npu_swiglu",
+      "input_signature": {
+        "input": {
+          "shape": [
+            8,
+            1536
+          ],
+          "stride": [
+            1536,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": {
+        "shape": [
+          8,
+          768
+        ],
+        "stride": [
+          768,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 2
+      },
+      "checks": [
+        {
+          "sampled_elements": 36864,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 36864,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.032979998737573624,
+        0.030889999121427536,
+        0.030734999105334282,
+        0.030397500842809677,
+        0.031671248376369476,
+        0.0299687497317791,
+        0.029861250892281532
+      ],
+      "wall_samples_ms": [
+        0.0395485631088377,
+        0.03607537473726552,
+        0.035673500860866625,
+        0.0354547501046909,
+        0.03627537444117479,
+        0.03588224990380695,
+        0.03529975037963595
+      ],
+      "latency_ms": 0.030734999105334282,
+      "cv": 0.032656800857946595
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager",
+      "plan_index": 707,
+      "kernel_source": "torch_npu.npu_scatter_nd_update_",
+      "input_signature": {
+        "cache": {
+          "shape": [
+            53376,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 30
+        },
+        "indices": {
+          "shape": [
+            8,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.int64",
+          "format": 2
+        },
+        "updates": {
+          "shape": [
+            8,
+            1,
+            64
+          ],
+          "stride": [
+            64,
+            64,
+            1
+          ],
+          "storage_offset": 0,
+          "dtype": "torch.bfloat16",
+          "format": 2
+        }
+      },
+      "output_signature": {
+        "shape": [
+          53376,
+          1,
+          64
+        ],
+        "stride": [
+          64,
+          64,
+          1
+        ],
+        "storage_offset": 0,
+        "dtype": "torch.bfloat16",
+        "format": 30
+      },
+      "checks": [
+        {
+          "sampled_elements": 192,
+          "max_abs_error": 0.0
+        },
+        {
+          "sampled_elements": 192,
+          "max_abs_error": 0.0
+        }
+      ],
+      "execution_verification": "eager_invocation",
+      "samples_ms": [
+        0.024821249768137932,
+        0.02401375025510788,
+        0.02363874949514866,
+        0.02312375046312809,
+        0.02313625067472458,
+        0.023594999685883522,
+        0.022968750447034836
+      ],
+      "wall_samples_ms": [
+        0.033468500078015495,
+        0.028879125238745473,
+        0.029546562473115046,
+        0.028481562367232982,
+        0.028280312108108774,
+        0.02782093724817969,
+        0.02804781252052635
+      ],
+      "latency_ms": 0.023594999685883522,
+      "cv": 0.025323701956250704
+    }
+  ],
+  "runtime": {
+    "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post6",
+    "device": "Ascend910_9382",
+    "host": "npu1-32",
+    "device_index": 0,
+    "driver_version_info": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n",
+    "serving_setup": {
+      "schema": "sglang-runtime-setup/v1",
+      "environment": {
+        "DEEPEP_HCCL_BUFFSIZE": null,
+        "GLOO_SOCKET_IFNAME": "bond4",
+        "HCCL_ALGO": null,
+        "HCCL_BUFFSIZE": "650",
+        "HCCL_DETERMINISTIC": null,
+        "HCCL_OP_EXPANSION_MODE": null,
+        "HCCL_SOCKET_IFNAME": "bond4",
+        "PYTORCH_NPU_ALLOC_CONF": "expandable_segments:True",
+        "SGLANG_DEEPEP_NUM_MAX_DISPATCH_TOKENS_PER_RANK": "32",
+        "SGLANG_ENABLE_OVERLAP_PLAN_STREAM": "1",
+        "SGLANG_NPU_USE_MULTI_STREAM": "1",
+        "SGLANG_SET_CPU_AFFINITY": "1",
+        "STREAMS_PER_DEVICE": "32",
+        "TASK_QUEUE_ENABLE": "0"
+      },
+      "environment_scope": "Launcher exports, verified against run-united.sh; worker proctitle can obscure /proc/environ.",
+      "worker_cpu_affinity": {
+        "0": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339
+        ],
+        "1": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359
+        ],
+        "2": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379
+        ],
+        "3": [
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          399
+        ],
+        "4": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419
+        ],
+        "5": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          420,
+          421,
+          422,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428,
+          429,
+          430,
+          431,
+          432,
+          433,
+          434,
+          435,
+          436,
+          437,
+          438,
+          439
+        ],
+        "6": [
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          440,
+          441,
+          442,
+          443,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459
+        ],
+        "7": [
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          478,
+          479
+        ],
+        "8": [
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          480,
+          481,
+          482,
+          483,
+          484,
+          485,
+          486,
+          487,
+          488,
+          489,
+          490,
+          491,
+          492,
+          493,
+          494,
+          495,
+          496,
+          497,
+          498,
+          499
+        ],
+        "9": [
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          509,
+          510,
+          511,
+          512,
+          513,
+          514,
+          515,
+          516,
+          517,
+          518,
+          519
+        ],
+        "10": [
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          520,
+          521,
+          522,
+          523,
+          524,
+          525,
+          526,
+          527,
+          528,
+          529,
+          530,
+          531,
+          532,
+          533,
+          534,
+          535,
+          536,
+          537,
+          538,
+          539
+        ],
+        "11": [
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          540,
+          541,
+          542,
+          543,
+          544,
+          545,
+          546,
+          547,
+          548,
+          549,
+          550,
+          551,
+          552,
+          553,
+          554,
+          555,
+          556,
+          557,
+          558,
+          559
+        ],
+        "12": [
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          560,
+          561,
+          562,
+          563,
+          564,
+          565,
+          566,
+          567,
+          568,
+          569,
+          570,
+          571,
+          572,
+          573,
+          574,
+          575,
+          576,
+          577,
+          578,
+          579
+        ],
+        "13": [
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          580,
+          581,
+          582,
+          583,
+          584,
+          585,
+          586,
+          587,
+          588,
+          589,
+          590,
+          591,
+          592,
+          593,
+          594,
+          595,
+          596,
+          597,
+          598,
+          599
+        ],
+        "14": [
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          600,
+          601,
+          602,
+          603,
+          604,
+          605,
+          606,
+          607,
+          608,
+          609,
+          610,
+          611,
+          612,
+          613,
+          614,
+          615,
+          616,
+          617,
+          618,
+          619
+        ],
+        "15": [
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          620,
+          621,
+          622,
+          623,
+          624,
+          625,
+          626,
+          627,
+          628,
+          629,
+          630,
+          631,
+          632,
+          633,
+          634,
+          635,
+          636,
+          637,
+          638,
+          639
+        ]
+      },
+      "scope": "Observed United16-workers/node; not an inferred NUMA policy.",
+      "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
+      "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
+    },
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      320,
+      321,
+      322,
+      323,
+      324,
+      325,
+      326,
+      327,
+      328,
+      329,
+      330,
+      331,
+      332,
+      333,
+      334,
+      335,
+      336,
+      337,
+      338,
+      339
+    ]
+  }
+}

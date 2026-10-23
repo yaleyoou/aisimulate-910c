@@ -701,6 +701,14 @@
           "scope": "collection",
           "sha256": "451a8d68f09d276b932b0a46d97660ea23866afda720421ba3e545fe91a83e18"
         },
+        "current_instrumented_memory": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory-report.json",
+          "scope": "collection",
+          "sha256": "c86951361f7c5e723f8705a14713e12e72184c276b3331a26bdd866ad971ea48"
+        },
         "current_operator_input_report": {
           "archived": true,
           "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
@@ -708,6 +716,38 @@
           "path": "production/operator-input-state-node31-20261022-attempt2/report.json",
           "scope": "collection",
           "sha256": "0c4d1fee009483f5e91a7d0b0f1cfa39d8410222c357fb4166b50ad87932ed59"
+        },
+        "current_vector_inputs": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/operator-input-state-node32-20261022-vectors-20261023-attempt2/vector-state-report.json",
+          "scope": "collection",
+          "sha256": "1dad3d930aeabb1d3d3ac766c4b9276ee7129dc83e7170ed8d41099cf45a5cc2"
+        },
+        "current_vector_native_validation": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/vector-full-node32-20261023/native-validation.json",
+          "scope": "validation",
+          "sha256": "c8053b98d12c2f325299497022ad7191acedc780abf6488f022929ba531d5cd2"
+        },
+        "current_vector_provenance": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/vector-published-20261023/provenance.json",
+          "scope": "collection",
+          "sha256": "2a92236beb12f7fe088b467cf737b52cef715a2eb0ca21a80423f218f42cd8be"
+        },
+        "current_vector_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/vector-published-20261023/ascend_vector_perf.parquet",
+          "scope": "collection",
+          "sha256": "98776f98f8877781b7a5f2b9c557718beb31373a2ce8fe33f5714b8df6e2a8c5"
         },
         "hccl_gpu_regression": {
           "archived": true,
@@ -1191,6 +1231,13 @@
       "validation": "7native+14collector+13queryversiontests pass;390GPUparitypassafterseparatingAscend0.5.22versiondomain. Source/lintchecks pass.",
       "version_fix": "InstallingAscenddatahadpromotedCUDAfleetnextto0.5.22andbroke6GPUversion-gatecases. Addedexistingper-systemoverrideascend910c/sglang=current0.5.22;CUDAfleetunchanged. No golden changes."
     },
+    "ascend_vector_adapter": {
+      "publication": "768cases,765stable,3CVexcluded;17graph-noop controls rejected;allactualnumericalchecks pass. Frozenvector-published-20261023 andstandardvector/sglang/0.5.22.",
+      "scope": "17logicalroles/24physicalgeometries;BF16normbias,FP32indexernorm,stridedRoPE,INT64eager/INT32graphcacheindices. Cachewritegridusesdistinctvalidslots,notduplicatepaddingwrites. Wholemodelandinterpolationaccuracyuncalibrated.",
+      "source_commit": "bd6f41f5",
+      "status": "765_qualified_rows_published_primitive_complete_model_composition_pending",
+      "validation": "765nativeexactquerieszeroerror;4Rust+22wire+17Python/API+390GPUparitypass112.32s. NativeSHA539802dc5399caa9ca9519717b3f151bbb2c92fea5f2242e9efa4fba31d91c85. Ruffcheckpass;measuredcollector retains one formatting-only difference to preserve exact source bytes."
+    },
     "basis": {
       "confidence": "high",
       "sources": [
@@ -1230,6 +1277,11 @@
       "source": "Unchanged replay-verified asc_hccl v3; pinned image and driver26.1.1 on both nodes; source/setup frozen and cross-checked.",
       "status": "published_selected_and_verified_partial_payload_coverage",
       "validation": "Installed ascend910c.yaml misc.hccl_version resolves the new table;385exact native queries pass.390GPUparity tests pass in117.54s. No native code or golden changes for this stage."
+    },
+    "current_vector_input_state": {
+      "evidence": "107requests,288rankforwardrecords,currentmodel41795173,graph8/16/24/32.16rankstartupmemoryvalidated,usableKV53248. C4firsthealthrecordexcluded;startupgraphmemoryincludesobserverallocations. Firstattempthealthtimeoutpreserved;Python3.9socket.timeout handling fixed.",
+      "source_commit": "75584894",
+      "status": "complete"
     },
     "device_probe": {
       "bf16_matmul_device0_passed": true,
@@ -1288,6 +1340,12 @@
     },
     "execution_nodes_20261023": {
       "active_jobs": [],
+      "authorized_next_nodes": [
+        "npu1-32",
+        "npu1-19"
+      ],
+      "node19": "Userreauthorized19after31occupied;checkedNPUidle,driver26.1.1/HAL7.35.23. Existingxqcontaineronlysleep/bash. /mnt/raid/.../glm-qabsent;othercontainerROmodelmountat/data_lib/data/models/glm-qnotyetidentityqualified.",
+      "node31": "Other service occupiesall16chips. Firststart14:43:48CSTafterourHCCLfinished14:06;Docker event timelinechecked. Existingserviceuntouched.",
       "services": "Both HCCL task containers stopped after successful completion. Original serving services remain as found; no service was started for this campaign."
     },
     "git_stage_policy": {
@@ -1387,6 +1445,11 @@
       "max_req_input_len": 52986,
       "max_running_requests_per_attention_dp": 32,
       "page_size": 128
+    },
+    "large_hccl_payloads": {
+      "directory": "production/hccl-large-local-node32-20261023",
+      "result": "64/64stableandnumericallycorrect;2/4/8/16ranks,192/384MiB,eager/graph;neededfortwoDPprefilldenseM16384.",
+      "status": "collected_not_yet_merged"
     },
     "late_state_commit": "e095a871: complete late decode routing at output900+ for8192/1024 workloads; peer recording service stopped and original local service preserved.",
     "latest_runtime": {
@@ -1608,7 +1671,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 43,
+  "revision": 44,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

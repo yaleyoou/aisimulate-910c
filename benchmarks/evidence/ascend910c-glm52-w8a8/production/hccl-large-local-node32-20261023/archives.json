@@ -1,0 +1,32 @@
+[
+  {
+    "path": "hccl-16.log",
+    "archive": "hccl-16.log.gz",
+    "sha256": "465be889cb6a40731a15768391890bc5859bb4d84fae9362286ca7195a7d6e52",
+    "bytes": 13202
+  },
+  {
+    "path": "hccl-2.log",
+    "archive": "hccl-2.log.gz",
+    "sha256": "0e2e676861345c8eb8954e26fec3636d38e088e2e912bd038a173cd9a3b1751c",
+    "bytes": 7352
+  },
+  {
+    "path": "hccl-4.log",
+    "archive": "hccl-4.log.gz",
+    "sha256": "aee556e93268ad01b935b9394484abc74a3bd207b6765f03583be503d109b434",
+    "bytes": 8178
+  },
+  {
+    "path": "hccl-8.log",
+    "archive": "hccl-8.log.gz",
+    "sha256": "7d16e91ee68e8c0c9eae75cbffcc36f1ef27602c112506e8ee1491c5c3e21d0e",
+    "bytes": 9840
+  },
+  {
+    "path": "npu-before.log",
+    "archive": "npu-before.log.gz",
+    "sha256": "7ed9b3699538fffeef08391d4288ad701e19494d7dda592dafa9211f15980056",
+    "bytes": 8541
+  }
+]

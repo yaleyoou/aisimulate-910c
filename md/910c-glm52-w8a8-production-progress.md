@@ -2,6 +2,28 @@
 
 ## 当前优先级：先可用，再校准
 
+最新节点安排：用户允许31被占用时改用19，当前后续双节点工作使用 **32＋19**。
+19实测驱动已是26.1.1、16个NPU空闲；其现有容器仅运行sleep/bash。
+31的新服务最早于2026-10-23 14:43:48启动，晚于HCCL采集14:06结束，未污染此前数据。
+
+向量算子阶段代码已提交 `bd6f41f5`，实际输入观察代码提交 `75584894`。
+768个计时case全部通过执行正确性检查，765条稳定、3条计时波动排除；
+17类graph-noop负对照均成功检出。765个Rust原生查询与表一致，4项Rust行为测试、
+22项wire测试、17项Python/API测试和390项GPU回归通过。
+范围包括带bias RMSNorm、fused Q/K norm、FP32 indexer LayerNorm、RoPE、
+cache写入、SwiGLU、top-k、embedding、cast、concat和MoE输出scale/add。
+cache写入当前测量独立有效位置，padding重复写slot0的影响尚未单独校准。
+
+当前模型新增107个请求的实际输入记录，共288份rank/forward，覆盖decode graph 8/16/24/32。
+确认LM head的实际BF16 matmul、prefill INT64/decode INT32 cache索引、FP32 indexer norm、
+带bias归一化和实际非连续RoPE视图。16个rank的启动内存记录验证通过，KV可用容量53248。
+插桩内存含观察器开销，仍不能直接当作所有并行配置的常驻内存公式。
+一次健康检查超时失败和C4首轮健康检查记录均保留，后者已从工作负载摘要中排除。
+
+两attention-DP同时prefill会使dense MLP达到16384行，需要192MiB通信载荷；
+因此补测单机2/4/8/16rank、192/384MiB的64个HCCL用例，全部稳定且数值正确。
+目前仍在完成这些补充数据的合并、MoE/DeepEP及整模型/PD/搜索接入。
+
 当前31↔32通信补采已完成：两个节点驱动均为26.1.1，分别测试每节点8个rank和16个rank，
 对应16-rank、32-rank跨节点组。160个case全部完成实际执行的前后全量数值校验，
 107条稳定、53条CV超过10%而保留为不合格计时。与同镜像、同驱动、同协议的32节点

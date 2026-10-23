@@ -1,0 +1,11 @@
+{
+  "status": "failed",
+  "container": "aisim-current-inputs-20261022-vectors-20261023",
+  "cases": [],
+  "scope": "Operator/routing metadata and instrumented startup memory; not performance",
+  "request_source_sha256": {
+    "ascend_state_requests.py": "1e237737ea83a217990e84224910cca2c6145df7db280a8e9fdd8283e8dd7846",
+    "ascend_state_sweep.py": "9f8d670425f53f0edf6ff191122e33837d25099d560995444bee3bd0b6a5356a"
+  },
+  "error": "timeout: timed out"
+}

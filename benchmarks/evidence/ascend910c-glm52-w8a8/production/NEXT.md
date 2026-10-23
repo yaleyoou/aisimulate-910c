@@ -1,5 +1,26 @@
 # Current goal handoff
 
+## Latest: vector complete; switch future peer to19
+
+User: firstfunctionality,accuracydeferred;now31occupied,19reauthorized,finishcurrentadaptation.
+19rootPTY89706:16NPUsidle,driver26.1.1 nowmatches32. Existingxqcontaineronlysleep/bash,
+do nottouchit. Model/mnt/raidpathabsent;othercontainerhasRO/data_lib/data/models/glm-q,
+notyetfingerprinted.31rootPTY47855othermodeloccupies16chips;firstDockerstart14:43:48CST,
+afterourHCCLfinished14:06,sooldcurrent31/32dataclean.32rootPTY24914.
+Vector sourcebd6f41f5,observer75584894.768cases765stable3excluded;17negativecontrols
+rejected;765nativequeriesexact;4Rust22wire17Python/API390GPUparitypass112.32s.
+Native539802dc5399caa9ca9519717b3f151bbb2c92fea5f2242e9efa4fba31d91c85 inCPUcontainer.
+Frozenvector-published-20261023 andinstalledvector/sglang/0.5.22.
+Actualvectorstate107requests288rankforwards,graph8/16/24/32;16rankmemoryvalidatedKV53248.
+Source/evidenceoperator-input-state-node32-20261022-vectors-20261023-attempt2;
+firstattempthealthsocket.timeoutPython3.9failurepreserved,C4firsthealthrecordexcluded.
+Observergraphmemoryincludescountcopies. Directnormbiascalls werenothooked;sourceaudited.
+AllownNPUtasksstopped. Newhccl-large-local-node32-20261023 completed64stablecases
+192/384MiB2/4/8/16ranks;mergewith385currentlyinstalledusingnewprovenancekeywithout
+overwritingfrozenregisteredtable. No PDhandoffqualificationyet.
+NextpriorityMoE/DeepEP actualeager+graphchecks,thenactualmodelcomposition/memory/PD/search.
+Attentionstillneedsbatchbuckets9,17,25endpoints,prefillM8,eager32-widecasesforanyfullsearch.
+
 ## Latest after resumption: current-node HCCL published and selected
 
 HCCL31/32 campaigns bothcompleted,taskcontainersstopped.160newcases allnumericalchecks

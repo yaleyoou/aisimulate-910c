@@ -14,6 +14,15 @@ measured token brackets. Five unstable measurements are excluded and retained
 in provenance. Missing curves and out-of-bracket queries fail explicitly.
 
 This is **partial operator support**, not a complete GLM prediction database.
+The vector family adds 765 stable observations from 768 cases under
+`vector/sglang/0.5.22/ascend_vector_perf.parquet`. It distinguishes 17 logical
+boundaries and 24 physical geometries, including ModelSlim normalization bias,
+FP32 indexer LayerNorm, strided RoPE and format-30 cache writes. All numerical
+checks pass; 17 no-op graph controls fail as expected. Native queries reproduce
+every published row. Cache indices use INT64 in eager and INT32 in graph mode;
+the current grid writes distinct valid slots and does not separately qualify
+repeated sentinel writes. Three unstable timings remain in provenance.
+
 The attention family also contains 505 qualified measurements from 528 attempts
 under `attention/sglang/0.5.22/ascend_attention_perf.parquet`. It covers the
 BF16 lightning indexer and sparse attention, with exact local-head and
