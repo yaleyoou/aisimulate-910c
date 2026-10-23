@@ -135,6 +135,11 @@ collector.sglang.ascend_deepep:
   - collector/sglang/ascend_deepep_export.py
   - collector/cases/base_ops/ascend_deepep.yaml
   - collector/cases/models/GlmMoeDsaForCausalLM_cases.yaml
+collector.sglang.ascend_pd:
+  - collector/sglang/ascend_pd_cases.py
+  - collector/sglang/ascend_pd_export.py
+  - collector/cases/base_ops/ascend_pd.yaml
+  - collector/cases/models/GlmMoeDsaForCausalLM_cases.yaml
 
 collector.sglang.ascend_moe_chain:
   - collector/sglang/ascend_moe_chain_cases.py

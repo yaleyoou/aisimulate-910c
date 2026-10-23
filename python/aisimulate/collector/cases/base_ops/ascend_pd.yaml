@@ -1,0 +1,9 @@
+schema_version: 1
+op: ascend_pd
+description: Source-qualified single-request Ascend MemFabric KV handoff.
+common_case_values:
+  ascend_pd:
+    token_counts: [128, 1024, 4096, 8192, 16384]
+    page_layouts: [contiguous, fragmented]
+    warmup: 3
+    repeats: 7

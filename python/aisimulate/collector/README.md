@@ -814,6 +814,28 @@ The collective and LM-head multiplication remain separate measurements. The
 existing `router_topk` measurement already includes its BF16-to-FP32 input
 conversion; do not count a second router cast.
 
+`ascend_pd_cases.py` and `ascend_pd.py` collect isolated request handoffs with
+the installed MemFabric1.2.1 SDMA implementation. They use the real
+`NPUMLATokenToKVPool` factory (`hardware_backend/npu/memory_pool_npu.py:579,851`)
+and MLA rank mapping (`disaggregation/common/conn.py:1269-1348`) at the pinned
+SGLang revision. The source request goes through
+`AscendKVManager.register_buffer_to_engine` and `send_kvcache`
+(`disaggregation/ascend/conn.py:127-142,272-405`). Only the transfer-facing
+manager fields are populated: PP1/DCP1, MLA, no hybrid cache, the actual buffer
+addresses/strides, and the framework-selected allocator policy. Control-plane
+bootstrap and request admission are outside the measured boundary.
+
+The reference pool has53248 usable tokens plus one128-token sentinel page,
+78 layers and three BF16 components of widths512/64/128. Source and destination
+attention TP4/8 mappings are separate keys. A source sends to each assigned
+destination sequentially, as in the transfer worker; independent source ranks
+run concurrently. All32 participants exist even when only one DP group's
+request is active. The collector records the actual mapping and full wire-byte
+count, and hashes every transferred byte on every receiving replica before
+and after timing. A no-transfer control must fail. Continuous pages and seeded
+fully fragmented pages have separate identities. These observations do not
+model contention between distinct requests or metadata/bootstrap latency.
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.
