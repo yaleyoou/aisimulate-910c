@@ -1,6 +1,7 @@
 """Check collected HCCL rows through the existing native engine/spec interface."""
 
 import argparse
+import hashlib
 import json
 import pathlib
 import shutil
@@ -20,18 +21,21 @@ def main():
     root = pathlib.Path(__file__).resolve().parent
     parser = argparse.ArgumentParser()
     parser.add_argument("--table-dir", type=pathlib.Path, default=root / "hccl-peer-qualified-20261022")
+    parser.add_argument("--use-installed-system", action="store_true")
     args = parser.parse_args()
     table_root = args.table_dir
     rows = parquet.read_table(table_root / "hccl_perf.parquet").to_pylist()
     with tempfile.TemporaryDirectory() as temporary:
-        systems = pathlib.Path(temporary)
-        spec = yaml.safe_load((root.parents[3] / "python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml").read_text())
-        spec["misc"]["hccl_version"] = "peer-test"
-        (systems / "ascend910c.yaml").write_text(yaml.safe_dump(spec))
-        destination = systems / "data/ascend910c/comm/hccl/peer-test"
-        destination.mkdir(parents=True)
-        shutil.copyfile(table_root / "hccl_perf.parquet", destination / "hccl_perf.parquet")
-        (systems / "data/ascend910c/sglang/0.5.22").mkdir(parents=True)
+        installed_systems = root.parents[3] / "python/aisimulate/src/aisimulate_core/systems"
+        systems = installed_systems if args.use_installed_system else pathlib.Path(temporary)
+        if not args.use_installed_system:
+            spec = yaml.safe_load((installed_systems / "ascend910c.yaml").read_text())
+            spec["misc"]["hccl_version"] = "peer-test"
+            (systems / "ascend910c.yaml").write_text(yaml.safe_dump(spec))
+            destination = systems / "data/ascend910c/comm/hccl/peer-test"
+            destination.mkdir(parents=True)
+            shutil.copyfile(table_root / "hccl_perf.parquet", destination / "hccl_perf.parquet")
+            (systems / "data/ascend910c/sglang/0.5.22").mkdir(parents=True)
         engine_spec = {
             "schema_version": _runtime.engine_spec_schema_version(),
             "engine": {
@@ -57,7 +61,10 @@ def main():
             actual = values[0][1]
             assert abs(actual - row["latency_ms"]) <= 1e-12, (operation, actual, row["latency_ms"])
             checked += 1
-        print(json.dumps({"checked_measured_rows": checked, "status": "passed", "native_binary": _runtime.__file__}))
+        print(json.dumps({"checked_measured_rows": checked, "status": "passed", "native_binary": _runtime.__file__,
+                          "native_binary_sha256": hashlib.sha256(pathlib.Path(_runtime.__file__).read_bytes()).hexdigest(),
+                          "table_sha256": hashlib.sha256((table_root / "hccl_perf.parquet").read_bytes()).hexdigest(),
+                          "uses_installed_hardware_selector": args.use_installed_system}))
 
 
 if __name__ == "__main__":

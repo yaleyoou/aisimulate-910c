@@ -19,4 +19,5 @@ node:
   intra_node_bw: 130673385019
   p2p_latency: 0.00001328329980375
 
-misc: {}
+misc:
+  hccl_version: 9.1.0-b243-drv26.1.1-nodes31-32-v3

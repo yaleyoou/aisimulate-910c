@@ -1,5 +1,18 @@
 # Current goal handoff
 
+## Latest after resumption: current-node HCCL published and selected
+
+HCCL31/32 campaigns bothcompleted,taskcontainersstopped.160newcases allnumericalchecks
+pass;107stable,53CVexcluded. Combinedwith278oldlocal32rows(samesource/image/driver/protocol)
+gives385stable/480attempted. No node19relabeling. Frozenhccl-node31-node32-20261023/published.
+Installedcomm/hccl/9.1.0-b243-drv26.1.1-nodes31-32-v3;ascend910c.yaml nowselects it.
+385nativequeriesusinginstalledYAMLpass;390GPUparitypass117.54s. Runtimebinary stilld60599aa.
+Hardwareinputchangedonlymisc.hccl_version;oldYAMLsnapshot preserved. Checkpoint42rebaselined
+source identity,archivedhistorical collection/validationrefs,andregisteredcurrent4tables/provenance.
+Formalprofile remainsunaccepted/stage2. Fullmodelcomposition/PD/search stillincomplete.
+GoalUIwaspausedbutlatestuserexplicitlysaidcontinue;continueauthorizedwork(toolcannotresumeit).
+Nextvector/norm/RoPE/cache andMoE/DeepEP. Node32rootPTY24914;31rootPTY47855.
+
 ## Latest: BMM complete; current-node HCCL running
 
 BMM source30ab4198,222cases/220stable/2CVexcluded. Allactualexecutionchecks pass,

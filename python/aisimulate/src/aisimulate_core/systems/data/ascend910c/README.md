@@ -25,6 +25,18 @@ Prefill currently supports one request; intermediate decode batches require
 measured brackets within their capture bucket. Missing coverage fails explicitly.
 These results qualify table loading and execution, not whole-model accuracy.
 
+`misc.hccl_version` now selects `9.1.0-b243-drv26.1.1-nodes31-32-v3`.
+Its 385 qualified rows combine 278 single-node npu1-32 observations with 107
+new npu1-31/npu1-32 measurements. The latter cover 16 ranks with 8 per node and
+32 ranks with 16 per node. Both nodes use driver 26.1.1 and the same pinned image,
+collector and serving setup. All 160 new cases pass full-payload numerical checks
+before and after actual eager/captured execution; 53 unstable cases remain in
+provenance. The combined 480 attempts include 95 unstable observations.
+Native queries using the installed YAML reproduce all 385 published rows.
+Some small eager payloads, especially in the 32-rank group, lack measured
+brackets and fail explicitly. These are collective measurements; actual PD KV
+transport, packing and overlap still require separate integration.
+
 The MLA BMM family contains 220 qualified rows from 222 attempts under
 `mla_bmm/sglang/0.5.22/ascend_bmm_perf.parquet`. Query BMM preserves the strided
 192-wide view within each 256-wide head and the transposed BF16 key weight.

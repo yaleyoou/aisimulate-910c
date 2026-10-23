@@ -1,0 +1,214 @@
+{
+  "artifacts": {
+    "ascend910c_system_yaml": {
+      "archived": true,
+      "path": "production/hccl-node31-node32-20261023/hardware-before-hccl-selection.yaml"
+    },
+    "ascend910c_system_yaml_current": {
+      "path": "../../../python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "research": {
+    "current_nodes_hccl": {
+      "status": "collected_and_selected_validation_in_progress",
+      "publication": "160 new cross-node cases completed;107stable,53CVexcluded. Combined with278previous single-node32 measurements under identical source,image,driver and protocol;385/480stable rows selected by misc.hccl_version. No PD transport qualification.",
+      "next_action": "Verify installed YAML routing, preserve validation and publication evidence, then continue vector/MoE/DeepEP and model composition."
+    },
+    "hardware_definition_hccl": {
+      "change": "Only misc.hccl_version is added; compute, memory and link coefficients unchanged. Historical hardware snapshot retained.",
+      "checkpoint_context": "Historical collection/validation references archived because the hardware input digest changed. Current measured operator tables re-registered with their immutable provenance. No direct-FPM acceptance is claimed."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "attention_campaign": {
+          "archived": true
+        },
+        "attention_native_validation": {
+          "archived": true
+        },
+        "attention_provenance": {
+          "archived": true
+        },
+        "attention_table": {
+          "archived": true
+        },
+        "bmm_native_validation": {
+          "archived": true
+        },
+        "bmm_provenance": {
+          "archived": true
+        },
+        "bmm_table": {
+          "archived": true
+        },
+        "captured_event_capability": {
+          "archived": true
+        },
+        "collector_tests": {
+          "archived": true
+        },
+        "cross_host_operator_controls": {
+          "archived": true
+        },
+        "current_operator_input_report": {
+          "archived": true
+        },
+        "hccl_gpu_regression": {
+          "archived": true
+        },
+        "hccl_graph_verification_correction": {
+          "archived": true
+        },
+        "hccl_group_options_probe": {
+          "archived": true
+        },
+        "hccl_native_control_rows": {
+          "archived": true
+        },
+        "hccl_v3_archive_seal": {
+          "archived": true
+        },
+        "hccl_v3_dual_provenance": {
+          "archived": true
+        },
+        "hccl_v3_local_provenance": {
+          "archived": true
+        },
+        "hccl_v3_peer_provenance": {
+          "archived": true
+        },
+        "hccl_v3_validation": {
+          "archived": true
+        },
+        "initialized_memory_report": {
+          "archived": true
+        },
+        "isolated_attention_validation": {
+          "archived": true
+        },
+        "isolated_quant_validation": {
+          "archived": true
+        },
+        "kv_layout_reconciliation": {
+          "archived": true
+        },
+        "late_decode_state": {
+          "archived": true
+        },
+        "linear_initial_holdout_report": {
+          "archived": true
+        },
+        "linear_initial_plan": {
+          "archived": true
+        },
+        "linear_initial_provenance": {
+          "archived": true
+        },
+        "linear_initial_table": {
+          "archived": true
+        },
+        "linear_mixed_provenance": {
+          "archived": true
+        },
+        "linear_mixed_table": {
+          "archived": true
+        },
+        "linear_node_controls": {
+          "archived": true
+        },
+        "local_reference_campaign": {
+          "archived": true
+        },
+        "modelslim_normalization": {
+          "archived": true
+        },
+        "moe_compute_protocol_raw": {
+          "archived": true
+        },
+        "moe_compute_protocol_validation": {
+          "archived": true
+        },
+        "operator_delivery": {
+          "archived": true
+        },
+        "production_foundation_validation": {
+          "archived": true
+        },
+        "real_moe_state_grid": {
+          "archived": true
+        },
+        "runtime_topology_constraints": {
+          "archived": true
+        },
+        "serving_operator_validation": {
+          "archived": true
+        },
+        "state_capture_tests": {
+          "archived": true
+        },
+        "unprofiled_serving_control_raw": {
+          "archived": true
+        },
+        "unprofiled_serving_control_report": {
+          "archived": true
+        },
+        "verified_peer_checkpoint": {
+          "archived": true
+        },
+        "current_20261023_linear_table": {
+          "path": "production/linear-mixed-published-20261022/ascend_linear_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_linear_provenance": {
+          "path": "production/linear-mixed-published-20261022/provenance.json",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_attention_table": {
+          "path": "production/attention-published-20261023/ascend_attention_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_attention_provenance": {
+          "path": "production/attention-published-20261023/provenance.json",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_bmm_table": {
+          "path": "production/bmm-published-20261023/ascend_bmm_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_bmm_provenance": {
+          "path": "production/bmm-published-20261023/provenance.json",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_hccl_table": {
+          "path": "production/hccl-node31-node32-20261023/published/hccl_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "current_20261023_hccl_provenance": {
+          "path": "production/hccl-node31-node32-20261023/published/provenance.json",
+          "kind": "file",
+          "scope": "collection"
+        }
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": [
+          "Guided direct-FPM init is vLLM-only; authorized operator-level SGLang/Ascend integration proceeds separately.",
+          "Canonical Ascend GLM composition, vector/MoE/DeepEP coverage, full resident memory and PD transport/search remain incomplete."
+        ],
+        "next_action": "Complete functional collection and canonical operator composition, then PD/search; defer prediction-accuracy tuning."
+      }
+    }
+  }
+}

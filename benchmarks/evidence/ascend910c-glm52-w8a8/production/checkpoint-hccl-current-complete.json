@@ -1,0 +1,19 @@
+{
+  "research": {
+    "current_nodes_hccl": {
+      "status": "published_selected_and_verified_partial_payload_coverage",
+      "publication": "385 qualified rows from480attempts:278previous local32 plus107new cross31/32. New160cases all pass numerical checks,53CVexcluded. Same image,source,driver26.1.1 and protocol; no node19 rows reused as new31 data.",
+      "validation": "Installed ascend910c.yaml misc.hccl_version resolves the new table;385exact native queries pass.390GPUparity tests pass in117.54s. No native code or golden changes for this stage.",
+      "coverage_limits": "32rank eager small-message endpoints remain incomplete. Missing measured brackets fail explicitly. These HCCL collective observations do not qualify PD KV transport.",
+      "next_action": "Source-qualified vector/norm/RoPE/cache and MoE/DeepEP data; canonical full-model composition, resident memory and PD/parallel search."
+    },
+    "execution_nodes_20261023": {"active_jobs": [], "services": "Both HCCL task containers stopped after successful completion. Original serving services remain as found; no service was started for this campaign."}
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "current_20261023_hccl_native_validation": {"path": "production/hccl-node31-node32-20261023/native-validation.json", "kind": "file", "scope": "validation"}
+      }
+    }
+  }
+}

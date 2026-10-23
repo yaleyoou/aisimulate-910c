@@ -1,0 +1,21 @@
+{
+  "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "cann_hccl_build": "9.1.0.B243",
+  "collector_source_sha256": "11632a2674b0bc8be382682d82da81c2ffffe9f66ef1f5eeeec102a8f7f6ba43",
+  "hardware": {
+    "device": "Ascend910_9382",
+    "runtime_chips_per_node": 16,
+    "rank_layout": "contiguous"
+  },
+  "observation_schema": "aisimulate-hccl-observations/v3",
+  "driver_versions": {
+    "npu1-31": "26.1.1",
+    "npu1-32": "26.1.1"
+  },
+  "scope": "Single-node groups on npu1-32 plus measured npu1-31/npu1-32 two-node groups; HCCL collectives only, not PD KV transfer. Same pinned image/source/driver/protocol as original local measurements.",
+  "driver_version_info": {
+    "npu1-31": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n",
+    "npu1-32": "Version=26.1.1\nascendhal_version=7.35.23\naicpu_version=1.0\ntdt_version=1.0\nlog_version=1.0\nprof_version=2.0\ndvppkernels_version=1.1\ntsfw_version=1.0\nInnerversion=V100R001C10SPC009B220\ncompatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]\ncompatible_version_fw=[7.0.0,9.9.9]\npackage_version=26.1.1\n"
+  }
+}
