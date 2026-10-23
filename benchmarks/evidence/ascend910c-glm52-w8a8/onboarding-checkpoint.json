@@ -773,6 +773,38 @@
           "scope": "collection",
           "sha256": "98776f98f8877781b7a5f2b9c557718beb31373a2ce8fe33f5714b8df6e2a8c5"
         },
+        "deepep_coverage": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/deepep64-published-20261024/coverage.json",
+          "scope": "collection",
+          "sha256": "c62e80d7340a2a9626982747cd41b761b1c55bba59df6043070085e069466dc3"
+        },
+        "deepep_native": {
+          "archived": false,
+          "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
+          "kind": "file",
+          "path": "production/deepep64-published-20261024/native-validation.json",
+          "scope": "validation",
+          "sha256": "2e0105296678785ee1d85de65ed8eee80e13ba9b07902b8588ecb3af27292d7b"
+        },
+        "deepep_provenance": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/deepep64-published-20261024/provenance.json",
+          "scope": "collection",
+          "sha256": "83cd8920dceb37682dd8b14b25f65884f320a019d3c5f84e7bcf7f83ed814e37"
+        },
+        "deepep_table": {
+          "archived": false,
+          "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
+          "kind": "file",
+          "path": "production/deepep64-published-20261024/ascend_deepep_perf.parquet",
+          "scope": "collection",
+          "sha256": "ed1dc6e355bd0042de4b32f1057f186ffa9ced114ec92b77c51283b6dda1f7a5"
+        },
         "global32_linear_native": {
           "archived": false,
           "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
@@ -1287,6 +1319,16 @@
       "status": "primitive_and_220_qualified_rows_published_model_composition_pending",
       "validation": "220 exact native queries zero error;4Rust,22wire,5collector,11API,390GPUparity pass. Native SHAd60599aaccf0a0b9823e719a624d9cd5f115ef7d68ed3fad1a39c8538dfc1444. No golden changes."
     },
+    "ascend_boundary_capture": {
+      "artifact": "production/operator-input-state-node32-20261022-boundaries-20261024",
+      "decode_graph8": "globalactive[1,0],physicalattention8,dense16,shared1;embeddingAR8x1,attentionRS8x78,AG8x78,denseAG16x3,RS16x3,logitsAG8x1.",
+      "norm_paths": "Densepostattention_dp_gather_sum_read;MoEpostattention_attn_tp_reduce_scatter_update_read;layer4+attention_update_read onlocalshard thenattn_tp_gather_input.",
+      "prefill_single_8k": "globalnumtokens[8192,0];embeddingAR8x1,globalAR16x6,attentionRS8x75,AG8x75,logitsAG8x1.",
+      "remaining": "Summarizeallranks/requests,derivefullcomposition;captureisnotforwardaccuracyvalidation.",
+      "rotation": "Checkpoint declares optional/quarot rotation but realserver logs rot.weight notfound inparams_dict; no online rotation work observed yet. Do not invent rotationGEMMs.",
+      "source": "Optional AISIM_CAPTURE_BOUNDARIES observes actual StageBoundary paths and top-level GroupCoordinator calls; never performance timings.",
+      "status": "runtime_requests_completed_pending_report_and_archive"
+    },
     "ascend_kv_model": {
       "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
       "confidence": "99focused/adjacent tests and390GPUparity tests passed; per-rank physical pool independently measured",
@@ -1420,20 +1462,20 @@
       "status": "complete"
     },
     "deepep_adapter": {
-      "active_jobs": [
-        "19: deepep-full-node19-20261024-v3,64individualcalls/sample; aftercompletionrepeatdual32+19withsameplan-v2"
-      ],
+      "active_jobs": [],
       "contract": "Actual pinned SGLang _DeepEPDispatcherImplNormal/_DeepEPDispatcherImplLowLatency; INT8 dispatch, BF16 combine; world16/32,16ranks pernode; balanced/single-expert-group routing; eager/actual graph execution. Separate transport boundaries, all-rank samples and full valid payload verification.",
+      "coverage": "World16balanced normalM1..1024 andgraphLLM1..32fullycovered. World32balancedgraphLLonlyM16stable;smallbatchEP32decodeuncovered. No more performance accuracy tuning now; queriesoutsidecoveragefail.",
       "first_campaign": "88configurations attempted across world16and32 on19/32.84executed;4normalM2048tiling failures retained.168timing boundaries;83stable/85CVexcluded. Preview only because essential graph keys are missing; no DeepEP table installed.",
       "first_graph_smoke": "v1 was stopped after no progress; v2 instrumented rerun completed. No v1 timing rows. Full run additionally synchronizes ranks outside timing around CPU verification and graph capture.",
       "native": "3 hand-derived Rust tests pass; append-only Op variant52, total53, schema28 unchanged; release build running.",
-      "next_action": "Complete qualified transport coverage and publication; proceed to actual GLM graph/memory and canonical predict/recommend/PD. Do not confuse exact table lookup with forward accuracy.",
+      "next_action": "Compose actualGLMforward, memory andcanonicalpredict/recommend. MeasureAscendPDusingactualMemFabrictransport, notHCCLcollectivebandwidth.",
       "probe": "16rank normal identity roundtrip and lowlat graph mutation checks pass. Internal graph events are invalid and are not used. Outer events only.",
+      "publication": "Frozen production/deepep64-published-20261024 and standard moe/sglang/0.5.22 table.176planned timingboundaries:125stable,43CVexcluded,8missingfrom4normalM2048tilingfailures. Originalfullplan88casesallattempted.",
       "remaining": "Finish local/cross-node observations; publish qualified table; native exact queries; GLM composition and canonical predict/recommend including PD still incomplete.",
       "source_commit": "434f8503",
-      "status": "first_full_local_and_dual_campaigns_completed_sampling_extension_running",
+      "status": "125_stable_rows_installed_native_verified",
       "timing_correction": "Each graph captures one transport; unmeasured rank barriers between invocations; keep graphs alive while transport handles reference graph storage. Failedinitialwarmup/allocatorattempts preserved.",
-      "validation": "3Rust behavior and22wire tests;15Python/API tests afteraddingfailure-recordtest;390GPUparitypassed111.01s. Serial one-call graph lifecycle and actual dispatch/combine no-op checks pass."
+      "validation": "125exactnativequeriespasswithzeroerror;nativeSHA36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf. 3Rust+22wire+15Python/API+390GPUparityalreadyrecorded."
     },
     "device_probe": {
       "bf16_matmul_device0_passed": true,
@@ -1711,6 +1753,11 @@
       "status": "Source mapping and observed United kernel selection established for exact 8192/1024 single request.",
       "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
     },
+    "pd_transport_audit": {
+      "layout": "AscendKVManager3bufferDSAlayout;PP1send_kvcache groupscontiguouspagesandbatchesallkv_data_ptrs. Registrationmerges2MiBalignedranges. Needactualrankmappingandtransfermeasurements.",
+      "runtime": "PinnedSGLangAscendTransferEngine usesmemfabric-hybrid1.2.1, defaultprotocolsdma;actualoldPDscriptuses--disaggregation-transfer-backendascend.",
+      "status": "source_inspected_not_measured"
+    },
     "phase1_handoff": {
       "confidence": "High for local inventory and single-chip measurements; communication repeatability partial; production integration unresolved.",
       "date": "2026-10-20",
@@ -1850,7 +1897,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 48,
+  "revision": 49,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

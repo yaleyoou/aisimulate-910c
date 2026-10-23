@@ -787,7 +787,7 @@ and after timing. Each captured graph contains one transport call. Rank
 barriers separate calls outside the timed region; events surround the actual
 invocation/replay. Captured graphs remain alive while communication handles
 may refer to their storage. Graph no-op controls must fail numerical checks.
-Each repeated sample averages eight individually timed calls, then publication
+Each repeated sample averages64 individually timed calls, then publication
 takes the median of per-sample rank maxima. CV above10% is excluded, with the
 original samples retained. Failed executions remain classified observations;
 they never produce timing rows, and the full frozen plan must be accounted for.

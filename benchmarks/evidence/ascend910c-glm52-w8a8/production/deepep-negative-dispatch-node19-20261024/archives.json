@@ -1,0 +1,17 @@
+[
+  {
+    "file": "collector.log",
+    "sha256": "c18150475a1d725e4d0043483da78727bf4dcd94d33995ab88b77fc85f9e9de4",
+    "archive": "collector.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "af957c573163992b2d0df55f56ea482e359eb82013a27da0b8207251e7afca72",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "observations.json",
+    "sha256": "d6ede04aec2394991bc9fec0defd072801e153e7c9f6e8356933a1b2c6b987e8",
+    "archive": "observations.json.gz"
+  }
+]

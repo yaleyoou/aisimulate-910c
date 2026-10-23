@@ -1,0 +1,62 @@
+[
+  {
+    "file": "attempt1.log",
+    "sha256": "6ddabeb2f216e3a58aad3699649751549925f32a92dc899ff3926858da7d8424",
+    "archive": "attempt1.log.gz"
+  },
+  {
+    "file": "attempt2.log",
+    "sha256": "a92f05031a6c60de4d48c5dd2d15b662a6b983fee40151b7b2bf67fcf61bbe50",
+    "archive": "attempt2.log.gz"
+  },
+  {
+    "file": "attempt3.log",
+    "sha256": "0e2244d01aae5e948b2bcb9a338df28b6bb769b33cb20895bd5926b1e8529b76",
+    "archive": "attempt3.log.gz"
+  },
+  {
+    "file": "formal-smoke-graph-v1.json",
+    "sha256": "aed274eadfd9fe4667c1893d86da49b44daf544d75e6b1a2c1db919fcd417f24",
+    "archive": "formal-smoke-graph-v1.json.gz"
+  },
+  {
+    "file": "formal-smoke-graph-v2.json",
+    "sha256": "18712d6eb7fd59d9485029162bbb0d2795cb4a26b22936ef6ec00e5cd721188f",
+    "archive": "formal-smoke-graph-v2.json.gz"
+  },
+  {
+    "file": "formal-smoke-normal-v1.json",
+    "sha256": "05895ebda938d1faff4fd6f1351acc19d1333ad9b54e81026c2b8e3b74046b6a",
+    "archive": "formal-smoke-normal-v1.json.gz"
+  },
+  {
+    "file": "model-metadata/config.json",
+    "sha256": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "archive": "model-metadata/config.json.gz"
+  },
+  {
+    "file": "model-metadata/generation_config.json",
+    "sha256": "ac76b43d8683d3b930126870fc8be73d8679308fe752fa1f381096d8354f6a55",
+    "archive": "model-metadata/generation_config.json.gz"
+  },
+  {
+    "file": "model-metadata/quant_model_description.json",
+    "sha256": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "archive": "model-metadata/quant_model_description.json.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "cfb45a6f705e8b5102b5a56300e8a7873b03a0d245cac04278a15b0003e6fc15",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "probe-result-v2.json",
+    "sha256": "6113e23c86269b0021236eec224b2d1c4da22ba05eb51aa1acb57ebf7aec593e",
+    "archive": "probe-result-v2.json.gz"
+  },
+  {
+    "file": "probe-result-v4.json",
+    "sha256": "0fc1e9707e85cd8f52dac6c4937dba1c816f9297b2d6b9304b6ea68ff0ab1d83",
+    "archive": "probe-result-v4.json.gz"
+  }
+]

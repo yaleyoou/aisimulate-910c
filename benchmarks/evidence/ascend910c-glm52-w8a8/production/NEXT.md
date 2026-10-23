@@ -1,5 +1,31 @@
 # Current goal handoff
 
+## Latest: DeepEP installed; actual United layer boundaries observed
+
+Compute data commit163001f2;DeepEP/codecommit434f8503. NewDeepEP125stable rowsinstalledmoe/sglang/0.5.22,
+separateascend_deepep_provenance.jsonandmergedcollection_meta preserveMoEchainmetadata.
+All125nativequeriespass. Frozenproduction/deepep64-published-20261024 includescoverage.json.
+All88configsattempted:84valid=168boundaries,125stable43CVexcluded;4normalM2048tilingfailures=8missing.
+World16balancednormalM1..1024andgraphLLM1..32covered. World32balancedgraphLLonlyM16stable;
+do notpretendEP32smalldecodeiscovered. Stopaccuracytuning;focusfunctionalcomposition.
+Finalcampaignslocaldeepep-full-node19-20261024-v3,dualnode32/node19-20261024-v2;plan-v2(64calls/sample).
+Alltransportjobsstopped. Archivescreatedforfinishedtransportdirs;notyetcommitted.
+Boundarycaptureoperator-input-state-node32-20261022-boundaries-20261024 requestscompleted,ownedserverstopped.
+SourcechangesInputCapture.describe+AISIM_CAPTURE_BOUNDARIES/launcherflaguncommitted,lint/formatpass.
+Actualprefill8kglobal[8192,0]:embeddingAR8x1,globalAR16x6,attnRS8x75,AG8x75,logitsAG8x1.
+Graphbatch1physical8:dense16,shared1;embeddingAR8x1,attnRS8x78,AG8x78,denseAG16x3,RS16x3,logitsAG8x1.
+ModelSDKbatchisperattentionDP;balancedprefilltotalDP2 doublesdenseglobaltokens. TokenScale scalesbothbatchandtokens.
+StageBoundarypaths:inputnormlayer0..3onattnM;layers4..77normonM/8thenAG8.
+Densepostattn_dp_gather_sum_read normonglobalM;MoEpostattn_reduce_scatter_update_read normonM/8.
+Needfinalnormsource/shapeandaggregateallranks;rawStagePathserializedactualfunctions/inputs available.
+NoonlinequarotGEMMobserved;actualstartup saysrot.weightnotfound;indexerparameterlayers21only.
+PDsourceAscendTransferEngine(memfabric-hybrid1.2.1)defaultSDMA,notHCCL. ActualoldPDscriptusesascend.
+AscendKVManager.send_kvcache PP1 batches234buffers(78x3BF16components),groupcontiguouspageindices.
+Needinspectactualsender/rankmappingandcollectPDtransport;notdone. NoGLMfullmodelcompositioncodewrittenyet.
+CanonicalOpLevelConfig emptyinperfmodel/fpm/estimator.rs. Anynewroutingpolicycontrols belongthere,
+notPython-onlydefaults. CurrentlegacyModelConfig.workload_distribution=power_law;Ascendtablesaresyntheticbalanced/hot.
+Rootsessions32=24914,93967;19=89706. Latestcheckpoint48beforependingpatch. GoalNOTcomplete.
+
 ## Latest 2026-10-24: TP32 compute published, DeepEP first complete grid attempted
 
 Source434f8503 adds DeepEP native Op52 (53variants,schema28) and globalTP32 shapes.

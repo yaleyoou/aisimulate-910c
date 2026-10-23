@@ -1,0 +1,37 @@
+{
+  "research": {
+    "deepep_adapter": {
+      "status": "125_stable_rows_installed_native_verified",
+      "publication": "Frozen production/deepep64-published-20261024 and standard moe/sglang/0.5.22 table.176planned timingboundaries:125stable,43CVexcluded,8missingfrom4normalM2048tilingfailures. Originalfullplan88casesallattempted.",
+      "validation": "125exactnativequeriespasswithzeroerror;nativeSHA36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf. 3Rust+22wire+15Python/API+390GPUparityalreadyrecorded.",
+      "coverage": "World16balanced normalM1..1024 andgraphLLM1..32fullycovered. World32balancedgraphLLonlyM16stable;smallbatchEP32decodeuncovered. No more performance accuracy tuning now; queriesoutsidecoveragefail.",
+      "active_jobs": [],
+      "next_action": "Compose actualGLMforward, memory andcanonicalpredict/recommend. MeasureAscendPDusingactualMemFabrictransport, notHCCLcollectivebandwidth."
+    },
+    "ascend_boundary_capture": {
+      "status": "runtime_requests_completed_pending_report_and_archive",
+      "artifact": "production/operator-input-state-node32-20261022-boundaries-20261024",
+      "source": "Optional AISIM_CAPTURE_BOUNDARIES observes actual StageBoundary paths and top-level GroupCoordinator calls; never performance timings.",
+      "prefill_single_8k": "globalnumtokens[8192,0];embeddingAR8x1,globalAR16x6,attentionRS8x75,AG8x75,logitsAG8x1.",
+      "decode_graph8": "globalactive[1,0],physicalattention8,dense16,shared1;embeddingAR8x1,attentionRS8x78,AG8x78,denseAG16x3,RS16x3,logitsAG8x1.",
+      "norm_paths": "Densepostattention_dp_gather_sum_read;MoEpostattention_attn_tp_reduce_scatter_update_read;layer4+attention_update_read onlocalshard thenattn_tp_gather_input.",
+      "rotation": "Checkpoint declares optional/quarot rotation but realserver logs rot.weight notfound inparams_dict; no online rotation work observed yet. Do not invent rotationGEMMs.",
+      "remaining": "Summarizeallranks/requests,derivefullcomposition;captureisnotforwardaccuracyvalidation."
+    },
+    "pd_transport_audit": {
+      "status": "source_inspected_not_measured",
+      "runtime": "PinnedSGLangAscendTransferEngine usesmemfabric-hybrid1.2.1, defaultprotocolsdma;actualoldPDscriptuses--disaggregation-transfer-backendascend.",
+      "layout": "AscendKVManager3bufferDSAlayout;PP1send_kvcache groupscontiguouspagesandbatchesallkv_data_ptrs. Registrationmerges2MiBalignedranges. Needactualrankmappingandtransfermeasurements."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "deepep_table": {"path":"production/deepep64-published-20261024/ascend_deepep_perf.parquet","kind":"file","scope":"collection"},
+        "deepep_provenance": {"path":"production/deepep64-published-20261024/provenance.json","kind":"file","scope":"collection"},
+        "deepep_native": {"path":"production/deepep64-published-20261024/native-validation.json","kind":"file","scope":"validation"},
+        "deepep_coverage": {"path":"production/deepep64-published-20261024/coverage.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

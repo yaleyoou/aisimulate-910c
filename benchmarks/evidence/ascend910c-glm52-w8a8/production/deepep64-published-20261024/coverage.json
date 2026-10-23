@@ -1,0 +1,471 @@
+{
+  "status": "bounded_measured_coverage",
+  "groups": [
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        3,
+        4,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        4,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        3,
+        8,
+        32
+      ],
+      "minimum": 3,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        16
+      ],
+      "minimum": 16,
+      "maximum": 16
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        3,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        2,
+        3,
+        4,
+        16,
+        32
+      ],
+      "minimum": 2,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        2,
+        3,
+        4,
+        16,
+        32
+      ],
+      "minimum": 2,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "minimum": 2,
+      "maximum": 16
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        16
+      ],
+      "minimum": 16,
+      "maximum": 16
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "minimum": 3,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "low_latency",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "graph"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        16,
+        32
+      ],
+      "minimum": 1,
+      "maximum": 32
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "combine",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "combine",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "dispatch",
+        "num_ranks": 16,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "balanced",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        1,
+        8,
+        32,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 1,
+      "maximum": 1024
+    },
+    {
+      "key": {
+        "phase": "normal",
+        "operation": "dispatch",
+        "num_ranks": 32,
+        "ranks_per_node": 16,
+        "distribution": "single_expert_group",
+        "execution_mode": "eager"
+      },
+      "qualified_token_counts": [
+        8,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "minimum": 8,
+      "maximum": 1024
+    }
+  ],
+  "limitations": [
+    "normal2048tokensperrank tilingfailed onbothworld16/32;notestimated",
+    "world32balancedgraphdecode onlyM16stable;smallrankbatchesremainuncovered",
+    "No whole-forward or P:D transfer accuracy claim"
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "collector-000.log",
+    "sha256": "891bf60a61b1186a68d3f53d947e094003ccb20c8013d7c1f147abea2144756e",
+    "archive": "collector-000.log.gz"
+  },
+  {
+    "file": "collector-001.log",
+    "sha256": "ab3ab6e8895d5050b3cc1b83243a089119fd46c0733aa10bc8a7f70e7ca3d7db",
+    "archive": "collector-001.log.gz"
+  },
+  {
+    "file": "collector-002.log",
+    "sha256": "9b7d75b45f279b06074ba87e38b16eba441ab204f99714ee353d270f7e378861",
+    "archive": "collector-002.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "a2e80df314d22b3c778458194017b7ea728052f9c1379a16f98adc8b846d0569",
+    "archive": "npu-before.log.gz"
+  }
+]

@@ -1,0 +1,277 @@
+[
+  {
+    "file": "ascend-log/debug/plog/plog-100_20261023174819096.log",
+    "sha256": "36662c9ef80c73f6d679aac3aae767355f4c3df360c07c65dca034c5717692db",
+    "archive": "ascend-log/debug/plog/plog-100_20261023174819096.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-101_20261023174819095.log",
+    "sha256": "75c68aa6678a972faf574930e7094d0ffe6e6e349305637d29958f345c403dc0",
+    "archive": "ascend-log/debug/plog/plog-101_20261023174819095.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-102_20261023174819142.log",
+    "sha256": "962c0eea71f600a9c42ca18445156836384c70728f329f414fb00255d72d869f",
+    "archive": "ascend-log/debug/plog/plog-102_20261023174819142.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-103_20261023174819142.log",
+    "sha256": "ee2c10db6962a888a2b2bf7468a4a2ab74513e13e1037c3e97c3babd1603130a",
+    "archive": "ascend-log/debug/plog/plog-103_20261023174819142.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-104_20261023174819107.log",
+    "sha256": "95910bda9d1ec550993a00501e549d22a129dbed8761e7d20da1cf5c06f9eacb",
+    "archive": "ascend-log/debug/plog/plog-104_20261023174819107.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-105_20261023174819107.log",
+    "sha256": "540587284eb25bf8d6a98f0708978f1434cc8c3fc27b078b1a228c39fd38b122",
+    "archive": "ascend-log/debug/plog/plog-105_20261023174819107.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-106_20261023174818953.log",
+    "sha256": "aa9055d491265f47eb3c81b9c02a00aae31aeb31d90682fbf7b48da8e58d9bbc",
+    "archive": "ascend-log/debug/plog/plog-106_20261023174818953.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-107_20261023174819106.log",
+    "sha256": "3f8481f8645f4c1f6ba70b9ef5bded7bbd2aa6a8d6883f71b5153bab502a66ba",
+    "archive": "ascend-log/debug/plog/plog-107_20261023174819106.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-92_20261023174819098.log",
+    "sha256": "c0ea465d4138fd8f85636e9b20fe241663a4fa074e832b78168a6e49252f1571",
+    "archive": "ascend-log/debug/plog/plog-92_20261023174819098.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-93_20261023174819128.log",
+    "sha256": "18c83da31f437b17d9ef1684a92a47da3654775277c2dbc9fca7edc97922fd4b",
+    "archive": "ascend-log/debug/plog/plog-93_20261023174819128.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-94_20261023174819135.log",
+    "sha256": "73c5a4e0888d91ab0841fa1a1e2be3b12ce41355fffb1b7b1a11bd8c5d2c8fca",
+    "archive": "ascend-log/debug/plog/plog-94_20261023174819135.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-95_20261023174819131.log",
+    "sha256": "f0877fc59b901586d03d3f3e434ae374995b115ce1ef516063890ddb3a62a69d",
+    "archive": "ascend-log/debug/plog/plog-95_20261023174819131.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-96_20261023174819137.log",
+    "sha256": "84a2e7295dca4cfa80bcde5522acdc54b5f8e277c6da1f93ccfddea6a30c4de4",
+    "archive": "ascend-log/debug/plog/plog-96_20261023174819137.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-97_20261023174819046.log",
+    "sha256": "420f448714cd483a4d5cbeee3f455bf3d6403c389c8d78a87a167050be36f06f",
+    "archive": "ascend-log/debug/plog/plog-97_20261023174819046.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-98_20261023174819047.log",
+    "sha256": "e55e06d5aa885e02a554933d5f238ccecf3e443714597730662bf5b679604638",
+    "archive": "ascend-log/debug/plog/plog-98_20261023174819047.log.gz"
+  },
+  {
+    "file": "ascend-log/debug/plog/plog-99_20261023174819038.log",
+    "sha256": "99c1449ed831fdcf3ef5313e4961d5c09d231eb129a0f5613d9cbb7c27ef96e7",
+    "archive": "ascend-log/debug/plog/plog-99_20261023174819038.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-0/device-92_20261023174809910.log",
+    "sha256": "f8741cc9e4846ef12235835569f7571ee7a842bfa4273f5a418e94f193bee945",
+    "archive": "ascend-log/run/device-0/device-92_20261023174809910.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-1/device-93_20261023174809910.log",
+    "sha256": "3a4857683e81590b4116bac20d775e029ffa17a2ac936b47afc16e2d7424dec4",
+    "archive": "ascend-log/run/device-1/device-93_20261023174809910.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-10/device-102_20261023174809524.log",
+    "sha256": "1d0d4bb0583eab2173ebdfe9b0f7564361e483b225f7bb0584b7f12d348ac617",
+    "archive": "ascend-log/run/device-10/device-102_20261023174809524.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-11/device-103_20261023174809524.log",
+    "sha256": "871b1d7219da6172ad1aaa7290eedf1f07d209e790915f01332b38ca7d57316d",
+    "archive": "ascend-log/run/device-11/device-103_20261023174809524.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-12/device-104_20261023174809267.log",
+    "sha256": "dbdd7a2586765d68e367c7f3062605c0ffa6c6a0b7fb5fd4fd01c1708d24b22e",
+    "archive": "ascend-log/run/device-12/device-104_20261023174809267.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-13/device-105_20261023174809267.log",
+    "sha256": "2fec8b005ea2b5e80fce4669afa11008ed684d4bed76427bff8c45d85557daf6",
+    "archive": "ascend-log/run/device-13/device-105_20261023174809267.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-14/device-106_20261023174809835.log",
+    "sha256": "bb3786447eb68a1a298b4a4cf73646a38fa6997a767ffe4b1840db608dccda32",
+    "archive": "ascend-log/run/device-14/device-106_20261023174809835.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-15/device-107_20261023174809835.log",
+    "sha256": "ae1ca0b3dccca67978650eebdae816de6a47375b902b427284f737f5d759275c",
+    "archive": "ascend-log/run/device-15/device-107_20261023174809835.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-2/device-94_20261023174809721.log",
+    "sha256": "cee4a47bd1f7f3a9153b8aa06ced49eb4be87822da063016d5d130164c1af940",
+    "archive": "ascend-log/run/device-2/device-94_20261023174809721.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-3/device-95_20261023174809721.log",
+    "sha256": "5d4ece001becfb87cf62975ea137d9f659c7d16f3b8080cadb2b5e488061b132",
+    "archive": "ascend-log/run/device-3/device-95_20261023174809721.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-4/device-96_20261023174809739.log",
+    "sha256": "9393068314250c1df8d39e8c8c21c27a06209b4b92983b11d2c30f318caf631d",
+    "archive": "ascend-log/run/device-4/device-96_20261023174809739.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-5/device-97_20261023174809739.log",
+    "sha256": "9da3ed6ec9dc71f08d3a4d2abdbe54a885bc3f19d4d381ee76838b3540ca8cb8",
+    "archive": "ascend-log/run/device-5/device-97_20261023174809739.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-6/device-98_20261023174809531.log",
+    "sha256": "10590766fcba98aada46459d0c63c391af3102f9b741f7bdff15b6b1c26d7ed2",
+    "archive": "ascend-log/run/device-6/device-98_20261023174809531.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-7/device-99_20261023174809531.log",
+    "sha256": "214bf2cbb16175069ff62d100223e2f85f2bd5160fef3aa09ef681016395c673",
+    "archive": "ascend-log/run/device-7/device-99_20261023174809531.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-8/device-100_20261023174809480.log",
+    "sha256": "9952e39307615f0a3a8eaf35d182cdbcdbd1a37afc6c85cabb9c3e3af7862210",
+    "archive": "ascend-log/run/device-8/device-100_20261023174809480.log.gz"
+  },
+  {
+    "file": "ascend-log/run/device-9/device-101_20261023174809480.log",
+    "sha256": "787c0c3a1b7610c4e6e168afe628747540952da43cad9e2336b8198e254839ef",
+    "archive": "ascend-log/run/device-9/device-101_20261023174809480.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-100_20261023174752809.log",
+    "sha256": "bf9103320a24e746cbca8d1d31e9984db82b89eded72ca8315e30b0655ab6dd5",
+    "archive": "ascend-log/run/plog/plog-100_20261023174752809.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-101_20261023174752809.log",
+    "sha256": "fe0ecffe00bcb2656ce92d919ad2cd979c09e3508a513c784f79d40e0fbaeee5",
+    "archive": "ascend-log/run/plog/plog-101_20261023174752809.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-102_20261023174752856.log",
+    "sha256": "a0583f4c2bdc1921bab3d7e04c7bdbedf3821707731b325c9a415ad80e76a03a",
+    "archive": "ascend-log/run/plog/plog-102_20261023174752856.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-103_20261023174752856.log",
+    "sha256": "848e5baca253c792b0e962073ecf1903b29f05e656c153e0f70318a231a707c3",
+    "archive": "ascend-log/run/plog/plog-103_20261023174752856.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-104_20261023174752830.log",
+    "sha256": "e8db7b7106702e8cc2d7dbb7b171f75583786b5cabe2f89c974c025919817c96",
+    "archive": "ascend-log/run/plog/plog-104_20261023174752830.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-105_20261023174752830.log",
+    "sha256": "2a563078db48c32a87784cd8cb18c7df0dd727c8a98371f2a6ecd8daec61297e",
+    "archive": "ascend-log/run/plog/plog-105_20261023174752830.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-106_20261023174752868.log",
+    "sha256": "ad826238822e18b2aa8b9bceb1cb6798b0cb221f3edf751f9fd61bb39f348512",
+    "archive": "ascend-log/run/plog/plog-106_20261023174752868.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-107_20261023174752830.log",
+    "sha256": "2fb0536d360f6e3b875a3e4f649873ab79031752a45a634628346ccf0ce282ee",
+    "archive": "ascend-log/run/plog/plog-107_20261023174752830.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-13_20261023174747275.log",
+    "sha256": "235c4a7d0f5c439bd23e719a2963f3bd481960d103ea0d1a217360475c345f8b",
+    "archive": "ascend-log/run/plog/plog-13_20261023174747275.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-345_20261015234738436.log",
+    "sha256": "8f6f3424b355a85f933043601c6073cd23416ad157386afbcefe7d0e7e22e1cf",
+    "archive": "ascend-log/run/plog/plog-345_20261015234738436.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-474_20261015234740492.log",
+    "sha256": "0e93e4828fc304f652ed75c397fb6ed8ddd58f2006042296d0ec19c39a77dfae",
+    "archive": "ascend-log/run/plog/plog-474_20261015234740492.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-481_20261015234745917.log",
+    "sha256": "c12a4e24598ff648dfce21a46d080ed7d708606bafd8d1d336d601fcc349f0ad",
+    "archive": "ascend-log/run/plog/plog-481_20261015234745917.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-92_20261023174752615.log",
+    "sha256": "7ef4d94582876f96697b8886592a64903a8309a7a4e0a2ba33ee32a2017f31ba",
+    "archive": "ascend-log/run/plog/plog-92_20261023174752615.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-93_20261023174752650.log",
+    "sha256": "a39bdb01ad99aa32179eee6c9ac083de58b444e8e71d2d6879b96cc812273662",
+    "archive": "ascend-log/run/plog/plog-93_20261023174752650.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-94_20261023174752648.log",
+    "sha256": "74255f950c314258d51a2263805954a63b95c0d1cf36fc5cb73b0b885529b8b6",
+    "archive": "ascend-log/run/plog/plog-94_20261023174752648.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-95_20261023174752647.log",
+    "sha256": "094b21920a22dff3d6609cd7317c17c9da330ed6c64a3837832a65db46cd07f8",
+    "archive": "ascend-log/run/plog/plog-95_20261023174752647.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-96_20261023174752853.log",
+    "sha256": "023c5f3881fdfa47374806ecfe7ab53a1eac0cd6e10083407ffd7be9da6ac20a",
+    "archive": "ascend-log/run/plog/plog-96_20261023174752853.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-97_20261023174752762.log",
+    "sha256": "4623339f2a81bd2b85cf11adbb15066a27d3ade01b6cd3040ddfee3822dc765b",
+    "archive": "ascend-log/run/plog/plog-97_20261023174752762.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-98_20261023174752762.log",
+    "sha256": "7b9e545354d811debcd301335143d529e887195b642a281413466398337df9a8",
+    "archive": "ascend-log/run/plog/plog-98_20261023174752762.log.gz"
+  },
+  {
+    "file": "ascend-log/run/plog/plog-99_20261023174752762.log",
+    "sha256": "445068590445e9f4f6707edfe291166de94ff7d167def8f82358df7bf5422c24",
+    "archive": "ascend-log/run/plog/plog-99_20261023174752762.log.gz"
+  },
+  {
+    "file": "collector.log",
+    "sha256": "b5a258b8a25d22823310c8030125fdfa444f9939a485b3bfffff219c9972a46d",
+    "archive": "collector.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "c1ad4901a484e21a7f314e6420a8afdda6afb403edb4d7dc6350d99ca3f07d2c",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "observations.json",
+    "sha256": "64cad647afef4b40708be02221040672902d84c158e566d911a76c6f466906cd",
+    "archive": "observations.json.gz"
+  }
+]

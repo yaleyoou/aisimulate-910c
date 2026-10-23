@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checked_measured_rows": 125,
+  "max_abs_error_ms": 0.0,
+  "native_binary_sha256": "36b3fc6f1dfd813f94ec953213cf64c77436d84fde4ade0b5df42c436a5b3eaf",
+  "table_sha256": "ed1dc6e355bd0042de4b32f1057f186ffa9ced114ec92b77c51283b6dda1f7a5",
+  "preparation_ms": 2.5558499910403043,
+  "first_query_ms": 1.433927012840286,
+  "subsequent_query_median_ms": 0.010529998689889908,
+  "scope": "Exact native lookup and typed wire; not forward, overlap or serving accuracy"
+}

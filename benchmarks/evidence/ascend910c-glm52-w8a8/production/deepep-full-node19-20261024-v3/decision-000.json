@@ -1,0 +1,20 @@
+{
+  "action": "continue",
+  "next_index": 8,
+  "classification": "unexpected",
+  "failed_plan_index": 7,
+  "error": "Traceback (most recent call last):\n  File \"/campaign/collector.py\", line 398, in main\n    collect(index, case)\n  File \"/campaign/collector.py\", line 206, in collect\n    first = dispatch()\n            ^^^^^^^^^^\n  File \"/campaign/collector.py\", line 200, in dispatch\n    output = dispatcher.dispatch_b(*dispatcher.dispatch_a(inputs, topk))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/sgl-workspace/sglang/python/sglang/srt/layers/moe/token_dispatcher/deepep.py\", line 616, in dispatch_b\n    ) = self._dispatch_core(hidden_states, topk_ids, topk_weights, previous_event)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/sgl-workspace/sglang/python/sglang/srt/layers/moe/token_dispatcher/deepep.py\", line 666, in _dispatch_core\n    ) = buffer.dispatch(\n        ^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/deep_ep/utils.py\", line 131, in wrapper\n    result = func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/deep_ep/buffer.py\", line 380, in dispatch\n    return self.normal_strategy.dispatch(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/deep_ep/strategies/normal_strategy.py\", line 120, in dispatch\n    return self._intranode_dispatch(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/deep_ep/strategies/normal_strategy.py\", line 203, in _intranode_dispatch\n    ) = self.runtime.intranode_dispatch(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: call aclnnCamMoeDispatchNormal failed, detail:[PID: 92] 2026-10-23-18:10:12.371.790 Execution_Error(EZ1008): Failed to execute operator CamMoeDispatchNormal_0. Reason: Failed to execute tiling function.\n        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.\nTraceBack (most recent call last):\n        Check NnopbaseExecutorDoTiling(executor) failed\n        Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed\n        Check NnopbaseExecutorMatchCache(executor) failed\n        Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed\n\n",
+  "case": {
+    "phase": "normal",
+    "num_ranks": 16,
+    "ranks_per_node": 16,
+    "rank_layout": "contiguous",
+    "tokens_per_rank": 2048,
+    "distribution": "balanced",
+    "execution_mode": "eager",
+    "hidden_size": 6144,
+    "num_experts": 256,
+    "topk": 8,
+    "max_dispatch_tokens_per_rank": 32
+  }
+}

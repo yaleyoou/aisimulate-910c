@@ -1,0 +1,98 @@
+[
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-before-formal19.log",
+    "sha256": "87a635279be59284fea1cbd6e03be9639972fd3cb718c8aa611c9bec27c89067",
+    "archive": "aisim-deepep-before-formal19.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-contract-20261024-v2.log",
+    "sha256": "a92f05031a6c60de4d48c5dd2d15b662a6b983fee40151b7b2bf67fcf61bbe50",
+    "archive": "aisim-deepep-contract-20261024-v2.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-contract-20261024-v3.log",
+    "sha256": "0e2244d01aae5e948b2bcb9a338df28b6bb769b33cb20895bd5926b1e8529b76",
+    "archive": "aisim-deepep-contract-20261024-v3.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-contract-20261024-v4.log",
+    "sha256": "78ed4329e8bceecac395d2e1067b7645e9cf34288cfdccda14027a8e8d7300c4",
+    "archive": "aisim-deepep-contract-20261024-v4.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-contract-20261024.log",
+    "sha256": "6ddabeb2f216e3a58aad3699649751549925f32a92dc899ff3926858da7d8424",
+    "archive": "aisim-deepep-contract-20261024.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-dual19-v2.log",
+    "sha256": "faa48a003a0c97414f886fa58207a0fc861035b31e99d21aea531eb87576ebe7",
+    "archive": "aisim-deepep-dual19-v2.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-dual19.log",
+    "sha256": "0a5a3e1af6347b2bb27e3cff6850f8a61a9fe9aaf723d050f9ec509fecfc926f",
+    "archive": "aisim-deepep-dual19.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-full19-v2.log",
+    "sha256": "8c85e096eaf88187d0404de62a0a3e4286e310a883f9245a595e5da217dab716",
+    "archive": "aisim-deepep-full19-v2.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-full19-v3.log",
+    "sha256": "e4664f9387926a98a5218444b42d715543a4fdb1436f228d8018a1bb4068b16c",
+    "archive": "aisim-deepep-full19-v3.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-full19.log",
+    "sha256": "73e1a54014207e51d15c4cb303cc311f6345ace4e40dfa5a70523aa80f3dfa0a",
+    "archive": "aisim-deepep-full19.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-negative-dispatch.log",
+    "sha256": "417cb214806750525be2454425e081873c0afa3a5b04b68b16efafd3bc600e83",
+    "archive": "aisim-deepep-negative-dispatch.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-smoke-graph-v1.log",
+    "sha256": "13ccbfb5586b64e29184b1408ae762aea5c5572a85fea9a46f25dd2eadd3d43a",
+    "archive": "aisim-deepep-smoke-graph-v1.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-smoke-graph-v2.log",
+    "sha256": "d92693a20bae0d6efdc5e43bc759a76f734db8c510de0b49fba7aa582a783141",
+    "archive": "aisim-deepep-smoke-graph-v2.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-smoke-normal-v1.log",
+    "sha256": "46c5ea57fc8a7e9176a3de142382ca549fc10b92ea31d8c948b70a4152762510",
+    "archive": "aisim-deepep-smoke-normal-v1.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-smoke-serial-v2.log",
+    "sha256": "1dcb3f73593e113a50ce8435214dc30a5a623ec10c34887402aa7ccc9c56e190",
+    "archive": "aisim-deepep-smoke-serial-v2.log.gz"
+  },
+  {
+    "host": "npu1-19",
+    "source": "/tmp/aisim-deepep-smoke-serial.log",
+    "sha256": "8d970d6889b233fcdce0ed65410cf156f05bdc4f0195757c99dbb5d9f80b2d30",
+    "archive": "aisim-deepep-smoke-serial.log.gz"
+  }
+]

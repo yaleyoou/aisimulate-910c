@@ -11,6 +11,7 @@ runtime:
   abi:
     torch: 2.10.0+cpu
     torch_npu: 2.10.0.post6
+    deep_ep: 1.0.0+0234a271.cann.9.1.0.b243
     driver_version_info: 'Version=26.1.1
 
       ascendhal_version=7.35.23
@@ -37,6 +38,14 @@ runtime:
 
       '
 tables:
+  ascend_deepep_perf:
+    collector_ref: 434f8503
+    collector_hash: sha256:cdbfc9c6a89a7c6994559135693672f6194167685a55d551617a79d670351cb8
+    case_plan_hash: sha256:60e85ecb9c4ffe768109d68cf3549de48a9ff28df03c3898428db5c2da41fd79
+    collected_at: '2026-10-23T18:20:52.531439+00:00'
+    rows: 125
+    classified_failures: 47
+    status: complete
   ascend_moe_chain_perf:
     collector_ref: 589804d8a15bce137196348c1732ce87b8e000ed
     collector_hash: sha256:2d10095bd5cdd14ae6b798e3e1fbf3bce6832a2f5b9a728b379cf3e91b4bc466

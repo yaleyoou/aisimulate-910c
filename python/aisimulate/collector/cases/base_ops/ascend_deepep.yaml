@@ -8,6 +8,6 @@ common_case_values:
     distributions: [balanced, single_expert_group]
     normal_execution_modes: [eager]
     low_latency_execution_modes: [eager, graph]
-    iterations: 8
+    iterations: 64
     warmup: 5
     repeats: 7
