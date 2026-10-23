@@ -1344,6 +1344,7 @@ class PerfDataFilename(Enum):
     gemm = "gemm_perf.parquet"
     ascend_linear = "ascend_linear_perf.parquet"
     ascend_attention = "ascend_attention_perf.parquet"
+    ascend_bmm = "ascend_bmm_perf.parquet"
     nccl = "nccl_perf.parquet"
     oneccl = "oneccl_perf.parquet"
     hccl = "hccl_perf.parquet"

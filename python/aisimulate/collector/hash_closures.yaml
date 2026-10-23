@@ -135,6 +135,11 @@ collector.sglang.ascend_attention:
   - collector/sglang/ascend_attention_export.py
   - collector/cases/base_ops/ascend_attention.yaml
   - collector/cases/models/GlmMoeDsaForCausalLM_cases.yaml
+collector.sglang.ascend_bmm:
+  - collector/sglang/ascend_bmm_cases.py
+  - collector/sglang/ascend_bmm_export.py
+  - collector/cases/base_ops/ascend_bmm.yaml
+  - collector/cases/models/GlmMoeDsaForCausalLM_cases.yaml
 collector.sglang.ascend_linear:
   - collector/sglang/ascend_linear_cases.py
   - collector/sglang/ascend_linear_export.py

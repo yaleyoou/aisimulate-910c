@@ -14,6 +14,7 @@
 //! methods live.
 
 pub mod ascend_attention;
+pub mod ascend_bmm;
 pub mod ascend_linear;
 pub mod attention;
 pub mod base;
@@ -43,6 +44,7 @@ pub mod vision;
 pub mod wideep_mla;
 
 pub use ascend_attention::AscendAttentionOp;
+pub use ascend_bmm::AscendBmmOp;
 pub use ascend_linear::AscendLinearOp;
 pub use attention::{ContextAttentionOp, EncoderAttentionOp, GenerationAttentionOp};
 pub use base::{PerformanceResult, Source};

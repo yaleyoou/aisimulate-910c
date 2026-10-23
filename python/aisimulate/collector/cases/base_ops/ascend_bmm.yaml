@@ -1,0 +1,13 @@
+schema_version: 1
+op: ascend_bmm
+description: BF16 MLA query and output BMM with production strides and explicit kernel identity.
+common_case_values:
+  ascend_bmm:
+    tokens: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+    decode_tokens: [1, 2, 4, 8, 16, 24, 32]
+    execution_modes: [eager, graph]
+    roles: [query_nope, output_prefill, output_decode]
+    weight_copies: 64
+    iterations: 64
+    warmup: 5
+    repeats: 7

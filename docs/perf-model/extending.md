@@ -179,6 +179,26 @@ An operator table does not by itself complete model composition or validate
 whole-forward prediction accuracy. Production models still use
 `ForwardPassPerfModel::best_available` as their construction interface.
 
+The `AscendBmm` primitive reads `mla_bmm/sglang/<version>/ascend_bmm_perf.parquet`.
+It distinguishes the strided query projection, transpose-BMM prefill output,
+and custom `batch_matmul_transpose` decode output. BF16 views use the observed
+storage format and strides, including the query's 192-wide slice of a 256-wide
+head and the transposed key weight. Contiguous substitutes are rejected.
+
+| Field | Meaning |
+| --- | --- |
+| `name`, `scale_factor` | Operation label and number of identical invocations. |
+| `key.role` | `query_nope`, `output_prefill`, or `output_decode`; each selects its exact measured kernel and stride contract. |
+| `key.local_heads` | Per-rank attention heads, currently 4/8/16. |
+| `key.execution_mode` | Exact `eager` or `graph` execution. |
+| `token_multiple` | Round physical input rows up to this multiple; use 1 for unpadded prefill and the configured capture multiple for decode. |
+
+Only measured token brackets interpolate. The declared decode collection axis
+currently covers 1–32 rows, matching the United deployment's per-DP request
+limit; this is a deployment coverage limit, not a hardware maximum. Large
+custom-decode invocations rejected by the runtime remain in the failed campaign
+evidence. Extending the deployment's batch limit requires collecting that path.
+
 The `ascend910c` definition is a scoped hardware calibration for Atlas 800T A3
 with 16 runtime-visible chips per node. Its packaged
 [calibration notes](../../python/aisimulate/src/aisimulate_core/systems/data/ascend910c/README.md)

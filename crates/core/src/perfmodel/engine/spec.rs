@@ -873,6 +873,16 @@ mod tests {
                 },
                 graph_buckets: vec![8, 16, 24, 32],
             }),
+            OpSpec::AscendBmm(crate::operators::AscendBmmOp {
+                name: "ascend_query_bmm".into(),
+                scale_factor: 78.0,
+                key: crate::perf_database::ascend_bmm::AscendBmmKey {
+                    role: "query_nope".into(),
+                    local_heads: 8,
+                    execution_mode: "graph".into(),
+                },
+                token_multiple: 8,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -897,6 +907,7 @@ mod tests {
                 | OpSpec::Hccl(_)
                 | OpSpec::AscendLinear(_)
                 | OpSpec::AscendAttention(_)
+                | OpSpec::AscendBmm(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1062,7 +1073,12 @@ mod tests {
             "Ascend attention appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[49]),
             49,
+            "Ascend BMM appended index moved"
+        );
+        assert_eq!(
+            50,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );
