@@ -188,6 +188,7 @@ pub(crate) fn kernel_source_ok(
 pub mod ascend_attention;
 pub mod ascend_bmm;
 pub mod ascend_linear;
+pub mod ascend_moe_chain;
 pub mod ascend_vector;
 pub mod attention;
 mod axis_curve;
@@ -261,6 +262,7 @@ pub struct PerfTables {
     pub ascend_attention: ascend_attention::AscendAttentionTable,
     pub ascend_bmm: ascend_bmm::AscendBmmTable,
     pub ascend_vector: ascend_vector::AscendVectorTable,
+    pub ascend_moe_chain: ascend_moe_chain::AscendMoeChainTable,
     pub dsa: DsaTable,
     pub msa: MsaTable,
     pub dsv4: Dsv4Table,
@@ -572,6 +574,11 @@ impl PerfDatabase {
                 ascend_vector::AscendVectorTable::with_sources(&data_root, &resolver)?
             } else {
                 ascend_vector::AscendVectorTable::new(None)
+            },
+            ascend_moe_chain: if system == "ascend910c" && backend == "sglang" {
+                ascend_moe_chain::AscendMoeChainTable::with_sources(&data_root, &resolver)?
+            } else {
+                ascend_moe_chain::AscendMoeChainTable::new(None)
             },
             dsa: DsaTable::with_sources(data_root.clone(), &resolver)?.with_backend(backend),
             dsv4: Dsv4Table::with_sources(data_root.clone(), &resolver)?,

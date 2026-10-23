@@ -171,8 +171,10 @@ and an explicit contract extension.
 The runtime batch is the number of active requests per attention rank. Graph
 padding selects a measured capture bucket, while padded KV lengths remain zero.
 The native table interpolates KV length and active batch only within that same
-bucket. Prefill currently supports one request, interpolating new-token count
-and prefix length. Out-of-range coordinates and missing brackets are coverage
+bucket. Prefill partitions data by the exact active request count, interpolating
+new tokens per request and prefix length within that partition. Published data
+currently covers one request; collecting additional batch partitions does not
+qualify them until their numerical and source checks pass. Out-of-range coordinates and missing brackets are coverage
 errors; neither another runtime nor an analytic estimate fills the gap. Data is
 indexed once on first use, and repeated queries access bounded axis curves.
 An operator table does not by itself complete model composition or validate
@@ -209,6 +211,32 @@ ModelSlim operator profiles. Keep raw runs and accuracy results under
 precision resolution and missing-data behavior before claiming integration.
 
 ### Public workflow checks
+
+The `AscendMoeChain` primitive reads `moe/sglang/<version>/ascend_moe_chain_perf.parquet`.
+One observation contains GMM1, grouped quantized SwiGLU and GMM2 with dependent
+inputs. Dispatch, combine, router and shared experts remain separate. Weight
+storage is NZ INT8, channel scales BF16 and token scales FP32. The loader checks
+the complete expert count vector against the declared distribution; a buffer's
+allocated rows never substitute for its valid received rows.
+
+| Field | Meaning |
+| --- | --- |
+| `name`, `scale_factor` | Operation label and number of identical routed layers. |
+| `key.phase` | `prefill` uses a buffer sized to valid received rows; `decode` uses the declared physical capacity. |
+| `key.local_experts` | 16 or 8 resident experts, with hidden size 6144 and intermediate size 2048. |
+| `key.distribution` | Explicit synthetic `balanced` or `single_expert` count profile; neither represents observed checkpoint routing automatically. |
+| `key.execution_mode` | Exact `eager` or `graph` execution. |
+| `input_token_multiple` | Round input rows to the physical capture multiple before applying the routing ratio. |
+| `token_numerator`, `token_denominator` | Convert rounded runtime rows to received rows with ceiling. Model composition must supply its explicit routing/parallelism assumption. |
+
+The initial grid measures decode capacities 4096 with 16 local experts and
+8192 with 8. Only the former is currently verified against a live EP16 dispatch;
+the latter remains a standalone input-buffer case until distributed validation.
+One-token balanced and single-expert inputs are physically identical and reuse
+one observation with two explicit profile rows. Zero received rows have no
+qualified chain timing yet; nonzero out-of-range requests fail. Synthetic
+distribution curves enable functional modeling but do not qualify routing skew,
+MoE communication overlap, resident runtime overhead or whole-forward accuracy.
 
 The `AscendVector` primitive uses `vector/sglang/<version>/ascend_vector_perf.parquet`.
 Its versioned boundary contract covers ModelSlim RMSNorm with bias, fused Q/K

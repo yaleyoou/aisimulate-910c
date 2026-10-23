@@ -895,6 +895,19 @@ mod tests {
                 token_split: 1,
                 token_multiple: 8,
             }),
+            OpSpec::AscendMoeChain(crate::operators::AscendMoeChainOp {
+                name: "ascend_moe_chain".into(),
+                scale_factor: 75.0,
+                key: crate::perf_database::ascend_moe_chain::AscendMoeChainKey {
+                    phase: "decode".into(),
+                    local_experts: 16,
+                    distribution: "balanced".into(),
+                    execution_mode: "graph".into(),
+                },
+                token_numerator: 16,
+                token_denominator: 16,
+                input_token_multiple: 8,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -921,6 +934,7 @@ mod tests {
                 | OpSpec::AscendAttention(_)
                 | OpSpec::AscendBmm(_)
                 | OpSpec::AscendVector(_)
+                | OpSpec::AscendMoeChain(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1096,7 +1110,12 @@ mod tests {
             "Ascend vector appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[51]),
             51,
+            "Ascend MoE chain appended index moved"
+        );
+        assert_eq!(
+            52,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

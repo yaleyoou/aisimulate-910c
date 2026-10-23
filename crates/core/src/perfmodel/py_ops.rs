@@ -171,6 +171,7 @@ pub(crate) fn wrap_op(py: Python<'_>, op: Op) -> PyResult<Py<PyAny>> {
         | Op::AscendAttention(_)
         | Op::AscendBmm(_)
         | Op::AscendVector(_)
+        | Op::AscendMoeChain(_)
         | Op::Dsv41Attention(_)
         | Op::Dsv41Mhc(_)
         | Op::Dsv41Engram(_)

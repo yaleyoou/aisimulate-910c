@@ -1,0 +1,13 @@
+schema_version: 1
+op: ascend_moe_chain
+description: Explicit count-vector GMM1, quantized SwiGLU and GMM2 chain.
+common_case_values:
+  ascend_moe_chain:
+    received_tokens: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
+    distributions: [balanced, single_expert]
+    execution_modes: [eager, graph]
+    decode_capacity_per_source: 32
+    weight_copies: 8
+    iterations: 8
+    warmup: 5
+    repeats: 7

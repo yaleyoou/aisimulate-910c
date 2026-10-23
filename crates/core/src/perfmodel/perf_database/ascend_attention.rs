@@ -47,7 +47,7 @@ impl AscendAttentionKey {
     }
 
     fn partition(&self, padded_batch: u32) -> u32 {
-        if self.phase == "decode" && self.execution_mode == "graph" {
+        if self.phase == "prefill" || self.execution_mode == "graph" {
             padded_batch
         } else {
             0
@@ -195,7 +195,7 @@ impl AscendAttentionTable {
         if active == 0
             || sequence == 0
             || padded < active
-            || (key.phase == "prefill" && (active != 1 || padded != 1))
+            || (key.phase == "prefill" && padded != active)
             || (key.phase == "decode" && prefix != 0)
             || (key.execution_mode == "eager" && padded != active)
         {
@@ -282,11 +282,12 @@ fn load(path: &Path) -> Result<Grids, AicError> {
         let (outer, inner, expected_width, shape_ok) = if key.phase == "prefill" {
             (
                 prefix_tokens,
-                count,
+                count.checked_div(active_batch).unwrap_or(0),
                 pages,
-                active_batch == 1
-                    && padded_batch == 1
-                    && count.checked_add(prefix_tokens) == Some(length),
+                active_batch > 0
+                    && padded_batch == active_batch
+                    && count.is_multiple_of(active_batch)
+                    && (count / active_batch).checked_add(prefix_tokens) == Some(length),
             )
         } else {
             (
@@ -489,10 +490,29 @@ mod tests {
         let mut prefill = key();
         prefill.phase = "prefill".into();
         assert_eq!(table.query(&prefill, 1, 1, 576, 4096).unwrap(), 4.0);
+        assert!(
+            table
+                .query(&prefill, 2, 2, 576, 0)
+                .unwrap_err()
+                .is_missing_perf_data()
+        );
         assert!(matches!(
-            table.query(&prefill, 2, 2, 576, 0),
+            table.query(&prefill, 2, 3, 576, 0),
             Err(AicError::InvalidEngineConfig(_))
         ));
+        data[4] = Col::I64("tokens", vec![256, 2048, 256, 2048]);
+        data[5] = Col::I64("active_batch", vec![2; 4]);
+        data[6] = Col::I64("padded_batch", vec![2; 4]);
+        let path = root.path().join("two-requests.parquet");
+        write_parquet(&path, &data);
+        let table = AscendAttentionTable::new(Some(path));
+        assert_eq!(table.query(&prefill, 2, 2, 576, 4096).unwrap(), 4.0);
+        assert!(
+            table
+                .query(&prefill, 1, 1, 576, 4096)
+                .unwrap_err()
+                .is_missing_perf_data()
+        );
     }
 
     #[test]

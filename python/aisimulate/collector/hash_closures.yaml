@@ -130,6 +130,11 @@ collector.sglang.collect_gdn:
 collector.sglang.collect_kda:
   - collector/cases/base_ops/kda.yaml
   - __model_cases__
+collector.sglang.ascend_moe_chain:
+  - collector/sglang/ascend_moe_chain_cases.py
+  - collector/sglang/ascend_moe_chain_export.py
+  - collector/cases/base_ops/ascend_moe_chain.yaml
+  - collector/cases/models/GlmMoeDsaForCausalLM_cases.yaml
 collector.sglang.ascend_vector:
   - collector/sglang/ascend_vector_kernels.py
   - collector/sglang/ascend_vector_cases.py

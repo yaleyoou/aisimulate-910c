@@ -195,6 +195,7 @@ pub enum Op {
     AscendAttention(crate::operators::AscendAttentionOp),
     AscendBmm(crate::operators::AscendBmmOp),
     AscendVector(crate::operators::AscendVectorOp),
+    AscendMoeChain(crate::operators::AscendMoeChainOp),
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -299,6 +300,7 @@ impl Op {
             Op::AscendLinear(o) => o.weight_bytes(),
             Op::AscendBmm(o) => o.weight_bytes(),
             Op::AscendVector(o) => o.weight_bytes(),
+            Op::AscendMoeChain(o) => o.weight_bytes(),
             Op::Embedding(o) => o.weights_bytes(),
             Op::Moe(o) => o.weight_bytes(),
             Op::MoeExpertCompute(o) => o.weight_bytes(),
@@ -385,6 +387,7 @@ impl Op {
             Op::AscendAttention(o) => &o.name,
             Op::AscendBmm(o) => &o.name,
             Op::AscendVector(o) => &o.name,
+            Op::AscendMoeChain(o) => &o.name,
             Op::P2P(o) => &o.name,
             Op::Vision(o) => &o.name,
             Op::DsaContext(o) => &o.name,
@@ -444,6 +447,7 @@ impl Op {
             Op::AscendAttention(o) => o.name = name,
             Op::AscendBmm(o) => o.name = name,
             Op::AscendVector(o) => o.name = name,
+            Op::AscendMoeChain(o) => o.name = name,
             Op::P2P(o) => o.name = name,
             Op::Vision(o) => o.name = name,
             Op::DsaContext(o) => o.name = name,
@@ -491,6 +495,7 @@ impl Op {
             Op::AscendAttention(o) => o.scale_factor = scale_factor,
             Op::AscendBmm(o) => o.scale_factor = scale_factor,
             Op::AscendVector(o) => o.scale_factor = scale_factor,
+            Op::AscendMoeChain(o) => o.scale_factor = scale_factor,
             Op::P2P(o) => o.scale_factor = scale_factor,
             Op::Vision(o) => o.scale_factor = scale_factor,
             Op::DsaContext(o) => o.scale_factor = scale_factor,
@@ -648,6 +653,7 @@ impl Op {
             Op::AscendAttention(op) => op.query(db, ctx.batch_size, ctx.s, ctx.prefix),
             Op::AscendBmm(op) => op.query(db, ctx.num_tokens),
             Op::AscendVector(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
+            Op::AscendMoeChain(op) => op.query(db, ctx.num_tokens),
             Op::P2P(op) => op.query(db, ctx.num_tokens),
             Op::Vision(op) => op.query(db, ctx.num_image_tokens),
             Op::DsaContext(op) => op.query_context(db, ctx.batch_size, ctx.s, ctx.prefix),
