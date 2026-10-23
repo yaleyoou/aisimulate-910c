@@ -1,0 +1,13 @@
+schema_version: 1
+op: ascend_deepep
+description: Actual SGLang Ascend dispatch and combine with INT8 token quantization.
+common_case_values:
+  ascend_deepep:
+    normal_tokens: [1, 8, 32, 128, 256, 512, 1024, 2048]
+    low_latency_tokens: [1, 2, 3, 4, 8, 16, 32]
+    distributions: [balanced, single_expert_group]
+    normal_execution_modes: [eager]
+    low_latency_execution_modes: [eager, graph]
+    iterations: 8
+    warmup: 5
+    repeats: 7

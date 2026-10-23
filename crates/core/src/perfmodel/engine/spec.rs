@@ -908,6 +908,20 @@ mod tests {
                 token_denominator: 16,
                 input_token_multiple: 8,
             }),
+            OpSpec::AscendDeepEp(crate::operators::AscendDeepEpOp {
+                name: "ascend_deepep".into(),
+                scale_factor: 75.0,
+                key: crate::perf_database::ascend_deepep::AscendDeepEpKey {
+                    phase: "low_latency".into(),
+                    operation: "dispatch".into(),
+                    num_ranks: 16,
+                    ranks_per_node: 16,
+                    distribution: "balanced".into(),
+                    execution_mode: "graph".into(),
+                },
+                token_split: 8,
+                input_token_multiple: 8,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -935,6 +949,7 @@ mod tests {
                 | OpSpec::AscendBmm(_)
                 | OpSpec::AscendVector(_)
                 | OpSpec::AscendMoeChain(_)
+                | OpSpec::AscendDeepEp(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1115,7 +1130,12 @@ mod tests {
             "Ascend MoE chain appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[52]),
             52,
+            "Ascend DeepEP appended index moved"
+        );
+        assert_eq!(
+            53,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

@@ -99,7 +99,7 @@ def expected_invocation(case):
             cache,
             "torch_npu.npu_scatter_nd_update_",
         )
-    if role == "swiglu" and dimensions in ([768], [2048]):
+    if role == "swiglu" and dimensions in ([384], [768], [2048]):
         return {"input": tensor([tokens, dimensions[0] * 2])}, tensor([tokens, dimensions[0]]), "torch_npu.npu_swiglu"
     if role == "router_topk" and dimensions == [256, 8]:
         return (

@@ -767,6 +767,40 @@ request latency to qualify prediction accuracy. `ascend_state_report.py` rejects
 missing ranks/layers, invalid count vectors and inconsistent storage geometry,
 then deduplicates exact invocation geometries while retaining their observations.
 
+`ascend_deepep_cases.py`, `ascend_deepep.py`, and `ascend_deepep_export.py`
+form an experimental, explicit Ascend transport campaign. The producer invokes
+the installed SGLang dispatchers at commit
+`baa9befa381511cd4d56f83980951e5a45fffc6d`:
+`srt/layers/moe/token_dispatcher/deepep.py:611` (normal dispatch),
+`:696` (normal combine), `:840` (low-latency dispatch), and `:900`
+(low-latency combine). The runtime supplies its default DeepEP strategies,
+workspace sizing and quantization selection. The plan records hidden6144,
+256 experts, top8, 32 maximum low-latency tokens per rank, and contiguous
+16-rank node placement. The payload represents BF16 hidden states and router
+IDs/weights in the actual dispatcher API; synthetic routes are explicitly
+balanced or concentrated in the first eight experts. They are not observations
+of the checkpoint's routing distribution.
+
+Dispatch transports INT8 activations with FP32 scales; combine transports BF16.
+Every valid dispatched element and every combined output is checked before
+and after timing. Each captured graph contains one transport call. Rank
+barriers separate calls outside the timed region; events surround the actual
+invocation/replay. Captured graphs remain alive while communication handles
+may refer to their storage. Graph no-op controls must fail numerical checks.
+Each repeated sample averages eight individually timed calls, then publication
+takes the median of per-sample rank maxima. CV above10% is excluded, with the
+original samples retained. Failed executions remain classified observations;
+they never produce timing rows, and the full frozen plan must be accounted for.
+
+The coordinated native consumer is `AscendDeepEp` and
+`moe/sglang/0.5.22/ascend_deepep_perf.parquet`. Its exact dimensions are phase,
+dispatch/combine, global ranks, ranks per node, routing distribution and
+eager/graph execution. Only tokens per rank interpolate within measured bounds.
+It uses the requested hardware/backend/version and rejects missing coverage;
+there is no CUDA data substitution or analytic fallback. Normal-mode graph
+execution is not a declared serving branch. This primitive measures transport
+boundaries, excluding expert compute and whole-forward stream overlap.
+
 ## NFS File Locking (Worker Deadlock)
 
 **Symptom**: Collection stalls after a few test cases with no error messages.

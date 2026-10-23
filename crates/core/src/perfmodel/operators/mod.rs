@@ -15,6 +15,7 @@
 
 pub mod ascend_attention;
 pub mod ascend_bmm;
+pub mod ascend_deepep;
 pub mod ascend_linear;
 pub mod ascend_moe_chain;
 pub mod ascend_vector;
@@ -47,6 +48,7 @@ pub mod wideep_mla;
 
 pub use ascend_attention::AscendAttentionOp;
 pub use ascend_bmm::AscendBmmOp;
+pub use ascend_deepep::AscendDeepEpOp;
 pub use ascend_linear::AscendLinearOp;
 pub use ascend_moe_chain::AscendMoeChainOp;
 pub use ascend_vector::AscendVectorOp;

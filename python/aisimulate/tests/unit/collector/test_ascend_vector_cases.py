@@ -16,12 +16,12 @@ def test_declared_vector_geometry_preserves_parallelism_and_precision_boundaries
     )
     plan = get_ascend_vector_cases(tmp_path)
     cases = plan["cases"]
-    assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases}) == 768
+    assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases}) == 800
 
     def shapes(role):
         return {tuple(case["dimensions"]) for case in cases if case["role"] == role}
 
-    assert shapes("swiglu") == {(768,), (2048,)}
+    assert shapes("swiglu") == {(384,), (768,), (2048,)}
     assert shapes("rope_attention") == {(4, 64, 256, 64), (8, 64, 256, 64), (16, 64, 256, 64)}
     assert shapes("rope_indexer") == {(32, 64, 128, 128)}
     assert shapes("embedding") == {(38720, 6144), (19360, 6144), (9680, 6144)}

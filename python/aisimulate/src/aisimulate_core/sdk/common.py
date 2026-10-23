@@ -1347,6 +1347,7 @@ class PerfDataFilename(Enum):
     ascend_bmm = "ascend_bmm_perf.parquet"
     ascend_vector = "ascend_vector_perf.parquet"
     ascend_moe_chain = "ascend_moe_chain_perf.parquet"
+    ascend_deepep = "ascend_deepep_perf.parquet"
     nccl = "nccl_perf.parquet"
     oneccl = "oneccl_perf.parquet"
     hccl = "hccl_perf.parquet"

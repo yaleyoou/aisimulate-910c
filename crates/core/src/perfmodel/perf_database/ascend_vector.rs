@@ -36,7 +36,7 @@ impl AscendVectorKey {
             | ("cast_weights_bf16", [32])
             | ("rope_cache_gather", [1048576, 64]) => true,
             ("rope_attention", [heads, 64, 256, 64]) => matches!(heads, 4 | 8 | 16),
-            ("swiglu", [width]) => matches!(width, 768 | 2048),
+            ("swiglu", [width]) => matches!(width, 384 | 768 | 2048),
             ("cache_scatter", [53376, width]) => matches!(width, 64 | 128 | 512),
             ("embedding", [vocabulary, 6144]) => matches!(vocabulary, 9680 | 19360 | 38720),
             _ => false,
