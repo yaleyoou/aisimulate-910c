@@ -573,6 +573,30 @@
           "scope": "collection",
           "sha256": "54ab154fe96ce89292ad8fcd8c4690978279337c806507c134d3c92224937a8f"
         },
+        "bmm_native_validation": {
+          "archived": false,
+          "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
+          "kind": "file",
+          "path": "production/bmm-validation-20261023/native-report.json",
+          "scope": "validation",
+          "sha256": "0c00aa3b719000f5ced512347a1d7e39d0e7aea4fe4b7e78da5a77c94c5ed3a4"
+        },
+        "bmm_provenance": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/bmm-published-20261023/provenance.json",
+          "scope": "collection",
+          "sha256": "908caea209d34fcaec7be12803feabc0dc723b6da0b1e05005c3cd0c41dd9361"
+        },
+        "bmm_table": {
+          "archived": false,
+          "context_sha256": "dedb22e6e17b11ea79bf2386a9e39e872552f478420039fe878c246392ed46ac",
+          "kind": "file",
+          "path": "production/bmm-published-20261023/ascend_bmm_perf.parquet",
+          "scope": "collection",
+          "sha256": "403a4a888960fc41cad461a6f3045a787bf5fe488585360fa00aa58652530406"
+        },
         "captured_event_capability": {
           "archived": false,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -1024,6 +1048,14 @@
       "status": "primitive_and_505_qualified_rows_published_model_composition_pending",
       "validation": "505 exact native queries zero error;5 Rust behavior tests,22 wire tests,9 collector tests,11 API contract tests,390 GPU parity tests passed. Native SHA44fe026f8b862675e2969cb61eb247c0e2d7da5f41215789728d866a67008587. No golden changes."
     },
+    "ascend_bmm_adapter": {
+      "failures_preserved": "Attempt1 negative harness expected serving-setup-nodes.json; fixed runner filename. Attempt2 overbroad decode grid hit batchIdx out of range at2048+. Attempt3 declares1..32decode rows from United per-DP limit, not an inferred hardware maximum; no accuracy tuning or silent skipping.",
+      "next_action": "Vector/norm/RoPE/cache and MoE/DeepEP, attention batch coverage, actual model composition, resident memory and canonical PD/parallel search.",
+      "publication": "222cases complete in bmm-full-node32-20261023-attempt3;220stable,2CVexcluded. Published mla_bmm/sglang/0.5.22 and frozen bmm-published-20261023. Actual query slice/transposed weight strides retained; all numerical checks pass;3graph-noop negative controls rejected.",
+      "source_commit": "30ab4198",
+      "status": "primitive_and_220_qualified_rows_published_model_composition_pending",
+      "validation": "220 exact native queries zero error;4Rust,22wire,5collector,11API,390GPUparity pass. Native SHAd60599aaccf0a0b9823e719a624d9cd5f115ef7d68ed3fad1a39c8538dfc1444. No golden changes."
+    },
     "ascend_kv_model": {
       "changes": "Propagate system to canonical compiler and memory model; all78BF16indexer slots,109824bytes/token,onepool sentinel14057472bytes,128-token capacity rounding; reject unqualified PP/CP/DCP/MTP/cache layouts without naive fallback.",
       "confidence": "99focused/adjacent tests and390GPUparity tests passed; per-rank physical pool independently measured",
@@ -1102,6 +1134,20 @@
         "operators/local-cleanup.json",
         "operators/remote-cleanup.json"
       ]
+    },
+    "current_nodes_hccl": {
+      "directory": "production/hccl-node31-node32-20261023",
+      "next_action": "Inspect both node campaign files and raw hccl16/32 results before restarting anything. Qualify, publish, native-query and commit when complete.",
+      "nodes": [
+        "npu1-32",
+        "npu1-31"
+      ],
+      "ranks_per_node": [
+        8,
+        16
+      ],
+      "source": "Unchanged replay-verified asc_hccl v3; pinned image and driver26.1.1 on both nodes; source/setup frozen and cross-checked.",
+      "status": "running"
     },
     "device_probe": {
       "bf16_matmul_device0_passed": true,
@@ -1472,7 +1518,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 40,
+  "revision": 41,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

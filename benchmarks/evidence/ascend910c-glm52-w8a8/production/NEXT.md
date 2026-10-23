@@ -1,5 +1,22 @@
 # Current goal handoff
 
+## Latest: BMM complete; current-node HCCL running
+
+BMM source30ab4198,222cases/220stable/2CVexcluded. Allactualexecutionchecks pass,
+3graphnoopcontrolsrejected. Attempt1filenamefailureandattempt2oversizeddecode
+batchIdxfailurespreserved. Formaldecodeaxis1..32matchesUnitedperDPrequestlimit.
+Publishedmla_bmm/sglang/0.5.22 andfrozenbmm-published-20261023.
+220nativeexactquerieszeroerror;4Rust+22wire+5collector+11API+390GPUparitypass.
+CurrentnativeSHAd60599aaccf0a0b9823e719a624d9cd5f115ef7d68ed3fad1a39c8538dfc1444.
+Node32rootPTY24914;node31SSHrootPTY47855. Nodesbothidlebeforelaunch;31driver26.1.1.
+run_hccl_current_nodes.py active onbothnodes inhccl-node31-node32-20261023.
+Node32hostPID3169765,31PID2447073;owncontaineraisim-hccl-current-20261023.
+Collects2node groupswith8and16rankspernode (world16/32),sourcev3unchanged.
+Inspectsharedpernodecampaign.json andrawhccl-16/32.json beforeanyrestart.
+No servinginstancesstarted/stopped;originalservicesremainasfoundafterreboot.
+Nextsourceauditvector/norm/RoPE/cache,thenMoE/DeepEP andactualmodelcomposition.
+No complete canonical GLM forward/PD/recommend pipeline yet;goal remainsactive.
+
 ## 2026-10-23 attention collection and native integration
 
 Source commit0a6ac76e.528/528attention/indexer cases completed;505stablepublished,

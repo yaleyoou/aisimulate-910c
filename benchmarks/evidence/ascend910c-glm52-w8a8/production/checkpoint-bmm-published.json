@@ -1,0 +1,29 @@
+{
+  "research": {
+    "ascend_bmm_adapter": {
+      "status": "primitive_and_220_qualified_rows_published_model_composition_pending",
+      "source_commit": "30ab4198",
+      "publication": "222cases complete in bmm-full-node32-20261023-attempt3;220stable,2CVexcluded. Published mla_bmm/sglang/0.5.22 and frozen bmm-published-20261023. Actual query slice/transposed weight strides retained; all numerical checks pass;3graph-noop negative controls rejected.",
+      "validation": "220 exact native queries zero error;4Rust,22wire,5collector,11API,390GPUparity pass. Native SHAd60599aaccf0a0b9823e719a624d9cd5f115ef7d68ed3fad1a39c8538dfc1444. No golden changes.",
+      "failures_preserved": "Attempt1 negative harness expected serving-setup-nodes.json; fixed runner filename. Attempt2 overbroad decode grid hit batchIdx out of range at2048+. Attempt3 declares1..32decode rows from United per-DP limit, not an inferred hardware maximum; no accuracy tuning or silent skipping.",
+      "next_action": "Vector/norm/RoPE/cache and MoE/DeepEP, attention batch coverage, actual model composition, resident memory and canonical PD/parallel search."
+    },
+    "current_nodes_hccl": {
+      "status": "running",
+      "nodes": ["npu1-32", "npu1-31"],
+      "ranks_per_node": [8,16],
+      "directory": "production/hccl-node31-node32-20261023",
+      "source": "Unchanged replay-verified asc_hccl v3; pinned image and driver26.1.1 on both nodes; source/setup frozen and cross-checked.",
+      "next_action": "Inspect both node campaign files and raw hccl16/32 results before restarting anything. Qualify, publish, native-query and commit when complete."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "bmm_table": {"path": "production/bmm-published-20261023/ascend_bmm_perf.parquet", "kind": "file", "scope": "collection"},
+        "bmm_provenance": {"path": "production/bmm-published-20261023/provenance.json", "kind": "file", "scope": "collection"},
+        "bmm_native_validation": {"path": "production/bmm-validation-20261023/native-report.json", "kind": "file", "scope": "validation"}
+      }
+    }
+  }
+}

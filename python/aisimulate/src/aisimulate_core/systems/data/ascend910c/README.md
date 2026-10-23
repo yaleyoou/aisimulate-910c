@@ -25,6 +25,18 @@ Prefill currently supports one request; intermediate decode batches require
 measured brackets within their capture bucket. Missing coverage fails explicitly.
 These results qualify table loading and execution, not whole-model accuracy.
 
+The MLA BMM family contains 220 qualified rows from 222 attempts under
+`mla_bmm/sglang/0.5.22/ascend_bmm_perf.parquet`. Query BMM preserves the strided
+192-wide view within each 256-wide head and the transposed BF16 key weight.
+Prefill output uses `npu_transpose_batchmatmul`; decode output uses the custom
+`batch_matmul_transpose` destination-buffer API. The collector rotates 64 weight
+copies and checks every timed output against sampled CPU references before and
+after measurement. All cases pass; three graph-noop controls fail as expected.
+Two unstable rows remain excluded. Native lookup reproduces all 220 table rows.
+Decode collection is scoped to the deployment's 32 requests per attention rank.
+The first overbroad grid's custom-kernel failures at large decode token counts
+remain in the raw evidence. This does not establish a universal kernel limit.
+
 The system-specific query-version override pins SGLang to `0.5.22`; the Ascend
 runtime belongs to a separate compatibility domain and does not promote the
 CUDA systems' fleet-wide `next` version. This pin is not a model coverage claim.

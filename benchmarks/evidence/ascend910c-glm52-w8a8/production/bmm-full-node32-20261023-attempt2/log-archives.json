@@ -1,0 +1,42 @@
+[
+  {
+    "path": "npu-before.log",
+    "sha256": "3252d73a0d97da0a4cea0a6ef0d43cdd39a9e8dc6a1d477871b45b3a292507e7",
+    "bytes": 8541
+  },
+  {
+    "path": "negative-query_nope.log",
+    "sha256": "9701572d6b941fe812c6e56e7130a14fe78278f8eddee9f76bcec6c7f248ca3c",
+    "bytes": 3429
+  },
+  {
+    "path": "negative-output_prefill.log",
+    "sha256": "973f38d2001c3c9daf6cde00e9bd2389ebd8573f72fdec763f33be858f19075d",
+    "bytes": 3430
+  },
+  {
+    "path": "negative-output_decode.log",
+    "sha256": "5eed6e2d53ebda5da17aa17aa2675a337949fefc13ae4c42417ccb4acab0140c",
+    "bytes": 3431
+  },
+  {
+    "path": "shard-0.log",
+    "sha256": "ea4f40ae5f003b0a719373dc4e10c6e26369731911b0f4add168d5dc57a7ebc0",
+    "bytes": 4790
+  },
+  {
+    "path": "shard-1.log",
+    "sha256": "90eedbe214ea8f228f91b09c63914d107989dbd778d26ed5f0ac853efd4bdc6b",
+    "bytes": 4799
+  },
+  {
+    "path": "shard-2.log",
+    "sha256": "0356b075c79a7f9f92c6f9aa73d335cdcfd1e9ca07dd76f896a3e1b551c0be76",
+    "bytes": 4790
+  },
+  {
+    "path": "shard-3.log",
+    "sha256": "a013de032488ef313611860b9069aadc1e32b093d9a32e992f35fee6d252816e",
+    "bytes": 5044
+  }
+]
