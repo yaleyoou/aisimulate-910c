@@ -883,6 +883,18 @@ mod tests {
                 },
                 token_multiple: 8,
             }),
+            OpSpec::AscendVector(crate::operators::AscendVectorOp {
+                name: "ascend_add_norm".into(),
+                scale_factor: 78.0,
+                key: crate::perf_database::ascend_vector::AscendVectorKey {
+                    role: "add_rms_bias".into(),
+                    dimensions: vec![6144],
+                    execution_mode: "graph".into(),
+                },
+                token_axis: crate::operators::ascend_linear::AscendLinearTokens::Tokens,
+                token_split: 1,
+                token_multiple: 8,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -908,6 +920,7 @@ mod tests {
                 | OpSpec::AscendLinear(_)
                 | OpSpec::AscendAttention(_)
                 | OpSpec::AscendBmm(_)
+                | OpSpec::AscendVector(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)
                 | OpSpec::DsaContext(_)
@@ -1078,7 +1091,12 @@ mod tests {
             "Ascend BMM appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[50]),
             50,
+            "Ascend vector appended index moved"
+        );
+        assert_eq!(
+            51,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

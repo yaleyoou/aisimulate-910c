@@ -210,6 +210,33 @@ precision resolution and missing-data behavior before claiming integration.
 
 ### Public workflow checks
 
+The `AscendVector` primitive uses `vector/sglang/<version>/ascend_vector_perf.parquet`.
+Its versioned boundary contract covers ModelSlim RMSNorm with bias, fused Q/K
+normalization, FP32 indexer LayerNorm with BF16 conversions, fused interleaved
+RoPE, cache writes, SwiGLU, routing top-k, casts, concatenation, embedding and
+the routed/shared-output operations. Each role owns its exact dtype, tensor
+stride, storage offset and kernel signature. Fused boundaries include their
+internal operations; do not also charge those internals as separate operators.
+
+| Field | Meaning |
+| --- | --- |
+| `name`, `scale_factor` | Operation label and number of identical invocations. |
+| `key.role` | Source-qualified logical boundary, such as `add_rms_bias`, `rope_attention`, or `cache_scatter`. |
+| `key.dimensions` | Role-specific physical geometry; only declared and measured tuples are supported. |
+| `key.execution_mode` | Exact `eager` or `graph` execution. Cache indices are INT64 for eager and INT32 for graph. |
+| `token_axis` | `tokens` or `requests`, selecting the runtime row count before sharding. |
+| `token_split` | Divide the selected row count with ceiling for the operation's input shard. |
+| `token_multiple` | Round the sharded row count up to the configured physical padding multiple. |
+
+The initial cache-write grid uses 53,376 physical token slots and distinct valid
+write locations. It has no separate latency model for repeated padding writes
+to sentinel slot zero. Resident weights and RoPE tables have explicit storage
+sizes; KV storage belongs to the cache model, not the write operation. Published
+rows carry the checked invocation signature hash and the runtime identity.
+Only measured row-count brackets interpolate; unsupported geometry, execution
+or precision fails. These warm-buffer measurements are functional support,
+with whole-forward accuracy still uncalibrated.
+
 Rebuild the editable package after native or packaging changes:
 
 ```bash
