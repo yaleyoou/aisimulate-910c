@@ -283,7 +283,9 @@ class DeepSeekV32Model(BaseModel):
 
         # One class for both regimes: ``__init__`` branches on
         # ``model_config.moe_comm_backend`` (set by the enumerator) for large EP.
-        return cls(*moe_args, *base_args, extra_params, backend_name=backend_name)
+        return cls(
+            *moe_args, *base_args, extra_params, backend_name=backend_name, raw_config=model_info.get("raw_config")
+        )
 
     #: TRT-LLM large-EP decode PDL overlap discount, transcribed from the
     #: deleted ``TrtllmWideEPDeepSeekV32Model._pdl_factor`` (deepseek_v32.py:463
@@ -341,10 +343,21 @@ class DeepSeekV32Model(BaseModel):
             )
         return result
 
-    def __init__(self, topk: int, num_experts: int, moe_inter_size: int, *args, backend_name: str = "") -> None:
+    def __init__(
+        self, topk: int, num_experts: int, moe_inter_size: int, *args, backend_name: str = "", raw_config=None
+    ) -> None:
         super().__init__(*args)
 
         self._backend_name = backend_name
+        if getattr(self.config, "system", None) == "ascend910c":
+            from aisimulate_core.sdk.models.ascend_glm52 import configure_ascend_glm52
+
+            self._topk = topk
+            self._num_experts = num_experts
+            self._moe_inter_size = moe_inter_size
+            self._is_large_ep = True
+            configure_ascend_glm52(self, raw_config)
+            return
         # Large EP: see ``ModelConfig.moe_comm_backend`` (enumerator-owned).
         self._is_large_ep = bool(self.config.moe_comm_backend)
         # Node width is a hardware fact with no default: an unset value would

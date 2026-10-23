@@ -12,6 +12,7 @@ import functools
 import importlib
 import json
 import os
+from enum import Enum
 
 
 class ObservedCallable:
@@ -77,6 +78,23 @@ class InputCapture:
             }
         if isinstance(value, dict):
             return {str(key): self.describe(item, str(key)) for key, item in value.items()}
+        if isinstance(value, Enum):
+            return {"python_type": type(value).__module__ + "." + type(value).__name__, "name": value.name}
+        if isinstance(value, (set, frozenset)):
+            return [self.describe(item, label) for item in sorted(value, key=str)]
+        if isinstance(value, functools.partial):
+            return {
+                "function": self.describe(value.func),
+                "arguments": self.describe(value.args),
+                "keywords": self.describe(value.keywords),
+            }
+        if hasattr(value, "__struct_fields__"):
+            return {
+                "python_type": type(value).__module__ + "." + type(value).__name__,
+                "fields": {name: self.describe(getattr(value, name), name) for name in value.__struct_fields__},
+            }
+        if callable(value):
+            return {"callable": value.__module__ + "." + getattr(value, "__qualname__", type(value).__name__)}
         if value is None or isinstance(value, (bool, int, float, str)):
             return value
         return {"python_type": type(value).__module__ + "." + type(value).__name__}
@@ -212,6 +230,55 @@ def install(state):
         dispatcher = importlib.import_module("sglang.srt.layers.moe.token_dispatcher.deepep")
         for name in ("dispatch_a", "dispatch_b", "combine_a", "combine_b"):
             wrap_function(dispatcher.DeepEPDispatcher, name, "DeepEPDispatcher." + name)
+
+    if os.environ.get("AISIM_CAPTURE_BOUNDARIES") == "1":
+        from sglang.srt.distributed.parallel_state import GroupCoordinator
+        from sglang.srt.layers.layer_boundary.stage import StageBoundary
+
+        prepare = StageBoundary.prepare
+
+        @functools.wraps(prepare)
+        def prepare_stage(boundary, hidden_states, forward_batch, **kwargs):
+            output = prepare(boundary, hidden_states, forward_batch, **kwargs)
+            observer.record(
+                "StageBoundary.prepare",
+                {
+                    "kind": boundary.kind,
+                    "path": boundary.plan.path_for(forward_batch),
+                    "input": hidden_states,
+                },
+                output,
+                boundary.norm,
+            )
+            return output
+
+        StageBoundary.prepare = prepare_stage
+        hooks.append("StageBoundary.prepare")
+
+        def wrap_collective(name):
+            original = getattr(GroupCoordinator, name)
+
+            @functools.wraps(original)
+            def collective(group, *args, **kwargs):
+                depth = getattr(state.thread, "collective_depth", 0)
+                state.thread.collective_depth = depth + 1
+                try:
+                    output = original(group, *args, **kwargs)
+                    if depth == 0:
+                        observer.record(
+                            "GroupCoordinator." + name,
+                            {"ranks": group.ranks, "rank_in_group": group.rank_in_group, "positional": args, **kwargs},
+                            output,
+                        )
+                    return output
+                finally:
+                    state.thread.collective_depth = depth
+
+            setattr(GroupCoordinator, name, collective)
+            hooks.append("GroupCoordinator." + name)
+
+        for name in ("all_reduce", "all_gather", "all_gather_into_tensor", "reduce_scatter", "reduce_scatter_tensor"):
+            wrap_collective(name)
 
     original_begin = torch_npu.npu.NPUGraph.capture_begin
 

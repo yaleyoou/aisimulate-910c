@@ -393,6 +393,12 @@ def _engine_config_dict(
     # flattened Option deserializes to None.
     if speculative is not None:
         engine["nextn"] = speculative["nextn"]
+    op_config = getattr(model.config, "op_level_config", None)
+    if op_config is not None and op_config.options:
+        engine["extra"]["estimator_config"] = json.dumps({"op_level": op_config.options})
+    assumptions = getattr(model, "execution_assumptions", None)
+    if assumptions is not None:
+        engine["extra"]["execution_assumptions"] = json.dumps(assumptions)
     return engine
 
 
@@ -449,6 +455,7 @@ def compile_engine(
     attention_dp_size: int = 1,
     dcp_size: int | None = None,
     fpm_options: dict | None = None,
+    op_level_options: dict | None = None,
     moe_tp_size: int | None = None,
     moe_ep_size: int | None = None,
     gemm_quant_mode: str | None = None,
@@ -506,7 +513,7 @@ def compile_engine(
             raise ValueError("fpm_parquet_path cannot be empty")
         if forward_model != "fpm":
             raise ValueError("fpm_parquet_path requires forward_model='fpm'")
-    from aisimulate_core.sdk.fpm_config import FpmCompileConfig
+    from aisimulate_core.sdk.fpm_config import FpmCompileConfig, OpLevelCompileConfig
 
     try:
         fpm_config = FpmCompileConfig(
@@ -645,6 +652,7 @@ def compile_engine(
             system=system,
         )
         model_config.fpm_config = fpm_config
+        model_config.op_level_config = OpLevelCompileConfig(op_level_options, system=system, backend=backend)
         # Apply MTP BEFORE get_model so the walked op lists carry the
         # (L+nextn)/L compute scale; accepted-token progress is applied above core.
         apply_nextn(model_config, nextn)
@@ -709,9 +717,11 @@ def compile_engine(
 
     if profile is not None:
         spec = json.loads(spec_json)
+        estimator_options = json.loads(spec["engine"]["extra"].get("estimator_config", "{}"))
+        estimator_options["fpm_interpolation"] = {**fpm_config.options, "method": interpolation}
         spec["engine"]["extra"].update(
             fpm_profile=profile.model_dump_json(),
-            estimator_config=json.dumps({"fpm_interpolation": {**fpm_config.options, "method": interpolation}}),
+            estimator_config=json.dumps(estimator_options),
         )
         if deployment.worker_type is not None:
             spec["engine"]["extra"]["worker_type"] = worker_type

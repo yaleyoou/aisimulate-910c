@@ -398,7 +398,7 @@ mod tests {
         op.ensure_ready(&database).unwrap();
         assert_eq!(op.query(&database, 1, 1).unwrap().latency_ms, 4.0);
         assert_eq!(op.query(&database, 9, 1).unwrap().latency_ms, 10.0);
-        assert_eq!(op.weight_bytes(), 16384.0);
+        assert_eq!(op.weight_bytes(), 20232.0);
         assert_eq!(op.query(&database, 0, 0).unwrap().latency_ms, 0.0);
     }
 

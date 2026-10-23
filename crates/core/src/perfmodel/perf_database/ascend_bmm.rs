@@ -369,17 +369,21 @@ mod tests {
 
     #[test]
     fn padding_and_weight_size_use_physical_bf16_views() {
-        let op = AscendBmmOp {
+        let mut op = AscendBmmOp {
             name: "query".into(),
             scale_factor: 2.0,
             key: key(),
             token_multiple: 8,
+            resident_copies: None,
         };
         assert_eq!(op.measured_tokens(5).unwrap(), 8);
         assert_eq!(op.measured_tokens(9).unwrap(), 16);
         assert_eq!(op.measured_tokens(0).unwrap(), 0);
         assert!(op.measured_tokens(u32::MAX).is_err());
         assert_eq!(op.weight_bytes(), 3_145_728.0);
+        op.resident_copies = Some(4);
+        assert_eq!(op.weight_bytes(), 6_291_456.0);
+        assert_eq!(op.measured_tokens(9).unwrap(), 16);
     }
 
     #[test]

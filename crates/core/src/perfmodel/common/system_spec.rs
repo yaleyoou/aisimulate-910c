@@ -231,7 +231,8 @@ mod tests {
         assert!(spec.gpu.fp8_tc_flops.is_none());
         assert!(spec.gpu.fp4_tc_flops.is_none());
         assert!(spec.gpu.sm_version.is_none());
-        assert!(spec.misc.nccl_mem.is_empty());
+        assert!(spec.misc.nccl_mem.values().all(|bytes| *bytes == 0));
+        assert_eq!(spec.misc.other_mem, Some(937_753_092));
         assert!(spec.misc.nccl_version.is_none());
     }
 

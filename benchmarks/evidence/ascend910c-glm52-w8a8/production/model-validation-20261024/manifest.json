@@ -1,0 +1,46 @@
+[
+  {
+    "file": "aisim-model-tests.log",
+    "sha256": "040e20605b59469ffd6e7cafabdecb94b9e64761d2a938c017751f12177a74b6"
+  },
+  {
+    "file": "aisim-model-public-contract-tests.log",
+    "sha256": "10123c835a8722a90355c3d5efb20ecec392f9d258948327dd6687684dcd0657"
+  },
+  {
+    "file": "aisim-model-native-tests-verified.log",
+    "sha256": "4b697ea96d0610fb587bb0025068f67e959a77a022a3d8b5160225c9d9311814"
+  },
+  {
+    "file": "aisim-model-hccl-tests.log",
+    "sha256": "470c3cbb369e0af192ce5b0579f05828a3d48a0af3edc7065ed96015295ecb67"
+  },
+  {
+    "file": "aisim-model-wire-tests.log",
+    "sha256": "6bf17388e84fd71601999d6d1ce193bc2500112a3a7d03301d707c20d26b08d2"
+  },
+  {
+    "file": "aisim-model-gpu-parity.log",
+    "sha256": "6ee15a9fa9a7295344fc0f8660ecc321ab02a495a5d1c3c016c9bb07e3b6b45c"
+  },
+  {
+    "file": "aisim-model-native-release.log",
+    "sha256": "49a3ae942192e2077c784eeb0d0d6d868b442a4e096f06576cd3395dde327daf"
+  },
+  {
+    "file": "aisim-forward-first-smoke-v2.log",
+    "sha256": "d5cd35bdb8d9c727c6d2024dc7550a3f81bfd801a4dbb3734fea55ee54853cc3"
+  },
+  {
+    "file": "aisim-memory-first-smoke.log",
+    "sha256": "c7f25fd91232e966712e8b4a4da7f9e7cf988d53702446ea9b252f387a6dfb0f"
+  },
+  {
+    "file": "aisim-engine-first.log",
+    "sha256": "f6f511a93f6cf611ca3f3483ca79fc869291ae501f0e82836088991a9c483078"
+  },
+  {
+    "file": "aisim-logits-tests.log",
+    "sha256": "b89ccbdb56b0996b5298d7358665be4dd6d006c2f7dc57bd0397d1b997b560d5"
+  }
+]

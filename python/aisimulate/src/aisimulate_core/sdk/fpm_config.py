@@ -47,3 +47,25 @@ def resolve_fpm_config(model_config) -> FpmCompileConfig:
     if model_config.fpm_config is None:
         model_config.fpm_config = FpmCompileConfig()
     return model_config.fpm_config
+
+
+@dataclass(frozen=True, init=False)
+class OpLevelCompileConfig:
+    """Carry options resolved by the canonical Rust op-level schema."""
+
+    _options_json: str
+
+    def __init__(self, options: dict | None, *, system: str, backend: str) -> None:
+        import aisimulate_core
+
+        normalized = aisimulate_core.RustForwardPassPerfModel._normalize_op_level_options(
+            json.dumps({} if options is None else options), system, backend
+        )
+        object.__setattr__(self, "_options_json", normalized)
+
+    @property
+    def options(self) -> dict:
+        return json.loads(self._options_json)
+
+    def cache_identity(self) -> str:
+        return self._options_json

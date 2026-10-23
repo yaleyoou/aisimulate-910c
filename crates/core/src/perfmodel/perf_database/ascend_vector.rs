@@ -393,9 +393,12 @@ mod tests {
             token_axis: AscendLinearTokens::Tokens,
             token_split: 2,
             token_multiple: 8,
+            resident_copies: None,
         };
         assert_eq!(operation.measured_tokens(18, 3).unwrap(), 16);
         assert_eq!(operation.weight_bytes(), 49_152.0);
+        operation.resident_copies = Some(1);
+        assert_eq!(operation.weight_bytes(), 24_576.0);
         operation.token_axis = AscendLinearTokens::Requests;
         assert_eq!(operation.measured_tokens(8192, 3).unwrap(), 8);
         operation.token_split = 1;

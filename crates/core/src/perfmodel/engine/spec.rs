@@ -846,6 +846,7 @@ mod tests {
                 },
                 elements_per_token: 6144,
                 token_split: 1,
+                token_axis: crate::operators::ascend_linear::AscendLinearTokens::Tokens,
             }),
             OpSpec::AscendLinear(crate::operators::AscendLinearOp {
                 name: "ascend_o_proj".into(),
@@ -882,6 +883,7 @@ mod tests {
                     execution_mode: "graph".into(),
                 },
                 token_multiple: 8,
+                resident_copies: Some(156),
             }),
             OpSpec::AscendVector(crate::operators::AscendVectorOp {
                 name: "ascend_add_norm".into(),
@@ -894,6 +896,7 @@ mod tests {
                 token_axis: crate::operators::ascend_linear::AscendLinearTokens::Tokens,
                 token_split: 1,
                 token_multiple: 8,
+                resident_copies: None,
             }),
             OpSpec::AscendMoeChain(crate::operators::AscendMoeChainOp {
                 name: "ascend_moe_chain".into(),

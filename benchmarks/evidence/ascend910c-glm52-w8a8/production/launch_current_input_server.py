@@ -15,6 +15,7 @@ def main():
     parser.add_argument("--suffix", default="")
     parser.add_argument("--capture-vectors", action="store_true")
     parser.add_argument("--capture-memory", action="store_true")
+    parser.add_argument("--capture-boundaries", action="store_true")
     parser.add_argument("--node", choices=("npu1-31", "npu1-32"), default="npu1-31")
     args = parser.parse_args()
     if not re.fullmatch(r"[a-z0-9-]*", args.suffix):
@@ -69,6 +70,8 @@ def main():
         command.extend(("-e", "AISIM_CAPTURE_VECTORS=1"))
     if args.capture_memory:
         command.extend(("-e", "AISIM_MEMORY_DIR=/campaign/memory"))
+    if args.capture_boundaries:
+        command.extend(("-e", "AISIM_CAPTURE_BOUNDARIES=1"))
     for override in overrides:
         command.extend(("--mount", f"type=bind,src={override['source']},dst={override['destination']},readonly"))
     for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):

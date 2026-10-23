@@ -14,9 +14,10 @@ pub enum AscendLinearBias {
     TpGroupMax,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum AscendLinearTokens {
+    #[default]
     Tokens,
     Requests,
 }
@@ -128,16 +129,13 @@ impl AscendLinearOp {
     }
 
     pub fn weight_bytes(&self) -> f64 {
-        f64::from(self.key.n)
-            * f64::from(self.key.k)
-            * self.scale_factor
-            * if matches!(
-                self.key.quant_mode.as_str(),
-                "bfloat16" | "float32_bfloat16"
-            ) {
-                2.0
-            } else {
-                1.0
-            }
+        let output = f64::from(self.key.n);
+        let input = f64::from(self.key.k);
+        let bytes = match self.key.quant_mode.as_str() {
+            "bfloat16" | "float32_bfloat16" => 2.0 * output * input,
+            "w8a8" => output * input + 12.0 * output + 6.0 * input + 4.0,
+            _ => output * input + 4.0 * output,
+        };
+        bytes * self.scale_factor
     }
 }

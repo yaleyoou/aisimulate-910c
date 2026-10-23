@@ -45,6 +45,13 @@ pub use common::{AicError, enums::DatabaseMode};
 // planner / Mocker) can use it natively; also exposed to Python via the
 // `RustForwardPassPerfModel` pyclass in `py.rs`.
 pub use fpm::{
+    AscendOpLevelConfig, CorrectionFactorBounds, CorrectionFeatureSpace, FpmInterpolationConfig,
+    FpmInterpolationMethod, FpmQueryCoverage, FpmQueryCoverageCounts, FpmQueryGap, FpmQueryPurpose,
+    LinearFitConfig, OpLevelConfig, RegressionFeatureAxis, RegressionFitConfig, RegressionFitKind,
+    RegressionSamplingConfig, RegressionUpdatePolicy, SplineFitConfig, SplineSearchConfig,
+    UnrecordedFpmQuantMode,
+};
+pub use fpm::{
     CorrectionConfig, EstimationMode, EstimatorConfig, ForwardPassFallbackPolicy,
     ForwardPassPerfDiagnostics, ForwardPassPerfModel, ForwardPassPerfModelConfig,
     ForwardPassPerfOptions, ForwardPassPerfProvenance, ForwardPassPerfReadiness,
@@ -52,13 +59,6 @@ pub use fpm::{
     ForwardPassRegressionWorkloadKind, ForwardPassSpeculationConfig, ForwardPassSplineDiagnostics,
     ForwardPassWorkerType, FpmRegressionConfig, LEARNED_SCHEMA_VERSION, RegressionFeatureWeights,
     SamplingConfig,
-};
-pub use fpm::{
-    CorrectionFactorBounds, CorrectionFeatureSpace, FpmInterpolationConfig, FpmInterpolationMethod,
-    FpmQueryCoverage, FpmQueryCoverageCounts, FpmQueryGap, FpmQueryPurpose, LinearFitConfig,
-    OpLevelConfig, RegressionFeatureAxis, RegressionFitConfig, RegressionFitKind,
-    RegressionSamplingConfig, RegressionUpdatePolicy, SplineFitConfig, SplineSearchConfig,
-    UnrecordedFpmQuantMode,
 };
 pub use fpm::{
     FpmCacheBudget, FpmCacheBudgetAdjusted, FpmCacheBudgetRequest, FpmCacheGroup, FpmCacheKind,

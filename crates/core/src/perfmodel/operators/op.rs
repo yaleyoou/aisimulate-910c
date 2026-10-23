@@ -571,14 +571,18 @@ impl Op {
     /// they are classified by their explicit phase instead (see
     /// [`Self::is_glm53_attention`]).
     pub fn is_context_attention(&self) -> bool {
-        self.is_glm53_attention(true) || self.name() == "context_attention"
+        self.is_glm53_attention(true)
+            || matches!(self, Op::AscendAttention(operation) if operation.key.phase == "prefill")
+            || self.name() == "context_attention"
     }
 
     /// True if this op's name matches Python's mix-step filter for the
     /// generation-attention bucket (`"generation_attention"`), or it is a
     /// generation-phase GLM-5.3-Flash attention op.
     pub fn is_generation_attention(&self) -> bool {
-        self.is_glm53_attention(false) || self.name() == "generation_attention"
+        self.is_glm53_attention(false)
+            || matches!(self, Op::AscendAttention(operation) if operation.key.phase == "decode")
+            || self.name() == "generation_attention"
     }
 
     /// GLM-5.3-Flash per-layer attention of the given phase. Mixed steps must
@@ -654,7 +658,13 @@ impl Op {
             Op::MoeDispatch(op) => op.query(db, ctx.num_tokens),
             Op::CustomAllReduce(op) => op.query(db, ctx.num_tokens),
             Op::Nccl(op) => op.query(db, ctx.num_tokens),
-            Op::Hccl(op) => op.query(db, ctx.num_tokens),
+            Op::Hccl(op) => op.query(
+                db,
+                match op.token_axis {
+                    crate::operators::ascend_linear::AscendLinearTokens::Tokens => ctx.num_tokens,
+                    crate::operators::ascend_linear::AscendLinearTokens::Requests => ctx.batch_size,
+                },
+            ),
             Op::AscendLinear(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
             Op::AscendAttention(op) => op.query(db, ctx.batch_size, ctx.s, ctx.prefix),
             Op::AscendBmm(op) => op.query(db, ctx.num_tokens),

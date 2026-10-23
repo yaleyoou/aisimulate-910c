@@ -8,7 +8,7 @@
       "hardware": "Ascend910_9382",
       "collector_source_sha256": {
         "collector": "4e51e79a1a4b648db9534cbc51b4a90b8d62d5b3fa246be6cbff570aca8d2aa5",
-        "kernels": "d56180dfe2ad46f2a3b751c316a9ddec6d28d8f0364238115a048d8c928e41e5"
+        "kernels": "352060a422cde862ee8f0ac77b1f35b8b0f35b5532618c396ee4ac3a9a27cc67"
       },
       "image_digest": "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
     },
@@ -714,49 +714,39 @@
       "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
       "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
     },
-    "plan_sha256": "f13b40e9a6d0e3afe2237f7d007dde55925d3268f790554c210eff003a43d636"
+    "plan_sha256": "53694b8b94fa20d88e6bb85094af64cbe68a57793b0843d1ec204bbc6b77420d"
   },
-  "attempted": 800,
-  "qualified": 792,
+  "attempted": 848,
+  "qualified": 842,
   "unqualified": [
     {
-      "plan_index": 16,
-      "cv": 0.8158047340737333,
+      "plan_index": 248,
+      "cv": 0.8594408038747707,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 388,
-      "cv": 0.2733814043118115,
+      "plan_index": 728,
+      "cv": 0.22086938293111383,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 488,
-      "cv": 0.19629482024992329,
+      "plan_index": 1,
+      "cv": 0.6366690740049087,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 652,
-      "cv": 0.2599205439402684,
+      "plan_index": 481,
+      "cv": 0.3167993678828188,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 197,
-      "cv": 1.0942377224027475,
+      "plan_index": 658,
+      "cv": 0.942869163005418,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 521,
-      "cv": 0.31646918897456405,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 593,
-      "cv": 0.32784517769219546,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 231,
-      "cv": 0.25471098285390814,
+      "plan_index": 607,
+      "cv": 0.12414115626571842,
       "reason": "CV exceeds10%"
     }
   ]

@@ -48,9 +48,9 @@ pub use perfmodel::{
     RegressionFeatureWeights, SamplingConfig, ScheduledRequestMetrics, SpeculativeConfig,
 };
 pub use perfmodel::{
-    CorrectionFactorBounds, CorrectionFeatureSpace, FpmInterpolationConfig, FpmInterpolationMethod,
-    FpmQueryCoverage, FpmQueryCoverageCounts, FpmQueryGap, FpmQueryPurpose, LinearFitConfig,
-    OpLevelConfig, RegressionFeatureAxis, RegressionFitConfig, RegressionFitKind,
+    AscendOpLevelConfig, CorrectionFactorBounds, CorrectionFeatureSpace, FpmInterpolationConfig,
+    FpmInterpolationMethod, FpmQueryCoverage, FpmQueryCoverageCounts, FpmQueryGap, FpmQueryPurpose,
+    LinearFitConfig, OpLevelConfig, RegressionFeatureAxis, RegressionFitConfig, RegressionFitKind,
     RegressionSamplingConfig, RegressionUpdatePolicy, SplineFitConfig, SplineSearchConfig,
     UnrecordedFpmQuantMode,
 };

@@ -16,6 +16,8 @@ pub struct AscendVectorOp {
     pub token_axis: AscendLinearTokens,
     pub token_split: u32,
     pub token_multiple: u32,
+    #[serde(default)]
+    pub resident_copies: Option<u32>,
 }
 
 impl AscendVectorOp {
@@ -92,6 +94,10 @@ impl AscendVectorOp {
     }
 
     pub fn weight_bytes(&self) -> f64 {
-        self.key.parameter_bytes() * self.scale_factor
+        self.key.parameter_bytes()
+            * self
+                .resident_copies
+                .map(f64::from)
+                .unwrap_or(self.scale_factor)
     }
 }

@@ -1,0 +1,36 @@
+{
+  "research": {
+    "canonical_glm_forward": {
+      "status": "functional_native_op_level_and_engine_prediction",
+      "validation": "29Ascend,6HCCL,22wire,82Python/API and390GPUparitypass116.34s. EngineSpec29; nativeSHA239d22cd3a8b4e5f89e7faa2ae2cae88b1de38538fe2bfe938216e2d1103f36d.",
+      "engine_canary": "8requests,concurrency2,8192input/1024output;allcompleted;meanTTFT2642.412883ms,TPOT108.555693ms,18.013123outputtokens/s. Functionalpredictiononly,notmeasuredservingaccuracy.",
+      "precision_memory": "Resident52,471,997,948bytesmatchesactualper-rankinventory. Quantizationauxiliaryvectors,retainedMLAoriginalweightsandoneRoPEcacheaccounted. Staticruntimeother937,753,092bytesmeasured;SDK20%marginretained.",
+      "remaining": "FinishPDtimingAPI/replayintegration,recommendsearchanddurableruntimeentrypoint."
+    },
+    "pd_transport_audit": {
+      "status": "rank_pair_probes_and_full40case_grid_completed",
+      "probes": "ActualNPUMLATokenToKVPool/AscendKVManager.send_kvcache withmemfabric1.2.1SDMA.14,057,472bytes128tokens=1.261934ms;899,678,208bytes8192tokens=7.756787ms;fullpayloadSHAandpage0guardpassbefore/after. No-transfercontrolrejected.",
+      "grid": "Source/destinationTP4/8,fivepage-alignedlengths128..16384,contiguous/fragmentedpages;all32processespresent,oneactualrequest. Allfourtopologiescompleted10cases;inspectqualitybeforepublishing.",
+      "source": "collector/sglang/ascend_pd.py callsactualrankmappingandmemorypool/sendpath;bootstrap/admissionandconcurrent-requestcontentionexcluded.",
+      "active_jobs": []
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "model_engine_canary": {"path":"production/engine-canary-8k1k-20261024/prediction.json","kind":"file","scope":"validation"},
+        "model_validation_manifest": {"path":"production/model-validation-20261024/manifest.json","kind":"file","scope":"validation"},
+        "model_logits_release": {"path":"production/vector-logits-release-20261024/ascend_vector_perf.parquet","kind":"file","scope":"collection"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": [
+          "Formal direct-FPM profile remains unaccepted; user-authorized operator-level adaptation is separate.",
+          "PD transfer table/API and recommendation search still need integration; serving accuracy calibration is deferred by user."
+        ],
+        "next_action": "Publish the actual MemFabric transfer grid, integrate request-level PD timing, finish standard predict/recommend examples and commits."
+      }
+    }
+  }
+}

@@ -1,0 +1,7683 @@
+{
+  "schema": "aisimulate-ascend-vector-plan/v1",
+  "status": "experimental_collection_plan",
+  "model_path": "/mnt/raid/user/data/models/glm-q",
+  "cases": [
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "add_rms_bias",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "split_qk_norm",
+      "dimensions": [
+        2048,
+        512,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "indexer_norm",
+      "dimensions": [
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_indexer",
+      "dimensions": [
+        32,
+        64,
+        128,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_q",
+      "dimensions": [
+        32,
+        64,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "concat_indexer_k",
+      "dimensions": [
+        1,
+        64,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        2048
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "router_topk",
+      "dimensions": [
+        256,
+        8
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_hidden_fp32",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cast_weights_bf16",
+      "dimensions": [
+        32
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "routed_scale",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "shared_add",
+      "dimensions": [
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_cache_gather",
+      "dimensions": [
+        1048576,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        16,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        38720,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        4,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        8,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        19360,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        8,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        4,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        9680,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        16,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        768
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "swiglu",
+      "dimensions": [
+        384
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        512
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "cache_scatter",
+      "dimensions": [
+        53376,
+        128
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    }
+  ],
+  "protocol": {
+    "iterations": 16,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "02109078540af61b47b7f535c4f1152dbf091345cae07804e060ac90b55935ca",
+    "ascend_vector.yaml": "0c193f38b91a74049f9e0dd02453d7a0633f8f124c79eb53b5a9e49cb24172b3"
+  },
+  "source_contract": "SGLang baa9befa381511cd4d56f83980951e5a45fffc6d; vector-state-report.json and current startup memory confirm BF16 norm bias, FP32 indexer LayerNorm, BF16 RoPE cache and eager INT64/graph INT32 scatter indices. ModelSlim RMSNorm and MoE scale/add boundaries are source-audited."
+}

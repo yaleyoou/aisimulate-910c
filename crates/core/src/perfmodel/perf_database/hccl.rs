@@ -256,9 +256,19 @@ mod tests {
             key: key(),
             elements_per_token: 512,
             token_split: 1,
+            token_axis: crate::operators::ascend_linear::AscendLinearTokens::Requests,
         };
         assert!((op.query(&database, 2).unwrap().latency_ms - 0.040).abs() < 1e-12);
         assert!(op.query(&database, 4).unwrap_err().is_missing_perf_data());
+        let context = crate::operators::RuntimeContext {
+            batch_size: 2,
+            num_tokens: 8192,
+            ..Default::default()
+        };
+        let measured = crate::operators::Op::Hccl(op)
+            .query(&database, &context)
+            .unwrap();
+        assert!((measured.latency_ms - 0.040).abs() < 1e-12);
     }
 
     #[test]

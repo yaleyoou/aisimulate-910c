@@ -99,4 +99,16 @@ impl AscendAttentionOp {
         )?;
         Ok(PerformanceResult::new(value, Source::Silicon).scaled(self.scale_factor))
     }
+
+    pub fn query_eager(
+        &self,
+        db: &PerfDatabase,
+        batch: u32,
+        sequence: u32,
+    ) -> Result<PerformanceResult, AicError> {
+        let mut eager = self.clone();
+        eager.key.execution_mode = "eager".into();
+        eager.graph_buckets.clear();
+        eager.query(db, batch, sequence, 0)
+    }
 }

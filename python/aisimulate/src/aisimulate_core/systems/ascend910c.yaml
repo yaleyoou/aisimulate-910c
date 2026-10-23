@@ -21,3 +21,10 @@ node:
 
 misc:
   hccl_version: 9.1.0-b243-drv26.1.1-nodes31-32-v3
+  nccl_mem:
+    1: 0
+    2: 0
+    4: 0
+    8: 0
+    16: 0
+  other_mem: 937753092

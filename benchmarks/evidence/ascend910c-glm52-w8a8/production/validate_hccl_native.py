@@ -53,7 +53,7 @@ def main():
             operation = {"Hccl": {
                 "name": "collected_hccl", "scale_factor": 1.0,
                 "key": {field: row[field] for field in ("dtype", "operation", "num_ranks", "ranks_per_node", "rank_layout", "execution_mode")},
-                "elements_per_token": row["input_bytes_per_rank"] // element_bytes, "token_split": 1,
+                "elements_per_token": row["input_bytes_per_rank"] // element_bytes, "token_split": 1, "token_axis": "tokens",
             }}
             restored = _runtime.op_from_spec_json(json.dumps(operation))
             assert json.loads(restored._spec_json()) == operation

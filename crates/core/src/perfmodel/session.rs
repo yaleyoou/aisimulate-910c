@@ -411,6 +411,11 @@ pub(crate) fn run_generation_ops_step_planned<'a>(
             continue;
         }
         let result = memo.query(index, || {
+            if only_generation_attention {
+                if let Op::AscendAttention(attention) = op {
+                    return attention.query_eager(db, batch_size, kv_seq_tokens);
+                }
+            }
             query_generation_op(
                 op,
                 db,

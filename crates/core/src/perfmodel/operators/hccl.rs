@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::common::enums::DatabaseMode;
 use crate::common::error::AicError;
+use crate::operators::ascend_linear::AscendLinearTokens;
 use crate::operators::base::{PerformanceResult, Source};
 use crate::perf_database::PerfDatabase;
 use crate::perf_database::hccl::HcclKey;
@@ -13,6 +14,8 @@ pub struct HcclOp {
     pub key: HcclKey,
     pub elements_per_token: u32,
     pub token_split: u32,
+    #[serde(default)]
+    pub token_axis: AscendLinearTokens,
 }
 
 impl HcclOp {
@@ -94,6 +97,7 @@ mod tests {
             },
             elements_per_token: 6144,
             token_split: 8,
+            token_axis: AscendLinearTokens::Tokens,
         };
         assert_eq!(op.payload_bytes(9).unwrap(), 24576);
         assert_eq!(op.payload_bytes(0).unwrap(), 0);

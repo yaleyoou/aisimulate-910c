@@ -22,7 +22,76 @@ pub struct EstimatorConfig {
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 #[serde(default, deny_unknown_fields)]
-pub struct OpLevelConfig {}
+pub struct OpLevelConfig {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ascend: Option<AscendOpLevelConfig>,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct AscendOpLevelConfig {
+    pub shared_expert_overlap: bool,
+    pub routing: String,
+}
+
+impl Default for AscendOpLevelConfig {
+    fn default() -> Self {
+        Self {
+            shared_expert_overlap: true,
+            routing: "balanced".into(),
+        }
+    }
+}
+
+impl OpLevelConfig {
+    pub(crate) fn validate_for(&self, system: &str, backend: &str) -> Result<(), AicError> {
+        if self.ascend.is_some() && (system != "ascend910c" || backend != "sglang") {
+            return Err(AicError::InvalidEngineConfig(
+                "estimator_config.op_level.ascend requires ascend910c and sglang".into(),
+            ));
+        }
+        if self
+            .ascend
+            .as_ref()
+            .is_some_and(|options| options.routing != "balanced")
+        {
+            return Err(AicError::InvalidEngineConfig(
+                "Ascend model composition currently requires the measured balanced routing profile"
+                    .into(),
+            ));
+        }
+        Ok(())
+    }
+
+    pub(crate) fn resolve_for(&mut self, system: &str, backend: &str) -> Result<(), AicError> {
+        self.validate_for(system, backend)?;
+        if system == "ascend910c" && backend == "sglang" {
+            self.ascend.get_or_insert_with(AscendOpLevelConfig::default);
+        }
+        Ok(())
+    }
+}
+
+#[cfg(test)]
+mod ascend_tests {
+    use super::*;
+
+    #[test]
+    fn ascend_defaults_and_explicit_overlap_survive_serialization() {
+        let mut options = OpLevelConfig::default();
+        assert_eq!(serde_json::to_string(&options).unwrap(), "{}");
+        options.resolve_for("ascend910c", "sglang").unwrap();
+        assert!(options.ascend.as_ref().unwrap().shared_expert_overlap);
+        options.ascend.as_mut().unwrap().shared_expert_overlap = false;
+        let json = serde_json::to_string(&options).unwrap();
+        let mut restored: OpLevelConfig = serde_json::from_str(&json).unwrap();
+        restored.resolve_for("ascend910c", "sglang").unwrap();
+        assert_eq!(restored, options);
+        assert!(restored.resolve_for("a100_sxm", "sglang").is_err());
+        assert!(restored.resolve_for("ascend910c", "vllm").is_err());
+        assert!(serde_json::from_str::<OpLevelConfig>(r#"{"ascend":{"unknown":true}}"#).is_err());
+    }
+}
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 #[serde(default, deny_unknown_fields)]

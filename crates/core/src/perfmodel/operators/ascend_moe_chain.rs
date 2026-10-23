@@ -87,7 +87,7 @@ impl AscendMoeChainOp {
 
     pub fn weight_bytes(&self) -> f64 {
         f64::from(self.key.local_experts)
-            * (6144.0 * 2048.0 * 3.0 + (4096.0 + 6144.0) * 2.0)
+            * (6144.0 * 2048.0 * 3.0 + (4096.0 + 6144.0) * 6.0)
             * self.scale_factor
     }
 }

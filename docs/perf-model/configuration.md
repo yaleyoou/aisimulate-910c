@@ -173,6 +173,7 @@ cost-model support does not imply broader scheduler support.
 and Replay, then parsed and validated in Rust. Unknown fields report their
 nested paths. The supported namespaces are:
 
+- `op_level.ascend`: measured Ascend910C/SGLang composition controls below.
 - `features`: `attention_kv_weight`, `prefill_attention_pair_weight`, and
   `ffn_token_weight`, each defaulting to 1.0. These currently affect regression
   only; positive finite values are required when regression is constructed.
@@ -198,6 +199,30 @@ nested paths. The supported namespaces are:
   evidence from actual direct-FPM lookups, as described below. It requires
   explicit `estimation_mode: fpm_interpolation`, resolved `method: direct`, and
   `fallback_policy: deny`. It is omitted from normalized serialization when false.
+
+For `system="ascend910c"` with SGLang, Rust resolves these defaults and retains
+explicit overrides in saved engine identity. Other systems/backends reject
+explicit Ascend controls.
+
+| Field under `estimator_config.op_level.ascend` | Default | Behavior |
+| --- | --- | --- |
+| `routing` | `balanced` | Uses the measured synthetic balanced expert-count profile. Other distributions are not yet supported by the complete model composition. |
+| `shared_expert_overlap` | `true` | Overlaps the shared expert with routed TopK/dispatch/compute/combine work. `false` adds the two streams serially. |
+
+The GLM adapter requires the local checkpoint's `config.json` and
+`quant_model_description.json`. It validates the full ModelSlim precision
+partition, including unquantized indexer/router/logits weights, and uses BF16
+KV with128-token pages. The current profile uses attention-local TP4/8,
+global EP16/32, MoE-TP1, PP1/CP1/DCP1 and no speculation/EPLB. Batch sizes are
+per attention-DP replica, with uniform load assumed across replicas. Decode
+uses graph buckets8/16/24/32. Data bounds apply to every query; an accepted
+topology does not imply that every batch is measured. In particular, small
+balanced EP32 decode batches still have transport coverage gaps. Numerical
+execution and table lookup checks do not establish whole-serving accuracy.
+
+EngineSpec schema29 carries request-based HCCL payload sizing and separate
+resident-copy counts for shared RoPE storage and retained MLA weight views.
+Recompile older binary specs from their canonical configuration.
 
 The top-level `fpm_profile` contains the complete profile dictionary: pinned
 model revision, architecture, context length, expert count, deployment precision

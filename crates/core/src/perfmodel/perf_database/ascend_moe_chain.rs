@@ -395,7 +395,7 @@ mod tests {
         };
         assert_eq!(operation.received_tokens(9).unwrap(), 8);
         assert_eq!(operation.received_tokens(0).unwrap(), 0);
-        assert_eq!(operation.weight_bytes(), 604_307_456.0);
+        assert_eq!(operation.weight_bytes(), 604_962_816.0);
         operation.token_numerator = u32::MAX;
         operation.token_denominator = 1;
         assert!(operation.received_tokens(9).is_err());

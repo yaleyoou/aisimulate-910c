@@ -1,0 +1,370 @@
+{
+  "schema": "aisimulate-ascend-static-runtime-memory/v1",
+  "status": "measured",
+  "scope": "Pinned SGLang0.5.22/CANN9.1.0.B243/driver26.1.1, current GLM ModelSlim, United TP16/ADP2/EP16",
+  "method": "maximum(total_device_bytes - free_bytes_before_KV_allocation - unique_model_storage_bytes)",
+  "static_other_bytes": 937753092,
+  "records": [
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 0,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 934013444,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1922781184,
+      "graph_free_consumed_bytes": 4580462592
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 1,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 635537924,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2227707904,
+      "graph_free_consumed_bytes": 4586680320
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 10,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 866810372,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1987678208,
+      "graph_free_consumed_bytes": 4582785024
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 11,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 634993156,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2228854784,
+      "graph_free_consumed_bytes": 4586078208
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 12,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 880183812,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1975189504,
+      "graph_free_consumed_bytes": 4582223872
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 13,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 623172100,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2241880064,
+      "graph_free_consumed_bytes": 4582776832
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 14,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 880167428,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1975713792,
+      "graph_free_consumed_bytes": 4582039552
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 15,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 623720964,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2245324800,
+      "graph_free_consumed_bytes": 4580880384
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 2,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 868813316,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1986740224,
+      "graph_free_consumed_bytes": 4582133760
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 3,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636451332,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2232950784,
+      "graph_free_consumed_bytes": 4578426880
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 4,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 880736772,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1978933248,
+      "graph_free_consumed_bytes": 4577951744
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 5,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 623675908,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2244796416,
+      "graph_free_consumed_bytes": 4581453824
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 6,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 867215876,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1991110656,
+      "graph_free_consumed_bytes": 4578906112
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 7,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636750340,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2227720192,
+      "graph_free_consumed_bytes": 4585455616
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 8,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 866916868,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 1992302592,
+      "graph_free_consumed_bytes": 4578541568
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-vectors-20261023-attempt2",
+      "rank": 9,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636344836,
+      "usable_kv_tokens": 53248,
+      "after_graph_free_bytes": 2232233984,
+      "graph_free_consumed_bytes": 4579250176
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 0,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 937753092,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 1939206144,
+      "graph_free_consumed_bytes": 4581613568
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 1,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636815876,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2254364672,
+      "graph_free_consumed_bytes": 4579717120
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 10,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 865954308,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2013806592,
+      "graph_free_consumed_bytes": 4579385344
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 11,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636078596,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2253754368,
+      "graph_free_consumed_bytes": 4581064704
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 12,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 881715716,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2000867328,
+      "graph_free_consumed_bytes": 4575989760
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 13,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 624400900,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2265653248,
+      "graph_free_consumed_bytes": 4580843520
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 14,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 881715716,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2000162816,
+      "graph_free_consumed_bytes": 4576391168
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 15,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 624409092,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2265726976,
+      "graph_free_consumed_bytes": 4580761600
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 2,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 873859588,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2003619840,
+      "graph_free_consumed_bytes": 4582154240
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 3,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 635357700,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2252959744,
+      "graph_free_consumed_bytes": 4580483072
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 4,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 883898884,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 1993641984,
+      "graph_free_consumed_bytes": 4581031936
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 5,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 625994244,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2265251840,
+      "graph_free_consumed_bytes": 4579651584
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 6,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 869984772,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2007150592,
+      "graph_free_consumed_bytes": 4581654528
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 7,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 637508100,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2253283328,
+      "graph_free_consumed_bytes": 4580106240
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 8,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65787658240,
+      "static_other_bytes": 869210628,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2011889664,
+      "graph_free_consumed_bytes": 4578189312
+    },
+    {
+      "campaign": "operator-input-state-node32-20261022-boundaries-20261024",
+      "rank": 9,
+      "model_storage_bytes": 52471997948,
+      "reported_device_capacity_bytes": 65796046848,
+      "static_other_bytes": 636459524,
+      "usable_kv_tokens": 53120,
+      "after_graph_free_bytes": 2252582912,
+      "graph_free_consumed_bytes": 4581855232
+    }
+  ],
+  "sources": {
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-0.jsonl": "6d6e1d2824817b9839a20ff68bf10959de2b4fd9f5b1eba8072d4f6f92be87d2",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-1.jsonl": "35da516f1d34234428cf6ee1dfc581ada3fc3fa970e218753af4362fa544f206",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-10.jsonl": "1f4336bbf02c53c7e3f338e819803fb7bab7f419e8101a88a449913c2f1ca118",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-11.jsonl": "f79772690a00bfb2e86949bdc77fab7b21821c7762c0c5cea829689cb1519090",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-12.jsonl": "62020f0ef25ddae216b002b3b27505fbec453a33f900df03ae16baa77594fe1b",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-13.jsonl": "9e0a9e08f890047f361f0d8115c3f3901579f7f6f959db57955cb20f35b42ef0",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-14.jsonl": "2ab382818824852a64996b94c81d91cff386678608093a97925bf71513d2d6b6",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-15.jsonl": "06ddaaae97b3c2df6dddcd4a67d628cd4603fe351cb19858b1d7b559667c583a",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-2.jsonl": "50981f4b4f07d91bb52de2b84570d271bf34debe00a5e9b8bbee82930922e6b0",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-3.jsonl": "745fda422ca7090679aef6ef54dab31d081953afd68d211a93e494b3dfe8f6b6",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-4.jsonl": "bd757d5663400f9364b1d3757f1b41293588849de4db1a30d05a262985507ea6",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-5.jsonl": "5ec4b024185f6397fc5097671a31b6a19e9e164fed2765b7c4b48a21d3dd04c8",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-6.jsonl": "f67573da09bb40ed5a1be11f85a2a928e354119dfc5f81c9b44d0cd20ca2ed72",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-7.jsonl": "5e9709754fae38d7751bed6df361dd68ec4de931588141945ed4381810503cce",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-8.jsonl": "f271b055ab5b9aa029155ed03ff91c683d1ead1616c57a408bdf1b11dc6cae09",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-vectors-20261023-attempt2/memory/rank-9.jsonl": "ef47af27ef9807bbd576bceaecccd730c667411f5ee1a437ba5caf4983704571",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-0.jsonl": "bd98dd08e4a968262d54aa19116ee16a45327d557a25c4833e8ca652b5764da7",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-1.jsonl": "89f4e899d044c7bbd8e871d3c86ae85d8ba4c8b651358c79df0bc043e9a769c9",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-10.jsonl": "61940e9ceea5b5947f7fba557e25d69660a9c2cfd7da056732e8e252463398e5",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-11.jsonl": "667e1588f40ae57a2a747b9d829432a7086f8183a1567f4aeac30e0d9e810d12",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-12.jsonl": "e92f7b7f31affa5d4742694610b9b8ac0153a148a2646403fd69424dd7611780",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-13.jsonl": "09f0b3f1115878ec71f677d1b6be1a65b33cdd7238d68b7c1d4bbc80e5af8b98",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-14.jsonl": "b794f1fcc6dc89fae4322226008283730a9c3c038f8a1e7dae42a2eaee89e6f0",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-15.jsonl": "e089004f973e5c5d9cae8c45485cb68ddabac1c3c2113c76d3b09c1bab7d5e16",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-2.jsonl": "0ca1f4af0674f7475205491ffd61a7c296fbccb5b23397f245668ee79965fbbd",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-3.jsonl": "a35f40af8bc49df3970c966cc4a160b238a9b4de774184d8e48064cd47bae3d8",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-4.jsonl": "9932a3a36e377cb15ae394775928749d2eb3b3edfddef9e2cbdc88f5d4401e72",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-5.jsonl": "2ae8a06af5ea602de5b2221a8a7a8db9464999d5e99ffe0d6b2356b3b4791f5c",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-6.jsonl": "4fc16d6c0c67788ad1b53001e58ba8a84b8ec1efb766001045cdd85b84097643",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-7.jsonl": "d74ef060c1561f8d50815455fc8cebb3c83eb7c9e3f6af9e3c22421fb93f1900",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-8.jsonl": "e8a85b107ddf8e226f6b1cc14bf03fca3bbb9773f1076d404ef60fa24449cc5f",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/memory/rank-9.jsonl": "e2e19db5edc64b3f775d2866f455cec222d517fc7ddbd64b9e299670b6b19dd9"
+  },
+  "limitations": [
+    "Includes allocator slack and runtime allocations before KV allocation; not a datasheet hardware constant.",
+    "SGLang reserves graph/execution headroom outside its static-memory fraction.",
+    "The SDK applies its existing20% SGLang other-memory margin; prediction is conservative.",
+    "Other parallel layouts have not received an independent resident-memory calibration.",
+    "NCCL is not used; its compatibility memory bucket is zero, not an HCCL proxy."
+  ]
+}

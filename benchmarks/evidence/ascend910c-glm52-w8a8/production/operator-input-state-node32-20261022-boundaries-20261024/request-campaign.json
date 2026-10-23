@@ -1,0 +1,136 @@
+{
+  "status": "completed",
+  "container": "aisim-current-inputs-20261022-boundaries-20261024",
+  "cases": [
+    {
+      "case": "vectors8192_c1",
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/source/ascend_state_requests.py",
+        "--capture-dir",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/capture",
+        "--case",
+        "vectors8192_c1",
+        "--input-tokens",
+        "8192",
+        "--output-tokens",
+        "16",
+        "--max-forwards",
+        "3"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "vectors8192_c4",
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/source/ascend_state_sweep.py",
+        "--capture-dir",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/capture",
+        "--case",
+        "vectors8192_c4",
+        "--concurrency",
+        "4",
+        "--input-tokens",
+        "8192",
+        "--output-tokens",
+        "64",
+        "--arm-after-tokens",
+        "4",
+        "--max-forwards",
+        "6",
+        "--max-running-requests",
+        "64",
+        "--kv-budget-per-dp",
+        "53120",
+        "--capture-from-start"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "vectors128_c18",
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/source/ascend_state_sweep.py",
+        "--capture-dir",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/capture",
+        "--case",
+        "vectors128_c18",
+        "--concurrency",
+        "18",
+        "--input-tokens",
+        "128",
+        "--output-tokens",
+        "64",
+        "--arm-after-tokens",
+        "4",
+        "--max-forwards",
+        "3",
+        "--max-running-requests",
+        "64",
+        "--kv-budget-per-dp",
+        "53120"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "vectors128_c34",
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/source/ascend_state_sweep.py",
+        "--capture-dir",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/capture",
+        "--case",
+        "vectors128_c34",
+        "--concurrency",
+        "34",
+        "--input-tokens",
+        "128",
+        "--output-tokens",
+        "64",
+        "--arm-after-tokens",
+        "4",
+        "--max-forwards",
+        "3",
+        "--max-running-requests",
+        "64",
+        "--kv-budget-per-dp",
+        "53120"
+      ],
+      "returncode": 0
+    },
+    {
+      "case": "vectors128_c50",
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/source/ascend_state_sweep.py",
+        "--capture-dir",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/operator-input-state-node32-20261022-boundaries-20261024/capture",
+        "--case",
+        "vectors128_c50",
+        "--concurrency",
+        "50",
+        "--input-tokens",
+        "128",
+        "--output-tokens",
+        "64",
+        "--arm-after-tokens",
+        "4",
+        "--max-forwards",
+        "3",
+        "--max-running-requests",
+        "64",
+        "--kv-budget-per-dp",
+        "53120"
+      ],
+      "returncode": 0
+    }
+  ],
+  "scope": "Operator/routing metadata and instrumented startup memory; not performance",
+  "request_source_sha256": {
+    "ascend_state_requests.py": "1e237737ea83a217990e84224910cca2c6145df7db280a8e9fdd8283e8dd7846",
+    "ascend_state_sweep.py": "6c986bec435a9480234e74032077f83d8ed2c832518ccf5deabecb59f4927692"
+  },
+  "kv_tokens_per_dp": 53120,
+  "active_case": "vectors128_c50"
+}

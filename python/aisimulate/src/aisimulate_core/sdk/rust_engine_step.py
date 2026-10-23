@@ -1386,6 +1386,7 @@ def _speculation_identity(model_config: Any) -> str | None:
 def _engine_config_json(model: Any, database: Any) -> str:
     model_config = model.config
     fpm_config = getattr(model_config, "fpm_config", None)
+    op_level_config = getattr(model_config, "op_level_config", None)
     # Forward only the MTP draft length. The aic-core layer models iteration compute cost;
     # accepted-token progress belongs to the upper prediction layer.
     nextn = getattr(model, "_nextn", None)
@@ -1453,6 +1454,7 @@ def _engine_config_json(model: Any, database: Any) -> str:
                     },
                     "model_config": {
                         "fpm_config": fpm_config.cache_identity() if fpm_config is not None else None,
+                        "op_level_config": op_level_config.cache_identity() if op_level_config is not None else None,
                         "decoder_replay": bool(getattr(model_config, "decoder_replay", False)),
                         "cp_style": getattr(model_config, "cp_style", None),
                         # DCP op-shaping overrides: the merge collective
@@ -1498,6 +1500,8 @@ def _engine_config_json(model: Any, database: Any) -> str:
             ),
         },
     }
+    if op_level_config is not None and op_level_config.options:
+        config["extra"]["estimator_config"] = json.dumps({"op_level": op_level_config.options})
     return json.dumps(config, sort_keys=True, separators=(",", ":"))
 
 

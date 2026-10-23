@@ -1050,6 +1050,7 @@ struct EngineBuildRequest {
     attention_dp_size: u32,
     dcp_size: Option<u32>,
     fpm_options: crate::FpmInterpolationConfig,
+    op_level_options: crate::OpLevelConfig,
     moe_tp_size: Option<u32>,
     moe_ep_size: Option<u32>,
     cp_size: Option<u32>,
@@ -1108,6 +1109,7 @@ impl AicEngineBuilder {
                 attention_dp_size: 1,
                 dcp_size: None,
                 fpm_options: crate::FpmInterpolationConfig::default(),
+                op_level_options: crate::OpLevelConfig::default(),
                 moe_tp_size: None,
                 moe_ep_size: None,
                 cp_size: None,
@@ -1506,6 +1508,12 @@ fn compile_engine_from_request(request: EngineBuildRequest) -> Result<Engine, Ai
         if let Some(dcp) = request.dcp_size {
             kwargs.set_item("dcp_size", dcp)?;
         }
+        if request.op_level_options != crate::OpLevelConfig::default() {
+            let encoded = serde_json::to_string(&request.op_level_options)
+                .map_err(|error| PyValueError::new_err(error.to_string()))?;
+            let options = PyModule::import(py, "json")?.call_method1("loads", (encoded,))?;
+            kwargs.set_item("op_level_options", options)?;
+        }
         if request.fpm_options != crate::FpmInterpolationConfig::default() {
             let encoded = serde_json::to_string(&request.fpm_options)
                 .map_err(|e| PyValueError::new_err(e.to_string()))?;
@@ -1696,6 +1704,7 @@ pub(crate) fn compile_forward_pass_model_to_engine(
         attention_dp_size: config.attention_dp,
         dcp_size: config.dcp,
         fpm_options: config.estimator_config.fpm_interpolation.clone(),
+        op_level_options: config.estimator_config.op_level.clone(),
         moe_tp_size: config.moe_tp_size,
         moe_ep_size: config.moe_ep_size,
         cp_size: config.cp_size,
@@ -1791,6 +1800,7 @@ pub(crate) fn compile_engine_to_engine(
             request.fpm_parquet_path.as_deref(),
         )?;
         request.fpm_options = controls.fpm_interpolation.clone();
+        request.op_level_options = controls.op_level.clone();
         request.fpm_interpolation = match controls.fpm_interpolation.method {
             crate::FpmInterpolationMethod::Auto => None,
             method => Some(method.as_str().to_owned()),
@@ -1844,6 +1854,7 @@ fn engine_build_request(
         attention_dp_size: config.parallel.attention_dp_size.unwrap_or(1),
         dcp_size: config.parallel.dcp_size,
         fpm_options: crate::FpmInterpolationConfig::default(),
+        op_level_options: crate::OpLevelConfig::default(),
         moe_tp_size: config.parallel.moe_tp_size,
         moe_ep_size: config.parallel.moe_ep_size,
         cp_size: config.parallel.cp_size,
@@ -2043,6 +2054,18 @@ impl PyForwardPassPerfModel {
             "unrecorded_quant_modes": options.unrecorded_quant_modes,
         })
         .to_string())
+    }
+
+    #[staticmethod]
+    fn _normalize_op_level_options(
+        options_json: &str,
+        system: &str,
+        backend: &str,
+    ) -> PyResult<String> {
+        let mut options: crate::OpLevelConfig = serde_json::from_str(options_json)
+            .map_err(|error| PyValueError::new_err(format!("invalid op-level options: {error}")))?;
+        options.resolve_for(system, backend).map_err(aic_to_py)?;
+        serde_json::to_string(&options).map_err(|error| PyValueError::new_err(error.to_string()))
     }
 
     /// Migration adapter for previously saved flat tuning options.

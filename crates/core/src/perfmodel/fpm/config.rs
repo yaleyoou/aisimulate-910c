@@ -263,6 +263,9 @@ impl ForwardPassPerfModelConfig {
     /// adding transient registry facts to the serialized request.
     pub(crate) fn resolve_with_registration(mut self) -> Result<(Self, Option<bool>), AicError> {
         self.estimator_config.resolve_defaults();
+        self.estimator_config
+            .op_level
+            .resolve_for(&self.system, self.backend.as_str())?;
         self.validate()?;
         if let Some(speculation) = &self.speculation {
             #[cfg(feature = "python")]
@@ -339,6 +342,9 @@ impl ForwardPassPerfModelConfig {
     }
 
     pub(crate) fn validate(&self) -> Result<(), AicError> {
+        self.estimator_config
+            .op_level
+            .validate_for(&self.system, self.backend.as_str())?;
         if self.estimator_config.fpm_interpolation.collect_coverage
             && (self.estimation_mode != EstimationMode::FpmInterpolation
                 || self.fallback_policy != ForwardPassFallbackPolicy::Deny

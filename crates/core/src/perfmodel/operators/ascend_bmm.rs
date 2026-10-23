@@ -13,6 +13,8 @@ pub struct AscendBmmOp {
     pub scale_factor: f64,
     pub key: AscendBmmKey,
     pub token_multiple: u32,
+    #[serde(default)]
+    pub resident_copies: Option<u32>,
 }
 
 impl AscendBmmOp {
@@ -81,6 +83,9 @@ impl AscendBmmOp {
             * f64::from(inner)
             * f64::from(width)
             * 2.0
-            * self.scale_factor
+            * self
+                .resident_copies
+                .map(f64::from)
+                .unwrap_or(self.scale_factor)
     }
 }

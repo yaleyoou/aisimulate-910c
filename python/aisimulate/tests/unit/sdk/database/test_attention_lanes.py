@@ -246,7 +246,7 @@ def _route_lane_density_through_the_stub(monkeypatch):
 def test_engine_spec_schema_version_is_twenty_eight():
     from aisimulate.sdk import engine
 
-    assert engine.ENGINE_SPEC_SCHEMA_VERSION == 28
+    assert engine.ENGINE_SPEC_SCHEMA_VERSION == 29
 
 
 def test_lanes_outside_the_known_vocabulary_stay_reachable():

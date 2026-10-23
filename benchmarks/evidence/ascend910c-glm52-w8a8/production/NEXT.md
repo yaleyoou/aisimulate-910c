@@ -1,5 +1,32 @@
 # Current goal handoff
 
+## Current: complete model/engine prediction works; PD grid complete, consumer pending
+
+Canonical best_available(op_level) and predict --stack engine pass for8k/1k,8requests,concurrency2.
+Example examples/cli/ascend910c-glm52-8k1k.yaml usesrealhostmodelpath;validationoverrideswithidenticalmetadata snapshot.
+Reportengine-canary-8k1k-20261024/prediction.json;TTFT2642.412883ms,TPOT108.555693ms,18.013123outputtok/s.
+Thesearepredictions,notservingvalidation. UniformADP andbalancedexpertprofileexplicit.
+Native239d22cd3a8b4e5f89e7faa2ae2cae88b1de38538fe2bfe938216e2d1103f36d,schema29.
+Modelweights52,471,997,948bytesexactmatch. Newresident_copiesfieldsforvector/BMMandHCCLrequesttokenaxis.
+29Ascend+6HCCL+22wire+82Python/API+390GPUparitypass116.34s. Lateststrict/mixedsmokelog/tmp/aisim-forward-strict-mixed.log.
+YAMLmisc.other_mem937753092measuredmaxof32snapshots;nccl_mem0actualNCCLabsent,notHCCLproxy;SDK20%margin.
+Checkpointrebaselined50,latestmodel-functional51. Detaileddatareportsmovedundermetadata/tofixstrictadmission.
+Logitscollector sourcecommitbcc065a7,848cases842stable6excluded,18noopcontrols;frozenvector-logits-release-20261024.
+Actualboundarycapturecomplete,sourceandrawarchived;model-statecards16. No standaloneonlinequarotwork.
+PD actualmemfabric1.2.1SDMAprobespass128and8192tokens(fullpayload899678208bytes=7.756787ms),nooprejected.
+Full32processsmokepasses. FormalPD40casesallcompleted:pd-probe-npu1-32-pd{88,48,84,44}-20261024,
+peerlogsnode19.32stable8CVexcluded. All8kpointsstable:88contig7.7815ms/fragmented66.332ms;
+48contig15.5202ms/frag130.4192ms;84contig7.7453ms/frag65.3545ms;44contig7.7941ms/frag65.1291ms.
+Newcollector asc_pd.py/cases/exporterdrafted;exporterNOTtested/publishedyet. Planpd-plan-20261024.json.
+NOACTIVE NPUjobs. Root32=24914,93967;19=89706;31leavealone. GoalNOTcomplete.
+NextimplementPDtable/nativequeryviareturnedcanonicalmodel;wirepublicengine.kv_transferproviderandhandoffcurve;
+thenrecommendparallel/P:DsearchanddurableuserCLI. ExistingKVtransferonlybandwidthanddefaults0delay.
+Suggestedintegration:ReplayEngineConfignewproviderflag,resolve_role_timingoptionallyreturnscanonicalmodels,
+derivecurvefromPmodel+Dmodel(oneconstructor),ReplayEngineFactoryholdsArcCurve,DisaggRuntimepasses
+itintoperrequestHandoffCoordinatorCore;HandoffTransferTimingcanstayCopy. Core.advance_activeevaluates
+curveagainstfull/destination-missingtokens. KeepdefaultGPUbehaviorunchanged.
+Do notspendmoretimeonaccuracytuning;currentdata-domainmissesstayexplicit.
+
 ## Latest: DeepEP installed; actual United layer boundaries observed
 
 Compute data commit163001f2;DeepEP/codecommit434f8503. NewDeepEP125stable rowsinstalledmoe/sglang/0.5.22,

@@ -9,11 +9,17 @@ from aisimulate_core.sdk.config_builders import build_model_config
 from aisimulate_core.sdk.errors import InvalidEngineConfigurationError
 from aisimulate_core.sdk.memory import kv_cache
 from aisimulate_core.sdk.models import get_model
+from tests.unit.sdk.ascend_fixtures import write_glm52_modelslim
 
 pytestmark = pytest.mark.unit
 
 
-def model(system="ascend910c"):
+@pytest.fixture(scope="module")
+def model_path(tmp_path_factory):
+    return write_glm52_modelslim(tmp_path_factory.mktemp("ascend-kv-model"))
+
+
+def model(model_path, system="ascend910c"):
     config = build_model_config(
         tp_size=8,
         pp_size=1,
@@ -25,11 +31,11 @@ def model(system="ascend910c"):
         kvcache_quant_mode="bfloat16",
         system=system,
     )
-    return get_model("zai-org/GLM-5.2", config, "sglang")
+    return get_model(model_path, config, "sglang")
 
 
-def test_measured_pool_and_sentinel_reconcile():
-    instance = model()
+def test_measured_pool_and_sentinel_reconcile(model_path):
+    instance = model(model_path)
     assert instance.config.system == "ascend910c"
     assert instance.get_kvcache_bytes_per_sequence(1) == 109824
     assert instance.get_kvcache_pool_overhead_bytes() == 14057472
@@ -39,9 +45,9 @@ def test_measured_pool_and_sentinel_reconcile():
     assert instance.get_kvcache_max_tokens(5833850879) == 52864
 
 
-def test_pool_overhead_is_once_per_pool():
+def test_pool_overhead_is_once_per_pool(model_path):
     """One and two 9216-token requests need 73 and 145 measured 14057472-byte pages."""
-    instance = model()
+    instance = model(model_path)
     database = SimpleNamespace(system_spec={"misc": {"nccl_mem": {8: 0}, "other_mem": 0}})
     backend = get_backend("sglang")
     one = backend._get_memory_usage(instance, database, batch_size=1, beam_width=1, isl=8192, osl=1024)
@@ -50,16 +56,16 @@ def test_pool_overhead_is_once_per_pool():
     assert two["kvcache"] * (1 << 30) == 2038333440
 
 
-def test_no_capacity_until_sentinel_and_one_usable_page_fit():
-    instance = model()
+def test_no_capacity_until_sentinel_and_one_usable_page_fit(model_path):
+    instance = model(model_path)
     for budget in (-1, 0, 14057472, 28114943):
         assert instance.get_kvcache_max_tokens(budget) == 0
     assert instance.get_kvcache_max_tokens(28114944) == 128
     assert instance.get_kvcache_bytes_per_sequence(0) == 0
 
 
-def test_gpu_layout_preserves_fp8_indexer_and_linear_capacity():
-    instance = model("h200_sxm")
+def test_gpu_layout_preserves_fp8_indexer_and_linear_capacity(model_path):
+    instance = model(model_path, "h200_sxm")
     assert instance.get_kvcache_bytes_per_sequence(1) == 100152
     assert instance.get_kvcache_pool_overhead_bytes() == 0
     assert instance.get_kvcache_max_tokens(100152 * 129) == 129
@@ -75,14 +81,14 @@ def test_gpu_layout_preserves_fp8_indexer_and_linear_capacity():
         {"kvcache_quant_mode": KVCacheQuantMode.fp8},
     ],
 )
-def test_unqualified_layouts_fail(changes):
-    instance = model()
+def test_unqualified_layouts_fail(changes, model_path):
+    instance = model(model_path)
     instance.config = replace(instance.config, **changes)
     with pytest.raises(ValueError, match="Ascend910C DSA KV layout"):
         instance.get_kvcache_bytes_per_sequence(1)
 
 
-def test_native_capacity_construction_preserves_system(monkeypatch):
+def test_native_capacity_construction_preserves_system(monkeypatch, model_path):
     """Isolate cache geometry from resident overhead that still needs measurement."""
     system_spec = kv_cache.perf_database.load_system_spec("ascend910c")
     monkeypatch.setattr(
@@ -98,7 +104,7 @@ def test_native_capacity_construction_preserves_system(monkeypatch):
         ),
     )
     estimator = kv_cache.KVCacheEstimator.from_request(
-        "zai-org/GLM-5.2",
+        model_path,
         "ascend910c",
         "sglang",
         "0.5.22",

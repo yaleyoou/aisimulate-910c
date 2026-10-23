@@ -4,16 +4,37 @@
 Atlas 800T A3 node. A node exposes **16 chips on eight dual-chip boards**.
 Memory capacity and throughput are per chip, never per board or per node.
 
+The serving-memory fields use32 worker snapshots from two current-model United
+runs with SGLang0.5.22/CANN9.1.0.B243/driver26.1.1. `misc.other_mem=937753092`
+is the largest observed pre-KV reservation after subtracting the independently
+reconciled52,471,997,948-byte resident model inventory. It includes runtime
+allocations and allocator slack; graph/execution allocations use SGLang's
+separate static-fraction headroom. The existing SGLang backend adds its20%
+other-memory margin. NCCL is absent, so its compatibility bucket is zero;
+this is not an HCCL-memory measurement under an NCCL label. Evidence and scope
+are in `benchmarks/evidence/ascend910c-glm52-w8a8/production/static-runtime-memory-20261024.json`.
+Other topologies have not received independent runtime-memory calibration.
+
+Detailed measurement reports live in each version directory's `metadata/`
+subdirectory. Only performance tables and their standard `collection_meta.yaml`
+belong directly in the version directory, so strict provenance admission does
+not mistake reports for unregistered tables.
+
 This directory contains an experimental source-qualified linear table under
-`gemm/sglang/0.5.22/ascend_linear_perf.parquet`: 1,241 stable measurements from
-1,246 attempted cases, with raw provenance and collection metadata alongside it.
+`gemm/sglang/0.5.22/ascend_linear_perf.parquet`: 1,378 stable measurements from
+1,382 attempted cases, with detailed reports under `metadata/`.
 It distinguishes static W8A8, dynamic W8A8, BF16, the indexer weighting projection's
 FP32-input/BF16-weight/FP32-output path, bias, storage format and
 eager/graph execution. Native queries use exact keys and interpolate only inside
-measured token brackets. Five unstable measurements are excluded and retained
+measured token brackets. Four unstable measurements are excluded and retained
 in provenance. Missing curves and out-of-bracket queries fail explicitly.
 
-This is **partial operator support**, not a complete GLM prediction database.
+The native GLM ModelSlim graph composes these tables, including21 indexer
+layers,3 dense layers and75 MoE layers. It retains the actual static/dynamic
+precision split, shared RoPE storage, retained MLA views and per-phase HCCL
+boundaries. Queries assume uniform attention-DP load and the selected balanced
+synthetic routing profile. Measured query bounds and uncalibrated whole-serving
+accuracy remain distinct from functional forward prediction.
 The MoE chain table adds 225 profile rows from 217 stable physical observations
 (220 attempted) under `moe/sglang/0.5.22/ascend_moe_chain_perf.parquet`.
 Balanced and single-expert count distributions are explicit synthetic inputs;
@@ -25,14 +46,22 @@ graph-noop controls fail as expected. Three unstable observations are excluded.
 Native queries reproduce every published row. These data exclude dispatch and
 combine and do not qualify real routing skew or a whole deployment's performance.
 
-The vector family adds 765 stable observations from 768 cases under
-`vector/sglang/0.5.22/ascend_vector_perf.parquet`. It distinguishes 17 logical
-boundaries and 24 physical geometries, including ModelSlim normalization bias,
+DeepEP adds125 stable dispatch/combine records from two-node32/19 and local16
+campaigns. World16 balanced normal M1..1024 and graph low-latency M1..32 are
+covered. Small world32 balanced graph batches remain outside qualified
+transport coverage. Normal-mode M2048 fails runtime tiling and has no timing
+row. Source, full-payload checks, graph-noop controls and all excluded samples
+remain in the reports.
+
+The vector family adds842 stable observations from848 cases under
+`vector/sglang/0.5.22/ascend_vector_perf.parquet`. It distinguishes18 logical
+boundaries and28 physical geometries, including ModelSlim normalization bias,
 FP32 indexer LayerNorm, strided RoPE and format-30 cache writes. All numerical
-checks pass; 17 no-op graph controls fail as expected. Native queries reproduce
+checks pass;18 no-op graph controls fail as expected. Native queries reproduce
 every published row. Cache indices use INT64 in eager and INT32 in graph mode;
 the current grid writes distinct valid slots and does not separately qualify
-repeated sentinel writes. Three unstable timings remain in provenance.
+repeated sentinel writes. Six unstable timings remain in provenance. The logits
+boundary includes the post-collective reordering and FP32 output conversion.
 
 The attention family contains 1,517 qualified measurements from 1,576 attempts
 under `attention/sglang/0.5.22/ascend_attention_perf.parquet`. It covers the

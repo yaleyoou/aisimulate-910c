@@ -1,0 +1,176 @@
+{
+  "artifacts": {
+    "ascend910c_system_yaml_current": {
+      "archived": true,
+      "path": "production/hardware-before-runtime-memory-20261024.yaml"
+    },
+    "ascend910c_system_yaml_memory": {
+      "path": "../../../python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml",
+      "kind": "file",
+      "scope": "input"
+    }
+  },
+  "research": {
+    "runtime_static_memory": {
+      "status": "measured_32_rank_snapshots",
+      "static_other_bytes": 937753092,
+      "scope": "CurrentModelSlim/United16/SGLang0.5.22;beforeKV allocations;graphheadroomseparate",
+      "nccl": "notused;compatibilitybucket0;HCCLallocationsarenotrelabeledasNCCL"
+    },
+    "canonical_glm_forward": {
+      "status": "op_level_construction_and_pure_forward_queries_pass",
+      "resident_parameter_bytes": 52471997948,
+      "scope": "Uniform attention-DP work and balanced synthetic expert routing. Exactresidentinventorymatch;notservingaccuracyqualification.",
+      "prefill_per_dp_batch1_tokens8192_ms": 2437.2778224657786,
+      "decode_per_dp_batch1_kv8193_ms": 108.61646285717158,
+      "decode_per_dp_batch5_kv9216_ms": 108.97694159080145
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "attention_expanded_native_validation": {
+          "archived": true
+        },
+        "attention_expanded_provenance": {
+          "archived": true
+        },
+        "attention_expanded_table": {
+          "archived": true
+        },
+        "current_20261023_attention_provenance": {
+          "archived": true
+        },
+        "current_20261023_attention_table": {
+          "archived": true
+        },
+        "current_20261023_bmm_provenance": {
+          "archived": true
+        },
+        "current_20261023_bmm_table": {
+          "archived": true
+        },
+        "current_20261023_hccl_native_validation": {
+          "archived": true
+        },
+        "current_20261023_hccl_provenance": {
+          "archived": true
+        },
+        "current_20261023_hccl_table": {
+          "archived": true
+        },
+        "current_20261023_linear_provenance": {
+          "archived": true
+        },
+        "current_20261023_linear_table": {
+          "archived": true
+        },
+        "current_instrumented_memory": {
+          "archived": true
+        },
+        "current_vector_inputs": {
+          "archived": true
+        },
+        "current_vector_native_validation": {
+          "archived": true
+        },
+        "current_vector_provenance": {
+          "archived": true
+        },
+        "current_vector_table": {
+          "archived": true
+        },
+        "deepep_coverage": {
+          "archived": true
+        },
+        "deepep_native": {
+          "archived": true
+        },
+        "deepep_provenance": {
+          "archived": true
+        },
+        "deepep_table": {
+          "archived": true
+        },
+        "global32_linear_native": {
+          "archived": true
+        },
+        "global32_linear_table": {
+          "archived": true
+        },
+        "global32_vector_native": {
+          "archived": true
+        },
+        "global32_vector_table": {
+          "archived": true
+        },
+        "hccl_large_native_validation": {
+          "archived": true
+        },
+        "hccl_large_provenance": {
+          "archived": true
+        },
+        "hccl_large_table": {
+          "archived": true
+        },
+        "moe_chain_campaign": {
+          "archived": true
+        },
+        "moe_chain_native_validation": {
+          "archived": true
+        },
+        "moe_chain_provenance": {
+          "archived": true
+        },
+        "moe_chain_table": {
+          "archived": true
+        },
+        "composition_linear": {
+          "path": "production/linear-global32-published-20261024/ascend_linear_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_attention": {
+          "path": "production/attention-expanded-published-20261024/ascend_attention_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_bmm": {
+          "path": "production/bmm-published-20261023/ascend_bmm_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_vector": {
+          "path": "production/vector-logits-published-20261024/ascend_vector_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_moe_chain": {
+          "path": "production/moe-chain-published-20261024/ascend_moe_chain_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_deepep": {
+          "path": "production/deepep64-published-20261024/ascend_deepep_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_hccl": {
+          "path": "production/hccl-large-local-node32-20261023/published/hccl_perf.parquet",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_memory": {
+          "path": "production/static-runtime-memory-20261024.json",
+          "kind": "file",
+          "scope": "collection"
+        },
+        "composition_boundary_requests": {
+          "path": "production/operator-input-state-node32-20261022-boundaries-20261024/request-campaign.json",
+          "kind": "file",
+          "scope": "collection"
+        }
+      }
+    }
+  }
+}

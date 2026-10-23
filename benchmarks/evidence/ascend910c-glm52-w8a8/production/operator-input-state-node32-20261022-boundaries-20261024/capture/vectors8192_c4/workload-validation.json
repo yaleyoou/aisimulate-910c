@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "requests": [
+    {
+      "id": "804614a853d34797b55af902063a054b",
+      "finish_reason": {
+        "type": "length",
+        "length": 64
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 64,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 64
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 11.5366260560113
+    },
+    {
+      "id": "2c01b0c14549419d8135952ab1f0db35",
+      "finish_reason": {
+        "type": "length",
+        "length": 64
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 64,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 64
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 11.581415253021987
+    },
+    {
+      "id": "027888c9ac024aac8234424c04f1692e",
+      "finish_reason": {
+        "type": "length",
+        "length": 64
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 64,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 64
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 0,
+      "e2e_latency": 11.52966715200455
+    },
+    {
+      "id": "85d89977d532470c8732c08757b33b0c",
+      "finish_reason": {
+        "type": "length",
+        "length": 64
+      },
+      "prompt_tokens": 8192,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 64,
+      "cached_tokens": 0,
+      "weight_versions": [
+        {
+          "version": "default",
+          "start": 0,
+          "end": 64
+        }
+      ],
+      "cached_tokens_details": null,
+      "dp_rank": 1,
+      "e2e_latency": 11.574726442981046
+    }
+  ]
+}

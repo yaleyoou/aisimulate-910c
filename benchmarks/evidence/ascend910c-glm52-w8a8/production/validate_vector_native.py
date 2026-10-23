@@ -35,7 +35,7 @@ def main():
         preparation_ms = (time.perf_counter() - started) * 1000
         durations, maximum_error = [], 0.0
         for row in rows:
-            operation = {"AscendVector": {"name": "measured_vector", "scale_factor": 1.0, "key": {"role": row["role"], "dimensions": json.loads(row["dimensions"]), "execution_mode": row["execution_mode"]}, "token_axis": "tokens", "token_split": 1, "token_multiple": 1}}
+            operation = {"AscendVector": {"name": "measured_vector", "scale_factor": 1.0, "key": {"role": row["role"], "dimensions": json.loads(row["dimensions"]), "execution_mode": row["execution_mode"]}, "token_axis": "tokens", "token_split": 1, "token_multiple": 1, "resident_copies": None}}
             assert json.loads(_runtime.op_from_spec_json(json.dumps(operation))._spec_json()) == operation
             started = time.perf_counter()
             values = handle.evaluate_ops_json(json.dumps([operation]), is_context=False, batch_size=row["tokens"], s=8192)
