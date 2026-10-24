@@ -1,0 +1,12 @@
+[
+  {
+    "file": "npu-before.log",
+    "sha256": "a6cc525e9d3ca471eb9ae6c290f5116949f6292e4f033331f2a2fa77de372b13",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "probe.log",
+    "sha256": "6d236e0109e18defa48633a54f7a2b5ff6aad46fa852e6f67940fcf28625f981",
+    "archive": "probe.log.gz"
+  }
+]

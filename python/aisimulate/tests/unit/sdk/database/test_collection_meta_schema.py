@@ -65,6 +65,18 @@ def test_v2_accepts_complete_multi_event_history(tmp_path):
     assert _load_collection_meta_yaml(str(path)) == document
 
 
+def test_v2_preserves_collector_failure_counts(tmp_path):
+    document = _v2_document([_event(classified_failures=19)])
+    assert _load_collection_meta_yaml(str(_write_meta(tmp_path, document))) == document
+
+
+@pytest.mark.parametrize("invalid", [-1, True, 1.5])
+def test_v2_rejects_invalid_collector_failure_counts(tmp_path, invalid):
+    path = _write_meta(tmp_path, _v2_document([_event(classified_failures=invalid)]))
+    with pytest.raises(ValueError, match="classified_failures"):
+        _load_collection_meta_yaml(str(path))
+
+
 def test_v2_rejects_blank_collection_event_plan(tmp_path):
     path = _write_meta(tmp_path, _v2_document([_event(case_plan_hash="")]))
 

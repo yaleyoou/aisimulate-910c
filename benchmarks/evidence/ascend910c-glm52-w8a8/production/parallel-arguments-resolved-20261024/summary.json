@@ -1,0 +1,463 @@
+{
+  "scope": "argument validation only; no distributed construction or kernel execution",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "probe_sha256": "7f604941e8752707223f104b167c670ddb9a0fb6875e2143a2c414445f534c62",
+  "cases": [
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 4,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 4,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 8,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 8,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 16,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 16,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "ep_size": 1,
+        "moe_a2a_backend": "none"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 1,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "none",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "ep_size": 2,
+        "moe_a2a_backend": "none"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 2,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "none",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "ep_size": 4,
+        "moe_a2a_backend": "none"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 4,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "none",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "ep_size": 8,
+        "moe_a2a_backend": "none"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 8,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "none",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "attn_cp_size": 2,
+        "enable_prefill_cp": true,
+        "cp_strategy": "interleave",
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 2,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": "interleave",
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dcp_size": 2,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 2,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "attn_cp_size": 4,
+        "enable_prefill_cp": true,
+        "cp_strategy": "interleave",
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 4,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": "interleave",
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dcp_size": 4,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 4,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "attn_cp_size": 8,
+        "enable_prefill_cp": true,
+        "cp_strategy": "interleave",
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 8,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": "interleave",
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dcp_size": 8,
+        "ep_size": 16,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 16,
+        "attn_dp_size": 2,
+        "dp_size": 1,
+        "pp_size": 1,
+        "ep_size": 16,
+        "attn_cp_size": 1,
+        "dcp_size": 8,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": false,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 8,
+        "pp_size": 2,
+        "attn_dp_size": 1,
+        "ep_size": 8,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 8,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 2,
+        "ep_size": 8,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": true,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    },
+    {
+      "status": "arguments_resolved",
+      "requested": {
+        "tp_size": 4,
+        "pp_size": 4,
+        "attn_dp_size": 1,
+        "ep_size": 4,
+        "moe_a2a_backend": "deepep"
+      },
+      "resolved": {
+        "tp_size": 4,
+        "attn_dp_size": 1,
+        "dp_size": 1,
+        "pp_size": 4,
+        "ep_size": 4,
+        "attn_cp_size": 1,
+        "dcp_size": 1,
+        "moe_a2a_backend": "deepep",
+        "moe_runner_backend": "auto",
+        "moe_dense_tp_size": null,
+        "cp_strategy": null,
+        "disable_overlap_schedule": true,
+        "enable_dp_lm_head": false,
+        "page_size": 128,
+        "dcp_comm_backend": "ag_rs"
+      }
+    }
+  ]
+}

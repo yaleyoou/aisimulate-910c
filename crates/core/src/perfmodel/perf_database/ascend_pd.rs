@@ -21,8 +21,8 @@ pub struct AscendPdKey {
 
 impl AscendPdKey {
     pub fn validate(&self) -> Result<(), AicError> {
-        if !matches!(self.source_tp, 4 | 8)
-            || !matches!(self.destination_tp, 4 | 8)
+        if !matches!(self.source_tp, 4 | 8 | 16)
+            || !matches!(self.destination_tp, 4 | 8 | 16)
             || !matches!(self.page_layout.as_str(), "contiguous" | "fragmented")
         {
             return Err(AicError::InvalidEngineConfig(format!(
@@ -84,8 +84,9 @@ impl KvTransferCurve {
             "maximum_tokens": self.maximum,
             "page_size": 128,
             "bytes_per_token_per_replica": 109824,
+            "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
             "runtime_identity_sha256": self.identity,
-            "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention"
+            "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention"
         })
     }
 }
@@ -181,6 +182,38 @@ mod tests {
                 Err(AicError::InvalidPerfData(_))
             ));
         }
+    }
+
+    #[test]
+    fn independent_curves_keep_separate_collection_identities() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let mut values = columns();
+        values[21] = Col::Str(
+            "runtime_identity_sha256",
+            vec![
+                "1111111111111111111111111111111111111111111111111111111111111111",
+                "2222222222222222222222222222222222222222222222222222222222222222",
+            ],
+        );
+        write_parquet(&path, &values);
+        assert!(matches!(
+            AscendPdTable::new(Some(path.clone())).curve(&key()),
+            Err(AicError::InvalidPerfData(_))
+        ));
+        values[0] = Col::I64("source_tp", vec![8, 4]);
+        write_parquet(&path, &values);
+        let table = AscendPdTable::new(Some(path));
+        assert_eq!(
+            table.curve(&key()).unwrap().metadata()["runtime_identity_sha256"],
+            "1".repeat(64)
+        );
+        let mut second = key();
+        second.source_tp = 4;
+        assert_eq!(
+            table.curve(&second).unwrap().metadata()["runtime_identity_sha256"],
+            "2".repeat(64)
+        );
     }
 }
 
@@ -285,7 +318,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
     let samples = reader.col("sample_count")?;
     let provenance = reader.col("runtime_identity_sha256")?;
     let mut raw: BTreeMap<AscendPdKey, BTreeMap<u32, f64>> = BTreeMap::new();
-    let mut identity: Option<String> = None;
+    let mut identities: BTreeMap<AscendPdKey, String> = BTreeMap::new();
     for row in reader.rows()? {
         let row = row?;
         let key = AscendPdKey {
@@ -333,23 +366,26 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 "unqualified Ascend PD row: {key:?}"
             )));
         }
-        if identity
-            .as_ref()
+        if identities
+            .get(&key)
             .is_some_and(|expected| expected != runtime)
         {
             return Err(AicError::InvalidPerfData(
-                "Ascend PD mixes runtime identities".into(),
+                "Ascend PD curve mixes collection identities".into(),
             ));
         }
-        identity.get_or_insert_with(|| runtime.to_owned());
+        identities
+            .entry(key.clone())
+            .or_insert_with(|| runtime.to_owned());
         if raw.entry(key).or_default().insert(count, value).is_some() {
             return Err(AicError::InvalidPerfData(
                 "duplicate Ascend PD physical key".into(),
             ));
         }
     }
-    let identity =
-        identity.ok_or_else(|| AicError::InvalidPerfData("empty Ascend PD table".into()))?;
+    if raw.is_empty() {
+        return Err(AicError::InvalidPerfData("empty Ascend PD table".into()));
+    }
     Ok(raw
         .into_iter()
         .map(|(key, points)| {
@@ -358,7 +394,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 minimum: *points.first_key_value().unwrap().0,
                 maximum: *points.last_key_value().unwrap().0,
                 values: AxisCurve::from_map("tokens", points),
-                identity: identity.clone(),
+                identity: identities.remove(&key).unwrap(),
             });
             (key, curve)
         })

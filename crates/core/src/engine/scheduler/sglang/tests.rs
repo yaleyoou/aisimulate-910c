@@ -372,6 +372,42 @@ fn same_timestamp_retry_hint_stops_when_admission_state_converges() {
 }
 
 #[test]
+fn destination_fifo_blocks_fresh_work_until_a_real_command_releases_or_activates_kv() {
+    let mut core = SglangCore::new(test_args(2, 4, 8));
+    let held = HandoffId::from(Uuid::from_u128(990_001));
+    let pending = HandoffId::from(Uuid::from_u128(990_002));
+    core.apply_command(SchedulerCommand::ReserveDestination {
+        handoff_id: held,
+        request: direct_request(vec![1; 8], 1),
+    })
+    .unwrap();
+    core.apply_command(SchedulerCommand::ReserveDestination {
+        handoff_id: pending,
+        request: direct_request(vec![2; 4], 1),
+    })
+    .unwrap();
+    core.receive(direct_request(vec![3; 4], 1));
+    assert!(!core.is_empty());
+    assert!(core.waiting_for_external_command());
+
+    let released = core
+        .apply_command_effects(
+            SchedulerCommand::CancelDestination { handoff_id: held },
+            true,
+        )
+        .unwrap();
+    assert!(released.lifecycle_events.iter().any(|event| matches!(
+        event,
+        SchedulerLifecycleEvent::DestinationReserved { handoff_id, .. } if *handoff_id == pending
+    )));
+    core.apply_command(SchedulerCommand::ActivateDestination {
+        handoff_id: pending,
+    })
+    .unwrap();
+    assert!(!core.waiting_for_external_command());
+}
+
+#[test]
 fn zero_output_completion_survives_decode_reservation_failure() {
     let config = SglangConfig::from_args(&test_args(2, 4, 16));
     let mut kv_manager = SglangKvManager::new(8, 4, KvEventPublishers::default(), 0);

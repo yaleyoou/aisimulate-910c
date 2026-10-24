@@ -13,8 +13,7 @@ from aisimulate_core.sdk.errors import InvalidEngineConfigurationError
 from aisimulate_core.sdk.fpm_config import OpLevelCompileConfig
 
 
-def configure_ascend_glm52(model, raw_config):
-    config = model.config
+def validate_ascend_glm52_checkpoint(raw_config):
     geometry = {
         "hidden_size": 6144,
         "num_hidden_layers": 78,
@@ -70,6 +69,17 @@ def configure_ascend_glm52(model, raw_config):
         )
         if layer != {"layer": layer_id, "attention": attention, "indexer": expected_indexer, "mlp": expected_mlp}:
             raise InvalidEngineConfigurationError(f"Unqualified ModelSlim precision partition at layer {layer_id}")
+
+
+def ascend_glm52_default_parallel_shapes(raw_config):
+    """Published default search domain, in TP/ADP/MoE-TP/EP/PP order."""
+    validate_ascend_glm52_checkpoint(raw_config)
+    return tuple((tensor, experts // tensor, 1, experts, 1) for experts in (16, 32) for tensor in (4, 8, 16))
+
+
+def configure_ascend_glm52(model, raw_config):
+    config = model.config
+    validate_ascend_glm52_checkpoint(raw_config)
     if (
         model._backend_name != "sglang"
         or model.architecture != "GlmMoeDsaForCausalLM"
@@ -95,13 +105,13 @@ def configure_ascend_glm52(model, raw_config):
         )
     local_tp, attention_dp, experts_parallel = config.tp_size, config.attention_dp_size, config.moe_ep_size
     if (
-        local_tp not in (4, 8)
+        local_tp not in (4, 8, 16)
         or experts_parallel not in (16, 32)
         or config.moe_tp_size != 1
         or local_tp * attention_dp != experts_parallel
     ):
         raise InvalidEngineConfigurationError(
-            "Ascend GLM requires local attention TP4/8, EP16/32, MoE-TP1 and TP*ADP=EP"
+            "Ascend GLM requires local attention TP4/8/16, EP16/32, MoE-TP1 and TP*ADP=EP"
         )
     if config.op_level_config is None:
         config.op_level_config = OpLevelCompileConfig(None, system=config.system, backend=model._backend_name)
@@ -110,13 +120,15 @@ def configure_ascend_glm52(model, raw_config):
     model._num_moe_layers = 75
     model._gpus_per_node = 16
     model._mtp_scale_factor = 1.0
+    graph_buckets = [batch for batch in (8, 16, 24, 32) if batch % local_tp == 0]
     model.execution_assumptions = {
         "routing": settings["routing"],
         "shared_expert_overlap": settings["shared_expert_overlap"],
         "batch_scope": "per_attention_dp_replica",
         "attention_dp_load": "uniform",
-        "decode_graph_buckets": [8, 16, 24, 32],
+        "decode_graph_buckets": graph_buckets,
         "kv_pool_tokens": 53248,
+        "kv_pool_scope": "operator timing reference; capacity is resolved separately by the native memory model",
         "kv_page_size": 128,
         "backend_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
     }
@@ -124,7 +136,7 @@ def configure_ascend_glm52(model, raw_config):
 
     for context in (True, False):
         phase, mode = ("context", "eager") if context else ("generation", "graph")
-        padding = 1 if context else 8
+        padding = 1 if context else min(graph_buckets)
         entries = []
 
         def linear(
@@ -175,8 +187,8 @@ def configure_ascend_glm52(model, raw_config):
             elements = width * (attention_dp if global_tokens else 1)
             split = local_tp if shard else 1
             if not context:
-                elements *= 8 // split
-                split = 8
+                elements *= padding // split
+                split = padding
             return {
                 "Hccl": {
                     "name": phase + "_" + name,
@@ -206,7 +218,7 @@ def configure_ascend_glm52(model, raw_config):
                         "local_heads": local_heads,
                         "execution_mode": mode,
                     },
-                    "graph_buckets": [] if context else [8, 16, 24, 32],
+                    "graph_buckets": [] if context else graph_buckets,
                 }
             }
 
@@ -271,8 +283,10 @@ def configure_ascend_glm52(model, raw_config):
         entries.extend(
             [
                 linear("attention_output", 6144, heads * 256, "w8a8", 78, "tp_group_max"),
-                vector("dense_residual_add", "shared_add", [6144], 3),
-                vector("dense_post_norm", "rms_bias", [6144], 3, global_tokens=True),
+                *([vector("dense_residual_add", "shared_add", [6144], 3)] if attention_dp > 1 else []),
+                vector(
+                    "dense_post_norm", "rms_bias" if attention_dp > 1 else "add_rms_bias", [6144], 3, global_tokens=True
+                ),
                 linear("dense_gate_up", 2 * dense_intermediate, 6144, "w8a8_dynamic", 3, global_tokens=True),
                 vector("dense_activation", "swiglu", [dense_intermediate], 3, global_tokens=True),
                 linear("dense_down", 6144, dense_intermediate, "w8a8_dynamic", 3, global_tokens=True),
@@ -281,7 +295,7 @@ def configure_ascend_glm52(model, raw_config):
                 linear("router", 256, 6144, "bfloat16", 75, split=local_tp),
             ]
         )
-        if context:
+        if context or attention_dp == 1:
             entries.append(collective("dense_global_sums", "all_reduce", experts_parallel, 6, global_tokens=True))
         else:
             entries.extend(

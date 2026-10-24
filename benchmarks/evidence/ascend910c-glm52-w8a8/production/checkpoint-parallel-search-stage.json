@@ -1,0 +1,43 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["TP4/8/16 and EP16/32 search works; MoE-TP, PP and CP/DCP operator composition/collection still require completion."],
+    "next_action": "Freeze and regress the expanded search stage, observe MoE-TP and PP execution and implement their remaining measured paths; keep the overall goal active."
+  },
+  "research": {
+    "parallel_extension": {
+      "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
+      "automatic_search": "Default catalog6shapes:TP4/8/16 x EP16/32,ADP=EP/TP,MoETP1,PP1CP1DCP1.64devicebudget,C8/16/32:351/351candidatesfeasible.96candidateintermediatestageexposedSGLangFIFOexternalwaitbug;fixedwithoutremovinglivenessguard.",
+      "validation": "72SGLangtestsand2042Rustpass(1preexistingignored);390GPUparitypass116.17s;984publictests pass,5faildueHuggingFaceconnectionresetforunrelatedQwen3-VLconfig.46focusedidentity/model/provenancechecks pass.143DeepEP,1707attentionand81PDexactnativequeriespass. StrictTP16prefill/EP32decodePDpredictpasses.",
+      "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
+      "attention": "1772casescompletednumericchecks,1707stable65CVexcluded;includesTP16graph16/32padding. Bothgraph-noopcontrolsrejected. Runtimecollectorunchangedsource53db19d34b0af6a934535a31e0e45b06ac4a3b25cafc190feb400f5a5beebe28.",
+      "pd": "TP4/8/16 all9mappingscollected;90-case singlecall71stable and90-case8-callmeans66stable. Selected18wholecurves81rows acrosscompatiblecampaigns,coverage-first/latency-independent selection,per-curvecollectionidentitiespreserved. No splicingdifferentprotocolsinacurve. Same per-attentionDPgroup mapping supportsEP32 roles under PP1CP1DCP1,distinct endpointnodes,no shared-link contention calibration.",
+      "tp16_capture": "Realweights8kC1and128C17completed. Resident51,292,091,900bytesmatchesmodel;graph16/32;denseAR6+sparseRS75/AG75. Sourcecapturearchived.",
+      "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
+      "moetp_capture": "MoETP16EP1attentionTP16fullweightsserverstartedon32;8krequestcaptureinprogress. This proves startup only until requestschecked;doesnotyetmeanFPEsupport.",
+      "argument_probe": "17actualServerArgs.resolve_once()casesresolved;includesTP1/2ADP16/8,MoETPvariants,PP2/4,CP2/4/8,DCP2/4/8. Argumentacceptanceisnotkernelexecution. DSA DCP explicitly rejects PD mode in pinned runtime.",
+      "native_sha256": "6c598dce2fa8bcda6ab4553516a1a845cc0f4bcaf9b99df8f56356167716916b",
+      "runtime_image": "Stableuserimage190684...stillpreviouslimitedrelease;rebuildaftercurrentstagechecks. No claimnewsourcefeaturesareinoldimage.",
+      "next": "Commitexpandedsearch/dataafterformatting,evidenceandpinnedReplayparity;thenbroaderMoETP/PP/CP/DCP. Overallgoalremainsactive."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "parallel_deepep_release": {"path":"production/deepep-parallel-release-20261024/ascend_deepep_perf.parquet","kind":"file","scope":"collection"},
+        "parallel_attention_release": {"path":"production/attention-tp16-release-20261024/ascend_attention_perf.parquet","kind":"file","scope":"collection"},
+        "parallel_pd_release": {"path":"production/pd-parallel-release-20261024/ascend_pd_perf.parquet","kind":"file","scope":"collection"},
+        "parallel_search_351": {"path":"production/automatic-search-351-20261024/recommendation.json","kind":"file","scope":"validation"},
+        "parallel_strict_pd": {"path":"production/pd-tp16-ep32-strict-20261024/prediction.json","kind":"file","scope":"validation"},
+        "parallel_validation_manifest": {"path":"production/parallel-stage-validation-20261024/manifest.json","kind":"file","scope":"validation"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["MoE-TP, PP, CP/DCP and smaller attention TP remain under adaptation; serving accuracy intentionally deferred."],
+        "next_action": "Validate and commit this expanded TP/EP search stage, continue actual source-qualified execution/collection for remaining strategies."
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "arguments_resolved",
+  "requested": {
+    "tp_size": 16,
+    "attn_dp_size": 2,
+    "attn_cp_size": 4,
+    "enable_prefill_cp": true,
+    "cp_strategy": "interleave",
+    "ep_size": 16,
+    "moe_a2a_backend": "deepep"
+  },
+  "resolved": {
+    "tp_size": 16,
+    "attn_dp_size": 2,
+    "dp_size": 1,
+    "pp_size": 1,
+    "ep_size": 16,
+    "attn_cp_size": 4,
+    "dcp_size": 1,
+    "moe_a2a_backend": "deepep",
+    "moe_runner_backend": "auto",
+    "moe_dense_tp_size": null,
+    "cp_strategy": "interleave",
+    "disable_overlap_schedule": false,
+    "enable_dp_lm_head": false,
+    "page_size": 128,
+    "dcp_comm_backend": "ag_rs"
+  }
+}

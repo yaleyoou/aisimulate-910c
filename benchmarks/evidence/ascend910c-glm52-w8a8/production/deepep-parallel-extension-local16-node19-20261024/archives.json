@@ -1,0 +1,57 @@
+[
+  {
+    "file": "collector-000.log",
+    "sha256": "be7f2c380f0bb4464b8b03e8c9dcdf470932c0bf835150d994928f1eb8e05b77",
+    "archive": "collector-000.log.gz"
+  },
+  {
+    "file": "collector-001.log",
+    "sha256": "da771e7a34cdd7189df9fad95f14fdf508b14dedc84e7ee452c425155019590b",
+    "archive": "collector-001.log.gz"
+  },
+  {
+    "file": "collector-002.log",
+    "sha256": "96f2e798255ae459f920a625db4727406235fb706ea6edca8a13ada96a5a4cd9",
+    "archive": "collector-002.log.gz"
+  },
+  {
+    "file": "collector-003.log",
+    "sha256": "ca51bfe146d2e2ee167028d122a5eb11719b9afb9121737321c727668f345623",
+    "archive": "collector-003.log.gz"
+  },
+  {
+    "file": "collector-004.log",
+    "sha256": "c065926cdaa679fd62dba67c1b3bfbe06caddaef5c6d205f1f124c9a8c8114c5",
+    "archive": "collector-004.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "33aaeab0350d007dfa376b79df31b968e2d7b7cffecc82992a894a1b6a0462f2",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "observations-000.json",
+    "sha256": "d4fef73dff0d20d3cf1e1d6a40eb1889e4e3e265797bc13c30f47beb54364299",
+    "archive": "observations-000.json.gz"
+  },
+  {
+    "file": "observations-001.json",
+    "sha256": "29cec4e8bd21cb0312facf6edc0fb2df5a86bf6344d637218ebc71c62ae1ede0",
+    "archive": "observations-001.json.gz"
+  },
+  {
+    "file": "observations-002.json",
+    "sha256": "375d168bb1f445fd635e2c1e1902aa368e9d5b110a1443af0ea21449b4c85ad3",
+    "archive": "observations-002.json.gz"
+  },
+  {
+    "file": "observations-003.json",
+    "sha256": "a86d32cb0c41d75812cca096659d0ad39fc45d9122576eabef68864bc8f36b78",
+    "archive": "observations-003.json.gz"
+  },
+  {
+    "file": "observations-004.json",
+    "sha256": "40dfedb8e020f98979375491ce11eb5f3fec44d1a8dbeb6c452c67824b67b571",
+    "archive": "observations-004.json.gz"
+  }
+]

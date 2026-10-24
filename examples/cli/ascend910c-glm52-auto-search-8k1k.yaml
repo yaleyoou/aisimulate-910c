@@ -1,0 +1,39 @@
+traffic:
+  source: {type: synthetic, input_tokens: 8192, output_tokens: 1024}
+  load: {type: concurrency, concurrency: {choices: [8, 16, 32]}}
+  stop: {requests: 64}
+engine:
+  model: /mnt/raid/user/data/models/glm-q
+  hardware: ascend910c
+  backend: sglang
+  backend_version: "0.5.22"
+  mode: {choices: [aggregated, disaggregated]}
+  context_length: 9216
+  gemm_quant_mode: w8a8
+  moe_quant_mode: w8a8_dynamic
+  fmha_quant_mode: bfloat16
+  kvcache_quant_mode: bfloat16
+  comm_quant_mode: half
+  estimation_mode: op_level
+  fallback_policy: deny
+  kv_transfer: {type: measured, timing_mode: full_prompt}
+  workers:
+    aggregated:
+      parallelism: {preset: default}
+      scheduler: {max_batched_tokens: 4096, max_sequences: 32}
+      kv_cache: &kv_cache
+        block_size: 128
+        prefix_caching: false
+        capacity: {type: default, memory_fraction: 0.90}
+    prefill:
+      parallelism: {preset: default}
+      scheduler: {max_batched_tokens: 4096, max_sequences: 1}
+      kv_cache: *kv_cache
+    decode:
+      parallelism: {preset: default}
+      scheduler: {max_batched_tokens: 8192, max_sequences: 32}
+      kv_cache: *kv_cache
+optimization:
+  target: throughput_per_gpu
+  constraints: {max_candidate_gpus: 64}
+optimizer: {algorithm: random, max_trials: 351, parallelism: 4, candidate_timeout_seconds: 120.0, seed: 910}

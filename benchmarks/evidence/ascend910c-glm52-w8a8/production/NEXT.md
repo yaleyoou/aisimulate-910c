@@ -1,5 +1,138 @@
 # Current goal handoff
 
+## CURRENT ACTIVE: six TP/EP layouts and351searches pass; PP/MoETP execution proven, not modeled
+
+Goal remains ACTIVE: userexplicitlyrequestsotherparallelwayslikeGPU;donotcloseafterthisstage.
+HEAD1071459d;preceding5be38455(PDavg8),f45c5dfd(TP16PD),b712dd75(DeepEP256).
+Checkpoint55 integrity[] saved;biguncommittedmodel/search/FIFO/PDcurve/data/docs patch needsfinishandcommit.
+Sourceauto catalognowTP4/8/16 xEP16/32,ADP=EP/TP,MoETP1,PP1CP1DCP1.
+351/35164-devicebudgetC8/16/32candidatespass. CPUoutput/tmp/aisim-parallel-search-351(notyetfrozenhost).
+StrictprovenanceTP16P/EP32Dpredictpasses /tmp/aisim-pd-tp16-ep32-strict, frozenhostpd-tp16-ep32-strict-20261024.
+Native loaded6c598dce2fa8bcda6ab4553516a1a845cc0f4bcaf9b99df8f56356167716916b,EngineSpec29.
+NativePDloadernowallowsDIFFERENTcollectionidentitiesforDIFFERENTcurves,oneidentitywithineachcurve.
+ascend_pd_merge.py selectsWHOLEcurvesfromcompatibleverifiedcampaignsby8kcoverage/span/count/earlierinput,
+NEVERlatencyandNEVERsplicesdifferentprotocolswithinacurve;3Python+3Rusttests pass.
+InstalledDeepEP143,attention1707,PD81(18curves). All143/1707/81exactnativequeriespass.
+Attention1772numericcasesallpass,65CVexcluded;newgraphminimum16shapegridfixesTP16active1data miss.
+validate_attention_native.py changedtouse[row.padded_batch]asthequeriedgraphbucket;oldfixedlistmisqueriednewshapes.
+PDsingleTP16campaign90->71stable,avg8campaign90->66stable;eachaloneregressesfragmentedcoverage.
+Combinedwholecurves81 retains8kcoverageforall18;sourcecampaignsformalold32,PD71,PD66allpreserved.
+Frozenhostpd-tp16-single-release-20261024,pd-tp16-averaged-release-20261024,pd-parallel-release-20261024;
+attention-tp16-release-20261024,deepep-parallel-release-20261024.
+Fixedsdk/perf_database.pyv2collectionparsertoacceptclassified_failureswithnonnegativeintegercheck;
+waswarningonnewmergedmetadata.Strictprovenanceand46focusedtests passafterfix.
+Publicsuite984passed,5FAILEDonlyHFconnectionresetforQwen3-VLconfig (notcode);needresolvefixture/cacheorreportevidence.
+GPU390paritypass116.17s. FullRust2042pass1preexistingignored BEFOREfinalPD-percurveidentitytestadded.
+StillneedpinnedReplayparityagainst2434b021afterFIFOsemanticfix,fullcurrentchecks,andnewwheel/image.
+ModelTP16resident51,292,091,900exactactualstartup;C1/17requestsrealweightsverified;TP16aggregatepredictnowpasses.
+EP32TP8ADP4andTP4ADP8C4/8complete8k1k. PDperattn-group sourceproofallowsEP32withoutchangingpayload/rankmapping.
+ActualPP2TP8EP8serveron32completed8k/16out;sourcecapturesoperator-input-state-node32-20261022-pp2-ep8-20261024.
+ActualMoETP16EP1TP16servercompleted8k/16out;sourcecapturesoperator-input-state-node32-20261022-moetp16-ep1-20261024.
+MoETP16capturesbothphases157AR16+1logitsAG16,noDeepEP. NeedsnewtensorMoEroute/compute/sharingmodel/data.
+BothownedserversSTOPPED;allNPUs32/19idle.31occupieduntouched. Root24914/93967local;89706node19.
+Argumentprobeinitialforgotresolve_once;discard/tmp/aisim-parallel-arguments-20261024asconstructor-only.
+Correctprobe callsresolve_once;17casesaccepted,sourcefrozenproduction/parallel-arguments-resolved-20261024.
+ThisisargumentvalidationONLY. DSA DCPcodeexplicitlyrejectsPDmode. CP/DCPkernelpathsremaintoexecute/model.
+TemporarySGsources/tmp/aisim-sglang-parallel-audit-20261024;DeepEPsources/tmp/aisim-deepep-parallel-audit-20261024 (outsideRepo).
+Archivehelper/tmp/aisim-seal-parallel-stage.pycompressed663selectedfiles+23logs;list/tmp/aisim-parallel-archive-stage.json.
+DO NOTstagealluntracked:oldrawarchives,md/test.md,userfilesmustremainuntouched.
+Sourceformatappliedusing/tmp/aisim-format-pd.py(v3dedup,skipbinary);lastRuffonlyPDmergestringE501needswrap.
+MeasuredPDsourcea118f975...mustnotbeformattedagain;newobservercopiesremainasmeasured.
+Nextcommitvalidated6-layoutstage/evidence;runpinnedReplayparity;thenMoE-TP,PP,CP/DCP/smallerTPextensions.
+
+## Latest ACTIVE: 96/96 search fixed; TP16 needs padding data; PD averaging underway
+
+HEADf45c5dfd(producerTP16PD)+b712dd75(DeepEP256protocol). Manyuncommittedsource/core/docs changesremain.
+Checkpoint54currently;needsnextupdates. GoalACTIVEbroadparallelcoverage,notcomplete.
+SGLangFIFOwaitingfixpassesred/greenregression,72schedulerand2042fullRusttests(1preexistingignored).
+LoadedCPU/tmp/aisim-native/_runtime.abi3.so SHAa13d74ac6e9719bd98fa1a52109aa69e11566ab78374a5fc54b067e588558de6.
+AutoCLIafterfix96/96feasible,noerrors; frozenhostproduction/automatic-search-96-20261024.
+StillrequirespinnedlegacyreplayparityandGPUgatebeforefinalrelease.
+TP16modelPythoncompositiondraft:TP16allowed,padding16,graph16/32,ADP1denseAR6,fusedpostdenseaddnorm.
+Resident51,292,091,900matchesactualstartupallranks;memory-report.jsonverified16ranks.
+TP16requestpredictioncurrentlyFAILSmissingattentionpadded16/active1brackets(oldgridroundedactive1to8).
+Newattentionbasegraph_bucket_sets=[[8,16,24,32],[16,32]],getterdedupspaddedshapes;1772cases(+196),12producer tests pass.
+Frozenproduction/attention-tp16-plan-20261024.json. NoTP1/2orMoETP/PP/CP/DCPimpl yet.
+PDTP16first90casesallnumericallypassed,71stable19CVexcluded; /tmp/pd-parallel-release-f45c5dfd inCPUcontainer.
+DoNOTinstallthat71tablealone:4to8fragmented8kregressesand8to16fragmentedhasmax4096. Original32formalrowsunchanged.
+RevisedPDtimingaverages8calls/sample,warmup10,7repeats,keepsallper-calltimesandverifiesmeansinexporter.
+7PDtests pass;graph/no-copycontrolrejectedonbothnodes. Sourceascend_pd.pySHAa118f975f7b8f2e73aa84c65ca56255fd933455f1f88ee0a40488181fe0f1cc4.
+DO NOT FORMAT measured PDsourceagain:alreadyformattedbeforelaunch. Newplanpd-averaged-plan-20261024.json;
+identitypd-averaged-runtime-identity-20261024.json. TheseandPDaveragingcodeuncommitted.
+ACTIVE32root24914:run_pd_grid --suffixavg8-20261024 (/tmp/aisim-pd-avg8-node32.log).
+QUEUEDON SAMEPTY:ifPDgridexit0,run_attention_campaign --run-nameattention-tp16-padding-node32-20261024 --planattention-tp16-plan...
+log /tmp/aisim-attention-tp16-padding.log. DoNOTlaunchother32NPUworkwhilethispipelineactive.
+ACTIVE19root89706:PDavg8peer(/tmp/aisim-pd-avg8-node19.log). Sparelocalroot93967.
+FullDeepEP256published143rowsvalidatednativeall143delta0. Frozenhostproduction/deepep-parallel-release-20261024;
+CPU/tmp/deepep-parallel-release-b712dd75. Formalold125NOTreplacedyet. Metadata mergeprepared
+CPU/tmp/aisim-deepep-merged-meta.yaml preservesMoE-chain;needatomiccopytable/metadata/provenancewhenready.
+RustPDKeynowallowsTP16andmodelguardallowsEP16/32withPP1CP1DCP1(uncommitted,NOTinloadeda13binary).
+Sourceproof:CommonKVManager mappingusesengine_rank%localattnTP;PP1AscendcopyunaffectedbyADP/EP;
+curveperremoteattentionDPgroupcanbereusedforEP32. UpdatedAPItestexpectsEP32samecurve,buildupdatenecessary.
+FormalPD32/attention1517/DeepEP125tablesunchanged;runtimeimage190684...stilloldlimitedfunctionalversion.
+Nextfinishcollections/publishwithpropernewsourcecommits;completeTP16/EP32defaultcatalog+PDguards/tests;
+broadenTP1/2,MoETPtensorpath,PP,CP/DCPafteractualbackendproof. SGDSADCPexistsbutexplicitlyrejectsPDmode.
+
+## Newest ACTIVE: automatic search exposed SGLang FIFO bug; TP16 state captured
+
+Checkpoint54saved,resumeintegrity[];goalACTIVE. No newcommitsafter2434b021yet;uncommittedchangesmustbecompletedandstagedcarefully.
+Auto-menu24unitstestspass. RealCLI96candidates=95passed/1failed:3P1D,PrefillTP4ADP4,DecodeTP8ADP2,C32.
+Error:effect-freezero-durationpass22inflight;SGLangwaiting_for_external_command wronglyfalsewhenfresh/retracted
+queueblockedbypendingdestinationFIFOandnorunning/prebuiltwork. Narrowcorefixchecksadmission_blocked.
+Rustregressionredassertbeforefix,72SGLangtestsnowpass. DoesNOTremove/bypassReplaylivenessguard.
+ACTIVEroot93967 releasebuild /tmp/aisim-pd-fifo-release.log;afterfinishatomicallyreplace/tmp/aisim-native/_runtime.abi3.so
+andrerunfailedcandidate/all96;mayneedmorefixes. MustrunfullRust/engine/APIandpinnedreplayparityafterthissemanticfix.
+Newtestinengine/scheduler/sglang/tests.rs;core.rs modified;bothchowned5031. Fixtureusesapply_command_effects(...,true).
+Collectorfull256protocolcomplete:world32=40/44executed64stableboundaries;world16=40/44executed79stable;
+143stableof176boundaryattempts,17CVexcluded,8failedcases=16missing. NormalM2048alwaysfails;4LLvector/GMerrorsrecorded.
+Exporterpassedfull88plan: /tmp/deepep-parallel-expanded-published-20261024 inCPUcontainer;native143queriesrunningroot24914.
+OLDformal125tableunchanged. DeepEPreaderrequireONEruntimeidentity:cannotmerge64/256protocolrows.
+Runtimeidentityfileproduction/deepep-full-node19-20261024-v2/runtime-identity.json;collectorref434f8503/sourceunchanged.
+ExternalDeepEPsourcesREADONLYinspectionmovedOUTOFREPOto/tmp/aisim-deepep-parallel-audit-20261024. DoNOTcommitexternalcode.
+DefaultlowlatencypathisDefaultLowLatencyCommStrategy(deep_ep_cpp),NOTOps orAllToAll;DEEP_USE_MODEunset.
+TP16ADP1realmodelcapturescompleted8kC1(16outputtokens)and128C17(32outputs),ownedserverSTOPPED.
+Outputoperator-input-state-node32-20261022-tp16-adp1-20261024. server-info.jsonflatdictrecordsDP1,TP16,EP16,
+enable_dp_lm_headFalse(normalizedfromTrue),graph16/32,max_total_num_tokens65664. KVpooltimingreference53kdiffersactualcapacity.
+Bothprefillanddecodehave7AR16(embedding1+dense6),75RS16+75AG16sparse,1logitsAG16(lastdimension).
+GenerationC1physical16,logical17physical32. LMheadGEMM[16,6144]x[6144,9680]atC1.
+Densepostnormpath_reduce_update_read usesfusedadd+norm;oldDP2modelusesseparateadd+normanddecodeAG/RSdense.
+NeedTP16composition:paddingmax(8,localTP),HCCLpadding//split(nonzero),graphbuckets16/32,
+ADP1denseAR6andfusedaddnorm;actualmemoryinventoryverify;existingTP16compute-tableprimitivesmostlyalreadycollected.
+MorePDreusefinding:CommonKVManager._resolve_rank_mapping usesengine_rank % localattnTP; Ascend.send_kvcache PP1
+doesnotdependonADP/EP. EP32withlocalTP4/8canlikelyreusethesameper-attention-groupremoteKVcurveafterexplicit
+scopeguardtests;doNOTjustrelaxwithoutrecordingthissourceproof. TP16PDstillneednewTP16mappingcollection.
+AllNPUjobsnowstopped;32/19availableagain,31untouched. Root24914/93967local,89706node19.
+
+## ACTIVE: broad parallel extension requested after limited EP16 delivery
+
+User asks to adapt other parallel strategies like GPU AISimulate; existing ops should be reused wherevalid.
+Newgoal ACTIVE, do not close after onlyautomaticEP16menu. Nodes32+19 authorized;31occupiedleavealone.
+Resumecheckpoint53passed;newprogresspatch pending. SourceHEAD2434b021,uncommittedauto-menu+collector-protocol+launcherchanges.
+ReadrepoAGENTS/perfmodel-api,FPEperformance,collectorlayer/failure/caseauthoring;noagentsauthorized/spawned.
+ActualSGLangsourceaudit copiedreadonlyto /tmp/aisim-sglang-parallel-audit-20261024, commitbaa9befa.
+Onlypyproject.toml/deletedpyproject_npu packagingdiffsinimage; srt sourcesunmodified.
+GPUdefaultenumeratorPP1widthladder1..16;GPUDeepSeekV32supportsDCPonlyvLLM, BUTactualNPUruntime
+HASDSADCP sparseLSEpath:hardware_backend/npu/attention/dsa_dcp.py andmodules/deepseek_v2_attention_mla_npu.py.
+DeepEPoverridesEP=globalTP. MoETPneedsdifferentactualAscendnone/ascend_tppath. PPneedsindexersharingboundaryaudit.
+Draftmodelhelperseparatescheckpointvalidationanddefaultshape tuples;ModelHardwaregetsdeclaredshape menu;
+genericreplica/pairhelpersallowallbudgetedratios.Pytests24pass /tmp/aisim-parallel-menu-tests-v2.log.
+ACTIVECPUroot93967:96candidate autoCLIrun /tmp/aisim-auto-parallel-search.log;outputcontainer/tmp/aisim-auto-parallel-search.
+PYTHONPATHmustbegin/tmp/aisim-nativeforupdatedsourceimports;installedwheelalonecannotattachnativewhenpackageSRCoverridden.
+ACTIVE32NPU:aisim-current-inputs-20261022-tp16-adp1-20261024,port18000,weightsloading/stateobserver;
+root24914free.Launcherhasnew--attention-dp1 --decode-graph-buckets16 32,allcaptureflags.
+Outputoperator-input-state-node32-20261022-tp16-adp1-20261024;requestshavenotbeendrivenyet;muststopownedserverafter.
+ACTIVENODE19root89706:run_deepep_campaign.py local16world16 plan256calls/warmup10/repeats7;
+outputdeepep-parallel-extension-local16-node19-20261024.
+Dualnode32/19v2finishedall44:40passedphysical,normalM2048cases51/59tilingfailed,
+LLcases68(eagerbalancedM8)and87(graphhotM32)NPUvector/GMerrorrecorded.Original40validpreserved.
+BalancedgraphM1/M3/M32bothboundariesCVpass=>smallbatchbounds;M2/4/8combineCVfail,M16bothCVfail.
+Fullplan88mustcompleteworld16beforeexport;formalold125rowstableNOTREPLACED.
+Newplanproduction/deepep-parallel-extension-plan-20261024.json;sourcecollectorunchanged.
+Initialnon-v2directoriesonlysetupfailure(missingplanbecausehostPythonlacksPyYAML), noNPUwork;preservelogs.
+NextfinishautoCLI/format/docs/checkpointandstagecommit;completeandpublishnewtransportdata;
+observeTP16realboundary/padding (existingcollective8//TPwouldbezeroatTP16;donotjustrelaxguard),
+thenexpandTP/MoETP/PP/CP/DCP withsource-qualifiedcollectorsandnativecomposition.
+
 ## Delivered: functional EP16 operator prediction and search
 
 Finalimage sha256:190684496125b32f2cc58531cae4676a4e229674c37bbd5e8caff97802fa5a2e.

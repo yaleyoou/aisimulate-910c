@@ -644,7 +644,12 @@ impl SglangCore {
     }
 
     pub(crate) fn waiting_for_external_command(&self) -> bool {
-        self.is_empty() && self.prefill_rounds_remaining == 0 && !self.is_drained()
+        let admission_blocked = self.pending_destinations.has_pending()
+            && self.prebuilt_ready.is_empty()
+            && self.running.is_empty();
+        (self.is_empty() || admission_blocked)
+            && self.prefill_rounds_remaining == 0
+            && !self.is_drained()
     }
 
     pub(crate) fn prepare_group_pass(&mut self) {

@@ -1,0 +1,737 @@
+{
+  "schema": "aisimulate-ascend-worker-memory-report/v1",
+  "status": "validated_observations",
+  "production_memory_model_ready": false,
+  "sources": {
+    "rank-0.jsonl": "14a2b171f2c30e63e14985b64e48f3dc225a202db12f25464b2e4a17aac49d49",
+    "rank-1.jsonl": "34bcbae0749140e835b9f0c917ddcfedad742080a8d86879bfceddbaf97ed039",
+    "rank-2.jsonl": "112e1d40e7d120fb41d3422438425a9631a93eda8eb29e0ed0787638ea479a9f",
+    "rank-3.jsonl": "0d7cf64e393ef1dfc952b349d11b6e2830e82cae6c7823bd249c8adf2ccf0b93",
+    "rank-4.jsonl": "54091b0219c209c85bbc297a1367a867d0e0f3163008d8bdddd33c1a6c057e0b",
+    "rank-5.jsonl": "67824f9d276ca4ce2545678c11d7a885b2daf364435563702e87a1fc6fa96225",
+    "rank-6.jsonl": "fc322c25e5ea3b1c9b0fa7f70bc0bb2e3c45a7bba79917f4c2c9dae403e8d4d8",
+    "rank-7.jsonl": "f21fb6313040eeef045873594f99fc7e7774107ec037e7b13e337504e83458e7",
+    "rank-8.jsonl": "4cb13727a733c6c05e9a0e3adba60799b11011b81a1647cf9947617ea90f27df",
+    "rank-9.jsonl": "06229a126c92a71573f6e8f17ee488f10e2023476f6c7c10da220168ad56264d",
+    "rank-10.jsonl": "cce04b710b95c6b220df62109b54815603c81475169387ebb8bf1bfc5ed0b2c1",
+    "rank-11.jsonl": "ee0332b8c23f4609319fb2fbc64946a3cb28f8310b818acdb99ebc08c900668b",
+    "rank-12.jsonl": "b207cb5632dce2405392e5e0eb4df11d15884b4990d9b5f2912981a39c5e7b23",
+    "rank-13.jsonl": "fd7ee2dee70f1080ea02b07448c3b24ed0587af2e4868355adf1c0bc3e5b01ba",
+    "rank-14.jsonl": "b4cd23ca2581f6bb5b719dc406483c61fa6d424c7f9647761a753faa015b5374",
+    "rank-15.jsonl": "d6bed2745622087400905f44422843e31f9a1597bf0642ba38d0e53099d7ecac"
+  },
+  "ranks": [
+    {
+      "rank": 0,
+      "device": 0,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3319570432,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510575104,
+          "free_consumed_minus_reserved_delta_bytes": 6619136
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7262527488,
+          "free_consumed_minus_reserved_delta_bytes": 6381568
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3159212032,
+          "free_consumed_minus_reserved_delta_bytes": 2939011072
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "device": 1,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3628998656,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3164377088,
+          "free_consumed_minus_reserved_delta_bytes": 2944176128
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "device": 2,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3383971840,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510108160,
+          "free_consumed_minus_reserved_delta_bytes": 6152192
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7262371840,
+          "free_consumed_minus_reserved_delta_bytes": 6225920
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3160084480,
+          "free_consumed_minus_reserved_delta_bytes": 2939883520
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "device": 3,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3628843008,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7260340224,
+          "free_consumed_minus_reserved_delta_bytes": 4194304
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3161944064,
+          "free_consumed_minus_reserved_delta_bytes": 2941743104
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "device": 4,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3369385984,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510456320,
+          "free_consumed_minus_reserved_delta_bytes": 6500352
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7261921280,
+          "free_consumed_minus_reserved_delta_bytes": 5775360
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3163426816,
+          "free_consumed_minus_reserved_delta_bytes": 2943225856
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "device": 5,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3641880576,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3164160000,
+          "free_consumed_minus_reserved_delta_bytes": 2943959040
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "device": 6,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3383492608,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510665216,
+          "free_consumed_minus_reserved_delta_bytes": 6709248
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7263211520,
+          "free_consumed_minus_reserved_delta_bytes": 7065600
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3168456704,
+          "free_consumed_minus_reserved_delta_bytes": 2948255744
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "device": 7,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3626627072,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3167940608,
+          "free_consumed_minus_reserved_delta_bytes": 2947739648
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "device": 8,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3387355136,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51509968896,
+          "free_consumed_minus_reserved_delta_bytes": 6012928
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7256121344,
+          "free_consumed_minus_reserved_delta_bytes": -24576
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3166187520,
+          "free_consumed_minus_reserved_delta_bytes": 2945986560
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "device": 9,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3627507712,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3165540352,
+          "free_consumed_minus_reserved_delta_bytes": 2945339392
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "device": 10,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3384152064,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510169600,
+          "free_consumed_minus_reserved_delta_bytes": 6213632
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7261880320,
+          "free_consumed_minus_reserved_delta_bytes": 5734400
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3162714112,
+          "free_consumed_minus_reserved_delta_bytes": 2942513152
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "device": 11,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3628023808,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3165573120,
+          "free_consumed_minus_reserved_delta_bytes": 2945372160
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "device": 12,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3372204032,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510231040,
+          "free_consumed_minus_reserved_delta_bytes": 6275072
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7262179328,
+          "free_consumed_minus_reserved_delta_bytes": 6033408
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3163811840,
+          "free_consumed_minus_reserved_delta_bytes": 2943610880
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "device": 13,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3642507264,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3164082176,
+          "free_consumed_minus_reserved_delta_bytes": 2943881216
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "device": 14,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3372470272,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510833152,
+          "free_consumed_minus_reserved_delta_bytes": 6877184
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7257632768,
+          "free_consumed_minus_reserved_delta_bytes": 1486848
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3167612928,
+          "free_consumed_minus_reserved_delta_bytes": 2947411968
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "device": 15,
+      "usable_tokens": 65664,
+      "kv_storage_bytes": 7225540608,
+      "kv_bytes_per_token": 109824,
+      "sentinel_bytes": 14057472,
+      "after_graph_free_bytes": 3641397248,
+      "model_reachable_storage": {
+        "load_model:after": {
+          "unique_storage_bytes": 51292091900,
+          "tensor_count": 4640,
+          "unique_storages": 4565
+        },
+        "init_cuda_graphs:after": {
+          "unique_storage_bytes": 51292093948,
+          "tensor_count": 4641,
+          "unique_storages": 4566
+        }
+      },
+      "phase_deltas": [
+        {
+          "phase": "load_model",
+          "allocated_delta_bytes": 51294368256,
+          "reserved_delta_bytes": 51503955968,
+          "free_consumed_bytes": 51510247424,
+          "free_consumed_minus_reserved_delta_bytes": 6291456
+        },
+        {
+          "phase": "alloc_memory_pool",
+          "allocated_delta_bytes": 7272348160,
+          "reserved_delta_bytes": 7256145920,
+          "free_consumed_bytes": 7258243072,
+          "free_consumed_minus_reserved_delta_bytes": 2097152
+        },
+        {
+          "phase": "init_cuda_graphs",
+          "allocated_delta_bytes": 23818752,
+          "reserved_delta_bytes": 220200960,
+          "free_consumed_bytes": 3162550272,
+          "free_consumed_minus_reserved_delta_bytes": 2942349312
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Allocator reservations, free-memory changes and storage extents have different ownership/lifetimes.",
+    "Model-reachable storage includes parameters, buffers and direct tensor attributes, not only weights.",
+    "Do not add independently measured HCCL/graph buffers to a total that already includes them.",
+    "One deployment's initialized capacity does not establish other parallelism or PD roles."
+  ],
+  "sglang_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "observer_sha256": "dfcc10a440e979fa2d1d51e366da2d2d1d5881d4296ce01f6edf06a3d00cc0c5"
+}

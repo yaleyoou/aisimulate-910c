@@ -16,10 +16,25 @@ def main():
     parser.add_argument("--capture-vectors", action="store_true")
     parser.add_argument("--capture-memory", action="store_true")
     parser.add_argument("--capture-boundaries", action="store_true")
+    parser.add_argument("--attention-dp", type=int, choices=(1, 2, 4, 8, 16), default=2)
+    parser.add_argument("--pipeline", type=int, choices=(1, 2, 4), default=1)
+    parser.add_argument("--expert-parallel", type=int)
+    parser.add_argument("--moe-a2a", choices=("deepep", "none"), default="deepep")
+    parser.add_argument("--prefill-cp", type=int, choices=(1, 2, 4, 8), default=1)
+    parser.add_argument("--decode-cp", type=int, choices=(1, 2, 4, 8), default=1)
+    parser.add_argument("--decode-graph-buckets", type=int, nargs="+", default=[8, 16, 24, 32])
     parser.add_argument("--node", choices=("npu1-31", "npu1-32"), default="npu1-31")
     args = parser.parse_args()
+    tensor_world = 16 // args.pipeline
+    expert_parallel = args.expert_parallel or tensor_world
+    if tensor_world % args.attention_dp or expert_parallel < 1 or tensor_world % expert_parallel:
+        parser.error("Attention DP and EP must divide the per-stage tensor group")
+    if tensor_world % (args.attention_dp * args.prefill_cp):
+        parser.error("Prefill CP must divide the attention group")
     if not re.fullmatch(r"[a-z0-9-]*", args.suffix):
         parser.error("Use a simple suffix")
+    if args.decode_graph_buckets != sorted(set(args.decode_graph_buckets)) or min(args.decode_graph_buckets) < 1:
+        parser.error("Decode graph buckets must be sorted unique positive sizes")
     suffix = "-" + args.suffix if args.suffix else ""
     if socket.gethostname() != args.node:
         raise RuntimeError("Collection host differs from the requested node")
@@ -61,11 +76,32 @@ def main():
         source_hashes[name] = hashlib.sha256(source.read_bytes()).hexdigest()
     setup = json.loads((production / "serving-setup.json").read_text())
     container = "aisim-current-inputs-20261022" + suffix
-    command = ["docker", "run", "-d", "--name", container, "--network", "host", "--privileged", "--shm-size", "32g",
-               "--mount", "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/models/glm-q,readonly",
-               "--mount", f"type=bind,src={output},dst=/campaign",
-               "-e", "AISIM_CAPTURE_DIR=/campaign/capture", "-e", "AISIM_CAPTURE_INPUTS=1",
-               "-e", "HCCL_IF_BASE_PORT=39000", "-e", "OMP_NUM_THREADS=1", "-e", "MKL_NUM_THREADS=1"]
+    command = [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        container,
+        "--network",
+        "host",
+        "--privileged",
+        "--shm-size",
+        "32g",
+        "--mount",
+        "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/models/glm-q,readonly",
+        "--mount",
+        f"type=bind,src={output},dst=/campaign",
+        "-e",
+        "AISIM_CAPTURE_DIR=/campaign/capture",
+        "-e",
+        "AISIM_CAPTURE_INPUTS=1",
+        "-e",
+        "HCCL_IF_BASE_PORT=39000",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "-e",
+        "MKL_NUM_THREADS=1",
+    ]
     if args.capture_vectors:
         command.extend(("-e", "AISIM_CAPTURE_VECTORS=1"))
     if args.capture_memory:
@@ -74,32 +110,102 @@ def main():
         command.extend(("-e", "AISIM_CAPTURE_BOUNDARIES=1"))
     for override in overrides:
         command.extend(("--mount", f"type=bind,src={override['source']},dst={override['destination']},readonly"))
-    for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
+    for path in (
+        "/usr/local/Ascend/driver",
+        "/usr/local/Ascend/firmware",
+        "/usr/local/sbin",
+        "/etc/ascend_install.info",
+    ):
         command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
     for name, value in setup["environment"].items():
         if value is not None:
             command.extend(("-e", f"{name}={value}"))
-    command.extend(("--entrypoint", "python3",
-                    "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
-                    "/campaign/source/ascend_recording_server.py"))
-    command.extend([
-        "--model-path", "/models/glm-q", "--host", "0.0.0.0", "--port", "18000",
-        "--context-length", "180000", "--nnodes", "1", "--node-rank", "0", "--tp-size", "16",
-        "--dp-size", "2", "--ep-size", "16", "--mem-fraction-static", "0.90",
-        "--max-running-requests", "64", "--attention-backend", "ascend", "--device", "npu",
-        "--quantization", "modelslim", "--dtype", "bfloat16", "--served-model-name", "glm-5-aisim",
-        "--chunked-prefill-size", "16384", "--max-prefill-tokens", "32768", "--disable-shared-experts-fusion",
-        "--enable-dp-attention", "--enable-dp-lm-head", "--moe-a2a-backend", "deepep", "--deepep-mode", "auto",
-        "--enable-cache-report", "--load-balance-method", "round_robin", "--trust-remote-code",
-        "--model-loader-extra-config", '{"enable_multithread_load":false}', "--weight-loader-disable-mmap",
-        "--cuda-graph-backend-decode", "full", "--cuda-graph-max-bs-decode", "32", "--cuda-graph-bs-decode",
-        "8", "16", "24", "32",
-    ])
+    command.extend(
+        (
+            "--entrypoint",
+            "python3",
+            "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+            "/campaign/source/ascend_recording_server.py",
+        )
+    )
+    command.extend(
+        [
+            "--model-path",
+            "/models/glm-q",
+            "--host",
+            "0.0.0.0",
+            "--port",
+            "18000",
+            "--context-length",
+            "180000",
+            "--nnodes",
+            "1",
+            "--node-rank",
+            "0",
+            "--tp-size",
+            str(tensor_world),
+            "--pp-size",
+            str(args.pipeline),
+            "--dp-size",
+            str(args.attention_dp),
+            "--ep-size",
+            str(expert_parallel),
+            "--mem-fraction-static",
+            "0.90",
+            "--max-running-requests",
+            "64",
+            "--attention-backend",
+            "ascend",
+            "--device",
+            "npu",
+            "--quantization",
+            "modelslim",
+            "--dtype",
+            "bfloat16",
+            "--served-model-name",
+            "glm-5-aisim",
+            "--chunked-prefill-size",
+            str(8192 * args.attention_dp),
+            "--max-prefill-tokens",
+            "32768",
+            "--disable-shared-experts-fusion",
+            "--enable-dp-attention",
+            "--enable-dp-lm-head",
+            "--moe-a2a-backend",
+            args.moe_a2a,
+            "--deepep-mode",
+            "auto",
+            "--enable-cache-report",
+            "--load-balance-method",
+            "round_robin",
+            "--trust-remote-code",
+            "--model-loader-extra-config",
+            '{"enable_multithread_load":false}',
+            "--weight-loader-disable-mmap",
+            "--cuda-graph-backend-decode",
+            "full",
+            "--cuda-graph-max-bs-decode",
+            str(max(args.decode_graph_buckets)),
+            "--cuda-graph-bs-decode",
+            *map(str, args.decode_graph_buckets),
+        ]
+    )
+    if args.prefill_cp > 1:
+        command.extend(("--enable-prefill-cp", "--cp-strategy", "interleave", "--attn-cp-size", str(args.prefill_cp)))
+    if args.decode_cp > 1:
+        command.extend(("--decode-context-parallel-size", str(args.decode_cp)))
     result = subprocess.run(command, capture_output=True, text=True)
-    record = {"command": command, "returncode": result.returncode, "stdout": result.stdout, "stderr": result.stderr,
-              "checkpoint_sha256": view["target_checkpoint_sha256"], "source_sha256": source_hashes,
-              "node": args.node, "checked_model_metadata": checked_files,
-              "scope": "Instrumented operator/routing state and optional memory; graph memory can include observer allocations; not performance"}
+    record = {
+        "command": command,
+        "returncode": result.returncode,
+        "stdout": result.stdout,
+        "stderr": result.stderr,
+        "checkpoint_sha256": view["target_checkpoint_sha256"],
+        "source_sha256": source_hashes,
+        "node": args.node,
+        "checked_model_metadata": checked_files,
+        "scope": "Instrumented operator/routing state and optional memory; graph memory can include observer allocations; not performance",
+    }
     (output / "launch.json").write_text(json.dumps(record, indent=2) + "\n")
     result.check_returncode()
     print(json.dumps({"container": container, "port": 18000, "checkpoint_sha256": view["target_checkpoint_sha256"]}))

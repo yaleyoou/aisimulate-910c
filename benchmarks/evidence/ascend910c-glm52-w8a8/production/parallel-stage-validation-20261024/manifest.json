@@ -1,0 +1,117 @@
+[
+  {
+    "file": "aisim-parallel-menu-tests-v2.log",
+    "sha256": "a91628be9e5603afa52257fe8aa46000dfdbdd7b38c56becfb5ee8f0d1d7124f",
+    "archive": "aisim-parallel-menu-tests-v2.log.gz"
+  },
+  {
+    "file": "aisim-parallel-identity-tests.log",
+    "sha256": "a2bb6829a7da448596be1c3ac753522337aa157d84e851f58cd01b68435bbea9",
+    "archive": "aisim-parallel-identity-tests.log.gz"
+  },
+  {
+    "file": "aisim-parallel-public-tests.log",
+    "sha256": "ceeb9fc8b7533534c1f0a532c7a1eabd743ccb0ffbd78cd2a7011a9a62aa1a46",
+    "archive": "aisim-parallel-public-tests.log.gz"
+  },
+  {
+    "file": "aisim-pd-fifo-regression-before-v2.log",
+    "sha256": "bea0f65ee56989946f5e72fe96278c1103e0714729e1f940ebff243efd13c25e",
+    "archive": "aisim-pd-fifo-regression-before-v2.log.gz"
+  },
+  {
+    "file": "aisim-pd-fifo-regression-after.log",
+    "sha256": "8c485b102ba0a25dced879a1a67015231c20f424354f72bee6804aa1e62e49fc",
+    "archive": "aisim-pd-fifo-regression-after.log.gz"
+  },
+  {
+    "file": "aisim-parallel-rust-tests.log",
+    "sha256": "31bdcd2228e05d8b13ef4ea90d6ac9f2f665e5cafd173aaa70462f43a762b232",
+    "archive": "aisim-parallel-rust-tests.log.gz"
+  },
+  {
+    "file": "aisim-pd-curve-identity-tests.log",
+    "sha256": "c1357aa7a765017c1355ce73f235b13064fee9e3efb41f11ae847dd8ad189cb6",
+    "archive": "aisim-pd-curve-identity-tests.log.gz"
+  },
+  {
+    "file": "aisim-parallel-gpu-parity.log",
+    "sha256": "45a29f34f487334896074320a58b2a21b5c29a7e55154a8a5ec25d1d469431a3",
+    "archive": "aisim-parallel-gpu-parity.log.gz"
+  },
+  {
+    "file": "aisim-auto-parallel-search.log",
+    "sha256": "ce599ca2ae68190c082be0045a48f83d7d6a5862073cd9ac75fcfbf0f46efa24",
+    "archive": "aisim-auto-parallel-search.log.gz"
+  },
+  {
+    "file": "aisim-auto-parallel-search-fixed.log",
+    "sha256": "169f7d1522e580c19891ad43c10a7c13bfeb687bdc5aabf4afcad2f6719bfd5e",
+    "archive": "aisim-auto-parallel-search-fixed.log.gz"
+  },
+  {
+    "file": "aisim-parallel-search-351.log",
+    "sha256": "d3a7ab163b2d022a96bb89f79401a9aac6c59c313471a5eb6caabd3fb7276b7b",
+    "archive": "aisim-parallel-search-351.log.gz"
+  },
+  {
+    "file": "aisim-pd-tp16-ep32-strict.log",
+    "sha256": "cf68840ceb358b676daaae20862ef466621ba22244581f3432025dd525dac0a5",
+    "archive": "aisim-pd-tp16-ep32-strict.log.gz"
+  },
+  {
+    "file": "aisim-tp16-predict.log",
+    "sha256": "5eac01601b594deb498dc062a5221402c773efbea2ef98b335cb8735fa493af1",
+    "archive": "aisim-tp16-predict.log.gz"
+  },
+  {
+    "file": "aisim-tp16-predict-expanded.log",
+    "sha256": "2f941953dfd61a7a310c3b90348d39f16bae2f22d23f94e1f4b1649621606c7f",
+    "archive": "aisim-tp16-predict-expanded.log.gz"
+  },
+  {
+    "file": "aisim-ep32-predict.log",
+    "sha256": "ccfecd46a342830cac1c3ad2efdc84866737236f0a3ab5b403b906fda883426f",
+    "archive": "aisim-ep32-predict.log.gz"
+  },
+  {
+    "file": "aisim-ep32-tp4-predict.log",
+    "sha256": "471df03ee32e74eeb60425af2af525eb7285421e08f3665ebb4c23a6383a608d",
+    "archive": "aisim-ep32-tp4-predict.log.gz"
+  },
+  {
+    "file": "aisim-attention-tp16-native.log",
+    "sha256": "d052b375e8e20ce13127d108c5d140cf2f1bc02dcdbaadbe4ed463ff5fdce310",
+    "archive": "aisim-attention-tp16-native.log.gz"
+  },
+  {
+    "file": "aisim-attention-tp16-native-v2.log",
+    "sha256": "a9eb01c9ee4caedb445b97def3562d68add6c031f0452d27e4ac1c11e95f4092",
+    "archive": "aisim-attention-tp16-native-v2.log.gz"
+  },
+  {
+    "file": "aisim-pd-parallel-native-query.log",
+    "sha256": "dfee439db2144070d01c44d0ac8aa2e82580b2209c05e6c2bb40a66c6832a98c",
+    "archive": "aisim-pd-parallel-native-query.log.gz"
+  },
+  {
+    "file": "aisim-deepep-expanded-native.log",
+    "sha256": "da54b318816994bc369215db80cb9ccafdfac51fe2d2c96b792797028c07b511",
+    "archive": "aisim-deepep-expanded-native.log.gz"
+  },
+  {
+    "file": "aisim-pp2-ep8-requests.log",
+    "sha256": "043a05cc78b5cb6ae88135049855e8792f971e18793969b21430bc6aacb8f70b",
+    "archive": "aisim-pp2-ep8-requests.log.gz"
+  },
+  {
+    "file": "aisim-tp16-adp1-requests.log",
+    "sha256": "7e3112de6b117898b458608a3d83c2be67ead475d826fd6da2e69ecc19439090",
+    "archive": "aisim-tp16-adp1-requests.log.gz"
+  },
+  {
+    "file": "aisim-tp16-adp1-c17.log",
+    "sha256": "dee9b8478d86a351f1cf552671ef78847c86fbe9d973b4ff54bba889cc5e7869",
+    "archive": "aisim-tp16-adp1-c17.log.gz"
+  }
+]

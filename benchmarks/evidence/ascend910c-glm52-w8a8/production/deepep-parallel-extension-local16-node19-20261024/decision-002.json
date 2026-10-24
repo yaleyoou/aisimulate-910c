@@ -1,0 +1,20 @@
+{
+  "action": "continue",
+  "next_index": 27,
+  "classification": "unexpected",
+  "failed_plan_index": 26,
+  "error": "Traceback (most recent call last):\n  File \"/campaign/collector.py\", line 398, in main\n    collect(index, case)\n  File \"/campaign/collector.py\", line 332, in collect\n    barrier()\n  File \"/campaign/collector.py\", line 155, in barrier\n    distributed.barrier(group=control)\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/c10d_logger.py\", line 83, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py\", line 4976, in barrier\n    work.wait()\nRuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [10.120.72.19]:26679\n",
+  "case": {
+    "phase": "low_latency",
+    "num_ranks": 16,
+    "ranks_per_node": 16,
+    "rank_layout": "contiguous",
+    "tokens_per_rank": 16,
+    "distribution": "balanced",
+    "execution_mode": "eager",
+    "hidden_size": 6144,
+    "num_experts": 256,
+    "topk": 8,
+    "max_dispatch_tokens_per_rank": 32
+  }
+}

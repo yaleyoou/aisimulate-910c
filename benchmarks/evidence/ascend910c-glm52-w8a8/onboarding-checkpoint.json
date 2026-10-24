@@ -1237,6 +1237,62 @@
           "scope": "validation",
           "sha256": "b72e220832949202da141ebfb6d54999a9ec448ee2cd77b1621d6feb77638166"
         },
+        "parallel_attention_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/attention-tp16-release-20261024/ascend_attention_perf.parquet",
+          "scope": "collection",
+          "sha256": "d99a6932d30361651b93b9b56a4ae1a49d3aec271421ed8a6bb5cb421cc345e9"
+        },
+        "parallel_deepep_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/deepep-parallel-release-20261024/ascend_deepep_perf.parquet",
+          "scope": "collection",
+          "sha256": "c73fdcb4f1817f5627853711ccb300674c838ea2f610bea1ea4867b9b7fb2a1a"
+        },
+        "parallel_extension_deepep_plan": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/deepep-parallel-extension-plan-20261024.json",
+          "scope": "collection",
+          "sha256": "f1dacdbe66a9f1642703ad5bf2d51d039673f25ff6a983a2534dcc09b5882fe4"
+        },
+        "parallel_pd_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/pd-parallel-release-20261024/ascend_pd_perf.parquet",
+          "scope": "collection",
+          "sha256": "4fdbc1b639d14aca4396d6a3b3744c7736f63fc20be59c22db950daf874f72cd"
+        },
+        "parallel_search_351": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/automatic-search-351-20261024/recommendation.json",
+          "scope": "validation",
+          "sha256": "87165074beb02220a5a93eaa1930d9ce3b08187ddbe76c6dead98fae342d8cbf"
+        },
+        "parallel_strict_pd": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-tp16-ep32-strict-20261024/prediction.json",
+          "scope": "validation",
+          "sha256": "780ceb325879308bc13c2f0a6fbdd408bfdbf6380e96af1867e696e534aa285c"
+        },
+        "parallel_validation_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/parallel-stage-validation-20261024/manifest.json",
+          "scope": "validation",
+          "sha256": "a68c69c89b5dd1ca5d771b0f34172cee1cff0e6556696f8b74590089a972685b"
+        },
         "pd_best_replay": {
           "archived": false,
           "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
@@ -1400,9 +1456,9 @@
       },
       "progress": {
         "blockers": [
-          "Formal direct-FPM profile remains unaccepted; operator-level prediction and configuration search are complete within the published EP16 domain."
+          "MoE-TP, PP, CP/DCP and smaller attention TP remain under adaptation; serving accuracy intentionally deferred."
         ],
-        "next_action": "Run the delivered CPU workflows; calibrate serving accuracy or extend specific missing shapes/topologies when those become the next objective.",
+        "next_action": "Validate and commit this expanded TP/EP search stage, continue actual source-qualified execution/collection for remaining strategies.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -1464,9 +1520,9 @@
   ],
   "progress": {
     "blockers": [
-      "Formal direct-FPM profile onboarding remains separate and unaccepted; the authorized operator-level functional adaptation is delivered."
+      "TP4/8/16 and EP16/32 search works; MoE-TP, PP and CP/DCP operator composition/collection still require completion."
     ],
-    "next_action": "Use delivered predict/recommend workflows; future work is serving-accuracy calibration or explicit expansion beyond the qualified EP16 domain.",
+    "next_action": "Freeze and regress the expanded search stage, observe MoE-TP and PP execution and implement their remaining measured paths; keep the overall goal active.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -1952,6 +2008,31 @@
       "status": "Source mapping and observed United kernel selection established for exact 8192/1024 single request.",
       "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
     },
+    "parallel_extension": {
+      "argument_probe": "17actualServerArgs.resolve_once()casesresolved;includesTP1/2ADP16/8,MoETPvariants,PP2/4,CP2/4/8,DCP2/4/8. Argumentacceptanceisnotkernelexecution. DSA DCP explicitly rejects PD mode in pinned runtime.",
+      "attention": "1772casescompletednumericchecks,1707stable65CVexcluded;includesTP16graph16/32padding. Bothgraph-noopcontrolsrejected. Runtimecollectorunchangedsource53db19d34b0af6a934535a31e0e45b06ac4a3b25cafc190feb400f5a5beebe28.",
+      "authorization": "User requests adapting other parallel strategies like GPU AISimulate; reuse existing operators and expand functionality before accuracy tuning. Continue local commits per completed stage.",
+      "automatic_search": "Default catalog6shapes:TP4/8/16 x EP16/32,ADP=EP/TP,MoETP1,PP1CP1DCP1.64devicebudget,C8/16/32:351/351candidatesfeasible.96candidateintermediatestageexposedSGLangFIFOexternalwaitbug;fixedwithoutremovinglivenessguard.",
+      "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
+      "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
+      "moetp_capture": "MoETP16EP1attentionTP16fullweightsserverstartedon32;8krequestcaptureinprogress. This proves startup only until requestschecked;doesnotyetmeanFPEsupport.",
+      "native_sha256": "6c598dce2fa8bcda6ab4553516a1a845cc0f4bcaf9b99df8f56356167716916b",
+      "next": "Commitexpandedsearch/dataafterformatting,evidenceandpinnedReplayparity;thenbroaderMoETP/PP/CP/DCP. Overallgoalremainsactive.",
+      "nodes": [
+        "npu1-32",
+        "npu1-19"
+      ],
+      "pd": "TP4/8/16 all9mappingscollected;90-case singlecall71stable and90-case8-callmeans66stable. Selected18wholecurves81rows acrosscompatiblecampaigns,coverage-first/latency-independent selection,per-curvecollectionidentitiespreserved. No splicingdifferentprotocolsinacurve. Same per-attentionDPgroup mapping supportsEP32 roles under PP1CP1DCP1,distinct endpointnodes,no shared-link contention calibration.",
+      "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
+      "runtime_image": "Stableuserimage190684...stillpreviouslimitedrelease;rebuildaftercurrentstagechecks. No claimnewsourcefeaturesareinoldimage.",
+      "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
+      "tp16_capture": "Realweights8kC1and128C17completed. Resident51,292,091,900bytesmatchesmodel;graph16/32;denseAR6+sparseRS75/AG75. Sourcecapturearchived.",
+      "unavailable_nodes": [
+        "npu1-31"
+      ],
+      "validation": "72SGLangtestsand2042Rustpass(1preexistingignored);390GPUparitypass116.17s;984publictests pass,5faildueHuggingFaceconnectionresetforunrelatedQwen3-VLconfig.46focusedidentity/model/provenancechecks pass.143DeepEP,1707attentionand81PDexactnativequeriespass. StrictTP16prefill/EP32decodePDpredictpasses."
+    },
     "pd_recommendation": {
       "domain": "attentionTP4/8,ADP4/2,EP16;P/Dreplicas1/2;concurrency8/16/32;budget64devices;prefillchunk4096;8kinput1koutput64requests;throughput_per_gpu objective.",
       "saved_candidate": "Best saved YAML replayed through standard predict successfully. Predictions are not measured serving metrics; best is relative to the finite declared domain.",
@@ -2125,7 +2206,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 53,
+  "revision": 55,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

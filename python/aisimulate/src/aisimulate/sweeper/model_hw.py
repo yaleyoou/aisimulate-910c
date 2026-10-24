@@ -43,7 +43,9 @@ from .parallel_enum import (
     ReplicaParallelConfig,
     enumerate_disagg_configs,
     enumerate_parallel_configs,
+    enumerate_replicas_for_shapes,
     enumerate_worker_shapes,
+    pair_disaggregated_configs,
 )
 
 # GQA+MoE architectures. Pure expert-TP is no longer gated on this list; it is
@@ -70,6 +72,7 @@ class ModelHardware:
     gpus_per_node: int
     max_context: int | None  # model's max context length (the default max_seq_len)
     num_experts: int = 0
+    parallel_shape_candidates: tuple[ParallelShape, ...] | None = None
 
 
 def resolve_model_hardware(
@@ -103,6 +106,14 @@ def resolve_model_hardware(
     # Large MoE (a node can't hold ~2x the weights) auto-enables multi-node wideEP.
     enable_wideep = is_moe and gpus_per_node * vram_per_gpu < 2 * weight_bytes
 
+    parallel_shapes = None
+    if hardware_sku == "ascend910c" and backend == "sglang" and architecture == "GlmMoeDsaForCausalLM":
+        from aisimulate_core.sdk.models.ascend_glm52 import ascend_glm52_default_parallel_shapes
+
+        parallel_shapes = tuple(
+            ParallelShape(*shape) for shape in ascend_glm52_default_parallel_shapes(model_config.get("raw_config"))
+        )
+
     return ModelHardware(
         model_name=model_name,
         hardware_sku=hardware_sku,
@@ -115,6 +126,7 @@ def resolve_model_hardware(
         gpus_per_node=gpus_per_node,
         max_context=int(max_context) if max_context else None,
         num_experts=num_experts,
+        parallel_shape_candidates=parallel_shapes,
     )
 
 
@@ -212,6 +224,18 @@ def parallel_configs_for(
                     )
             if all(shape_support[role.shape] for role in roles):
                 configs.append(candidate)
+    elif profile is None and mh.parallel_shape_candidates is not None:
+        per_role = enumerate_replicas_for_shapes(mh.parallel_shape_candidates, gpu_budget=gpu_budget)
+        if deployment_mode == "agg":
+            configs = [
+                candidate for candidate in per_role if min_gpu_budget is None or candidate.total_gpus >= min_gpu_budget
+            ]
+        elif deployment_mode == "disagg":
+            configs = pair_disaggregated_configs(
+                per_role, per_role, gpu_budget=gpu_budget, min_gpu_budget=min_gpu_budget
+            )
+        else:
+            raise ValueError(f"deployment_mode must be 'agg' or 'disagg', got {deployment_mode!r}")
     elif profile is None:
         common = dict(
             is_moe=mh.is_moe,

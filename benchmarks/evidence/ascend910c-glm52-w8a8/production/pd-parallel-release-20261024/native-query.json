@@ -1,0 +1,1089 @@
+{
+  "scope": "published-table ingestion and canonical query, not independent serving accuracy",
+  "rows_checked": 81,
+  "mappings_checked": 18,
+  "metadata": [
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "contiguous",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "fragmented",
+        "source_tp": 4
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "contiguous",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "fragmented",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "contiguous",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "fragmented",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "contiguous",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "fragmented",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "contiguous",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "fragmented",
+        "source_tp": 8
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "contiguous",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "fragmented",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "contiguous",
+        "source_tp": 16
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "fragmented",
+        "source_tp": 16
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "contiguous",
+        "source_tp": 16
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "fragmented",
+        "source_tp": 16
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "contiguous",
+        "source_tp": 16
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+      "key": {
+        "destination_tp": 16,
+        "page_layout": "fragmented",
+        "source_tp": 16
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "550ac759921f817edc118fec8e71402668ef14b5a720b13c461e91fff1efb81a",
+      "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    }
+  ],
+  "rows": [
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.3907460051996168,
+      "queried_ms": 1.3907460051996168
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.0253882503311615,
+      "queried_ms": 2.0253882503311615
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.51792237436166,
+      "queried_ms": 4.51792237436166
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.789748993673129,
+      "queried_ms": 7.789748993673129
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.378677504282678,
+      "queried_ms": 14.378677504282678
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.3389719824772328,
+      "queried_ms": 1.3389719824772328
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.574955980293453,
+      "queried_ms": 8.574955980293453
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 33.06868398794904,
+      "queried_ms": 33.06868398794904
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 65.13652400462888,
+      "queried_ms": 65.13652400462888
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.7356510108802468,
+      "queried_ms": 2.7356510108802468
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 3.9745959802530706,
+      "queried_ms": 3.9745959802530706
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 8.944083005189896,
+      "queried_ms": 8.944083005189896
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 15.52021797397174,
+      "queried_ms": 15.52021797397174
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 29.13666600943543,
+      "queried_ms": 29.13666600943543
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.688927241251804,
+      "queried_ms": 2.688927241251804
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 17.579198625753634,
+      "queried_ms": 17.579198625753634
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 66.58980149950366,
+      "queried_ms": 66.58980149950366
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 132.40194500031066,
+      "queried_ms": 132.40194500031066
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 261.63331786665367,
+      "queried_ms": 261.63331786665367
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 5.262023012619466,
+      "queried_ms": 5.262023012619466
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 7.950255007017404,
+      "queried_ms": 7.950255007017404
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 17.888742993818596,
+      "queried_ms": 17.888742993818596
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 30.987089994596317,
+      "queried_ms": 30.987089994596317
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 57.474817003821954,
+      "queried_ms": 57.474817003821954
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 5.449441621749429,
+      "queried_ms": 5.449441621749429
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 34.50816775148269,
+      "queried_ms": 34.50816775148269
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 133.4413224903983,
+      "queried_ms": 133.4413224903983
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 264.515659371682,
+      "queried_ms": 264.515659371682
+    },
+    {
+      "mapping": [
+        4,
+        16,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 554.4118082616478,
+      "queried_ms": 554.4118082616478
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.308541508478811,
+      "queried_ms": 1.308541508478811
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.0002057535748463,
+      "queried_ms": 2.0002057535748463
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.467497994482983,
+      "queried_ms": 4.467497994482983
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.749952372250846,
+      "queried_ms": 7.749952372250846
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.360849243530538,
+      "queried_ms": 14.360849243530538
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.356245018541813,
+      "queried_ms": 1.356245018541813
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.530979015631601,
+      "queried_ms": 8.530979015631601
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 32.849819981493056,
+      "queried_ms": 32.849819981493056
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 65.35446498310193,
+      "queried_ms": 65.35446498310193
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 131.11971199396066,
+      "queried_ms": 131.11971199396066
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.4099052423262037,
+      "queried_ms": 1.4099052423262037
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.024812376475893,
+      "queried_ms": 2.024812376475893
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.519965004874393,
+      "queried_ms": 4.519965004874393
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.7824871259508654,
+      "queried_ms": 7.7824871259508654
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.412122876819922,
+      "queried_ms": 14.412122876819922
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.430566975614056,
+      "queried_ms": 1.430566975614056
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.859460009261966,
+      "queried_ms": 8.859460009261966
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 33.664121001493186,
+      "queried_ms": 33.664121001493186
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 66.67931398260407,
+      "queried_ms": 66.67931398260407
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.8739529952872545,
+      "queried_ms": 2.8739529952872545
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 4.017886007204652,
+      "queried_ms": 4.017886007204652
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 8.970432012574747,
+      "queried_ms": 8.970432012574747
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 15.5601880105678,
+      "queried_ms": 15.5601880105678
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 28.724418982164934,
+      "queried_ms": 28.724418982164934
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.8298608704062644,
+      "queried_ms": 2.8298608704062644
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 17.924667125043925,
+      "queried_ms": 17.924667125043925
+    },
+    {
+      "mapping": [
+        8,
+        16,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 261.65794324697345,
+      "queried_ms": 261.65794324697345
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.3140650116838515,
+      "queried_ms": 1.3140650116838515
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.008752984693274,
+      "queried_ms": 2.008752984693274
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.4952410098630935,
+      "queried_ms": 4.4952410098630935
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.776908983942121,
+      "queried_ms": 7.776908983942121
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.357425010530278,
+      "queried_ms": 14.357425010530278
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.3287150068208575,
+      "queried_ms": 1.3287150068208575
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.94025299930945,
+      "queried_ms": 8.94025299930945
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 32.87117698346265,
+      "queried_ms": 32.87117698346265
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 65.19624497741461,
+      "queried_ms": 65.19624497741461
+    },
+    {
+      "mapping": [
+        16,
+        4,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 131.70219399034977,
+      "queried_ms": 131.70219399034977
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.455965746572474,
+      "queried_ms": 1.455965746572474
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.027229875238845,
+      "queried_ms": 2.027229875238845
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.494652246648911,
+      "queried_ms": 4.494652246648911
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.772588371153688,
+      "queried_ms": 7.772588371153688
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.37943262862973,
+      "queried_ms": 14.37943262862973
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 9.50827999622561,
+      "queried_ms": 9.50827999622561
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 35.94687700388022,
+      "queried_ms": 35.94687700388022
+    },
+    {
+      "mapping": [
+        16,
+        8,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 66.81833500624634,
+      "queried_ms": 66.81833500624634
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.0643940079025924,
+      "queried_ms": 2.0643940079025924
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.522522998740897,
+      "queried_ms": 4.522522998740897
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.844070001738146,
+      "queried_ms": 7.844070001738146
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.361385023221374,
+      "queried_ms": 14.361385023221374
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 10.709423018852249,
+      "queried_ms": 10.709423018852249
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 37.20727699692361,
+      "queried_ms": 37.20727699692361
+    },
+    {
+      "mapping": [
+        16,
+        16,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 67.6340869977139,
+      "queried_ms": 67.6340869977139
+    }
+  ]
+}

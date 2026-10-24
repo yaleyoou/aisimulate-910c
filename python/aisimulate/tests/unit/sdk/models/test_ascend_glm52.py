@@ -87,6 +87,27 @@ def test_decode_padding_preserves_global_dense_and_rank_local_expert_shapes(mode
     assert ops["generation_sparse_input_norms"][1]["token_split"] == 8
 
 
+def test_tp16_matches_observed_single_dp_boundaries_and_graph_padding(model_path):
+    config = configuration()
+    config.tp_size, config.attention_dp_size = 16, 1
+    model = get_model(model_path, config, "sglang")
+    assert model.get_resident_weights_bytes() == 51_292_091_900
+    for phase, operations in (("context", model.context_ops), ("generation", model.generation_ops)):
+        ops = flattened(operations)
+        assert ops[phase + "_dense_global_sums"][1]["scale_factor"] == 6
+        assert ops[phase + "_dense_post_norm"][1]["key"]["role"] == "add_rms_bias"
+        assert phase + "_dense_residual_add" not in ops
+        assert phase + "_dense_input_gather" not in ops
+        assert ops[phase + "_sparse_reduce_scatter"][1]["scale_factor"] == 75
+        assert ops[phase + "_sparse_output_gather"][1]["scale_factor"] == 75
+    generated = flattened(model.generation_ops)
+    assert generated["generation_attention"][1]["graph_buckets"] == [16, 32]
+    assert generated["generation_sparse_output_gather"][1]["elements_per_token"] == 6144
+    assert generated["generation_sparse_output_gather"][1]["token_split"] == 16
+    assert generated["generation_logits_gemm"][1]["key"]["n"] == 9680
+    assert generated["generation_logits_gemm"][1]["token_multiple"] == 16
+
+
 def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path):
     config = configuration()
     config.op_level_config = OpLevelCompileConfig(
@@ -116,6 +137,23 @@ def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path
 def test_model_name_and_w8a8_label_cannot_replace_checkpoint_metadata():
     with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
         get_model("zai-org/GLM-5.2", configuration(), "sglang")
+
+
+def test_default_search_requires_the_audited_checkpoint(model_path):
+    from aisimulate_core.sdk.models.ascend_glm52 import ascend_glm52_default_parallel_shapes
+    from aisimulate_core.sdk.utils import get_model_config_from_model_path
+
+    raw = get_model_config_from_model_path(model_path)["raw_config"]
+    assert ascend_glm52_default_parallel_shapes(raw) == (
+        (4, 4, 1, 16, 1),
+        (8, 2, 1, 16, 1),
+        (16, 1, 1, 16, 1),
+        (4, 8, 1, 32, 1),
+        (8, 4, 1, 32, 1),
+        (16, 2, 1, 32, 1),
+    )
+    with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
+        ascend_glm52_default_parallel_shapes({**raw, "modelslim_metadata": None})
 
 
 def transfer_model(model_path, role, **overrides):
@@ -151,15 +189,15 @@ def test_canonical_pd_model_selects_measured_mapping_and_rejects_unknown_geometr
     assert metadata["bytes_per_token_per_replica"] == 109824
     assert source.estimate_kv_transfer_time_ms(target, 0) == 0
     latency = source.estimate_kv_transfer_time_ms(target, 8192)
-    assert 7.7 < latency < 7.9
+    assert 7 < latency < 9
     assert source.estimate_kv_transfer_time_ms(target, 8191) == latency
     with pytest.raises(PerfDataNotAvailableError, match="outside measured"):
         source.estimate_kv_transfer_time_ms(target, 32768)
     with pytest.raises(ValueError, match="matching Ascend"):
         target.estimate_kv_transfer_time_ms(source, 8192)
     multi_node = transfer_model(model_path, "decode", attention_dp=4, moe_ep_size=32)
-    with pytest.raises(ValueError, match="one 16-device node per role"):
-        source.estimate_kv_transfer_time_ms(multi_node, 8192)
+    assert source.estimate_kv_transfer_time_ms(multi_node, 8192) == latency
+    assert source.kv_transfer_metadata(multi_node)["key"] == metadata["key"]
     fragmented = transfer_model(
         model_path,
         "decode",

@@ -40,8 +40,12 @@ With `type: measured`, keep `bytes_per_token: auto` and omit bandwidth. Both
 language roles must use default canonical op-level timing on the same Ascend
 hardware, SGLang version and local GLM ModelSlim model. The source and
 destination attention TP select the actual sender/receiver mapping. The
-qualified role layout is one 16-device node with EP16, attention TP4/8 and
-128-token KV pages. Multi-node workers require their own transfer measurements.
+qualified role layout is EP16/32, attention TP4/8/16, PP1/CP1/DCP1 and
+128-token BF16 KV pages. Each selected attention-DP group must remain on one
+node, with source and destination groups on different nodes. EP32 adds other
+attention-DP groups; it does not change this request's replicated KV layout or
+sender mapping. The same isolated-group curve therefore applies, while shared
+link contention between groups remains uncalibrated.
 The shared `estimator_config.op_level.ascend.kv_transfer_page_layout` selects
 `contiguous` (default) or `fragmented`; both role configurations must agree.
 The source model prepares the measured curve once and Replay shares it across
@@ -51,6 +55,11 @@ free, and a query outside measured bounds fails without a bandwidth fallback.
 The runtime records the selected mapping and measurement identity in transfer
 provenance. Bootstrap, per-layer streaming and contention between requests
 remain outside this calibration.
+
+Each curve retains one collection identity and timing protocol. Publications
+may select different complete curves from compatible campaigns to preserve
+coverage. The selection uses measured ranges and point counts, never the
+smallest latency; samples from different protocols are not spliced into a curve.
 
 For `type: bandwidth`, transfer time in seconds is
 

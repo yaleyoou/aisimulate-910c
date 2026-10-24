@@ -177,6 +177,15 @@ for the internal search representation.
 
 A user-provided preset is a list of complete parallelism mappings:
 
+For `ascend910c` with the audited local GLM-5.2 ModelSlim checkpoint and
+SGLang0.5.22, `preset: default` uses the model's qualified shape catalog:
+attention TP4/8/16, EP16/32, MoE-TP1 and PP1. Attention-DP is EP/TP. The normal
+native memory check still applies. Replica counts and P:D combinations are
+generated from the total device budget, including asymmetric worker sizes.
+Other architectures and systems retain their existing enumeration. A caller
+can still supply an explicit preset; unsupported native configurations fail
+instead of receiving timings from another hardware family.
+
 ```yaml
 parallelism:
   preset:

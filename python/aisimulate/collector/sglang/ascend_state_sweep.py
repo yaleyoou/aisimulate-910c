@@ -24,14 +24,18 @@ def main():
     parser.add_argument("--input-tokens", type=int, default=8192)
     parser.add_argument("--max-running-requests", type=int, default=10)
     parser.add_argument("--kv-budget-per-dp", type=int, default=52992)
+    parser.add_argument("--attention-dp", type=int, default=2)
     parser.add_argument("--capture-from-start", action="store_true")
     parser.add_argument("--max-forwards", type=int, default=3)
     args = parser.parse_args()
     if not 1 <= args.concurrency <= args.max_running_requests or not re.fullmatch(r"[A-Za-z0-9_-]+", args.case):
         raise ValueError("Use a fresh simple case name and the deployment's running-request limit")
+    if args.attention_dp < 1:
+        raise ValueError("Attention DP must be positive")
     if (
         args.input_tokens < 1
-        or ((args.concurrency + 1) // 2) * (args.input_tokens + args.output_tokens) > args.kv_budget_per_dp
+        or ((args.concurrency + args.attention_dp - 1) // args.attention_dp) * (args.input_tokens + args.output_tokens)
+        > args.kv_budget_per_dp
     ):
         raise ValueError("Requested workload exceeds the declared per-DP KV budget")
     if args.max_forwards < 1 or not 1 <= args.arm_after_tokens <= args.output_tokens - args.max_forwards:
@@ -65,7 +69,7 @@ def main():
             {
                 "input_ids": (tokens * ((args.input_tokens + len(tokens) - 1) // len(tokens)))[: args.input_tokens],
                 "sampling_params": {"temperature": 0, "ignore_eos": True, "max_new_tokens": args.output_tokens},
-                "routed_dp_rank": index % 2,
+                "routed_dp_rank": index % args.attention_dp,
                 "stream": True,
             }
         )

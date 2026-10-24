@@ -38,10 +38,10 @@ runtime:
       '
 tables:
   ascend_attention_perf:
-    collector_ref: 5621929e38a456fe7fc6fdde7fee0cc1694b83db
-    collector_hash: sha256:184a358432600821c67af492d48ff3e3386ded4d5d6db2f24f17211b9f771465
-    case_plan_hash: sha256:ffb0d9fc62af17fc24c5226cfbe0317d8ee8c7f237f2c7ca49158d462b1c3b49
-    collected_at: '2026-10-23T17:02:34.844404+00:00'
-    rows: 1517
-    classified_failures: 59
+    collector_ref: 1071459d
+    collector_hash: sha256:2d61831c7c4a18f07721c093630b289f3dd1a9db36a3d551eab2779e2ce19fdf
+    case_plan_hash: sha256:33b006f890401f31a8231f1a5989e79183313b41e74692472444e0945c029eb1
+    collected_at: '2026-10-24T11:48:03.344494+00:00'
+    rows: 1707
+    classified_failures: 65
     status: complete

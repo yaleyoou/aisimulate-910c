@@ -211,7 +211,7 @@ def enumerate_parallel_configs(
     (prefill / decode) for ``disagg`` — the prefill/decode pairing under the
     shared budget is the downstream rate-matching step.
     """
-    configs: list[ReplicaParallelConfig] = []
+    worker_shapes = []
     for g in gpus_per_worker_candidates:
         if g > gpu_budget or g < min_gpus_per_worker:
             continue
@@ -223,15 +223,24 @@ def enumerate_parallel_configs(
             moe_backend=moe_backend,
             allow_moe_pure_tp=allow_moe_pure_tp,
         )
-        if not shapes:
-            continue
-        max_replicas = gpu_budget // g
-        for shape in shapes:
-            for r in range(1, max_replicas + 1):
-                total = g * r
-                if min_gpu_budget is not None and total < min_gpu_budget:
-                    continue
-                configs.append(ReplicaParallelConfig(shape=shape, replicas=r))
+        worker_shapes.extend(shapes)
+    return enumerate_replicas_for_shapes(worker_shapes, gpu_budget=gpu_budget, min_gpu_budget=min_gpu_budget)
+
+
+def enumerate_replicas_for_shapes(
+    shapes: list[ParallelShape] | tuple[ParallelShape, ...],
+    *,
+    gpu_budget: int,
+    min_gpu_budget: int | None = None,
+) -> list[ReplicaParallelConfig]:
+    configs = []
+    for shape in dict.fromkeys(shapes):
+        if min(shape.tp, shape.dp, shape.moe_tp, shape.moe_ep, shape.pp) < 1:
+            raise ValueError("Worker parallel dimensions must be positive")
+        for replicas in range(1, gpu_budget // shape.gpus_per_worker + 1):
+            candidate = ReplicaParallelConfig(shape=shape, replicas=replicas)
+            if min_gpu_budget is None or candidate.total_gpus >= min_gpu_budget:
+                configs.append(candidate)
     return configs
 
 
@@ -270,17 +279,27 @@ def enumerate_disagg_configs(
         moe_backend=moe_backend,
         allow_moe_pure_tp=allow_moe_pure_tp,
     )
-    if not per_role:
+    return pair_disaggregated_configs(per_role, per_role, gpu_budget=gpu_budget, min_gpu_budget=min_gpu_budget)
+
+
+def pair_disaggregated_configs(
+    prefill_configs: list[ReplicaParallelConfig],
+    decode_configs: list[ReplicaParallelConfig],
+    *,
+    gpu_budget: int,
+    min_gpu_budget: int | None = None,
+) -> list[DisaggParallelConfig]:
+    if not prefill_configs or not decode_configs:
         return []
-
-    # Each role needs at least its smallest worker, so cap one role's footprint
-    # at budget minus the other role's minimum (prunes pairs that can never fit).
-    min_role = min(c.total_gpus for c in per_role)
-    candidates = [c for c in per_role if c.total_gpus <= gpu_budget - min_role]
-
+    minimum_prefill = min(candidate.total_gpus for candidate in prefill_configs)
+    minimum_decode = min(candidate.total_gpus for candidate in decode_configs)
     configs: list[DisaggParallelConfig] = []
-    for prefill in candidates:
-        for decode in candidates:
+    for prefill in prefill_configs:
+        if prefill.total_gpus > gpu_budget - minimum_decode:
+            continue
+        for decode in decode_configs:
+            if decode.total_gpus > gpu_budget - minimum_prefill:
+                continue
             total = prefill.total_gpus + decode.total_gpus
             if total > gpu_budget:
                 continue

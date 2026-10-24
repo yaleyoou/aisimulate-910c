@@ -1,0 +1,104 @@
+[
+  {
+    "source": "case-00.log",
+    "source_sha256": "d28c5e1e72f472765466e3086cf84e3001cb7962f875684b4a2911fa2a4c1081",
+    "archive": "case-00.log.gz",
+    "archive_sha256": "bb3a5f18945222eed9f82bdeda609ce9e7119b078c34833badd216aadd22083c"
+  },
+  {
+    "source": "case-01.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-01.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-02.log",
+    "source_sha256": "5aa74eb53e8d3fba0d77688771986d59cf14cf5cfe1ca855cdd0be1cc943b11a",
+    "archive": "case-02.log.gz",
+    "archive_sha256": "a8eecdc9b1cc864a6c678794e75555c6dea7adf166cc0cd7cccc5562c49ac657"
+  },
+  {
+    "source": "case-03.log",
+    "source_sha256": "5a40b8421d1e3fd023f726fd75d7e7b6df20734c9fa33920d79ad75d8d7efff2",
+    "archive": "case-03.log.gz",
+    "archive_sha256": "35e42edbb1b3b799f7e002b3c925aacba310cee312eb902896082aa817a72d0f"
+  },
+  {
+    "source": "case-04.log",
+    "source_sha256": "166d92608d281cb6bb1e49cd40ee267afeb838194694b39f66174cbea2ded09e",
+    "archive": "case-04.log.gz",
+    "archive_sha256": "f60c8ea4e18e235fa119a25a7aa4f9b5baf665a0c58aba168a1263897085ae5e"
+  },
+  {
+    "source": "case-05.log",
+    "source_sha256": "d28c5e1e72f472765466e3086cf84e3001cb7962f875684b4a2911fa2a4c1081",
+    "archive": "case-05.log.gz",
+    "archive_sha256": "bb3a5f18945222eed9f82bdeda609ce9e7119b078c34833badd216aadd22083c"
+  },
+  {
+    "source": "case-06.log",
+    "source_sha256": "d28c5e1e72f472765466e3086cf84e3001cb7962f875684b4a2911fa2a4c1081",
+    "archive": "case-06.log.gz",
+    "archive_sha256": "bb3a5f18945222eed9f82bdeda609ce9e7119b078c34833badd216aadd22083c"
+  },
+  {
+    "source": "case-07.log",
+    "source_sha256": "d28c5e1e72f472765466e3086cf84e3001cb7962f875684b4a2911fa2a4c1081",
+    "archive": "case-07.log.gz",
+    "archive_sha256": "bb3a5f18945222eed9f82bdeda609ce9e7119b078c34833badd216aadd22083c"
+  },
+  {
+    "source": "case-08.log",
+    "source_sha256": "d28c5e1e72f472765466e3086cf84e3001cb7962f875684b4a2911fa2a4c1081",
+    "archive": "case-08.log.gz",
+    "archive_sha256": "bb3a5f18945222eed9f82bdeda609ce9e7119b078c34833badd216aadd22083c"
+  },
+  {
+    "source": "case-09.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-09.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-10.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-10.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-11.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-11.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-12.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-12.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-13.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-13.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-14.log",
+    "source_sha256": "5239dce644aea312262de68129db51df51272a9fd3d457264b64564d33e75d88",
+    "archive": "case-14.log.gz",
+    "archive_sha256": "2453444cc0bf79a456811d003ad5ab54cc415acb00bb2722a782900a5480a3f8"
+  },
+  {
+    "source": "case-15.log",
+    "source_sha256": "d05640bee0966dcaebd8704365f131c11f28457aa718a81fea318084299bfe1e",
+    "archive": "case-15.log.gz",
+    "archive_sha256": "dac79929a4aa1cc46ad7fbc80ce70e6ff15c56a7fbe313ded674e1a151c0b6d2"
+  },
+  {
+    "source": "case-16.log",
+    "source_sha256": "d05640bee0966dcaebd8704365f131c11f28457aa718a81fea318084299bfe1e",
+    "archive": "case-16.log.gz",
+    "archive_sha256": "dac79929a4aa1cc46ad7fbc80ce70e6ff15c56a7fbe313ded674e1a151c0b6d2"
+  }
+]

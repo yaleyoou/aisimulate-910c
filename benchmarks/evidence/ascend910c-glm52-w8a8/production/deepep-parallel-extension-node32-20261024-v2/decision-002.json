@@ -1,0 +1,20 @@
+{
+  "action": "continue",
+  "next_index": 69,
+  "classification": "unexpected",
+  "failed_plan_index": 68,
+  "error": "Traceback (most recent call last):\n  File \"/campaign/collector.py\", line 398, in main\n    collect(index, case)\n  File \"/campaign/collector.py\", line 338, in collect\n    end.synchronize()\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/streams.py\", line 192, in synchronize\n    super(Event, self).synchronize()\nRuntimeError: synchronize:../torch_npu/csrc/core/npu/NPUEvent.cpp:215 NPU function error: aclrtSynchronizeEvent(event_), error code is 507035\n[ERROR] 2026-10-24-08:51:01 (PID:3546, Device:0, RankID:0) ERR00100 PTA call acl api failed\n[Error]: The vector core execution is abnormal. \n        Rectify the fault based on the error information in the ascend log.\nEZ9999: Inner Error!\nEZ9999[PID: 3546] 2026-10-24-08:50:59.926.358 (EZ9999):  The error from device(chipId:0, dieId:0), serial number is 2, there is an exception of fftsplus aivector error, core id is 48, error code = 0x800000, dump info: pc start: 0x12c0c12cf180, current: 0x12c0c12d37b0, vec error info: 0x4a1120be5c, mte error info: 0x4d060000e8, ifu error info: 0x7c063d2b476c0, ccu error info: 0xd06bccc01b3571b6, cube error info: 0, biu error info: 0, aic error mask: 0x6500020bd00028c, para base: 0x12c140015080, aic cond: 0.\nThe extend info: errcode:(0x800000, 0, 0) errorStr: MTE accesses an invalid GM address or the cross-device memory access times out. fixp_error0 info: 0x60000e8, fixp_error1 info: 0x4d, fsmId:0, tslot:6, thread:0, ctxid:0, blk:9, sublk:0, subErrType:4.\nFor details, see the troubleshooting document on the Ascend official website. Search for the keyword \"AI Core Error\".[FUNC:PrintCoreInfo][FILE:device_error_core_proc.cc][LINE:1060]\nTraceBack (most recent call last):\n       An error occurred in the kernel task, retCode=0x31, [vector core exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1262]\n       rtEventSynchronize execution failed, reason=vector core exception[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:69]\n\n",
+  "case": {
+    "phase": "low_latency",
+    "num_ranks": 32,
+    "ranks_per_node": 16,
+    "rank_layout": "contiguous",
+    "tokens_per_rank": 8,
+    "distribution": "balanced",
+    "execution_mode": "eager",
+    "hidden_size": 6144,
+    "num_experts": 256,
+    "topk": 8,
+    "max_dispatch_tokens_per_rank": 32
+  }
+}

@@ -711,305 +711,334 @@
       "launcher_path": "/home/youxingye/United deployment/service/run-united.sh",
       "launcher_sha256": "710b3b22804925f0a794bff4369baa2eff6929bff72a05ea5b8ff87457170e2c"
     },
-    "plan_sha256": "fa8b813e602561400989c997fcf51f78766f9ba9f6cf1494b0a48dd532cad7a4"
+    "plan_sha256": "8d01b90154003637fd059244be2b8e81ea1ec65681212f7b9aa4e5e674fe6159"
   },
-  "attempted": 1576,
-  "qualified": 1517,
+  "attempted": 1772,
+  "qualified": 1707,
   "unqualified": [
     {
       "plan_index": 0,
-      "cv": 0.14122566730148645,
+      "cv": 0.1003027080021363,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 44,
-      "cv": 0.1576919132510199,
+      "plan_index": 24,
+      "cv": 0.27851782860127244,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 72,
-      "cv": 0.11220284106209695,
+      "cv": 0.11145248993200453,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 76,
-      "cv": 0.11285724595333604,
+      "plan_index": 88,
+      "cv": 0.10817203011238577,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 124,
-      "cv": 0.11201701739182786,
+      "cv": 0.2083398396396203,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 164,
-      "cv": 0.125038162490818,
+      "plan_index": 140,
+      "cv": 0.12294956626041378,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 184,
-      "cv": 0.11480749367795245,
+      "plan_index": 148,
+      "cv": 0.13092269204857124,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 380,
-      "cv": 0.102990044677445,
+      "plan_index": 152,
+      "cv": 0.11543447659507243,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 416,
-      "cv": 0.20646552221802014,
+      "plan_index": 156,
+      "cv": 0.15653673086645295,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 528,
-      "cv": 0.1833780998397583,
+      "plan_index": 160,
+      "cv": 0.10959561414557709,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 556,
-      "cv": 0.23806945037096378,
+      "plan_index": 168,
+      "cv": 0.11797263428760377,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 792,
-      "cv": 0.2895789566143978,
+      "plan_index": 172,
+      "cv": 0.12911168816510743,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 832,
-      "cv": 0.14796052414813168,
+      "plan_index": 180,
+      "cv": 0.11338971092685311,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 840,
-      "cv": 0.13355098997353906,
+      "plan_index": 612,
+      "cv": 0.1146524151224382,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 852,
-      "cv": 0.10262302078447347,
+      "plan_index": 896,
+      "cv": 0.11165689114757615,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 872,
-      "cv": 0.12829515056698176,
+      "plan_index": 904,
+      "cv": 0.1656361866164245,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1212,
-      "cv": 0.2993315638199308,
+      "plan_index": 956,
+      "cv": 0.11568332284036688,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1240,
-      "cv": 0.1426615718585863,
+      "plan_index": 1020,
+      "cv": 0.12427593316571629,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1324,
-      "cv": 0.15802811329614713,
+      "plan_index": 1036,
+      "cv": 0.10633861610642198,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1137,
-      "reason": "numerical execution check failed",
-      "source": "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/attention-expanded-node32-20261024/shard-1.json",
-      "error": "Traceback (most recent call last):\n  File \"/campaign/collector.py\", line 302, in main\n    collect(index, case)\n  File \"/campaign/collector.py\", line 268, in collect\n    checks = [verify()]\n              ^^^^^^^^\n  File \"/campaign/collector.py\", line 257, in verify\n    raise ValueError(\nValueError: Sparse attention execution numerical check failed: {\"query_row\": 4, \"failing_elements\": 1, \"checked_elements\": 4096, \"max_abs_error\": 0.06731945276260376, \"rms_error\": 0.0010646138107404113, \"reference_rms\": 0.08554749935865402, \"worst_actual\": 0.0, \"worst_expected\": -0.06731945276260376, \"worst_tolerance\": 0.02080783247947693, \"head\": 1, \"dimension\": 309, \"eager_control\": 0.0, \"raw_bf16_cpu_control\": 0.0, \"reference_float64\": -0.06731943525994556, \"reference_bf16_weights\": -0.06732842326164246}\n"
+      "plan_index": 1456,
+      "cv": 0.10656479140451158,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1464,
+      "cv": 0.863334658851816,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1500,
+      "cv": 0.12490507715753471,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1512,
+      "cv": 0.20716690138472887,
+      "reason": "CV exceeds10%"
     },
     {
       "plan_index": 1,
-      "cv": 0.12645318368803335,
+      "cv": 0.15062955275059306,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 37,
-      "cv": 0.10963210891038334,
+      "plan_index": 17,
+      "cv": 0.10068663324617923,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 21,
+      "cv": 0.10795329550839834,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 33,
+      "cv": 0.11287013832328353,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 121,
+      "cv": 0.1605884135752623,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 125,
-      "cv": 0.26017838540902444,
+      "cv": 0.12050450279397922,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 133,
-      "cv": 0.29668056454789105,
+      "plan_index": 129,
+      "cv": 0.21203845581058878,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 157,
-      "cv": 0.20603035953802357,
+      "cv": 0.9348506555366484,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 557,
-      "cv": 0.19489152410775207,
+      "plan_index": 173,
+      "cv": 0.1552141464264888,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 577,
-      "cv": 0.10607882768080382,
+      "plan_index": 177,
+      "cv": 0.12756408551470017,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1025,
-      "cv": 0.11373482779606628,
+      "plan_index": 193,
+      "cv": 0.2203682905536872,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 1365,
-      "cv": 0.11683117804989379,
+      "plan_index": 329,
+      "cv": 0.2734590897945225,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 345,
+      "cv": 0.39892636679872245,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1049,
+      "cv": 0.14612480569349084,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1413,
+      "cv": 0.25163643204718966,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1453,
+      "cv": 0.11581334551514245,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1505,
+      "cv": 0.1809015355248715,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1533,
+      "cv": 0.1795208381674129,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 2,
-      "cv": 0.1909463794124248,
+      "cv": 0.12480888989894898,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 54,
-      "cv": 0.10237590855725187,
+      "plan_index": 122,
+      "cv": 0.15645511744514656,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 58,
-      "cv": 0.1223498914819441,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 138,
-      "cv": 0.13128473722576892,
+      "plan_index": 130,
+      "cv": 0.10337191157567617,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 146,
-      "cv": 0.12119859729282689,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 154,
-      "cv": 0.10114820780312826,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 162,
-      "cv": 0.21233717772057134,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 166,
-      "cv": 0.24203416029718275,
+      "cv": 0.10168755832951527,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 190,
-      "cv": 0.10488315369414408,
+      "cv": 0.24009749647889983,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 402,
-      "cv": 0.15973753389854523,
+      "plan_index": 246,
+      "cv": 0.12671240206927903,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 450,
-      "cv": 0.10265399866174424,
+      "plan_index": 350,
+      "cv": 0.12287949481685512,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 466,
-      "cv": 0.8242830516249925,
+      "plan_index": 446,
+      "cv": 0.1368250730356405,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 542,
-      "cv": 0.11542684752574817,
+      "plan_index": 878,
+      "cv": 0.42412360435472934,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 822,
-      "cv": 0.2060904073929244,
+      "plan_index": 938,
+      "cv": 1.2005333961392781,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 846,
-      "cv": 0.15758812294128652,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 950,
-      "cv": 0.11971120658012153,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 962,
-      "cv": 0.14926142728758351,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 1222,
-      "cv": 0.25049834836017953,
-      "reason": "CV exceeds10%"
-    },
-    {
-      "plan_index": 1302,
-      "cv": 0.12511069201799807,
+      "plan_index": 958,
+      "cv": 0.21727064816482322,
       "reason": "CV exceeds10%"
     },
     {
       "plan_index": 3,
-      "cv": 0.259126474918097,
+      "cv": 0.15995917328338827,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 7,
-      "cv": 0.13229521351268647,
+      "plan_index": 11,
+      "cv": 0.2119036631397264,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 27,
-      "cv": 0.22935183255615635,
+      "plan_index": 151,
+      "cv": 0.10894331743118794,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 127,
-      "cv": 0.11031266081436757,
+      "plan_index": 163,
+      "cv": 0.10231106047042772,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 139,
-      "cv": 0.21838147026166443,
+      "plan_index": 171,
+      "cv": 0.11974093706707042,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 159,
-      "cv": 0.18455858468990743,
+      "plan_index": 195,
+      "cv": 0.6329182326313151,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 167,
-      "cv": 0.11394548228737607,
+      "plan_index": 227,
+      "cv": 0.25666262077619245,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 359,
-      "cv": 0.1910477588152819,
+      "plan_index": 459,
+      "cv": 0.11311573735639104,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 471,
-      "cv": 0.1494542668607314,
+      "plan_index": 515,
+      "cv": 0.1891185234379041,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 539,
-      "cv": 0.9129769627868861,
+      "plan_index": 619,
+      "cv": 0.1624717723802134,
       "reason": "CV exceeds10%"
     },
     {
-      "plan_index": 971,
-      "cv": 1.4433909635012312,
+      "plan_index": 1007,
+      "cv": 0.13388960868925046,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1287,
+      "cv": 0.47501703219129193,
+      "reason": "CV exceeds10%"
+    },
+    {
+      "plan_index": 1499,
+      "cv": 0.12076362208943331,
       "reason": "CV exceeds10%"
     }
   ]

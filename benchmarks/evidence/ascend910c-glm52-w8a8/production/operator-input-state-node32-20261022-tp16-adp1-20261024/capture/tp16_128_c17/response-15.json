@@ -1,0 +1,60 @@
+{
+  "text": " about topic 258.  Document 15: Explain a practical example about topic 258.  Document 15: Explain a practical example about topic",
+  "output_ids": [
+    911,
+    8543,
+    220,
+    99446,
+    23,
+    13,
+    220,
+    11783,
+    220,
+    99082,
+    25,
+    81247,
+    264,
+    14964,
+    3110,
+    911,
+    8543,
+    220,
+    99446,
+    23,
+    13,
+    220,
+    11783,
+    220,
+    99082,
+    25,
+    81247,
+    264,
+    14964,
+    3110,
+    911,
+    8543
+  ],
+  "meta_info": {
+    "id": "611fc414b881415aab04a053f3661222",
+    "finish_reason": {
+      "type": "length",
+      "length": 32
+    },
+    "prompt_tokens": 128,
+    "weight_version": "default",
+    "num_retractions": 0,
+    "reasoning_tokens": 0,
+    "completion_tokens": 32,
+    "cached_tokens": 0,
+    "weight_versions": [
+      {
+        "version": "default",
+        "start": 0,
+        "end": 32
+      }
+    ],
+    "cached_tokens_details": null,
+    "dp_rank": null,
+    "e2e_latency": 8.560041572985938
+  }
+}

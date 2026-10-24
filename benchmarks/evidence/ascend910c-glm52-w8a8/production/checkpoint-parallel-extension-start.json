@@ -1,0 +1,35 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["Broad parallel-strategy adaptation is incomplete; prior EP16 delivery was a limited functional milestone, not completion of the overall user objective."],
+    "next_action": "Complete automatic topology/replica search, publish EP32 communication supplementation, audit TP16 state and extend additional executable parallel paths."
+  },
+  "research": {
+    "parallel_extension": {
+      "status": "active",
+      "authorization": "User requests adapting other parallel strategies like GPU AISimulate; reuse existing operators and expand functionality before accuracy tuning. Continue local commits per completed stage.",
+      "nodes": ["npu1-32", "npu1-19"],
+      "unavailable_nodes": ["npu1-31"],
+      "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
+      "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+      "automatic_search": "Draft model-declared default shape catalog and common replica/pair enumeration;24tests passed. CLI96candidate search in progress;stillEP16internalshapesuntilnewonesqualified.",
+      "deepep": "Newfull88caseplan:256averagedcalls,warmup10,7repeats;fullpayload/CV10%gatesunchanged. Dual32/19complete44attempts40executed,knownnormalM2048tilingfailures51/59andnewvector/GMfailures68/87recorded. BalancedgraphM1/M3/M32bothboundariesstable. Local16on19inprogress;oldformal125tableunchanged.",
+      "tp16_capture": "ActualweightsTP16/ADP1recorderstartedon32,graphbuckets16/32;input/boundary/memorycapturesenabled. Determinepaddingandnon-DPboundarydifferencesbeforechangingmodel;notperformancemeasurement.",
+      "next": "Finishandcommitautomaticsearchstage,completefulltransportplan/export,driveTP16captureandextendnativecomposition;thenbroaderMoETP/PP/CP/DCPandsourcequalifiedPD."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "parallel_extension_deepep_plan": {"path":"production/deepep-parallel-extension-plan-20261024.json","kind":"file","scope":"collection"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["Automatic and broader parallel coverage is being implemented; formal direct-FPM profile remains a separate unaccepted workflow."],
+        "next_action": "Validate automatic search, finish supplemental communication collection and audit new topology execution boundaries."
+      }
+    }
+  }
+}

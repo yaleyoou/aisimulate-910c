@@ -1,0 +1,57 @@
+[
+  {
+    "file": "negative-lightning_indexer.log",
+    "sha256": "12e29d31f35a66de86d6cce1a4aedb29c4ed156564a0f33fa3883d94ab9adc13",
+    "archive": "negative-lightning_indexer.log.gz"
+  },
+  {
+    "file": "negative-sparse_attention.log",
+    "sha256": "cd445df2eac440f54711c8a373043e25f23869a26e18d9b44506d77249db799c",
+    "archive": "negative-sparse_attention.log.gz"
+  },
+  {
+    "file": "npu-before.log",
+    "sha256": "0325414e3a9f2b8a727a8a5b0d24629c555fd9fa87c503b7deb967587099cad2",
+    "archive": "npu-before.log.gz"
+  },
+  {
+    "file": "shard-0.json",
+    "sha256": "ba76eb362f0736fdf3c31fd6be793cf428eadb23edd5dc5107c5119a9d595d5e",
+    "archive": "shard-0.json.gz"
+  },
+  {
+    "file": "shard-0.log",
+    "sha256": "e8f7c3e266082792dce325896977caf4cd2ee39ba9b99de8e9837171d0dc9126",
+    "archive": "shard-0.log.gz"
+  },
+  {
+    "file": "shard-1.json",
+    "sha256": "43867860c924a6f028d2901ec36d742934ce1c764335210e6789e05feb7b60cc",
+    "archive": "shard-1.json.gz"
+  },
+  {
+    "file": "shard-1.log",
+    "sha256": "b84c9f558e2ac5da802a293f87bd8c0b1dea922f128ba584b8c24b91ab4e0f6c",
+    "archive": "shard-1.log.gz"
+  },
+  {
+    "file": "shard-2.json",
+    "sha256": "efa3212fbbfe46a270d4787520daa138e277d85a0bdf1269d83c058e2d3f0f79",
+    "archive": "shard-2.json.gz"
+  },
+  {
+    "file": "shard-2.log",
+    "sha256": "ab725f1f3bc3eadafe98eeca3054f6f1b1adccdbacac0ef1c2382d83341adf73",
+    "archive": "shard-2.log.gz"
+  },
+  {
+    "file": "shard-3.json",
+    "sha256": "9fe134a4cca84930ef34446e81913c5f5e57df45eb06ae493b51c303080225fb",
+    "archive": "shard-3.json.gz"
+  },
+  {
+    "file": "shard-3.log",
+    "sha256": "e4b580954c61456a5de65c74b017bc451255183191b258e38c647f4d116c2c58",
+    "archive": "shard-3.log.gz"
+  }
+]
