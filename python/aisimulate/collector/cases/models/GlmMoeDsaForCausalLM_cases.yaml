@@ -24,8 +24,8 @@ description: >
 model_case_values:
   ascend_pd:
     - checkpoint_quantization: modelslim_w8a8
-      source_tensor_parallel_sizes: [4, 8]
-      destination_tensor_parallel_sizes: [4, 8]
+      source_tensor_parallel_sizes: [4, 8, 16]
+      destination_tensor_parallel_sizes: [4, 8, 16]
       ranks_per_node: 16
       num_hidden_layers: 78
       kv_lora_rank: 512
