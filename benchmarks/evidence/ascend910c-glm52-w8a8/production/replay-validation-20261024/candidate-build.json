@@ -1,0 +1,22 @@
+{
+  "checkout": "/tmp/aisim-pd-replay-parity-20261024-v4/candidate-checkout",
+  "checkout_dirty": false,
+  "checkout_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+  "manifest": "/tmp/aisim-pd-replay-parity-20261024-v4/candidate-runner/Cargo.toml",
+  "runner_source_sha256": "37e1fda3c2e20da25a3f448684adef84e86c4298f1a3e1ae652d987fff4d8459",
+  "original_lock_sha256": "fb43c674e7a9675c323a0e5ea0e8d48cdd4481b76688f0ab47bdabf78c49d1d1",
+  "resolved_lock_sha256": "5d6ba1207b606cb7cb25acd6057f6797acc8febeb4531d6b56ece99dc74eb630",
+  "lock_refresh_reason": "Skill lock predates current core dependencies and fails --locked on both revisions; identical offline lock refresh, runner Rust source unchanged.",
+  "binary": "/tmp/aisim-pd-replay-parity-20261024-v4/candidate-runner/target/release/aisimulate-replay-parity-runner",
+  "binary_sha256": "6dd9b1f8e24883fe5c37854142417bf5a1b59e30928be72019bee359cde60aa3",
+  "binary_size": 4837312,
+  "embedded_source_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+  "build_command": [
+    "/root/.cargo/bin/cargo",
+    "build",
+    "--release",
+    "--locked",
+    "--manifest-path",
+    "/tmp/aisim-pd-replay-parity-20261024-v4/candidate-runner/Cargo.toml"
+  ]
+}

@@ -1,0 +1,21 @@
+FROM quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+
+RUN python3 -m pip install --no-cache-dir \
+    ijson==3.6.0 plotext==5.3.2 prettytable==3.18.0 \
+    plotly==6.6.0 matplotlib==3.10.8 contourpy==1.4.0 \
+    cycler==0.12.1 fonttools==4.67.0 kiwisolver==1.5.1 pyparsing==3.3.3
+
+COPY *.whl /opt/aisimulate/wheels/
+COPY native-identity.json /opt/aisimulate/native/native-identity.json
+RUN python3 -m pip install --no-cache-dir --no-index --find-links /opt/aisimulate/wheels \
+        /opt/aisimulate/wheels/aisimulate-*.whl \
+    && chmod -R a+rX /opt/aisimulate
+
+ENV TORCH_DEVICE_BACKEND_AUTOLOAD=0 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    OPENBLAS_NUM_THREADS=1 \
+    OMP_NUM_THREADS=1 \
+    MPLCONFIGDIR=/tmp/aisimulate-matplotlib \
+    XDG_CACHE_HOME=/tmp/aisimulate-cache
+
+ENTRYPOINT ["python3", "-m", "aisimulate"]

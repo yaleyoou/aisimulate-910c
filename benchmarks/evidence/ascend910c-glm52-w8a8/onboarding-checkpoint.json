@@ -885,6 +885,22 @@
           "scope": "collection",
           "sha256": "ed1dc6e355bd0042de4b32f1057f186ffa9ced114ec92b77c51283b6dda1f7a5"
         },
+        "functional_delivery_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/functional-delivery-20261024/manifest.json",
+          "scope": "validation",
+          "sha256": "80e60d79dbc98aa92ebdee57986b0eeb8a4858ed41def051851cae50209203f4"
+        },
+        "functional_delivery_summary": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/functional-delivery-20261024/summary.json",
+          "scope": "validation",
+          "sha256": "1cdaafa0fabf0f6457a0964586ea033a8a358d9e3f019715047024149c874b37"
+        },
         "global32_linear_native": {
           "archived": true,
           "context_sha256": "3b36ed1d03c39b12543307e26d126c0a4e4c118f247064c5e915a4c5b8203fe3",
@@ -1052,6 +1068,22 @@
           "path": "production/late-state-20261022/validation.json",
           "scope": "collection",
           "sha256": "35fbf6ceb44c17e3ed4d9c775e001378037fd2f576a0fec3b888592348558e3f"
+        },
+        "legacy_replay_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/replay-validation-20261024/manifest.json",
+          "scope": "validation",
+          "sha256": "55462b75623b09efd648f6ef99f1dbae746c7673bfa92758500b857235a2eecc"
+        },
+        "legacy_replay_qualification": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/replay-validation-20261024/parity.json",
+          "scope": "validation",
+          "sha256": "7296eaa6b288e1d5e85e73c2f7aad313b77b9751abcaf24a9ad62cce6df95cfa"
         },
         "linear_initial_holdout_report": {
           "archived": true,
@@ -1368,10 +1400,9 @@
       },
       "progress": {
         "blockers": [
-          "Formal direct-FPM profile remains unaccepted; authorized operator-level prediction/recommendation works separately.",
-          "Durable CLI environment and pinned replay regression pending; serving accuracy calibration deferred by user."
+          "Formal direct-FPM profile remains unaccepted; operator-level prediction and configuration search are complete within the published EP16 domain."
         ],
-        "next_action": "Freeze functional PD implementation, qualify unchanged legacy replay and deliver reproducible local runtime and commands.",
+        "next_action": "Run the delivered CPU workflows; calibrate serving accuracy or extend specific missing shapes/topologies when those become the next objective.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -1426,19 +1457,17 @@
     "worker_type": "aggregated"
   },
   "pending_questions": [
-    "Full checkpoint immutable revision remains unresolved; metadata and headers are hashed only.",
-    "Validated production 910C system spec and HCCL data integration remain absent; communication repeatability is partial (16/100 initial and 30/100 refined points above CV 10%).",
-    "ModelSlim operator precision, INT8 MoE and Ascend serving-operator collection require integration.",
-    "Guided onboard init supports vllm only; no SGLang FPM profile was created or accepted."
+    "Serving accuracy calibration was deferred by the user; current TTFT/TPOT/throughput are predictions.",
+    "EP32 small-batch DeepEP stable-data gaps and new parallel topologies need further collection before request-level use.",
+    "Real routing imbalance, independent memory calibration for other layouts, and PD contention/streaming remain future calibration scope.",
+    "Guided direct-FPM profile onboarding supports vllm only; no SGLang profile was accepted. This does not gate the completed operator-level workflow."
   ],
   "progress": {
     "blockers": [
-      "GLM-5.2 ModelSlim precision/fusion mapping, INT8 MoE, DSA/indexer and actual SGLang-Ascend operator collection/integration remain unfinished.",
-      "HCCL operation tables and serving-memory semantics remain absent; scalar hardware coefficients do not qualify protocol-transition shapes or complete model predictions.",
-      "Guided onboard init currently supports vllm only; no SGLang FPM profile was created or accepted."
+      "Formal direct-FPM profile onboarding remains separate and unaccepted; the authorized operator-level functional adaptation is delivered."
     ],
-    "next_action": "Hardware calibration delivered. Complete exact GLM/SGLang operator and precision mapping, add HCCL collection/data+memory support, then validate pure prefill/decode forward and8192/1024 request prediction accuracy.",
-    "stage": 1,
+    "next_action": "Use delivered predict/recommend workflows; future work is serving-accuracy calibration or explicit expansion beyond the qualified EP16 domain.",
+    "stage": 2,
     "status": "in_progress"
   },
   "research": {
@@ -1583,10 +1612,10 @@
       "engine_canary": "8requests,concurrency2,8192input/1024output;allcompleted;meanTTFT2642.412883ms,TPOT108.555693ms,18.013123outputtokens/s. Functionalpredictiononly,notmeasuredservingaccuracy.",
       "precision_memory": "Resident52,471,997,948bytesmatchesactualper-rankinventory. Quantizationauxiliaryvectors,retainedMLAoriginalweightsandoneRoPEcacheaccounted. Staticruntimeother937,753,092bytesmeasured;SDK20%marginretained.",
       "prefill_per_dp_batch1_tokens8192_ms": 2437.2778224657786,
-      "remaining": "Freeze replay regression, make CPU CLI runtime durable, finish user-facing usage and bounded search documentation.",
+      "remaining": "Deferred serving-accuracy calibration and optional new-shape/topology coverage; no remaining work for the delivered EP16 predict/recommend workflows.",
       "resident_parameter_bytes": 52471997948,
       "scope": "Uniform attention-DP work and balanced synthetic expert routing. Exactresidentinventorymatch;notservingaccuracyqualification.",
-      "status": "functional_native_op_level_and_engine_prediction",
+      "status": "functional_operator_level_version_delivered",
       "validation": "29Ascend,6HCCL,22wire,82Python/API and390GPUparitypass116.34s. EngineSpec29; nativeSHA239d22cd3a8b4e5f89e7faa2ae2cae88b1de38538fe2bfe938216e2d1103f36d."
     },
     "checkpoint_context_transition": "Reviewed revision18 resume issues: adding the new production-goal input plan invalidated five earlier experimental-stage validation references. Their file contents are unchanged; archive these historical references rather than claim they qualify the new production goal. New native-interface controls remain explicitly distinct from serving-profile validation.",
@@ -1849,6 +1878,12 @@
         "https://quay.io/api/v1/repository/ascend/sglang/tag/?limit=100&onlyActiveTags=true"
       ]
     },
+    "legacy_replay_regression": {
+      "baseline": "a93487f9938eed211449c6d0a35661dbd711c9a5",
+      "candidate": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+      "status": "qualified_byte_parity_passed",
+      "validation": "8vllm/sglang/trtllm configurations,5000orderedMooncake requests per process,2baseline+2candidate processes each; all32reportsbyteidentical within frozen rows. Queue,reuse,handoff,1..3applicablepreemptions/retractions andfullcompletion evidenced. Originaloldgoldensrequalifiedonbaseline; capacities andexclusionallowlistidenticalbetweencomparedrevisions."
+    },
     "memory_component_commit": "f5349d2f: KV layout component, complete startup memory observations and unprofiled serving baselines;99+5tests and390GPUparitypassed.",
     "model_content_pin": {
       "checkpoint_sha256": "b3645035a8b916c630ccab2f0d9be6b5971202e0ac47c9cf2d6dab63c1c6a9cc",
@@ -1997,6 +2032,18 @@
       "status": "active",
       "tests": "Native HCCL5, wire-spec22, source-resolution20, precision enums9 and Python foundation10passed. EarlierGPU parity390passed; final foundation parity is running on rebuilt binary in production/foundation-parity.log."
     },
+    "runtime_delivery": {
+      "entrypoint": "scripts/run-ascend910c.sh",
+      "image": "aisimulate-910c:glm52-w8a8",
+      "image_id": "sha256:190684496125b32f2cc58531cae4676a4e229674c37bbd5e8caff97802fa5a2e",
+      "native_sha256": "aa5cec4945b59d306f85dcf78d7b341a617224f7a39de6f6a15a6b5e6edbb438",
+      "runtime_resources": "CPU-only, no network or NPU; read-only model mount;16CPU affinity/quota and32GiB memory default; outputs owned by invoking user.",
+      "source_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+      "status": "complete_and_tested_against_actual_model_path",
+      "usage": "md/910c-glm52-w8a8-usage.md",
+      "validation": "Installed package/resources/native/engine verified.395 installed-wheel GPU/Ascend tests pass. Actual /mnt/raid/user/data/models/glm-q PD16/16requests and best64/64requests complete.60/60 search candidates pass with zero difference from staged metadata metrics. Bayesian12suggestions=11successful evaluations+1cachehit.",
+      "wheel_sha256": "d3f58f0bedfecc57c6cb7764e35ad53dfe3784030911651845b8fa37d10bc1ec"
+    },
     "runtime_static_memory": {
       "nccl": "notused;compatibilitybucket0;HCCLallocationsarenotrelabeledasNCCL",
       "scope": "CurrentModelSlim/United16/SGLang0.5.22;beforeKV allocations;graphheadroomseparate",
@@ -2078,7 +2125,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 52,
+  "revision": 53,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

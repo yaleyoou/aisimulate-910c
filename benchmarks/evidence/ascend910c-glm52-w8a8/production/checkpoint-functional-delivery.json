@@ -1,0 +1,54 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["Formal direct-FPM profile onboarding remains separate and unaccepted; the authorized operator-level functional adaptation is delivered."],
+    "next_action": "Use delivered predict/recommend workflows; future work is serving-accuracy calibration or explicit expansion beyond the qualified EP16 domain."
+  },
+  "pending_questions": [
+    "Serving accuracy calibration was deferred by the user; current TTFT/TPOT/throughput are predictions.",
+    "EP32 small-batch DeepEP stable-data gaps and new parallel topologies need further collection before request-level use.",
+    "Real routing imbalance, independent memory calibration for other layouts, and PD contention/streaming remain future calibration scope.",
+    "Guided direct-FPM profile onboarding supports vllm only; no SGLang profile was accepted. This does not gate the completed operator-level workflow."
+  ],
+  "research": {
+    "canonical_glm_forward": {
+      "status": "functional_operator_level_version_delivered",
+      "remaining": "Deferred serving-accuracy calibration and optional new-shape/topology coverage; no remaining work for the delivered EP16 predict/recommend workflows."
+    },
+    "runtime_delivery": {
+      "status": "complete_and_tested_against_actual_model_path",
+      "image": "aisimulate-910c:glm52-w8a8",
+      "image_id": "sha256:190684496125b32f2cc58531cae4676a4e229674c37bbd5e8caff97802fa5a2e",
+      "source_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+      "native_sha256": "aa5cec4945b59d306f85dcf78d7b341a617224f7a39de6f6a15a6b5e6edbb438",
+      "wheel_sha256": "d3f58f0bedfecc57c6cb7764e35ad53dfe3784030911651845b8fa37d10bc1ec",
+      "validation": "Installed package/resources/native/engine verified.395 installed-wheel GPU/Ascend tests pass. Actual /mnt/raid/user/data/models/glm-q PD16/16requests and best64/64requests complete.60/60 search candidates pass with zero difference from staged metadata metrics. Bayesian12suggestions=11successful evaluations+1cachehit.",
+      "entrypoint": "scripts/run-ascend910c.sh",
+      "usage": "md/910c-glm52-w8a8-usage.md",
+      "runtime_resources": "CPU-only, no network or NPU; read-only model mount;16CPU affinity/quota and32GiB memory default; outputs owned by invoking user."
+    },
+    "legacy_replay_regression": {
+      "status": "qualified_byte_parity_passed",
+      "baseline": "a93487f9938eed211449c6d0a35661dbd711c9a5",
+      "candidate": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+      "validation": "8vllm/sglang/trtllm configurations,5000orderedMooncake requests per process,2baseline+2candidate processes each; all32reportsbyteidentical within frozen rows. Queue,reuse,handoff,1..3applicablepreemptions/retractions andfullcompletion evidenced. Originaloldgoldensrequalifiedonbaseline; capacities andexclusionallowlistidenticalbetweencomparedrevisions."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "functional_delivery_summary": {"path":"production/functional-delivery-20261024/summary.json","kind":"file","scope":"validation"},
+        "functional_delivery_manifest": {"path":"production/functional-delivery-20261024/manifest.json","kind":"file","scope":"validation"},
+        "legacy_replay_qualification": {"path":"production/replay-validation-20261024/parity.json","kind":"file","scope":"validation"},
+        "legacy_replay_manifest": {"path":"production/replay-validation-20261024/manifest.json","kind":"file","scope":"validation"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["Formal direct-FPM profile remains unaccepted; operator-level prediction and configuration search are complete within the published EP16 domain."],
+        "next_action": "Run the delivered CPU workflows; calibrate serving accuracy or extend specific missing shapes/topologies when those become the next objective."
+      }
+    }
+  }
+}

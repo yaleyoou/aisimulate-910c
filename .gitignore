@@ -12,6 +12,7 @@ __pycache__/
 .coverage
 coverage.xml
 htmlcov/
+aisimulate-output/
 *.egg-info/
 *.pyc
 *.so

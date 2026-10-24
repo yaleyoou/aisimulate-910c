@@ -1,0 +1,135 @@
+{
+  "scope": "functional operator-level prediction and bounded configuration search; not measured serving accuracy",
+  "image": "aisimulate-910c:glm52-w8a8",
+  "image_id": "sha256:190684496125b32f2cc58531cae4676a4e229674c37bbd5e8caff97802fa5a2e",
+  "native": {
+    "source_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+    "sha256": "aa5cec4945b59d306f85dcf78d7b341a617224f7a39de6f6a15a6b5e6edbb438",
+    "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+    "wheel_sha256": "d3f58f0bedfecc57c6cb7764e35ad53dfe3784030911651845b8fa37d10bc1ec",
+    "engine_spec_schema": 29,
+    "target": "aarch64-unknown-linux-gnu",
+    "profile": "release",
+    "cargo_features": [
+      "extension-module"
+    ],
+    "build_command": "python3 -m maturin build --release --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+    "maturin": "1.15.0",
+    "python_abi": "abi3-py311"
+  },
+  "model_path": "/mnt/raid/user/data/models/glm-q",
+  "model_metadata_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba"
+  },
+  "random_search": {
+    "cache_hits": 0,
+    "evaluated": 60,
+    "failed": 0,
+    "feasible": 60,
+    "infeasible": 0,
+    "resource_limited": 0,
+    "timed_out": 0,
+    "unsupported": 0
+  },
+  "bayesian_search": {
+    "cache_hits": 1,
+    "evaluated": 11,
+    "failed": 0,
+    "feasible": 11,
+    "infeasible": 0,
+    "resource_limited": 0,
+    "timed_out": 0,
+    "unsupported": 0
+  },
+  "staged_metadata_vs_actual_model_candidates_compared": 60,
+  "maximum_metric_delta": 0.0,
+  "best_replayed": {
+    "completed_requests": 64,
+    "mean_ttft_ms": 38294.7716565,
+    "mean_tpot_ms": 139.2323984500246,
+    "output_throughput_tok_s": 84.8987848401847
+  },
+  "pd_predict": {
+    "completed_requests": 16,
+    "mean_ttft_ms": 3180.8183144790137,
+    "mean_tpot_ms": 108.83505841935474,
+    "output_throughput_tok_s": 35.66138375413689
+  },
+  "validation": {
+    "rust_tests_passed": 2041,
+    "public_caller_tests_passed": 916,
+    "installed_wheel_gpu_and_ascend_tests_passed": 395,
+    "legacy_replay_rows": 8,
+    "legacy_replay_comparison_processes": 32,
+    "legacy_replay_requests_per_process": 5000
+  },
+  "limits": [
+    "EP16 qualified request/search presets; EP32 small-batch communication gaps remain",
+    "balanced expert routing and uniform attention-DP load",
+    "isolated PD transfer calibration, no shared-link contention or bootstrap",
+    "serving accuracy and energy calibration deferred"
+  ],
+  "logs": [
+    {
+      "file": "aisim-runtime-wheel-build.log",
+      "sha256": "5457314be97e0010f7c9956177cbc22a80871203724637efb5df918d4e68db0e",
+      "archive": "logs/aisim-runtime-wheel-build.log.gz"
+    },
+    {
+      "file": "aisim-runtime-wheel-image-build-v3.log",
+      "sha256": "c6acf96d54232da0699e97ebab3b1ac4c3657b6adaedab222d7ea777ae1837b1",
+      "archive": "logs/aisim-runtime-wheel-image-build-v3.log.gz"
+    },
+    {
+      "file": "aisim-runtime-predict.log",
+      "sha256": "7aa7caa89a0015391dfde2cb81285e694b8946e641485551680dcbd3cb98f74b",
+      "archive": "logs/aisim-runtime-predict.log.gz"
+    },
+    {
+      "file": "aisim-runtime-predict-v2.log",
+      "sha256": "ab008f5618e9efce43ca891776da4eb95c76859c67e7e7edc9284d8aceeb3e59",
+      "archive": "logs/aisim-runtime-predict-v2.log.gz"
+    },
+    {
+      "file": "aisim-runtime-recommend.log",
+      "sha256": "76f2c13d04b26e4cac58640bed2995331faaadaf3fa0d695feb4232bd59fe7d4",
+      "archive": "logs/aisim-runtime-recommend.log.gz"
+    },
+    {
+      "file": "aisim-runtime-best.log",
+      "sha256": "7a1f471c1fe41eb59c60e6c7b1a93a40808ee9d5c90d80cf85d3c8f11cdce94c",
+      "archive": "logs/aisim-runtime-best.log.gz"
+    },
+    {
+      "file": "aisim-runtime-bayesian.log",
+      "sha256": "16cc14daf59b1c55cdb82a5993d594746be98022f6c1ffde9e9931d884d2fac3",
+      "archive": "logs/aisim-runtime-bayesian.log.gz"
+    },
+    {
+      "file": "aisim-runtime-package-verify.log",
+      "sha256": "e854f8f1de30a2d144f4757de4b9f893d5599d501b5e07edca5b0bdaa2b23a40",
+      "archive": "logs/aisim-runtime-package-verify.log.gz"
+    },
+    {
+      "file": "aisim-wheel-gpu-and-ascend.log",
+      "sha256": "4f0a15b6363b61b1be7760e1b00ff081b129c958eb388a2a5b344c9c9a379ec3",
+      "archive": "logs/aisim-wheel-gpu-and-ascend.log.gz"
+    },
+    {
+      "file": "aisim-pd-frozen-native-build.log",
+      "sha256": "768fa66386a6e73651168851e4c5063f93f297444f73fa4ae50472cb0577dd07",
+      "archive": "logs/aisim-pd-frozen-native-build.log.gz"
+    },
+    {
+      "file": "aisim-pd-api-typed-tests-v2.log",
+      "sha256": "af60b5d0827cbdbd41fdf648b61569b7d26001ffc4631130a81a8fa46c95ea4a",
+      "archive": "logs/aisim-pd-api-typed-tests-v2.log.gz"
+    },
+    {
+      "file": "aisim-qualify-script-lint-v2.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "archive": "logs/aisim-qualify-script-lint-v2.log.gz"
+    }
+  ]
+}

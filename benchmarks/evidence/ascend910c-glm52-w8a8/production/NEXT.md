@@ -1,5 +1,40 @@
 # Current goal handoff
 
+## Delivered: functional EP16 operator prediction and search
+
+Finalimage sha256:190684496125b32f2cc58531cae4676a4e229674c37bbd5e8caff97802fa5a2e.
+scripts/run-ascend910c.sh uses installedunifiedwheel,networknone,non-rootUID,CPU16,memory32GiB,noNPU.
+Actualmodel/mnt/raid/user/data/models/glm-q:PD16/16requests,unified60/60candidates,best64/64requests,
+bayesian12suggestions=11successfulreplays+1cachehit. All60metricsidenticaltostagedmetadatabaseruns.
+Installedpackageverificationand395GPU/Ascendtests pass.8legacyreplayrows/32processes/5000requestsbyteparitypass.
+Summary production/functional-delivery-20261024/summary.json andmanifest;usage md/910c-glm52-w8a8-usage.md.
+Publishednative/sourcef90015df; runtime/docs/evidence form the final delivery stage recorded in git log.
+NoNPUjobsactive;31untouched. Functionalgoalreadyforhandoff withinqualifiedEP16domain.
+Remainingfuturework:servingaccuracy,imbalance/realrouting,PDcontention,EP32smalldecode/newtopologies.
+Do not claim formal direct-FPM profile onboarding or unrestricted hardware/model topology support.
+
+## Final delivery in progress: wheel and replay regression complete
+
+Committed functional stage f90015df. Unified search60/60 and PD48/48 pass; bestYAMLs replayed.
+Replay baselinea93487f9/candidatef90015df:8qualified5000rowMooncake configurations,2runs/revision,
+all32canonical reportsbyteidentical. Requalified legacy seeds onbaseline;SGpressure3/1/2,VLLM2/2/3,
+allpressure readmitted,allrequestsfulloutput,reuse/queue/handoffverified. Nativebenchmarkconfigsunchangedbetweenrevisions.
+Artifacts replay-validation-20261024, pd-replay-parity-20261024.json, unified-search-20261024,
+unified-best-replay-20261024. Skillrunnerlockrefreshedidentically(olderlockfailedboth);exactlocksarchived.
+Distributionwheel built withmaturin1.15.0,sourcef90015df,EngineSpec29;
+nativeSHAaa5cec4945b59d306f85dcf78d7b341a617224f7a39de6f6a15a6b5e6edbb438,
+wheelSHAd3f58f0bedfecc57c6cb7764e35ad53dfe3784030911651845b8fa37d10bc1ec.
+Installedwheelnativepassed395GPU/Ascendtests68.50s. Frozenpre-wheelbinary44358...alsoexactrebuildf900.
+Runtimecode usesinstalledunifiedwheel(noPYTHONPATHnative shim). CurrentCPUimagebuild root24914:
+/tmp/aisim-runtime-wheel-image-build-v3.log. All33dependencywheelsverifiedPyPIsha andcachedin
+ignored build/ascend910c-runtime;oldslowonlinebuildcontainersa008d2bab8e5,5e69ace6a8festopped(ours).
+FinalDockerfileinstallsfullrequirementsfromlocalwheelhouse;addsCPUcpuset16,quotalimit16,memory32GiB.
+New scripts/run-ascend910c.sh and build-ascend910c-runtime.sh,md/README.md andusage.md drafted.
+Remaining:runwrapperwithactual/mnt/raid/user/data/models/glm-q(PDpredict,unifiedrecommend,bestYAML,
+bayesian smoke),recordimageidentity/pipversions/finalmanifest;updatecheckpoint52;finalstagecommit.
+Initialruntimeimage900e6283taghadbadnativeimportlayout;doNOTuseuntilv3buildreplacesit.
+NoNPUjobsactive,31untouched. Spare root93967. Usergoalstillunfinisheduntilruntimedeliverytested.
+
 ## Newest: measured PD and 48-candidate recommendation pass
 
 PD producer committed a93487f9. Native/table/replay integration ready for commit.

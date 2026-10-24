@@ -1,0 +1,13 @@
+{
+  "source_revision": "f90015dfbdc8e2a66754b22eadd9d396e1e01fb9",
+  "sha256": "aa5cec4945b59d306f85dcf78d7b341a617224f7a39de6f6a15a6b5e6edbb438",
+  "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+  "wheel_sha256": "d3f58f0bedfecc57c6cb7764e35ad53dfe3784030911651845b8fa37d10bc1ec",
+  "engine_spec_schema": 29,
+  "target": "aarch64-unknown-linux-gnu",
+  "profile": "release",
+  "cargo_features": ["extension-module"],
+  "build_command": "python3 -m maturin build --release --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+  "maturin": "1.15.0",
+  "python_abi": "abi3-py311"
+}
