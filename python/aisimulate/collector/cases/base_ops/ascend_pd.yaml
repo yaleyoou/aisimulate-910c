@@ -5,5 +5,6 @@ common_case_values:
   ascend_pd:
     token_counts: [128, 1024, 4096, 8192, 16384]
     page_layouts: [contiguous, fragmented]
-    warmup: 3
+    iterations: 8
+    warmup: 10
     repeats: 7

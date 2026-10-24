@@ -57,7 +57,7 @@ def get_ascend_pd_cases(model_path, case_root=None):
     return {
         "schema": "aisimulate-ascend-pd-plan/v1",
         "cases": cases,
-        "protocol": {name: base[name] for name in ("warmup", "repeats")},
+        "protocol": {name: base[name] for name in ("iterations", "warmup", "repeats")},
         "source_sha256": {
             path.name: hashlib.sha256(path.read_bytes()).hexdigest()
             for path in (config_path, quant_path, model_file, base_file)

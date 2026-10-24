@@ -19,7 +19,11 @@ def validated_rows(plan_path, observations, runtime_identity):
         for name in (*fields, "framework_commit", "image_digest", "collector_source_sha256")
     ):
         raise ValueError("Incomplete PD runtime identity")
-    if plan.get("schema") != "aisimulate-ascend-pd-plan/v1" or plan["protocol"]["repeats"] < 3:
+    if (
+        plan.get("schema") != "aisimulate-ascend-pd-plan/v1"
+        or plan["protocol"]["repeats"] < 3
+        or any(type(value) is not int or value < 1 for value in plan["protocol"].values())
+    ):
         raise ValueError("Invalid PD plan")
     seen, rows, rejected, placements = set(), [], [], []
     setup = None
@@ -153,6 +157,21 @@ def validated_rows(plan_path, observations, runtime_identity):
                     for value in result["samples_ms"]
                 ):
                     raise ValueError("Invalid PD timing sample")
+                iterations = plan["protocol"].get("iterations", 1)
+                calls = result.get("call_samples_ms")
+                if calls is None and iterations != 1:
+                    raise ValueError("Averaged PD timing requires all per-call observations")
+                if calls is not None:
+                    if len(calls) != plan["protocol"]["repeats"] or any(len(values) != iterations for values in calls):
+                        raise ValueError("PD timing call count differs from protocol")
+                    for values, average in zip(calls, result["samples_ms"], strict=True):
+                        if any(
+                            not math.isfinite(value) or value < 0 or bool(value) != bool(destinations)
+                            for value in values
+                        ):
+                            raise ValueError("Invalid PD per-call timing")
+                        if statistics.mean(values) != average:
+                            raise ValueError("PD timing must be the per-call mean")
                 if len(result["checks"]) != 2:
                     raise ValueError("PD requires before/after full-payload checks")
                 receiver = 16 <= result["rank"] < 16 + case["destination_tp"]

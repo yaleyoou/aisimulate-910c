@@ -32,6 +32,9 @@ def main():
     if args.output.exists():
         parser.error("Preserve prior observations")
     plan = json.loads(args.plan.read_text())
+    protocol = plan["protocol"]
+    if any(type(value) is not int or value < 1 for value in protocol.values()) or protocol["repeats"] < 3:
+        raise ValueError("PD timing requires positive protocol counts and at least three samples")
     setup = json.loads(args.setup.read_text())
     if plan["schema"] != "aisimulate-ascend-pd-plan/v1":
         raise ValueError("Unsupported PD plan")
@@ -294,16 +297,27 @@ def main():
                 for _ in range(plan["protocol"]["warmup"]):
                     distributed.barrier()
                     send()
-                samples = []
+                samples, call_samples = [], []
                 for _ in range(plan["protocol"]["repeats"]):
-                    distributed.barrier()
-                    started = time.perf_counter()
-                    send()
-                    samples.append((time.perf_counter() - started) * 1000 if destinations else 0.0)
+                    calls = []
+                    for _ in range(plan["protocol"].get("iterations", 1)):
+                        distributed.barrier()
+                        started = time.perf_counter()
+                        send()
+                        calls.append((time.perf_counter() - started) * 1000 if destinations else 0.0)
+                    call_samples.append(calls)
+                    samples.append(statistics.mean(calls))
                 checks.append(verify(index * 2 + 2))
                 rank_results = [None] * world
                 distributed.all_gather_object(
-                    rank_results, {"rank": rank, "destinations": destinations, "samples_ms": samples, "checks": checks}
+                    rank_results,
+                    {
+                        "rank": rank,
+                        "destinations": destinations,
+                        "samples_ms": samples,
+                        "call_samples_ms": call_samples,
+                        "checks": checks,
+                    },
                 )
                 critical = [
                     max(value["samples_ms"][sample] for value in rank_results)

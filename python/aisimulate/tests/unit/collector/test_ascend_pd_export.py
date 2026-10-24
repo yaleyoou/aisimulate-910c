@@ -102,6 +102,29 @@ def test_pd_uses_sender_critical_path_and_counts_receiver_replicas(campaign):
     assert rows[0]["verified_receiver_copies"] == 8
 
 
+def test_pd_averaging_preserves_per_call_units_and_requires_raw_samples(campaign):
+    plan, observation, identity, record = campaign
+    configuration = json.loads(plan.read_text())
+    configuration["protocol"]["iterations"] = 2
+    plan.write_text(json.dumps(configuration))
+    plan_hash = hashlib.sha256(plan.read_bytes()).hexdigest()
+    record["plan_sha256"] = plan_hash
+    record["protocol"] = configuration["protocol"]
+    for device in record["devices"]:
+        device["plan_sha256"] = plan_hash
+    for result in record["cases"][0]["rank_results"]:
+        result["call_samples_ms"] = [
+            [average - 0.25, average + 0.25] if result["destinations"] else [0.0, 0.0]
+            for average in result["samples_ms"]
+        ]
+    observation.write_text(json.dumps(record))
+    assert validated_rows(plan, [observation], identity)[0][0]["latency_ms"] == 7.0
+    record["cases"][0]["rank_results"][0]["call_samples_ms"] = [[2.0, 2.0]] * 3
+    observation.write_text(json.dumps(record))
+    with pytest.raises(ValueError, match="per-call mean"):
+        validated_rows(plan, [observation], identity)
+
+
 @pytest.mark.parametrize("corruption", ("mapping", "digest", "missing_copy", "wire_bytes"))
 def test_pd_must_verify_every_actual_receiver_copy(campaign, corruption):
     plan, observation, identity, record = campaign
