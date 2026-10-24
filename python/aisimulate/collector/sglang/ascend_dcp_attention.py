@@ -155,7 +155,7 @@ def main():
         if (
             case["kv_interleave_size"] != page
             or (case["kv_lora_rank"], case["rope_dim"], page, case["sparse_topk"]) != (512, 64, 128, 2048)
-            or heads not in (4, 8, 16)
+            or heads not in (4, 8, 16, 32)
             or heads * world > 64
             or (
                 case["phase"] == "prefill"

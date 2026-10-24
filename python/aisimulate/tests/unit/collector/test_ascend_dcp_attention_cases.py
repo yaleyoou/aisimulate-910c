@@ -12,9 +12,9 @@ def test_npu_page_ownership_and_graph_layout_match_real_dcp_capture(tmp_path):
     (tmp_path / "config.json").write_bytes(config.read_bytes())
     plan = get_ascend_dcp_attention_cases(tmp_path)
     assert plan["boundary_contract"] == "sglang_npu_dcp_storage_attention_chain/v1"
-    assert len(plan["cases"]) == 2736
+    assert len(plan["cases"]) == 3040
     assert {case["kv_interleave_size"] for case in plan["cases"]} == {128}
-    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 2736
+    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 3040
     decoded = next(
         case
         for case in plan["cases"]

@@ -1,0 +1,313 @@
+{
+  "schema": "aisimulate-ascend-pd-plan/v1",
+  "cases": [
+    {
+      "source_tp": 4,
+      "destination_tp": 2,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 2,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 2,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 2,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 2,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 2,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 2,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 2,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 2,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 2,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 16,
+      "destination_tp": 2,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 16,
+      "destination_tp": 2,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 16,
+      "destination_tp": 2,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 16,
+      "destination_tp": 2,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 16,
+      "destination_tp": 2,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    }
+  ],
+  "protocol": {
+    "iterations": 32,
+    "warmup": 10,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "79652f554b083706313e1de8ed8eada23b73f36cdf9bd568f4aa1d6627364fa8",
+    "ascend_pd.yaml": "937842680d7cbf74ebfa3eb1d5a13f59fb829717899b91c4125b3ec8743836b2"
+  },
+  "scope": "One request and actual MLA rank mapping; all receiver replicas move concurrently. Bootstrap/admission and concurrent-request contention excluded.",
+  "selection": {
+    "source_plan_sha256": "5edb8805158b935d2d79d67a06ea4c28b43f928d8565b14ec3a58d47e3403849",
+    "original_protocol": {
+      "iterations": 8,
+      "warmup": 10,
+      "repeats": 7
+    },
+    "selected_complete_curves": [
+      [
+        4,
+        2,
+        "fragmented"
+      ],
+      [
+        8,
+        2,
+        "fragmented"
+      ],
+      [
+        16,
+        2,
+        "fragmented"
+      ]
+    ],
+    "reason": "Qualified span does not cover8192. Fixed32-call averages retain every call and the10% CV gate; no outlier deletion or fastest-point selection."
+  }
+}

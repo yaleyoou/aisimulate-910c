@@ -1,0 +1,66 @@
+[
+  {
+    "directory": "small-tp-world32-tp1-deepep-20261025",
+    "prediction_sha256": "56eb14bdad07ce2e39e1571f9237c845010310fde7f339f2d0f28d88afa56fbd"
+  },
+  {
+    "directory": "small-tp-world32-tp1-tensor-20261025",
+    "prediction_sha256": "d1f8bb0f0dfdc2ea5796f00ba59d90da6fceeff2aea614e29d76a36ff61a6c97"
+  },
+  {
+    "directory": "small-tp-world32-tp2-deepep-20261025",
+    "prediction_sha256": "ba8872d8a43cc78874ac24d6a8e3c8d79b2f8497fdf6ad583aa76ec58d040dad"
+  },
+  {
+    "directory": "small-tp-world32-tp2-tensor-20261025",
+    "prediction_sha256": "97af3c3831146fd6c6efee56b950a2f0cace87733dab8c7cf391e79f7715f84e"
+  },
+  {
+    "directory": "small-tp-batches-tp1-deepep-c8-20261025",
+    "prediction_sha256": "2e653c6bef58ad6ce23495f8dcb45cb3ce838822d33158aece3d5454ea2e5524"
+  },
+  {
+    "directory": "small-tp-batches-tp1-deepep-c16-20261025",
+    "prediction_sha256": "119d71f6af2753231170c2b93c1664e1a6b1d580b82c6481714ef60efd45e7fa"
+  },
+  {
+    "directory": "small-tp-batches-tp1-deepep-c32-20261025",
+    "prediction_sha256": "e970d9ec46b0fb60f57b0c1b92fe07ac56fbfacfe32e1d6a30acccd328b33016"
+  },
+  {
+    "directory": "small-tp-batches-tp1-tensor-c8-20261025",
+    "prediction_sha256": "8df1a0441e07e6a3402b01828916270a9dc2cb4ea0a8653736871b162537f57d"
+  },
+  {
+    "directory": "small-tp-batches-tp1-tensor-c16-20261025",
+    "prediction_sha256": "9932e610798cd9429e5bf1983b6babc3a8aba52cb21ce4f52a46c2ba87455d5f"
+  },
+  {
+    "directory": "small-tp-batches-tp1-tensor-c32-20261025",
+    "prediction_sha256": "3fd8d2283a9d1a775f7264b11c6f4d7899711ba8e93f53746f29a1c9d0d683c4"
+  },
+  {
+    "directory": "small-tp-batches-tp2-deepep-c8-20261025",
+    "prediction_sha256": "a01c666ea6c6a783916f0cd652cfa20bac293fc7d33cbbf51fafee2de65b166e"
+  },
+  {
+    "directory": "small-tp-batches-tp2-deepep-c16-20261025",
+    "prediction_sha256": "d6b8ad0c88a8e9ec448b12fdc8ce9247713be96e3e7cabe241afe136cde7b825"
+  },
+  {
+    "directory": "small-tp-batches-tp2-deepep-c32-20261025",
+    "prediction_sha256": "a9243fbd2a24c038964658ba050112dbb48f98c0ea549e0012359d83ce2f30b5"
+  },
+  {
+    "directory": "small-tp-batches-tp2-tensor-c8-20261025",
+    "prediction_sha256": "87d1b1aa2b0df9e41bbdfc39436a3a539d293294747a2ef2292aef4b586be0e1"
+  },
+  {
+    "directory": "small-tp-batches-tp2-tensor-c16-20261025",
+    "prediction_sha256": "93a1fc5428f12c1cd0f799be61a8b15a66695be44774498c84eeb4ffe3e4f878"
+  },
+  {
+    "directory": "small-tp-batches-tp2-tensor-c32-20261025",
+    "prediction_sha256": "e2ce53f60278dc3d69717c734d096a433f034255bc0de1235d1e079f8a2555a8"
+  }
+]

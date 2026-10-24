@@ -16,6 +16,8 @@ def curve_key(operation, row):
         return tuple(row[field] for field in ("role", "local_heads", "execution_mode"))
     if operation == "pd":
         return tuple(row[field] for field in ("source_tp", "destination_tp", "page_layout"))
+    if operation == "dcp_attention":
+        return tuple(row[field] for field in ("phase", "local_heads", "dcp_size", "remap_topk", "execution_mode"))
     dimensions = row["dimensions"]
     if isinstance(dimensions, str):
         dimensions = json.loads(dimensions)
@@ -25,7 +27,9 @@ def curve_key(operation, row):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True)
-    parser.add_argument("--operation", choices=("linear", "vector", "bmm", "attention", "pd"), required=True)
+    parser.add_argument(
+        "--operation", choices=("linear", "vector", "bmm", "attention", "pd", "dcp_attention"), required=True
+    )
     parser.add_argument("--baseline-table", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--weight-copies", type=int)

@@ -24,7 +24,7 @@ description: >
 model_case_values:
   ascend_dcp_attention:
     - checkpoint_quantization: modelslim_w8a8
-      tensor_parallel_sizes: [4, 8, 16]
+      tensor_parallel_sizes: [2, 4, 8, 16]
       dcp_sizes: [2, 4, 8, 16]
       num_attention_heads: 64
       kv_lora_rank: 512

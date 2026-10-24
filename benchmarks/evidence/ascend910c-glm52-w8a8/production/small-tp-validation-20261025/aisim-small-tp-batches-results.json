@@ -1,0 +1,122 @@
+[
+  {
+    "configuration": [
+      1,
+      false,
+      8
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-deepep-c8-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      1,
+      false,
+      16
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-deepep-c16-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      1,
+      false,
+      32
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-deepep-c32-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      1,
+      true,
+      8
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-tensor-c8-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      1,
+      true,
+      16
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-tensor-c16-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      1,
+      true,
+      32
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp1-tensor-c32-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      false,
+      8
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-deepep-c8-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      false,
+      16
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-deepep-c16-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      false,
+      32
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-deepep-c32-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      true,
+      8
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-tensor-c8-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      true,
+      16
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-tensor-c16-20261025",
+    "completed": 64
+  },
+  {
+    "configuration": [
+      2,
+      true,
+      32
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-batches-tp2-tensor-c32-20261025",
+    "completed": 64
+  }
+]

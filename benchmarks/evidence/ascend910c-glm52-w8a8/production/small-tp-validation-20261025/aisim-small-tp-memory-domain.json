@@ -1,0 +1,162 @@
+[
+  {
+    "shape": {
+      "tp": 4,
+      "dp": 4,
+      "moe_tp": 1,
+      "moe_ep": 16,
+      "pp": 1
+    },
+    "tokens": 30464
+  },
+  {
+    "shape": {
+      "tp": 8,
+      "dp": 2,
+      "moe_tp": 1,
+      "moe_ep": 16,
+      "pp": 1
+    },
+    "tokens": 51968
+  },
+  {
+    "shape": {
+      "tp": 16,
+      "dp": 1,
+      "moe_tp": 1,
+      "moe_ep": 16,
+      "pp": 1
+    },
+    "tokens": 62720
+  },
+  {
+    "shape": {
+      "tp": 1,
+      "dp": 32,
+      "moe_tp": 1,
+      "moe_ep": 32,
+      "pp": 1
+    },
+    "tokens": 108288
+  },
+  {
+    "shape": {
+      "tp": 2,
+      "dp": 16,
+      "moe_tp": 1,
+      "moe_ep": 32,
+      "pp": 1
+    },
+    "tokens": 194176
+  },
+  {
+    "shape": {
+      "tp": 4,
+      "dp": 8,
+      "moe_tp": 1,
+      "moe_ep": 32,
+      "pp": 1
+    },
+    "tokens": 237184
+  },
+  {
+    "shape": {
+      "tp": 8,
+      "dp": 4,
+      "moe_tp": 1,
+      "moe_ep": 32,
+      "pp": 1
+    },
+    "tokens": 258688
+  },
+  {
+    "shape": {
+      "tp": 16,
+      "dp": 2,
+      "moe_tp": 1,
+      "moe_ep": 32,
+      "pp": 1
+    },
+    "tokens": 269440
+  },
+  {
+    "shape": {
+      "tp": 4,
+      "dp": 4,
+      "moe_tp": 16,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 48640
+  },
+  {
+    "shape": {
+      "tp": 8,
+      "dp": 2,
+      "moe_tp": 16,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 70016
+  },
+  {
+    "shape": {
+      "tp": 16,
+      "dp": 1,
+      "moe_tp": 16,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 80768
+  },
+  {
+    "shape": {
+      "tp": 1,
+      "dp": 32,
+      "moe_tp": 32,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 126976
+  },
+  {
+    "shape": {
+      "tp": 2,
+      "dp": 16,
+      "moe_tp": 32,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 212992
+  },
+  {
+    "shape": {
+      "tp": 4,
+      "dp": 8,
+      "moe_tp": 32,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 256000
+  },
+  {
+    "shape": {
+      "tp": 8,
+      "dp": 4,
+      "moe_tp": 32,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 277376
+  },
+  {
+    "shape": {
+      "tp": 16,
+      "dp": 2,
+      "moe_tp": 32,
+      "moe_ep": 1,
+      "pp": 1
+    },
+    "tokens": 288128
+  }
+]

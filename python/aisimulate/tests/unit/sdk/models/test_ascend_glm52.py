@@ -254,15 +254,23 @@ def test_default_search_requires_the_audited_checkpoint(model_path):
 
     raw = get_model_config_from_model_path(model_path)["raw_config"]
     assert ascend_glm52_default_parallel_shapes(raw) == (
+        (1, 16, 1, 16, 1),
+        (2, 8, 1, 16, 1),
         (4, 4, 1, 16, 1),
         (8, 2, 1, 16, 1),
         (16, 1, 1, 16, 1),
+        (1, 32, 1, 32, 1),
+        (2, 16, 1, 32, 1),
         (4, 8, 1, 32, 1),
         (8, 4, 1, 32, 1),
         (16, 2, 1, 32, 1),
+        (1, 16, 16, 1, 1),
+        (2, 8, 16, 1, 1),
         (4, 4, 16, 1, 1),
         (8, 2, 16, 1, 1),
         (16, 1, 16, 1, 1),
+        (1, 32, 32, 1, 1),
+        (2, 16, 32, 1, 1),
         (4, 8, 32, 1, 1),
         (8, 4, 32, 1, 1),
         (16, 2, 32, 1, 1),

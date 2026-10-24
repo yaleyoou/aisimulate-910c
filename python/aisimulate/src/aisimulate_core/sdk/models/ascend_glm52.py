@@ -75,8 +75,8 @@ def ascend_glm52_default_parallel_shapes(raw_config):
     """Published default search domain, in TP/ADP/MoE-TP/EP/PP order."""
     validate_ascend_glm52_checkpoint(raw_config)
     return (
-        *tuple((tensor, experts // tensor, 1, experts, 1) for experts in (16, 32) for tensor in (4, 8, 16)),
-        *tuple((tensor, world // tensor, world, 1, 1) for world in (16, 32) for tensor in (4, 8, 16)),
+        *tuple((tensor, experts // tensor, 1, experts, 1) for experts in (16, 32) for tensor in (1, 2, 4, 8, 16)),
+        *tuple((tensor, world // tensor, world, 1, 1) for world in (16, 32) for tensor in (1, 2, 4, 8, 16)),
     )
 
 

@@ -125,7 +125,7 @@ def validated_rows(plan_path, campaigns, runtime_identity):
                     or case["kv_lora_rank"] != 512
                     or case["rope_dim"] != 64
                     or case["sparse_topk"] != 2048
-                    or case["local_heads"] not in (4, 8, 16)
+                    or case["local_heads"] not in (4, 8, 16, 32)
                     or case["local_heads"] * world > 64
                     or type(case["remap_topk"]) is not bool
                     or (case["phase"], case["execution_mode"]) not in (("prefill", "eager"), ("decode", "graph"))

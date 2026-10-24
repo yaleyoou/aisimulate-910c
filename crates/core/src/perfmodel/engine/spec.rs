@@ -1162,7 +1162,17 @@ mod tests {
             "Ascend DeepEP appended index moved"
         );
         assert_eq!(
+            index_of(&all_op_variants()[53]),
             53,
+            "Ascend tensor MoE appended index moved"
+        );
+        assert_eq!(
+            index_of(&all_op_variants()[54]),
+            54,
+            "Ascend DCP attention appended index moved"
+        );
+        assert_eq!(
+            55,
             all_op_variants().len(),
             "all_op_variants() must cover exactly the pinned variant count"
         );

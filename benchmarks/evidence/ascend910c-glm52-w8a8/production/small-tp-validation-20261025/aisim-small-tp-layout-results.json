@@ -1,0 +1,90 @@
+[
+  {
+    "layout": [
+      16,
+      1,
+      false
+    ],
+    "returncode": 1,
+    "directory": "/tmp/aisim-small-tp-world16-tp1-deepep-20261025",
+    "log": "/tmp/aisim-small-tp-world16-tp1-deepep.log",
+    "error_tail": "aisimulate predict failed: ValueError: no KV budget: non-KV memory (68990682620 bytes) meets/exceeds the KV-cache memory limit (capacity=65787658240 bytes)\naisimulate: execution process exited with status 1\n"
+  },
+  {
+    "layout": [
+      16,
+      1,
+      true
+    ],
+    "returncode": 1,
+    "directory": "/tmp/aisim-small-tp-world16-tp1-tensor-20261025",
+    "log": "/tmp/aisim-small-tp-world16-tp1-tensor.log",
+    "error_tail": "aisimulate predict failed: ValueError: no KV budget: non-KV memory (66998874620 bytes) meets/exceeds the KV-cache memory limit (capacity=65787658240 bytes)\naisimulate: execution process exited with status 1\n"
+  },
+  {
+    "layout": [
+      16,
+      2,
+      false
+    ],
+    "returncode": 1,
+    "directory": "/tmp/aisim-small-tp-world16-tp2-deepep-20261025",
+    "log": "/tmp/aisim-small-tp-world16-tp2-deepep.log",
+    "error_tail": "aisimulate predict failed: ValueError: no KV budget: non-KV memory (59551434236 bytes) meets/exceeds the KV-cache memory limit (capacity=65787658240 bytes)\naisimulate: execution process exited with status 1\n"
+  },
+  {
+    "layout": [
+      16,
+      2,
+      true
+    ],
+    "returncode": 1,
+    "directory": "/tmp/aisim-small-tp-world16-tp2-tensor-20261025",
+    "log": "/tmp/aisim-small-tp-world16-tp2-tensor.log",
+    "error_tail": "aisimulate predict failed: RuntimeError: AISimulate replay failed: replay invariant violated: offline replay detected an effect-free zero-duration pass with 4 in-flight requests remaining\naisimulate: execution process exited with status 1\n"
+  },
+  {
+    "layout": [
+      32,
+      1,
+      false
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-world32-tp1-deepep-20261025",
+    "log": "/tmp/aisim-small-tp-world32-tp1-deepep.log",
+    "completed": 8
+  },
+  {
+    "layout": [
+      32,
+      1,
+      true
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-world32-tp1-tensor-20261025",
+    "log": "/tmp/aisim-small-tp-world32-tp1-tensor.log",
+    "completed": 8
+  },
+  {
+    "layout": [
+      32,
+      2,
+      false
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-world32-tp2-deepep-20261025",
+    "log": "/tmp/aisim-small-tp-world32-tp2-deepep.log",
+    "completed": 8
+  },
+  {
+    "layout": [
+      32,
+      2,
+      true
+    ],
+    "returncode": 0,
+    "directory": "/tmp/aisim-small-tp-world32-tp2-tensor-20261025",
+    "log": "/tmp/aisim-small-tp-world32-tp2-tensor.log",
+    "completed": 8
+  }
+]

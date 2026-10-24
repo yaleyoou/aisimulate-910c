@@ -36,4 +36,4 @@ engine:
 optimization:
   target: throughput_per_gpu
   constraints: {max_candidate_gpus: 64}
-optimizer: {algorithm: random, max_trials: 1296, parallelism: 4, candidate_timeout_seconds: 120.0, seed: 910}
+optimizer: {algorithm: random, max_trials: 1800, parallelism: 4, candidate_timeout_seconds: 120.0, seed: 910}

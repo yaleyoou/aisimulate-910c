@@ -9,7 +9,11 @@ pytestmark = pytest.mark.unit
 
 
 def campaign(width, latency, protocol):
-    identity = {"runtime": {"version": "0.5.22"}, "protocol": protocol, "serving_setup": {"environment": {}}}
+    identity = {
+        "runtime": {"version": "0.5.22", "hardware": "Ascend910_9382"},
+        "protocol": protocol,
+        "serving_setup": {"environment": {}},
+    }
     digest = hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     return {
         "report": {"identity": identity},

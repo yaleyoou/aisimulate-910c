@@ -179,8 +179,8 @@ A user-provided preset is a list of complete parallelism mappings:
 
 For `ascend910c` with the audited local GLM-5.2 ModelSlim checkpoint and
 SGLang0.5.22, `preset: default` uses the model's qualified shape catalog:
-attention TP4/8/16 with EP16/32 and MoE-TP1 (attention-DP=EP/TP), plus
-TP4/8/16 with MoE-TP16/32 and EP1 (attention-DP=MoE-TP/TP).
+attention TP1/2/4/8/16 with EP16/32 and MoE-TP1 (attention-DP=EP/TP), plus
+TP1/2/4/8/16 with MoE-TP16/32 and EP1 (attention-DP=MoE-TP/TP).
 All these layouts use PP1. The normal
 native memory check still applies. Replica counts and P:D combinations are
 generated from the total device budget, including asymmetric worker sizes.

@@ -18,11 +18,13 @@ def physical_curve(operation, row):
         return tuple(row[field] for field in ("operation", "phase", "local_heads", "execution_mode"))
     if operation == "pd":
         return tuple(row[field] for field in ("source_tp", "destination_tp", "page_layout"))
+    if operation == "dcp_attention":
+        return tuple(row[field] for field in ("phase", "local_heads", "dcp_size", "remap_topk", "execution_mode"))
     raise ValueError("Unsupported Ascend operator grid")
 
 
 def physical_coordinate(operation, row):
-    if operation == "attention":
+    if operation in ("attention", "dcp_attention"):
         return tuple(row[field] for field in ("active_batch", "padded_batch", "sequence_length", "prefix"))
     return row["m" if operation == "linear" else "tokens"]
 
@@ -44,11 +46,16 @@ def append_curves(operation, campaigns):
     runtime = campaigns[0]["metadata"]["runtime"]
     rows, decisions, owners, counts = [], [], set(), Counter()
     setup = None
+    hardware = None
     for index, campaign in enumerate(campaigns):
         if campaign["metadata"]["runtime"] != runtime:
             raise ValueError("Different runtime conditions cannot share a table")
         identities = collection_identities(campaign["report"])
         for identity in identities.values():
+            current_hardware = identity["runtime"].get("hardware")
+            if current_hardware is None or (hardware is not None and hardware != current_hardware):
+                raise ValueError("Different or missing hardware identities cannot share a table")
+            hardware = current_hardware
             current_setup = identity["serving_setup"]
             if setup is not None and setup != current_setup:
                 raise ValueError("Different serving setups cannot share a table")
@@ -83,7 +90,9 @@ def append_curves(operation, campaigns):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--operation", choices=("linear", "vector", "bmm", "attention", "pd"), required=True)
+    parser.add_argument(
+        "--operation", choices=("linear", "vector", "bmm", "attention", "pd", "dcp_attention"), required=True
+    )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("campaign", type=Path, nargs="+")
     args = parser.parse_args()

@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+schema_version: 2
+provenance: collected
+runtime:
+  framework: sglang
+  version: 0.5.22
+  image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+  source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+  abi: &id001
+    torch: 2.10.0+cpu
+    torch_npu: 2.10.0.post6
+    driver_version_info: 'Version=26.1.1
+
+      ascendhal_version=7.35.23
+
+      aicpu_version=1.0
+
+      tdt_version=1.0
+
+      log_version=1.0
+
+      prof_version=2.0
+
+      dvppkernels_version=1.1
+
+      tsfw_version=1.0
+
+      Innerversion=V100R001C10SPC009B220
+
+      compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+      compatible_version_fw=[7.0.0,9.9.9]
+
+      package_version=26.1.1
+
+      '
+tables:
+  ascend_attention_perf:
+    rows: 2577
+    status: complete
+    collections:
+    - collector_ref: 1071459d
+      collector_hash: sha256:2d61831c7c4a18f07721c093630b289f3dd1a9db36a3d551eab2779e2ce19fdf
+      case_plan_hash: sha256:33b006f890401f31a8231f1a5989e79183313b41e74692472444e0945c029eb1
+      collected_at: '2026-10-24T11:48:03.344494+00:00'
+      rows: 1707
+      classified_failures: 65
+      status: complete
+      source_campaign_rows: 1707
+      source_campaign_status: complete
+      runtime:
+        framework: sglang
+        version: 0.5.22
+        image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+        source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+        abi: *id001
+    - collector_ref: 5a5fb3052108dc9a0111ae52fbaa03a852e7db15
+      collector_hash: sha256:02ada3adde81d787b6a5a4c23b3ba0a16d6c5112c020bc1902cbd88e1e73c8fb
+      case_plan_hash: sha256:8ef44700252005a64cb2babc06c7ee007d7aaee4f23c359c51972ab943e56bab
+      collected_at: '2026-10-24T20:41:05.054373+00:00'
+      rows: 870
+      classified_failures: 16
+      status: complete
+      source_campaign_rows: 870
+      source_campaign_status: complete
+      runtime:
+        framework: sglang
+        version: 0.5.22
+        image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+        source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+        abi:
+          torch: 2.10.0+cpu
+          torch_npu: 2.10.0.post6
+          driver_version_info: 'Version=26.1.1
+
+            ascendhal_version=7.35.23
+
+            aicpu_version=1.0
+
+            tdt_version=1.0
+
+            log_version=1.0
+
+            prof_version=2.0
+
+            dvppkernels_version=1.1
+
+            tsfw_version=1.0
+
+            Innerversion=V100R001C10SPC009B220
+
+            compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+            compatible_version_fw=[7.0.0,9.9.9]
+
+            package_version=26.1.1
+
+            '

@@ -15,6 +15,7 @@ def main():
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--model", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--world-size", type=int, choices=(16, 32), default=32)
     args = parser.parse_args()
     raw = yaml.safe_load((args.repo / "examples/cli/ascend910c-glm52-pd-8k1k.yaml").read_text())
     raw["engine"]["model"] = args.model
@@ -27,7 +28,9 @@ def main():
         if key not in models:
             raw["engine"]["estimator_config"]["op_level"]["ascend"]["kv_transfer_page_layout"] = key[2]
             for role, tensor in zip(("prefill", "decode"), key[:2], strict=True):
-                raw["engine"]["workers"][role]["parallelism"].update(tensor=tensor, attention_data=16 // tensor)
+                raw["engine"]["workers"][role]["parallelism"].update(
+                    tensor=tensor, attention_data=args.world_size // tensor, moe_expert=args.world_size
+                )
             spec = prediction_to_replay_spec(CorePredictionConfig.model_validate(raw))
             deployment = spec.backend_deployment
             assert deployment.kv_transfer_provider == "measured"

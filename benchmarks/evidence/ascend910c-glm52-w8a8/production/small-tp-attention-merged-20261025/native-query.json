@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checked_measured_rows": 2577,
+  "max_abs_error_ms": 0.0,
+  "native_binary_sha256": "06111500f9af5313987e77f279da7da446423c7dcc6e704e7806773a6e3e8272",
+  "table_sha256": "e0bf6ec8bb525959b614852e236da3b1cb9fd3787befaab50c49d4e2d265ae49",
+  "preparation_ms": 3.031745000043884,
+  "first_query_ms": 12.69399598822929,
+  "subsequent_query_median_ms": 0.009509996743872762,
+  "scope": "Exact measured-row lookup, typed wire and CPU call cost; not interpolation/forward/serving accuracy"
+}

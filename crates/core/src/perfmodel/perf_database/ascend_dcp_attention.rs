@@ -24,7 +24,7 @@ pub struct AscendDcpAttentionKey {
 
 impl AscendDcpAttentionKey {
     pub fn validate(&self) -> Result<(), AicError> {
-        if !matches!(self.local_heads, 4 | 8 | 16)
+        if !matches!(self.local_heads, 4 | 8 | 16 | 32)
             || !matches!(self.dcp_size, 2 | 4 | 8 | 16)
             || self.local_heads * self.dcp_size > 64
             || !matches!(
