@@ -44,6 +44,7 @@ pub(crate) struct OfflineDisaggReplayConfig {
     pub(crate) num_prefill_workers: usize,
     pub(crate) num_decode_workers: usize,
     pub(crate) handoff_latency_ms: f64,
+    pub(crate) handoff_curve: Option<std::sync::Arc<crate::KvTransferCurve>>,
 }
 
 impl OfflineDisaggReplayConfig {
@@ -127,9 +128,9 @@ pub use core::{
     RequestIdentity, WorkerTopology,
 };
 #[doc(hidden)]
-pub use engine::ReplayRoleFactory;
-#[doc(hidden)]
 pub use engine::run_engine_handoff_conformance;
+#[doc(hidden)]
+pub use engine::{KvTransferProvider, ReplayRoleFactory};
 pub use engine::{
     ReplayEngineConfig, ReplayEngineFactory, ReplayRoleConfig, run_engine_replay,
     run_engine_replay_with_optional_role_timing, run_engine_replay_with_timing,

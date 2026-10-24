@@ -190,6 +190,7 @@ pub mod ascend_bmm;
 pub mod ascend_deepep;
 pub mod ascend_linear;
 pub mod ascend_moe_chain;
+pub mod ascend_pd;
 pub mod ascend_vector;
 pub mod attention;
 mod axis_curve;
@@ -265,6 +266,7 @@ pub struct PerfTables {
     pub ascend_vector: ascend_vector::AscendVectorTable,
     pub ascend_moe_chain: ascend_moe_chain::AscendMoeChainTable,
     pub ascend_deepep: ascend_deepep::AscendDeepEpTable,
+    pub ascend_pd: ascend_pd::AscendPdTable,
     pub dsa: DsaTable,
     pub msa: MsaTable,
     pub dsv4: Dsv4Table,
@@ -588,6 +590,11 @@ impl PerfDatabase {
                 ascend_deepep::AscendDeepEpTable::new(None)
             },
             dsa: DsaTable::with_sources(data_root.clone(), &resolver)?.with_backend(backend),
+            ascend_pd: if system == "ascend910c" && backend == "sglang" {
+                ascend_pd::AscendPdTable::with_sources(&data_root, &resolver)?
+            } else {
+                ascend_pd::AscendPdTable::new(None)
+            },
             dsv4: Dsv4Table::with_sources(data_root.clone(), &resolver)?,
             // Exact backend/version only: V41 module provenance must not be
             // inherited from legacy or sibling runtime measurements.

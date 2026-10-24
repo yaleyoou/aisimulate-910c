@@ -158,6 +158,7 @@ class BackendDeploymentSpec:
     # Per-worker tokenization: ``{"workers", "base_ms", "per_input_token_ms"}``.
     # Omitted from canonical JSON when unset, so existing spec identities hold.
     tokenization: dict[str, JSONValue] | None = field(default=None, metadata={OMIT_IF_NONE: True})
+    kv_transfer_provider: str | None = field(default=None, metadata={OMIT_IF_NONE: True})
 
 
 @dataclass(frozen=True)
@@ -342,6 +343,7 @@ class RunnerCapabilities:
     supports_grouped_kv_cache: bool = False
     supports_generic_speculation: bool = False
     supports_tokenization: bool = False
+    supports_measured_kv_transfer: bool = False
 
     def supports_backend_topology(self, backend: str, topology: str) -> bool:
         """Return whether a backend/topology pair is supported.
@@ -393,6 +395,11 @@ class RunnerCapabilities:
             raise ValueError(f"runner does not support execution mode {spec.execution_mode!r}")
         deployment = spec.backend_deployment
         is_afd = deployment.deployment_mode in {"afd", "afd+pd"}
+        if deployment.kv_transfer_provider is not None:
+            if deployment.kv_transfer_provider != "measured" or deployment.deployment_mode != "disagg":
+                raise ValueError("measured KV transfer requires a disaggregated deployment")
+            if not self.supports_measured_kv_transfer:
+                raise ValueError("runner does not support measured KV transfer; use --stack engine")
         if spec.workload.get("cached_prefix_tokens"):
             if is_afd:
                 raise ValueError("cached_prefix_tokens is unsupported for AFD")

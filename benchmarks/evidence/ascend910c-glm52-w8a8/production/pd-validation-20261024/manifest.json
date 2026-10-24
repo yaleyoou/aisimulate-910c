@@ -1,0 +1,67 @@
+[
+  {
+    "file": "aisim-pd-native-release.log",
+    "sha256": "ce477630a44521d306d5c82e5471839d1286ab02d58429f8d18cd6cb8b507e45",
+    "archive": "aisim-pd-native-release.log.gz"
+  },
+  {
+    "file": "aisim-pd-rust-tests.log",
+    "sha256": "e1efbb737a8857fd51edd2fb632ed670c8b0a803c790996cd9280e3994d943e6",
+    "archive": "aisim-pd-rust-tests.log.gz"
+  },
+  {
+    "file": "aisim-pd-python-tests.log",
+    "sha256": "03d8dec70921673df490f8394a7308af6524102e926e4a11345d8eb940c5f05e",
+    "archive": "aisim-pd-python-tests.log.gz"
+  },
+  {
+    "file": "aisim-pd-public-tests.log",
+    "sha256": "6e3ea3272fa0f8ad3de0be7533cc413cf6e7a11055136f65852cd4e373570a40",
+    "archive": "aisim-pd-public-tests.log.gz"
+  },
+  {
+    "file": "aisim-pd-public-tests-v2.log",
+    "sha256": "25c9f39cbd1de3a61dac51fbd55c5ae21512c9dadaa8d8122f05e17ead810d96",
+    "archive": "aisim-pd-public-tests-v2.log.gz"
+  },
+  {
+    "file": "aisim-pd-gpu-parity.log",
+    "sha256": "ac9b7682303befa06e51c58b3310f52a283259ad3f4ffb81600253e596232271",
+    "archive": "aisim-pd-gpu-parity.log.gz"
+  },
+  {
+    "file": "aisim-pd-native-query.log",
+    "sha256": "a38ecc8c16190e5d97ed77b141593107346af4ff7593c53278e6ed64d9f2fcac",
+    "archive": "aisim-pd-native-query.log.gz"
+  },
+  {
+    "file": "aisim-pd-native-query-v2.log",
+    "sha256": "a8b632fc8e89595b0aa750002d2f7e2c69791a5a870c070c32d9ed7a4c64112e",
+    "archive": "aisim-pd-native-query-v2.log.gz"
+  },
+  {
+    "file": "aisim-pd-canary.log",
+    "sha256": "3dc5d7e96763b10c32194cc91877cebb5d65de43cab18523cb9131f107b20735",
+    "archive": "aisim-pd-canary.log.gz"
+  },
+  {
+    "file": "aisim-pd-single.log",
+    "sha256": "2427fdb7e346e7edbe60dafbe3149a4da770453a363eaf227554ec4a3607bf10",
+    "archive": "aisim-pd-single.log.gz"
+  },
+  {
+    "file": "aisim-pd-search.log",
+    "sha256": "3d09693c8616106fba170f5717299a00d703f00584da8107a91b9725f09c6597",
+    "archive": "aisim-pd-search.log.gz"
+  },
+  {
+    "file": "aisim-pd-best-replay.log",
+    "sha256": "0a79c7cb55eb386de369b8f93578f1d3f02c8722411b70e3379e80403a159420",
+    "archive": "aisim-pd-best-replay.log.gz"
+  },
+  {
+    "file": "aisim-pd-format-final.log",
+    "sha256": "38d6a548369a152b9645167bc5f1acfa0a9c7d0d5131b9e32fe254bc29c8ea93",
+    "archive": "aisim-pd-format-final.log.gz"
+  }
+]

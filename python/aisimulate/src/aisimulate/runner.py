@@ -389,6 +389,7 @@ class EngineReplayRunnerFactory:
             supports_state_cache=True,
             supports_grouped_kv_cache=True,
             supports_tokenization=True,
+            supports_measured_kv_transfer=True,
             supported_trace_formats=(
                 "mooncake",
                 "mooncake-delta",
@@ -1077,6 +1078,8 @@ def _materialize_engine_execution_spec(
                 f"disaggregated prefill and decode must use the same backend: {prefill_backend!r} != {decode_backend!r}"
             )
         engine = {"prefill": prefill, "decode": decode}
+        if deployment.kv_transfer_provider is not None:
+            engine["kv_transfer_provider"] = deployment.kv_transfer_provider
         topology = {
             "kind": "disaggregated",
             "prefill": {

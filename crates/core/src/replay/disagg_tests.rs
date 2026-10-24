@@ -256,6 +256,7 @@ impl TestDisaggConfig {
         factory: ReplayEngineFactory,
     ) -> anyhow::Result<OfflineDisaggReplayConfig> {
         let engine = ReplayEngineConfig {
+            kv_transfer_provider: crate::replay::engine::KvTransferProvider::Bandwidth,
             kv_eviction_policy: crate::engine::KvEvictionPolicy::Lru,
             dp_size: 1,
             tensor_parallel_size: 1,
@@ -289,6 +290,7 @@ impl TestDisaggConfig {
             num_prefill_workers: self.num_prefill_workers,
             num_decode_workers: self.num_decode_workers,
             handoff_latency_ms: 0.0,
+            handoff_curve: None,
         })
     }
 }

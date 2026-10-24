@@ -599,6 +599,12 @@ impl Engine {
         &self.db
     }
 
+    pub(crate) fn has_ascend_glm_layout(&self) -> bool {
+        self.context_ops
+            .iter()
+            .any(|operation| matches!(operation, Op::AscendAttention(_)))
+    }
+
     /// Clear the empirical-provenance accumulator (start of a run). The PyO3
     /// boundary calls this at the top of every compute method so
     /// [`Self::last_provenance`] carries per-call semantics, mirroring

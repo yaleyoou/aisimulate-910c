@@ -1,0 +1,736 @@
+{
+  "schema": "aisimulate-ascend-pd-plan/v1",
+  "cases": [
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 128,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 1024,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 4096,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 8192,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 16384,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 4,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 128,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 1024,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 4096,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 8192,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 16384,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 4,
+      "destination_tp": 8,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 128,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 1024,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 4096,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 8192,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 16384,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 4,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 128,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 1024,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 4096,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 8192,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 16384,
+      "page_layout": "contiguous",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 128,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 1024,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 4096,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 8192,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "source_tp": 8,
+      "destination_tp": 8,
+      "tokens": 16384,
+      "page_layout": "fragmented",
+      "protocol": "sdma",
+      "active_requests": 1,
+      "ranks_per_node": 16,
+      "num_layers": 78,
+      "page_size": 128,
+      "reference_pool_tokens": 53248,
+      "component_widths": [
+        512,
+        64,
+        128
+      ],
+      "dtype": "bfloat16"
+    }
+  ],
+  "protocol": {
+    "warmup": 3,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "8229f60f6b7161193e1dd801ff5da4d1a241f3b1dd6a2a63d46ea5dd0e53675a",
+    "ascend_pd.yaml": "600eef3255d6280cf6144da0679ba3646e5be0b1409bf55e0e4186a7f5bd69d5"
+  },
+  "scope": "One request and actual MLA rank mapping; all receiver replicas move concurrently. Bootstrap/admission and concurrent-request contention excluded."
+}

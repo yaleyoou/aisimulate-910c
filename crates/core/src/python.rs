@@ -1314,6 +1314,7 @@ fn resolve_role_timing(
     worker_type: ForwardPassWorkerType,
     capture_performance_diagnostics: bool,
     coverage_sources: &mut Vec<(ForwardPassWorkerType, Arc<ForwardPassPerfModel>)>,
+    canonical_for_transfer: Option<&mut Option<Arc<ForwardPassPerfModel>>>,
 ) -> Result<Option<Arc<dyn TimingModel>>> {
     let TimingModelConfig::External { provider, config } = role.rank.timing_model.clone() else {
         return Ok(None);
@@ -1356,6 +1357,9 @@ fn resolve_role_timing(
         && model.fpm_query_coverage()?.is_some()
     {
         coverage_sources.push((worker_type, Arc::clone(model)));
+    }
+    if let Some(destination) = canonical_for_transfer {
+        *destination = timing.diagnostic_model.clone();
     }
     if !capture_performance_diagnostics {
         timing.diagnostic_model = None;
@@ -2391,6 +2395,7 @@ fn execute_json(payload: &str, capture_artifacts: bool) -> Result<String> {
                 ForwardPassWorkerType::Aggregated,
                 capture_performance_diagnostics,
                 &mut coverage_sources,
+                None,
             )?;
             if let Some(timing) = timing.as_ref() {
                 power_sources.push(TimingPowerSource::new(Arc::clone(timing), &role.rank));
@@ -2487,12 +2492,17 @@ fn execute_json(payload: &str, capture_artifacts: bool) -> Result<String> {
             let decode_capacity_is_explicit = decode
                 .num_gpu_blocks_is_explicit
                 .unwrap_or_else(|| role_capacity_is_explicit(&serialized_engine, Some("decode")));
+            let measured_transfer =
+                engine_config.kv_transfer_provider == crate::replay::KvTransferProvider::Measured;
+            let mut source_model = None;
+            let mut destination_model = None;
             let prefill_timing = resolve_role_timing(
                 &mut prefill,
                 prefill_capacity_is_explicit,
                 ForwardPassWorkerType::Prefill,
                 capture_performance_diagnostics,
                 &mut coverage_sources,
+                measured_transfer.then_some(&mut source_model),
             )?;
             let decode_timing = resolve_role_timing(
                 &mut decode,
@@ -2500,7 +2510,23 @@ fn execute_json(payload: &str, capture_artifacts: bool) -> Result<String> {
                 ForwardPassWorkerType::Decode,
                 capture_performance_diagnostics,
                 &mut coverage_sources,
+                measured_transfer.then_some(&mut destination_model),
             )?;
+            let transfer_curve = if measured_transfer {
+                ensure!(prefill.rank.kv_transfer_bandwidth.is_none() && decode.rank.kv_transfer_bandwidth.is_none(),
+                        "measured KV transfer cannot also specify bandwidth");
+                Some(source_model.as_ref().context("measured KV transfer requires canonical prefill timing")?
+                    .kv_transfer_curve(destination_model.as_ref().context("measured KV transfer requires canonical decode timing")?)?)
+            } else {
+                None
+            };
+            if let Some(curve) = &transfer_curve {
+                prediction_provenance.insert("kv_transfer".into(), serde_json::json!({
+                    "estimator": "measured", "timing_source": "ascend_memfabric",
+                    "data_version": "0.5.22", "data_identity": curve.metadata(),
+                    "data_version_unavailable_reason": null
+                }));
+            }
             if let Some(timing) = prefill_timing.as_ref() {
                 power_sources.push(TimingPowerSource::new(Arc::clone(timing), &prefill.rank));
             }
@@ -2548,12 +2574,13 @@ fn execute_json(payload: &str, capture_artifacts: bool) -> Result<String> {
                 .as_ref()
                 .and_then(|built| built.weka_nested_timestamp_basis);
             let input = built_input.map(|built| built.input);
+            let mut factory = ReplayEngineFactory::with_optional_role_timing_models(prefill_timing, decode_timing);
+            if let Some(curve) = transfer_curve {
+                factory = factory.with_kv_transfer_curve(curve);
+            }
             run_with_input(
                 spec,
-                ReplayEngineFactory::with_optional_role_timing_models(
-                    prefill_timing,
-                    decode_timing,
-                ),
+                factory,
                 input,
                 capture_artifacts,
                 determinism,

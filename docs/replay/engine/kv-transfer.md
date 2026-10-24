@@ -28,6 +28,7 @@ YAML above always resolves the bytes.
 
 | Knob | Default | Recommend | Rules |
 |---|---|---|---|
+| `engine.kv_transfer.type` | `bandwidth` | fixed | `bandwidth` uses the scalar bandwidth below; `measured` obtains a bounded curve from the canonical prefill/decode performance models. The native engine stack currently supports measured Ascend GLM ModelSlim transfers. |
 | `engine.kv_transfer.bytes_per_token` | `auto` | fixed | Positive integer or `auto`. Bytes moved per prompt token. `auto` derives it from the model and the prefill role's TP/PP/MoE shape. It can differ from either worker's `kv_cache.bytes_per_token`. With `state_cache`, `auto` uses the prefill role's resolved `kv_cache.bytes_per_token`. |
 | `engine.kv_transfer.bandwidth_gb_per_second` | `null` | fixed | Positive, in decimal GB/s. `null` means no transfer delay, not a zero-bandwidth link. |
 | `engine.kv_transfer.timing_mode` | `destination_missing` | fixed | `destination_missing` charges only the prompt KV the chosen decode worker does not already hold in its cache. `full_prompt` charges the whole prompt. |
@@ -35,7 +36,23 @@ YAML above always resolves the bytes.
 All fields accept only concrete values; `recommend` does not search them.
 `kv_transfer` is rejected in `aggregated` and `afd` modes.
 
-Transfer time in seconds is
+With `type: measured`, keep `bytes_per_token: auto` and omit bandwidth. Both
+language roles must use default canonical op-level timing on the same Ascend
+hardware, SGLang version and local GLM ModelSlim model. The source and
+destination attention TP select the actual sender/receiver mapping. The
+qualified role layout is one 16-device node with EP16, attention TP4/8 and
+128-token KV pages. Multi-node workers require their own transfer measurements.
+The shared `estimator_config.op_level.ascend.kv_transfer_page_layout` selects
+`contiguous` (default) or `fragmented`; both role configurations must agree.
+The source model prepares the measured curve once and Replay shares it across
+handoffs. Destination reservation and source KV retention keep their existing
+ordering. Missing-token counts round up to 128-token pages, zero transfer is
+free, and a query outside measured bounds fails without a bandwidth fallback.
+The runtime records the selected mapping and measurement identity in transfer
+provenance. Bootstrap, per-layer streaming and contention between requests
+remain outside this calibration.
+
+For `type: bandwidth`, transfer time in seconds is
 
 ```text
 (transferred_tokens × bytes_per_token + state_bytes) / (bandwidth_gb_per_second × 10^9)

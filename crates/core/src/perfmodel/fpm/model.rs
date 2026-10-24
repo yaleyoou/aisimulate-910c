@@ -1066,6 +1066,88 @@ impl ForwardPassPerfModel {
         }
     }
 
+    pub fn kv_transfer_curve(
+        &self,
+        destination: &Self,
+    ) -> Result<Arc<crate::KvTransferCurve>, AicError> {
+        let source = self.provenance.as_ref().ok_or_else(|| {
+            AicError::InvalidEngineConfig("KV transfer requires canonical model provenance".into())
+        })?;
+        let target = destination.provenance.as_ref().ok_or_else(|| {
+            AicError::InvalidEngineConfig("KV transfer requires destination provenance".into())
+        })?;
+        let source_config = &source.config;
+        let target_config = &target.config;
+        if source.selected_estimation_mode != EstimationMode::OpLevel
+            || target.selected_estimation_mode != EstimationMode::OpLevel
+            || source_config.worker_type != ForwardPassWorkerType::Prefill
+            || target_config.worker_type != ForwardPassWorkerType::Decode
+            || source_config.system != "ascend910c"
+            || target_config.system != source_config.system
+            || source_config.backend.as_str() != "sglang"
+            || target_config.backend != source_config.backend
+            || source_config.backend_version != target_config.backend_version
+            || source_config.model != target_config.model
+        {
+            return Err(AicError::InvalidEngineConfig(
+                "measured KV transfer requires matching Ascend GLM op-level prefill/decode models"
+                    .into(),
+            ));
+        }
+        let source_engine = self.native_engine().ok_or_else(|| {
+            AicError::InvalidEngineConfig("KV transfer requires a native source model".into())
+        })?;
+        let target_engine = destination.native_engine().ok_or_else(|| {
+            AicError::InvalidEngineConfig("KV transfer requires a native destination model".into())
+        })?;
+        if !source_engine.has_ascend_glm_layout() || !target_engine.has_ascend_glm_layout() {
+            return Err(AicError::InvalidEngineConfig(
+                "unqualified model KV layout for Ascend transfer".into(),
+            ));
+        }
+        if [source_config, target_config].iter().any(|config| {
+            config.tp * config.attention_dp != 16
+                || config.pp != 1
+                || config.moe_ep_size != Some(16)
+                || config.moe_tp_size != Some(1)
+                || config.kv_block_size != Some(128)
+        }) {
+            return Err(AicError::InvalidEngineConfig(
+                "measured Ascend KV transfer requires one 16-device node per role, EP16 and 128-token pages"
+                    .into(),
+            ));
+        }
+        let source_options = source_config
+            .estimator_config
+            .op_level
+            .ascend
+            .as_ref()
+            .ok_or_else(|| {
+                AicError::InvalidEngineConfig("missing resolved Ascend options".into())
+            })?;
+        let target_options = target_config
+            .estimator_config
+            .op_level
+            .ascend
+            .as_ref()
+            .ok_or_else(|| {
+                AicError::InvalidEngineConfig("missing destination Ascend options".into())
+            })?;
+        if source_options.kv_transfer_page_layout != target_options.kv_transfer_page_layout {
+            return Err(AicError::InvalidEngineConfig(
+                "measured KV transfer requires matching role page-layout assumptions".into(),
+            ));
+        }
+        source_engine
+            .database()
+            .ascend_pd
+            .curve(&crate::perf_database::ascend_pd::AscendPdKey {
+                source_tp: source_config.tp,
+                destination_tp: target_config.tp,
+                page_layout: source_options.kv_transfer_page_layout.clone(),
+            })
+    }
+
     /// Exact immutable construction identity and selected systems root.
     pub fn provenance(&self) -> Option<&ForwardPassPerfProvenance> {
         self.provenance.as_ref()

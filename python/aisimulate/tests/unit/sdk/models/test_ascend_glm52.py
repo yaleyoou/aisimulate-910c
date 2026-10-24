@@ -4,7 +4,7 @@ import pytest
 
 from aisimulate_core.sdk.config_builders import build_model_config
 from aisimulate_core.sdk.engine import _engine_config_dict
-from aisimulate_core.sdk.errors import InvalidEngineConfigurationError
+from aisimulate_core.sdk.errors import InvalidEngineConfigurationError, PerfDataNotAvailableError
 from aisimulate_core.sdk.fpm_config import OpLevelCompileConfig
 from aisimulate_core.sdk.models import get_model
 from tests.unit.sdk.ascend_fixtures import write_glm52_modelslim
@@ -106,9 +106,64 @@ def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path
         nextn=0,
     )
     saved = json.loads(engine["extra"]["estimator_config"])
-    assert saved["op_level"]["ascend"] == {"shared_expert_overlap": False, "routing": "balanced"}
+    assert saved["op_level"]["ascend"] == {
+        "shared_expert_overlap": False,
+        "routing": "balanced",
+        "kv_transfer_page_layout": "contiguous",
+    }
 
 
 def test_model_name_and_w8a8_label_cannot_replace_checkpoint_metadata():
     with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
         get_model("zai-org/GLM-5.2", configuration(), "sglang")
+
+
+def transfer_model(model_path, role, **overrides):
+    from aisimulate_core.sdk.rust_engine_step import RustForwardPassPerfModel
+
+    return RustForwardPassPerfModel.best_available(
+        {
+            "model": model_path,
+            "system": "ascend910c",
+            "backend": "sglang",
+            "backend_version": "0.5.22",
+            "worker_type": role,
+            "tp": 8,
+            "attention_dp": 2,
+            "moe_tp_size": 1,
+            "moe_ep_size": 16,
+            "kv_block_size": 128,
+            "gemm_quant_mode": "w8a8",
+            "moe_quant_mode": "w8a8_dynamic",
+            "kvcache_quant_mode": "bfloat16",
+            "fmha_quant_mode": "bfloat16",
+            "estimation_mode": "op_level",
+            **overrides,
+        }
+    )
+
+
+def test_canonical_pd_model_selects_measured_mapping_and_rejects_unknown_geometry(model_path):
+    source = transfer_model(model_path, "prefill")
+    target = transfer_model(model_path, "decode")
+    metadata = source.kv_transfer_metadata(target)
+    assert metadata["key"] == {"source_tp": 8, "destination_tp": 8, "page_layout": "contiguous"}
+    assert metadata["bytes_per_token_per_replica"] == 109824
+    assert source.estimate_kv_transfer_time_ms(target, 0) == 0
+    latency = source.estimate_kv_transfer_time_ms(target, 8192)
+    assert 7.7 < latency < 7.9
+    assert source.estimate_kv_transfer_time_ms(target, 8191) == latency
+    with pytest.raises(PerfDataNotAvailableError, match="outside measured"):
+        source.estimate_kv_transfer_time_ms(target, 32768)
+    with pytest.raises(ValueError, match="matching Ascend"):
+        target.estimate_kv_transfer_time_ms(source, 8192)
+    multi_node = transfer_model(model_path, "decode", attention_dp=4, moe_ep_size=32)
+    with pytest.raises(ValueError, match="one 16-device node per role"):
+        source.estimate_kv_transfer_time_ms(multi_node, 8192)
+    fragmented = transfer_model(
+        model_path,
+        "decode",
+        estimator_config={"op_level": {"ascend": {"kv_transfer_page_layout": "fragmented"}}},
+    )
+    with pytest.raises(ValueError, match="matching role page-layout"):
+        source.estimate_kv_transfer_time_ms(fragmented, 8192)

@@ -258,6 +258,7 @@ pub struct HandoffCoordinatorCore {
     transfer: TransferProgress,
     completion: Option<HandoffCompletion>,
     fallback_transfer_delay_ms: f64,
+    transfer_curve: Option<std::sync::Arc<crate::KvTransferCurve>>,
 }
 
 impl HandoffCoordinatorCore {
@@ -282,7 +283,16 @@ impl HandoffCoordinatorCore {
             transfer: TransferProgress::default(),
             completion: None,
             fallback_transfer_delay_ms,
+            transfer_curve: None,
         }
+    }
+
+    pub(crate) fn set_transfer_curve(
+        &mut self,
+        curve: Option<std::sync::Arc<crate::KvTransferCurve>>,
+    ) {
+        assert!(!self.actions.started);
+        self.transfer_curve = curve;
     }
 
     pub fn start(&mut self) -> Result<Vec<IssuedHandoffAction>> {
@@ -446,7 +456,6 @@ impl HandoffCoordinatorCore {
             return Ok(vec![self.issue_submit_prefill()]);
         }
         if self.source.held && self.destination.reserved && !self.transfer.issued {
-            self.transfer.issued = true;
             let transfer_timing = self
                 .source
                 .transfer_timing
@@ -455,14 +464,26 @@ impl HandoffCoordinatorCore {
                 .destination
                 .transferable_prompt_tokens
                 .expect("reserved destination must report its transferable footprint");
-            return Ok(vec![
-                self.issue(HandoffAction::StartTransfer {
-                    handoff_id: self.handoff_id,
-                    delay_ms: transfer_timing
-                        .delay_ms(transferable_prompt_tokens)
-                        .unwrap_or(self.fallback_transfer_delay_ms),
-                }),
-            ]);
+            let delay_ms = if let Some(curve) = &self.transfer_curve {
+                let tokens = match transfer_timing.mode {
+                    crate::engine::TransferTimingMode::FullPrompt => {
+                        transfer_timing.full_prompt_tokens
+                    }
+                    crate::engine::TransferTimingMode::DestinationMissing => {
+                        transferable_prompt_tokens
+                    }
+                };
+                curve.latency_ms(tokens)?
+            } else {
+                transfer_timing
+                    .delay_ms(transferable_prompt_tokens)
+                    .unwrap_or(self.fallback_transfer_delay_ms)
+            };
+            self.transfer.issued = true;
+            return Ok(vec![self.issue(HandoffAction::StartTransfer {
+                handoff_id: self.handoff_id,
+                delay_ms,
+            })]);
         }
         if self.transfer.completed && !self.destination.activation_issued {
             self.destination.activation_issued = true;
@@ -598,12 +619,22 @@ mod tests {
     use uuid::Uuid;
 
     fn start_transfer_delay(timing: HandoffTransferTiming, fallback_ms: f64) -> f64 {
+        start_transfer_with_curve(timing, fallback_ms, None, 3).unwrap()
+    }
+
+    fn start_transfer_with_curve(
+        timing: HandoffTransferTiming,
+        fallback_ms: f64,
+        curve: Option<std::sync::Arc<crate::KvTransferCurve>>,
+        missing_tokens: usize,
+    ) -> Result<f64> {
         let handoff_id = HandoffId::new(Uuid::from_u128(1));
         let mut coordinator = HandoffCoordinatorCore::new_with_fallback(
             handoff_id,
             HandoffOrder::SourceFirst,
             fallback_ms,
         );
+        coordinator.set_transfer_curve(curve);
         let submit = coordinator.start().unwrap().remove(0);
         assert!(matches!(submit.action, HandoffAction::SubmitPrefill { .. }));
         assert!(
@@ -632,14 +663,42 @@ mod tests {
         let transfer = coordinator
             .on_fact(HandoffFact::DestinationReserved {
                 handoff_id,
-                transferable_prompt_tokens: 3,
-            })
-            .unwrap()
+                transferable_prompt_tokens: missing_tokens,
+            })?
             .remove(0);
         match transfer.action {
-            HandoffAction::StartTransfer { delay_ms, .. } => delay_ms,
+            HandoffAction::StartTransfer { delay_ms, .. } => Ok(delay_ms),
             action => panic!("expected transfer action, got {action:?}"),
         }
+    }
+
+    #[test]
+    fn measured_curve_uses_destination_footprint_and_never_bandwidth_fallback() {
+        let curve = crate::KvTransferCurve::test_curve();
+        let timing = HandoffTransferTiming {
+            mode: TransferTimingMode::DestinationMissing,
+            full_prompt_tokens: 256,
+            kv_bytes_per_token: None,
+            state_bytes: 0,
+            bandwidth_gb_s: None,
+        };
+        assert_eq!(
+            start_transfer_with_curve(timing, 99.0, Some(curve.clone()), 0).unwrap(),
+            0.0
+        );
+        assert_eq!(
+            start_transfer_with_curve(timing, 99.0, Some(curve.clone()), 3).unwrap(),
+            1.0
+        );
+        let full = HandoffTransferTiming {
+            mode: TransferTimingMode::FullPrompt,
+            ..timing
+        };
+        assert_eq!(
+            start_transfer_with_curve(full, 99.0, Some(curve.clone()), 3).unwrap(),
+            3.0
+        );
+        assert!(start_transfer_with_curve(timing, 99.0, Some(curve), 300).is_err());
     }
 
     #[test]

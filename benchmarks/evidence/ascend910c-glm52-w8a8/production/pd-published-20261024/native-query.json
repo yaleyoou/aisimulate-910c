@@ -1,0 +1,441 @@
+{
+  "scope": "published-table ingestion and canonical query, not independent serving accuracy",
+  "rows_checked": 32,
+  "mappings_checked": 8,
+  "metadata": [
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "contiguous",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "fragmented",
+        "source_tp": 8
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "contiguous",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 8,
+        "page_layout": "fragmented",
+        "source_tp": 4
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "contiguous",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "fragmented",
+        "source_tp": 8
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 128,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "contiguous",
+        "source_tp": 4
+      },
+      "maximum_tokens": 16384,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    },
+    {
+      "bytes_per_token_per_replica": 109824,
+      "key": {
+        "destination_tp": 4,
+        "page_layout": "fragmented",
+        "source_tp": 4
+      },
+      "maximum_tokens": 8192,
+      "minimum_tokens": 1024,
+      "page_size": 128,
+      "runtime_identity_sha256": "e86e57a0d655a7e7923a01890201e5371f6bc4b5e78ed9fc95f01d0d2ac9a29f",
+      "scope": "isolated request with source-selected sender fanout; no bootstrap or request contention",
+      "source": "measured_ascend_memfabric"
+    }
+  ],
+  "rows": [
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.0157929975539446,
+      "queried_ms": 2.0157929975539446
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.542512993793935,
+      "queried_ms": 4.542512993793935
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.781459979014471,
+      "queried_ms": 7.781459979014471
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.365606009960175,
+      "queried_ms": 14.365606009960175
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 9.601630998076871,
+      "queried_ms": 9.601630998076871
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 33.334375999402255,
+      "queried_ms": 33.334375999402255
+    },
+    {
+      "mapping": [
+        8,
+        8,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 66.33200799115002,
+      "queried_ms": 66.33200799115002
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.7356510108802468,
+      "queried_ms": 2.7356510108802468
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 3.9745959802530706,
+      "queried_ms": 3.9745959802530706
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 8.944083005189896,
+      "queried_ms": 8.944083005189896
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 15.52021797397174,
+      "queried_ms": 15.52021797397174
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 29.13666600943543,
+      "queried_ms": 29.13666600943543
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 2.9356640006881207,
+      "queried_ms": 2.9356640006881207
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 17.283058987231925,
+      "queried_ms": 17.283058987231925
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 66.43550598528236,
+      "queried_ms": 66.43550598528236
+    },
+    {
+      "mapping": [
+        4,
+        8,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 130.41924400022253,
+      "queried_ms": 130.41924400022253
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.0210029906593263,
+      "queried_ms": 2.0210029906593263
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.482652002479881,
+      "queried_ms": 4.482652002479881
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.745260023511946,
+      "queried_ms": 7.745260023511946
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.379315980477259,
+      "queried_ms": 14.379315980477259
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 128,
+      "measured_ms": 1.356245018541813,
+      "queried_ms": 1.356245018541813
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.530979015631601,
+      "queried_ms": 8.530979015631601
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 32.849819981493056,
+      "queried_ms": 32.849819981493056
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 65.35446498310193,
+      "queried_ms": 65.35446498310193
+    },
+    {
+      "mapping": [
+        8,
+        4,
+        "fragmented"
+      ],
+      "tokens": 16384,
+      "measured_ms": 131.11971199396066,
+      "queried_ms": 131.11971199396066
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 1024,
+      "measured_ms": 2.056313998764381,
+      "queried_ms": 2.056313998764381
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 4096,
+      "measured_ms": 4.508202022407204,
+      "queried_ms": 4.508202022407204
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 8192,
+      "measured_ms": 7.794131000991911,
+      "queried_ms": 7.794131000991911
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "contiguous"
+      ],
+      "tokens": 16384,
+      "measured_ms": 14.400396990822628,
+      "queried_ms": 14.400396990822628
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 1024,
+      "measured_ms": 8.536448993254453,
+      "queried_ms": 8.536448993254453
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 4096,
+      "measured_ms": 32.84926200285554,
+      "queried_ms": 32.84926200285554
+    },
+    {
+      "mapping": [
+        4,
+        4,
+        "fragmented"
+      ],
+      "tokens": 8192,
+      "measured_ms": 65.12909100274555,
+      "queried_ms": 65.12909100274555
+    }
+  ]
+}

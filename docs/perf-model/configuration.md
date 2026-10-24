@@ -208,6 +208,7 @@ explicit Ascend controls.
 | --- | --- | --- |
 | `routing` | `balanced` | Uses the measured synthetic balanced expert-count profile. Other distributions are not yet supported by the complete model composition. |
 | `shared_expert_overlap` | `true` | Overlaps the shared expert with routed TopK/dispatch/compute/combine work. `false` adds the two streams serially. |
+| `kv_transfer_page_layout` | `contiguous` | Selects the measured PD page pattern: `contiguous` or `fragmented`. Both role models must agree; applies when `engine.kv_transfer.type: measured`. |
 
 The GLM adapter requires the local checkpoint's `config.json` and
 `quant_model_description.json`. It validates the full ModelSlim precision

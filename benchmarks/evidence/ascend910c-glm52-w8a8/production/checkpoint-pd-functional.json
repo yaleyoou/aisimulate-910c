@@ -1,0 +1,40 @@
+{
+  "research": {
+    "pd_transport_audit": {
+      "status": "published_and_integrated_into_canonical_models_and_request_replay",
+      "grid": "40 cases attempted,32 stable rows,8 CV exclusions; actual MemFabric1.2.1 SDMA,32+19 nodes,source/destinationTP4/8,continuous/fragmented pages,128..16384tokens.32 exact native queries passed.",
+      "validation": "Single8192/1024 request source-hold interval7.781459979ms equals measured TP8to8 transfer.16requests/concurrency4 all complete.2041Rust tests,916publiccaller tests,9newfeature checks,390GPUparity117.37s passed.",
+      "scope": "One16-device node per role,EP16; isolated-transfer curve excludes bootstrap/streaming/concurrent-link contention. Accuracy tuning deferred.",
+      "active_jobs": []
+    },
+    "canonical_glm_forward": {
+      "remaining": "Freeze replay regression, make CPU CLI runtime durable, finish user-facing usage and bounded search documentation."
+    },
+    "pd_recommendation": {
+      "status": "48_of_48_candidates_completed_without_failures",
+      "domain": "attentionTP4/8,ADP4/2,EP16;P/Dreplicas1/2;concurrency8/16/32;budget64devices;prefillchunk4096;8kinput1koutput64requests;throughput_per_gpu objective.",
+      "saved_candidate": "Best saved YAML replayed through standard predict successfully. Predictions are not measured serving metrics; best is relative to the finite declared domain."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "pd_table": {"path":"production/pd-published-20261024/ascend_pd_perf.parquet","kind":"file","scope":"collection"},
+        "pd_native_queries": {"path":"production/pd-published-20261024/native-query.json","kind":"file","scope":"validation"},
+        "pd_engine_canary": {"path":"production/pd-engine-canary-20261024/prediction.json","kind":"file","scope":"validation"},
+        "pd_search": {"path":"production/pd-search-20261024/recommendation.json","kind":"file","scope":"validation"},
+        "pd_best_replay": {"path":"production/pd-best-replay-20261024/prediction.json","kind":"file","scope":"validation"},
+        "pd_validation_manifest": {"path":"production/pd-validation-20261024/manifest.json","kind":"file","scope":"validation"}
+      },
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": [
+          "Formal direct-FPM profile remains unaccepted; authorized operator-level prediction/recommendation works separately.",
+          "Durable CLI environment and pinned replay regression pending; serving accuracy calibration deferred by user."
+        ],
+        "next_action": "Freeze functional PD implementation, qualify unchanged legacy replay and deliver reproducible local runtime and commands."
+      }
+    }
+  }
+}

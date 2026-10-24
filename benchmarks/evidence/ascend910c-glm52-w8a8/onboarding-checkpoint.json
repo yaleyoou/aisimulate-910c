@@ -1205,6 +1205,54 @@
           "scope": "validation",
           "sha256": "b72e220832949202da141ebfb6d54999a9ec448ee2cd77b1621d6feb77638166"
         },
+        "pd_best_replay": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-best-replay-20261024/prediction.json",
+          "scope": "validation",
+          "sha256": "2b876fd50190ebb1a0981aab00f85722b907be37fdc05de323e319407b3fc381"
+        },
+        "pd_engine_canary": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-engine-canary-20261024/prediction.json",
+          "scope": "validation",
+          "sha256": "363232ab18db13cf6c4a2c6a17c370b9bcc87ece556f4500efa0aebc5d862f58"
+        },
+        "pd_native_queries": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-published-20261024/native-query.json",
+          "scope": "validation",
+          "sha256": "f998e7407b492c7b7cee9d18b0715e1c7a1994a26c625fb43479faaeb9bddbaa"
+        },
+        "pd_search": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-search-20261024/recommendation.json",
+          "scope": "validation",
+          "sha256": "8b136d0a699ed712f950c15da4ea9bae5906ff5d21f051a761147a96de34c4ba"
+        },
+        "pd_table": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/pd-published-20261024/ascend_pd_perf.parquet",
+          "scope": "collection",
+          "sha256": "06664fa4a089e89da05b411f151b68daacddaa50b9789c465af5f6677c371f73"
+        },
+        "pd_validation_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/pd-validation-20261024/manifest.json",
+          "scope": "validation",
+          "sha256": "29cd4a69635aa7288da303eb0608dc67d3506116f0ec907029922c6b81b98de3"
+        },
         "production_foundation_validation": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -1320,10 +1368,10 @@
       },
       "progress": {
         "blockers": [
-          "Formal direct-FPM profile remains unaccepted; user-authorized operator-level adaptation is separate.",
-          "PD transfer table/API and recommendation search still need integration; serving accuracy calibration is deferred by user."
+          "Formal direct-FPM profile remains unaccepted; authorized operator-level prediction/recommendation works separately.",
+          "Durable CLI environment and pinned replay regression pending; serving accuracy calibration deferred by user."
         ],
-        "next_action": "Publish the actual MemFabric transfer grid, integrate request-level PD timing, finish standard predict/recommend examples and commits.",
+        "next_action": "Freeze functional PD implementation, qualify unchanged legacy replay and deliver reproducible local runtime and commands.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -1535,7 +1583,7 @@
       "engine_canary": "8requests,concurrency2,8192input/1024output;allcompleted;meanTTFT2642.412883ms,TPOT108.555693ms,18.013123outputtokens/s. Functionalpredictiononly,notmeasuredservingaccuracy.",
       "precision_memory": "Resident52,471,997,948bytesmatchesactualper-rankinventory. Quantizationauxiliaryvectors,retainedMLAoriginalweightsandoneRoPEcacheaccounted. Staticruntimeother937,753,092bytesmeasured;SDK20%marginretained.",
       "prefill_per_dp_batch1_tokens8192_ms": 2437.2778224657786,
-      "remaining": "FinishPDtimingAPI/replayintegration,recommendsearchanddurableruntimeentrypoint.",
+      "remaining": "Freeze replay regression, make CPU CLI runtime durable, finish user-facing usage and bounded search documentation.",
       "resident_parameter_bytes": 52471997948,
       "scope": "Uniform attention-DP work and balanced synthetic expert routing. Exactresidentinventorymatch;notservingaccuracyqualification.",
       "status": "functional_native_op_level_and_engine_prediction",
@@ -1869,14 +1917,21 @@
       "status": "Source mapping and observed United kernel selection established for exact 8192/1024 single request.",
       "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
     },
+    "pd_recommendation": {
+      "domain": "attentionTP4/8,ADP4/2,EP16;P/Dreplicas1/2;concurrency8/16/32;budget64devices;prefillchunk4096;8kinput1koutput64requests;throughput_per_gpu objective.",
+      "saved_candidate": "Best saved YAML replayed through standard predict successfully. Predictions are not measured serving metrics; best is relative to the finite declared domain.",
+      "status": "48_of_48_candidates_completed_without_failures"
+    },
     "pd_transport_audit": {
       "active_jobs": [],
-      "grid": "Source/destinationTP4/8,fivepage-alignedlengths128..16384,contiguous/fragmentedpages;all32processespresent,oneactualrequest. Allfourtopologiescompleted10cases;inspectqualitybeforepublishing.",
+      "grid": "40 cases attempted,32 stable rows,8 CV exclusions; actual MemFabric1.2.1 SDMA,32+19 nodes,source/destinationTP4/8,continuous/fragmented pages,128..16384tokens.32 exact native queries passed.",
       "layout": "AscendKVManager3bufferDSAlayout;PP1send_kvcache groupscontiguouspagesandbatchesallkv_data_ptrs. Registrationmerges2MiBalignedranges. Needactualrankmappingandtransfermeasurements.",
       "probes": "ActualNPUMLATokenToKVPool/AscendKVManager.send_kvcache withmemfabric1.2.1SDMA.14,057,472bytes128tokens=1.261934ms;899,678,208bytes8192tokens=7.756787ms;fullpayloadSHAandpage0guardpassbefore/after. No-transfercontrolrejected.",
       "runtime": "PinnedSGLangAscendTransferEngine usesmemfabric-hybrid1.2.1, defaultprotocolsdma;actualoldPDscriptuses--disaggregation-transfer-backendascend.",
+      "scope": "One16-device node per role,EP16; isolated-transfer curve excludes bootstrap/streaming/concurrent-link contention. Accuracy tuning deferred.",
       "source": "collector/sglang/ascend_pd.py callsactualrankmappingandmemorypool/sendpath;bootstrap/admissionandconcurrent-requestcontentionexcluded.",
-      "status": "rank_pair_probes_and_full40case_grid_completed"
+      "status": "published_and_integrated_into_canonical_models_and_request_replay",
+      "validation": "Single8192/1024 request source-hold interval7.781459979ms equals measured TP8to8 transfer.16requests/concurrency4 all complete.2041Rust tests,916publiccaller tests,9newfeature checks,390GPUparity117.37s passed."
     },
     "phase1_handoff": {
       "confidence": "High for local inventory and single-chip measurements; communication repeatability partial; production integration unresolved.",
@@ -2023,7 +2078,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 51,
+  "revision": 52,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

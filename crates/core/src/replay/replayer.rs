@@ -551,6 +551,7 @@ impl<C: ReplayComposition> Replayer<C> {
                     num_prefill_workers: prefill.initial_workers,
                     num_decode_workers: decode.initial_workers,
                     handoff_latency_ms: *handoff_latency_ms,
+                    handoff_curve: self.factory.kv_transfer_curve(),
                 };
                 let mut runtime = DisaggRuntimeImpl::<
                     PlacementPolicyBoundary<C::DisaggregatedPlacement>,

@@ -292,6 +292,9 @@ def _deployment(
         ),
         num_prefill_workers=prefill.parallelism.replicas,
         num_decode_workers=decode.parallelism.replicas,
+        kv_transfer_provider="measured"
+        if engine.kv_transfer is not None and engine.kv_transfer.type == "measured"
+        else None,
         **common,
     )
 

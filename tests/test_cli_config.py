@@ -1195,6 +1195,61 @@ def _pd_hardware_config(*, recommend=False, **overrides):
     return raw
 
 
+@pytest.mark.parametrize("timing_mode", ["full_prompt", "destination_missing"])
+def test_measured_pd_survives_recommendation_saved_yaml_and_predict(monkeypatch, timing_mode):
+    import yaml
+
+    from aisimulate.compiler import prediction_to_replay_spec
+    from aisimulate.runner import EngineReplayRunnerFactory
+
+    monkeypatch.setattr("aisimulate.compiler._resolve_kv_bytes_per_token", lambda *args, **kwargs: 109824)
+    monkeypatch.setattr("aisimulate.sweeper.deploy.estimate_kv_bytes_per_token", lambda *args, **kwargs: 109824)
+    raw = _pd_hardware_config(recommend=True)
+    raw["engine"]["kv_transfer"] = {"type": "measured", "timing_mode": timing_mode}
+    source = CoreRecommendationConfig.model_validate(raw)
+    space = recommendation_to_sweeper(source).search_space
+    parallel = ReplicaParallelConfig(ParallelShape(tp=1, dp=1, moe_tp=1, moe_ep=1), replicas=1)
+    sample = unroll_sample(
+        search_space=space,
+        selection={
+            "deployment_mode": "disagg",
+            "backend": "vllm",
+            "prefill_max_num_batched_tokens": 8192,
+            "prefill_max_num_seqs": 1,
+            "decode_max_num_batched_tokens": 8192,
+            "decode_max_num_seqs": 32,
+        },
+        parallel_config=DisaggParallelConfig(prefill=parallel, decode=parallel),
+    )
+    deployment = build_backend_deployment(sample, backend_version="0.24.0")
+    assert deployment.kv_transfer_provider == "measured"
+    saved = _candidate_prediction(
+        source, sample, ReplaySpec(backend_deployment=deployment, workload={}, goal={}), adapter_sections={}
+    )
+    restored = CorePredictionConfig.model_validate(yaml.safe_load(yaml.safe_dump(saved)))
+    spec = prediction_to_replay_spec(restored)
+    assert spec.backend_deployment.kv_transfer_provider == "measured"
+    for role in ("prefill", "decode"):
+        rank = getattr(spec.backend_deployment, f"{role}_engine_args")
+        assert rank["kv_transfer_bytes_per_token"] == 109824
+        assert rank["kv_transfer_timing_mode"] == timing_mode
+        assert rank.get("kv_transfer_bandwidth") is None
+    from dataclasses import replace
+
+    capabilities = EngineReplayRunnerFactory().capabilities()
+    capabilities.require_compatible(spec)
+    with pytest.raises(ValueError, match="measured KV transfer"):
+        replace(capabilities, supports_measured_kv_transfer=False).require_compatible(spec)
+
+
+@pytest.mark.parametrize("override", [{"bandwidth_gb_per_second": 10}, {"bytes_per_token": 109824}])
+def test_measured_pd_rejects_bandwidth_and_manual_layout(override):
+    raw = _pd_hardware_config()
+    raw["engine"]["kv_transfer"] = {"type": "measured", **override}
+    with pytest.raises(ValidationError, match="requires bytes_per_token=auto"):
+        CorePredictionConfig.model_validate(raw)
+
+
 @pytest.mark.parametrize("recommend", [False, True])
 @pytest.mark.parametrize("role", ["prefill", "decode"])
 @pytest.mark.parametrize(

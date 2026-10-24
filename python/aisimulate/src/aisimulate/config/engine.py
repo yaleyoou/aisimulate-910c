@@ -454,9 +454,16 @@ class WorkersPredictionConfig(StrictModel):
 
 
 class KvTransferConfig(StrictModel):
+    type: Literal["bandwidth", "measured"] = "bandwidth"
     bytes_per_token: KvBytesPerToken = "auto"
     bandwidth_gb_per_second: PositiveFloat | None = None
     timing_mode: Literal["full_prompt", "destination_missing"] = "destination_missing"
+
+    @model_validator(mode="after")
+    def validate_measured(self):
+        if self.type == "measured" and (self.bandwidth_gb_per_second is not None or self.bytes_per_token != "auto"):
+            raise ValueError("measured KV transfer requires bytes_per_token=auto and no bandwidth override")
+        return self
 
 
 class TokenizationConfig(StrictModel):

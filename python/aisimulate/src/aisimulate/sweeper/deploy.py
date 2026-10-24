@@ -347,5 +347,6 @@ def build_backend_deployment(
         decode_engine_args=decode_args,
         num_prefill_workers=int(sample["prefill_replicas"]),
         num_decode_workers=int(sample["decode_replicas"]),
+        kv_transfer_provider=sample.get("kv_transfer_provider"),
         **common,
     )

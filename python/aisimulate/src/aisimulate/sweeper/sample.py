@@ -171,6 +171,7 @@ def unroll_sample(
             "kv_transfer_bytes_per_token",
             "kv_transfer_bandwidth",
             "kv_transfer_timing_mode",
+            "kv_transfer_provider",
         ):
             sample[key] = getattr(search_space, key)
     if search_space.speculation is not None:

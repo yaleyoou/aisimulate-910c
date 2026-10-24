@@ -286,6 +286,7 @@ def recommendation_to_sweeper(
         search_space["kv_transfer_bytes_per_token"] = transfer.get("bytes_per_token")
         search_space["kv_transfer_bandwidth"] = transfer.get("bandwidth_gb_per_second")
         search_space["kv_transfer_timing_mode"] = transfer.get("timing_mode", "destination_missing")
+        search_space["kv_transfer_provider"] = "measured" if transfer.get("type") == "measured" else None
     (
         pinned_parallel,
         flat_modes,

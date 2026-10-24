@@ -32,6 +32,7 @@ pub struct OpLevelConfig {
 pub struct AscendOpLevelConfig {
     pub shared_expert_overlap: bool,
     pub routing: String,
+    pub kv_transfer_page_layout: String,
 }
 
 impl Default for AscendOpLevelConfig {
@@ -39,6 +40,7 @@ impl Default for AscendOpLevelConfig {
         Self {
             shared_expert_overlap: true,
             routing: "balanced".into(),
+            kv_transfer_page_layout: "contiguous".into(),
         }
     }
 }
@@ -58,6 +60,16 @@ impl OpLevelConfig {
             return Err(AicError::InvalidEngineConfig(
                 "Ascend model composition currently requires the measured balanced routing profile"
                     .into(),
+            ));
+        }
+        if self.ascend.as_ref().is_some_and(|options| {
+            !matches!(
+                options.kv_transfer_page_layout.as_str(),
+                "contiguous" | "fragmented"
+            )
+        }) {
+            return Err(AicError::InvalidEngineConfig(
+                "Ascend KV transfer page layout must be contiguous or fragmented".into(),
             ));
         }
         Ok(())

@@ -1,5 +1,22 @@
 # Current goal handoff
 
+## Newest: measured PD and 48-candidate recommendation pass
+
+PD producer committed a93487f9. Native/table/replay integration ready for commit.
+Native SHA44358dc3d1e56c7cbe56c3484c98bec27b22d459867dcc77535eafe9f756e6a8, EngineSpec29.
+32/40 stable PD rows installed kv_transfer/sglang/0.5.22, 8 CV exclusions preserved.
+Canonical role model API selects page layout and TP mapping; rejects non-16-device-per-role layouts.
+32 exact queries pass; C1 full8k/1k replay source hold duration7.781459979ms agrees with curve.
+C4/16request PD replay completes. C8/16/32, role TP4/8 ADP4/2 EP16, P/D replicas1/2:
+48/48 recommendations feasible, no failures; best saved YAML replayed successfully.
+Prefill chunk4096 avoids unqualified TP4 per-rank2048 normal DeepEP; decode max_sequences32.
+2041 Rust tests, 916 public config/runner/search tests, 9newfeature checks,390GPUparity117.37s pass.
+Logs archived pd-validation-20261024; PD raw logs compressed with archives.json in16campaigns.
+No NPU jobs active. Still need durable CPU runtime/user commands and pinned replay byte-parity.
+All source/math uses canonical Rust model; no Python estimator or GPU donor substitution.
+The broad goal is not complete until these final user-facing functional checks/docs are done.
+RootPTY24914/93967 local;89706 node19. Node31 remains unavailable. Checkpoint51 pending update.
+
 ## Current: complete model/engine prediction works; PD grid complete, consumer pending
 
 Canonical best_available(op_level) and predict --stack engine pass for8k/1k,8requests,concurrency2.

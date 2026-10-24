@@ -458,6 +458,14 @@ class RustForwardPassPerfModel:
         """
         return self._inner.estimate_forward_pass_time_ms(_json_dumps(metrics))
 
+    def estimate_kv_transfer_time_ms(self, destination: RustForwardPassPerfModel, tokens: int) -> float:
+        """Estimate an isolated handoff using the two canonical role models."""
+        return self._inner.estimate_kv_transfer_time_ms(destination._inner, tokens)
+
+    def kv_transfer_metadata(self, destination: RustForwardPassPerfModel) -> dict[str, Any]:
+        """Describe the selected measured transfer mapping and query bounds."""
+        return json.loads(self._inner.kv_transfer_metadata(destination._inner))
+
     def estimate_forward_pass_detailed(self, metrics: dict[str, Any] | list[dict[str, Any]]) -> dict[str, Any]:
         """Return timing with direct-FPM support, rank composition and correction.
 

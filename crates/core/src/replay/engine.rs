@@ -44,6 +44,8 @@ fn default_parallel_size() -> u32 {
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(default, deny_unknown_fields)]
 pub struct ReplayEngineConfig {
+    #[serde(skip_serializing_if = "KvTransferProvider::is_bandwidth")]
+    pub kv_transfer_provider: KvTransferProvider,
     /// Belady ranks worker-local victims by global future input demand. It does
     /// not forecast routing, output reuse, later chunks, or recomputation, and
     /// therefore promises neither worker-local optimality nor higher throughput.
@@ -70,6 +72,7 @@ pub struct ReplayEngineConfig {
 impl Default for ReplayEngineConfig {
     fn default() -> Self {
         Self {
+            kv_transfer_provider: KvTransferProvider::Bandwidth,
             kv_eviction_policy: KvEvictionPolicy::Lru,
             dp_size: 1,
             tensor_parallel_size: 1,
@@ -79,6 +82,20 @@ impl Default for ReplayEngineConfig {
             prefill: None,
             decode: None,
         }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum KvTransferProvider {
+    #[default]
+    Bandwidth,
+    Measured,
+}
+
+impl KvTransferProvider {
+    fn is_bandwidth(&self) -> bool {
+        *self == Self::Bandwidth
     }
 }
 
@@ -342,6 +359,7 @@ pub struct ReplayEngineFactory {
     timing: Option<Arc<dyn TimingModel>>,
     prefill_timing: Option<Arc<dyn TimingModel>>,
     decode_timing: Option<Arc<dyn TimingModel>>,
+    handoff_curve: Option<Arc<crate::KvTransferCurve>>,
 }
 
 impl ReplayEngineFactory {
@@ -350,6 +368,7 @@ impl ReplayEngineFactory {
             timing: None,
             prefill_timing: None,
             decode_timing: None,
+            handoff_curve: None,
         }
     }
 
@@ -358,6 +377,7 @@ impl ReplayEngineFactory {
             timing: Some(timing),
             prefill_timing: None,
             decode_timing: None,
+            handoff_curve: None,
         }
     }
 
@@ -369,7 +389,17 @@ impl ReplayEngineFactory {
             timing: None,
             prefill_timing: prefill,
             decode_timing: decode,
+            handoff_curve: None,
         }
+    }
+
+    pub fn with_kv_transfer_curve(mut self, curve: Arc<crate::KvTransferCurve>) -> Self {
+        self.handoff_curve = Some(curve);
+        self
+    }
+
+    pub(crate) fn kv_transfer_curve(&self) -> Option<Arc<crate::KvTransferCurve>> {
+        self.handoff_curve.clone()
     }
 
     #[doc(hidden)]
@@ -379,6 +409,13 @@ impl ReplayEngineFactory {
         stage: WorkerStage,
         emit_kv_events: bool,
     ) -> ReplayResult<ReplayRoleFactory> {
+        let measured = config.kv_transfer_provider == KvTransferProvider::Measured;
+        if measured != self.handoff_curve.is_some() || measured && stage == WorkerStage::Aggregated
+        {
+            return Err(ReplayError::InvalidSpec(
+                "measured KV transfer requires a disaggregated factory resolved from canonical role models".into()
+            ));
+        }
         let mut role = config.role(stage);
         config.validate_eviction_geometry(&role.rank)?;
         role.rank.emit_kv_events = emit_kv_events;
@@ -540,6 +577,7 @@ pub fn run_engine_handoff_conformance(
         num_prefill_workers: 1,
         num_decode_workers: 1,
         handoff_latency_ms: 0.0,
+        handoff_curve: factory.kv_transfer_curve(),
     };
     DisaggRuntimeImpl::<
         PoolRoundRobinPlacement<KvEventBatch>,

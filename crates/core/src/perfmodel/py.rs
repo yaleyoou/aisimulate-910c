@@ -2016,6 +2016,26 @@ impl PyForwardPassPerfModel {
         serde_json::to_string(&config).map_err(|e| PyValueError::new_err(e.to_string()))
     }
 
+    fn estimate_kv_transfer_time_ms(
+        &self,
+        destination: &PyForwardPassPerfModel,
+        tokens: usize,
+    ) -> PyResult<f64> {
+        self.inner
+            .kv_transfer_curve(&destination.inner)
+            .and_then(|curve| curve.latency_ms(tokens))
+            .map_err(aic_to_py)
+    }
+
+    fn kv_transfer_metadata(&self, destination: &PyForwardPassPerfModel) -> PyResult<String> {
+        let curve = self
+            .inner
+            .kv_transfer_curve(&destination.inner)
+            .map_err(aic_to_py)?;
+        serde_json::to_string(&curve.metadata())
+            .map_err(|error| PyValueError::new_err(error.to_string()))
+    }
+
     /// Size declarative resources using canonical configuration, without timing
     /// data or analytical graph construction.
     #[staticmethod]

@@ -281,6 +281,7 @@ struct DisaggFlowState {
     next_handoff_ordinal: u128,
     handoff_order: HandoffOrder,
     handoff_latency_ms: f64,
+    handoff_curve: Option<std::sync::Arc<crate::KvTransferCurve>>,
     action_queues: DisaggActionQueues,
     logical_in_flight: usize,
     stale_transfer_events: usize,
@@ -310,6 +311,7 @@ impl DisaggFlowState {
             next_handoff_ordinal: 1,
             handoff_order,
             handoff_latency_ms,
+            handoff_curve: None,
             action_queues: DisaggActionQueues::default(),
             logical_in_flight: 0,
             stale_transfer_events: 0,
@@ -653,6 +655,9 @@ impl DisaggFlowState {
             replay_hashes,
             session_id,
         );
+        state
+            .coordinator
+            .set_transfer_curve(self.handoff_curve.clone());
         let actions = state.coordinator.start()?;
         self.requests.insert(uuid, state);
         self.requests_by_handoff.insert(handoff_id, uuid);
@@ -1076,11 +1081,15 @@ where
             decode_engine,
             prefill_placement,
             decode_placement,
-            flow: DisaggFlowState::new(
-                handoff_order,
-                config.handoff_latency_ms(),
-                capture_conformance,
-            ),
+            flow: {
+                let mut flow = DisaggFlowState::new(
+                    handoff_order,
+                    config.handoff_latency_ms(),
+                    capture_conformance,
+                );
+                flow.handoff_curve = config.handoff_curve.clone();
+                flow
+            },
             collector,
             evidence: ReplayEvidenceCollector::default(),
             events: BinaryHeap::new(),
