@@ -1,4 +1,4 @@
-"""Append disjoint measured linear/vector curves without replacing existing points."""
+"""Append disjoint measured operator grids without replacing existing points."""
 
 import argparse
 import hashlib
@@ -12,7 +12,19 @@ def physical_curve(operation, row):
         return tuple(row[field] for field in ("quant_mode", "n", "k", "weight_format", "quant_bias", "execution_mode"))
     if operation == "vector":
         return row["role"], tuple(json.loads(row["dimensions"])), row["execution_mode"]
-    raise ValueError("Only linear and vector curve extension is supported")
+    if operation == "bmm":
+        return tuple(row[field] for field in ("role", "local_heads", "execution_mode"))
+    if operation == "attention":
+        return tuple(row[field] for field in ("operation", "phase", "local_heads", "execution_mode"))
+    if operation == "pd":
+        return tuple(row[field] for field in ("source_tp", "destination_tp", "page_layout"))
+    raise ValueError("Unsupported Ascend operator grid")
+
+
+def physical_coordinate(operation, row):
+    if operation == "attention":
+        return tuple(row[field] for field in ("active_batch", "padded_batch", "sequence_length", "prefix"))
+    return row["m" if operation == "linear" else "tokens"]
 
 
 def collection_identities(report):
@@ -32,7 +44,6 @@ def append_curves(operation, campaigns):
     runtime = campaigns[0]["metadata"]["runtime"]
     rows, decisions, owners, counts = [], [], set(), Counter()
     setup = None
-    axis = "m" if operation == "linear" else "tokens"
     for index, campaign in enumerate(campaigns):
         if campaign["metadata"]["runtime"] != runtime:
             raise ValueError("Different runtime conditions cannot share a table")
@@ -53,11 +64,11 @@ def append_curves(operation, campaigns):
                     "Overlapping curves require a separate coverage decision; point replacement is forbidden"
                 )
             owners.add(key)
-            samples = [row[axis] for row in values]
+            samples = [physical_coordinate(operation, row) for row in values]
             identities_in_curve = {row["runtime_identity_sha256"] for row in values}
             if len(samples) != len(set(samples)) or len(identities_in_curve) != 1:
                 raise ValueError("A curve cannot contain duplicate points or mixed collection protocols")
-            rows.extend(sorted(values, key=lambda row: row[axis]))
+            rows.extend(sorted(values, key=lambda row: physical_coordinate(operation, row)))
             counts[index] += len(values)
             decisions.append(
                 {
@@ -72,7 +83,7 @@ def append_curves(operation, campaigns):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--operation", choices=("linear", "vector"), required=True)
+    parser.add_argument("--operation", choices=("linear", "vector", "bmm", "attention", "pd"), required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("campaign", type=Path, nargs="+")
     args = parser.parse_args()
@@ -100,15 +111,17 @@ def main():
     entry, total = None, 0
     for index, contributed in sorted(counts.items()):
         metadata = campaigns[index]["metadata"]
-        event = dict(metadata["tables"][name])
-        event.update(
-            rows=contributed,
-            source_campaign_rows=event["rows"],
-            source_campaign_status=event["status"],
-            runtime=metadata["runtime"],
-        )
-        total += contributed
-        entry = event if entry is None else append_collection_event(entry, event, table=name, merged_rows=total)
+        source = metadata["tables"][name]
+        events = source.get("collections", [source])
+        if source["rows"] != contributed or sum(event["rows"] for event in events) != contributed:
+            raise ValueError("Disjoint grid history must account for every retained row")
+        for original in events:
+            event = dict(original)
+            event.setdefault("source_campaign_rows", event["rows"])
+            event.setdefault("source_campaign_status", event["status"])
+            event.setdefault("runtime", metadata["runtime"])
+            total += event["rows"]
+            entry = event if entry is None else append_collection_event(entry, event, table=name, merged_rows=total)
     args.output_dir.mkdir(parents=True, exist_ok=False)
     parquet.write_table(arrow.Table.from_pylist(rows), args.output_dir / (name + ".parquet"), compression="zstd")
     write_collection_meta(

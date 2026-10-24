@@ -24,7 +24,7 @@ impl AscendBmmKey {
         if !matches!(
             self.role.as_str(),
             "query_nope" | "output_prefill" | "output_decode"
-        ) || !matches!(self.local_heads, 4 | 8 | 16)
+        ) || !matches!(self.local_heads, 4 | 8 | 16 | 32 | 64)
             || !matches!(self.execution_mode.as_str(), "eager" | "graph")
         {
             return Err(AicError::InvalidEngineConfig(format!(
@@ -176,7 +176,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
     .into_iter()
     .collect::<Result<Vec<_>, _>>()?;
     let mut raw: BTreeMap<AscendBmmKey, BTreeMap<u32, f64>> = BTreeMap::new();
-    let mut identity: Option<String> = None;
+    let mut identities: BTreeMap<AscendBmmKey, String> = BTreeMap::new();
     for row in reader.rows()? {
         let row = row?;
         let key = AscendBmmKey {
@@ -222,16 +222,13 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 "unqualified Ascend BMM row: {key:?}"
             )));
         }
-        if identity
-            .as_ref()
-            .is_some_and(|expected| expected != runtime)
-        {
+        let identity = identities
+            .entry(key.clone())
+            .or_insert_with(|| runtime.to_owned());
+        if identity != runtime {
             return Err(AicError::InvalidPerfData(
-                "Ascend BMM mixes runtime identities".into(),
+                "Ascend BMM curve mixes runtime identities".into(),
             ));
-        }
-        if identity.is_none() {
-            identity = Some(runtime.to_owned());
         }
         if raw
             .entry(key)

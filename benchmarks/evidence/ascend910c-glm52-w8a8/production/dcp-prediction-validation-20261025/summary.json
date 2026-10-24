@@ -1,0 +1,402 @@
+{
+  "layouts": [
+    {
+      "configuration": [
+        16,
+        4,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp4-dcp2-tensor-20261025",
+      "prediction_sha256": "982856ee98e51a6cf179680a8d91bc95033ed93b5212cda432b3e7164ebda5ee"
+    },
+    {
+      "configuration": [
+        16,
+        4,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp4-dcp4-tensor-20261025",
+      "prediction_sha256": "5413f733cff919fb3e608f2243aa1dc34f91d5c1093e6d60c9875addf882b891"
+    },
+    {
+      "configuration": [
+        16,
+        4,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp4-dcp4-deepep-20261025",
+      "prediction_sha256": "40e3348694cffa89dd1ac6f065380748f7f27b6b9a08b338ebd282d8e03c3f87"
+    },
+    {
+      "configuration": [
+        16,
+        4,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp4-dcp2-deepep-20261025",
+      "prediction_sha256": "ad5094a16d87ef0bc40b1bb60fce438fe57fcdf283aff5630a65aa21591ba5c9"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp2-deepep-20261025",
+      "prediction_sha256": "164cf01cb5f4b9a47c4a92118266df41852e9c922bfd9657b8b6b98b14be2873"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp2-tensor-20261025",
+      "prediction_sha256": "d4860076987bf01e63905cc4e5295865bdda1d8e35cf580cb540ee81f7fef42c"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp4-deepep-20261025",
+      "prediction_sha256": "0c96eb7a3043a6da780e0efa348e21a3743a7544d30010de9b120cd5ddb45335"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp4-tensor-20261025",
+      "prediction_sha256": "fd247097f46d5e05f0d856035716d81bb13480e22041586cb6317450dd1fdba3"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        8,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp8-deepep-20261025",
+      "prediction_sha256": "1c6b5150997e3244646bc1fd87f62acb016792398713e4085f2b5abd1dfc80ba"
+    },
+    {
+      "configuration": [
+        16,
+        8,
+        8,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp8-dcp8-tensor-20261025",
+      "prediction_sha256": "9af6d22397a06cf82c5ee038cf47052c28a080700e9b2e161a4e7304eb29e676"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp2-deepep-20261025",
+      "prediction_sha256": "296c6e2b5a06c43737aaf049082237410c53f5fc7bda6e356b0e29841994c35a"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp2-tensor-20261025",
+      "prediction_sha256": "d3713736bc3cecc73687f8ffa5a78ed2a72371e9ccb4e177e240d53a553fb9fe"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp4-deepep-20261025",
+      "prediction_sha256": "a31029eaaf050d86881c0b3c29524dc84e587893bfb11e7b9d141b77df28cd6f"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp4-tensor-20261025",
+      "prediction_sha256": "da43164e55e3e11791a72139abf2f9d6a5eb90a2eee68591d37897c687e447ee"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        8,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp8-deepep-20261025",
+      "prediction_sha256": "7db6dcd91c54663788c9aa89fc81950aeaa99bfd9af87b5e3f26fbd4e30bf19c"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        8,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp8-tensor-20261025",
+      "prediction_sha256": "a8cc49a46838793fa9a81357b786342dd524f899b7901cc8075fd0818375f5fb"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        16,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp16-deepep-20261025",
+      "prediction_sha256": "50a25fbef7024799d676663e71af07c892d38e1987c637e2b8b4c036c3cf74da"
+    },
+    {
+      "configuration": [
+        16,
+        16,
+        16,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world16-tp16-dcp16-tensor-20261025",
+      "prediction_sha256": "e741db7df859d4a9f060ff3c09dc0334247b2247a844402aa2bf63db022d2c37"
+    },
+    {
+      "configuration": [
+        32,
+        4,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp4-dcp2-deepep-20261025",
+      "prediction_sha256": "7c3610b944abbb4b1188b6763337c77f7200f95d02428b9b0c98a9242b40d739"
+    },
+    {
+      "configuration": [
+        32,
+        4,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp4-dcp2-tensor-20261025",
+      "prediction_sha256": "5a54a3ccd646666f3240fbccba66d39306b01b551cbe3944d3966d3dbb0e62b6"
+    },
+    {
+      "configuration": [
+        32,
+        4,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp4-dcp4-deepep-20261025",
+      "prediction_sha256": "ebfc4396cd4400f5ebbe251a9044418b8b22d8b032736801cd4fcba6e2af79c6"
+    },
+    {
+      "configuration": [
+        32,
+        4,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp4-dcp4-tensor-20261025",
+      "prediction_sha256": "ba27762a40cccfcba796fbf9f8f3ef223d094beb424934e496e52e9c34d114c1"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp2-deepep-20261025",
+      "prediction_sha256": "419c8bfcfbbee6919bb49c77258f05481d9714a4e32754f0dcd89d148d92db54"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp2-tensor-20261025",
+      "prediction_sha256": "26f05bdc1f4b99e8d8849b05cb27ae5d40ab5c2681abc5ad45f926e20cf8505d"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp4-deepep-20261025",
+      "prediction_sha256": "7d775dc6823daac586fabb98b7dd5a6a6293895c2bc694fd0c9168e0f531d73f"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp4-tensor-20261025",
+      "prediction_sha256": "5fd9534b5ed502a23afc88801843337e2eae0237461c7f82c4bf08db3b933b39"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        8,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp8-deepep-20261025",
+      "prediction_sha256": "1ac11f249270f2620f6562fd3ea8baa31533c46f57541caff3276013d77529b1"
+    },
+    {
+      "configuration": [
+        32,
+        8,
+        8,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp8-dcp8-tensor-20261025",
+      "prediction_sha256": "bb292f6041c55d6e2d6dc56fca395ac68b3525bf93e408a9408c5c4c1c9f4c55"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        2,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp2-deepep-20261025",
+      "prediction_sha256": "37c649ec001579b61983ae10832f2361fdf97c7ad519625808c3c76ee5a14ddc"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        2,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp2-tensor-20261025",
+      "prediction_sha256": "f7cfdc6f22132d878023d137002922741463be7a6352e91dd4738cb7f59edbea"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        4,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp4-tensor-20261025",
+      "prediction_sha256": "6d083bf13b4f9a8a35be3947aacc2e806100b628c40e0746bee73cda0c10cc36"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        4,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp4-deepep-20261025",
+      "prediction_sha256": "7ad1675b6bc8fa23216fa5773aac55a3a371e525bc2e9881ad46d7b16ec2e51a"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        8,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp8-deepep-20261025",
+      "prediction_sha256": "349653082bbc9a16b16dc8d88d4d9e45b6b21f0df3244dd4e0d2c61ea8e6c159"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        8,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp8-tensor-20261025",
+      "prediction_sha256": "d0809efa8b8a5d425df41bc6da0a46f24de6766c007a7143b45ff00aa13544fb"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        16,
+        true
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp16-tensor-20261025",
+      "prediction_sha256": "f604f3def0f5add10a6c537201c40dcbbfa441f68c5405ea16e590091ce1d2f2"
+    },
+    {
+      "configuration": [
+        32,
+        16,
+        16,
+        false
+      ],
+      "completed_requests": 8,
+      "directory": "dcp-layout-world32-tp16-dcp16-deepep-20261025",
+      "prediction_sha256": "f67db6a8703837d7ff3ff43dcb18e6f612036f3ba051b93578bbf4735bd2e1c5"
+    }
+  ],
+  "all_passed": true,
+  "scope": "8k/1k complete requests and strict provenance; not independent serving accuracy"
+}

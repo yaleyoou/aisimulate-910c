@@ -24,7 +24,7 @@ impl AscendAttentionKey {
     pub fn validate(&self) -> Result<(), AicError> {
         let heads_valid = match self.operation.as_str() {
             "lightning_indexer" => self.local_heads == 32,
-            "sparse_attention" => matches!(self.local_heads, 4 | 8 | 16),
+            "sparse_attention" => matches!(self.local_heads, 4 | 8 | 16 | 32 | 64),
             _ => false,
         };
         if !heads_valid
@@ -264,7 +264,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
     .collect::<Result<Vec<_>, AicError>>()?;
     type RawGrids = BTreeMap<AscendAttentionKey, BTreeMap<u32, BTreeMap<u32, BTreeMap<u32, f64>>>>;
     let mut raw: RawGrids = BTreeMap::new();
-    let mut identity: Option<String> = None;
+    let mut identities: BTreeMap<AscendAttentionKey, String> = BTreeMap::new();
     for row in reader.rows()? {
         let row = row?;
         let key = AscendAttentionKey {
@@ -339,16 +339,13 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 "unqualified Ascend attention row: {key:?}"
             )));
         }
-        if identity
-            .as_ref()
-            .is_some_and(|expected| expected != runtime)
-        {
+        let identity = identities
+            .entry(key.clone())
+            .or_insert_with(|| runtime.to_owned());
+        if identity != runtime {
             return Err(AicError::InvalidPerfData(
-                "Ascend attention mixes runtime identities".into(),
+                "Ascend attention grid mixes runtime identities".into(),
             ));
-        }
-        if identity.is_none() {
-            identity = Some(runtime.to_owned());
         }
         let partition = key.partition(padded_batch);
         if raw

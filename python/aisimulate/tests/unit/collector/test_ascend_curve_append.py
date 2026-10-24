@@ -51,3 +51,28 @@ def test_unverified_identity_and_different_serving_setup_are_rejected():
     invalid["report"]["identity"]["serving_setup"]["environment"]["different"] = "1"
     with pytest.raises(ValueError, match="serving setups"):
         append_curves("vector", [first, invalid])
+
+
+def test_attention_grid_keeps_distinct_padding_and_prefix_coordinates():
+    source = campaign(128, 2.0, {})
+    source["rows"] = [
+        {
+            "operation": "sparse_attention",
+            "phase": "decode",
+            "local_heads": 32,
+            "execution_mode": "graph",
+            "active_batch": active,
+            "padded_batch": padded,
+            "sequence_length": 8192,
+            "prefix": 0,
+            "latency_ms": 1.0,
+            "runtime_identity_sha256": source["rows"][0]["runtime_identity_sha256"],
+        }
+        for active, padded in [(1, 8), (1, 16), (2, 8)]
+    ]
+    rows, grids, counts = append_curves("attention", [source])
+    assert len(rows) == 3 and len(grids) == 1 and counts == {0: 3}
+    duplicate = copy.deepcopy(source)
+    duplicate["rows"].append(dict(duplicate["rows"][0]))
+    with pytest.raises(ValueError, match="duplicate points"):
+        append_curves("attention", [duplicate])

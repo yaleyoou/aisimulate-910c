@@ -1,0 +1,3282 @@
+{
+  "schema": "aisimulate-ascend-bmm-plan/v1",
+  "status": "experimental_collection_plan",
+  "model_path": "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/deepep-contract-node19-20261024/model-metadata",
+  "cases": [
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 64,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 128,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 256,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 512,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 1024,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 2048,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 4096,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 8192,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 64,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 128,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 256,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 512,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 1024,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 2048,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 4096,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 64,
+      "tokens": 8192,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        16384,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 64,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 128,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 256,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 512,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 1024,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 2048,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 4096,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 8192,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 64,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 128,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 256,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 512,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 1024,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 2048,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 4096,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 64,
+      "tokens": 8192,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 64,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        32768,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 64,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 128,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 256,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 512,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 1024,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 2048,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 4096,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 8192,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 64,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 128,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 256,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 512,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 1024,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 2048,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 4096,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "query_nope",
+      "local_heads": 32,
+      "tokens": 8192,
+      "input_width": 192,
+      "output_width": 512,
+      "input_stride": [
+        8192,
+        256,
+        1
+      ],
+      "weight_stride": [
+        98304,
+        1,
+        192
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 64,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 128,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 256,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 512,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 1024,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 2048,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 4096,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 8192,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 64,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 128,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 256,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 512,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 1024,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 2048,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 4096,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_prefill",
+      "local_heads": 32,
+      "tokens": 8192,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch_npu.npu_transpose_batchmatmul",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "eager",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 1,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 2,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 4,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 8,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 16,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 24,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    },
+    {
+      "role": "output_decode",
+      "local_heads": 32,
+      "tokens": 32,
+      "input_width": 512,
+      "output_width": 256,
+      "input_stride": [
+        16384,
+        512,
+        1
+      ],
+      "weight_stride": [
+        131072,
+        256,
+        1
+      ],
+      "execution_mode": "graph",
+      "kernel_source": "torch.ops.npu.batch_matmul_transpose",
+      "dtype": "bfloat16",
+      "format": 2
+    }
+  ],
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "GlmMoeDsaForCausalLM_cases.yaml": "de16daf95fab2fe0a64badaf69ba85e3466a6c376885ded610974ff12a7f6fcb",
+    "ascend_bmm.yaml": "d01bc3a39edb14fb0dfb8f6fb98da7921e69f7ed859b366b89b3f717682770ab"
+  },
+  "protocol": {
+    "weight_copies": 64,
+    "iterations": 64,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "source_contract": "SGLang baa9befa381511cd4d56f83980951e5a45fffc6d deepseek_v2_attention_mla_npu.py:466-474,574-595; observed rank0/8 input strides in operator-input-state-node31-20261022-attempt2. Decode batch axis is bounded by United's 32 requests per attention-DP rank; the prior overbroad grid and custom-kernel batchIdx failures remain in attempt2.",
+  "selection": {
+    "policy": "Runtime selection of entire previously unmeasured curves; no timing-dependent selection",
+    "full_plan_sha256": "d3613d276984f3e05155f5770bcafdda4b8b2419e5d886d44e7e71b6fd61b4ae",
+    "baseline_table_sha256": "403a4a888960fc41cad461a6f3045a787bf5fe488585360fa00aa58652530406",
+    "full_plan_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147
+    ]
+  }
+}

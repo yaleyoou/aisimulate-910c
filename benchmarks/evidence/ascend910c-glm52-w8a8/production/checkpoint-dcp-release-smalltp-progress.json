@@ -1,0 +1,30 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["Small TP compute publication, TP1/2 KV-transfer collection and final runtime packaging remain."],
+    "next_action": "Publish the small-TP compute grids, finish and validate all new PD mappings, qualify feasible configurations and rebuild the user image."
+  },
+  "research": {
+    "parallel_extension": {
+      "source_commit": "db54712ed888dc2b05e89e717391a695e729c438",
+      "dcp_release": "Installed2691qualifiedDCProws;all2691nativequeriesexactzeroerror. Frozen dcp-storage-release-20261025. TableSHAa67e660e73368d3c241a06098c8bea2023800b0e41c0f0370fb1c110c681c3e4.",
+      "dcp_validation": "36DCP2/4/8/16 xattentionTP4/8/16 xglobal16/32 xDeepEP/tensorMoE layouts each completed8requests of8192input1024output withstrictprovenance. Frozen dcp-prediction-validation-20261025.390GPUgoldens unchanged pass;46GPU/NPUplumbing pass.",
+      "small_tp_compute": "Newphysicalcurves collected:linear468attempts462stable,vector160allstable,BMM148attempts146stable,attention886attempts885numericpasses870stable. The1attentionfailure(h64prefill512prefix8192)hasonezerooutputelement;originalfailurepreservedandexcluded. No newdata installedyet.",
+      "small_tp_protocol": "Newlarge-linearcurves use16distinctweights/16calls tofit TP1lmhead andlargeoutputs. 8vs16weightcontrols:median0.823%,max3.028% timingdifference across16cases;16repeatmedian0.686%,onecase13.05%drift retained. FullrowCVchecks remain10%. Existingcurveskeepoldprotocols andvalues.",
+      "small_tp_source": "Producerheads32/64 andTP1/2 vocabularygeometry added. NativeBMM/attention identities nowperphysicalgrid;disjointappendpreservespriorhistories. TP1omitsone-rankcollectives andkeepsfinalresidualforfusednorm, asunitaxesareelidedinSGLangLayout andbind_exitselectskeep_output. Source39native,15producer,19model/appendtests pass. Nativeextensionfornewheads stillbuilding.",
+      "small_tp_pd": "160newcases cover32newcurves forTP1/2withTP1/2/4/8/16,protocol8calls/sample,10warmups,7repeats. Sourcecollector a118f975...unchanged. Activebothnodes run_pd_grid suffixsmalltp-20261025;do notlaunchotherNPUworkuntilfinished.",
+      "runtime_image": "Userimage190684...stilloldlimitedrelease. Finalimage rebuildrequired afterfinalqualifieddata. Overallgoalactive."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "dcp_formal_release": {"path":"production/dcp-storage-release-20261025/ascend_dcp_attention_perf.parquet","kind":"file","scope":"collection"},
+        "dcp_prediction_matrix": {"path":"production/dcp-prediction-validation-20261025/summary.json","kind":"file","scope":"validation"},
+        "small_tp_linear_plan": {"path":"production/small-tp-linear-plan-20261025.json","kind":"file","scope":"collection"},
+        "small_tp_pd_plan": {"path":"production/small-tp-pd-plan-20261025.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

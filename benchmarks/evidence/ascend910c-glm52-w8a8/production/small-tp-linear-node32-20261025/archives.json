@@ -1,0 +1,104 @@
+[
+  {
+    "source": "campaign.json",
+    "source_sha256": "2b4d56a98db7066575ed761c14c74abf55af57bfbd27bae98d58d09e5e4e9302",
+    "path": "campaign.json",
+    "sha256": "2b4d56a98db7066575ed761c14c74abf55af57bfbd27bae98d58d09e5e4e9302"
+  },
+  {
+    "source": "collector.py",
+    "source_sha256": "fd4354f17ec9cc54c1ba23adc4b99b8d9d16103350567858e54ddba6d31148fe",
+    "path": "collector.py",
+    "sha256": "fd4354f17ec9cc54c1ba23adc4b99b8d9d16103350567858e54ddba6d31148fe"
+  },
+  {
+    "source": "containers-before.log",
+    "source_sha256": "b34f4dae0f28f3178583e87592c09ed02249d4ac8f547f88ad093391a63dd82f",
+    "path": "containers-before.log.gz",
+    "sha256": "b206ae16a8ad575b0e9a4e56f8cedbb68cb84a580af770dde4eb04d2d4f9b41e"
+  },
+  {
+    "source": "disk-before.log",
+    "source_sha256": "bba252c6c1d7cc2428d5b124381d1fdcb5b454f00bc78b6a123e87862ac4f389",
+    "path": "disk-before.log.gz",
+    "sha256": "2794cb6b2ee1a2189dfe61e0df6cece87fb29cadcbcfaa6a4ba2ab3fa41e773d"
+  },
+  {
+    "source": "driver.log",
+    "source_sha256": "89fba342fc5cf70d03ad3d1dfd05e9a0e837c03a002ebdc1b222e560a68e7dfc",
+    "path": "driver.log.gz",
+    "sha256": "349ec5143af16b99d73432a0e2e1e3f62a424f2fbd5597fdf61a3b8101421f61"
+  },
+  {
+    "source": "graph_noop.py",
+    "source_sha256": "32ab63abbfc0fe11c838d27b7ececc35383cb7d3fee5f1c650103ecd5248d0c5",
+    "path": "graph_noop.py",
+    "sha256": "32ab63abbfc0fe11c838d27b7ececc35383cb7d3fee5f1c650103ecd5248d0c5"
+  },
+  {
+    "source": "npu-before.log",
+    "source_sha256": "cb9e8cb2bc799436b1fe88dc8ce922febf539e3cbf4fb3a228578fdabb4d2920",
+    "path": "npu-before.log.gz",
+    "sha256": "e457df5db8fb6f03b3e622a5b69420ae78b51c3257e5cf3850fe4e3a086bc9da"
+  },
+  {
+    "source": "plan.json",
+    "source_sha256": "284c35f79fe49f6954074c693c07796005faca47a9d6f25f294327bcffe0b8b0",
+    "path": "plan.json",
+    "sha256": "284c35f79fe49f6954074c693c07796005faca47a9d6f25f294327bcffe0b8b0"
+  },
+  {
+    "source": "serving-setup-nodes.json",
+    "source_sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2",
+    "path": "serving-setup-nodes.json",
+    "sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2"
+  },
+  {
+    "source": "shard-0.json",
+    "source_sha256": "b3cf6f6316f51d3c8334bbed59fc09a9d15f9d41c62247326e01fbd8cf9e7340",
+    "path": "shard-0.json.gz",
+    "sha256": "7e80984cb0abfecc9be92dbafc38f25800bb9a3ac76b23876b2218d9b035b1fa"
+  },
+  {
+    "source": "shard-0.log",
+    "source_sha256": "c9afab240050fba764588a1897d12d9cb2302677539d0c3bada24a9775c1a523",
+    "path": "shard-0.log.gz",
+    "sha256": "6b928bf07ab627c2ccd58658f716353b0fb9e849cb70e1436597500421e2278c"
+  },
+  {
+    "source": "shard-1.json",
+    "source_sha256": "fa40da245701e6ab78db939c8a7dad17a3a9e32fb974d9d7beacff7c5cbd5993",
+    "path": "shard-1.json.gz",
+    "sha256": "9485e529c5791dadc43e85511adb20bd713a3e040feb6e169909a0ceb49ff8a5"
+  },
+  {
+    "source": "shard-1.log",
+    "source_sha256": "fefcb40eb183c0ccf5e6209d5827309453b80be448ce917b71cd8861acbfe843",
+    "path": "shard-1.log.gz",
+    "sha256": "b951e846379a0c1196ed646f0b0bbef7aaa274cacb25559c1722930bf9eabb32"
+  },
+  {
+    "source": "shard-2.json",
+    "source_sha256": "fc251d6d640b391b1ba2d2a686a350daea2b299b43e071d15f2e6bac8ec9c0a6",
+    "path": "shard-2.json.gz",
+    "sha256": "030bdcd1a93dc83c2c92b8dcbcfe82dc2f8b9573e7d22e75b662a92b3a7a9482"
+  },
+  {
+    "source": "shard-2.log",
+    "source_sha256": "32463ead63238480955f7fb58fba9506579ad40ebccb2b6606918fa9bca9f1fa",
+    "path": "shard-2.log.gz",
+    "sha256": "e257b44436556d45968877e15388dd257ac927c080466ee5c81ab10d2b2b4172"
+  },
+  {
+    "source": "shard-3.json",
+    "source_sha256": "1c57ce266b3f20c29d2c794711b57a74f1d7543ac4e9f45e42a1de2e51fc89f9",
+    "path": "shard-3.json.gz",
+    "sha256": "1b29540f033eb42a3f5d03100fbec86b7eb95298c60cdb47ca12bd1b1f36c4ee"
+  },
+  {
+    "source": "shard-3.log",
+    "source_sha256": "a24d9461cfb2728ef3425d0b9e3b7c5b02211864936045bf48af4989b3fd14f4",
+    "path": "shard-3.log.gz",
+    "sha256": "3560982511d7572143cba22c902a27beac52599c00999f222ddcaa566053d932"
+  }
+]

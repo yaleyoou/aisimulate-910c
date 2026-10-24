@@ -45,3 +45,11 @@ tables:
     rows: 1707
     classified_failures: 65
     status: complete
+  ascend_dcp_attention_perf:
+    collector_ref: db54712ed888dc2b05e89e717391a695e729c438
+    collector_hash: sha256:e32431e52db6b810ad1130703795bec959183efda4a5a34f58ac32962555fac8
+    case_plan_hash: sha256:124bd7a4bd1d499f52bd57df2860c299941b07a1f41c6a9474ed271c2c34f7a7
+    collected_at: '2026-10-24T20:18:04.088335+00:00'
+    rows: 2691
+    classified_failures: 45
+    status: complete

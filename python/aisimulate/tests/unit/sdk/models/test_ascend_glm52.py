@@ -201,6 +201,22 @@ def test_dcp_composes_storage_once_and_matches_observed_split_kv_pool(model_path
     assert model.get_kvcache_rank_batch_capacity(3_239_608_319, 32) == 49_408
 
 
+def test_attention_tp1_has_no_local_collective_and_keeps_terminal_residual_for_norm(model_path):
+    config = configuration()
+    config.tp_size, config.attention_dp_size, config.moe_ep_size = 1, 32, 32
+    model = get_model(model_path, config, "sglang")
+    for phase, operations in (("context", model.context_ops), ("generation", model.generation_ops)):
+        entries = flattened(operations)
+        assert all(spec["key"]["num_ranks"] > 1 for kind, spec in entries.values() if kind == "Hccl")
+        assert phase + "_embedding_all_reduce" not in entries
+        assert phase + "_sparse_output_gather" not in entries
+        assert phase + "_logits_gather" not in entries
+        assert phase + "_final_residual_add" not in entries
+        assert entries[phase + "_final_norm"][1]["key"]["role"] == "add_rms_bias"
+        assert entries[phase + "_q_b"][1]["key"]["n"] == 16384
+        assert entries[phase + "_logits_gemm"][1]["key"]["n"] == 154880
+
+
 def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path):
     config = configuration()
     config.op_level_config = OpLevelCompileConfig(

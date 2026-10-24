@@ -14,9 +14,9 @@ def test_pd_plan_preserves_replica_layout_and_page_capacity(tmp_path):
     plan = get_ascend_pd_cases(tmp_path)
     cases = plan["cases"]
     assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases})
-    assert len(cases) == 90
+    assert len(cases) == 250
     assert {(case["source_tp"], case["destination_tp"]) for case in cases} == {
-        (4, 4), (4, 8), (4, 16), (8, 4), (8, 8), (8, 16), (16, 4), (16, 8), (16, 16)
+        (source, destination) for source in (1, 2, 4, 8, 16) for destination in (1, 2, 4, 8, 16)
     }
     assert {case["page_layout"] for case in cases} == {"contiguous", "fragmented"}
     assert all(case["component_widths"] == [512, 64, 128] and case["dtype"] == "bfloat16" for case in cases)

@@ -35,13 +35,15 @@ impl AscendVectorKey {
             | ("router_topk", [256, 8])
             | ("cast_weights_bf16", [32])
             | ("rope_cache_gather", [1048576, 64]) => true,
-            ("rope_attention", [heads, 64, 256, 64]) => matches!(heads, 4 | 8 | 16),
+            ("rope_attention", [heads, 64, 256, 64]) => matches!(heads, 4 | 8 | 16 | 32 | 64),
             ("swiglu", [width]) => {
                 matches!(width, 64 | 128 | 256 | 384 | 512 | 768 | 1536 | 2048 | 3072)
             }
-            ("logits_finalize", [parallel, 154880]) => matches!(parallel, 4 | 8 | 16),
+            ("logits_finalize", [parallel, 154880]) => matches!(parallel, 1 | 2 | 4 | 8 | 16),
             ("cache_scatter", [53376, width]) => matches!(width, 64 | 128 | 512),
-            ("embedding", [vocabulary, 6144]) => matches!(vocabulary, 9680 | 19360 | 38720),
+            ("embedding", [vocabulary, 6144]) => {
+                matches!(vocabulary, 9680 | 19360 | 38720 | 77440 | 154880)
+            }
             _ => false,
         };
         if !valid || !matches!(self.execution_mode.as_str(), "eager" | "graph") {

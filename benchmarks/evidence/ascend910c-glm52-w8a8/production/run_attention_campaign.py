@@ -34,15 +34,42 @@ def main():
     if before.count("No running processes found in NPU") != 8:
         raise RuntimeError("NPU process inventory is not empty")
     container = "aisim-" + args.run_name
-    command = ["docker", "run", "-d", "--name", container, "--network", "host", "--privileged", "--shm-size", "16g",
-               "--mount", f"type=bind,src={output},dst=/campaign"]
-    for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
+    command = [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        container,
+        "--network",
+        "host",
+        "--privileged",
+        "--shm-size",
+        "16g",
+        "--mount",
+        f"type=bind,src={output},dst=/campaign",
+    ]
+    for path in (
+        "/usr/local/Ascend/driver",
+        "/usr/local/Ascend/firmware",
+        "/usr/local/sbin",
+        "/etc/ascend_install.info",
+    ):
         command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
-    command.extend(("--entrypoint", "/bin/sleep",
-                    "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443", "infinity"))
+    command.extend(
+        (
+            "--entrypoint",
+            "/bin/sleep",
+            "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443",
+            "infinity",
+        )
+    )
     subprocess.run(command, check=True)
-    state = {"status": "running", "create_command": command, "jobs": [],
-             "collector_source_sha256": hashlib.sha256((output / "collector.py").read_bytes()).hexdigest()}
+    state = {
+        "status": "running",
+        "create_command": command,
+        "jobs": [],
+        "collector_source_sha256": hashlib.sha256((output / "collector.py").read_bytes()).hexdigest(),
+    }
 
     def save():
         (output / "campaign.json").write_text(json.dumps(state, indent=2) + "\n")
@@ -51,8 +78,20 @@ def main():
         arguments = ["python3"]
         if negative:
             arguments.append("/campaign/graph_noop.py")
-        arguments.extend(("/campaign/collector.py", "--plan", "/campaign/plan.json", "--serving-setup",
-                          "/campaign/serving-setup-nodes.json", "--device", str(device), "--output", f"/campaign/{name}.json", *extra))
+        arguments.extend(
+            (
+                "/campaign/collector.py",
+                "--plan",
+                "/campaign/plan.json",
+                "--serving-setup",
+                "/campaign/serving-setup-nodes.json",
+                "--device",
+                str(device),
+                "--output",
+                f"/campaign/{name}.json",
+                *extra,
+            )
+        )
         if negative:
             arguments.append("--fail-fast")
         command = ["docker", "exec", container, "timeout", "7200", *arguments]
@@ -60,24 +99,49 @@ def main():
             result = subprocess.run(command, stdout=stream, stderr=subprocess.STDOUT)
         path = output / (name + ".json")
         record = json.loads(path.read_text()) if path.is_file() else {}
-        expected = (result.returncode != 0 and record.get("status") == "failed" and "numerical check failed" in record.get("error", "")) if negative else result.returncode == 0 and record.get("status") == "completed"
-        return {"name": name, "command": command, "returncode": result.returncode,
-                "expected_outcome": expected, "cases": len(record.get("cases", [])), "failures": len(record.get("failures", []))}
+        expected = (
+            (
+                result.returncode != 0
+                and record.get("status") == "failed"
+                and "numerical check failed" in record.get("error", "")
+            )
+            if negative
+            else result.returncode == 0 and record.get("status") == "completed"
+        )
+        return {
+            "name": name,
+            "command": command,
+            "returncode": result.returncode,
+            "expected_outcome": expected,
+            "cases": len(record.get("cases", [])),
+            "failures": len(record.get("failures", [])),
+        }
 
     save()
     try:
         plan = json.loads((output / "plan.json").read_text())
-        for operation in ("lightning_indexer", "sparse_attention"):
-            index = next(index for index, case in enumerate(plan["cases"]) if case["operation"] == operation
-                         and case["execution_mode"] == "graph" and case["phase"] == "decode"
-                         and case["active_batch"] == 1 and case["sequence_length"] == 8192)
-            job = run("negative-" + operation, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True)
+        for operation in sorted({case["operation"] for case in plan["cases"]}):
+            index = next(
+                index
+                for index, case in enumerate(plan["cases"])
+                if case["operation"] == operation
+                and case["execution_mode"] == "graph"
+                and case["phase"] == "decode"
+                and case["active_batch"] == 1
+                and case["sequence_length"] == 8192
+            )
+            job = run(
+                "negative-" + operation, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True
+            )
             state["jobs"].append(job)
             save()
             if not job["expected_outcome"]:
                 raise RuntimeError("Graph negative control failed")
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-            futures = [pool.submit(run, f"shard-{index}", index * 2, ["--num-shards", "4", "--shard-index", str(index)]) for index in range(4)]
+            futures = [
+                pool.submit(run, f"shard-{index}", index * 2, ["--num-shards", "4", "--shard-index", str(index)])
+                for index in range(4)
+            ]
             for future in concurrent.futures.as_completed(futures):
                 state["jobs"].append(future.result())
                 save()

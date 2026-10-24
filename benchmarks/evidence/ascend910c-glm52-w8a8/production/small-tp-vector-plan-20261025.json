@@ -1,0 +1,1754 @@
+{
+  "schema": "aisimulate-ascend-vector-plan/v1",
+  "status": "experimental_collection_plan",
+  "model_path": "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/deepep-contract-node19-20261024/model-metadata",
+  "cases": [
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        64,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        154880,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        1,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "rope_attention",
+      "dimensions": [
+        32,
+        64,
+        256,
+        64
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 64,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 128,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 256,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 512,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 1024,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 2048,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 4096,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 8192,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "embedding",
+      "dimensions": [
+        77440,
+        6144
+      ],
+      "tokens": 16384,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "eager"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 1,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 2,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 3,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 4,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 8,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 16,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 24,
+      "execution_mode": "graph"
+    },
+    {
+      "role": "logits_finalize",
+      "dimensions": [
+        2,
+        154880
+      ],
+      "tokens": 32,
+      "execution_mode": "graph"
+    }
+  ],
+  "protocol": {
+    "iterations": 16,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "de16daf95fab2fe0a64badaf69ba85e3466a6c376885ded610974ff12a7f6fcb",
+    "ascend_vector.yaml": "0c193f38b91a74049f9e0dd02453d7a0633f8f124c79eb53b5a9e49cb24172b3"
+  },
+  "source_contract": "SGLang baa9befa381511cd4d56f83980951e5a45fffc6d; vector-state-report.json and current startup memory confirm BF16 norm bias, FP32 indexer LayerNorm, BF16 RoPE cache and eager INT64/graph INT32 scatter indices. ModelSlim RMSNorm and MoE scale/add boundaries are source-audited.",
+  "selection": {
+    "policy": "Runtime selection of entire previously unmeasured curves; no timing-dependent selection",
+    "full_plan_sha256": "ee3475c1a147c7d9b2a926d8c3d2f3b1105ce85268364b856c8fe9310ca2e2ab",
+    "baseline_table_sha256": "b030224d970ae531b7f4695173b97d7f5a44494d28ca287e263fed53711781c7",
+    "full_plan_indices": [
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      454,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480,
+      481,
+      482,
+      483,
+      484,
+      485,
+      486,
+      487,
+      488,
+      489,
+      490,
+      491,
+      492,
+      493,
+      494,
+      495,
+      496,
+      497,
+      498,
+      499,
+      500,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537,
+      538,
+      539,
+      540,
+      541,
+      542,
+      543,
+      544,
+      545,
+      546,
+      547,
+      548,
+      549,
+      550,
+      551,
+      552,
+      553,
+      554,
+      555,
+      556,
+      557,
+      558,
+      559,
+      560,
+      561,
+      562,
+      563,
+      564,
+      565,
+      566,
+      567,
+      568,
+      569,
+      570,
+      571,
+      572,
+      573,
+      574,
+      575,
+      576,
+      577,
+      578,
+      579,
+      580,
+      581,
+      582,
+      583,
+      584,
+      585,
+      586,
+      587,
+      588,
+      589,
+      590,
+      591,
+      592,
+      593,
+      594,
+      595,
+      596,
+      597,
+      598,
+      599,
+      600,
+      601,
+      602,
+      603,
+      604,
+      605,
+      606,
+      607
+    ]
+  }
+}

@@ -18,8 +18,9 @@ def test_all_roles_preserve_the_observed_mla_views(tmp_path):
     }
     (tmp_path / "config.json").write_text(json.dumps(config))
     plan = get_ascend_bmm_cases(tmp_path)
-    assert len(plan["cases"]) == 222
-    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 222
+    assert len(plan["cases"]) == 370
+    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 370
+    assert {case["local_heads"] for case in plan["cases"]} == {4, 8, 16, 32, 64}
     for case in plan["cases"]:
         if case["role"] == "output_decode":
             assert case["tokens"] <= 32

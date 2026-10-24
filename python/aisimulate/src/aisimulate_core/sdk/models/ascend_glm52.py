@@ -109,6 +109,8 @@ def configure_ascend_glm52(model, raw_config):
     dcp = int(config.dcp_size or 1)
     if dcp not in (1, 2, 4, 8, 16) or local_tp % dcp:
         raise InvalidEngineConfigurationError("Ascend DCP must divide local attention TP")
+    if dcp > 1 and local_tp < 4:
+        raise InvalidEngineConfigurationError("Ascend DCP data currently covers attention TP4/8/16")
     if dcp > 1 and (
         getattr(config, "dcp_comm", None) not in (None, "ag_rs")
         or getattr(config, "dcp_q_replicate", None) not in (None, False)
@@ -116,18 +118,18 @@ def configure_ascend_glm52(model, raw_config):
         raise InvalidEngineConfigurationError("Ascend DCP requires the audited NPU gather and FP32 output-merge path")
     tensor_moe = experts_parallel == 1 and config.moe_tp_size == global_tp
     if tensor_moe:
-        if local_tp not in (4, 8, 16) or global_tp not in (16, 32):
+        if local_tp not in (1, 2, 4, 8, 16) or global_tp not in (16, 32):
             raise InvalidEngineConfigurationError(
-                "Ascend tensor-MoE requires attention TP4/8/16 and global MoE-TP16/32"
+                "Ascend tensor-MoE requires attention TP1/2/4/8/16 and global MoE-TP16/32"
             )
     elif (
-        local_tp not in (4, 8, 16)
+        local_tp not in (1, 2, 4, 8, 16)
         or experts_parallel not in (16, 32)
         or config.moe_tp_size != 1
         or local_tp * attention_dp != experts_parallel
     ):
         raise InvalidEngineConfigurationError(
-            "Ascend GLM requires local attention TP4/8/16, EP16/32, MoE-TP1 and TP*ADP=EP"
+            "Ascend GLM requires local attention TP1/2/4/8/16, EP16/32, MoE-TP1 and TP*ADP=EP"
         )
     if config.op_level_config is None:
         config.op_level_config = OpLevelCompileConfig(None, system=config.system, backend=model._backend_name)
@@ -158,6 +160,7 @@ def configure_ascend_glm52(model, raw_config):
     heads, dense_intermediate, vocabulary = 64 // local_tp, 12288 // global_tp, 154880 // local_tp
     sparse_split = 1 if tensor_moe else local_tp
     shared_intermediate = 2048 // global_tp if tensor_moe else 2048
+    fused_final_norm = tensor_moe or local_tp == 1
 
     for context in (True, False):
         phase, mode = ("context", "eager") if context else ("generation", "graph")
@@ -209,6 +212,8 @@ def configure_ascend_glm52(model, raw_config):
             )
 
         def collective(name, operation, ranks, count=1, shard=False, global_tokens=False, width=6144, requests=False):
+            if ranks == 1:
+                return None
             elements = width * (attention_dp if global_tokens else 1)
             split = local_tp if shard else 1
             if not context:
@@ -451,15 +456,15 @@ def configure_ascend_glm52(model, raw_config):
         entries.extend(
             [
                 vector("shared_add", "shared_add", [6144], 75, split=sparse_split, global_tokens=tensor_moe),
-                *([] if tensor_moe else [vector("final_residual_add", "shared_add", [6144], split=local_tp)]),
+                *([] if fused_final_norm else [vector("final_residual_add", "shared_add", [6144], split=local_tp)]),
                 *([] if tensor_moe else [collective("sparse_output_gather", "all_gather", local_tp, 75, shard=True)]),
-                vector("final_norm", "add_rms_bias" if tensor_moe else "rms_bias", [6144]),
+                vector("final_norm", "add_rms_bias" if fused_final_norm else "rms_bias", [6144]),
                 linear("logits_gemm", vocabulary, 6144, "bfloat16", requests=True),
                 collective("logits_gather", "all_gather", local_tp, width=vocabulary, requests=True),
                 vector("logits_finalize", "logits_finalize", [local_tp, 154880], requests=True),
             ]
         )
-        operations = [core.op_from_spec_json(json.dumps(entry)) for entry in entries]
+        operations = [core.op_from_spec_json(json.dumps(entry)) for entry in entries if entry is not None]
         if context:
             model.context_ops = operations
         else:

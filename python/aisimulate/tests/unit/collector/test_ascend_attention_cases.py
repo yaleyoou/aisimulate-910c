@@ -35,7 +35,7 @@ def test_active_requests_and_graph_padding_remain_separate(model):
 
 def test_prefix_cache_and_head_geometry_follow_declared_model(model):
     cases = get_ascend_attention_cases(model)["cases"]
-    assert {row["local_heads"] for row in cases if row["operation"] == "sparse_attention"} == {4, 8, 16}
+    assert {row["local_heads"] for row in cases if row["operation"] == "sparse_attention"} == {4, 8, 16, 32, 64}
     assert {row["local_heads"] for row in cases if row["operation"] == "lightning_indexer"} == {32}
     case = next(
         row

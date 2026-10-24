@@ -22,12 +22,12 @@ def test_declared_vector_geometry_preserves_parallelism_and_precision_boundaries
         return {tuple(case["dimensions"]) for case in cases if case["role"] == role}
 
     assert shapes("swiglu") == {(64,), (128,), (256,), (384,), (512,), (768,), (1536,), (2048,), (3072,)}
-    assert shapes("rope_attention") == {(4, 64, 256, 64), (8, 64, 256, 64), (16, 64, 256, 64)}
+    assert shapes("rope_attention") == {(heads, 64, 256, 64) for heads in (4, 8, 16, 32, 64)}
     assert shapes("rope_indexer") == {(32, 64, 128, 128)}
-    assert shapes("embedding") == {(38720, 6144), (19360, 6144), (9680, 6144)}
+    assert shapes("embedding") == {(vocabulary, 6144) for vocabulary in (154880, 77440, 38720, 19360, 9680)}
     assert shapes("cache_scatter") == {(53376, 64), (53376, 128), (53376, 512)}
     assert shapes("router_topk") == {(256, 8)}
-    assert shapes("logits_finalize") == {(4, 154880), (8, 154880), (16, 154880)}
+    assert shapes("logits_finalize") == {(parallel, 154880) for parallel in (1, 2, 4, 8, 16)}
     assert max(case["tokens"] for case in cases if case["role"] == "logits_finalize") == 32
     altered = json.loads(config.read_text())
     altered["rms_norm_eps"] = 1e-6

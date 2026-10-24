@@ -1,5 +1,36 @@
 # Current goal handoff
 
+## NEWEST: DCP published36layouts pass; smallTPcompute complete, PD160 running
+
+HEADdb54712ed888dc2b05e89e717391a695e729c438 commitsDCPsource+ADP12/evidence. Checkpoint59;nextpatch60prepared.
+DCP2691table INSTALLED;exactnative2691querieszero;SHAa67e660e73368d3c241a06098c8bea2023800b0e41c0f0370fb1c110c681c3e4.
+Frozenproduction/dcp-storage-release-20261025 anddcp-prediction-validation-20261025 (36strict8k1klayouts8requestseach).
+390GPUgoldens pass486s;46plumbing/14model/9producer/3DCPnativepassed. Olduserimage190684...NOTupdated.
+SmallTP1/2 compute DONE:linear468->462stable;vector160->160;BMM148->146;attention886->885numericpasses->870stable.
+Rawdirs small-tp-{linear,vector}-node32-20261025,small-tp-{attention,bmm}-node19-20261025;controls small-tp-linear-controls-node32-20261025.
+Newlinear16copies/16calls boundedmemory(TP1lmhead~1.9GB/copy);8vs16M8max3.028%median0.823%,16repeatone13.05%drift retained.
+Oldmatrixcurvesretain64-copyprotocol;newcurvesdisjointonly. Attentionfailureindex99,h64prefill512prefix8192,onezeroelement out32768,
+notpatched;rawfailurepreserved,excluded. /tmp/aisim-small-tp-compute-stage.json selects108archivedfiles.
+Newplans production/small-tp-{linear,vector,bmm,attention,pd}-plan-20261025.json;fullsourceplans have.full.json.
+Runtimeidentities small-tp-{linear,vector,bmm,attention}-runtime-identity-20261025.json generated.
+UNCOMMITTED:profileTP1/2;nativeBMM/attention/vectorheads32/64;BMM/attentionidentitypergrid;curve_append supportsattention/BMM/PD
+andpreservesexistingv2history;plannernewcurves supportsallfamilies andexplicitlarge-linearprotocoloverride.
+ModelnowacceptslocalTP1/2,butdefaultcatalogSTILL12TP4/8/16shapes untilsmalldata/PDqualified.
+collective(ranks1) returnsNone,filteredbeforecompile. TP1DeepEPfinalnormfused:Layoutomitsunitaxes;bind_exitkeep_output;
+noextra finalresidualadd/noone-rankcomm. Sourceproofboundary.py688 andlayout.pysharded_over;logitshelperiscalledalsoTP1.
+39Ascendnative,15producer,19model/appendtests passed. Root93967 currentlyreleasebuild /tmp/aisim-small-tp-release-build.log;
+whencompleteatomiccopytoCPU/tmp/aisim-native. Currentloadednative18c93522...(DCP)stillrejectsnewheads atquery.
+NEXTcommitvalidatedsmallproducer/consumer source +DCPdata/validation/docs;export4compute datasets withthatref;
+appendtoexistingcurveswhilepreservingDCPattentiontableandhistory;queryallnative;memoryfilter/8k1kTP1/2probes.
+ACTIVEroot72844node32 and89706node19:run_pd_grid suffixsmalltp-20261025,160cases/16newmappingsTP1/2 cross1/2/4/8/16.
+Logs/tmp/aisim-small-tp-pd-node32.log andnode19.log;progresspd-grid-npu1-*-smalltp-20261025.json;only3mappingsdone atlastcheck.
+DoNOTlaunchNPUworkwhilePDactive.31untouched. PDsourcea118...unchanged,mean8callprotocol.
+PDnewcurvesdisjointold81;curve_append--operationpd supportsrecursiveoldcombinedprovenance;check8kcoverageforallnewcurves.
+Remaining:finishsmallTP+PD,defaultcatalogmemoryfeasible expansion/search,finalwheel/image/installchecks/docscommits.
+GPUrecommend explicitlydoesNOTsearchCP/DCP>1(config/engine.py);DCPpredict-only matchesbaseline. GPUReplayPP1only.
+AscendFuseEPalsoforcesepsize=globalTP(_A2A_EP_SPANNING_BACKENDS),soitcannotrestorehybridMoETP/EPnonebackendfailure.
+DoNOTclosegoalbeforefinalusableimage. Userrequestsfunctionalityfirst;servingaccuracyfuturebutallqualitygatesretained.
+
 ## NEWEST: DCP2736complete2691qualified; source integration tested; publish next
 
 HEAD23412383 still; largeUNCOMMITTED source/evidence stage needscommit. Checkpoint58;patchcheckpoint-dcp-collection-stage.json prepared/applying59.

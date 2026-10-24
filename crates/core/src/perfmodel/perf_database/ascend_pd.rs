@@ -21,8 +21,8 @@ pub struct AscendPdKey {
 
 impl AscendPdKey {
     pub fn validate(&self) -> Result<(), AicError> {
-        if !matches!(self.source_tp, 4 | 8 | 16)
-            || !matches!(self.destination_tp, 4 | 8 | 16)
+        if !matches!(self.source_tp, 1 | 2 | 4 | 8 | 16)
+            || !matches!(self.destination_tp, 1 | 2 | 4 | 8 | 16)
             || !matches!(self.page_layout.as_str(), "contiguous" | "fragmented")
         {
             return Err(AicError::InvalidEngineConfig(format!(

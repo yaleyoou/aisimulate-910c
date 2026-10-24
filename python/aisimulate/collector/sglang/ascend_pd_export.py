@@ -87,8 +87,8 @@ def validated_rows(plan_path, observations, runtime_identity):
             if any(observed.get(name) != value for name, value in case.items()):
                 raise ValueError("PD case differs from frozen plan")
             if (
-                case["source_tp"] not in (4, 8, 16)
-                or case["destination_tp"] not in (4, 8, 16)
+                case["source_tp"] not in (1, 2, 4, 8, 16)
+                or case["destination_tp"] not in (1, 2, 4, 8, 16)
                 or case["ranks_per_node"] != 16
                 or case["num_layers"] != 78
                 or case["page_size"] != 128

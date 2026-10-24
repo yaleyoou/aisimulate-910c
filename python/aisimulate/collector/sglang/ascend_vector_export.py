@@ -57,7 +57,7 @@ def expected_invocation(case):
             tensor([tokens, 128]),
             "sglang.srt.layers.layernorm.LayerNorm.forward_npu",
         )
-    if (role == "rope_attention" and dimensions in ([4, 64, 256, 64], [8, 64, 256, 64], [16, 64, 256, 64])) or (
+    if (role == "rope_attention" and dimensions in ([heads, 64, 256, 64] for heads in (4, 8, 16, 32, 64))) or (
         role == "rope_indexer" and dimensions == [32, 64, 128, 128]
     ):
         heads, width, query_width, key_width = dimensions
@@ -111,7 +111,7 @@ def expected_invocation(case):
         return {"input": tensor([tokens, 6144])}, tensor([tokens, 6144], "float32"), "torch.Tensor.to"
     if role == "cast_weights_bf16" and dimensions == [32]:
         return {"input": tensor([tokens, 32], "float32")}, tensor([tokens, 32]), "torch.Tensor.to"
-    if role == "logits_finalize" and dimensions in ([4, 154880], [8, 154880], [16, 154880]):
+    if role == "logits_finalize" and dimensions in ([parallel, 154880] for parallel in (1, 2, 4, 8, 16)):
         parallel, vocabulary = dimensions
         output = tensor([tokens, vocabulary], "float32")
         return (
@@ -122,9 +122,9 @@ def expected_invocation(case):
             output,
             "sglang.srt.layers.logits_processor.LogitsProcessor._copy_logits_to_buffer",
         )
-    if (role == "embedding" and dimensions in ([9680, 6144], [19360, 6144], [38720, 6144])) or (
-        role == "rope_cache_gather" and dimensions == [1048576, 64]
-    ):
+    if (
+        role == "embedding" and dimensions in ([vocabulary, 6144] for vocabulary in (9680, 19360, 38720, 77440, 154880))
+    ) or (role == "rope_cache_gather" and dimensions == [1048576, 64]):
         return (
             {"indices": tensor([tokens], "int64"), "weight": tensor(dimensions)},
             tensor([tokens, dimensions[1]]),

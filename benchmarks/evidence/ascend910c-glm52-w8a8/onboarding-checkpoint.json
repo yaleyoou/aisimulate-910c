@@ -861,6 +861,14 @@
           "scope": "validation",
           "sha256": "43a11c9b1f25e59650f0c4455f03ac8196c86171da17aa8a65e5fb37bbde71d6"
         },
+        "dcp_formal_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/dcp-storage-release-20261025/ascend_dcp_attention_perf.parquet",
+          "scope": "collection",
+          "sha256": "a67e660e73368d3c241a06098c8bea2023800b0e41c0f0370fb1c110c681c3e4"
+        },
         "dcp_full_plan_validation": {
           "archived": false,
           "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
@@ -876,6 +884,14 @@
           "path": "production/dcp-attention-world2-node19-20261025-v3/layout-audit-rejection.json",
           "scope": "validation",
           "sha256": "22bf16dfbd8c36b8055377acac28f0e4dc494737146165658bb98090fbbe71f7"
+        },
+        "dcp_prediction_matrix": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/dcp-prediction-validation-20261025/summary.json",
+          "scope": "validation",
+          "sha256": "ef79e135f1accf20de7f6baf3fedd39f222b6b9d97f3697a47dbe89bba6cc116"
         },
         "dcp_storage_graph_control": {
           "archived": false,
@@ -1437,6 +1453,22 @@
           "scope": "validation",
           "sha256": "c0ec7c0e656394887a5f9aeeb57f236efdf95ce4f341408a54435f7b0edeb4fd"
         },
+        "small_tp_linear_plan": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/small-tp-linear-plan-20261025.json",
+          "scope": "collection",
+          "sha256": "284c35f79fe49f6954074c693c07796005faca47a9d6f25f294327bcffe0b8b0"
+        },
+        "small_tp_pd_plan": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/small-tp-pd-plan-20261025.json",
+          "scope": "collection",
+          "sha256": "5edb8805158b935d2d79d67a06ea4c28b43f928d8565b14ec3a58d47e3403849"
+        },
         "state_capture_tests": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -1664,9 +1696,9 @@
   ],
   "progress": {
     "blockers": [
-      "DCP table publication and full prediction validation remain; smaller attention TP and final image delivery still need qualification."
+      "Small TP compute publication, TP1/2 KV-transfer collection and final runtime packaging remain."
     ],
-    "next_action": "Commit the tested source and collection evidence, publish2691qualifiedDCPpoints, run native/external prediction checks, then finish remaining supported topologies and package delivery.",
+    "next_action": "Publish the small-TP compute grids, finish and validate all new PD mappings, qualify feasible configurations and rebuild the user image.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2169,8 +2201,10 @@
       "dcp_limitations": "MeasuredDCPdecode is graph mode;unqualified eagerdecode in mixedforwardfails explicitly. ExistingGPUrecommend schema doesnotsearchCP/DCP;DCPprediction is the matched baseline capability. PP1 restriction andpinnedNPU CP/mixedMoETP-EP runtime evidence remain explicit.",
       "dcp_metadata_audit": "Initial standalone DCP plan used CUDA-style interleave1. PinnedNPUcallsite explicitly passes backendpage_size128, confirmed by local-KV metadata source. Oldstandaloneobservations,includinginterruptedworld2v3andworld16probe,areunqualifieddiagnostics;ZERO DCProws published. Replacedwithnewimmutablepage128plans andowned-page initialization/remapping/reference.",
       "dcp_precision_audit": "Initial ideal-FP32 reference ignored BF16 partial outputs before FP32 merge. NeworaclechecksCPUdensepartials andLSE independently,thenchecksmergeusingverifiedBF16partials. Outputthresholdunchanged. EmptyLSEobserved=-1.999999936e38 with exp=0;neutral-partitioncheckusesnegativeLSEandzeroexp. IdealFP32errorretaineddiagnostic. Source/failedattempts preserved.",
+      "dcp_release": "Installed2691qualifiedDCProws;all2691nativequeriesexactzeroerror. Frozen dcp-storage-release-20261025. TableSHAa67e660e73368d3c241a06098c8bea2023800b0e41c0f0370fb1c110c681c3e4.",
       "dcp_source_contract": "AscendDcpAttention Rusttable/operator wired;native3tests andproducer9tests pass. Model21full-indexer+57reusecomposites includeKVwrites;oldKVwriteops removed underDCP. IndexerKV staysfull;DCP2memoryrate64896bytes/logicaltoken,sentinel16613376bytes reproduce observed3239608320-bytepool and49664logicalcapacity. Replayrequireslogicalblock128*dcp;PD+DCP rejected atcanonicalconfiguration.",
       "dcp_storage_boundary": "AuditedDCPindexerwriteindices eagerINT32/graphINT64,oppositeordinarycachewriteprofile. NewcompositeincludesactualindexerKVwriteon21full-indexerlayers,latent/ropeKVwriteonall78layers,optionalremap21,Qgather,partialsparseattentionandFP32all-to-all/update. ModelmustomitoldKVwriteopsforDCPtoavoidduplication. Lightningindexer/GEMM/BMMremainseparate.",
+      "dcp_validation": "36DCP2/4/8/16 xattentionTP4/8/16 xglobal16/32 xDeepEP/tensorMoE layouts each completed8requests of8192input1024output withstrictprovenance. Frozen dcp-prediction-validation-20261025.390GPUgoldens unchanged pass;46GPU/NPUplumbing pass.",
       "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
       "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
       "head": "2341238367a5d02182c3987a254dd3b9ee7e9d77",
@@ -2184,8 +2218,12 @@
       "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
       "pp_scope": "GPU engine launch itself rejects pp!=1 at crates/core/src/engine/launch.rs:170. PP2DeepEP8 realmodel8krequest passed, but native request Replay/search cannot use PP on either GPU orNPU. NewPP2MoETP8none failed graphcapture: OwedOutput.shape access while carrying skip-layer topk atSGLangdeepseek_v2.py3169.",
       "replay_qualification": "Baseline2434b021e2d186b7b9601d62ca90d4865a513887 and candidate98381b91:8rows,32processes,5000requests each, all complete and canonical reports byte-identical. First build incorrectly embedded short baseline SHA and was rejected before simulation; v2 uses full SHAs. Frozen362files under parallel-replay-validation-98381b91.",
-      "runtime_image": "Stableuserimage190684...stillpreviouslimitedrelease;rebuildaftercurrentstagechecks. No claimnewsourcefeaturesareinoldimage.",
-      "source_commit": "98381b91fd5d4520eb9fbc67005187dded3e6cc8",
+      "runtime_image": "Userimage190684...stilloldlimitedrelease. Finalimage rebuildrequired afterfinalqualifieddata. Overallgoalactive.",
+      "small_tp_compute": "Newphysicalcurves collected:linear468attempts462stable,vector160allstable,BMM148attempts146stable,attention886attempts885numericpasses870stable. The1attentionfailure(h64prefill512prefix8192)hasonezerooutputelement;originalfailurepreservedandexcluded. No newdata installedyet.",
+      "small_tp_pd": "160newcases cover32newcurves forTP1/2withTP1/2/4/8/16,protocol8calls/sample,10warmups,7repeats. Sourcecollector a118f975...unchanged. Activebothnodes run_pd_grid suffixsmalltp-20261025;do notlaunchotherNPUworkuntilfinished.",
+      "small_tp_protocol": "Newlarge-linearcurves use16distinctweights/16calls tofit TP1lmhead andlargeoutputs. 8vs16weightcontrols:median0.823%,max3.028% timingdifference across16cases;16repeatmedian0.686%,onecase13.05%drift retained. FullrowCVchecks remain10%. Existingcurveskeepoldprotocols andvalues.",
+      "small_tp_source": "Producerheads32/64 andTP1/2 vocabularygeometry added. NativeBMM/attention identities nowperphysicalgrid;disjointappendpreservespriorhistories. TP1omitsone-rankcollectives andkeepsfinalresidualforfusednorm, asunitaxesareelidedinSGLangLayout andbind_exitselectskeep_output. Source39native,15producer,19model/appendtests pass. Nativeextensionfornewheads stillbuilding.",
+      "source_commit": "db54712ed888dc2b05e89e717391a695e729c438",
       "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
       "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
       "tensor_adp": "Real MoETP16EP1 ADP2 andADP4 servers each completed8192input16output. Captured resident50,480,189,948 and52,840,002,044 respectively. Prefill156global16AR plusembedding/localLogits;decode78localRS+78globalAG+78globalRS+78localAG pluslogits. Global FFN input andplainRMS boundary now modeled. Bothserversstopped.",
@@ -2373,7 +2411,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 59,
+  "revision": 60,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

@@ -79,7 +79,7 @@ def validated_rows(plan_path, observations, runtime_identity):
             )
             if (
                 row["role"] not in {"query_nope", "output_prefill", "output_decode"}
-                or heads not in (4, 8, 16)
+                or heads not in (4, 8, 16, 32, 64)
                 or row["input_width"] != (192 if query else 512)
                 or row["output_width"] != (512 if query else 256)
                 or row["input_stride"] != expected_input
