@@ -1,0 +1,29 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["PP, CP/DCP and MoE tensor-parallel prediction integration remains under active development."],
+    "next_action": "Publish checked tensor-MoE measurements, collect its shared-expert matrices, and integrate actual parallel execution paths."
+  },
+  "research": {
+    "parallel_extension": {
+      "source_commit": "98381b91fd5d4520eb9fbc67005187dded3e6cc8",
+      "replay_qualification": "Baseline2434b021e2d186b7b9601d62ca90d4865a513887 and candidate98381b91:8rows,32processes,5000requests each, all complete and canonical reports byte-identical. First build incorrectly embedded short baseline SHA and was rejected before simulation; v2 uses full SHAs. Frozen362files under parallel-replay-validation-98381b91.",
+      "moetp_capture": "Real TP16/ADP1/EP1 none-backend model completed8kinput16output. Captured resident model49,300,283,900bytes;75tensorMoE layers and157AR16perforward. New actual tensor dispatcher/GMM/activation/finalization collector128cases completed;126stable,2CVexcluded. Four graph-noop controls rejected. Original smoke reference indexed routing mapping incorrectly; independent probe established token-major map and only the checker index was fixed, tolerances unchanged.",
+      "moetp_integration": "Native AscendMoeTensor table/op and publisher implemented;3Rust and6Python tests pass. Model composition, shared-expert linear/vector data and full caller validation are still pending.",
+      "dcp_capture": "DCP2 started and warmed up but first8k request ran out of memory after graph capture. Preserved failure. With KVcap32768,memoryfraction0.86,prefillchunk4096, the same8kinput16output request completed. This proves execution, not FPE support or uninstrumented serving accuracy. Owned DCP server stopped.",
+      "cp_capture": "CP2interleave realweights server loading on32 with boundedKV32768. Execution not yet qualified.",
+      "next": "Continue complete adaptation; goal active. User runtime image remains previous limited release until rebuilt."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "parallel_replay_parity": {"path":"production/parallel-replay-validation-98381b91/parity.json","kind":"file","scope":"validation"},
+        "tensor_moe_plan": {"path":"production/moe-tensor-plan-20261024.json","kind":"file","scope":"collection"},
+        "tensor_moe_campaign": {"path":"production/moe-tensor-node19-20261024-v2/campaign.json","kind":"file","scope":"collection"},
+        "dcp2_actual_request": {"path":"production/operator-input-state-node32-20261022-dcp2-kv32k-20261024/capture/dcp2_8192_chunk4k/response.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

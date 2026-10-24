@@ -200,7 +200,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
     let samples = reader.col("sample_count")?;
     let cv = reader.col("cv")?;
     let provenance = reader.col("runtime_identity_sha256")?;
-    let mut identity = None;
+    let mut identities: BTreeMap<(AscendLinearKey, bool), String> = BTreeMap::new();
     let mut rows: BTreeMap<AscendLinearKey, [BTreeMap<u32, LeafValue>; 2]> = BTreeMap::new();
     for row in reader.rows()? {
         let row = row?;
@@ -241,14 +241,13 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 "unqualified Ascend linear row: {key:?}"
             )));
         }
-        if let Some(expected) = &identity {
-            if expected != runtime {
-                return Err(AicError::InvalidPerfData(
-                    "Ascend linear file mixes runtime identities".into(),
-                ));
-            }
-        } else {
-            identity = Some(runtime.to_owned());
+        let expected = identities
+            .entry((key.clone(), has_bias))
+            .or_insert_with(|| runtime.to_owned());
+        if expected != runtime {
+            return Err(AicError::InvalidPerfData(
+                "Ascend linear curve mixes runtime identities".into(),
+            ));
         }
         if rows.entry(key).or_default()[usize::from(has_bias)]
             .insert(count, LeafValue::latency_only(measured))
@@ -382,6 +381,32 @@ mod tests {
         assert!(matches!(
             table.query(&changed, true, 5),
             Err(AicError::InvalidEngineConfig(_))
+        ));
+    }
+
+    #[test]
+    fn collection_identity_is_separate_per_bias_curve_but_never_mixed_inside_one() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let first = "1111111111111111111111111111111111111111111111111111111111111111";
+        let second = "2222222222222222222222222222222222222222222222222222222222222222";
+        let mut fixture = columns();
+        *fixture.last_mut().unwrap() = Col::Str(
+            "runtime_identity_sha256",
+            vec![first, first, second, second],
+        );
+        write_parquet(&path, &fixture);
+        let table = AscendLinearTable::new(Some(path.clone()));
+        assert_eq!(table.query(&key(), false, 5).unwrap().latency, 3.0);
+        assert_eq!(table.query(&key(), true, 5).unwrap().latency, 3.0);
+        *fixture.last_mut().unwrap() = Col::Str(
+            "runtime_identity_sha256",
+            vec![first, second, second, second],
+        );
+        write_parquet(&path, &fixture);
+        assert!(matches!(
+            AscendLinearTable::new(Some(path)).query(&key(), false, 5),
+            Err(AicError::InvalidPerfData(_))
         ));
     }
 

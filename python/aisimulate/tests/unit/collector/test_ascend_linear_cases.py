@@ -54,6 +54,10 @@ def test_dense_and_shared_shapes_follow_their_actual_parallel_axes(artifact):
             assert (case["n"], case["k"], case["quant_mode"]) == (1536, 6144, "w8a8_dynamic")
         if "shared_up" in case["owners"]:
             assert (case["n"], case["k"]) == (4096, 6144)
+        if "shared_tensor_up.tp16" in case["owners"]:
+            assert (case["n"], case["k"]) == (256, 6144)
+        if "shared_tensor_down.tp32" in case["owners"]:
+            assert (case["n"], case["k"]) == (6144, 64)
         if any(owner.startswith("lm_head") for owner in case["owners"]):
             assert case["m"] <= 64
         if "indexer_weights" in case["owners"]:

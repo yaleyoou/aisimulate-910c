@@ -1,0 +1,11 @@
+schema_version: 1
+op: ascend_moe_tensor
+description: Ascend TP dispatcher, W8A8 expert computation and routing finalization.
+common_case_values:
+  ascend_moe_tensor:
+    tokens: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
+    execution_modes: [eager, graph]
+    weight_copies: 8
+    iterations: 8
+    warmup: 5
+    repeats: 7

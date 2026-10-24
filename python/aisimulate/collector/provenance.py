@@ -57,6 +57,7 @@ STANDALONE_COLLECTOR_MODULES: frozenset[str] = frozenset(
         "collector.network.slurm.collect_trtllm_alltoall",
         "collector.sglang.glm53flash_attention_runner",
         "collector.sglang.ascend_linear",
+        "collector.sglang.ascend_moe_tensor",
         "collector.vllm.glm53flash_attention_runner",
     }
 )

@@ -1,0 +1,11 @@
+{
+  "status": "pinned_runtime_execution_failure",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "configuration": {"global_tp":16,"attention_dp":2,"attention_cp":2,"ep":16,"cp_strategy":"interleave","kv_limit":32768,"prefill_chunk":4096},
+  "stage": "server warmup prefill after model loading and graph capture",
+  "error": "AttributeError: 'DeepseekV2AttentionMLA' object has no attribute 'rebuild_cp_kv_cache'",
+  "source_call": "sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py:490",
+  "source_audit": "The pinned srt tree contains two call sites and no definition of rebuild_cp_kv_cache. The DSA call is guarded by dsa_use_prefill_cp(forward_batch), not by a CP-degree-specific shape.",
+  "scope": "CP2 interleave failed with the real checkpoint. This is a runtime implementation gap; no measured CP predictor is published for this path. DCP2 is a different path and completed a real 8192-token request.",
+  "owned_container_stopped": true
+}

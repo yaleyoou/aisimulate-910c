@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "phase": "8192-token prefill after successful startup and six-token warmup",
+  "observed_error": "torch.OutOfMemoryError",
+  "source": "startup.log",
+  "serving_configuration": {"tp": 16, "attention_dp": 2, "ep": 16, "dcp": 2, "memory_fraction_static": 0.9, "prefill_chunk": 8192},
+  "scope": "Instrumented model; graph capture leaves approximately 0.5 GiB free. This is not evidence that DCP kernels are unsupported.",
+  "next_probe": "Keep the workload at 8192 tokens, cap KV at 32768 tokens, lower the memory fraction to 0.86 and split prefill into 4096-token chunks. Preserve this failed attempt."
+}

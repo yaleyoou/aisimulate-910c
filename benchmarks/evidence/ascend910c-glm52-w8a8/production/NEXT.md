@@ -1,5 +1,36 @@
 # Current goal handoff
 
+## CURRENT: tensor-MoE data collected and native integration tested; publish tables next
+
+Goal ACTIVE; nodes32+19 allowed,31 untouched. Checkpoint56 integrity[].
+98381b91 committed six-layout351/351 auto search and transport extension.
+Pinned replay baseline2434b021/fullSHA->98381b91:8rows32processes5000requests,all byte-identical;
+frozen production/parallel-replay-validation-98381b91 (362 files). First short-SHA setup rejection preserved in /tmp.
+Current native release d9fd5fa11ce791ba95c9ab70e70713983787d14df4a3d7d469b519c3b90f574d loaded atomically in CPU /tmp/aisim-native.
+New AscendMoeTensor op/table/exporter supports EP1 balanced top8, intermediate64/128/256/512.
+TP16ADP1MoETP16EP1 model composition now passes exact resident49,300,283,900 bytes and157AR16 trace checks.
+36 Ascend native tests,14 producer tests,8 model tests pass; Ruff current source clean.
+MoeTensor128 cases:126stable,2CVexcluded;4negativegraphcontrolsrejected. Failedfirstsmoke was checker token-major mapping bug,
+proved by probe_tensor_routing.py; fixed only checker index, no tolerance or kernel changes. Frozen campaigns node19/v2.
+Shared/dense new linear816cases complete805stable11CVexcluded;vector192complete192stable. Node19 own collectors stopped.
+Production plans linear/vector-tensor-extension-plan-20261024.json are whole previously-unmeasured curves from complete declared plans.
+Native linear/vector identities now percurve; new ascend_curve_append rejects overlapping curves, keeps all old data untouched.
+Runtime identities moe-tensor-tensor-runtime-identity-20261024.json,linear/vector-tensor-runtime-identity-20261024.json.
+NEXT:commit source foundation, export with exact collector-ref; merge linear805+old1378 andvector192+old842 using curve_append;
+install126tensor table and preserved-family metadata; native-query all;full8k1k EP1 aggregate/PD;add default catalog when qualified.
+Actual DCP2 fullmodel8k/16out passed withKV32768,fraction.86,chunk4096. Initial.9/8kchunkOOM retained.
+DCP op/KV/LSE model remains UNIMPLEMENTED. All owned DCPservers stopped.
+CP2interleave actual fullmodel failed warmup: missing DeepseekV2AttentionMLA.rebuild_cp_kv_cache atnpuMLAline490;
+source only two calls/no definition. Preserve explicit runtime limitation; cannot claim generic CP support.
+PP2DeepEP8 previously passed8krequest but PP model still UNIMPLEMENTED.
+New PP2MoETP8EP1 failed graphcapture: deepseek_v2.py3169 accesses hidden_states.shape on OwedOutput while carrying topk_indices;
+runtime bug at skip-indexer PPboundary. Need audit/other executable PP layouts; do not say all PP unsupported.
+EP2none isolated actual AscendTPDispatcher probe failed:globalcounts256 versuslocalweight128 scale batch mismatch;
+tensor-ep2-runtime-probe-20261024.json. This is isolated metadata execution evidence, not full distributed serving.
+Archive /tmp/aisim-tensor-archive-stage.json selects completed newcampaigns/captures; never stage all untracked or md/test.md.
+RootPTYS93967/24914/72844 local32,89706 node19. AllNPUscurrentlyidle after PP2failure; verify before next launch.
+Old user image190684... remains previous limited release; must rebuild after current features qualify. Overall adaptation NOT complete.
+
 ## CURRENT ACTIVE: six TP/EP layouts and351searches pass; PP/MoETP execution proven, not modeled
 
 Goal remains ACTIVE: userexplicitlyrequestsotherparallelwayslikeGPU;donotcloseafterthisstage.

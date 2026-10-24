@@ -925,6 +925,16 @@ mod tests {
                 token_split: 8,
                 input_token_multiple: 8,
             }),
+            OpSpec::AscendMoeTensor(crate::operators::AscendMoeTensorOp {
+                name: "ascend_tensor_moe".into(),
+                scale_factor: 75.0,
+                key: crate::perf_database::ascend_moe_tensor::AscendMoeTensorKey {
+                    intermediate_size: 128,
+                    distribution: "balanced".into(),
+                    execution_mode: "graph".into(),
+                },
+                input_token_multiple: 16,
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -952,6 +962,7 @@ mod tests {
                 | OpSpec::AscendBmm(_)
                 | OpSpec::AscendVector(_)
                 | OpSpec::AscendMoeChain(_)
+                | OpSpec::AscendMoeTensor(_)
                 | OpSpec::AscendDeepEp(_)
                 | OpSpec::P2P(_)
                 | OpSpec::Vision(_)

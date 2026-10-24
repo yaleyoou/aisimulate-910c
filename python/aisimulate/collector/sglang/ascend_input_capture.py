@@ -227,6 +227,14 @@ def install(state):
             wrap_function(module, function_name, function.__module__ + "." + function.__name__)
         activation = importlib.import_module("sglang.srt.hardware_backend.npu.moe.activation")
         wrap_function(activation.NPUSwigluDeepEPKernel, "_apply_activation", "NPUSwigluDeepEPKernel._apply_activation")
+        wrap_function(activation.NPUSwigluQuant, "_apply_activation", "NPUSwigluQuant._apply_activation")
+        tensor_dispatcher = importlib.import_module("sglang.srt.layers.moe.token_dispatcher.ascend_tp")
+        for name in ("dispatch", "combine"):
+            wrap_function(tensor_dispatcher.AscendTPDispatcher, name, "AscendTPDispatcher." + name)
+        moe_methods = importlib.import_module("sglang.srt.hardware_backend.npu.quantization.moe_methods")
+        wrap_function(moe_methods.NPUW8A8Int8MoEMethod, "apply", "NPUW8A8Int8MoEMethod.apply")
+        dcp = importlib.import_module("sglang.srt.hardware_backend.npu.attention.dsa_dcp")
+        wrap_function(dcp, "forward_dcp_sparse_attention", "forward_dcp_sparse_attention")
         dispatcher = importlib.import_module("sglang.srt.layers.moe.token_dispatcher.deepep")
         for name in ("dispatch_a", "dispatch_b", "combine_a", "combine_b"):
             wrap_function(dispatcher.DeepEPDispatcher, name, "DeepEPDispatcher." + name)

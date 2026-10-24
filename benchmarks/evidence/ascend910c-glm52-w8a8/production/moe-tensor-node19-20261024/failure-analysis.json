@@ -1,0 +1,9 @@
+{
+  "status": "collector_reference_bug",
+  "failed_stage": "smoke",
+  "observed_error": "routing/quantization reference check failed on every smoke worker",
+  "cause": "The reference indexed init-routing-v2's row mapping as top-k-major. The installed kernel returns a token-major source-to-destination mapping.",
+  "proof": "../moe-tensor-routing-probe-20261024.json",
+  "fix": "Index the mapping with token * top_k + topk_slot. No kernel, timing, case grid or numerical tolerance changes.",
+  "published_rows": 0
+}

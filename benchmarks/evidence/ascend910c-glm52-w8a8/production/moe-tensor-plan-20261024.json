@@ -1,0 +1,1172 @@
+{
+  "schema": "aisimulate-ascend-moe-tensor-plan/v1",
+  "status": "experimental_collection_plan",
+  "model_path": "/workspace/benchmarks/evidence/ascend910c-glm52-w8a8/production/deepep-contract-node19-20261024/model-metadata",
+  "cases": [
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 512,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 256,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 128,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "eager",
+      "tokens": 16384
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 24
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 32
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 64
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 128
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 256
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 512
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 1024
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 2048
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 4096
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 8192
+    },
+    {
+      "hidden_size": 6144,
+      "num_experts": 256,
+      "top_k": 8,
+      "intermediate_size": 64,
+      "distribution": "balanced",
+      "execution_mode": "graph",
+      "tokens": 16384
+    }
+  ],
+  "protocol": {
+    "weight_copies": 8,
+    "iterations": 8,
+    "warmup": 5,
+    "repeats": 7
+  },
+  "source_sha256": {
+    "config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba",
+    "GlmMoeDsaForCausalLM_cases.yaml": "723448cd2d4479ced437297f347143a3e05fa8bde7c372fe2b242228f1e65a7f",
+    "ascend_moe_tensor.yaml": "190f997310dec5f39d68714128ed5d47600ffab318ec86a9915abfc04e603763"
+  },
+  "scope": "EP1 AscendTPDispatcher with balanced distinct top8; excludes router, shared expert and all-reduce."
+}

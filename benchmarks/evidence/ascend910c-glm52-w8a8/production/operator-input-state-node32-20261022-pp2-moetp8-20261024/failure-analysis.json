@@ -1,0 +1,10 @@
+{
+  "status": "pinned_runtime_execution_failure",
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "configuration": {"global_tp_per_stage":8,"pipeline":2,"attention_dp":1,"ep":1,"moe_a2a_backend":"none"},
+  "stage": "decode graph capture after successful weight loading",
+  "error": "AttributeError: 'OwedOutput' object has no attribute 'shape'",
+  "source_call": "sglang/srt/models/deepseek_v2.py:3169",
+  "scope": "This graph-backed PP2 plus tensor-MoE combination failed. PP2/EP8 DeepEP previously completed a real 8K request. Do not generalize this failure to all PP layouts.",
+  "owned_container_stopped": true
+}

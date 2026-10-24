@@ -119,6 +119,12 @@ def get_ascend_linear_cases(model_path, case_root=None):
         add(f"dense_down.tp{parallel}", "w8a8_dynamic", hidden, intermediate)
     add("shared_up", "w8a8_dynamic", 2 * expert_intermediate, hidden)
     add("shared_down", "w8a8_dynamic", hidden, expert_intermediate)
+    for parallel in profile["shared_tensor_parallel_sizes"]:
+        if expert_intermediate % parallel:
+            raise ValueError("Declared shared expert TP does not divide intermediate size")
+        intermediate = expert_intermediate // parallel
+        add(f"shared_tensor_up.tp{parallel}", "w8a8_dynamic", 2 * intermediate, hidden)
+        add(f"shared_tensor_down.tp{parallel}", "w8a8_dynamic", hidden, intermediate)
     add("indexer_q", "w8a8", config["index_n_heads"] * config["index_head_dim"], query_rank, True)
     add("indexer_k", "bfloat16", config["index_head_dim"], hidden)
     add("indexer_weights", "float32_bfloat16", config["index_n_heads"], hidden)

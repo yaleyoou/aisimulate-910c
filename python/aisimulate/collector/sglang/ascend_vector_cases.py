@@ -29,6 +29,7 @@ def get_ascend_vector_cases(model_path, case_root=None):
                 "checkpoint_quantization",
                 "tensor_parallel_sizes",
                 "global_tensor_parallel_sizes",
+                "shared_tensor_parallel_sizes",
                 "indexer_norm_eps",
             }
             and config.get(name) != value
@@ -68,6 +69,10 @@ def get_ascend_vector_cases(model_path, case_root=None):
         if geometry["intermediate_size"] % parallel:
             raise ValueError("Dense MLP shard is not integral")
         sites.append(("swiglu", [geometry["intermediate_size"] // parallel]))
+    for parallel in geometry["shared_tensor_parallel_sizes"]:
+        if geometry["moe_intermediate_size"] % parallel:
+            raise ValueError("Shared expert shard is not integral")
+        sites.append(("swiglu", [geometry["moe_intermediate_size"] // parallel]))
     for width in (geometry["kv_lora_rank"], rope, geometry["index_head_dim"]):
         sites.append(("cache_scatter", [base["reference_cache_tokens"], width]))
     cases = [

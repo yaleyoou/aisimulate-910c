@@ -108,6 +108,36 @@ def test_tp16_matches_observed_single_dp_boundaries_and_graph_padding(model_path
     assert generated["generation_logits_gemm"][1]["token_multiple"] == 16
 
 
+def test_tensor_moe_matches_loaded_weights_and_observed_all_reduce_boundaries(model_path):
+    config = configuration()
+    config.tp_size, config.attention_dp_size = 16, 1
+    config.moe_tp_size, config.moe_ep_size = 16, 1
+    model = get_model(model_path, config, "sglang")
+    assert model.get_resident_weights_bytes() == 49_300_283_900
+    assert model.execution_assumptions["moe_a2a_backend"] == "none"
+    assert model.execution_assumptions["prefill_shared_expert_overlap"] is False
+    assert all("Overlap" not in json.loads(operation._spec_json()) for operation in model.context_ops)
+    assert any("Overlap" in json.loads(operation._spec_json()) for operation in model.generation_ops)
+    for phase, operations in (("context", model.context_ops), ("generation", model.generation_ops)):
+        ops = flattened(operations)
+        assert ops[phase + "_routed_experts"][0] == "AscendMoeTensor"
+        assert ops[phase + "_routed_experts"][1]["key"]["intermediate_size"] == 128
+        assert ops[phase + "_shared_gate_up"][1]["key"]["n"] == 256
+        assert ops[phase + "_shared_down"][1]["key"]["k"] == 128
+        assert ops[phase + "_shared_gate_up"][1]["token_split"] == 1
+        assert ops[phase + "_final_norm"][1]["key"]["role"] == "add_rms_bias"
+        assert phase + "_final_residual_add" not in ops
+        assert all(kind != "AscendDeepEp" for kind, _ in ops.values())
+        assert (
+            sum(
+                spec["scale_factor"]
+                for kind, spec in ops.values()
+                if kind == "Hccl" and spec["key"]["operation"] == "all_reduce"
+            )
+            == 157
+        )
+
+
 def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path):
     config = configuration()
     config.op_level_config = OpLevelCompileConfig(

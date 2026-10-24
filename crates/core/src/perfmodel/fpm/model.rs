@@ -1110,12 +1110,14 @@ impl ForwardPassPerfModel {
                 || config.pp != 1
                 || config.cp_size.unwrap_or(1) != 1
                 || config.dcp.unwrap_or(1) != 1
-                || config.moe_ep_size != Some(config.tp * config.attention_dp)
-                || config.moe_tp_size != Some(1)
+                || !((config.moe_ep_size == Some(config.tp * config.attention_dp)
+                    && config.moe_tp_size == Some(1))
+                    || (config.moe_ep_size == Some(1)
+                        && config.moe_tp_size == Some(config.tp * config.attention_dp)))
                 || config.kv_block_size != Some(128)
         }) {
             return Err(AicError::InvalidEngineConfig(
-                "measured Ascend KV transfer requires EP16/32, PP1/CP1/DCP1 and unsharded 128-token KV pages"
+                "measured Ascend KV transfer requires a qualified 16/32-rank MoE layout, PP1/CP1/DCP1 and unsharded 128-token KV pages"
                     .into(),
             ));
         }

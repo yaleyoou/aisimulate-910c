@@ -1,0 +1,1 @@
+{"case_id": "dcp2_8192_early", "error": "OutOfMemoryError: NPU out of memory. Tried to allocate 66.00 MiB (NPU 1; 61.28 GiB total capacity; 55.05 GiB already allocated; 55.05 GiB current active; 54.85 MiB free; 55.59 GiB reserved in total by PyTorch).If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation."}

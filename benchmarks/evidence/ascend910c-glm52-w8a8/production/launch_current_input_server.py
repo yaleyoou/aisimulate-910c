@@ -22,6 +22,9 @@ def main():
     parser.add_argument("--moe-a2a", choices=("deepep", "none"), default="deepep")
     parser.add_argument("--prefill-cp", type=int, choices=(1, 2, 4, 8), default=1)
     parser.add_argument("--decode-cp", type=int, choices=(1, 2, 4, 8), default=1)
+    parser.add_argument("--mem-fraction-static", type=float, default=0.90)
+    parser.add_argument("--max-total-tokens", type=int)
+    parser.add_argument("--prefill-chunk", type=int, default=8192)
     parser.add_argument("--decode-graph-buckets", type=int, nargs="+", default=[8, 16, 24, 32])
     parser.add_argument("--node", choices=("npu1-31", "npu1-32"), default="npu1-31")
     args = parser.parse_args()
@@ -31,6 +34,10 @@ def main():
         parser.error("Attention DP and EP must divide the per-stage tensor group")
     if tensor_world % (args.attention_dp * args.prefill_cp):
         parser.error("Prefill CP must divide the attention group")
+    if not 0 < args.mem_fraction_static < 1 or args.prefill_chunk < 1:
+        parser.error("Use a valid memory fraction and positive per-replica prefill chunk")
+    if args.max_total_tokens is not None and args.max_total_tokens < 1:
+        parser.error("KV token limit must be positive")
     if not re.fullmatch(r"[a-z0-9-]*", args.suffix):
         parser.error("Use a simple suffix")
     if args.decode_graph_buckets != sorted(set(args.decode_graph_buckets)) or min(args.decode_graph_buckets) < 1:
@@ -151,7 +158,7 @@ def main():
             "--ep-size",
             str(expert_parallel),
             "--mem-fraction-static",
-            "0.90",
+            str(args.mem_fraction_static),
             "--max-running-requests",
             "64",
             "--attention-backend",
@@ -165,7 +172,7 @@ def main():
             "--served-model-name",
             "glm-5-aisim",
             "--chunked-prefill-size",
-            str(8192 * args.attention_dp),
+            str(args.prefill_chunk * args.attention_dp),
             "--max-prefill-tokens",
             "32768",
             "--disable-shared-experts-fusion",
@@ -194,6 +201,8 @@ def main():
         command.extend(("--enable-prefill-cp", "--cp-strategy", "interleave", "--attn-cp-size", str(args.prefill_cp)))
     if args.decode_cp > 1:
         command.extend(("--decode-context-parallel-size", str(args.decode_cp)))
+    if args.max_total_tokens is not None:
+        command.extend(("--max-total-tokens", str(args.max_total_tokens)))
     result = subprocess.run(command, capture_output=True, text=True)
     record = {
         "command": command,

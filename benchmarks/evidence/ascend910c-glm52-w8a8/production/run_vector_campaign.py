@@ -16,7 +16,7 @@ import threading
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", default="vector-full-node32-20261023")
-    parser.add_argument("--operation", choices=("vector", "moe_chain"), default="vector")
+    parser.add_argument("--operation", choices=("vector", "moe_chain", "moe_tensor"), default="vector")
     parser.add_argument("--node", choices=("npu1-32", "npu1-19"), default="npu1-32")
     parser.add_argument("--existing-plan", type=Path)
     args = parser.parse_args()
@@ -29,7 +29,26 @@ def main():
     output = production / args.run_name
     output.mkdir(exist_ok=False)
     image = "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
-    planner = ["docker", "run", "--rm", "--network", "none", "-e", "PYTHONDONTWRITEBYTECODE=1", "-e", "PYTHONPATH=/workspace/python/aisimulate", "--mount", f"type=bind,src={repository},dst=/workspace,readonly", "--mount", "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/model,readonly", "--entrypoint", "python3", image, "-c", "import json;from collector.sglang.ascend_vector_cases import get_ascend_vector_cases;plan=get_ascend_vector_cases('/model');plan['model_path']='/mnt/raid/user/data/models/glm-q';print(json.dumps(plan,indent=2))"]
+    planner = [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "-e",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "-e",
+        "PYTHONPATH=/workspace/python/aisimulate",
+        "--mount",
+        f"type=bind,src={repository},dst=/workspace,readonly",
+        "--mount",
+        "type=bind,src=/mnt/raid/user/data/models/glm-q,dst=/model,readonly",
+        "--entrypoint",
+        "python3",
+        image,
+        "-c",
+        "import json;from collector.sglang.ascend_vector_cases import get_ascend_vector_cases;plan=get_ascend_vector_cases('/model');plan['model_path']='/mnt/raid/user/data/models/glm-q';print(json.dumps(plan,indent=2))",
+    ]
     planner[-1] = planner[-1].replace("ascend_vector", "ascend_" + args.operation)
     if args.existing_plan:
         planner = ["frozen-plan", str(args.existing_plan.resolve())]
@@ -49,11 +68,37 @@ def main():
     if before.count("No running processes found in NPU") != 8:
         raise RuntimeError("Another NPU process is present")
     container = "aisim-" + args.run_name
-    command = ["docker", "run", "-d", "--name", container, "--network", "host", "--privileged", "--shm-size", "16g", "--mount", f"type=bind,src={output},dst=/campaign"]
-    for path in ("/usr/local/Ascend/driver", "/usr/local/Ascend/firmware", "/usr/local/sbin", "/etc/ascend_install.info"):
+    command = [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        container,
+        "--network",
+        "host",
+        "--privileged",
+        "--shm-size",
+        "16g",
+        "--mount",
+        f"type=bind,src={output},dst=/campaign",
+    ]
+    for path in (
+        "/usr/local/Ascend/driver",
+        "/usr/local/Ascend/firmware",
+        "/usr/local/sbin",
+        "/etc/ascend_install.info",
+    ):
         command.extend(("--mount", f"type=bind,src={path},dst={path},readonly"))
     command.extend(("--entrypoint", "/bin/sleep", image, "infinity"))
-    state = {"status": "preflight", "operation": args.operation, "node": args.node, "planner_command": planner, "create_command": command, "jobs": [], "source_sha256": {name: hashlib.sha256((output / name).read_bytes()).hexdigest() for name in source_names}}
+    state = {
+        "status": "preflight",
+        "operation": args.operation,
+        "node": args.node,
+        "planner_command": planner,
+        "create_command": command,
+        "jobs": [],
+        "source_sha256": {name: hashlib.sha256((output / name).read_bytes()).hexdigest() for name in source_names},
+    }
     done = threading.Event()
     contamination = []
 
@@ -87,18 +132,50 @@ def main():
         arguments = ["python3"]
         if negative:
             arguments.append("/campaign/graph_noop.py")
-        arguments.extend(("/campaign/ascend_" + args.operation + ".py", "--plan", "/campaign/plan.json", "--serving-setup", "/campaign/serving-setup-nodes.json", "--device", str(device), "--output", f"/campaign/{name}.json", *extra))
+        arguments.extend(
+            (
+                "/campaign/ascend_" + args.operation + ".py",
+                "--plan",
+                "/campaign/plan.json",
+                "--serving-setup",
+                "/campaign/serving-setup-nodes.json",
+                "--device",
+                str(device),
+                "--output",
+                f"/campaign/{name}.json",
+                *extra,
+            )
+        )
         invocation = ["docker", "exec", container, "timeout", "7200", *arguments]
         with (output / (name + ".log")).open("w") as stream:
             result = subprocess.run(invocation, stdout=stream, stderr=subprocess.STDOUT)
         path = output / (name + ".json")
         record = json.loads(path.read_text()) if path.is_file() else {}
-        expected = (result.returncode != 0 and record.get("status") == "failed" and "execution numerical check failed" in record.get("error", "")) if negative else result.returncode == 0 and record.get("status") == "completed"
-        return {"name": name, "command": invocation, "returncode": result.returncode, "expected_outcome": expected, "cases": len(record.get("cases", []))}
+        expected = (
+            (
+                result.returncode != 0
+                and record.get("status") == "failed"
+                and "execution numerical check failed" in record.get("error", "")
+            )
+            if negative
+            else result.returncode == 0 and record.get("status") == "completed"
+        )
+        return {
+            "name": name,
+            "command": invocation,
+            "returncode": result.returncode,
+            "expected_outcome": expected,
+            "cases": len(record.get("cases", [])),
+        }
 
     def parallel(prefix, extra):
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-            futures = [pool.submit(run, f"{prefix}-{index}", index * 2, ["--num-shards", "4", "--shard-index", str(index), *extra]) for index in range(4)]
+            futures = [
+                pool.submit(
+                    run, f"{prefix}-{index}", index * 2, ["--num-shards", "4", "--shard-index", str(index), *extra]
+                )
+                for index in range(4)
+            ]
             jobs = [future.result() for future in concurrent.futures.as_completed(futures)]
         state["jobs"].extend(jobs)
         save()
@@ -112,7 +189,11 @@ def main():
     try:
         state["status"] = "smoke"
         save()
-        smoke_filter = '"tokens": 8}' if args.operation == "vector" else '"received_tokens": 8}'
+        smoke_filter = {
+            "vector": '"tokens": 8}',
+            "moe_chain": '"received_tokens": 8}',
+            "moe_tensor": '"tokens": 8,',
+        }[args.operation]
         parallel("smoke", ["--case-filter", smoke_filter])
         state["status"] = "negative_controls"
         save()
@@ -123,9 +204,15 @@ def main():
             if args.operation == "vector" and case["tokens"] == 8:
                 controls.setdefault(case["role"], index)
             elif args.operation == "moe_chain" and case["received_tokens"] == 8:
-                controls[case["phase"] + "-" + str(case["local_experts"]) + "-" + "-".join(case["distributions"])] = index
+                controls[case["phase"] + "-" + str(case["local_experts"]) + "-" + "-".join(case["distributions"])] = (
+                    index
+                )
+            elif args.operation == "moe_tensor" and case["tokens"] == 8:
+                controls[str(case["intermediate_size"])] = index
         for label, index in sorted(controls.items()):
-            job = run("negative-" + label, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True)
+            job = run(
+                "negative-" + label, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True
+            )
             state["jobs"].append(job)
             save()
             if contamination or not job["expected_outcome"]:

@@ -190,6 +190,7 @@ pub mod ascend_bmm;
 pub mod ascend_deepep;
 pub mod ascend_linear;
 pub mod ascend_moe_chain;
+pub mod ascend_moe_tensor;
 pub mod ascend_pd;
 pub mod ascend_vector;
 pub mod attention;
@@ -265,6 +266,7 @@ pub struct PerfTables {
     pub ascend_bmm: ascend_bmm::AscendBmmTable,
     pub ascend_vector: ascend_vector::AscendVectorTable,
     pub ascend_moe_chain: ascend_moe_chain::AscendMoeChainTable,
+    pub ascend_moe_tensor: ascend_moe_tensor::AscendMoeTensorTable,
     pub ascend_deepep: ascend_deepep::AscendDeepEpTable,
     pub ascend_pd: ascend_pd::AscendPdTable,
     pub dsa: DsaTable,
@@ -588,6 +590,11 @@ impl PerfDatabase {
                 ascend_deepep::AscendDeepEpTable::with_sources(&data_root, &resolver)?
             } else {
                 ascend_deepep::AscendDeepEpTable::new(None)
+            },
+            ascend_moe_tensor: if system == "ascend910c" && backend == "sglang" {
+                ascend_moe_tensor::AscendMoeTensorTable::with_sources(&data_root, &resolver)?
+            } else {
+                ascend_moe_tensor::AscendMoeTensorTable::new(None)
             },
             dsa: DsaTable::with_sources(data_root.clone(), &resolver)?.with_backend(backend),
             ascend_pd: if system == "ascend910c" && backend == "sglang" {

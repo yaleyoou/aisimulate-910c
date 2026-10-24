@@ -197,6 +197,7 @@ pub enum Op {
     AscendVector(crate::operators::AscendVectorOp),
     AscendMoeChain(crate::operators::AscendMoeChainOp),
     AscendDeepEp(crate::operators::AscendDeepEpOp),
+    AscendMoeTensor(crate::operators::AscendMoeTensorOp),
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -302,6 +303,7 @@ impl Op {
             Op::AscendBmm(o) => o.weight_bytes(),
             Op::AscendVector(o) => o.weight_bytes(),
             Op::AscendMoeChain(o) => o.weight_bytes(),
+            Op::AscendMoeTensor(o) => o.weight_bytes(),
             Op::AscendDeepEp(_) => 0.0,
             Op::Embedding(o) => o.weights_bytes(),
             Op::Moe(o) => o.weight_bytes(),
@@ -390,6 +392,7 @@ impl Op {
             Op::AscendBmm(o) => &o.name,
             Op::AscendVector(o) => &o.name,
             Op::AscendMoeChain(o) => &o.name,
+            Op::AscendMoeTensor(o) => &o.name,
             Op::AscendDeepEp(transport) => &transport.name,
             Op::P2P(o) => &o.name,
             Op::Vision(o) => &o.name,
@@ -451,6 +454,7 @@ impl Op {
             Op::AscendBmm(o) => o.name = name,
             Op::AscendVector(o) => o.name = name,
             Op::AscendMoeChain(o) => o.name = name,
+            Op::AscendMoeTensor(o) => o.name = name,
             Op::AscendDeepEp(transport) => transport.name = name,
             Op::P2P(o) => o.name = name,
             Op::Vision(o) => o.name = name,
@@ -500,6 +504,7 @@ impl Op {
             Op::AscendBmm(o) => o.scale_factor = scale_factor,
             Op::AscendVector(o) => o.scale_factor = scale_factor,
             Op::AscendMoeChain(o) => o.scale_factor = scale_factor,
+            Op::AscendMoeTensor(o) => o.scale_factor = scale_factor,
             Op::AscendDeepEp(transport) => transport.scale_factor = scale_factor,
             Op::P2P(o) => o.scale_factor = scale_factor,
             Op::Vision(o) => o.scale_factor = scale_factor,
@@ -670,6 +675,7 @@ impl Op {
             Op::AscendBmm(op) => op.query(db, ctx.num_tokens),
             Op::AscendVector(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
             Op::AscendMoeChain(op) => op.query(db, ctx.num_tokens),
+            Op::AscendMoeTensor(op) => op.query(db, ctx.num_tokens),
             Op::AscendDeepEp(op) => op.query(db, ctx.num_tokens),
             Op::P2P(op) => op.query(db, ctx.num_tokens),
             Op::Vision(op) => op.query(db, ctx.num_image_tokens),

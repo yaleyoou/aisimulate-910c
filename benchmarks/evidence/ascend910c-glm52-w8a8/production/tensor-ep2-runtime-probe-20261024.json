@@ -1,0 +1,23 @@
+{
+  "scope": "Isolated actual dispatcher/GMM invocation with EP2 rank0 metadata, not a full distributed forward",
+  "global_experts": 256,
+  "local_experts": 128,
+  "selected_global_experts": [
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255
+  ],
+  "framework_commit": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "torch_npu": "2.10.0.post6",
+  "dispatch_count_shape": [
+    256
+  ],
+  "nonlocal_routed_tokens": 64,
+  "status": "failed",
+  "error": "Traceback (most recent call last):\n  File \"/tmp/probe_tensor_ep.py\", line 38, in <module>\n    output = NPUW8A8Int8MoEMethod().apply(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/quantization/moe_methods.py\", line 702, in apply\n    return self.matmul.forward(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/sgl-workspace/sglang/python/sglang/srt/hardware_backend/npu/moe/matmul.py\", line 41, in forward\n    return torch.ops.npu.npu_grouped_matmul(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/torch/_ops.py\", line 1209, in __call__\n    return self._op(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: npu_grouped_matmul:../third_party/op-plugin/op_plugin/ops/opapi/GroupedMatmulKernelNpuOpApi.cpp:323 NPU function error: call aclnnGroupedMatmulWeightNz failed, error code is 161002\n[ERROR] 2026-10-24-16:02:22 (PID:7, Device:0, RankID:-1) ERR00100 PTA call acl api failed.\n[PID: 7] 2026-10-24-16:02:22.532.633 AclNN_Parameter_Error(EZ1001): scale batch size[128] should be euqal with groupList length[256].\nTraceBack (most recent call last):\n        In op [grouped_matmul], when A8W8 quant, [scale] tensor list is invalid.\n        In op [grouped_matmul], when A8W8 quant, parameter check failed.\n        In op [grouped_matmul], when A8W8 quant, function parameter check failed.\n\n"
+}

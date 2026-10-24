@@ -36,7 +36,9 @@ impl AscendVectorKey {
             | ("cast_weights_bf16", [32])
             | ("rope_cache_gather", [1048576, 64]) => true,
             ("rope_attention", [heads, 64, 256, 64]) => matches!(heads, 4 | 8 | 16),
-            ("swiglu", [width]) => matches!(width, 384 | 768 | 2048),
+            ("swiglu", [width]) => {
+                matches!(width, 64 | 128 | 256 | 384 | 512 | 768 | 1536 | 2048 | 3072)
+            }
             ("logits_finalize", [parallel, 154880]) => matches!(parallel, 4 | 8 | 16),
             ("cache_scatter", [53376, width]) => matches!(width, 64 | 128 | 512),
             ("embedding", [vocabulary, 6144]) => matches!(vocabulary, 9680 | 19360 | 38720),
@@ -202,7 +204,7 @@ fn load(path: &Path) -> Result<Grids, AicError> {
     let verification = reader.col("execution_verification")?;
     let provenance = reader.col("runtime_identity_sha256")?;
     let mut raw: BTreeMap<AscendVectorKey, BTreeMap<u32, f64>> = BTreeMap::new();
-    let mut identity: Option<String> = None;
+    let mut identities: BTreeMap<AscendVectorKey, String> = BTreeMap::new();
     for row in reader.rows()? {
         let row = row?;
         let key = AscendVectorKey {
@@ -241,16 +243,13 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 "unqualified Ascend vector row: {key:?}"
             )));
         }
-        if identity
-            .as_ref()
-            .is_some_and(|expected| expected != runtime)
-        {
+        let expected = identities
+            .entry(key.clone())
+            .or_insert_with(|| runtime.to_owned());
+        if expected != runtime {
             return Err(AicError::InvalidPerfData(
-                "Ascend vector mixes runtime identities".into(),
+                "Ascend vector curve mixes runtime identities".into(),
             ));
-        }
-        if identity.is_none() {
-            identity = Some(runtime.to_owned());
         }
         if raw
             .entry(key)
@@ -348,6 +347,38 @@ mod tests {
         assert!(matches!(
             table.query(&other, 5),
             Err(AicError::InvalidEngineConfig(_))
+        ));
+    }
+
+    #[test]
+    fn separate_execution_curves_keep_separate_collection_identities() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let first = "1111111111111111111111111111111111111111111111111111111111111111";
+        let second = "2222222222222222222222222222222222222222222222222222222222222222";
+        let mut fixture = columns();
+        fixture[2] = Col::Str("execution_mode", vec!["graph", "eager"]);
+        for column in &mut fixture {
+            if let Col::Str("execution_verification", _) = column {
+                *column = Col::Str(
+                    "execution_verification",
+                    vec!["captured_graph_replay", "eager_invocation"],
+                );
+            }
+        }
+        *fixture.last_mut().unwrap() = Col::Str("runtime_identity_sha256", vec![first, second]);
+        write_parquet(&path, &fixture);
+        let table = AscendVectorTable::new(Some(path.clone()));
+        assert_eq!(table.query(&key(), 1).unwrap(), 1.0);
+        let mut eager = key();
+        eager.execution_mode = "eager".into();
+        assert_eq!(table.query(&eager, 9).unwrap(), 5.0);
+        let mut fixture = columns();
+        *fixture.last_mut().unwrap() = Col::Str("runtime_identity_sha256", vec![first, second]);
+        write_parquet(&path, &fixture);
+        assert!(matches!(
+            AscendVectorTable::new(Some(path)).ensure_key(&key()),
+            Err(AicError::InvalidPerfData(_))
         ));
     }
 

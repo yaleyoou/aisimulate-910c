@@ -104,7 +104,12 @@ def configure_ascend_glm52(model, raw_config):
             "PP1/CP1/DCP1 and no speculation/EPLB"
         )
     local_tp, attention_dp, experts_parallel = config.tp_size, config.attention_dp_size, config.moe_ep_size
-    if (
+    global_tp = local_tp * attention_dp
+    tensor_moe = experts_parallel == 1 and config.moe_tp_size == global_tp
+    if tensor_moe:
+        if local_tp != 16 or attention_dp != 1:
+            raise InvalidEngineConfigurationError("Ascend tensor-MoE currently requires TP16/ADP1/EP1")
+    elif (
         local_tp not in (4, 8, 16)
         or experts_parallel not in (16, 32)
         or config.moe_tp_size != 1
@@ -116,6 +121,8 @@ def configure_ascend_glm52(model, raw_config):
     if config.op_level_config is None:
         config.op_level_config = OpLevelCompileConfig(None, system=config.system, backend=model._backend_name)
     settings = config.op_level_config.options["ascend"]
+    if tensor_moe and settings["routing"] != "balanced":
+        raise InvalidEngineConfigurationError("Ascend tensor-MoE currently requires measured balanced top8 routing")
     model.raw_config = raw_config
     model._num_moe_layers = 75
     model._gpus_per_node = 16
@@ -131,8 +138,12 @@ def configure_ascend_glm52(model, raw_config):
         "kv_pool_scope": "operator timing reference; capacity is resolved separately by the native memory model",
         "kv_page_size": 128,
         "backend_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
+        "moe_a2a_backend": "none" if tensor_moe else "deepep",
+        "prefill_shared_expert_overlap": settings["shared_expert_overlap"] and not tensor_moe,
     }
-    heads, dense_intermediate, vocabulary = 64 // local_tp, 12288 // experts_parallel, 154880 // local_tp
+    heads, dense_intermediate, vocabulary = 64 // local_tp, 12288 // global_tp, 154880 // local_tp
+    sparse_split = 1 if tensor_moe else local_tp
+    shared_intermediate = 2048 // global_tp if tensor_moe else 2048
 
     for context in (True, False):
         phase, mode = ("context", "eager") if context else ("generation", "graph")
@@ -246,7 +257,7 @@ def configure_ascend_glm52(model, raw_config):
                 collective("embedding_all_reduce", "all_reduce", local_tp),
                 vector("first_norm", "rms_bias", [6144]),
                 vector("dense_input_norms", "add_rms_bias", [6144], 3),
-                vector("sparse_input_norms", "add_rms_bias", [6144], 74, split=local_tp),
+                vector("sparse_input_norms", "add_rms_bias", [6144], 74, split=sparse_split),
                 vector("rope_cache", "rope_cache_gather", [1048576, 64], 2, resident_copies=1),
                 linear("qkv_a", 2624, 6144, "w8a8", 78, "always"),
                 vector("qk_norm", "split_qk_norm", [2048, 512, 64], 78),
@@ -290,13 +301,18 @@ def configure_ascend_glm52(model, raw_config):
                 linear("dense_gate_up", 2 * dense_intermediate, 6144, "w8a8_dynamic", 3, global_tokens=True),
                 vector("dense_activation", "swiglu", [dense_intermediate], 3, global_tokens=True),
                 linear("dense_down", 6144, dense_intermediate, "w8a8_dynamic", 3, global_tokens=True),
-                collective("sparse_reduce_scatter", "reduce_scatter", local_tp, 75),
-                vector("sparse_post_norm", "add_rms_bias", [6144], 75, split=local_tp),
-                linear("router", 256, 6144, "bfloat16", 75, split=local_tp),
+                collective(
+                    "sparse_attention_sums" if tensor_moe else "sparse_reduce_scatter",
+                    "all_reduce" if tensor_moe else "reduce_scatter",
+                    local_tp,
+                    75,
+                ),
+                vector("sparse_post_norm", "add_rms_bias", [6144], 75, split=sparse_split),
+                linear("router", 256, 6144, "bfloat16", 75, split=sparse_split),
             ]
         )
         if context or attention_dp == 1:
-            entries.append(collective("dense_global_sums", "all_reduce", experts_parallel, 6, global_tokens=True))
+            entries.append(collective("dense_global_sums", "all_reduce", global_tp, 6, global_tokens=True))
         else:
             entries.extend(
                 [
@@ -330,20 +346,43 @@ def configure_ascend_glm52(model, raw_config):
             vector("routed_scale", "routed_scale", [6144], 75, split=local_tp),
         ]
         shared = [
-            linear("shared_gate_up", 4096, 6144, "w8a8_dynamic", 75, split=local_tp),
-            vector("shared_activation", "swiglu", [2048], 75, split=local_tp),
-            linear("shared_down", 6144, 2048, "w8a8_dynamic", 75, split=local_tp),
+            linear("shared_gate_up", 2 * shared_intermediate, 6144, "w8a8_dynamic", 75, split=sparse_split),
+            vector("shared_activation", "swiglu", [shared_intermediate], 75, split=sparse_split),
+            linear("shared_down", 6144, shared_intermediate, "w8a8_dynamic", 75, split=sparse_split),
         ]
-        if settings["shared_expert_overlap"]:
+        if tensor_moe:
+            routed = [
+                vector("router_topk", "router_topk", [256, 8], 75),
+                {
+                    "AscendMoeTensor": {
+                        "name": phase + "_routed_experts",
+                        "scale_factor": 75.0,
+                        "key": {
+                            "intermediate_size": 2048 // global_tp,
+                            "distribution": settings["routing"],
+                            "execution_mode": mode,
+                        },
+                        "input_token_multiple": padding,
+                    }
+                },
+                vector("routed_scale", "routed_scale", [6144], 75),
+            ]
+        if settings["shared_expert_overlap"] and (not tensor_moe or not context):
             entries.append({"Overlap": {"name": phase + "_moe_overlap", "group_a": routed, "group_b": shared}})
         else:
             entries.extend([*routed, *shared])
         entries.extend(
             [
-                vector("shared_add", "shared_add", [6144], 75, split=local_tp),
-                vector("final_residual_add", "shared_add", [6144], split=local_tp),
-                collective("sparse_output_gather", "all_gather", local_tp, 75, shard=True),
-                vector("final_norm", "rms_bias", [6144]),
+                vector("shared_add", "shared_add", [6144], 75, split=sparse_split),
+                *([] if tensor_moe else [vector("final_residual_add", "shared_add", [6144], split=local_tp)]),
+                collective(
+                    "sparse_output_sums" if tensor_moe else "sparse_output_gather",
+                    "all_reduce" if tensor_moe else "all_gather",
+                    local_tp,
+                    75,
+                    shard=not tensor_moe,
+                ),
+                vector("final_norm", "add_rms_bias" if tensor_moe else "rms_bias", [6144]),
                 linear("logits_gemm", vocabulary, 6144, "bfloat16", requests=True),
                 collective("logits_gather", "all_gather", local_tp, width=vocabulary, requests=True),
                 vector("logits_finalize", "logits_finalize", [local_tp, 154880], requests=True),
