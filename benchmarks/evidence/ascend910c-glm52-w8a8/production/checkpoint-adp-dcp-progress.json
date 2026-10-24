@@ -1,0 +1,32 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["DCP collection and native integration remain in progress; smaller attention TP still needs qualification. GPU Replay PP1 and pinned NPU runtime exclusions remain explicit."],
+    "next_action": "Commit the twelve-layout stage, complete the correctly audited DCP storage/attention collection and integrate its memory and prediction contracts."
+  },
+  "research": {
+    "parallel_extension": {
+      "head": "2341238367a5d02182c3987a254dd3b9ee7e9d77",
+      "tensor_adp": "Real MoETP16EP1 ADP2 andADP4 servers each completed8192input16output. Captured resident50,480,189,948 and52,840,002,044 respectively. Prefill156global16AR plusembedding/localLogits;decode78localRS+78globalAG+78globalRS+78localAG pluslogits. Global FFN input andplainRMS boundary now modeled. Bothserversstopped.",
+      "tensor_adp_prediction": "13model tests pass. Strict8k1kADP2aggregate16requests andfouradditionallayouts eachaggregate/PD16requests pass. Newcatalog12shapes,1296/1296automaticcandidatesfeasible,0failed. Results stillneedfreeze/stagecommit.",
+      "dcp_metadata_audit": "Initial standalone DCP plan used CUDA-style interleave1. PinnedNPUcallsite explicitly passes backendpage_size128, confirmed by local-KV metadata source. Oldstandaloneobservations,includinginterruptedworld2v3andworld16probe,areunqualifieddiagnostics;ZERO DCProws published. Replacedwithnewimmutablepage128plans andowned-page initialization/remapping/reference.",
+      "dcp_precision_audit": "Initial ideal-FP32 reference ignored BF16 partial outputs before FP32 merge. NeworaclechecksCPUdensepartials andLSE independently,thenchecksmergeusingverifiedBF16partials. Outputthresholdunchanged. EmptyLSEobserved=-1.999999936e38 with exp=0;neutral-partitioncheckusesnegativeLSEandzeroexp. IdealFP32errorretaineddiagnostic. Source/failedattempts preserved.",
+      "dcp_storage_boundary": "AuditedDCPindexerwriteindices eagerINT32/graphINT64,oppositeordinarycachewriteprofile. NewcompositeincludesactualindexerKVwriteon21full-indexerlayers,latent/ropeKVwriteonall78layers,optionalremap21,Qgather,partialsparseattentionandFP32all-to-all/update. ModelmustomitoldKVwriteopsforDCPtoavoidduplication. Lightningindexer/GEMM/BMMremainseparate.",
+      "dcp_current_plan": "dcp-storage-attention-plan-20261025.json:2736cases,912DCP2/912DCP4/608DCP8/304DCP16. Contractsglang_npu_dcp_storage_attention_chain/v1,interleave128. Correctedstorageprefillindex26andgraph694passnumerics;CV0.00461/0.01735. NewnegativecontrolthenfullDCP2on19;newDCP16positiveprobeon32. NativeDCPreader/op/exporter/modelmemorynotyetimplemented.",
+      "dcp_collector_sha256": "2aa9f60da5eb7e91ba7ede658adf0cf5886a8190429108f7db46a3655e0339e8",
+      "nodes": "Only32and19inuse,31untouched. Currentuserimage190684...stilloldlimitedrelease. Goalactive."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "tensor_adp2_actual_request": {"path":"production/operator-input-state-node32-20261022-moetp16-adp2-20261025/capture/moetp16_adp2_8192/response.json","kind":"file","scope":"validation"},
+        "tensor_adp4_actual_request": {"path":"production/operator-input-state-node32-20261022-moetp16-adp4-20261025/capture/moetp16_adp4_8192/response.json","kind":"file","scope":"validation"},
+        "dcp_storage_plan": {"path":"production/dcp-storage-attention-plan-20261025.json","kind":"file","scope":"collection"},
+        "dcp_storage_graph_control": {"path":"production/dcp-storage-graph-node19-20261025/observations.json","kind":"file","scope":"validation"},
+        "dcp_layout_rejection": {"path":"production/dcp-attention-world2-node19-20261025-v3/layout-audit-rejection.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

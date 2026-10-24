@@ -138,6 +138,69 @@ def test_tensor_moe_matches_loaded_weights_and_observed_all_reduce_boundaries(mo
         )
 
 
+@pytest.mark.parametrize("local_tp,attention_dp,resident", [(8, 2, 50_480_189_948), (4, 4, 52_840_002_044)])
+def test_tensor_moe_with_attention_dp_matches_observed_global_ffn_boundaries(
+    model_path, local_tp, attention_dp, resident
+):
+    config = configuration()
+    config.tp_size, config.attention_dp_size = local_tp, attention_dp
+    config.moe_tp_size, config.moe_ep_size = 16, 1
+    model = get_model(model_path, config, "sglang")
+    assert model.get_resident_weights_bytes() == resident
+    context, generation = flattened(model.context_ops), flattened(model.generation_ops)
+    assert context["context_sparse_global_sums"][1]["scale_factor"] == 150
+    assert context["context_sparse_global_sums"][1]["key"]["num_ranks"] == 16
+    assert generation["generation_sparse_attention_reduce_scatter"][1]["key"]["num_ranks"] == local_tp
+    assert generation["generation_sparse_input_gather"][1]["key"]["num_ranks"] == 16
+    assert generation["generation_sparse_output_reduce_scatter"][1]["key"]["num_ranks"] == 16
+    assert generation["generation_sparse_output_gather"][1]["key"]["num_ranks"] == local_tp
+    assert generation["generation_sparse_post_norm"][1]["key"]["role"] == "rms_bias"
+    assert generation["generation_routed_experts"][1]["input_token_multiple"] == 8 * attention_dp
+    assert generation["generation_shared_gate_up"][1]["token_multiple"] == 8 * attention_dp
+    assert generation["generation_shared_gate_up"][1]["key"]["n"] == 256
+    assert generation["generation_shared_down"][1]["key"]["k"] == 128
+
+
+@pytest.mark.parametrize("local_tp,attention_dp", [(4, 8), (8, 4), (16, 2)])
+def test_tensor_moe_global32_uses_measured_64_wide_shards(model_path, local_tp, attention_dp):
+    config = configuration()
+    config.tp_size, config.attention_dp_size = local_tp, attention_dp
+    config.moe_tp_size, config.moe_ep_size = 32, 1
+    model = get_model(model_path, config, "sglang")
+    ops = flattened(model.generation_ops)
+    assert ops["generation_routed_experts"][1]["key"]["intermediate_size"] == 64
+    assert ops["generation_shared_down"][1]["key"]["k"] == 64
+    assert ops["generation_sparse_input_gather"][1]["key"]["num_ranks"] == 32
+    assert ops["generation_sparse_output_reduce_scatter"][1]["key"]["num_ranks"] == 32
+
+
+def test_dcp_composes_storage_once_and_matches_observed_split_kv_pool(model_path):
+    config = configuration()
+    config.dcp_size = 2
+    model = get_model(model_path, config, "sglang")
+    for operations in (model.context_ops, model.generation_ops):
+        entries = flattened(operations)
+        attention = [spec for kind, spec in entries.values() if kind == "AscendDcpAttention"]
+        assert {(item["key"]["remap_topk"], item["scale_factor"]) for item in attention} == {
+            (True, 21.0),
+            (False, 57.0),
+        }
+        assert not any(
+            kind == "AscendVector" and spec["key"]["role"] == "cache_scatter" for kind, spec in entries.values()
+        )
+        assert all(
+            spec["key"]["operation"] == "lightning_indexer"
+            for kind, spec in entries.values()
+            if kind == "AscendAttention"
+        )
+    assert model.get_resident_weights_bytes() == 52_471_997_948
+    assert model.get_kvcache_rank_bytes_per_sequence(1) == 64_896
+    assert model.get_kvcache_pool_overhead_bytes() == 16_613_376
+    assert model.get_kvcache_rank_bytes_per_sequence(49_664) + model.get_kvcache_pool_overhead_bytes() == 3_239_608_320
+    assert model.get_kvcache_rank_batch_capacity(3_239_608_320, 32) == 49_664
+    assert model.get_kvcache_rank_batch_capacity(3_239_608_319, 32) == 49_408
+
+
 def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path):
     config = configuration()
     config.op_level_config = OpLevelCompileConfig(
@@ -181,7 +244,12 @@ def test_default_search_requires_the_audited_checkpoint(model_path):
         (4, 8, 1, 32, 1),
         (8, 4, 1, 32, 1),
         (16, 2, 1, 32, 1),
+        (4, 4, 16, 1, 1),
+        (8, 2, 16, 1, 1),
         (16, 1, 16, 1, 1),
+        (4, 8, 32, 1, 1),
+        (8, 4, 32, 1, 1),
+        (16, 2, 32, 1, 1),
     )
     with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
         ascend_glm52_default_parallel_shapes({**raw, "modelslim_metadata": None})

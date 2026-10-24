@@ -1,0 +1,8 @@
+{
+  "status": "audited_numerical_exclusions",
+  "affected_indices": [1232, 1238, 1244],
+  "scope": "DCP8, local8heads, two-token prefill, prefix0; metadata uses the verified NPU128-token page ownership",
+  "evidence": "Each original rank failure and successful prefix remains untouched. The independent dcp-batched-probability-precision-20261025.json probe shows a finite-precision cancellation difference in the installed kernel; normalized BF16-probability and unnormalized BF16-exponential hypotheses do not exactly reproduce it.",
+  "decision": "Do not change the output tolerance or include failed points. Continue from index1245 in a new immutable campaign. Publication must validate the union against every original plan index, including these three recorded failures, with no duplicate measurements.",
+  "scope_limit": "This is not evidence that all DCP8 execution is unsupported; graph controls pass. No failed timing row may enter the performance table."
+}

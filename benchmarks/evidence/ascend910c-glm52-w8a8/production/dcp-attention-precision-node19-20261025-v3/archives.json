@@ -1,0 +1,44 @@
+[
+  {
+    "source": "campaign.json",
+    "source_sha256": "cbc74653897cd7ec8cc08b8bb5ba0c603ebf6672c3752dc153f43bb253f35c41",
+    "path": "campaign.json",
+    "sha256": "cbc74653897cd7ec8cc08b8bb5ba0c603ebf6672c3752dc153f43bb253f35c41"
+  },
+  {
+    "source": "collector.py",
+    "source_sha256": "fb49d9523064c6dc31cb4e8a07098c1b77cf05d1d9e08ba700081c94625d0383",
+    "path": "collector.py",
+    "sha256": "fb49d9523064c6dc31cb4e8a07098c1b77cf05d1d9e08ba700081c94625d0383"
+  },
+  {
+    "source": "execution.log",
+    "source_sha256": "35a8f28577b9a31f85ceb20f28a1e11fb041f0166d149c3a3430df74738445bd",
+    "path": "execution.log.gz",
+    "sha256": "38f1b1ecf218211b8f2a18f7b0501ee94deb056f70f12fe6d31c790c38f4db35"
+  },
+  {
+    "source": "npu-before.log",
+    "source_sha256": "e41ec24d37935c752a93f6fda7d7ec09a51853f7418ae4fbd89289cbf800063f",
+    "path": "npu-before.log.gz",
+    "sha256": "43548a59ada2b8176df4ffdae9841ddbe49487a24ad8904a37e9edd9c9b6eac0"
+  },
+  {
+    "source": "observations.json",
+    "source_sha256": "80d311dbbc58f48b68beacafbd79c780b58905590d7a1db39a0db4859b150c79",
+    "path": "observations.json.gz",
+    "sha256": "6acd7886e707e269b6ee71fc94244dbb8b025c987a72354396307009bf4b82b0"
+  },
+  {
+    "source": "plan.json",
+    "source_sha256": "e0a6b1e8d832f65434cd0fa9f4f1afbb5ce32c393cf62c2490f890860a475c6a",
+    "path": "plan.json.gz",
+    "sha256": "a6eb1ea8b3eb6c116689944fd4825f7a719bc0cb341dad533a180b946675bf2c"
+  },
+  {
+    "source": "serving-setup.json",
+    "source_sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2",
+    "path": "serving-setup.json",
+    "sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2"
+  }
+]

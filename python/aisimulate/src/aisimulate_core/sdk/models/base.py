@@ -212,6 +212,11 @@ class BaseModel:
         return False
 
     @classmethod
+    def supports_dcp_on_system(cls, backend_name: str, system: str | None) -> bool:
+        """Hardware-specific capability gate; existing models retain their backend policy."""
+        return cls.supports_dcp(backend_name)
+
+    @classmethod
     def _resolve_cp_style(cls, backend_name: str) -> str:
         """Pick the CP variant for this (model, backend). Called only when cp_size>1."""
         return cls._BACKEND_CP_STYLE.get(backend_name, "none")

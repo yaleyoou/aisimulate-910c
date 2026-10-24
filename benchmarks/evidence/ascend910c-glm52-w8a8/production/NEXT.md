@@ -1,5 +1,80 @@
 # Current goal handoff
 
+## NEWEST: DCP2736complete2691qualified; source integration tested; publish next
+
+HEAD23412383 still; largeUNCOMMITTED source/evidence stage needscommit. Checkpoint58;patchcheckpoint-dcp-collection-stage.json prepared/applying59.
+Frozen12-layout1296/1296search andADPvalidation; /tmp/aisim-adp-stage-files.json lists1614selectedfiles.
+DCPcorrectFINALcontract=sglang_npu_dcp_storage_attention_chain/v1;plan dcp-storage-attention-plan-20261025.json.
+CollectorSHA b257fed83ab1dffed40de7e8502d61224221a100bd1c6e509eb59e6eff7821f1 MUSTNOTchange/formatwhilepublishing.
+Itusespage128ownership andincludesindexerKVwrite(onlyremaptrue),latent/ropeKVwrites,QAG,partialSA,FP32alltoall/update.
+ALL2736attempted;2691qualified,37CVexcluded,8numericexcluded. Fullvalidatorpassed CPU/tmp/aisim-dcp-storage-validation.json,
+frozenhostproduction/dcp-full-plan-validation-20261025.json. NoDCPparquetpublishedyet.
+Campaigninputs: dcp-storage-world2-node19-20261025-v2 (912/1numericfail),world4-node19-v2(912/0),
+dcp-storage-world16-node32-v2(304/2),world8-node32-v2(FAILEDthresholdprefix29/3),
+world8-node32-v2-continuation(COMPLETED579/2). Fullnamesinclude20261025.
+World8originalinvestigation.json authorizesreadingitsFAILEDprefixonlywithcompleteuntouchedcontinuationcoverage.
+Numericfailures retained/excluded, NOTretriedorpassedbylooseningtolerance. ReferencechecksBF16partials+FP32LSE andmergedoutput;
+controlledprobabilityprobesrejectsimpleBF16probability/exponentialhypotheses;noexactkernelprecisionclaim.
+Runnernowrecordsper-attemptobs andadvancesPASTfailedcases,stopsaround10%/3consecutive;--start-indexexplicitcontinuation.
+Exporterhandlesgziprawobservations,requiresallplanindicesonceandrecordedinvestigationforstoppedprefix.
+/tmp/aisim-dcp-stage-files.json lists354archivedevidencefiles;oldwronginterleave1dataDIAGNOSTICONLY.
+Newsource asc_dcp_attention.rs table/op,Opwiring,sharedPlane helper,canonicalPD/DCPguards,logicalblockguard.
+Native18c93522e474309a1c08717e893c93b42cac9d9b3b5badd45b6afdd9c6a56337 loadedCPU/tmp/aisim-native (schema29appendonly).
+3nativeDCPtests,9producer,14model,46GPU/NPU_DCPplumbingtests pass. GPU390parityRUNNINGroot24914log/tmp/aisim-dcp-gpu-parity.log.
+ModelDCPomits3oldcachewriteops,uses21full+57reusechain;Lightningindexer/GEMM/BMMstayseparate.
+KVindexerfullperrank;rankrate64896atDCP2,sentinel16613376,observed3,239,608,320bytes->49664logicaltokens.
+Replayblock_size MUST128*dcp (e.g256) forphysical128pages;newexampleascend910c-glm52-dcp2-8k1k.yaml.
+NPU DCP canonicalworker_typeaggregatedonly. Eagerdecodeinmixedforwardexplicitmissingdata (notfakegraphpricing).
+supports_dcp_on_system preservesGPU.SGLangDSAstillrejectsbeforeconstruction;46old/newDCPtests pass.
+IMPORTANTGPUrecommend rejectsCP/DCP>1 too (config/engine.pycustompresetscomment);thisisnotNPU-specificlack.
+NextfinishRuff/sourcecommit inclfrozenplans/proofs,exportwithcommitref,newDCPtable/nativequery,then8k1kDCPconfigs.
+RemainingafterDCP:smallerTP1/2primitivegridsandPDmappingsifmemory-feasible,finalwheel/image/docscommits. GoalACTIVE.
+SmallTPlinearweights needboundedrotation:TP1lmhead~1.9GB*64copiesOOM;newprotocol16copies16iterationspreserveslargeworking-set,
+mustrunmeaningfulcachecontrols. BMM/attentionnewheads32/64needactualcollection;donotjustrelaxguards.
+AllownedNPUservers/jobs STOPPEDnow;32+19available,31untouched. Root89706remote19free,72844localfree,93967localfree,24914GPUparity.
+
+## CURRENT ACTIVE: twelve layouts1296pass; DCP page128 audit corrected, no DCP data published
+
+HEAD2341238367a5d02182c3987a254dd3b9ee7e9d77 publishes seven-layoutstage. Checkpoint57 integrity[].
+UNCOMMITTED model now supports tensorMoEglobal16/32 EP1 with localTP4/8/16 and ADP=global/local;
+defaultcatalog12 shapes andexamplemax_trials1296. CPU1296sweep COMPLETED, checkcounts/freeze next.
+12modeltests pass;DP2real8k/16out andDP4real8k/16out passed, bothownedservers STOPPED.
+ADP2resident50,480,189,948;ADP4resident52,840,002,044. Context:embeddingARlocalTP1 +156ARglobal16 +logitsAGlocalTP1.
+Decode:embeddingARlocalTP1 +78RSlocalTP +78AGglobal16 +78RSglobal16 +79AGlocalTP(logitsincluded).
+FFNpostnormuses_dp_gather_sum_read:localresidualaddbeforegather,plainRMSonGLOBALtokens;
+shared/router/tensorMoE allGLOBALtokens. Prefillserialshared;decodeoverlap. Newmodelcompositionmatches.
+StrictCPU8k1k:ADP2aggregate16complete;fouradditionaltensorlayouts eachagg+PD16complete, /tmp/aisim-tensor-layout-matrix-20261025.log.
+New1296outputCPU/tmp/aisim-tensor-search-1296-20261025;notfrozen/committedyet. GoalstillACTIVE.
+
+CRITICAL DCP AUDIT: all initial standaloneDCPplan dcp-attention-plan-20261025.json usedinterleave1,
+butPINNEDNPUcall passesinterleave_size=backend.page_size128 atdeepseek_v2_attention_mla_npu.py509.
+AscendBackend._get_kv_lens_and_block_tables also usespage128 andpage_stride128*dcp.
+DO NOT PUBLISH ANYoldDCPstandaloneobservations (incl world2v3 hundredsamples/world16contract).
+They remain diagnostics. Interruptedownedworld2v3;allown19containersstopped. layout-audit-rejection.json recordswhy.
+Currentcorrectedplan production/dcp-attention-page128-plan-20261025.json still2736cases:912DCP2,912DCP4,608DCP8,304DCP16.
+Currentcollector builds owned_positions=(global_position//128)%world, localindex=(pos//(128*world))*128+pos%128,
+passes128toremapper. Allstate/datahelpersneedthissamecontract;neverfallbacktoCUDAdefault1.
+Initialnumericalcase26 failurewasidealFP32referenceignoringBF16partialrounding. AddedindependentCPUchecks
+forALLsource-head partials/LSE, thenCPUmergecheckedBF16partials. Outputtoleranceunchanged. IdealFP32errorretaineddiagnostic.
+EmptyNPU partialLSE is finite-1.999999936e38, exp=0, notliteral-inf; directprobe dcp-empty-lse-probe-20261025.json.
+ChecknegativeLSEandexp==0;finalreferenceignoreszero-weightpartials. Revisedoraclepassedcase26 andgraph-noopcontrol.
+Thatoraclequalificationhadinterleave1, so nowrequalifycorrectpage128layoutbeforefullcollection.
+
+ACTIVE19root89706: page128prefillprobe index26 thenpage128graphprobe index694 queued; outputs dcp-page128-{prefill,graph}-node19-20261025.
+Neednegativepage128control thenfullworld2fresh;32freeforpage128world16positive/negative/full aftercontrols.
+run_dcp_attention_campaign.py monitorsotherNPUprocesses andstopsoncontamination. Freshoutputs;collector onlywholeworld orcase-index.
+CurrentDCPsourceuncommitted;doNOTformatwhileformalcollectionrunsshouldpinexactsourceSHA.
+NoDCPnativeop/table/exporter/model/KVrewrite implementedyet. Planwholechainincludesremap(optional21/57),QAG,
+sgl_sparse_flash_attention(returnLSE),FP32all_to_all_single+attention_update; excludesindexer/GEMMs/BMM/cachewrites.
+ExistingHCCLdataBF16only, so donotpriceFP32mergewithit;wholeDCPchainwillmeasureactualcommunication.
+DCPKVlatent+ropepage-striped,indexerFULLglobal. Capturedphysicalcap24832:K/V[78,195,128,1,512/64],index[78,390,128,1,128].
+AdditionalCACHEAUDIT: DCPindexer scatter indices eagerINT32,graphINT64 (oppositeoldcache_scattercontract).
+Latent/rope writes stillFULLqueryrowcount, notdividedDCP, withnonowned slotsdummy0. Needqualifiednewcachevector
+roles/dtypes/ownershipdata;doNOTreuseoldindexerwritesunderwrongdtype. Oldreferencepoolleadingdimensionisexplicittimingreference.
+Stillneed smallerTP1/2 if executable, DCPpredict/searchasfeasible,finalimage/docscommits. GPUReplaypp1guardconfirmed,
+CPprefillruntimebroken,EP2noneisolatedglobal/localgroupsmismatch; donotremoveguards/fakeunsupportedcombinations.
+Root93967localCPUfree;24914localfree;72844localfree;89706node19controls.31occupieduntouched.
+
 ## NEWEST: seven-layout525/525 stage validated; ADP2 tensor-MoE probe active
 
 HEAD654d8936 source foundation committed. Newdefaultcatalog adds(16,1,16,1,1), sourceuncommitted withdata/docs release.

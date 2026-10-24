@@ -1,0 +1,56 @@
+[
+  {
+    "source": "campaign.json",
+    "source_sha256": "4c5f582a7d7a29fd3121dd50c4cb520ee64d564f2d14e5a86c6ed35be6c9a8b3",
+    "path": "campaign.json",
+    "sha256": "4c5f582a7d7a29fd3121dd50c4cb520ee64d564f2d14e5a86c6ed35be6c9a8b3"
+  },
+  {
+    "source": "collector.py",
+    "source_sha256": "fb49d9523064c6dc31cb4e8a07098c1b77cf05d1d9e08ba700081c94625d0383",
+    "path": "collector.py",
+    "sha256": "fb49d9523064c6dc31cb4e8a07098c1b77cf05d1d9e08ba700081c94625d0383"
+  },
+  {
+    "source": "execution.log",
+    "source_sha256": "5239356da7b6e0e191a5645e5b7539da639a24359240da052e8efd2688050519",
+    "path": "execution.log.gz",
+    "sha256": "26c980f62c5ef47d6502901708eb3fff51511526d6749eb2f3c1825fc71faaa1"
+  },
+  {
+    "source": "npu-before.log",
+    "source_sha256": "9a8237f37617d69aab7e3a6204fb695d3c17fdc7732ad60f0cb98aa8b342b410",
+    "path": "npu-before.log.gz",
+    "sha256": "8fdc0250f64fd18ba4c87d029c6a8565d8f1bb2e6c903ce8b80c331f1c1c51dd"
+  },
+  {
+    "source": "observations.json",
+    "source_sha256": "9478d6416bba92e67913419dda1e4d403aea08707a12e6f31160fcdfb8d03261",
+    "path": "observations.json.gz",
+    "sha256": "2f6c16f3981b6863cd902e12b210b4f4e844e068e69299b2a93837f10e51847c"
+  },
+  {
+    "source": "observations.rank-0.failure.json",
+    "source_sha256": "e3e15d8f40d0c39b03a570b3abe9b2d14eb8ee8943f3af955e4e34eb4018b75d",
+    "path": "observations.rank-0.failure.json.gz",
+    "sha256": "0718e9576e7c9c81e72279c2d6e5669f051a657e52d3eacf0984e438deb91677"
+  },
+  {
+    "source": "observations.rank-1.failure.json",
+    "source_sha256": "760cc0517b5c200b69a4e78ba277dfe2225f4c433d58ad538a1ed35e811d4c1b",
+    "path": "observations.rank-1.failure.json.gz",
+    "sha256": "013cc023b881246a655eb5a714818a3fb7b65ab41b19d3371cd1d7d3a6034817"
+  },
+  {
+    "source": "plan.json",
+    "source_sha256": "e0a6b1e8d832f65434cd0fa9f4f1afbb5ce32c393cf62c2490f890860a475c6a",
+    "path": "plan.json.gz",
+    "sha256": "a6eb1ea8b3eb6c116689944fd4825f7a719bc0cb341dad533a180b946675bf2c"
+  },
+  {
+    "source": "serving-setup.json",
+    "source_sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2",
+    "path": "serving-setup.json",
+    "sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2"
+  }
+]

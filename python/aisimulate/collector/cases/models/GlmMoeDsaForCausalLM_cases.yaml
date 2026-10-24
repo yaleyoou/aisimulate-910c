@@ -22,6 +22,17 @@ description: >
   GLM-5 DSA/MoE model-centric collection plan.
 
 model_case_values:
+  ascend_dcp_attention:
+    - checkpoint_quantization: modelslim_w8a8
+      tensor_parallel_sizes: [4, 8, 16]
+      dcp_sizes: [2, 4, 8, 16]
+      num_attention_heads: 64
+      kv_lora_rank: 512
+      qk_rope_head_dim: 64
+      index_topk: 2048
+      page_size: 128
+      reference_global_pool_pages: 417
+      context_limit: 180000
   ascend_moe_tensor:
     - checkpoint_quantization: modelslim_w8a8
       tensor_parallel_sizes: [4, 8, 16, 32]

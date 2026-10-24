@@ -256,7 +256,11 @@ def get_model(
     # dcp>1 can be estimated. Deployment policy (whether a role may combine
     # prefill CP with DCP) is decided by the topology layer, not here; this only
     # guards against silently wrong numbers.
-    if (model_config.dcp_size or 1) > 1 and forward_model != "fpm" and not cls.supports_dcp(backend_name):
+    if (
+        (model_config.dcp_size or 1) > 1
+        and forward_model != "fpm"
+        and not cls.supports_dcp_on_system(backend_name, getattr(model_config, "system", None))
+    ):
         raise NotImplementedError(
             f"Decode context parallelism (dcp_size={model_config.dcp_size}) is not supported for "
             f"model_family={model_family!r} on backend={backend_name!r}. The model class "

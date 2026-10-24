@@ -1,0 +1,16 @@
+schema_version: 1
+op: ascend_dcp_attention
+description: Actual NPU DCP query gather, partial sparse attention and FP32 output merge.
+common_case_values:
+  ascend_dcp_attention:
+    prefill_tokens: [1, 2, 8, 32, 128, 512, 2048, 4096, 8192]
+    prefill_batches: [1, 2, 4, 8, 16, 32]
+    max_prefill_tokens: 8192
+    prefix_tokens: [0, 8192]
+    decode_batches: [1, 2, 4, 8, 9, 16, 17, 24, 25, 32]
+    context_lengths: [128, 1024, 2048, 4096, 8192, 9216, 16384]
+    graph_buckets: [8, 16, 24, 32]
+    remap_topk: [true, false]
+    iterations: 8
+    warmup: 5
+    repeats: 7

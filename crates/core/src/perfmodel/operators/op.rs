@@ -198,6 +198,7 @@ pub enum Op {
     AscendMoeChain(crate::operators::AscendMoeChainOp),
     AscendDeepEp(crate::operators::AscendDeepEpOp),
     AscendMoeTensor(crate::operators::AscendMoeTensorOp),
+    AscendDcpAttention(crate::operators::AscendDcpAttentionOp),
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -329,6 +330,7 @@ impl Op {
                     + o.group_b.iter().map(Op::weight_bytes).sum::<f64>()
             }
             Op::AscendAttention(_)
+            | Op::AscendDcpAttention(_)
             | Op::Elementwise(_)
             | Op::ContextAttention(_)
             | Op::GenerationAttention(_)
@@ -389,6 +391,7 @@ impl Op {
             Op::Hccl(o) => &o.name,
             Op::AscendLinear(o) => &o.name,
             Op::AscendAttention(o) => &o.name,
+            Op::AscendDcpAttention(operation) => &operation.name,
             Op::AscendBmm(o) => &o.name,
             Op::AscendVector(o) => &o.name,
             Op::AscendMoeChain(o) => &o.name,
@@ -451,6 +454,7 @@ impl Op {
             Op::Hccl(o) => o.name = name,
             Op::AscendLinear(o) => o.name = name,
             Op::AscendAttention(o) => o.name = name,
+            Op::AscendDcpAttention(operation) => operation.name = name,
             Op::AscendBmm(o) => o.name = name,
             Op::AscendVector(o) => o.name = name,
             Op::AscendMoeChain(o) => o.name = name,
@@ -501,6 +505,7 @@ impl Op {
             Op::Hccl(o) => o.scale_factor = scale_factor,
             Op::AscendLinear(o) => o.scale_factor = scale_factor,
             Op::AscendAttention(o) => o.scale_factor = scale_factor,
+            Op::AscendDcpAttention(operation) => operation.scale_factor = scale_factor,
             Op::AscendBmm(o) => o.scale_factor = scale_factor,
             Op::AscendVector(o) => o.scale_factor = scale_factor,
             Op::AscendMoeChain(o) => o.scale_factor = scale_factor,
@@ -578,6 +583,7 @@ impl Op {
     pub fn is_context_attention(&self) -> bool {
         self.is_glm53_attention(true)
             || matches!(self, Op::AscendAttention(operation) if operation.key.phase == "prefill")
+            || matches!(self, Op::AscendDcpAttention(operation) if operation.key.phase == "prefill")
             || self.name() == "context_attention"
     }
 
@@ -587,6 +593,7 @@ impl Op {
     pub fn is_generation_attention(&self) -> bool {
         self.is_glm53_attention(false)
             || matches!(self, Op::AscendAttention(operation) if operation.key.phase == "decode")
+            || matches!(self, Op::AscendDcpAttention(operation) if operation.key.phase == "decode")
             || self.name() == "generation_attention"
     }
 
@@ -672,6 +679,9 @@ impl Op {
             ),
             Op::AscendLinear(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
             Op::AscendAttention(op) => op.query(db, ctx.batch_size, ctx.s, ctx.prefix),
+            Op::AscendDcpAttention(operation) => {
+                operation.query(db, ctx.batch_size, ctx.s, ctx.prefix)
+            }
             Op::AscendBmm(op) => op.query(db, ctx.num_tokens),
             Op::AscendVector(op) => op.query(db, ctx.num_tokens, ctx.batch_size),
             Op::AscendMoeChain(op) => op.query(db, ctx.num_tokens),

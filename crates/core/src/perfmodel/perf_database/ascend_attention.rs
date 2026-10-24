@@ -81,10 +81,19 @@ impl BoundedCurve {
     }
 }
 
-struct Plane(BTreeMap<u32, BoundedCurve>);
+pub(crate) struct Plane(BTreeMap<u32, BoundedCurve>);
 
 impl Plane {
-    fn query(&self, outer: u32, inner: u32) -> Result<f64, AicError> {
+    pub(crate) fn from_raw(curves: BTreeMap<u32, BTreeMap<u32, f64>>) -> Self {
+        Self(
+            curves
+                .into_iter()
+                .map(|(axis, points)| (axis, BoundedCurve::new(points)))
+                .collect(),
+        )
+    }
+
+    pub(crate) fn query(&self, outer: u32, inner: u32) -> Result<f64, AicError> {
         if let Some(curve) = self.0.get(&outer) {
             return curve.query(inner);
         }

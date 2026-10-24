@@ -181,17 +181,20 @@ class DeepSeekV32Model(BaseModel):
 
     @classmethod
     def supports_dcp(cls, backend_name: str) -> bool:
-        # Sparse-MLA (DSA) decode CP: vLLM `flashmla_sparse` / `flashinfer_mla_sparse`
-        # + DCP-aware indexer. SGLang's NSA backend has no DCP path yet (the
-        # DSA-family DCP PRs, #39330 / #36990 / #39117, are open), so it is not
-        # claimed. The GenerationDSAModule op prices the gathered heads over
-        # the per-rank KV stripe with the sparse attention over the rank's
-        # ceil(topk / dcp) owned slots; BaseModel._apply_decode_context_parallel
-        # adds the merge collectives and the indexer top-k gather.
         return backend_name == "vllm"
+
+    @classmethod
+    def supports_dcp_on_system(cls, backend_name: str, system: str | None) -> bool:
+        return cls.supports_dcp(backend_name) or (backend_name == "sglang" and system == "ascend910c")
 
     def _validate_dcp_topology(self) -> None:
         super()._validate_dcp_topology()
+        if self._backend_name == "sglang":
+            if getattr(self.config, "system", None) != "ascend910c":
+                raise NotImplementedError(
+                    "Decode context parallelism for SGLang DSA is not supported outside Ascend910C"
+                )
+            return
         # vLLM's FlashMLA sparse backend (the default DSA decode kernel unless
         # FLASHINFER_MLA_SPARSE is selected, `attention_backend="flashinfer"`
         # here) only serves DCP with the `ag_rs` merge and the fp8_ds_mla
@@ -213,6 +216,12 @@ class DeepSeekV32Model(BaseModel):
                 f"fp8 KV cache (got kvcache_quant_mode={self.config.kvcache_quant_mode.name}); the bf16 sparse "
                 "path returns no LSE for the DCP merge."
             )
+
+    def _apply_decode_context_parallel(self) -> None:
+        if getattr(self.config, "system", None) == "ascend910c":
+            self._validate_dcp_topology()
+            return
+        super()._apply_decode_context_parallel()
 
     @classmethod
     def create(cls, model_info: dict, model_config, backend_name: str) -> BaseModel:
@@ -827,18 +836,31 @@ class DeepSeekV32Model(BaseModel):
             or self.config.kvcache_quant_mode != common.KVCacheQuantMode.bfloat16
             or self.config.pp_size != 1
             or self.config.cp_size != 1
-            or (self.config.dcp_size or 1) != 1
             or self.config.nextn != 0
         ):
             raise InvalidEngineConfigurationError(
-                "Ascend910C DSA KV layout requires SGLang GLM, BF16 cache, PP1/CP1/DCP1 and MTP off"
+                "Ascend910C DSA KV layout requires SGLang GLM, BF16 cache, PP1/CP1 and MTP off"
             )
         return True
 
     def get_kvcache_pool_overhead_bytes(self) -> int:
         if self._uses_ascend_kv_layout():
-            return int(128 * self.get_kvcache_bytes_per_sequence(1))
+            dcp = int(self.config.dcp_size or 1)
+            return int(128 * dcp * self.get_kvcache_rank_bytes_per_sequence(1))
         return super().get_kvcache_pool_overhead_bytes()
+
+    def get_kvcache_rank_bytes_per_sequence(self, seq_len: int) -> float:
+        if self._uses_ascend_kv_layout():
+            dcp = int(self.config.dcp_size or 1)
+            return max(0, seq_len) * self._num_layers * 2 * ((512 + 64) / dcp + 128)
+        return super().get_kvcache_rank_bytes_per_sequence(seq_len)
+
+    def get_kvcache_rank_batch_capacity(self, kv_budget_bytes: float, max_batch_size: int) -> int:
+        if self._uses_ascend_kv_layout():
+            logical_page = 128 * int(self.config.dcp_size or 1)
+            bytes_per_page = logical_page * self.get_kvcache_rank_bytes_per_sequence(1)
+            return max(0, int(float(kv_budget_bytes) // bytes_per_page) - 1) * logical_page
+        return super().get_kvcache_rank_batch_capacity(kv_budget_bytes, max_batch_size)
 
     def get_kvcache_max_tokens(self, kv_budget_bytes: float) -> int:
         if self._uses_ascend_kv_layout():

@@ -53,6 +53,14 @@ All paths below are under `engine.workers.<role>.kv_cache`.
 | `state_cache` | Unset (off) | Rejected | Recurrent-state block; see [state cache](#state-cache). |
 | `prefix_match_unit` | Unset | Rejected | Prefix-matching granularity with `state_cache`. |
 
+For the audited GLM ModelSlim path on `ascend910c`, physical NPU KV pages hold
+128 tokens. With `parallelism.decode_context: N`, set the simulator's logical
+`block_size` to `128 * N`, matching SGLang's widened allocation groups. For
+example, DCP2 uses `block_size: 256`. The latent and RoPE caches are striped;
+the indexer cache remains complete on every rank. The memory model retains
+that replicated storage and the extra sentinel pages. The pinned runtime
+supports this DCP layout in aggregated mode only.
+
 ## GPU cache (G1)
 
 Each attention-DP rank has its own G1 cache and its own running requests.

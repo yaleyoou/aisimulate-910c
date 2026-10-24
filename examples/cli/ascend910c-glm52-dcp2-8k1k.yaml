@@ -1,0 +1,26 @@
+traffic:
+  source: {type: synthetic, input_tokens: 8192, output_tokens: 1024}
+  load: {type: concurrency, concurrency: 2}
+  stop: {requests: 8}
+engine:
+  model: /mnt/raid/user/data/models/glm-q
+  hardware: ascend910c
+  backend: sglang
+  backend_version: "0.5.22"
+  mode: aggregated
+  context_length: 9216
+  gemm_quant_mode: w8a8
+  moe_quant_mode: w8a8_dynamic
+  fmha_quant_mode: bfloat16
+  kvcache_quant_mode: bfloat16
+  comm_quant_mode: half
+  estimation_mode: op_level
+  fallback_policy: deny
+  workers:
+    aggregated:
+      parallelism: {tensor: 8, attention_data: 2, moe_tensor: 1, moe_expert: 16, decode_context: 2, replicas: 1}
+      scheduler: {max_batched_tokens: 4096, max_sequences: 32}
+      kv_cache:
+        block_size: 256
+        prefix_caching: false
+        capacity: {type: default, memory_fraction: 0.86}

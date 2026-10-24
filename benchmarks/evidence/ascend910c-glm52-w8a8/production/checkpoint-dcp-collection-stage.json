@@ -1,0 +1,30 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["DCP table publication and full prediction validation remain; smaller attention TP and final image delivery still need qualification."],
+    "next_action": "Commit the tested source and collection evidence, publish2691qualifiedDCPpoints, run native/external prediction checks, then finish remaining supported topologies and package delivery."
+  },
+  "research": {
+    "parallel_extension": {
+      "tensor_adp_search": "Frozen automatic-search-1296-20261025;12shapes,1296/1296feasible. ActualADP2/4captures and8additionalstrictpredictions frozen.13resident/boundarymodelchecks pass.",
+      "native_sha256": "18c93522e474309a1c08717e893c93b42cac9d9b3b5badd45b6afdd9c6a56337",
+      "dcp_collection": "All2736page128 storage/attention cases attempted.2691qualified,37CVexcluded,8numericalexcluded. DCP2=912attempted1numericfailure;DCP4=912/0;DCP16=304/2;DCP8=29-point stoppedprefix3failures plus579-point continuation2failures. Originalworkerfailures retained; no thresholds relaxed or failed-point retries. Full-planvalidator verifies disjointcoverage and auditedstopbeforeacceptingprefix.",
+      "dcp_collector_sha256": "b257fed83ab1dffed40de7e8502d61224221a100bd1c6e509eb59e6eff7821f1",
+      "dcp_source_contract": "AscendDcpAttention Rusttable/operator wired;native3tests andproducer9tests pass. Model21full-indexer+57reusecomposites includeKVwrites;oldKVwriteops removed underDCP. IndexerKV staysfull;DCP2memoryrate64896bytes/logicaltoken,sentinel16613376bytes reproduce observed3239608320-bytepool and49664logicalcapacity. Replayrequireslogicalblock128*dcp;PD+DCP rejected atcanonicalconfiguration.",
+      "dcp_gpu_compatibility": "Hardware-qualified supports_dcp_on_system preserves originalGPUbackendgates.46GPU/NPU DCPplumbing/capacity/model tests pass.390GPUgoldenrun ongoing; no goldens modified.",
+      "dcp_limitations": "MeasuredDCPdecode is graph mode;unqualified eagerdecode in mixedforwardfails explicitly. ExistingGPUrecommend schema doesnotsearchCP/DCP;DCPprediction is the matched baseline capability. PP1 restriction andpinnedNPU CP/mixedMoETP-EP runtime evidence remain explicit.",
+      "data_status": "DCPrawvalidation report frozen;formalparquet notpublishedyet. Existinginstalled12-layoutdata remainsunchanged. Finaluserimage stillprevious190684...release.",
+      "nodes": "AllownedNPUcampaigns stopped;32and19available,31untouched. Goalremainsactive."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "parallel_search_1296": {"path":"production/automatic-search-1296-20261025/recommendation.json.gz","kind":"file","scope":"validation"},
+        "tensor_adp_validation_manifest": {"path":"production/tensor-adp-validation-20261025/manifest.json","kind":"file","scope":"validation"},
+        "dcp_full_plan_validation": {"path":"production/dcp-full-plan-validation-20261025.json","kind":"file","scope":"collection"}
+      }
+    }
+  }
+}

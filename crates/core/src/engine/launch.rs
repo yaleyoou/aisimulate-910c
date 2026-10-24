@@ -166,6 +166,16 @@ impl EngineLaunchConfig {
         }
         if let Some(config) = self.performance_config()? {
             config.validate()?;
+            if config.system == "ascend910c"
+                && config.backend == crate::BackendKind::Sglang
+                && config.dcp.unwrap_or(1) > 1
+            {
+                let logical_block = 128 * config.dcp.unwrap_or(1) as usize;
+                ensure!(
+                    self.block_size == logical_block,
+                    "Ascend DCP requires logical block_size={logical_block} (128 physical tokens per DCP rank)"
+                );
+            }
             ensure!(
                 config.pp == 1,
                 "engine launch supports only pp=1; got pp={}",

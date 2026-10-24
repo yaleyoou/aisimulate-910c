@@ -29,6 +29,34 @@
 
 ## 已开始的工作
 
+### 2026-10-25：十二种结构与1296个自动候选
+
+当前源码支持两组并行结构，每组各6种：
+
+| MoE执行方式 | Attention TP | 全局FFN并行宽度 | Attention DP | SGLang参数 |
+|---|---|---|---|---|
+| DeepEP，MoE-TP1 | 4、8、16 | EP16或EP32 | EP / Attention TP | `--moe-a2a-backend deepep --ep-size 全局宽度` |
+| 张量MoE，EP1 | 4、8、16 | MoE-TP16或32 | MoE-TP / Attention TP | `--moe-a2a-backend none --ep-size 1` |
+
+两组都使用 `--tp-size=Attention TP × Attention DP`，新版使用
+`--attn-dp-size=Attention DP`。不能直接把模拟器的 `tensor` 数值当成SGLang的全局TP参数。
+固定版本的DeepEP和Ascend FuseEP都会把EP调整到全局TP，因此不能用它们部署混合MoE-TP/EP配置。
+
+64device预算、并发8/16/32、合并与PD联合搜索的1296个候选全部完成，失败数为0。
+真实权重的MoE-TP16/EP1配合ADP2、ADP4均已完成8K输入/16输出，
+常驻模型张量分别为50,480,189,948和52,840,002,044字节，与预测模型一致。
+MoE-TP32三种attention布局已通过算子组合及8K/1K合并、PD模拟；两节点完整权重服务误差尚未校准。
+
+Tensor MoE配合ADP时，router、共享专家和专家计算处理全局token，不能沿用DeepEP的本地token分片。
+实测prefill每轮有156次全局all-reduce；decode每层走本地reduce-scatter、全局all-gather、
+全局reduce-scatter、本地all-gather，已分别接入组合模型。
+
+DCP仍在采集和最终验证。已确认NPU使用128-token页分片，indexer KV保留完整副本；
+模拟器的逻辑KV块应设为 `128 × DCP`。新DCP算子包含缓存写入、可选index重映射、Q聚合、
+局部稀疏注意力和FP32输出合并，因此组合时去掉旧缓存写入算子，避免重复计算。
+最初使用单token分片的实验数据已明确作废，未进入性能数据库；少量数值校验失败的点也不入库。
+GPU原有DCP配置与容量检查的46项相关测试通过，NPU内存校验与已有GPU路径分开处理。
+
 ### 2026-10-25：七种结构的自动搜索已打通
 
 在原六种DeepEP结构之外，已加入TP16/ADP1/MoE-TP16/EP1。

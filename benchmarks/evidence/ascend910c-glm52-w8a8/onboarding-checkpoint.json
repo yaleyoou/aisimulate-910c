@@ -861,6 +861,38 @@
           "scope": "validation",
           "sha256": "43a11c9b1f25e59650f0c4455f03ac8196c86171da17aa8a65e5fb37bbde71d6"
         },
+        "dcp_full_plan_validation": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/dcp-full-plan-validation-20261025.json",
+          "scope": "collection",
+          "sha256": "0b556445da20367b4dea59cc0d59ca4ac0ee6c421542cc229c5a95c86aaf4cb5"
+        },
+        "dcp_layout_rejection": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/dcp-attention-world2-node19-20261025-v3/layout-audit-rejection.json",
+          "scope": "validation",
+          "sha256": "22bf16dfbd8c36b8055377acac28f0e4dc494737146165658bb98090fbbe71f7"
+        },
+        "dcp_storage_graph_control": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/dcp-storage-graph-node19-20261025/observations.json",
+          "scope": "validation",
+          "sha256": "c9b1759f9308bea5700b8d0e157bcc8153e0c47930c365b21a5628a52c3d05cc"
+        },
+        "dcp_storage_plan": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/dcp-storage-attention-plan-20261025.json",
+          "scope": "collection",
+          "sha256": "69ceeb4d90b9a7c1bba17de71d7bb165b79ac5b8e8ea6a18d6edcdcba83763cf"
+        },
         "deepep_coverage": {
           "archived": true,
           "context_sha256": "2d1ad65620d28377c0d7403caa6aefcb1079c98a8f8184eee177ce45c78a6a87",
@@ -1285,6 +1317,14 @@
           "scope": "validation",
           "sha256": "98c5c35853d4c1e6ce449ff3a59a14f96a5d5b221577fb1032db1770d4f0806b"
         },
+        "parallel_search_1296": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/automatic-search-1296-20261025/recommendation.json.gz",
+          "scope": "validation",
+          "sha256": "8417531e1b7177827d90dd73f731977eb06bedd668fca0ff216c48db8c0c235c"
+        },
         "parallel_search_351": {
           "archived": false,
           "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
@@ -1404,6 +1444,30 @@
           "path": "production/state-tests-final.log",
           "scope": "validation",
           "sha256": "e2f87f617d31bf2140756bf75a4cb545b6bca8fb0905de3684a4d86381a695fd"
+        },
+        "tensor_adp2_actual_request": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/operator-input-state-node32-20261022-moetp16-adp2-20261025/capture/moetp16_adp2_8192/response.json",
+          "scope": "validation",
+          "sha256": "715964b20cda0c1084b94df7a0c389c2c76ca28ca63ffacb74cd345a1df749e8"
+        },
+        "tensor_adp4_actual_request": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/operator-input-state-node32-20261022-moetp16-adp4-20261025/capture/moetp16_adp4_8192/response.json",
+          "scope": "validation",
+          "sha256": "e8f870563ea57bfe625c36fd52cbe8ae1a49a8c775ca134f11f3e7bafd8c1d22"
+        },
+        "tensor_adp_validation_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/tensor-adp-validation-20261025/manifest.json",
+          "scope": "validation",
+          "sha256": "94b2f292e4b46d863736abb5b11005f11a5217031b4dd160c560065f978e4c0e"
         },
         "tensor_linear_combined_release": {
           "archived": false,
@@ -1600,9 +1664,9 @@
   ],
   "progress": {
     "blockers": [
-      "Smaller attention TP, tensor-MoE with attention DP, and DCP paths remain to be qualified. GPU Replay itself restricts pipeline parallelism to PP1; pinned NPU prefill CP has a runtime implementation failure."
+      "DCP table publication and full prediction validation remain; smaller attention TP and final image delivery still need qualification."
     ],
-    "next_action": "Commit the seven-layout tensor-MoE stage, qualify additional executable TP/ADP and DCP paths, and rebuild the final user image.",
+    "next_action": "Commit the tested source and collection evidence, publish2691qualifiedDCPpoints, run native/external prediction checks, then finish remaining supported topologies and package delivery.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2096,18 +2160,26 @@
       "automatic_search": "Seven qualified shapes: six DeepEP16/32 TP4/8/16 shapes plusTP16ADP1MoETP16EP1.64devicebudget,C8/16/32,525/525candidatesfeasible,0failed. Includes tensor/deepep asymmetric PD and all budgeted replicas.",
       "cp_capture": "CP2interleave realweights server loading on32 with boundedKV32768. Execution not yet qualified.",
       "cp_scope": "Real CP2interleave warmup failed because pinnedNPU DSA calls missing rebuild_cp_kv_cache. Source has onlycalls,no definition. DCP2 is separate and actual8krequest passed.",
+      "data_status": "DCPrawvalidation report frozen;formalparquet notpublishedyet. Existinginstalled12-layoutdata remainsunchanged. Finaluserimage stillprevious190684...release.",
       "dcp_capture": "DCP2 started and warmed up but first8k request ran out of memory after graph capture. Preserved failure. With KVcap32768,memoryfraction0.86,prefillchunk4096, the same8kinput16output request completed. This proves execution, not FPE support or uninstrumented serving accuracy. Owned DCP server stopped.",
+      "dcp_collection": "All2736page128 storage/attention cases attempted.2691qualified,37CVexcluded,8numericalexcluded. DCP2=912attempted1numericfailure;DCP4=912/0;DCP16=304/2;DCP8=29-point stoppedprefix3failures plus579-point continuation2failures. Originalworkerfailures retained; no thresholds relaxed or failed-point retries. Full-planvalidator verifies disjointcoverage and auditedstopbeforeacceptingprefix.",
+      "dcp_collector_sha256": "b257fed83ab1dffed40de7e8502d61224221a100bd1c6e509eb59e6eff7821f1",
+      "dcp_current_plan": "dcp-storage-attention-plan-20261025.json:2736cases,912DCP2/912DCP4/608DCP8/304DCP16. Contractsglang_npu_dcp_storage_attention_chain/v1,interleave128. Correctedstorageprefillindex26andgraph694passnumerics;CV0.00461/0.01735. NewnegativecontrolthenfullDCP2on19;newDCP16positiveprobeon32. NativeDCPreader/op/exporter/modelmemorynotyetimplemented.",
+      "dcp_gpu_compatibility": "Hardware-qualified supports_dcp_on_system preserves originalGPUbackendgates.46GPU/NPU DCPplumbing/capacity/model tests pass.390GPUgoldenrun ongoing; no goldens modified.",
+      "dcp_limitations": "MeasuredDCPdecode is graph mode;unqualified eagerdecode in mixedforwardfails explicitly. ExistingGPUrecommend schema doesnotsearchCP/DCP;DCPprediction is the matched baseline capability. PP1 restriction andpinnedNPU CP/mixedMoETP-EP runtime evidence remain explicit.",
+      "dcp_metadata_audit": "Initial standalone DCP plan used CUDA-style interleave1. PinnedNPUcallsite explicitly passes backendpage_size128, confirmed by local-KV metadata source. Oldstandaloneobservations,includinginterruptedworld2v3andworld16probe,areunqualifieddiagnostics;ZERO DCProws published. Replacedwithnewimmutablepage128plans andowned-page initialization/remapping/reference.",
+      "dcp_precision_audit": "Initial ideal-FP32 reference ignored BF16 partial outputs before FP32 merge. NeworaclechecksCPUdensepartials andLSE independently,thenchecksmergeusingverifiedBF16partials. Outputthresholdunchanged. EmptyLSEobserved=-1.999999936e38 with exp=0;neutral-partitioncheckusesnegativeLSEandzeroexp. IdealFP32errorretaineddiagnostic. Source/failedattempts preserved.",
+      "dcp_source_contract": "AscendDcpAttention Rusttable/operator wired;native3tests andproducer9tests pass. Model21full-indexer+57reusecomposites includeKVwrites;oldKVwriteops removed underDCP. IndexerKV staysfull;DCP2memoryrate64896bytes/logicaltoken,sentinel16613376bytes reproduce observed3239608320-bytepool and49664logicalcapacity. Replayrequireslogicalblock128*dcp;PD+DCP rejected atcanonicalconfiguration.",
+      "dcp_storage_boundary": "AuditedDCPindexerwriteindices eagerINT32/graphINT64,oppositeordinarycachewriteprofile. NewcompositeincludesactualindexerKVwriteon21full-indexerlayers,latent/ropeKVwriteonall78layers,optionalremap21,Qgather,partialsparseattentionandFP32all-to-all/update. ModelmustomitoldKVwriteopsforDCPtoavoidduplication. Lightningindexer/GEMM/BMMremainseparate.",
       "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
       "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
+      "head": "2341238367a5d02182c3987a254dd3b9ee7e9d77",
       "mixed_moe_tp_ep": "Isolated actual AscendTPDispatcher EP2rank0 probe produced256globalexpert counts for128localweights and failed GMM with scale batch128 versusgroupList256. Preserve as isolated source/metadata evidence; not a full distributed serving result.",
       "moetp_capture": "Real TP16/ADP1/EP1 none-backend model completed8kinput16output. Captured resident model49,300,283,900bytes;75tensorMoE layers and157AR16perforward. New actual tensor dispatcher/GMM/activation/finalization collector128cases completed;126stable,2CVexcluded. Four graph-noop controls rejected. Original smoke reference indexed routing mapping incorrectly; independent probe established token-major map and only the checker index was fixed, tolerances unchanged.",
       "moetp_integration": "Native AscendMoeTensor table/op and publisher implemented;3Rust and6Python tests pass. Model composition, shared-expert linear/vector data and full caller validation are still pending.",
-      "native_sha256": "d9fd5fa11ce791ba95c9ab70e70713983787d14df4a3d7d469b519c3b90f574d",
+      "native_sha256": "18c93522e474309a1c08717e893c93b42cac9d9b3b5badd45b6afdd9c6a56337",
       "next": "Continue complete adaptation; goal active. User runtime image remains previous limited release until rebuilt.",
-      "nodes": [
-        "npu1-32",
-        "npu1-19"
-      ],
+      "nodes": "AllownedNPUcampaigns stopped;32and19available,31untouched. Goalremainsactive.",
       "pd": "TP4/8/16 all9mappingscollected;90-case singlecall71stable and90-case8-callmeans66stable. Selected18wholecurves81rows acrosscompatiblecampaigns,coverage-first/latency-independent selection,per-curvecollectionidentitiespreserved. No splicingdifferentprotocolsinacurve. Same per-attentionDPgroup mapping supportsEP32 roles under PP1CP1DCP1,distinct endpointnodes,no shared-link contention calibration.",
       "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
       "pp_scope": "GPU engine launch itself rejects pp!=1 at crates/core/src/engine/launch.rs:170. PP2DeepEP8 realmodel8krequest passed, but native request Replay/search cannot use PP on either GPU orNPU. NewPP2MoETP8none failed graphcapture: OwedOutput.shape access while carrying skip-layer topk atSGLangdeepseek_v2.py3169.",
@@ -2116,6 +2188,9 @@
       "source_commit": "98381b91fd5d4520eb9fbc67005187dded3e6cc8",
       "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
       "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
+      "tensor_adp": "Real MoETP16EP1 ADP2 andADP4 servers each completed8192input16output. Captured resident50,480,189,948 and52,840,002,044 respectively. Prefill156global16AR plusembedding/localLogits;decode78localRS+78globalAG+78globalRS+78localAG pluslogits. Global FFN input andplainRMS boundary now modeled. Bothserversstopped.",
+      "tensor_adp_prediction": "13model tests pass. Strict8k1kADP2aggregate16requests andfouradditionallayouts eachaggregate/PD16requests pass. Newcatalog12shapes,1296/1296automaticcandidatesfeasible,0failed. Results stillneedfreeze/stagecommit.",
+      "tensor_adp_search": "Frozen automatic-search-1296-20261025;12shapes,1296/1296feasible. ActualADP2/4captures and8additionalstrictpredictions frozen.13resident/boundarymodelchecks pass.",
       "tensor_data": "Installed126tensor-MoE rows from128numeric passes;2CVexcluded. Installed2183linear=old1378+805new stable from816 attempts;11CVexcluded. Installed1034vector=old842+192new;all192stable. Entire disjoint curves appended; no replacement of old points and no cross-protocol interpolation within a curve. All126/2183/1034 native exact-point queries pass with zero difference.",
       "tensor_source_commit": "654d8936df200be720d0077ce0694ebc98112446",
       "tensor_validation": "TP16ADP1MoETP16EP1 exact resident49,300,283,900 and157AR16 trace match.8/8aggregate8k1k and16/16mixedPD requests both directions completed. Reverse PD strict provenance enabled.36AscendRust,14producer,47menu/model/provenance tests pass.390GPUgoldens unchanged pass;469s wall time overlapped525candidate sweep, not a matched host-performance measurement.",
@@ -2298,7 +2373,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 57,
+  "revision": 59,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

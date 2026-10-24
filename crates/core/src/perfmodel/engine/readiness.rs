@@ -604,6 +604,7 @@ impl Availability<'_> {
             },
             AscendLinear(linear) => linear.ensure_ready(self.db),
             AscendAttention(attention) => attention.ensure_ready(self.db),
+            AscendDcpAttention(attention) => attention.ensure_ready(self.db),
             AscendBmm(bmm) => bmm.ensure_ready(self.db),
             AscendVector(vector) => vector.ensure_ready(self.db),
             AscendMoeChain(moe) => moe.ensure_ready(self.db),

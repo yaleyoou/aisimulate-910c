@@ -1,0 +1,11 @@
+{
+  "status": "precision_reference_investigation",
+  "failed_plan_index": 26,
+  "completed_prior_cases": 26,
+  "case": "DCP2, local16heads, two8-token prefill sequences, prefix0",
+  "observed_error": "Ideal FP32 merged reference exceeded 0.002+3% with max absolute error0.0055921",
+  "reference_audit": "The runtime rounds each partial attention output to BF16 before FP32 LSE-weighted merging. A staged reference now checks local partials and LSE independently, then checks the merge against those verified BF16 values. The ideal unrounded FP32 error remains recorded as a diagnostic.",
+  "followup_probe": "../dcp-attention-precision-node19-20261025-v2: the new reference initially assumed empty partitions returned literal -infinity. ../dcp-empty-lse-probe-20261025.json shows actual LSE=-1.9999999360571385e38 and exp(LSE)=0. The neutral-partition check now requires negative LSE with exactly zero exponential; the final merge omits exactly zero weights.",
+  "numerical_tolerances": "No output error threshold was increased. Additional partial-attention and LSE checks were added.",
+  "publication": "No DCP performance table published; full-plan collection waits for the staged oracle to qualify."
+}

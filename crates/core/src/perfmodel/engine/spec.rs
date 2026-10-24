@@ -935,6 +935,18 @@ mod tests {
                 },
                 input_token_multiple: 16,
             }),
+            OpSpec::AscendDcpAttention(crate::operators::AscendDcpAttentionOp {
+                name: "ascend_dcp_storage_attention".into(),
+                scale_factor: 21.0,
+                key: crate::perf_database::ascend_dcp_attention::AscendDcpAttentionKey {
+                    phase: "decode".into(),
+                    local_heads: 8,
+                    dcp_size: 2,
+                    remap_topk: true,
+                    execution_mode: "graph".into(),
+                },
+                graph_buckets: vec![8, 16, 24, 32],
+            }),
         ];
 
         // Exhaustiveness guard: if a variant is added to `Op`, this match
@@ -959,6 +971,7 @@ mod tests {
                 | OpSpec::Hccl(_)
                 | OpSpec::AscendLinear(_)
                 | OpSpec::AscendAttention(_)
+                | OpSpec::AscendDcpAttention(_)
                 | OpSpec::AscendBmm(_)
                 | OpSpec::AscendVector(_)
                 | OpSpec::AscendMoeChain(_)

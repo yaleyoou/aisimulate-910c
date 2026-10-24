@@ -1,0 +1,1099 @@
+{
+  "committed_prefill_tokens": 131072,
+  "completed_requests": 16,
+  "decode_gpus_per_worker": 32,
+  "decode_worker_seconds": 213.09079740837208,
+  "duration_ms": 213090.797408372,
+  "first_admission_prefix_cache_reused_ratio": 0.0,
+  "gpu_hours": 2.8412106321116277,
+  "input_throughput_tok_s": 615.0992984873517,
+  "kv_cache_precision": {
+    "decode": {
+      "dtype": "bfloat16",
+      "source": "user_override"
+    },
+    "prefill": {
+      "dtype": "bfloat16",
+      "source": "user_override"
+    }
+  },
+  "kv_eviction_policy": "lru",
+  "max_e2e_latency_ms": 110474.12544237253,
+  "max_itl_ms": 97.65412800000013,
+  "max_output_token_throughput_per_user": 10.284025554691778,
+  "max_tpot_ms": 97.47754576930623,
+  "max_ttft_ms": 10765.704956372254,
+  "max_ttst_ms": 97.65372200000274,
+  "mean_e2e_latency_ms": 104563.91128243602,
+  "mean_itl_ms": 97.46564989956009,
+  "mean_output_token_throughput_per_user": 10.26004026804921,
+  "mean_tpot_ms": 97.46564989956002,
+  "mean_ttft_ms": 4856.551435186126,
+  "mean_ttst_ms": 97.65372200000115,
+  "median_e2e_latency_ms": 102637.88088799955,
+  "median_itl_ms": 97.41702853615288,
+  "median_output_token_throughput_per_user": 10.267671566070339,
+  "median_tpot_ms": 97.4670626783964,
+  "median_ttft_ms": 2929.460401999997,
+  "median_ttst_ms": 97.65372200000274,
+  "min_e2e_latency_ms": 102478.03486937252,
+  "min_itl_ms": 97.23818700000993,
+  "min_output_token_throughput_per_user": 10.240222512662227,
+  "min_tpot_ms": 97.44595460801511,
+  "min_ttft_ms": 2758.505547372251,
+  "min_ttst_ms": 97.6537219999991,
+  "num_e2e_latency_samples": 16,
+  "num_requests": 16,
+  "num_tpot_samples": 16,
+  "num_ttft_samples": 16,
+  "output_throughput_tok_s": 76.88741231091896,
+  "p75_e2e_latency_ms": 105201.47257037254,
+  "p75_itl_ms": 97.61205762231137,
+  "p75_output_token_throughput_per_user": 10.267671566070339,
+  "p75_tpot_ms": 97.46706267839716,
+  "p75_ttft_ms": 5492.667450372252,
+  "p75_ttst_ms": 97.65372200000274,
+  "p90_e2e_latency_ms": 110474.12544237253,
+  "p90_itl_ms": 97.61205762231137,
+  "p90_output_token_throughput_per_user": 10.267671566070339,
+  "p90_tpot_ms": 97.47754576930623,
+  "p90_ttft_ms": 10765.704956372254,
+  "p90_ttst_ms": 97.65372200000274,
+  "p95_e2e_latency_ms": 110474.12544237253,
+  "p95_itl_ms": 97.61205762231137,
+  "p95_output_token_throughput_per_user": 10.288227465101514,
+  "p95_tpot_ms": 97.47754576930623,
+  "p95_ttft_ms": 10765.704956372254,
+  "p95_ttst_ms": 97.65372200000274,
+  "p99_e2e_latency_ms": 110474.12544237253,
+  "p99_itl_ms": 97.61205762231137,
+  "p99_output_token_throughput_per_user": 10.288227465101514,
+  "p99_tpot_ms": 97.47754576930623,
+  "p99_ttft_ms": 10765.704956372254,
+  "p99_ttst_ms": 97.65372200000274,
+  "power_coverage": 0.0,
+  "power_diagnostics": {
+    "coverage_gate": 0.9,
+    "covered_latency_ms": 0.0,
+    "energy_unit": "W-ms",
+    "latency_ms": 1639007.4745582032,
+    "latency_unit": "ms",
+    "phases": [
+      {
+        "covered_latency_ms": 0.0,
+        "latency_ms": 42449.62347233752,
+        "name": "prefill",
+        "operations": [
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 25663.657333374023,
+            "name": "context_attention",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 600.4888515472412,
+            "name": "context_attention_output",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 126.66107654571533,
+            "name": "context_cache_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 485.52816009521484,
+            "name": "context_cache_latent",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 474.15887546539307,
+            "name": "context_cache_rope",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3.081120014190674,
+            "name": "context_dense_activation",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 28.311538696289062,
+            "name": "context_dense_down",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 38.020259857177734,
+            "name": "context_dense_gate_up",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 226.3824005126953,
+            "name": "context_dense_global_sums",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 20.825400352478027,
+            "name": "context_dense_input_norms",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 34.06632041931152,
+            "name": "context_dense_post_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3.7182000875473022,
+            "name": "context_dense_residual_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1.8055599927902222,
+            "name": "context_embedding",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 17.959880828857422,
+            "name": "context_embedding_all_reduce",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3.950239896774292,
+            "name": "context_final_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 0.5144799947738647,
+            "name": "context_final_residual_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3.950239896774292,
+            "name": "context_first_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1243.063470840454,
+            "name": "context_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 18.490919709205627,
+            "name": "context_indexer_concat_key",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 36.40224087238312,
+            "name": "context_indexer_concat_query",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 65.07899951934814,
+            "name": "context_indexer_input_cast",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 27.561869144439697,
+            "name": "context_indexer_key",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 57.205681800842285,
+            "name": "context_indexer_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 122.31460189819336,
+            "name": "context_indexer_query",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 43.165921211242676,
+            "name": "context_indexer_weights",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 17.960039734840393,
+            "name": "context_indexer_weights_cast",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1.0174800157546997,
+            "name": "context_logits_finalize",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 8.140415226016678,
+            "name": "context_logits_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6.12870979309082,
+            "name": "context_logits_gemm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 129.31619811058044,
+            "name": "context_mla_output_prefill",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 171.53058242797852,
+            "name": "context_mla_query_nope",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 8566.404481977224,
+            "name": "context_moe_overlap",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 286.5684871673584,
+            "name": "context_q_b",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 487.4656705856323,
+            "name": "context_qk_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 977.8641815185547,
+            "name": "context_qkv_a",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 278.07312870025635,
+            "name": "context_rope_attention",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1.2958400249481201,
+            "name": "context_rope_cache",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 145.26792097091675,
+            "name": "context_rope_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 54.433876276016235,
+            "name": "context_router",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 38.585999608039856,
+            "name": "context_shared_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 185.51503372192383,
+            "name": "context_sparse_input_norms",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 747.647819519043,
+            "name": "context_sparse_output_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 188.02199363708496,
+            "name": "context_sparse_post_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 812.0219707489014,
+            "name": "context_sparse_reduce_scatter",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          }
+        ],
+        "power_coverage": 0.0,
+        "power_w": null,
+        "publication_status": "withheld",
+        "source": "silicon",
+        "source_kind": "missing"
+      },
+      {
+        "covered_latency_ms": 0.0,
+        "latency_ms": 1596557.8510858659,
+        "name": "decode",
+        "operations": [
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 113230.06940889359,
+            "name": "generation_attention",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 53525.0244140625,
+            "name": "generation_attention_output",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6216.376190185547,
+            "name": "generation_cache_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22961.602294921875,
+            "name": "generation_cache_latent",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 23245.947143554688,
+            "name": "generation_cache_rope",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 874.4141235351562,
+            "name": "generation_dense_activation",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 2966.5075073242188,
+            "name": "generation_dense_attention_reduce_scatter",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1096.9421081542969,
+            "name": "generation_dense_down",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1154.7878723144531,
+            "name": "generation_dense_gate_up",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 4566.200439453125,
+            "name": "generation_dense_input_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 885.3503723144531,
+            "name": "generation_dense_input_norms",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3323.0234375,
+            "name": "generation_dense_output_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 4097.942731583405,
+            "name": "generation_dense_output_reduce_scatter",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 903.9052734375,
+            "name": "generation_dense_post_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 914.165771484375,
+            "name": "generation_dense_residual_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 291.0822448730469,
+            "name": "generation_embedding",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1049.93448893208,
+            "name": "generation_embedding_all_reduce",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 295.1167907714844,
+            "name": "generation_final_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 294.4409484863281,
+            "name": "generation_first_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 13590.769428312778,
+            "name": "generation_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6197.452606201172,
+            "name": "generation_indexer_concat_key",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6096.383697509766,
+            "name": "generation_indexer_concat_query",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6134.230865478516,
+            "name": "generation_indexer_input_cast",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 3935.6619873046875,
+            "name": "generation_indexer_key",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6124.339050292969,
+            "name": "generation_indexer_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 8712.07699584961,
+            "name": "generation_indexer_query",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 7602.362731933594,
+            "name": "generation_indexer_weights",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6267.1259765625,
+            "name": "generation_indexer_weights_cast",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 339.82464599609375,
+            "name": "generation_logits_finalize",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 1078.9650234650194,
+            "name": "generation_logits_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6080.34033203125,
+            "name": "generation_logits_gemm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 8853.811111450195,
+            "name": "generation_mla_output_decode",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 38709.166259765625,
+            "name": "generation_mla_query_nope",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 623476.2199401855,
+            "name": "generation_moe_overlap",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 32359.143127441406,
+            "name": "generation_q_b",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22920.069580078125,
+            "name": "generation_qk_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 46550.59899902344,
+            "name": "generation_qkv_a",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22602.178161621094,
+            "name": "generation_rope_attention",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 588.0217895507812,
+            "name": "generation_rope_cache",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 6109.716339111328,
+            "name": "generation_rope_indexer",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 16947.648239135742,
+            "name": "generation_router",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22256.639099121094,
+            "name": "generation_shared_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 74162.68768310547,
+            "name": "generation_sparse_attention_reduce_scatter",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 114155.01098632812,
+            "name": "generation_sparse_input_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 21838.642517089844,
+            "name": "generation_sparse_input_norms",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 83075.5859375,
+            "name": "generation_sparse_output_gather",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 102448.56828959098,
+            "name": "generation_sparse_output_reduce_scatter",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22597.6318359375,
+            "name": "generation_sparse_post_norm",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          },
+          {
+            "covered_latency_ms": 0.0,
+            "latency_ms": 22854.144287109375,
+            "name": "generation_sparse_residual_add",
+            "power_coverage": 0.0,
+            "source": "silicon",
+            "source_kind": "missing",
+            "status": "missing",
+            "uncovered_reason": "timing provider returned latency without positive energy evidence"
+          }
+        ],
+        "power_coverage": 0.0,
+        "power_w": null,
+        "publication_status": "withheld",
+        "source": "silicon",
+        "source_kind": "missing"
+      }
+    ],
+    "power_coverage": 0.0,
+    "power_w": null,
+    "power_w_unit": "W",
+    "publication_status": "withheld",
+    "schema_version": "1.0",
+    "scope": "active_forward_pass_per_gpu"
+  },
+  "power_w": null,
+  "prediction_provenance": {
+    "decode": {
+      "data_identity": null,
+      "data_version": "0.5.22",
+      "data_version_unavailable_reason": null,
+      "estimator": "op_level",
+      "timing_source": "aic"
+    },
+    "kv_transfer": {
+      "data_identity": {
+        "bytes_per_token_per_replica": 109824,
+        "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
+        "key": {
+          "destination_tp": 4,
+          "page_layout": "contiguous",
+          "source_tp": 8
+        },
+        "maximum_tokens": 16384,
+        "minimum_tokens": 128,
+        "page_size": 128,
+        "runtime_identity_sha256": "102c34e92ea5e04bd12fdd76bc34e1e78ca43f6a00a02a50aa8769c9119deab6",
+        "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention",
+        "source": "measured_ascend_memfabric"
+      },
+      "data_version": "0.5.22",
+      "data_version_unavailable_reason": null,
+      "estimator": "measured",
+      "timing_source": "ascend_memfabric"
+    },
+    "prefill": {
+      "data_identity": null,
+      "data_version": "0.5.22",
+      "data_version_unavailable_reason": null,
+      "estimator": "op_level",
+      "timing_source": "aic"
+    }
+  },
+  "prefill_gpus_per_worker": 16,
+  "prefill_worker_seconds": 213.09079740837208,
+  "prefix_cache_reused_ratio": 0.0,
+  "processed_output_tokens_per_s": 137995.00169032087,
+  "processed_tokens": 147456,
+  "processed_tokens_per_s": 1241955.0152128877,
+  "request_throughput_rps": 0.0750853635848818,
+  "std_e2e_latency_ms": 2858.4359620998325,
+  "std_itl_ms": 0.11907773087792471,
+  "std_output_token_throughput_per_user": 0.012535693541987629,
+  "std_tpot_ms": 0.009734001790151216,
+  "std_ttft_ms": 2857.748629017722,
+  "std_ttst_ms": 1.6237728297125728e-12,
+  "total_input_tokens": 131072,
+  "total_output_tokens": 16384,
+  "total_throughput_tok_s": 691.9867107982707,
+  "wall_time_ms": 118.728938
+}

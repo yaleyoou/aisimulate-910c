@@ -386,6 +386,30 @@ impl ForwardPassPerfModelConfig {
         if self.dcp.is_some_and(|dcp| dcp == 0 || self.tp % dcp != 0) {
             return Err(invalid_config("dcp must be positive and divide tp"));
         }
+        if self.system == "ascend910c"
+            && self.backend == BackendKind::Sglang
+            && self.dcp.unwrap_or(1) > 1
+        {
+            if !matches!(self.dcp, Some(2 | 4 | 8 | 16)) {
+                return Err(invalid_config(
+                    "Ascend DCP has qualified groups of2/4/8/16 ranks",
+                ));
+            }
+            if self.worker_type != ForwardPassWorkerType::Aggregated {
+                return Err(invalid_config(
+                    "the pinned Ascend DSA runtime does not support DCP with PD disaggregation",
+                ));
+            }
+            let logical_block = 128 * self.dcp.unwrap_or(1);
+            if self
+                .kv_block_size
+                .is_some_and(|block| block != logical_block)
+            {
+                return Err(invalid_config(format!(
+                    "Ascend DCP requires logical kv_block_size={logical_block} for128-token physical pages"
+                )));
+            }
+        }
         self.estimator_config
             .fpm_interpolation
             .validate_quant_modes(
@@ -935,6 +959,38 @@ mod tests {
                 config(serde_json::json!({"tp": 8, "dcp": value}))
                     .validate()
                     .is_err()
+            );
+        }
+    }
+
+    #[test]
+    fn ascend_dcp_requires_logical_page_groups_and_aggregated_role() {
+        let mut request = config(serde_json::json!({
+            "system": "ascend910c", "backend": "sglang", "tp": 8,
+            "attention_dp": 2, "moe_tp_size": 1, "moe_ep_size": 16,
+            "dcp": 2, "kv_block_size": 256
+        }));
+        request.validate().unwrap();
+        request.kv_block_size = Some(128);
+        assert!(
+            request
+                .validate()
+                .unwrap_err()
+                .to_string()
+                .contains("kv_block_size=256")
+        );
+        request.kv_block_size = Some(256);
+        for role in [
+            ForwardPassWorkerType::Prefill,
+            ForwardPassWorkerType::Decode,
+        ] {
+            request.worker_type = role;
+            assert!(
+                request
+                    .validate()
+                    .unwrap_err()
+                    .to_string()
+                    .contains("PD disaggregation")
             );
         }
     }

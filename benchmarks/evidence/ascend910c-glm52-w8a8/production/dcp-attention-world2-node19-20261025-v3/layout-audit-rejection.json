@@ -1,0 +1,8 @@
+{
+  "status": "unqualified_serving_metadata",
+  "action": "Interrupted the owned collector and retained all observations; zero rows published",
+  "cause": "The draft plan used interleave_size1 and token-strided local KV ownership. The pinned NPU DSA call site explicitly passes the physical page size128.",
+  "source": "sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py:509 and hardware_backend/npu/attention/ascend_backend.py:469 at baa9befa381511cd4d56f83980951e5a45fffc6d",
+  "required_changes": "Regenerate an immutable page128 plan; populate rank-local KV by owned128-token pages; use page128 in remapping and independent references; rerun positive/negative controls before a fresh full campaign.",
+  "other_affected_observations": "All DCP standalone campaigns using dcp-attention-plan-20261025.json, including world16 contract and earlier prototypes, are diagnostics only and cannot qualify the serving predictor. Real model captures used the unmodified runtime and remain valid."
+}

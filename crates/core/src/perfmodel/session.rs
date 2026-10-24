@@ -415,6 +415,12 @@ pub(crate) fn run_generation_ops_step_planned<'a>(
                 if let Op::AscendAttention(attention) = op {
                     return attention.query_eager(db, batch_size, kv_seq_tokens);
                 }
+                if matches!(op, Op::AscendDcpAttention(_)) {
+                    return Err(AicError::PerfDatabase(
+                        "Ascend DCP eager decode in a mixed forward has no qualified measurements"
+                            .into(),
+                    ));
+                }
             }
             query_generation_op(
                 op,

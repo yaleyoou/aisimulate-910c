@@ -1,0 +1,98 @@
+[
+  {
+    "source": "aisim-tensor-adp-catalog-tests.log",
+    "source_sha256": "ab82ce6bf8d69a38ff1cfb6f8b7ffc17f71863d6fcfc2688b133774cf18976c8",
+    "path": "aisim-tensor-adp-catalog-tests.log.gz",
+    "sha256": "3a56d6f407cb434bb087fad3927eccc5ba1b184941787bb85f32cadb62746640"
+  },
+  {
+    "source": "aisim-tensor-adp-model-tests.log",
+    "source_sha256": "880b69a2be59af491e8e7ecea317f19a66750cfb0bfa5197c5bf4efcf3a2ee93",
+    "path": "aisim-tensor-adp-model-tests.log.gz",
+    "sha256": "5fde6b6758e54787671f1ab03012b854b8a62f47c3ef32e19ce59f5c5a6c8833"
+  },
+  {
+    "source": "aisim-tensor-adp2-8k1k-20261025.log",
+    "source_sha256": "a344ef10c134b5b47ef86027d592fbfe251bf746c3d56e608d2aa780fb366769",
+    "path": "aisim-tensor-adp2-8k1k-20261025.log.gz",
+    "sha256": "b8141df3c945f59d3b964ab0643fb909fe5a327437c659b3c56dd153c2335d7c"
+  },
+  {
+    "source": "aisim-tensor-adp2-request-20261025.log",
+    "source_sha256": "442fed28d4434c349c680db2fe906279f2c6b1cda8e638360756ba1ccd9f1f7f",
+    "path": "aisim-tensor-adp2-request-20261025.log.gz",
+    "sha256": "63a34326e5bc3812a76ead4f24c0d4e38cfafa649374af1aae7719f8e282469b"
+  },
+  {
+    "source": "aisim-tensor-adp4-model-tests.log",
+    "source_sha256": "e70053d25f75c7257f3b91877f98005e6c10f2d103791f61fddab8c0ae854272",
+    "path": "aisim-tensor-adp4-model-tests.log.gz",
+    "sha256": "35cee4ebbd99c019abe76203e7da18258128c448585a803e2368b3fa549f55cd"
+  },
+  {
+    "source": "aisim-tensor-adp4-request-20261025.log",
+    "source_sha256": "80e948007b1e546ba00fc22e6d5bdd7d13e219a506dd6ced36f0e37f62d6b416",
+    "path": "aisim-tensor-adp4-request-20261025.log.gz",
+    "sha256": "28b4c510dd35786f65ce1e7ac986e6b53b5b3ae9b4741b20435e73ac8ff5330f"
+  },
+  {
+    "source": "aisim-tensor-layout-matrix-20261025.log",
+    "source_sha256": "90400d0dad16a2218969c5c92baea170d827a1e5c217800011caec2b00e48351",
+    "path": "aisim-tensor-layout-matrix-20261025.log.gz",
+    "sha256": "ae088a3787a42586d10b09980b15c5bc6deec6573e7219bba923ef26a9d44222"
+  },
+  {
+    "source": "aisim-tensor-layout-tp16-adp2-moetp32-aggregated.log",
+    "source_sha256": "026e913ce24bd66ef935f99ca5e7fa09ef0b813a925e17df0d53bef53d987595",
+    "path": "aisim-tensor-layout-tp16-adp2-moetp32-aggregated.log.gz",
+    "sha256": "d4d8602b736afc3f633d682dc18f9f9e94f30847cdb2db81dbbd43117b5c8f5d"
+  },
+  {
+    "source": "aisim-tensor-layout-tp16-adp2-moetp32-disaggregated.log",
+    "source_sha256": "53990594eb1658a0a296a36a7c18ddf7b277323a084fea53a01713b590a7fc2f",
+    "path": "aisim-tensor-layout-tp16-adp2-moetp32-disaggregated.log.gz",
+    "sha256": "255ece55006d7b40e052e36c8b80d85438b327162f87a1bebaaced9ae822af87"
+  },
+  {
+    "source": "aisim-tensor-layout-tp4-adp4-moetp16-aggregated.log",
+    "source_sha256": "004f1c34b2555a9109a11689a4a887e2e89fd6182130f73c81eb8f3be13398b7",
+    "path": "aisim-tensor-layout-tp4-adp4-moetp16-aggregated.log.gz",
+    "sha256": "b2825636e4e82902fdc958bbbfb091aa4b024fc86a3fb9a8e3b4c69021be8baa"
+  },
+  {
+    "source": "aisim-tensor-layout-tp4-adp4-moetp16-disaggregated.log",
+    "source_sha256": "bb0c803398aec692ff573e7ec82edea54d37a09f07f0b50917136b567fe5b6af",
+    "path": "aisim-tensor-layout-tp4-adp4-moetp16-disaggregated.log.gz",
+    "sha256": "e91d77b6f8316c5bef02f58bef6a0769298b9985ef07dcdd2771f5b392a1e199"
+  },
+  {
+    "source": "aisim-tensor-layout-tp4-adp8-moetp32-aggregated.log",
+    "source_sha256": "d4787a34923fa90603915855996d0b3f472636f6e240b50b8b2196771f61aeb5",
+    "path": "aisim-tensor-layout-tp4-adp8-moetp32-aggregated.log.gz",
+    "sha256": "71709dc4812c770e7d7879383bb15609451f75eb87ba4e0f4e9a00579ec2c2d7"
+  },
+  {
+    "source": "aisim-tensor-layout-tp4-adp8-moetp32-disaggregated.log",
+    "source_sha256": "4b11734b225b92f2e4a966034e0e65a96be127d75c776c5522dcc0f7e5dfa03f",
+    "path": "aisim-tensor-layout-tp4-adp8-moetp32-disaggregated.log.gz",
+    "sha256": "d9ba94fd1e70bbe24e35b11e10f466e1e340be71f0d4c86e671fed74cada6ca4"
+  },
+  {
+    "source": "aisim-tensor-layout-tp8-adp4-moetp32-aggregated.log",
+    "source_sha256": "2897d8e08dc740fb33a5f560e402ea2cabbe668345a46355cd9dd5ab54aedf78",
+    "path": "aisim-tensor-layout-tp8-adp4-moetp32-aggregated.log.gz",
+    "sha256": "ce6dd7311c7aebd753edbbabb57e1ce677704d5574c33e97102a55aabe171643"
+  },
+  {
+    "source": "aisim-tensor-layout-tp8-adp4-moetp32-disaggregated.log",
+    "source_sha256": "2c59afd5459c3f01ac9a3b207999c26894d86ffb34c612f835b9dd877fa5b226",
+    "path": "aisim-tensor-layout-tp8-adp4-moetp32-disaggregated.log.gz",
+    "sha256": "0accd5632328df77a79580ad47e64c8152e9d32ff67fd67dca6000e3aa093f2f"
+  },
+  {
+    "source": "aisim-tensor-search-1296-20261025.log",
+    "source_sha256": "6237b5413e2723ae5fafbda649475326c2b2980562b95c0f0359c7a4d31d17ae",
+    "path": "aisim-tensor-search-1296-20261025.log.gz",
+    "sha256": "2381393612d4c5cf2a67be69c9d762f1888c4b59e085787fc559fd3004e7c81f"
+  }
+]
