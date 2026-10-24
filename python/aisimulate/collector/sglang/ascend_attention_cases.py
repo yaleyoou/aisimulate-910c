@@ -23,6 +23,12 @@ def get_ascend_attention_cases(model_path, case_root=None):
             raise ValueError(f"Model differs from declared {name}")
     base_file = case_root / "base_ops/ascend_attention.yaml"
     base = yaml.safe_load(base_file.read_text())["common_case_values"]["ascend_attention"]
+    bucket_sets = base["graph_bucket_sets"]
+    if not bucket_sets or any(
+        not buckets or buckets != sorted(set(buckets)) or min(buckets) < 1 or max(buckets) < max(base["decode_batches"])
+        for buckets in bucket_sets
+    ):
+        raise ValueError("Graph bucket sets must cover the declared active batch range")
     cases = []
 
     def add(kind, heads, phase, tokens, active, padded, length, prefix, mode):
@@ -79,11 +85,14 @@ def get_ascend_attention_cases(model_path, case_root=None):
                                 mode,
                             )
                 for active in base["decode_batches"]:
-                    padded = (
-                        next(value for value in base["graph_buckets"] if value >= active) if mode == "graph" else active
+                    padded_batches = (
+                        sorted({next(value for value in buckets if value >= active) for buckets in bucket_sets})
+                        if mode == "graph"
+                        else [active]
                     )
-                    for length in base["context_lengths"]:
-                        add(operation, heads, "decode", padded, active, padded, length, 0, mode)
+                    for padded in padded_batches:
+                        for length in base["context_lengths"]:
+                            add(operation, heads, "decode", padded, active, padded, length, 0, mode)
     return {
         "schema": "aisimulate-ascend-attention-plan/v1",
         "status": "experimental_collection_plan",
@@ -96,6 +105,7 @@ def get_ascend_attention_cases(model_path, case_root=None):
         "source_contract": (
             "SGLang baa9befa381511cd4d56f83980951e5a45fffc6d; "
             "operator-input-state-node31-20261022-attempt2 confirms TND/PA_BSND, "
-            "128page_size,2048topk,zero-length padding and decode blocktable width1407."
+            "128page_size,2048topk,zero-length padding and decode blocktable width1407; "
+            "operator-input-state-node32-20261022-tp16-adp1-20261024 also confirms decode buckets16/32."
         ),
     }

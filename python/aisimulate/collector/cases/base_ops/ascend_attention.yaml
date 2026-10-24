@@ -9,7 +9,7 @@ common_case_values:
     prefix_tokens: [0, 8192]
     decode_batches: [1, 2, 4, 5, 8, 9, 16, 17, 24, 25, 32]
     context_lengths: [128, 1024, 2048, 4096, 8192, 9216, 16384]
-    graph_buckets: [8, 16, 24, 32]
+    graph_bucket_sets: [[8, 16, 24, 32], [16, 32]]
     execution_modes: [eager, graph]
     iterations: 8
     warmup: 5

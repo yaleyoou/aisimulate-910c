@@ -67,3 +67,22 @@ def test_multi_request_prefill_and_lower_graph_bucket_edges_are_covered(model):
             and row["execution_mode"] == "graph"
             for row in cases
         )
+
+
+def test_larger_minimum_graph_bucket_covers_tp16_without_duplicate_work(model):
+    cases = get_ascend_attention_cases(model)["cases"]
+    for operation, heads in (("lightning_indexer", 32), ("sparse_attention", 4)):
+        for active, padded in ((1, 16), (8, 16), (17, 32), (24, 32)):
+            matching = [
+                case
+                for case in cases
+                if case["operation"] == operation
+                and case["local_heads"] == heads
+                and case["phase"] == "decode"
+                and case["execution_mode"] == "graph"
+                and case["active_batch"] == active
+                and case["padded_batch"] == padded
+                and case["sequence_length"] == 9216
+            ]
+            assert len(matching) == 1
+    assert len(cases) == len({json.dumps(case, sort_keys=True) for case in cases})
