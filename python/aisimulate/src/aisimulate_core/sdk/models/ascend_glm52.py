@@ -74,7 +74,10 @@ def validate_ascend_glm52_checkpoint(raw_config):
 def ascend_glm52_default_parallel_shapes(raw_config):
     """Published default search domain, in TP/ADP/MoE-TP/EP/PP order."""
     validate_ascend_glm52_checkpoint(raw_config)
-    return tuple((tensor, experts // tensor, 1, experts, 1) for experts in (16, 32) for tensor in (4, 8, 16))
+    return (
+        *tuple((tensor, experts // tensor, 1, experts, 1) for experts in (16, 32) for tensor in (4, 8, 16)),
+        (16, 1, 16, 1, 1),
+    )
 
 
 def configure_ascend_glm52(model, raw_config):

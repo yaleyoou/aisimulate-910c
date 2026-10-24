@@ -1,0 +1,20 @@
+[
+  {
+    "source": "execution-events.jsonl",
+    "source_sha256": "92335bf85650c9533311dfbff4048fe38d35a41a14d0b10c6f30fde512723357",
+    "path": "execution-events.jsonl.gz",
+    "sha256": "918c75fb22407d131c00279837a59d1874253f655cf7058bad9c3ea20810d78b"
+  },
+  {
+    "source": "prediction.json",
+    "source_sha256": "bfa8eff9a18ed577313f1c82423ef223f3d923f7cd89422cbae4c1bc3b951c9e",
+    "path": "prediction.json",
+    "sha256": "bfa8eff9a18ed577313f1c82423ef223f3d923f7cd89422cbae4c1bc3b951c9e"
+  },
+  {
+    "source": "resource-runtime.json",
+    "source_sha256": "0611a20d473f53ac3207a112bcc86def529155882caeebe567708a68a28e9e35",
+    "path": "resource-runtime.json",
+    "sha256": "0611a20d473f53ac3207a112bcc86def529155882caeebe567708a68a28e9e35"
+  }
+]

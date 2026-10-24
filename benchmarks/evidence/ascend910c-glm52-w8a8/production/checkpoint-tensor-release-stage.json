@@ -1,0 +1,33 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["Smaller attention TP, tensor-MoE with attention DP, and DCP paths remain to be qualified. GPU Replay itself restricts pipeline parallelism to PP1; pinned NPU prefill CP has a runtime implementation failure."],
+    "next_action": "Commit the seven-layout tensor-MoE stage, qualify additional executable TP/ADP and DCP paths, and rebuild the final user image."
+  },
+  "research": {
+    "parallel_extension": {
+      "tensor_source_commit": "654d8936df200be720d0077ce0694ebc98112446",
+      "native_sha256": "d9fd5fa11ce791ba95c9ab70e70713983787d14df4a3d7d469b519c3b90f574d",
+      "tensor_data": "Installed126tensor-MoE rows from128numeric passes;2CVexcluded. Installed2183linear=old1378+805new stable from816 attempts;11CVexcluded. Installed1034vector=old842+192new;all192stable. Entire disjoint curves appended; no replacement of old points and no cross-protocol interpolation within a curve. All126/2183/1034 native exact-point queries pass with zero difference.",
+      "tensor_validation": "TP16ADP1MoETP16EP1 exact resident49,300,283,900 and157AR16 trace match.8/8aggregate8k1k and16/16mixedPD requests both directions completed. Reverse PD strict provenance enabled.36AscendRust,14producer,47menu/model/provenance tests pass.390GPUgoldens unchanged pass;469s wall time overlapped525candidate sweep, not a matched host-performance measurement.",
+      "automatic_search": "Seven qualified shapes: six DeepEP16/32 TP4/8/16 shapes plusTP16ADP1MoETP16EP1.64devicebudget,C8/16/32,525/525candidatesfeasible,0failed. Includes tensor/deepep asymmetric PD and all budgeted replicas.",
+      "pp_scope": "GPU engine launch itself rejects pp!=1 at crates/core/src/engine/launch.rs:170. PP2DeepEP8 realmodel8krequest passed, but native request Replay/search cannot use PP on either GPU orNPU. NewPP2MoETP8none failed graphcapture: OwedOutput.shape access while carrying skip-layer topk atSGLangdeepseek_v2.py3169.",
+      "cp_scope": "Real CP2interleave warmup failed because pinnedNPU DSA calls missing rebuild_cp_kv_cache. Source has onlycalls,no definition. DCP2 is separate and actual8krequest passed.",
+      "mixed_moe_tp_ep": "Isolated actual AscendTPDispatcher EP2rank0 probe produced256globalexpert counts for128localweights and failed GMM with scale batch128 versusgroupList256. Preserve as isolated source/metadata evidence; not a full distributed serving result.",
+      "active_probe": "32 owned MoETP16EP1withADP2 server launching; observing boundaries to extend the tensor path.19 idle.31 untouched."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "tensor_moe_release": {"path":"production/tensor-moe-release-20261025/ascend_moe_tensor_perf.parquet","kind":"file","scope":"collection"},
+        "tensor_linear_combined_release": {"path":"production/tensor-linear-combined-release-20261025/ascend_linear_perf.parquet","kind":"file","scope":"collection"},
+        "tensor_vector_combined_release": {"path":"production/tensor-vector-combined-release-20261025/ascend_vector_perf.parquet","kind":"file","scope":"collection"},
+        "parallel_search_525": {"path":"production/automatic-search-525-20261025/recommendation.json.gz","kind":"file","scope":"validation"},
+        "tensor_pd_strict": {"path":"production/deepep-prefill-tensor-decode-strict-20261025/prediction.json","kind":"file","scope":"validation"},
+        "tensor_validation_manifest": {"path":"production/tensor-stage-validation-20261025/manifest.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

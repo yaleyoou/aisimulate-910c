@@ -1,0 +1,68 @@
+[
+  {
+    "source": "aisim-tensor-native-tests.log",
+    "source_sha256": "6d353073b85337b38ffcdc91a27a39fe36783a79a77bd8aca4d57e10dd57e83c",
+    "path": "aisim-tensor-native-tests.log.gz",
+    "sha256": "002a26d6967839784547c8d6ed365f5db2fe5b132a22e4142edd8a1742457959"
+  },
+  {
+    "source": "aisim-tensor-collector-tests.log",
+    "source_sha256": "6f45e29f18a5d1011640720cb5090ba55b09746b7c09feed1d01d3f678624d98",
+    "path": "aisim-tensor-collector-tests.log.gz",
+    "sha256": "a6e84a37409d13807d372a6752f764339060a99bc94f3362599c880d12e7780f"
+  },
+  {
+    "source": "aisim-tensor-model-tests.log",
+    "source_sha256": "2c01ada7477f19d8f6c33045aa92843c30af6054003c52497ac7744571824ec5",
+    "path": "aisim-tensor-model-tests.log.gz",
+    "sha256": "7719d34a5a42fcf0e00bc4d4f1e3fd52b36ceba39e3205c6786c70664e25515a"
+  },
+  {
+    "source": "aisim-tensor-menu-provenance-tests.log",
+    "source_sha256": "528bd5ade27bcf1637f8cf6d2673134cb760bb9ed91a146cf0c22e9c5e2973c9",
+    "path": "aisim-tensor-menu-provenance-tests.log.gz",
+    "sha256": "581ec1c902f407903024a2e500bde8245784d776aae7728b2b0b4de06ffdbdf6"
+  },
+  {
+    "source": "aisim-tensor-gpu-parity.log",
+    "source_sha256": "7c4565a9a502108911afa8f48bc898367091ed0774afa70fbafd01d93311149c",
+    "path": "aisim-tensor-gpu-parity.log.gz",
+    "sha256": "2f231f260adfee30e3b9e9479f28445f1b334afbaa0120358f7ba400cec6f8a5"
+  },
+  {
+    "source": "aisim-tensor-lint-v2.log",
+    "source_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "path": "aisim-tensor-lint-v2.log.gz",
+    "sha256": "f3af4d142827f5aad2eb0c72d556d325488a57fb6219aac10afeb51085667d53"
+  },
+  {
+    "source": "aisim-tensor-release-build.log",
+    "source_sha256": "f7b18bb3badf2603f5535851f2dc769b3659d420b6008bd2913fce03d9b68e36",
+    "path": "aisim-tensor-release-build.log.gz",
+    "sha256": "70eed48a2a5d733d37f12efdf175a22bf89f20cbab00c4cdc8a1c6aeb7a273a4"
+  },
+  {
+    "source": "aisim-tensor-search-525-20261025.log",
+    "source_sha256": "4547415e5dc6d431f1e7366b75472a5c7cc6061883ff58a9e703cc4f3950160f",
+    "path": "aisim-tensor-search-525-20261025.log.gz",
+    "sha256": "0ed1d6d28ed68a1ccf7be5600ecd1e54457828b13aae646c864811136e0f2415"
+  },
+  {
+    "source": "aisim-tensor-aggregated-8k1k-20261025.log",
+    "source_sha256": "3503c516f9d84505a47430f8d756de1c04b24c86feb119d2383b1cc2f2cfab23",
+    "path": "aisim-tensor-aggregated-8k1k-20261025.log.gz",
+    "sha256": "dc5dc41ae296f7b6cbc575ca4b7c6ad5f009196a5afdfac08dc5ddb2f969876b"
+  },
+  {
+    "source": "aisim-tensor-pd-8k1k-20261025.log",
+    "source_sha256": "6402bbf35772e6935f0bcdf7b15f738cdc2d0cd8341eb0576f7fe15536dd3490",
+    "path": "aisim-tensor-pd-8k1k-20261025.log.gz",
+    "sha256": "5aa19740e7d5e7fab09fc9a741e7d27bec2c4314408fc793c84066b6687edbf4"
+  },
+  {
+    "source": "aisim-tensor-decode-pd-strict-20261025.log",
+    "source_sha256": "761b15b36b476feae5f00ca3b4e43a321380a599ccf45059bbd40456d8f834bd",
+    "path": "aisim-tensor-decode-pd-strict-20261025.log.gz",
+    "sha256": "b724f526ae87759cd1cc164dd09d24cb68e9d60b065250802b2ffc4e53ad96b6"
+  }
+]

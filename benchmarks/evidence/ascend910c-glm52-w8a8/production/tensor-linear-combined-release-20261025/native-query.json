@@ -1,0 +1,1 @@
+{"status": "passed", "checked_measured_rows": 2183, "max_abs_error_ms": 0.0, "native_binary": "/tmp/aisim-native/_runtime.abi3.so", "native_binary_sha256": "d9fd5fa11ce791ba95c9ab70e70713983787d14df4a3d7d469b519c3b90f574d", "scope": "Measured row lookup/wire correctness; not whole-forward or serving accuracy"}

@@ -181,6 +181,7 @@ def test_default_search_requires_the_audited_checkpoint(model_path):
         (4, 8, 1, 32, 1),
         (8, 4, 1, 32, 1),
         (16, 2, 1, 32, 1),
+        (16, 1, 16, 1, 1),
     )
     with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
         ascend_glm52_default_parallel_shapes({**raw, "modelslim_metadata": None})

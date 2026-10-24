@@ -1,5 +1,31 @@
 # Current goal handoff
 
+## NEWEST: seven-layout525/525 stage validated; ADP2 tensor-MoE probe active
+
+HEAD654d8936 source foundation committed. Newdefaultcatalog adds(16,1,16,1,1), sourceuncommitted withdata/docs release.
+All525 auto candidates feasible,0failed; strictsourceprovenance. Frozenautomatic-search-525-20261025/recommendation.json.gz.
+Tensor126,linear2183(old1378+805),vector1034(old842+192) INSTALLED; nativeexactqueriesallpasszeroerror.
+Frozen5directories tensor-{moe,linear,vector}-release-20261025 andtensor-{linear,vector}-combined-release-20261025.
+PublisherinitialbareimageDigestfixedtofullqualifiedsameimmutableimage; oldCPU-v1outputsretained, published-v2correct.
+Moe-familymetadata v2 preserves per-table runtime:DeepEP ABI includesdeep_ep;newtensor runtime doesnotclaimit.
+3CLIresults:8/8aggregated,16/16eachPDdirection;8k/1k token totals checked. ReversePDstrictprovenance passes.
+390GPUgoldens passed469s while525sweep ranconcurrently; testwalltime isNOTmatchedFPEperformancecomparison.
+47menu/model/provenance pass. Checkpointreleasepatchpending/applying revision57 withfrozenartifacts.
+/tmp/aisim-tensor-validation-stage.json lists554selectedvalidationfiles;useexactlist,notrawrecommendation.json/logs.
+NEXTcommitinstalleddata+catalog7+validation/docsaftercheckpoint. Userimage stillold190684; goalACTIVE.
+IMPORTANTscopefinding:GPUrequestengine too rejectsPP!=1 inengine/launch.rs170;defaultGPUsearchPP1.
+Do not build fake PP support byremoving thisguard. RealPP2DeepEP8works,butPPReplaynewfeaturewouldneedgeneralenginework.
+CP2NPUmissingrebuild_cp_kv_cache proven;PP2none hasOwedOutput.shape runtimebug;EP2none isolatedglobal/localgroupsmismatchproven.
+ACTIVE32 NPU container aisim-current-inputs-20261022-moetp16-adp2-20261025 port18000 loading;
+TP16global,ADP2,EP1,none,KV32768,fraction.86,chunk4096. Need8krequest/captures andstopownserver.
+19idle,31untouched. Root72844localfree,24914checkpoint,93967localfree,89706remote19free.
+DCP2capture showsforward_dcp_sparse_attention ALSOusedprefill,notonlydecode. QAG78,partialattention78perphase.
+NPUmerge cp_lse_ag_out_rs_mla_npu actuallyFP32 all_to_all_single +npu_attention_update despiteargag_rs.
+ExistingHCCLonlyBF16;donotreuseforFP32. DCPKV:physicalcap24832,k/v[78,195,128,1,512/64],index[78,390,128,1,128].
+Indexercache staysfull logical,latent+rope sharded;cannotdivideallKVbytesbyDCP.
+DCPnewkernel/comms/packing+memorymodel stillneeded. SmallerTP1/2 mayneedsmallerprefillchunkdueDeepEPnormalM2048failure;
+do notsimplyrelaxguards. Currentdefaultsevenlayoutsfunctional;remaininggoalstillactive.
+
 ## CURRENT: tensor-MoE data collected and native integration tested; publish tables next
 
 Goal ACTIVE; nodes32+19 allowed,31 untouched. Checkpoint56 integrity[].

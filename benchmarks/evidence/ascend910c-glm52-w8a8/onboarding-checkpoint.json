@@ -1293,6 +1293,14 @@
           "scope": "validation",
           "sha256": "87165074beb02220a5a93eaa1930d9ce3b08187ddbe76c6dead98fae342d8cbf"
         },
+        "parallel_search_525": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/automatic-search-525-20261025/recommendation.json.gz",
+          "scope": "validation",
+          "sha256": "f6ed9a503eb2e60f567ad45abbf9ec254fc597614c84a5f45e1e325e42b9b113"
+        },
         "parallel_strict_pd": {
           "archived": false,
           "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
@@ -1397,6 +1405,14 @@
           "scope": "validation",
           "sha256": "e2f87f617d31bf2140756bf75a4cb545b6bca8fb0905de3684a4d86381a695fd"
         },
+        "tensor_linear_combined_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/tensor-linear-combined-release-20261025/ascend_linear_perf.parquet",
+          "scope": "collection",
+          "sha256": "86e7ed0ba30fde20dc67813b9ebb5e475fe5ec2efd7b9c5a9a33818992b8fec9"
+        },
         "tensor_moe_campaign": {
           "archived": false,
           "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
@@ -1412,6 +1428,38 @@
           "path": "production/moe-tensor-plan-20261024.json",
           "scope": "collection",
           "sha256": "5664ec6b7ff1b5eb18e145ec8d24a4477a6987f7844f3ec1838d7da9a8cb6050"
+        },
+        "tensor_moe_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/tensor-moe-release-20261025/ascend_moe_tensor_perf.parquet",
+          "scope": "collection",
+          "sha256": "b9ae6894e94a233b843918951801b8533d9d921bc297a3c903e6dd9507032f94"
+        },
+        "tensor_pd_strict": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/deepep-prefill-tensor-decode-strict-20261025/prediction.json",
+          "scope": "validation",
+          "sha256": "0602ff4b568ae0d6d3027c0d906a198e49760bfb7cc35aa8f7da03c151bc1b63"
+        },
+        "tensor_validation_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/tensor-stage-validation-20261025/manifest.json",
+          "scope": "validation",
+          "sha256": "2dc408903cafa0981a84373515fe8877a1df7d03f5667f31e8f0364b36afe1c7"
+        },
+        "tensor_vector_combined_release": {
+          "archived": false,
+          "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
+          "kind": "file",
+          "path": "production/tensor-vector-combined-release-20261025/ascend_vector_perf.parquet",
+          "scope": "collection",
+          "sha256": "b030224d970ae531b7f4695173b97d7f5a44494d28ca287e263fed53711781c7"
         },
         "unprofiled_serving_control_raw": {
           "archived": true,
@@ -1552,9 +1600,9 @@
   ],
   "progress": {
     "blockers": [
-      "PP, CP/DCP and MoE tensor-parallel prediction integration remains under active development."
+      "Smaller attention TP, tensor-MoE with attention DP, and DCP paths remain to be qualified. GPU Replay itself restricts pipeline parallelism to PP1; pinned NPU prefill CP has a runtime implementation failure."
     ],
-    "next_action": "Publish checked tensor-MoE measurements, collect its shared-expert matrices, and integrate actual parallel execution paths.",
+    "next_action": "Commit the seven-layout tensor-MoE stage, qualify additional executable TP/ADP and DCP paths, and rebuild the final user image.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2041,17 +2089,20 @@
       "unresolved": "Group-list contents and actual seq lengths not encoded by kernel shape exports; formal consumer integration remains absent."
     },
     "parallel_extension": {
+      "active_probe": "32 owned MoETP16EP1withADP2 server launching; observing boundaries to extend the tensor path.19 idle.31 untouched.",
       "argument_probe": "17actualServerArgs.resolve_once()casesresolved;includesTP1/2ADP16/8,MoETPvariants,PP2/4,CP2/4/8,DCP2/4/8. Argumentacceptanceisnotkernelexecution. DSA DCP explicitly rejects PD mode in pinned runtime.",
       "attention": "1772casescompletednumericchecks,1707stable65CVexcluded;includesTP16graph16/32padding. Bothgraph-noopcontrolsrejected. Runtimecollectorunchangedsource53db19d34b0af6a934535a31e0e45b06ac4a3b25cafc190feb400f5a5beebe28.",
       "authorization": "User requests adapting other parallel strategies like GPU AISimulate; reuse existing operators and expand functionality before accuracy tuning. Continue local commits per completed stage.",
-      "automatic_search": "Default catalog6shapes:TP4/8/16 x EP16/32,ADP=EP/TP,MoETP1,PP1CP1DCP1.64devicebudget,C8/16/32:351/351candidatesfeasible.96candidateintermediatestageexposedSGLangFIFOexternalwaitbug;fixedwithoutremovinglivenessguard.",
+      "automatic_search": "Seven qualified shapes: six DeepEP16/32 TP4/8/16 shapes plusTP16ADP1MoETP16EP1.64devicebudget,C8/16/32,525/525candidatesfeasible,0failed. Includes tensor/deepep asymmetric PD and all budgeted replicas.",
       "cp_capture": "CP2interleave realweights server loading on32 with boundedKV32768. Execution not yet qualified.",
+      "cp_scope": "Real CP2interleave warmup failed because pinnedNPU DSA calls missing rebuild_cp_kv_cache. Source has onlycalls,no definition. DCP2 is separate and actual8krequest passed.",
       "dcp_capture": "DCP2 started and warmed up but first8k request ran out of memory after graph capture. Preserved failure. With KVcap32768,memoryfraction0.86,prefillchunk4096, the same8kinput16output request completed. This proves execution, not FPE support or uninstrumented serving accuracy. Owned DCP server stopped.",
       "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
       "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
+      "mixed_moe_tp_ep": "Isolated actual AscendTPDispatcher EP2rank0 probe produced256globalexpert counts for128localweights and failed GMM with scale batch128 versusgroupList256. Preserve as isolated source/metadata evidence; not a full distributed serving result.",
       "moetp_capture": "Real TP16/ADP1/EP1 none-backend model completed8kinput16output. Captured resident model49,300,283,900bytes;75tensorMoE layers and157AR16perforward. New actual tensor dispatcher/GMM/activation/finalization collector128cases completed;126stable,2CVexcluded. Four graph-noop controls rejected. Original smoke reference indexed routing mapping incorrectly; independent probe established token-major map and only the checker index was fixed, tolerances unchanged.",
       "moetp_integration": "Native AscendMoeTensor table/op and publisher implemented;3Rust and6Python tests pass. Model composition, shared-expert linear/vector data and full caller validation are still pending.",
-      "native_sha256": "6c598dce2fa8bcda6ab4553516a1a845cc0f4bcaf9b99df8f56356167716916b",
+      "native_sha256": "d9fd5fa11ce791ba95c9ab70e70713983787d14df4a3d7d469b519c3b90f574d",
       "next": "Continue complete adaptation; goal active. User runtime image remains previous limited release until rebuilt.",
       "nodes": [
         "npu1-32",
@@ -2059,11 +2110,15 @@
       ],
       "pd": "TP4/8/16 all9mappingscollected;90-case singlecall71stable and90-case8-callmeans66stable. Selected18wholecurves81rows acrosscompatiblecampaigns,coverage-first/latency-independent selection,per-curvecollectionidentitiespreserved. No splicingdifferentprotocolsinacurve. Same per-attentionDPgroup mapping supportsEP32 roles under PP1CP1DCP1,distinct endpointnodes,no shared-link contention calibration.",
       "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
+      "pp_scope": "GPU engine launch itself rejects pp!=1 at crates/core/src/engine/launch.rs:170. PP2DeepEP8 realmodel8krequest passed, but native request Replay/search cannot use PP on either GPU orNPU. NewPP2MoETP8none failed graphcapture: OwedOutput.shape access while carrying skip-layer topk atSGLangdeepseek_v2.py3169.",
       "replay_qualification": "Baseline2434b021e2d186b7b9601d62ca90d4865a513887 and candidate98381b91:8rows,32processes,5000requests each, all complete and canonical reports byte-identical. First build incorrectly embedded short baseline SHA and was rejected before simulation; v2 uses full SHAs. Frozen362files under parallel-replay-validation-98381b91.",
       "runtime_image": "Stableuserimage190684...stillpreviouslimitedrelease;rebuildaftercurrentstagechecks. No claimnewsourcefeaturesareinoldimage.",
       "source_commit": "98381b91fd5d4520eb9fbc67005187dded3e6cc8",
       "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
       "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
+      "tensor_data": "Installed126tensor-MoE rows from128numeric passes;2CVexcluded. Installed2183linear=old1378+805new stable from816 attempts;11CVexcluded. Installed1034vector=old842+192new;all192stable. Entire disjoint curves appended; no replacement of old points and no cross-protocol interpolation within a curve. All126/2183/1034 native exact-point queries pass with zero difference.",
+      "tensor_source_commit": "654d8936df200be720d0077ce0694ebc98112446",
+      "tensor_validation": "TP16ADP1MoETP16EP1 exact resident49,300,283,900 and157AR16 trace match.8/8aggregate8k1k and16/16mixedPD requests both directions completed. Reverse PD strict provenance enabled.36AscendRust,14producer,47menu/model/provenance tests pass.390GPUgoldens unchanged pass;469s wall time overlapped525candidate sweep, not a matched host-performance measurement.",
       "tp16_capture": "Realweights8kC1and128C17completed. Resident51,292,091,900bytesmatchesmodel;graph16/32;denseAR6+sparseRS75/AG75. Sourcecapturearchived.",
       "unavailable_nodes": [
         "npu1-31"
@@ -2243,7 +2298,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 56,
+  "revision": 57,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }
