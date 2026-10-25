@@ -2077,7 +2077,8 @@
         "md/910c-glm52-w8a8-usage.md",
         "md/910c-glm52-w8a8-implementation.md"
       ],
-      "publication": "Documentation phase prepared for commit and authorized push.",
+      "publication": "Documentation commit4e95b25b4bfcb8ddf32e5c028e8d4d5e7e232605 was pushed to origin/main and verified with ls-remote. Subsequent checkpoint bookkeeping follows this verified publication.",
+      "published_revision": "4e95b25b4bfcb8ddf32e5c028e8d4d5e7e232605",
       "scope": "User-facing usage and source-based implementation/GPU comparison. No model/data/runtime changes and no new serving accuracy acceptance.",
       "sources": [
         "production/documentation-20261025/validation.json"
@@ -2613,7 +2614,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 67,
+  "revision": 68,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

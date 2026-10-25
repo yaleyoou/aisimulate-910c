@@ -7,8 +7,9 @@ Added md/910c-glm52-w8a8-implementation.md explaining source changes, shared GPU
 and the8K/1K per-batch prediction flow. md/README.md links both.44relative links and7bash blocks checked;
 installed CPU-only examples completed18requests with exact token totals and one32-device PD candidate passed.
 Fixed-mode PD needs engine.workers.aggregated=null when using the mixed-mode auto-search YAML.
-Evidence: production/documentation-20261025/validation.json. Checkpoint67 preserves the same formal stage2 and unresolved
+Evidence: production/documentation-20261025/validation.json. Checkpoint68 preserves the same formal stage2 and unresolved
 64K highconcurrency replay/serving-accuracy scope. No timing data or runtime code changed in this documentation phase.
+Documentation commit4e95b25b4bfcb8ddf32e5c028e8d4d5e7e232605 was pushed toorigin/main and verified withls-remote.
 
 ## NEWEST: GitHub publication succeeded; remaining issues are unchanged
 
