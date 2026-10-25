@@ -2070,6 +2070,21 @@
       "name": "Ascend910_9382",
       "source": "stage1/runtime-v0522/device-probe.json"
     },
+    "documentation_delivery": {
+      "date": "2026-10-25",
+      "documents": [
+        "md/README.md",
+        "md/910c-glm52-w8a8-usage.md",
+        "md/910c-glm52-w8a8-implementation.md"
+      ],
+      "publication": "Documentation phase prepared for commit and authorized push.",
+      "scope": "User-facing usage and source-based implementation/GPU comparison. No model/data/runtime changes and no new serving accuracy acceptance.",
+      "sources": [
+        "production/documentation-20261025/validation.json"
+      ],
+      "status": "complete",
+      "validation": "44 relative file links and7bash blocks checked; two installed CPU-only predict examples completed18requests with exact token totals; one32-device PD search candidate feasible. Added aggregated=null to the fixed PD example after observing configuration validation."
+    },
     "dual_node_preflight": {
       "confidence": "high for inspected metadata; cross-node communication not yet verified",
       "formal_profile_accepted": false,
@@ -2598,7 +2613,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 66,
+  "revision": 67,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

@@ -1,5 +1,15 @@
 # Current goal handoff
 
+## NEWEST: user documentation delivered on2026-10-25
+
+Expanded md/910c-glm52-w8a8-usage.md with parameter, output, deployment-mapping and troubleshooting guidance.
+Added md/910c-glm52-w8a8-implementation.md explaining source changes, shared GPU framework versus NPU-specific execution,
+and the8K/1K per-batch prediction flow. md/README.md links both.44relative links and7bash blocks checked;
+installed CPU-only examples completed18requests with exact token totals and one32-device PD candidate passed.
+Fixed-mode PD needs engine.workers.aggregated=null when using the mixed-mode auto-search YAML.
+Evidence: production/documentation-20261025/validation.json. Checkpoint67 preserves the same formal stage2 and unresolved
+64K highconcurrency replay/serving-accuracy scope. No timing data or runtime code changed in this documentation phase.
+
 ## NEWEST: GitHub publication succeeded; remaining issues are unchanged
 
 Published all feature and validation commits through59aee6d892565933741c60734d1837ac53c88d88 toorigin/main.

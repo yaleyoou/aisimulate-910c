@@ -1,5 +1,18 @@
 # 910C + GLM-5.2 W8A8：离线预测与配置搜索
 
+更新时间：2026-10-25。本文面向当前仓库和32节点已安装的运行镜像。
+适配原理、源码位置和与GPU版的区别见 [实现说明](910c-glm52-w8a8-implementation.md)。
+
+| 想完成什么 | 阅读位置 |
+|---|---|
+| 先运行一次预测，再搜索配置 | 第1节 |
+| 修改输入、输出长度，理解shape外推 | 第2节 |
+| 修改TP、ADP、EP或副本数 | 第3节和第7节 |
+| 预测PD分离或DCP | 第4节 |
+| 理解结果文件、失败候选和“最优” | 第8节 |
+| 从搜索结果映射回United部署 | 第9节 |
+| 排查镜像、元数据、shape和超时问题 | 第10节 |
+
 使用标准 `predict/recommend --stack engine`：910C实测算子表 → GLM完整forward组合 →
 KV容量推导 → 请求调度模拟 → PD传输 → 配置搜索。
 8K/1K是示例负载，不是接口限制。**新版通过 `shape_policy: anchored` 支持数值shape外推，主要示例已开启。**
@@ -8,6 +21,10 @@ KV容量推导 → 请求调度模拟 → PD传输 → 配置搜索。
 完整服务的forward、TTFT、TPOT误差校准仍按本轮要求延后。
 
 ## 1. 在32节点运行
+
+以下命令都在仓库根目录运行，需要本机Docker及已构建的
+`aisimulate-910c:glm52-w8a8` 镜像。使用新的输出目录保存每次实验。
+只从Git拉取仓库不会下载这个本地Docker镜像；镜像重建见第6节。
 
 ```bash
 cd /home/youxingye/youxingye_data/aisimulate-910c
@@ -30,6 +47,20 @@ sudo bash scripts/run-ascend910c.sh recommend \
 1800是该8K/1K示例的候选数量；改变负载、预算或并行范围后，应重新检查搜索空间与trial上限。
 快速尝试可加 `--set optimizer.max_trials=12`，但只探索部分候选；
 也可用 `--set optimizer.algorithm=bayesian`。
+
+只想检查环境和命令是否可用，可以先运行65输入、32输出的两条请求：
+
+```bash
+sudo bash scripts/run-ascend910c.sh predict \
+  --stack engine \
+  --config examples/cli/ascend910c-glm52-8k1k.yaml \
+  --set traffic.source.input_tokens=65 \
+  --set traffic.source.output_tokens=32 \
+  --set traffic.stop.requests=2 \
+  --set engine.context_length=97 \
+  --capture-per-request \
+  --output-dir aisimulate-output/910c-quickcheck
+```
 
 结果是 `recommendation.json`、`recommendation.csv`，排序后的完整配置位于
 `recommendations/0001.yaml` 等。复算第一名：
@@ -88,7 +119,8 @@ eager prefill会在已测batch之间插值，遇到不齐整的序列网格时�
 预测耗时 = 固定开销 + (锚点耗时 - 固定开销) × 目标工作量 / 锚点工作量
 ```
 
-固定开销取对应实测曲线的最小延迟，不随长度成倍放大。
+固定开销从对应原测量曲线估计，不随长度成倍放大；attention使用曲线最小延迟，
+共用轴外推helper使用最小坐标延迟并与锚点取较小值，细节见实现说明。
 Linear/BMM/MoE依据计算量和权重/激活访存；Indexer考虑完整因果Q×K工作量，
 稀疏注意力考虑top2048上限；DCP另计缓存写入和通信；PD按相同rank映射的KV页数增长。
 不跨dtype、硬件、内核、MoE布局或graph bucket套用数据。DeepEP已知执行边界继续保留。
@@ -244,3 +276,145 @@ python3 -m pip download --dest ../../build/ascend910c-runtime \
 
 提取wheel中的 `aisimulate/_runtime.abi3.so`，更新 `native-identity.json` 的源码提交、库与wheel的SHA256、
 release/extension-module配置，再执行构建脚本。延迟SLA与搜索字段见 `docs/sweeper/`。
+
+## 7. 最常修改的配置
+
+表中的路径可以用于 `--set 路径=值`；`workers.<角色>` 替换为
+`workers.aggregated`、`workers.prefill` 或 `workers.decode`。
+下面只解释已经存在的字段，完整规则见 [部署配置](../docs/replay/engine/README.md)、
+[worker配置](../docs/replay/engine/workers.md) 和 [搜索空间](../docs/sweeper/search-space.md)。
+
+| 配置路径 | 含义与使用方法 |
+|---|---|
+| `traffic.source.input_tokens` / `output_tokens` | 每条合成请求的输入/输出token数；此处8K是8192，不是8000 |
+| `traffic.stop.requests` | 本次总请求数；不是batch大小 |
+| `traffic.load.concurrency` | 闭环并发；predict填整数，recommend可以使用 `{choices: [8, 16, 32]}` |
+| `engine.context_length` | 数值上限应覆盖输入加输出；显式设置更便于复现实验 |
+| `engine.mode` | 合并部署 `aggregated` 或PD分离 `disaggregated`；搜索示例提供两者的choices |
+| `engine.workers.<角色>.scheduler.max_batched_tokens` | 每轮新token预算，会改变prefill分块和算子shape；不是请求总长度 |
+| `engine.workers.<角色>.scheduler.max_sequences` | 调度器同时容纳的序列上限；不等于客户端总并发 |
+| `engine.workers.<角色>.parallelism` | 当前角色的TP/ADP/MoE布局及副本数；各字段需一起满足第3节关系 |
+| `engine.workers.<角色>.parallelism.replicas` | 该角色独立worker的副本数；PD的P:D比例由两侧副本数决定 |
+| `engine.workers.<角色>.kv_cache.capacity.memory_fraction` | 用于容量推导的静态显存比例；不能通过随意调大它消除真实内存不足 |
+| `engine.estimator_config.op_level.ascend.shape_policy` | `measured`仅接受已有数值覆盖；`anchored`允许同身份shape外推 |
+| `optimization.constraints.max_candidate_gpus` | 搜索中一个部署的总device预算；910C下按NPU运行时device计数 |
+| `optimization.target` | 如 `throughput_per_gpu`、`throughput`、`ttft`；决定怎样排序，不会自动加延迟限制 |
+| `optimizer.max_trials` | 搜索尝试次数上限；较小值只能代表部分候选 |
+| `optimizer.parallelism` | 主机上同时评估几个候选，与模型TP、EP无关 |
+| `optimizer.candidate_timeout_seconds` | 单候选主机评估时间预算；超时不是预测的TTFT |
+
+例如，固定United结构、并发8、总请求16、prefill预算4096：
+
+```bash
+sudo bash scripts/run-ascend910c.sh predict \
+  --stack engine \
+  --config examples/cli/ascend910c-glm52-8k1k.yaml \
+  --set traffic.load.concurrency=8 \
+  --set traffic.stop.requests=16 \
+  --set engine.context_length=9216 \
+  --set engine.workers.aggregated.scheduler.max_batched_tokens=4096 \
+  --capture-per-request \
+  --output-dir aisimulate-output/910c-united-c8-chunk4k
+```
+
+只搜索PD、总预算32个device时，可以在自动搜索命令中增加：
+
+```text
+--set engine.mode=disaggregated
+--set engine.workers.aggregated=null
+--set optimization.constraints.max_candidate_gpus=32
+```
+
+这三个参数应作为同一条命令的参数使用。自动搜索示例原本包含合并角色，
+固定为PD模式时还要将该角色置为null，否则配置校验会拒绝。
+当前每个worker至少16个device，
+32预算下的PD通常只能容纳1P:1D；64预算才有容纳1P:3D等布局的空间。
+如果P或D选择全局32的结构，应按该worker的实际device数重新计费。
+
+## 8. 怎样阅读预测和搜索结果
+
+### 8.1 predict结果
+
+| 文件或字段 | 解读 |
+|---|---|
+| `prediction.json` | 整个模拟负载的汇总指标和来源信息 |
+| `completed_requests` / `num_requests` | 先检查请求是否完整结束 |
+| `total_input_tokens` / `total_output_tokens` | 固定长度且无截断时，应等于请求数乘对应长度 |
+| `mean_ttft_ms` / `p99_ttft_ms` | 从到达到首token的时间，包括排队和调度等影响 |
+| `mean_tpot_ms` / `p99_tpot_ms` | 请求的平均后续输出token延迟及其分布；不是单个算子耗时 |
+| `output_throughput_tok_s` | 整个部署的输出token吞吐；包含该负载的启动与排空影响 |
+| `duration_ms` | 模拟出的服务时间跨度 |
+| `wall_time_ms` | Replay运行消耗的主机时间，不含全部容器/包启动成本；不要用来当作NPU服务时延 |
+| `prediction_provenance` | 所用性能模型、数据和预测来源，供复现与排查 |
+| `requests.jsonl` | 加 `--capture-per-request` 后保存逐请求记录，包括到达、首/末token、终态与路由信息 |
+| `execution-events.jsonl` / `resource-runtime.json` | 执行与资源诊断文件；不是实机NPU profiler记录 |
+
+例如65输入、32输出、2条请求的快速检查，预期完成2条请求，
+输入总数130，输出总数64。结果中带 `gpu` 的历史字段在本硬件下仍表示NPU device。
+功耗尚无已采集的数据，不能根据空值、零值或未覆盖的字段得出能耗结论。
+
+### 8.2 recommend结果
+
+先看 `recommendation.json` 的 `counts`，再看排名：
+
+| 状态 | 含义 |
+|---|---|
+| `feasible` | 模拟成功，满足当前启用的约束 |
+| `infeasible` | 容量、预算或已启用的约束不满足 |
+| `failed` | 配置生成、查表或模拟执行发生错误，需要看原因 |
+| `timed_out` | 候选主机评估超时，不能据此判断其真实NPU性能差 |
+| `unsupported` | 后端或拓扑能力不支持 |
+| `resource_limited` | 主机资源不足，未能完成评估 |
+
+`recommendation.csv` 便于表格查看；`recommendations/0001.yaml` 是保存出的第一名完整配置。
+JSON中 `views.top_n` 给出排名的candidate ID，不能假设 `candidates[0]` 就是第一名。
+固定硬件数量的部署里，`throughput_per_gpu` 等于输出吞吐除以占用device数。
+使用动态资源伸缩时，通用评分按时间平均设备数计算，详见
+[目标与约束](../docs/sweeper/optimization-goals.md)。
+
+默认目标没有延迟SLA，所以吞吐第一名可能TTFT较大。应把它作为给定负载、
+候选范围和预测假设下的推荐，复算后再结合实际服务要求选型。
+本轮完整8K/1K搜索1800个候选全通过；64K高并发搜索仍有第2节记录的未解决超时，
+不能把部分候选的排名描述成该搜索已经完整完成。
+
+## 9. 搜索结果怎样对应United部署
+
+首先打开具体的 `recommendations/0001.yaml`，按角色读取下面的字段：
+
+| 模拟器配置 | 当前固定SGLang-NPU运行时的对应关系 |
+|---|---|
+| `tensor × attention_data` | 全局 `--tp-size` |
+| `attention_data` | `--attn-dp-size`；大于1时还需与原United脚本的DP-attention开关保持一致 |
+| `moe_expert` | `--ep-size`；DeepEP路径要求它等于全局TP |
+| `moe_tensor=1, moe_expert=16/32` | DeepEP路径，`--moe-a2a-backend deepep` |
+| `moe_tensor=16/32, moe_expert=1` | 张量MoE路径，`--moe-a2a-backend none` |
+| P/D的 `replicas` | P/D独立worker数量；每个worker还可能跨两个节点 |
+
+例如 `tensor=8, attention_data=2, moe_tensor=1, moe_expert=16` 对应
+United的全局TP16、ADP2、EP16，而不是SGLang的TP8。
+离线结果YAML描述模拟配置，**不是直接可执行的SGLang启动脚本**。
+执行时仍需把所选角色、节点、rank、端口、网卡及容器环境写回部署脚本，
+并使用相同的量化、融合和通信路径。
+
+模拟器不生成实际文本，也不证明回答质量；它使用请求长度预测时间和资源。
+升级SGLang/CANN、改变融合开关、换量化产物后，应核对执行边界，
+不能只修改 `backend_version` 字符串继续使用旧表。
+
+## 10. 常见问题
+
+| 现象 | 处理方式 |
+|---|---|
+| `Runtime image ... is unavailable` | 当前主机缺少本地镜像；第6节说明构建产物和重建条件，Git拉取本身不会安装镜像 |
+| `Missing GLM ModelSlim metadata` | 检查模型目录中的 `config.json` 和 `quant_model_description.json`；改路径时同时改脚本挂载和 `engine.model` |
+| 更改源码后结果没有变化 | 脚本运行镜像内安装的wheel；需要重新构建wheel和镜像 |
+| `outside measured` | 核对是否选了 `anchored`、是否确为同身份的数值越界；DeepEP等仍有实际执行边界 |
+| `exceeds graph buckets` | 当前decode图桶最大32，且按attention TP筛选；不能靠shape外推增加图桶 |
+| KV容量不足或没有合法候选 | 同时检查上下文、并发、并行结构、静态内存比例及device预算；增加预算或使用可行布局 |
+| DCP配置被拒绝 | `decode_context`须整除attention TP，逻辑block为128×DCP，且本适配不支持PD+DCP |
+| 输入输出改变后token总数不对 | 先检查 `context_length`、终止条件、请求终态和是否发生截断 |
+| `timed_out` / `resource_limited` | 查看候选原因与主机日志；减少搜索评估并行度可缓解主机资源压力，但不能代替定位模拟器问题 |
+
+当前已交付的变长负载结果在本机 `aisimulate-output/shape-delivery-20261025/`。
+可随Git查阅的验证证据在
+[shape交付记录](../benchmarks/evidence/ascend910c-glm52-w8a8/production/shape-delivery-20261025/summary.json)。
+其中的性能数值是预测/算子验证结果，完整服务的TTFT、TPOT误差校准仍未完成。

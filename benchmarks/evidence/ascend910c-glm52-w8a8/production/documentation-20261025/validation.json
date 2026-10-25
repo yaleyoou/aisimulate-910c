@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-25",
+  "scope": "Documentation links, shell syntax and installed CPU-only CLI examples; no model, timing data or simulator behavior changes.",
+  "repository_base": "7ffad0334825db6c8f62276b44b31a35350df236",
+  "runtime_source_revision": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+  "documents": {
+    "md/README.md": "6fbbd41d4eddacfcd51197f5df4370ab0461b369a9a4490fee4863ff7ee760d7",
+    "md/910c-glm52-w8a8-usage.md": "35c2d5f5c61fe85f46d7d346b184129ecba5571895a15894521d61e3745541d8",
+    "md/910c-glm52-w8a8-implementation.md": "d94f4aed8a88e8e1031b9e5569230103426cdb372a299173f138fc51430cca5c"
+  },
+  "relative_file_links_checked": 44,
+  "shell_blocks_syntax_checked": 7,
+  "cli_checks": [
+    {
+      "kind": "predict",
+      "output": "aisimulate-output/910c-docs-quickcheck-20261025",
+      "completed_requests": 2,
+      "total_input_tokens": 130,
+      "total_output_tokens": 64,
+      "all_request_terminal_statuses": "completed",
+      "prediction_sha256": "325af8a817d7adc41ba182ca28659e13f784c051ae4982311fd00bfb13e8fe8b"
+    },
+    {
+      "kind": "predict",
+      "output": "aisimulate-output/910c-docs-united-c8-chunk4k-20261025",
+      "completed_requests": 16,
+      "total_input_tokens": 131072,
+      "total_output_tokens": 16384,
+      "all_request_terminal_statuses": "completed",
+      "prediction_sha256": "36138711435a1747642713bb6fb109cfef8c3677bebd1e22b914a88881062d8c"
+    },
+    {
+      "kind": "recommend",
+      "output": "aisimulate-output/910c-docs-pd-budget32-v2-20261025",
+      "scope": "one candidate smoke check only, not an exhaustive search",
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 1,
+        "failed": 0,
+        "feasible": 1,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      },
+      "used_gpus": 32,
+      "recommendation_sha256": "b8ba3f14b0d9eb0d5b3b11838c4c73305085285e3c794b2eac36e93ab4aa6fc6"
+    }
+  ],
+  "corrected_example": "A fixed disaggregated mode also requires engine.workers.aggregated=null when reusing the mixed-mode auto-search YAML. The initial example without that override failed configuration validation and was corrected before delivery.",
+  "remaining_scope": "64K high-concurrency search CPU/timeouts unresolved; 128K high-concurrency search not qualified; whole-serving accuracy deferred."
+}
