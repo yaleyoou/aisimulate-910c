@@ -109,8 +109,6 @@ def configure_ascend_glm52(model, raw_config):
     dcp = int(config.dcp_size or 1)
     if dcp not in (1, 2, 4, 8, 16) or local_tp % dcp:
         raise InvalidEngineConfigurationError("Ascend DCP must divide local attention TP")
-    if dcp > 1 and local_tp < 4:
-        raise InvalidEngineConfigurationError("Ascend DCP data currently covers attention TP4/8/16")
     if dcp > 1 and (
         getattr(config, "dcp_comm", None) not in (None, "ag_rs")
         or getattr(config, "dcp_q_replicate", None) not in (None, False)

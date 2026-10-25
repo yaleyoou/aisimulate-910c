@@ -1,0 +1,38 @@
+[
+  {
+    "source": "ascend_pd.py",
+    "source_sha256": "a118f975f7b8f2e73aa84c65ca56255fd933455f1f88ee0a40488181fe0f1cc4",
+    "path": "ascend_pd.py",
+    "sha256": "a118f975f7b8f2e73aa84c65ca56255fd933455f1f88ee0a40488181fe0f1cc4"
+  },
+  {
+    "source": "campaign.json",
+    "source_sha256": "68e9de970963ee109c301699da20b185c430ef798fcba83548e0ba71f79406e8",
+    "path": "campaign.json",
+    "sha256": "68e9de970963ee109c301699da20b185c430ef798fcba83548e0ba71f79406e8"
+  },
+  {
+    "source": "npu-before.log",
+    "source_sha256": "42ad0141c04b2c8d6adb014c16cbafb1c452fb4421d810e98e0e3134a7df0aca",
+    "path": "npu-before.log.gz",
+    "sha256": "2487b20edb5ee543abb43dcef42c5d974f0782d209560427679f491f2f212bfc"
+  },
+  {
+    "source": "plan.json",
+    "source_sha256": "55305a51c3cf03683b4d6ee41a831614c07e50623e42664316dd6a66afee1362",
+    "path": "plan.json.gz",
+    "sha256": "9eea693914e4ec73188b1af60dadf9b9cb1a0afe3a42d63ac940e805bd28a2ff"
+  },
+  {
+    "source": "probe.log",
+    "source_sha256": "edb26d7a684b71fcd14aa1c29234a487ce132d983038dd5f8692e0a75d5e6cb0",
+    "path": "probe.log.gz",
+    "sha256": "49a1455713ee19d374f328563cc3228cd86acc1df188924e3adf097ddc7658e7"
+  },
+  {
+    "source": "setup.json",
+    "source_sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2",
+    "path": "setup.json",
+    "sha256": "c5a8e03db1f2330d3a7c7aa499c623cb4440640bd2acc35df2dce138ee8c39b2"
+  }
+]

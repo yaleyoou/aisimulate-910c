@@ -1,0 +1,33 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["Final 1800-candidate joint search and rebuilt installed-wheel delivery remain."],
+    "next_action": "Finish joint search, build the unified wheel and user image from committed source/data, verify installed commands and update usage documentation."
+  },
+  "research": {
+    "parallel_extension": {
+      "source_commit": "82158e09665c77e95a0629d095c968d65b58faf8",
+      "default_domain": "20 declared TP/ADP/MoE-TP/EP shapes;16 remain feasible for 9216 context at0.90 memory. Four world16 TP1/2 shapes are filtered by unchanged native capacity checks.132/132 aggregated candidates passed.1800 joint candidates still running.",
+      "small_tp_compute": "Installed linear2645, vector1194, attention2577, BMM366 rows; all exact native queries passed. Four small-TP world32 configurations passed8k1k and12 additional concurrency8/16/32 batch scenarios passed.",
+      "small_tp_pd": "160 new cases all numerically valid;138 stable. Three fragmented curves lacked8k coverage;15-case full-curve supplement with32 calls/sample all passed CV<=10%. Whole-curve selection then disjoint append produces227 rows/50curves, all span8192. Canonical validation227/227 points and50/50 mappings pass. Original jitter and22 excluded records retained.",
+      "dcp_release": "Installed2994rows:original2691 plus303 of304 new TP2/DCP2 cases. All304 pass numerical checks;plan index174 CV0.15186 is excluded. All2994 native queries exact. TableSHA69c0225063d8d7546be38abbfc621d9a8a1c6fbbaf850f4e78d369d49f583f20.",
+      "dcp_validation": "36 previous layouts plus2 new world32 TP2/DCP2 DeepEP/tensor layouts complete8x8192input1024output. Two world16TP2 variants reject at example memory_fraction0.86. DCP block128*degree andPD incompatibility remain enforced. GPUrecommend doesnotsearchCP/DCP; explicitpredict matches baseline.",
+      "verification": "Full Rust2051passed1preexistingignored.15 latest GLM model checks passed. Prior390 GPUgoldens and8-layout/32-process Replay baseline byte parity passed without changing goldens.",
+      "native_sha256": "a1859b5b240179d3db9440ca4eb9f3b43e28bc15a19ee92e071e0efaab71697e",
+      "runtime_image": "Old190684 image still installed; replacement pending. All NPU collection finished;32/19 only,31 untouched. Serving accuracy remains deliberately deferred."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "small_pd_final": {"path":"production/small-tp-pd-merged-20261025/ascend_pd_perf.parquet","kind":"file","scope":"collection"},
+        "small_pd_canonical_validation": {"path":"production/small-tp-pd-merged-20261025/native-integration.json","kind":"file","scope":"validation"},
+        "small_dcp_final": {"path":"production/small-tp-dcp-merged-20261025/ascend_dcp_attention_perf.parquet","kind":"file","scope":"collection"},
+        "small_dcp_native_validation": {"path":"production/small-tp-dcp-merged-20261025/native-query.json","kind":"file","scope":"validation"},
+        "small_dcp_prediction_validation": {"path":"production/small-tp-dcp-validation-20261025/results.json","kind":"file","scope":"validation"},
+        "aggregate_search132": {"path":"production/automatic-aggregate-132-20261025/recommendation.json.gz","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

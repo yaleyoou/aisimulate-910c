@@ -8,7 +8,7 @@ runtime:
   version: 0.5.22
   image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
   source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
-  abi: &id001
+  abi:
     torch: 2.10.0+cpu
     torch_npu: 2.10.0.post6
     driver_version_info: 'Version=26.1.1
@@ -126,7 +126,7 @@ tables:
 
             '
   ascend_dcp_attention_perf:
-    rows: 2691
+    rows: 2994
     status: complete
     collections:
     - collector_ref: db54712ed888dc2b05e89e717391a695e729c438
@@ -136,9 +136,80 @@ tables:
       rows: 2691
       classified_failures: 45
       status: complete
+      source_campaign_rows: 2691
+      source_campaign_status: complete
       runtime:
         framework: sglang
         version: 0.5.22
         image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
         source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
-        abi: *id001
+        abi:
+          torch: 2.10.0+cpu
+          torch_npu: 2.10.0.post6
+          driver_version_info: 'Version=26.1.1
+
+            ascendhal_version=7.35.23
+
+            aicpu_version=1.0
+
+            tdt_version=1.0
+
+            log_version=1.0
+
+            prof_version=2.0
+
+            dvppkernels_version=1.1
+
+            tsfw_version=1.0
+
+            Innerversion=V100R001C10SPC009B220
+
+            compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+            compatible_version_fw=[7.0.0,9.9.9]
+
+            package_version=26.1.1
+
+            '
+    - collector_ref: 82158e09665c77e95a0629d095c968d65b58faf8
+      collector_hash: sha256:920e1e598feffb635b5bab6f9a3e068a2aae0085ec33e8d089ef59e0e96c1249
+      case_plan_hash: sha256:d88618c6d599f520367cf2404a9136094d0e9414957efd5bfa862836099e2e5b
+      collected_at: '2026-10-24T21:43:31.708056+00:00'
+      rows: 303
+      classified_failures: 1
+      status: complete
+      source_campaign_rows: 303
+      source_campaign_status: complete
+      runtime:
+        framework: sglang
+        version: 0.5.22
+        image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+        source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+        abi:
+          torch: 2.10.0+cpu
+          torch_npu: 2.10.0.post6
+          driver_version_info: 'Version=26.1.1
+
+            ascendhal_version=7.35.23
+
+            aicpu_version=1.0
+
+            tdt_version=1.0
+
+            log_version=1.0
+
+            prof_version=2.0
+
+            dvppkernels_version=1.1
+
+            tsfw_version=1.0
+
+            Innerversion=V100R001C10SPC009B220
+
+            compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+            compatible_version_fw=[7.0.0,9.9.9]
+
+            package_version=26.1.1
+
+            '

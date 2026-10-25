@@ -1,5 +1,20 @@
 # Current goal handoff
 
+## NEWEST: smallTP PD227 andDCP2994 installed; final1800 search running
+
+HEAD82158e09. New stage data/model guard removal and evidence ready to commit;checkpoint61 pending.
+PD50curves/227points all span8192, canonical native validation passed. DCP304newcases allnumericpass,
+303stable,1CVexcluded;total2994nativequeries exact0. Source newDCP SHA0807f07623c0907c7c264de217607318e281f9a7efbda7f61b71063af453625c.
+Frozen small-tp-pd-{primary,supplement,selected,merged}-20261025 andsmall-tp-dcp-{published,merged}-20261025.
+41PD/DCPcampaigns archived; exact486filelist /tmp/aisim-small-pd-dcp-stage-files.json. Never stage raw originals wholesale.
+TP2/DCP2 global32DeepEP/tensor each8x8k1kpasses;global16bothreject atsample.86memory;frozen small-tp-dcp-validation-20261025.
+Previous36DCPpasses ->38now;model15tests pass,fullRust2051pass1ignored. No newRustchanges since a1859b5b native.
+132aggregated search passed, frozenautomatic-aggregate-132-20261025.
+ACTIVEroot24914 final1800 jointsearch,CPU/tmp/aisim-final-search-1800-20261025,hostlog/tmp/aisim-final-search-1800.log.
+No NPU collection active;32and19freeofourwork,31untouched. Root93967/72844localavailable,89706remote19idle.
+NEXTcommitthisdatastage;buildwheel fromcommittedsource+data,replaceoldimage190684,validateinstalledcommands,
+freeze1800completeandbest-replay,updateusage/progress+checkpoint+finalcommit. Goalnotcompleteuntilruntimeupdated.
+
 ## NEWEST: DCP published36layouts pass; smallTPcompute complete, PD160 running
 
 HEADdb54712ed888dc2b05e89e717391a695e729c438 commitsDCPsource+ADP12/evidence. Checkpoint59;nextpatch60prepared.

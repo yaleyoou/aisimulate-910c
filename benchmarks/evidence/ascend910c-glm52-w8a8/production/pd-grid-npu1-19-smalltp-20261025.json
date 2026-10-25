@@ -1,0 +1,341 @@
+{
+  "status": "completed",
+  "jobs": [
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd11-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "1",
+        "--destination-tp",
+        "1",
+        "--master-port",
+        "30300",
+        "--store-port",
+        "30400"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd12-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "1",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30310",
+        "--store-port",
+        "30410"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd14-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "1",
+        "--destination-tp",
+        "4",
+        "--master-port",
+        "30320",
+        "--store-port",
+        "30420"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd18-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "1",
+        "--destination-tp",
+        "8",
+        "--master-port",
+        "30330",
+        "--store-port",
+        "30430"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd116-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "1",
+        "--destination-tp",
+        "16",
+        "--master-port",
+        "30340",
+        "--store-port",
+        "30440"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd21-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "2",
+        "--destination-tp",
+        "1",
+        "--master-port",
+        "30350",
+        "--store-port",
+        "30450"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd22-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "2",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30360",
+        "--store-port",
+        "30460"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd24-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "2",
+        "--destination-tp",
+        "4",
+        "--master-port",
+        "30370",
+        "--store-port",
+        "30470"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd28-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "2",
+        "--destination-tp",
+        "8",
+        "--master-port",
+        "30380",
+        "--store-port",
+        "30480"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd216-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "2",
+        "--destination-tp",
+        "16",
+        "--master-port",
+        "30390",
+        "--store-port",
+        "30490"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd41-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "4",
+        "--destination-tp",
+        "1",
+        "--master-port",
+        "30400",
+        "--store-port",
+        "30500"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd42-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "4",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30410",
+        "--store-port",
+        "30510"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd81-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "8",
+        "--destination-tp",
+        "1",
+        "--master-port",
+        "30420",
+        "--store-port",
+        "30520"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd82-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "8",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30430",
+        "--store-port",
+        "30530"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd161-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "16",
+        "--destination-tp",
+        "1",
+        "--master-port",
+        "30440",
+        "--store-port",
+        "30540"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "1",
+        "--suffix",
+        "pd162-smalltp-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-plan-20261025.json",
+        "--source-tp",
+        "16",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30450",
+        "--store-port",
+        "30550"
+      ],
+      "returncode": 0
+    }
+  ]
+}

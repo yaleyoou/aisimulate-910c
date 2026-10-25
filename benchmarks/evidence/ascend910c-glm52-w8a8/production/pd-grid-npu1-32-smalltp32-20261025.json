@@ -1,0 +1,68 @@
+{
+  "status": "completed",
+  "jobs": [
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "0",
+        "--suffix",
+        "pd42-smalltp32-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-supplement-plan-20261025.json",
+        "--source-tp",
+        "4",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30300",
+        "--store-port",
+        "30400"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "0",
+        "--suffix",
+        "pd82-smalltp32-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-supplement-plan-20261025.json",
+        "--source-tp",
+        "8",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30310",
+        "--store-port",
+        "30410"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/run_pd_probe.py",
+        "--node-rank",
+        "0",
+        "--suffix",
+        "pd162-smalltp32-20261025",
+        "--plan",
+        "/tgm_rent_data/data/youxingye/aisimulate-910c/benchmarks/evidence/ascend910c-glm52-w8a8/production/small-tp-pd-supplement-plan-20261025.json",
+        "--source-tp",
+        "16",
+        "--destination-tp",
+        "2",
+        "--master-port",
+        "30320",
+        "--store-port",
+        "30420"
+      ],
+      "returncode": 0
+    }
+  ]
+}
