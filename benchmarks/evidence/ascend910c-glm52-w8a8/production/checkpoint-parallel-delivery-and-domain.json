@@ -1,0 +1,38 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["General arbitrary-workload parity is incomplete: bounded Ascend interpolation still has ragged prefill, long-prefix and short/long-decode coverage limits. Whole-serving accuracy remains intentionally deferred."],
+    "next_action": "Extend general shape coverage and an explicit validated extrapolation policy without relabeling estimates as measurements; retain the delivered parallel-search image and evidence."
+  },
+  "research": {
+    "parallel_extension": {
+      "source_commit": "1c91c5dd5796074032e0cad271c0ec8626fbd0c8",
+      "runtime_image": "aisimulate-910c:glm52-w8a8 replaced with sha256:5d4e5670729cf0ef2dfc68717345ae890250afe6c3f461501484685c1951920a. Installed unifiedwheel, model composition and16datafiles verified. Nativec043d04a7a82a7e62c6435eeca9c0ee08d3f6c32d4fc41c4c286817ca6f452cd;wheeld5647be3083c45f58b3a5934cec082234a883eb643603941d5e4203857d5633a.",
+      "joint_search": "1800/1800 feasible,0failed:132aggregate+1668PD.20declaredshapes,16memory-feasiblefor8k1k. Frozenautomatic-search-1800-20261025. Best savedconfig replayed with actualmodel andinstalledbyte-identicaldata;64requests complete,TTFT/TPOT/throughput match.",
+      "installed_validation": "United8,PD16,DCP2x8,TP2/DCP2tensorx8 requests complete.38DCPsource configurations previously qualified. Installed4k2k trial16 yields15feasible1coveragefailure;best64request replaymatches. All15previouslysuccessful configurations retain exactlyidenticalmetrics afterbatchfix, comparedbycanonicalconfiguration notcompletion-dependentcandidateid.",
+      "batch_interpolation": "Bounded eager-prefill batch interpolation added inAttention/DCP. Exact partitions andgraphcapturebucketsunchanged;twohand-derivedmidpointoracles. Remaining4k2k failure needsbatch3query2731 whileupperbatch4gridmax2048:stillrejected,notextrapolated. General arbitraryinput/output adaptation isNOTcomplete.",
+      "validation": "Latest42AscendRusttests pass;390GPUgoldens pass127.79s,untouchedgoldens. Initialpytestrunfailedbecausecachepathwasreadonly;rerunuseswritablecache,nofilterortolerancerelaxation.2577attention+2994DCPexactqueries zeroerror. PriorfullRust2051passed1ignored and8-layoutReplay32processesbyteparity retained.",
+      "host_cost": "Exactprefill keepssame lookup count/arithmetic;newbatchquery uses2borrowedplanes andboundedBTree lookups,no newcache/retention/copy. Warmexactquery~0.01ms isdiagnostic,notpairedperformanceclaim.",
+      "arbitrary_workload_gap": "FixedTP8/ADP2/EP16 aggandPD each pass1k128,2k512,4k2k,8k4k,12k1k.16k1k/32k1kfailprefix12288;65/32failshortdecodedsequence. GPU DSA hasSOL-anchored extrapolation;Ascenddoesnotyet. Neither8kexample successnorallparallelshapes impliesarbitraryshape coverage.",
+      "cleanup": "All owned NPU campaigns andidle diagnosticcontainers stopped on32and19;otheruserserviceon19unchanged;31untouched. CPU validationcontainerretained. No collectionactive."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["Direct-FPM profile is not accepted; authorized operator-level parallel search is delivered, but general workload coverage/extrapolation and serving accuracy remain separate unfinished work."],
+        "next_action": "Extend general workload shape coverage/extrapolation first, then calibrate actual serving error, preserving the current operator-level release."
+      },
+      "artifacts": {
+        "parallel_final_search": {"path":"production/automatic-search-1800-20261025/recommendation.json.gz","kind":"file","scope":"validation"},
+        "parallel_final_search_summary": {"path":"production/automatic-search-1800-20261025/summary.json","kind":"file","scope":"validation"},
+        "parallel_delivery_summary": {"path":"production/parallel-delivery-20261025/summary.json","kind":"file","scope":"validation"},
+        "parallel_delivery_manifest": {"path":"production/parallel-delivery-20261025/manifest.json","kind":"file","scope":"validation"},
+        "parallel_installed_identity": {"path":"production/parallel-delivery-20261025/native-identity.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

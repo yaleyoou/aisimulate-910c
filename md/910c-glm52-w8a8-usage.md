@@ -26,6 +26,7 @@ sudo bash scripts/run-ascend910c.sh recommend \
 默认预算64device、并发8/16/32、64条8K/1K请求，共1800个候选。
 最优只针对当前负载、候选范围和目标，不代表所有配置的全局最优或实测服务排名。
 目标是每device输出吞吐，默认没有延迟SLA；选型还需检查TTFT、TPOT。
+1800是该8K/1K示例的候选数量；改变负载、预算或并行范围后，应重新检查搜索空间与trial上限。
 快速尝试可加 `--set optimizer.max_trials=12`，但只探索部分候选；
 也可用 `--set optimizer.algorithm=bayesian`。
 
@@ -63,6 +64,8 @@ sudo bash scripts/run-ascend910c.sh recommend \
 
 `context_length` 是输入加输出的上下文上限。修改负载时也要修改它，避免保留示例9216而截断输出。
 同样的参数可用于predict。输入输出不必等于采集点：模型推导每轮batch的算子shape后插值。
+eager prefill还会在已测batch之间插值，例如3条请求由batch2和4的曲线估计；
+graph capture bucket仍需匹配，不跨bucket插值，也不取消上下文范围限制。
 
 已用TP8/ADP2/EP16、4K prefill chunk、并发2、每组4条请求验证：
 
@@ -78,6 +81,10 @@ sudo bash scripts/run-ascend910c.sh recommend \
 | 65 / 32 | decode序列低于实测下界128 | 同样缺少 |
 
 这是指定配置的功能检查，不代表全部并行候选在这些长度都已验证。
+安装版4K/2K的16候选试搜得到15个可行、1个数据覆盖失败；失败配置为
+TP16/ADP1、MoE-TP16/EP1、并发32。它需要batch3、每请求2731个prefill token，
+而batch4插值端点的采样上界是2048。新增batch插值仍要求两个端点都覆盖序列长度，
+所以该候选保留失败状态，没有把范围外数值当作有效计时。搜索第一名可单独复算。
 主要边界是prefill prefix锚点0/8192、decode序列128～16384；batch、head数、图模式和MoE分布还有各自范围。
 12K输入分成三个4K chunk时，prefix为0/4096/8192；16K的第四个chunk需要prefix=12288，超出已有表。
 输出变长也会逐轮增加decode的KV长度，不能只把1K输出时间乘一个倍数。

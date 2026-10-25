@@ -2,7 +2,25 @@
 
 ## 当前优先级：先可用，再校准
 
-### 当前结论：已交付可运行的算子级功能版
+### 当前结论：并行搜索已扩展，任意输入输出的覆盖尚未完成
+
+使用 [当前说明](910c-glm52-w8a8-usage.md) 和 `ascend910c-glm52-auto-search-8k1k.yaml`。
+新版镜像已包含TP1/2/4/8/16、全局16/32、DeepEP与张量MoE两种路径。
+8K/1K、64device预算的1800个候选全部可行、0失败，其中合并132个、PD1668个；
+38种DCP显式配置通过请求预测。42项Ascend Rust检查与390项GPU golden回归通过。
+PD为50条曲线/227条记录，DCP为2994条记录；发布点均已通过原生查询。
+
+用户提出的“任意输入输出”需要单独说明：接口允许修改长度，当前910C仍使用有界插值。
+两种部署的1K/128、2K/512、4K/2K、8K/4K、12K/1K已通过指定配置验证；
+4K/2K试搜16候选有15个成功，1个缺少完整shape边界。16K/32K长输入和极短decode也存在缺口。
+因此不能宣布整体适配已经与GPU完全等价。下一项功能工作是通用shape覆盖和明确的外推模型，
+准确性校准仍按用户要求放在后面。正式direct-FPM onboarding保留stage2/in_progress，未冒充已验收。
+
+阶段提交：`c01901e9` 发布小TP PD/DCP数据；`1c91c5dd` 补prefill batch插值并记录变长负载边界。
+最终本轮证据见 `production/parallel-delivery-20261025/summary.json`，
+相对于 `benchmarks/evidence/ascend910c-glm52-w8a8/`。下方为旧阶段历史，不代表最新支持范围。
+
+### 2026-10-24：EP16算子级功能版（历史记录）
 
 直接使用说明见 [使用文档](910c-glm52-w8a8-usage.md)。32节点已安装本地运行镜像
 `aisimulate-910c:glm52-w8a8`，通过 `scripts/run-ascend910c.sh` 即可运行，

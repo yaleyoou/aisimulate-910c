@@ -1,0 +1,70 @@
+{
+  "parallel_scope": "20 declared shapes,16 memory-feasible for8k1k; full132agg+1668PD search passed;38 explicit DCP predictions passed. PP/CP/mixed-MoE runtime boundaries retained.",
+  "arbitrary_workload_parity": "NOT COMPLETE: Ascend currently uses bounded measured interpolation. Long-prefix, short/long decode and ragged multi-batch domains can reject requests. No analytical extrapolation added.",
+  "image_id": "sha256:5d4e5670729cf0ef2dfc68717345ae890250afe6c3f461501484685c1951920a",
+  "native": {
+    "source_revision": "1c91c5dd5796074032e0cad271c0ec8626fbd0c8",
+    "sha256": "c043d04a7a82a7e62c6435eeca9c0ee08d3f6c32d4fc41c4c286817ca6f452cd",
+    "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+    "wheel_sha256": "d5647be3083c45f58b3a5934cec082234a883eb643603941d5e4203857d5633a",
+    "engine_spec_schema": 29,
+    "target": "aarch64-unknown-linux-gnu",
+    "profile": "release",
+    "cargo_features": [
+      "extension-module"
+    ],
+    "build_command": "python3 -m maturin build --release --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+    "maturin": "1.15.0",
+    "python_abi": "abi3-py311",
+    "packaged_ascend_data_files_checked": 16,
+    "source_tree_note": "Code and tables from committed revision; documentation-only working changes are not packaged."
+  },
+  "automatic_search_8k1k": {
+    "cache_hits": 0,
+    "evaluated": 1800,
+    "failed": 0,
+    "feasible": 1800,
+    "infeasible": 0,
+    "resource_limited": 0,
+    "timed_out": 0,
+    "unsupported": 0
+  },
+  "installed_search_4k2k": {
+    "cache_hits": 0,
+    "evaluated": 16,
+    "failed": 1,
+    "feasible": 15,
+    "infeasible": 0,
+    "resource_limited": 0,
+    "timed_out": 0,
+    "unsupported": 0
+  },
+  "unchanged_existing_4k2k_candidates_compared": 15,
+  "best_8k1k_replay": {
+    "completed_requests": 64,
+    "mean_ttft_ms": 63112.802249812084,
+    "mean_tpot_ms": 130.99641928775577,
+    "output_throughput_tok_s": 134.03188091525624
+  },
+  "best_4k2k_replay": {
+    "completed_requests": 64,
+    "mean_ttft_ms": 7034.3623890000445,
+    "mean_tpot_ms": 116.55235475378602,
+    "output_throughput_tok_s": 266.82188655350063
+  },
+  "tests": {
+    "prior_full_rust_passed": 2051,
+    "prior_full_rust_ignored": 1,
+    "latest_ascend_rust_passed": 42,
+    "latest_gpu_golden_passed": 390,
+    "attention_points_exact": 2577,
+    "dcp_points_exact": 2994
+  },
+  "host_cost": "Exact measured prefill uses the same map/plane lookup and arithmetic. New in-range batch queries use two borrowed neighbor planes and bounded map searches; no new cache, data copies or retained allocations. Exact-row warm-query medians about0.01ms are diagnostics, not a paired performance claim.",
+  "remaining": [
+    "validated general shape interpolation/extrapolation and long/short-context coverage",
+    "full-service forward/TTFT/TPOT accuracy calibration",
+    "real routing skew, inter-request PD contention and energy calibration"
+  ],
+  "cleanup": "Owned NPU collector/diagnostic containers stopped on32 and19;31 untouched; the other user service on19 retained."
+}

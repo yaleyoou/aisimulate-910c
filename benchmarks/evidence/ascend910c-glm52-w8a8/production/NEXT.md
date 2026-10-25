@@ -1,5 +1,26 @@
 # Current goal handoff
 
+## NEWEST: parallel image delivered; user highlights arbitrary-workload gap, overall adaptation remains open
+
+HEAD1c91c5dd (prefillbatchinterp),previousc01901e9(PD/DCPdata). Finaldocs/evidence/checkpoint63pendingcommit.
+Imageaisimulate-910c:glm52-w8a8 now5d4e5670729cf0ef2dfc68717345ae890250afe6c3f461501484685c1951920a;
+nativec043d04a7a82a7e62c6435eeca9c0ee08d3f6c32d4fc41c4c286817ca6f452cd;wheel d5647be3083c45f58b3a5934cec082234a883eb643603941d5e4203857d5633a.
+1800/1800strict8k1k searchpassed0fail(132agg1668PD),frozenautomatic-search-1800-20261025.
+Usercopyall1800configs aisimulate-output/auto-search-1800-20261025. Best-local-model.yaml mapsmodelANDsystems_paths
+toinstalledimage;64request bestreplaymatchesexactmetrics. Originalsourceconfigs remainuntouched.
+InstalledUnited/PD/DCP2/TP2DCP2tensor pass. Fresh4k2k16searchstill15pass1fail,despitebatch3interpolation:
+TP16ADP1tensor/C32 needsquery2731 whileupperbatch4gridmax2048. Thisisrealraggeddomaincoverage,notcategoricalbatchmiss.
+DoNOThideitbylooseningbounds/narrowingconcurrency orcallarbitrarylengthdone. Batchfixkeeps15successfulconfigsmetrics EXACT,
+matchedbyconfigkeys (candidateIDschangecompletionorder). Newnative42tests,390GPUgoldens pass127.79s;
+firstparityattempt failedread-onlypytestcache,seconduseswritabletmpcache.2577attention+2994DCPpoints exact0.
+Frozenparallel-delivery-20261025 hasboth4ksearches,failurereasons,installedpredictions,bestreplays,build/testlogs+manifest.
+SingleexistingTP8layout supportsagg/PD1k128,2k512,4k2k,8k4k,12k1k;longprefix16k/32k andshort65 stillreject.
+GPU DSA usesSOLextrapolation; currentAscendboundedonly. Generalshapeinterpolation/extrapolation isNEXTfunctionalwork,
+servingaccuracyafterthat peruserpriority. BroadergoalNOTmarkedcomplete. FormaldirectFPMstage2/inprogress preserved.
+AllownedNPUcontainers stopped32/19;otheruserxq-sglang-glm5.2on19retained;31untouched. CPUvalidationcontainer stays.
+Noactivejobsnow. Root93967/72844/24914localand89706remote19available. Needcommitfinaldocs/evidence/checkpointthenansweruser
+honestlythat8k1k isexample butcurrentcoverageNOTarbitrary likeGPU. No pendinguserpermissionrequired.
+
 ## NEWEST: user asks arbitrary workload coverage; bounded prefill-batch interpolation fix active
 
 HEADc01901e9 commitsPD227+DCP2994. Checkpoint61. Current installedimageb1eda26b...isnew20layoutwheel

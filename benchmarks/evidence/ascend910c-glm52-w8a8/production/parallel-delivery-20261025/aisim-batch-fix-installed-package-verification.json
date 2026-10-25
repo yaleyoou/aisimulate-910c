@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "version": "0.13.0",
+  "python_package": "/usr/local/python3.12.13/lib/python3.12/site-packages/aisimulate/__init__.py",
+  "core_package": "/usr/local/python3.12.13/lib/python3.12/site-packages/aisimulate_core/__init__.py",
+  "native_sha256": "c043d04a7a82a7e62c6435eeca9c0ee08d3f6c32d4fc41c4c286817ca6f452cd",
+  "data_files_verified": 16,
+  "schema": 29,
+  "installed_identity": {
+    "source_revision": "1c91c5dd5796074032e0cad271c0ec8626fbd0c8",
+    "sha256": "c043d04a7a82a7e62c6435eeca9c0ee08d3f6c32d4fc41c4c286817ca6f452cd",
+    "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+    "wheel_sha256": "d5647be3083c45f58b3a5934cec082234a883eb643603941d5e4203857d5633a",
+    "engine_spec_schema": 29,
+    "target": "aarch64-unknown-linux-gnu",
+    "profile": "release",
+    "cargo_features": [
+      "extension-module"
+    ],
+    "build_command": "python3 -m maturin build --release --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+    "maturin": "1.15.0",
+    "python_abi": "abi3-py311",
+    "packaged_ascend_data_files_checked": 16,
+    "source_tree_note": "Code and tables from committed revision; documentation-only working changes are not packaged."
+  }
+}
