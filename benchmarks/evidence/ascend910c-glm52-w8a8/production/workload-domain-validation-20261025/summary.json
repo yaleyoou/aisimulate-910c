@@ -1,0 +1,9 @@
+{
+  "scope": "Explicit aggregated and PD predictions using TP8/ADP2/EP16, 4096-token chunks, concurrency2 and4requests. Successful requests have exact input/output totals. No assertion that every parallel layout has identical coverage.",
+  "successful_cases": 10,
+  "coverage_rejections": 6,
+  "gpu_extrapolation_source": "crates/core/src/perfmodel/perf_database/dsa.rs:query_generation uses SOL-anchored efficiency outside measured seq/batch",
+  "ascend_bounded_source": "crates/core/src/perfmodel/perf_database/ascend_attention.rs:BoundedCurve/Plane explicitly reject missing bounds",
+  "next_extension": "Long-prefix/long-decode and small-sequence sampling, or explicit validated Ascend analytical extrapolation, is separate from topology support. Do not silently price out-of-domain input.",
+  "source_revision": "c01901e92e178c42b17c34ca9ebf8af0bb591fbf"
+}

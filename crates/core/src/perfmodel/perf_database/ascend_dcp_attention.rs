@@ -5,7 +5,7 @@ use std::sync::OnceLock;
 use serde::{Deserialize, Serialize};
 
 use super::SourceResolver;
-use super::ascend_attention::Plane;
+use super::ascend_attention::{Plane, query_prefill_batch};
 use super::parquet_loader::PerfReader;
 use crate::common::error::AicError;
 
@@ -138,23 +138,18 @@ impl AscendDcpAttentionTable {
                 "invalid DCP batch or sequence geometry".into(),
             ));
         }
-        let plane = self
-            .grids()?
-            .get(key)
-            .and_then(|partitions| partitions.get(&padded))
-            .ok_or_else(|| {
-                AicError::PerfDatabase(format!(
-                    "unmeasured Ascend DCP partition: {key:?}, padded={padded}"
-                ))
-            })?;
-        plane.query(
-            if key.phase == "prefill" {
-                prefix
-            } else {
-                active
-            },
-            sequence,
-        )
+        let partitions = self.grids()?.get(key).ok_or_else(|| {
+            AicError::PerfDatabase(format!("unmeasured Ascend DCP tuple: {key:?}"))
+        })?;
+        if key.phase == "prefill" {
+            return query_prefill_batch(partitions, active, prefix, sequence);
+        }
+        let plane = partitions.get(&padded).ok_or_else(|| {
+            AicError::PerfDatabase(format!(
+                "unmeasured Ascend DCP partition: {key:?}, padded={padded}"
+            ))
+        })?;
+        plane.query(active, sequence)
     }
 }
 
@@ -407,6 +402,40 @@ mod tests {
                 .unwrap_err()
                 .is_missing_perf_data()
         );
+    }
+
+    #[test]
+    fn eager_prefill_interpolates_between_two_and_four_requests_without_extrapolation() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let mut data = columns();
+        data[0] = Col::Str("phase", vec!["prefill"; 4]);
+        data[4] = Col::Str("execution_mode", vec!["eager"; 4]);
+        data[5] = Col::I64("tokens", vec![256, 2048, 512, 4096]);
+        data[6] = Col::I64("active_batch", vec![2, 2, 4, 4]);
+        data[7] = Col::I64("padded_batch", vec![2, 2, 4, 4]);
+        data[8] = Col::I64("query_tokens_per_request", vec![128, 1024, 128, 1024]);
+        data[9] = Col::I64("sequence_length", vec![128, 1024, 128, 1024]);
+        data[12] = Col::I64("block_table_width", vec![1, 4, 1, 4]);
+        data[17] = Col::Str("local_cache_index_dtype", vec!["int64"; 4]);
+        data[18] = Col::Str("indexer_cache_index_dtype", vec!["int32"; 4]);
+        data[21] = Col::Str("execution_verification", vec!["eager_invocation"; 4]);
+        write_parquet(&path, &data);
+        let table = AscendDcpAttentionTable::new(Some(path));
+        let mut prefill = key();
+        prefill.phase = "prefill".into();
+        prefill.execution_mode = "eager".into();
+        assert_eq!(table.query(&prefill, 2, 2, 128, 0).unwrap(), 1.0);
+        assert_eq!(table.query(&prefill, 3, 3, 128, 0).unwrap(), 2.5);
+        assert_eq!(table.query(&prefill, 3, 3, 576, 0).unwrap(), 3.5);
+        for (batch, sequence, prefix) in [(1, 128, 0), (5, 128, 0), (3, 1025, 0), (3, 128, 1)] {
+            assert!(
+                table
+                    .query(&prefill, batch, batch, sequence, prefix)
+                    .unwrap_err()
+                    .is_missing_perf_data()
+            );
+        }
     }
 
     #[test]

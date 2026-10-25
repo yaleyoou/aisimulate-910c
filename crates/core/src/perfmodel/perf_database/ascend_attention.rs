@@ -113,6 +113,30 @@ impl Plane {
     }
 }
 
+pub(crate) fn query_prefill_batch(
+    partitions: &BTreeMap<u32, Plane>,
+    batch: u32,
+    prefix: u32,
+    sequence: u32,
+) -> Result<f64, AicError> {
+    if let Some(plane) = partitions.get(&batch) {
+        return plane.query(prefix, sequence);
+    }
+    let lower = partitions.range(..batch).next_back();
+    let upper = partitions.range(batch..).next();
+    match (lower, upper) {
+        (Some((lower_batch, lower_plane)), Some((upper_batch, upper_plane))) => {
+            let lower_value = lower_plane.query(prefix, sequence)?;
+            let upper_value = upper_plane.query(prefix, sequence)?;
+            let weight = f64::from(batch - lower_batch) / f64::from(upper_batch - lower_batch);
+            Ok(lower_value + (upper_value - lower_value) * weight)
+        }
+        _ => Err(AicError::PerfDatabase(format!(
+            "Ascend prefill batch={batch} lacks measured brackets"
+        ))),
+    }
+}
+
 type Grids = BTreeMap<AscendAttentionKey, BTreeMap<u32, Plane>>;
 
 pub struct AscendAttentionTable {
@@ -212,15 +236,17 @@ impl AscendAttentionTable {
                 "unmeasured Ascend attention batch/sequence layout".into(),
             ));
         }
-        let plane = self
-            .grids()?
-            .get(key)
-            .and_then(|partitions| partitions.get(&key.partition(padded)))
-            .ok_or_else(|| {
-                AicError::PerfDatabase(format!(
-                    "unmeasured Ascend attention tuple: {key:?}, padded_batch={padded}"
-                ))
-            })?;
+        let partitions = self.grids()?.get(key).ok_or_else(|| {
+            AicError::PerfDatabase(format!("unmeasured Ascend attention identity: {key:?}"))
+        })?;
+        if key.phase == "prefill" && key.execution_mode == "eager" {
+            return query_prefill_batch(partitions, active, prefix, sequence);
+        }
+        let plane = partitions.get(&key.partition(padded)).ok_or_else(|| {
+            AicError::PerfDatabase(format!(
+                "unmeasured Ascend attention tuple: {key:?}, padded_batch={padded}"
+            ))
+        })?;
         if key.phase == "prefill" {
             plane.query(prefix, sequence)
         } else {
@@ -516,6 +542,44 @@ mod tests {
         assert!(
             table
                 .query(&prefill, 1, 1, 576, 4096)
+                .unwrap_err()
+                .is_missing_perf_data()
+        );
+    }
+
+    #[test]
+    fn eager_prefill_batch_three_is_the_midpoint_of_batch_two_and_four() {
+        let root = tempfile::tempdir().unwrap();
+        let path = root.path().join(BASENAME);
+        let mut data = columns();
+        data[1] = Col::Str("phase", vec!["prefill"; 4]);
+        data[3] = Col::Str("execution_mode", vec!["eager"; 4]);
+        data[4] = Col::I64("tokens", vec![256, 2048, 512, 4096]);
+        data[5] = Col::I64("active_batch", vec![2, 2, 4, 4]);
+        data[6] = Col::I64("padded_batch", vec![2, 2, 4, 4]);
+        data[7] = Col::I64("sequence_length", vec![128, 1024, 128, 1024]);
+        data[10] = Col::I64("block_table_width", vec![1, 8, 1, 8]);
+        data[14] = Col::Str("execution_verification", vec!["eager_invocation"; 4]);
+        write_parquet(&path, &data);
+        let table = AscendAttentionTable::new(Some(path));
+        let mut prefill = key();
+        prefill.phase = "prefill".into();
+        prefill.execution_mode = "eager".into();
+        assert_eq!(table.query(&prefill, 2, 2, 128, 0).unwrap(), 1.0);
+        assert_eq!(table.query(&prefill, 3, 3, 128, 0).unwrap(), 3.0);
+        assert_eq!(table.query(&prefill, 3, 3, 576, 0).unwrap(), 4.0);
+        for (batch, sequence, prefix) in [(1, 128, 0), (5, 128, 0), (3, 1025, 0), (3, 128, 1)] {
+            assert!(
+                table
+                    .query(&prefill, batch, batch, sequence, prefix)
+                    .unwrap_err()
+                    .is_missing_perf_data()
+            );
+        }
+        prefill.execution_mode = "graph".into();
+        assert!(
+            table
+                .query(&prefill, 3, 3, 128, 0)
                 .unwrap_err()
                 .is_missing_perf_data()
         );

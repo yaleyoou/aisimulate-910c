@@ -1,10 +1,12 @@
 # 910C + GLM-5.2 W8A8：离线预测与配置搜索
 
-当前已经打通：910C实测算子表 → GLM完整forward组合 → KV容量推导 → 请求调度模拟 →
-PD实测传输 → 并行策略、P:D副本数、并发量搜索。使用标准 `predict/recommend --stack engine`。
-本版优先实现功能；完整服务的TTFT、TPOT误差校准留到下一阶段。
+使用标准 `predict/recommend --stack engine`：910C实测算子表 → GLM完整forward组合 →
+KV容量推导 → 请求调度模拟 → PD传输 → 配置搜索。
+8K/1K是示例负载，不是接口限制。**当前910C表在实测范围内插值，尚未实现GPU部分算子的范围外解析外推。**
+因此可以预测多种输入输出，但不能宣称任意长度、任意batch都已覆盖。
+完整服务的forward、TTFT、TPOT误差校准仍按本轮要求延后。
 
-## 1. 在32节点直接运行
+## 1. 在32节点运行
 
 ```bash
 cd /home/youxingye/youxingye_data/aisimulate-910c
@@ -14,54 +16,93 @@ sudo bash scripts/run-ascend910c.sh predict \
   --config examples/cli/ascend910c-glm52-8k1k.yaml \
   --output-dir aisimulate-output/910c-united
 
-sudo bash scripts/run-ascend910c.sh predict \
-  --stack engine \
-  --config examples/cli/ascend910c-glm52-pd-8k1k.yaml \
-  --capture-per-request \
-  --output-dir aisimulate-output/910c-pd
-
 sudo bash scripts/run-ascend910c.sh recommend \
   --stack engine \
-  --config examples/cli/ascend910c-glm52-search-8k1k.yaml \
-  --output-dir aisimulate-output/910c-search
+  --config examples/cli/ascend910c-glm52-auto-search-8k1k.yaml \
+  --output-dir aisimulate-output/910c-auto-search
 ```
 
-脚本使用本地 `aisimulate-910c:glm52-w8a8` 镜像，运行时禁用网络，模型目录只读挂载。
-不启动SGLang服务，不加载完整权重，不申请NPU，不要求19/31节点在线。
-只读取当前模型的config和量化元数据，以及仓库内的硬件/性能数据。
-输出归运行sudo前的用户所有。默认最多16核CPU和32GiB主机内存，可用
-`AISIMULATE_910C_CPUS`、`AISIMULATE_910C_MEMORY` 调整；
-默认绑定当前可用的前16个CPU，`AISIMULATE_910C_CPUSET` 可指定CPU列表。
+第二个命令自动选择并行结构、合并/PD部署、P:D副本数和并发量。
+默认预算64device、并发8/16/32、64条8K/1K请求，共1800个候选。
+最优只针对当前负载、候选范围和目标，不代表所有配置的全局最优或实测服务排名。
+目标是每device输出吞吐，默认没有延迟SLA；选型还需检查TTFT、TPOT。
+快速尝试可加 `--set optimizer.max_trials=12`，但只探索部分候选；
+也可用 `--set optimizer.algorithm=bayesian`。
 
-模型默认是 `/mnt/raid/user/data/models/glm-q`。若更换目录，需要同时设置
-`AISIMULATE_910C_MODEL` 挂载目录，并通过 `--set engine.model=新路径` 修改模型身份。
-模型结构、量化布局变化会重新验证；不能仅替换成一个模型名字。
-
-预测结果在 `prediction.json`；搜索结果在 `recommendation.json`、`recommendation.csv`，
-排好序的具体配置在 `recommendations/0001.yaml` 等文件。
-随机搜索示例会遍历这60个有限候选；也可以使用贝叶斯搜索，在recommend命令后添加
-`--set optimizer.algorithm=bayesian --set optimizer.max_trials=12`。
-最终环境已验证12次建议、11个实际评估全部成功、1次缓存复用；该次数不保证遍历所有候选。
-复算第一名：
+结果是 `recommendation.json`、`recommendation.csv`，排序后的完整配置位于
+`recommendations/0001.yaml` 等。复算第一名：
 
 ```bash
 sudo bash scripts/run-ascend910c.sh predict \
   --stack engine \
-  --config aisimulate-output/910c-search/recommendations/0001.yaml \
+  --config aisimulate-output/910c-auto-search/recommendations/0001.yaml \
   --capture-per-request \
   --output-dir aisimulate-output/910c-best
 ```
 
-## 2. 示例的含义
+脚本使用本地 `aisimulate-910c:glm52-w8a8` 镜像，禁用网络，只读取config和量化元数据。
+不加载完整权重、不启动SGLang、不申请NPU，预测时不要求19/31节点在线。
+默认16核CPU、32GiB主机内存，输出归调用sudo的用户所有；可通过
+`AISIMULATE_910C_CPUS`、`AISIMULATE_910C_CPUSET`、`AISIMULATE_910C_MEMORY` 调整资源。
+模型默认 `/mnt/raid/user/data/models/glm-q`。换目录需同时设置
+`AISIMULATE_910C_MODEL` 和 `--set engine.model=新路径`。
 
-| 示例 | 部署与搜索范围 |
-|---|---|
-| `ascend910c-glm52-8k1k.yaml` | 单个United副本：attention TP8、ADP2、EP16，8条请求、并发2 |
-| `ascend910c-glm52-pd-8k1k.yaml` | P1:D1，各16device，attention TP8/ADP2，16条请求、并发4 |
-| `ascend910c-glm52-pd-search-8k1k.yaml` | 仅PD，共48候选；P/D独立选择TP4或8、副本1或2，并发8/16/32 |
-| `ascend910c-glm52-search-8k1k.yaml` | 合并部署与PD一起搜索，共60候选，目标为每device输出吞吐 |
+## 2. 修改输入输出长度
 
-这里的 `tensor` 是**每个attention-DP组内的TP**。United的全局TP16对应：
+例如搜索4K输入、2K输出：
+
+```bash
+sudo bash scripts/run-ascend910c.sh recommend \
+  --stack engine \
+  --config examples/cli/ascend910c-glm52-auto-search-8k1k.yaml \
+  --set traffic.source.input_tokens=4096 \
+  --set traffic.source.output_tokens=2048 \
+  --set engine.context_length=6144 \
+  --output-dir aisimulate-output/910c-search-4k2k
+```
+
+`context_length` 是输入加输出的上下文上限。修改负载时也要修改它，避免保留示例9216而截断输出。
+同样的参数可用于predict。输入输出不必等于采集点：模型推导每轮batch的算子shape后插值。
+
+已用TP8/ADP2/EP16、4K prefill chunk、并发2、每组4条请求验证：
+
+| 输入/输出 | 合并部署 | PD部署 |
+|---|---|---|
+| 1024 / 128 | 通过 | 通过 |
+| 2048 / 512 | 通过 | 通过 |
+| 4096 / 2048 | 通过 | 通过 |
+| 8192 / 4096 | 通过 | 通过 |
+| 12288 / 1024 | 通过 | 通过 |
+| 16384 / 1024 | 缺少prefix=12288的数据 | 同样缺少 |
+| 32768 / 1024 | 缺少prefix=12288的数据 | 同样缺少 |
+| 65 / 32 | decode序列低于实测下界128 | 同样缺少 |
+
+这是指定配置的功能检查，不代表全部并行候选在这些长度都已验证。
+主要边界是prefill prefix锚点0/8192、decode序列128～16384；batch、head数、图模式和MoE分布还有各自范围。
+12K输入分成三个4K chunk时，prefix为0/4096/8192；16K的第四个chunk需要prefix=12288，超出已有表。
+输出变长也会逐轮增加decode的KV长度，不能只把1K输出时间乘一个倍数。
+
+PD多数曲线覆盖128～16384token；4→4、8→8碎片页上界为8192，
+16→8、16→16碎片页范围1024～8192，16→16连续页下界1024。
+因此输入长度、页布局和P/D映射共同决定数据覆盖。
+
+GPU部分算子使用解析计算/访存模型，按实测效率进行范围外外推，能够接受更宽的shape范围。
+910C尚未把这项能力补到全部专用算子。后续扩展需要采集相关维度或实现经过验证的外推模型，
+**不需要为每一种输入/输出组合重新测整个模型**。缺数据时会明确报错，不使用A100数据或固定8K耗时代替。
+
+## 3. 支持的并行结构
+
+| 模式 | Attention TP | 全局FFN宽度 | Attention DP | MoE参数 |
+|---|---|---|---|---|
+| DeepEP | 1/2/4/8/16 | 16或32 | 全局宽度 / TP | MoE-TP1、EP16/32 |
+| 张量MoE | 1/2/4/8/16 | 16或32 | 全局宽度 / TP | MoE-TP16/32、EP1 |
+
+共20种结构声明。8K/1K、内存比例0.90时留下16种；全局16下TP1/TP2四种结构不满足当前模型和上下文容量。
+修改上下文或内存比例后会重新检查可行性。
+
+模拟器 `tensor` 是attention组内TP；SGLang的 `--tp-size` 是全局TP，等于
+`tensor × attention_data`，`--attn-dp-size` 对应 `attention_data`。
+例如United全局TP16、ADP2、EP16：
 
 ```yaml
 parallelism:
@@ -73,121 +114,89 @@ parallelism:
   replicas: 1
 ```
 
-每个副本占 `tensor × attention_data × pipeline = 16` 个运行时device。
-EP描述同一组device上的专家切分，不额外乘一次16。
-`P1:D2` 因而需要48个device，也就是3个这样的节点。
-项目的 `max_candidate_gpus`、`used_gpus`、`throughput_per_gpu` 字段保留原名称；
-选择 `ascend910c` 时其计数单位是运行时NPU device。硬件YAML配置每节点16device。
+每副本占 `tensor × attention_data × pipeline` 个device，EP不额外相乘。
+DeepEP对应 `--moe-a2a-backend deepep`；张量MoE对应 `none --ep-size 1`。
+每节点16个运行时device。`max_candidate_gpus`、`used_gpus`、`throughput_per_gpu` 保留原字段名，
+选ascend910c后按NPU device计数。P/D独立选结构，并按预算生成1P:3D、3P:1D等副本组合。
+超过两节点的模拟依赖同硬件、同软件、同互联条件的数据复用；共享链路争用尚未校准。
 
-64device预算允许模拟多副本部署，虽然本次实测使用两台节点。
-这依赖相同硬件、软件、拓扑和资源条件的复用假设；多副本共享链路争用尚未实测校准。
-
-搜索示例使用**显式已采集候选**，不要直接删除preset切换为无限制的默认GPU拓扑枚举。
-当前可用模型组合为attention TP4/8、EP16/32、MoE-TP1、PP1/CP1/DCP1；
-其中EP32仍缺部分小batch DeepEP稳定计时，因此交付的请求搜索限定EP16。
-PD传输进一步限定每个P/D副本为单节点16device。
-
-## 3. 8K输入、1K输出实际怎样计算
-
-1. 读取GLM结构和 `quant_model_description.json`，验证78层、3层dense+75层MoE、
-   256专家、top8、MLA/DSA及indexer共享模式。只有21层执行完整indexer选择，其余复用。
-2. 依据attention TP、ADP、EP和batch，推导各矩阵、向量、注意力、MoE、集合通信的实际shape。
-   静态W8A8线性、动态W8A8专家MLP、BF16/FP32操作分别选择对应实测表。
-3. Rust原生性能模型按精确键查询；在已测范围内插值。然后按层数、通信顺序和共享专家重叠规则
-   组合出本轮forward耗时。不会拿A100数据替代910C缺失点。
-4. 请求模拟器按max_batched_tokens、max_sequences、KV容量和队列决定每轮batch。
-   8K输入可以一次prefill，也可以分成两个4K chunk；之后逐轮生成1K输出。
-5. PD模式在源端完成prefill、目标端预留KV后，调用同一对canonical模型选择KV传输曲线；
-   再继续decode。源端释放还需满足已有forward与交接生命周期约束。
-6. 汇总每条请求的等待、首token和后续token时间，生成TTFT、TPOT和吞吐。
-   recommend对各候选重复这个流程，按指定目标排序，并保存可重新运行的YAML。
-
-KV使用BF16，128token一页。78层MLA主缓存、RoPE部分和indexer缓存合计
-每token、每个完整KV副本109824字节；8192token为899678208字节。
-W8A8不意味着KV、注意力、归一化、路由器或通信全部INT8。
-
-实测8K PD传输时间：
-
-| P的attention TP → D的attention TP | 连续页 | 碎片页 |
-|---|---:|---:|
-| 8 → 8 | 7.7815ms | 66.3320ms |
-| 4 → 8 | 15.5202ms | 130.4192ms |
-| 8 → 4 | 7.7453ms | 65.3545ms |
-| 4 → 4 | 7.7941ms | 65.1291ms |
-
-这是实际SGLang AscendKVManager、MemFabric1.2.1、SDMA通路的测量，包含真实rank映射和
-234组分层缓冲区搬运。并非用HCCL带宽简单替代。
-
-控制页布局：
-
-```yaml
-engine:
-  estimator_config:
-    op_level:
-      ascend:
-        routing: balanced
-        shared_expert_overlap: true
-        kv_transfer_page_layout: contiguous
-  kv_transfer:
-    type: measured
-    timing_mode: full_prompt
-```
-
-将 `contiguous` 改成 `fragmented` 可评估碎片页的传输影响。
-`destination_missing` 可以只计目标端缺失的token；示例关闭prefix cache并使用full_prompt，
-便于明确比较。超出实测范围、不同的模型布局或未采集拓扑会显式报错。
-
-搜索的prefill chunk固定4096，是因为TP4下8K单chunk会使每rank DeepEP normal输入达到2048，
-该配置本次在真实内核tiling失败；4K chunk对应1024，已有有效数据。
-这不是忽略错误，而是交付一组实际可查询的范围。后续扩展需要补实测，不能放宽范围检查。
-
-## 4. 已验证的结果与使用边界
-
-PD48个候选、联合搜索60个候选全部完成，没有失败候选。
-PD搜索在该集合内每device吞吐最优为P1:D2：P为TP4/ADP4，D为TP8/ADP2，并发32，
-共48device，预测输出吞吐约166.47token/s，每device约3.468token/s。
-保存的候选重新predict得到相同吞吐和TPOT。
-联合搜索的最优为合并部署TP4/ADP4/EP16、单副本、并发16，
-预测每device吞吐约5.306token/s。该目标没有配置延迟SLA，因此不能只凭排名决定上线参数。
-
-两项排名只针对示例的64条8K/1K请求、所列并行配置、并发量和目标，
-不代表所有负载下的全局最优。延迟SLA可通过标准 `evaluation.sla` 配置，详见
-`docs/sweeper/optimization-goals.md` 与 `docs/sweeper/search-space.md`。
-
-当前数据包含线性1378、attention/indexer1517、MLA BMM220、向量842、
-MoE链225、DeepEP125、HCCL449、PD32条稳定记录。
-MoE链中有8条是单token数学等价布局别名；不是额外测量。
-失败、波动超限记录保留在evidence中，没有混入稳定计时表。
-
-尚未声明完成的准确性工作：
-
-- 与完整SGLang服务的forward/TTFT/TPOT/吞吐对齐；目前是功能和数据执行正确性验证。
-- attention-DP负载不均、真实专家路由偏斜、多并行布局的独立静态内存校准。
-- PD多请求链路争用、bootstrap、逐层流式传输及其计算重叠。
-- EP32的小batch通信缺口，以及更大shape、PP/CP/DCP/MTP等新策略。
-- 功耗预测：尚未采集对应能耗，输出明确显示不可用。
-
-算子级预测使用固定SGLang0.5.22、CANN/HCCL9.1.0.B243、驱动26.1.1基线。
-升级软件版本后需要核对融合边界并重新采集变化部分；不能只改backend_version字符串。
-
-## 5. 文件位置与镜像重建
-
-- 硬件：`python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml`
-- 性能表：`python/aisimulate/src/aisimulate_core/systems/data/ascend910c/`
-- 模型组合：`python/aisimulate/src/aisimulate_core/sdk/models/ascend_glm52.py`
-- 采集和验证证据：`benchmarks/evidence/ascend910c-glm52-w8a8/production/`
-- 当前阶段进度：`md/910c-glm52-w8a8-production-progress.md`
-
-运行镜像和原生库已经留在32节点。`build/ascend910c-runtime/` 是被Git忽略的本地构建产物，
-含统一安装wheel、`_runtime.abi3.so` 和带SHA256的 `native-identity.json`；不是新一份采集数据。
-保留该目录即可重建镜像：
+## 4. PD与DCP
 
 ```bash
-sudo bash scripts/build-ascend910c-runtime.sh
+sudo bash scripts/run-ascend910c.sh predict \
+  --stack engine \
+  --config examples/cli/ascend910c-glm52-pd-8k1k.yaml \
+  --capture-per-request \
+  --output-dir aisimulate-output/910c-pd
+
+sudo bash scripts/run-ascend910c.sh predict \
+  --stack engine \
+  --config examples/cli/ascend910c-glm52-dcp2-8k1k.yaml \
+  --output-dir aisimulate-output/910c-dcp2
 ```
 
-在其他ARM64节点重建原生库时，需要Python3.11～3.13和支持edition2024的Rust，
-先安装 `maturin==1.15.0`，在 `python/aisimulate` 目录执行：
+PD计时来自真实SGLang AscendKVManager、MemFabric1.2.1/SDMA，包含rank映射和234组分层KV缓冲区搬运。
+KV为BF16，每个完整KV副本每token占109824字节；8K共899678208字节。
+W8A8不意味着KV、归一化、路由器和通信全部INT8。
+
+`engine.estimator_config.op_level.ascend.kv_transfer_page_layout` 可选 `contiguous` 或 `fragmented`。
+`engine.kv_transfer` 使用 `{type: measured, timing_mode: full_prompt}`；
+也可用 `destination_missing` 只计目标缺失token。
+
+DCP2/4/8/16必须整除attention TP。latent/RoPE KV分片，indexer KV仍完整保留；
+物理页128token，模拟器 `kv_cache.block_size` 必须是 `128 × DCP`。
+38种DCP配置已通过8K/1K预测，包括TP2/ADP16的两种MoE路径。
+DCP用于显式合并部署predict；本仓库GPU的recommend也不搜索CP/DCP。
+固定NPU运行时不支持PD+DCP，该组合仍明确拒绝。
+
+GPU Replay自身限制PP1；NPU CP2存在缺失方法的执行错误；
+混合MoE-TP/EP路径存在实际分组维度错误，DeepEP又强制EP等于全局TP。
+部分PP2真实部署可启动，并不代表AISimulate已经具备PP请求模拟。
+执行证据与源码位置见 [并行扩展进展](910c-glm52-w8a8-parallel-expansion.md)。
+
+## 5. 数据与解释范围
+
+| 数据族 | 已发布记录数 |
+|---|---:|
+| Linear | 2645 |
+| 向量/归一化/缓存操作 | 1194 |
+| Attention/Indexer | 2577 |
+| MLA BMM | 366 |
+| DeepEP专家计算链 | 225 |
+| 张量MoE计算链 | 126 |
+| DeepEP通信 | 143 |
+| HCCL | 449 |
+| PD传输 | 227，组成50条曲线 |
+| DCP存储/注意力/合并链 | 2994 |
+
+记录数不是独立内核数；MoE链中8条是已验证的数学等价布局别名。
+失败和CV超限记录保留在evidence中，未混入性能表。
+发布身份绑定硬件、软件、shape、dtype、计时协议和源码；节点数据复用必须满足相同条件。
+
+Rust模型按shape查表，组合78层：3层dense、75层MoE，21层完整indexer、57层复用。
+调度器依据chunk、并发和KV容量决定batch，prefill后逐轮生成输出；
+PD通过目标KV预留、传输和源端释放衔接decode，再汇总TTFT、TPOT、吞吐和排队。
+
+算子数值正确、表读取正确、请求完成属于功能证据，完整服务误差尚未校准。
+当前使用均衡attention-DP和专家路由，PD bootstrap、逐层流式传输和多请求争用尚未校准。
+功耗数据未采集，能耗输出明确不可用。
+基线固定为SGLang0.5.22（提交 `baa9befa381511cd4d56f83980951e5a45fffc6d`）、
+CANN/HCCL9.1.0.B243、驱动26.1.1。升级需核对执行边界并采集变化部分。
+
+## 6. 文件与重建
+
+- 硬件：`python/aisimulate/src/aisimulate_core/systems/ascend910c.yaml`
+- 数据：`python/aisimulate/src/aisimulate_core/systems/data/ascend910c/`
+- 组合模型：`python/aisimulate/src/aisimulate_core/sdk/models/ascend_glm52.py`
+- 原始证据：`benchmarks/evidence/ascend910c-glm52-w8a8/production/`
+- 阶段历史：[生产适配进展](910c-glm52-w8a8-production-progress.md)
+
+`build/ascend910c-runtime/` 为Git忽略的构建产物，含统一wheel、原生库、SHA256身份与离线依赖。
+保留它可重建镜像：`sudo bash scripts/build-ascend910c-runtime.sh`。
+修改Python、Rust或性能表后必须重建wheel和镜像，挂载源码不会替换已安装的包。
+
+在与基础镜像匹配的ARM64/Linux、Python3.11～3.13和支持edition2024的Rust环境中，
+安装 `maturin==1.15.0`，在 `python/aisimulate` 目录执行：
 
 ```bash
 python3 -m maturin build --release --auditwheel skip \
@@ -196,10 +205,5 @@ python3 -m pip download --dest ../../build/ascend910c-runtime \
   ../../build/ascend910c-runtime/aisimulate-*.whl
 ```
 
-这会同时打包Python代码、Rust扩展和性能数据。将wheel中的
-`aisimulate/_runtime.abi3.so` 提取到构建目录，记录对应Git提交、库和wheel的SHA256、
-release profile和extension-module feature到identity，再构建镜像。
-当前目录还保留了33个依赖wheel及其PyPI下载SHA256清单；构建时校验清单后使用本地wheel安装。
-本地wheel面向与当前固定基础镜像相同的ARM64/Linux环境。
-镜像运行使用已安装的统一wheel；挂载仓库用于读取配置与写入输出。
-修改实现或性能数据后，应重建wheel和镜像。
+提取wheel中的 `aisimulate/_runtime.abi3.so`，更新 `native-identity.json` 的源码提交、库与wheel的SHA256、
+release/extension-module配置，再执行构建脚本。延迟SLA与搜索字段见 `docs/sweeper/`。

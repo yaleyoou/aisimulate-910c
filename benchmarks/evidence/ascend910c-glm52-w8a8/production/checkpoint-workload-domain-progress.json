@@ -1,0 +1,26 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["The final joint search is running. A new variable-workload test exposed missing interpolation along eager-prefill batch; its Rust fix is under validation."],
+    "next_action": "Validate and package bounded prefill-batch interpolation; preserve explicit long-context data limits, finish the 1800-candidate search and installed-image checks."
+  },
+  "research": {
+    "parallel_extension": {
+      "source_commit": "c01901e92e178c42b17c34ca9ebf8af0bb591fbf",
+      "runtime_image": "Newimageb1eda26b26ecd939d44bf072a717d5682643ae82add8d162ea855f65dd387326 installed;native253dd1e9...,wheel258de097....16datafiles/native/model verified against wheel. United/PD/DCP2/TP2DCP2tensor installed predictions passed. A subsequent batch interpolation fix still needs packaging.",
+      "variable_workload": "Not fixed to8k1k.10successful explicit predictions:agg andPD for1k128,2k512,4k2k,8k4k,12k1k.6expectedcoverage rejections:16k1k/32k1k missingprefix12288,65/32 decodedsequencebelow128. Tests useTP8ADP2EP16,chunk4096,C2,4requests. Other candidates can have different limits.",
+      "gpu_difference": "GPU DSA query_generation uses SOL-anchored util-hold outside seq/batch bounds; Ascend custom curves explicitly reject extrapolation. General arbitrary-workload equivalence is not yet established; long-prefix/long-decode/small-sequence expansion is separate remaining capability.",
+      "new_interpolation_fix": "Installed4k2k auto16trials:15feasible1failure,TP16ADP1tensorMoE C32 reaches prefillbatch3 absent exact partition though batches2/4 measured. NativeAttention/DCP now draft bounded eager-prefill batch interpolation, preserving exact points, graph buckets, identities and both inner-axis bounds. Two independent midpoint oracle tests added; validation running.",
+      "joint_search": "Original1800candidate8k1k search stillrunning,over1100completedwith0failed;not yet frozen or final."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "artifacts": {
+        "variable_workload_results": {"path":"production/workload-domain-validation-20261025/results.json","kind":"file","scope":"validation"},
+        "variable_workload_domain": {"path":"production/workload-domain-validation-20261025/summary.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

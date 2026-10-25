@@ -1,5 +1,24 @@
 # Current goal handoff
 
+## NEWEST: user asks arbitrary workload coverage; bounded prefill-batch interpolation fix active
+
+HEADc01901e9 commitsPD227+DCP2994. Checkpoint61. Current installedimageb1eda26b...isnew20layoutwheel
+sourcec01901e9,native253dd1e9...,wheel258de097...;installedunited/PD/DCP2/TP2DCP2tensor pass,
+16packageddatafiles/native/model byteverified. Installed4k2k16trialsearch has15feasible1failure
+(tensorTP16/ADP1/C32 prefillbatch3 missing categoricalpartition),best64requests replaypasses.
+Do NOT callthis allgreen. Originaloutputs remain aisimulate-output/parallel-delivery-20261025.
+Userclarification:8k1k is NOT interface restriction,butcurrentAscend onlyboundedinterpolation vsGPU DSA SOLextrapolation.
+VariablelengthTP8ADP2EP16 predictionsbothagg/PD:1k128,2k512,4k2k,8k4k,12k1k pass;
+16k1k/32k1kfailprefix12288;65/32faildecodeseq<128. Frozen workload-domain-validation-20261025.
+Usage rewrittenhonestly;docconfiguration/PD layoutsupdated. DoNOTclaimarbitrarylengthfullysupported.
+UNCOMMITTEDRust2files: query_prefill_batch interpolates eagerprefillbatch betweenexistingbounds;
+sharedAttention/DCP,exactgridsandgraphbucketsunchanged,no extrapolation. Twohand-calculatednativeoracle testsadded.
+ACTIVE72844cargo ascendtests thenformatcheck,logs/tmp/aisim-prefill-batch-{rust-tests,format}.log.
+NEXTfinishtests,commitfixwithvariablelengthproof/docs;buildfinalnewwheel;runboth390GPUparitysuites;
+revalidate4k2ksearchfreshdir andallmeasuredattention/DCPpoints;newimage/installedchecks/freeze/finalcheckpoint.
+ACTIVE24914 original1800search c019prebatchfix still~1100/1800,0failed;freezeoncompletion.
+NoNPUjobactive;32/19only. 93967availableforbuild/checkpoint,89706remoteidle.
+
 ## NEWEST: smallTP PD227 andDCP2994 installed; final1800 search running
 
 HEAD82158e09. New stage data/model guard removal and evidence ready to commit;checkpoint61 pending.

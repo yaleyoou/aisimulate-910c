@@ -40,8 +40,9 @@ With `type: measured`, keep `bytes_per_token: auto` and omit bandwidth. Both
 language roles must use default canonical op-level timing on the same Ascend
 hardware, SGLang version and local GLM ModelSlim model. The source and
 destination attention TP select the actual sender/receiver mapping. The
-qualified role layout is EP16/32, attention TP4/8/16, PP1/CP1/DCP1 and
-128-token BF16 KV pages. Each selected attention-DP group must remain on one
+qualified role layout uses attention TP1/2/4/8/16, either EP16/32 with MoE-TP1
+or EP1 with MoE-TP16/32, PP1/CP1/DCP1 and 128-token BF16 KV pages.
+Each selected attention-DP group must remain on one
 node, with source and destination groups on different nodes. EP32 adds other
 attention-DP groups; it does not change this request's replicated KV layout or
 sender mapping. The same isolated-group curve therefore applies, while shared

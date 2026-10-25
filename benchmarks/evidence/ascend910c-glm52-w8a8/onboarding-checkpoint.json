@@ -1621,6 +1621,22 @@
           "scope": "validation",
           "sha256": "39a9d2a6767b15a6011db7932a0aa53e8934f8aae609a90dbe4e755ee0a36ca6"
         },
+        "variable_workload_domain": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/workload-domain-validation-20261025/summary.json",
+          "scope": "validation",
+          "sha256": "6f7e07e0c87b444b16411a8dfd146a9dbf70665601a63694b4cd762889b724dc"
+        },
+        "variable_workload_results": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/workload-domain-validation-20261025/results.json",
+          "scope": "validation",
+          "sha256": "123f370ab4385ee80be5b8410cd2d5d41dc1ef4ea6ead66d99c674e03822b04b"
+        },
         "verified_peer_checkpoint": {
           "archived": true,
           "context_sha256": "0e538551d055423298a0a3db1125cecd26b8d08279220467115f14736f660c32",
@@ -1744,9 +1760,9 @@
   ],
   "progress": {
     "blockers": [
-      "Final 1800-candidate joint search and rebuilt installed-wheel delivery remain."
+      "The final joint search is running. A new variable-workload test exposed missing interpolation along eager-prefill batch; its Rust fix is under validation."
     ],
-    "next_action": "Finish joint search, build the unified wheel and user image from committed source/data, verify installed commands and update usage documentation.",
+    "next_action": "Validate and package bounded prefill-batch interpolation; preserve explicit long-context data limits, finish the 1800-candidate search and installed-image checks.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2256,23 +2272,26 @@
       "deepep": "Installed143stableboundariesfromcomplete88case256-iterationplan.8casesfailed(4normalM2048tiling,4lowlatencyvector/GM)and17CVboundariesexcluded;alloriginalfailurespreserved.",
       "default_domain": "20 declared TP/ADP/MoE-TP/EP shapes;16 remain feasible for 9216 context at0.90 memory. Four world16 TP1/2 shapes are filtered by unchanged native capacity checks.132/132 aggregated candidates passed.1800 joint candidates still running.",
       "gpu_audit": "DefaultGPUsearchPP1andworkerwidth1/2/4/8/16. GPUDeepSeekV32classhasSGLangCPbutDCPonlyvLLM. ActualpinnedSGLang-NPUhasDSADCPpartialattention/LSEpath,soGPUmodelrestrictionscannotbesimplycopied.",
+      "gpu_difference": "GPU DSA query_generation uses SOL-anchored util-hold outside seq/batch bounds; Ascend custom curves explicitly reject extrapolation. General arbitrary-workload equivalence is not yet established; long-prefix/long-decode/small-sequence expansion is separate remaining capability.",
       "head": "2341238367a5d02182c3987a254dd3b9ee7e9d77",
+      "joint_search": "Original1800candidate8k1k search stillrunning,over1100completedwith0failed;not yet frozen or final.",
       "mixed_moe_tp_ep": "Isolated actual AscendTPDispatcher EP2rank0 probe produced256globalexpert counts for128localweights and failed GMM with scale batch128 versusgroupList256. Preserve as isolated source/metadata evidence; not a full distributed serving result.",
       "moetp_capture": "Real TP16/ADP1/EP1 none-backend model completed8kinput16output. Captured resident model49,300,283,900bytes;75tensorMoE layers and157AR16perforward. New actual tensor dispatcher/GMM/activation/finalization collector128cases completed;126stable,2CVexcluded. Four graph-noop controls rejected. Original smoke reference indexed routing mapping incorrectly; independent probe established token-major map and only the checker index was fixed, tolerances unchanged.",
       "moetp_integration": "Native AscendMoeTensor table/op and publisher implemented;3Rust and6Python tests pass. Model composition, shared-expert linear/vector data and full caller validation are still pending.",
       "native_sha256": "a1859b5b240179d3db9440ca4eb9f3b43e28bc15a19ee92e071e0efaab71697e",
+      "new_interpolation_fix": "Installed4k2k auto16trials:15feasible1failure,TP16ADP1tensorMoE C32 reaches prefillbatch3 absent exact partition though batches2/4 measured. NativeAttention/DCP now draft bounded eager-prefill batch interpolation, preserving exact points, graph buckets, identities and both inner-axis bounds. Two independent midpoint oracle tests added; validation running.",
       "next": "Continue complete adaptation; goal active. User runtime image remains previous limited release until rebuilt.",
       "nodes": "AllownedNPUcampaigns stopped;32and19available,31untouched. Goalremainsactive.",
       "pd": "TP4/8/16 all9mappingscollected;90-case singlecall71stable and90-case8-callmeans66stable. Selected18wholecurves81rows acrosscompatiblecampaigns,coverage-first/latency-independent selection,per-curvecollectionidentitiespreserved. No splicingdifferentprotocolsinacurve. Same per-attentionDPgroup mapping supportsEP32 roles under PP1CP1DCP1,distinct endpointnodes,no shared-link contention calibration.",
       "pp_capture": "PP2TP8EP8fullweightsserverstartedandcompleted8kinput16output. State/memorycaptureexists;PPmodelnotimplemented. OwnedPPserverstopped.",
       "pp_scope": "GPU engine launch itself rejects pp!=1 at crates/core/src/engine/launch.rs:170. PP2DeepEP8 realmodel8krequest passed, but native request Replay/search cannot use PP on either GPU orNPU. NewPP2MoETP8none failed graphcapture: OwedOutput.shape access while carrying skip-layer topk atSGLangdeepseek_v2.py3169.",
       "replay_qualification": "Baseline2434b021e2d186b7b9601d62ca90d4865a513887 and candidate98381b91:8rows,32processes,5000requests each, all complete and canonical reports byte-identical. First build incorrectly embedded short baseline SHA and was rejected before simulation; v2 uses full SHAs. Frozen362files under parallel-replay-validation-98381b91.",
-      "runtime_image": "Old190684 image still installed; replacement pending. All NPU collection finished;32/19 only,31 untouched. Serving accuracy remains deliberately deferred.",
+      "runtime_image": "Newimageb1eda26b26ecd939d44bf072a717d5682643ae82add8d162ea855f65dd387326 installed;native253dd1e9...,wheel258de097....16datafiles/native/model verified against wheel. United/PD/DCP2/TP2DCP2tensor installed predictions passed. A subsequent batch interpolation fix still needs packaging.",
       "small_tp_compute": "Installed linear2645, vector1194, attention2577, BMM366 rows; all exact native queries passed. Four small-TP world32 configurations passed8k1k and12 additional concurrency8/16/32 batch scenarios passed.",
       "small_tp_pd": "160 new cases all numerically valid;138 stable. Three fragmented curves lacked8k coverage;15-case full-curve supplement with32 calls/sample all passed CV<=10%. Whole-curve selection then disjoint append produces227 rows/50curves, all span8192. Canonical validation227/227 points and50/50 mappings pass. Original jitter and22 excluded records retained.",
       "small_tp_protocol": "Newlarge-linearcurves use16distinctweights/16calls tofit TP1lmhead andlargeoutputs. 8vs16weightcontrols:median0.823%,max3.028% timingdifference across16cases;16repeatmedian0.686%,onecase13.05%drift retained. FullrowCVchecks remain10%. Existingcurveskeepoldprotocols andvalues.",
       "small_tp_source": "Producerheads32/64 andTP1/2 vocabularygeometry added. NativeBMM/attention identities nowperphysicalgrid;disjointappendpreservespriorhistories. TP1omitsone-rankcollectives andkeepsfinalresidualforfusednorm, asunitaxesareelidedinSGLangLayout andbind_exitselectskeep_output. Source39native,15producer,19model/appendtests pass. Nativeextensionfornewheads stillbuilding.",
-      "source_commit": "82158e09665c77e95a0629d095c968d65b58faf8",
+      "source_commit": "c01901e92e178c42b17c34ca9ebf8af0bb591fbf",
       "source_revision": "baa9befa381511cd4d56f83980951e5a45fffc6d",
       "status": "351_candidate_functional_stage_with_further_strategies_in_progress",
       "tensor_adp": "Real MoETP16EP1 ADP2 andADP4 servers each completed8192input16output. Captured resident50,480,189,948 and52,840,002,044 respectively. Prefill156global16AR plusembedding/localLogits;decode78localRS+78globalAG+78globalRS+78localAG pluslogits. Global FFN input andplainRMS boundary now modeled. Bothserversstopped.",
@@ -2286,6 +2305,7 @@
         "npu1-31"
       ],
       "validation": "72SGLangtestsand2042Rustpass(1preexistingignored);390GPUparitypass116.17s;984publictests pass,5faildueHuggingFaceconnectionresetforunrelatedQwen3-VLconfig.46focusedidentity/model/provenancechecks pass.143DeepEP,1707attentionand81PDexactnativequeriespass. StrictTP16prefill/EP32decodePDpredictpasses.",
+      "variable_workload": "Not fixed to8k1k.10successful explicit predictions:agg andPD for1k128,2k512,4k2k,8k4k,12k1k.6expectedcoverage rejections:16k1k/32k1k missingprefix12288,65/32 decodedsequencebelow128. Tests useTP8ADP2EP16,chunk4096,C2,4requests. Other candidates can have different limits.",
       "verification": "Full Rust2051passed1preexistingignored.15 latest GLM model checks passed. Prior390 GPUgoldens and8-layout/32-process Replay baseline byte parity passed without changing goldens."
     },
     "pd_recommendation": {
@@ -2461,7 +2481,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 61,
+  "revision": 62,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

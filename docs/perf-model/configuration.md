@@ -207,19 +207,30 @@ explicit Ascend controls.
 | Field under `estimator_config.op_level.ascend` | Default | Behavior |
 | --- | --- | --- |
 | `routing` | `balanced` | Uses the measured synthetic balanced expert-count profile. Other distributions are not yet supported by the complete model composition. |
-| `shared_expert_overlap` | `true` | Overlaps the shared expert with routed TopK/dispatch/compute/combine work. `false` adds the two streams serially. |
+| `shared_expert_overlap` | `true` | Overlaps the shared expert with routed work where the pinned runtime permits it. Tensor-MoE prefill stays serial; its decode and the DeepEP path may overlap. `false` adds the streams serially. |
 | `kv_transfer_page_layout` | `contiguous` | Selects the measured PD page pattern: `contiguous` or `fragmented`. Both role models must agree; applies when `engine.kv_transfer.type: measured`. |
 
 The GLM adapter requires the local checkpoint's `config.json` and
 `quant_model_description.json`. It validates the full ModelSlim precision
 partition, including unquantized indexer/router/logits weights, and uses BF16
-KV with128-token pages. The current profile uses attention-local TP4/8,
-global EP16/32, MoE-TP1, PP1/CP1/DCP1 and no speculation/EPLB. Batch sizes are
-per attention-DP replica, with uniform load assumed across replicas. Decode
-uses graph buckets8/16/24/32. Data bounds apply to every query; an accepted
-topology does not imply that every batch is measured. In particular, small
-balanced EP32 decode batches still have transport coverage gaps. Numerical
-execution and table lookup checks do not establish whole-serving accuracy.
+KV with 128-token physical pages. Attention-local TP1/2/4/8/16 combines with
+either global EP16/32 and MoE-TP1, or global MoE-TP16/32 and EP1. Attention-DP
+equals global width divided by local TP. PP1/CP1 and no speculation/EPLB remain
+required. Native memory checks filter infeasible layouts for each workload.
+Batch sizes are per attention-DP replica, with uniform load assumed across
+replicas. Decode uses qualified graph buckets from 8/16/24/32, divisible by
+local TP. DCP2/4/8/16 may divide local TP in aggregated prediction; it uses
+separately measured storage/attention/merge chains and logical KV blocks of
+`128 * dcp`. PD with DCP is unsupported by the pinned runtime.
+
+These tables support workload-dependent shape queries, not just 8192-input,
+1024-output requests. They currently interpolate within measured bounds and
+reject extrapolation; the common prefill prefix grid is 0/8192 and decode
+sequence grid spans 128..16384. Exact coverage also depends on batch, heads,
+graph mode and the selected operation. Longer prompts can need unmeasured
+prefixes even when chunk size stays fixed. An accepted topology or sufficient
+KV capacity does not establish data coverage. Numerical execution and table
+lookup checks do not establish whole-serving accuracy.
 
 EngineSpec schema29 carries request-based HCCL payload sizing and separate
 resident-copy counts for shared RoPE storage and retained MLA weight views.
@@ -449,8 +460,10 @@ config and no separate options argument. The raw PyO3 class also exposes
 ## Decode context parallelism
 
 Op-level DCP declarations are model- and backend-specific: DeepSeek-V3-class
-MLA supports vLLM and SGLang, DeepSeek-V3.2/GLM-5 DSA supports vLLM only,
-and Kimi-K3 supports SGLang only. Dense/Qwen-MoE GQA on vLLM also needs enough
+MLA supports vLLM and SGLang, GPU DeepSeek-V3.2/GLM-5 DSA supports vLLM only,
+and Kimi-K3 supports SGLang only. The audited GLM ModelSlim adapter on
+`ascend910c` additionally supports the pinned SGLang NPU DSA DCP implementation,
+with the page layout and restrictions described above. Dense/Qwen-MoE GQA on vLLM also needs enough
 attention-TP ranks per KV head. These declarations do not bypass precision,
 attention-kernel, communication-style or topology checks. Unsupported requests
 fail validation; they are not silently priced as DCP1.
