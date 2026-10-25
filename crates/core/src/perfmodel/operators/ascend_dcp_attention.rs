@@ -84,11 +84,18 @@ impl AscendDcpAttentionOp {
         } else {
             0
         };
-        Ok(PerformanceResult::new(
-            db.ascend_dcp_attention
-                .query(&self.key, batch, padded, sequence, past)?,
-            Source::Silicon,
-        )
-        .scaled(self.scale_factor))
+        Ok(db
+            .ascend_dcp_attention
+            .estimate(
+                &self.key,
+                batch,
+                padded,
+                sequence,
+                past,
+                db.ascend_shape_policy,
+                &db.system_spec,
+            )?
+            .result()
+            .scaled(self.scale_factor))
     }
 }

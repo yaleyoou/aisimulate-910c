@@ -1137,9 +1137,11 @@ impl ForwardPassPerfModel {
             .ok_or_else(|| {
                 AicError::InvalidEngineConfig("missing destination Ascend options".into())
             })?;
-        if source_options.kv_transfer_page_layout != target_options.kv_transfer_page_layout {
+        if source_options.kv_transfer_page_layout != target_options.kv_transfer_page_layout
+            || source_options.shape_policy != target_options.shape_policy
+        {
             return Err(AicError::InvalidEngineConfig(
-                "measured KV transfer requires matching role page-layout assumptions".into(),
+                "measured KV transfer requires matching role page-layout and shape-policy assumptions".into(),
             ));
         }
         source_engine
@@ -1149,6 +1151,13 @@ impl ForwardPassPerfModel {
                 source_tp: source_config.tp,
                 destination_tp: target_config.tp,
                 page_layout: source_options.kv_transfer_page_layout.clone(),
+            })
+            .map(|curve| {
+                if source_options.shape_policy.is_measured() {
+                    curve
+                } else {
+                    curve.with_shape_policy(source_options.shape_policy)
+                }
             })
     }
 

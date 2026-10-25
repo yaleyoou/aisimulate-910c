@@ -193,6 +193,7 @@ pub mod ascend_linear;
 pub mod ascend_moe_chain;
 pub mod ascend_moe_tensor;
 pub mod ascend_pd;
+pub mod ascend_shape;
 pub mod ascend_vector;
 pub mod attention;
 mod axis_curve;
@@ -304,6 +305,7 @@ pub struct PerfTables {
 /// under HYBRID.
 pub struct PerfDatabase {
     tables: Arc<PerfTables>,
+    pub ascend_shape_policy: ascend_shape::AscendShapePolicy,
     /// Query mode (Python's `database._default_database_mode`). SILICON
     /// queries collected tables only; HYBRID falls back to the util-space
     /// empirical layer on a typed silicon miss; EMPIRICAL always answers
@@ -822,6 +824,7 @@ impl PerfDatabase {
     fn from_tables(tables: Arc<PerfTables>) -> Self {
         Self {
             tables,
+            ascend_shape_policy: Default::default(),
             database_mode: DatabaseMode::default(),
             transfer_policy: TransferPolicy::ALL,
             util_grids: Arc::new(UtilGridCache::new()),
@@ -894,6 +897,7 @@ impl PerfDatabase {
     pub fn silicon_view(&self) -> PerfDatabase {
         PerfDatabase {
             tables: Arc::clone(&self.tables),
+            ascend_shape_policy: self.ascend_shape_policy,
             database_mode: DatabaseMode::Silicon,
             transfer_policy: self.transfer_policy,
             util_grids: Arc::clone(&self.util_grids),
@@ -912,6 +916,7 @@ impl PerfDatabase {
     pub fn sol_full_view(&self) -> PerfDatabase {
         PerfDatabase {
             tables: Arc::clone(&self.tables),
+            ascend_shape_policy: self.ascend_shape_policy,
             database_mode: DatabaseMode::SolFull,
             transfer_policy: self.transfer_policy,
             util_grids: Arc::clone(&self.util_grids),

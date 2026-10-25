@@ -86,6 +86,41 @@ pub struct AscendLinearTable {
 }
 
 impl AscendLinearTable {
+    pub fn estimate(
+        &self,
+        key: &AscendLinearKey,
+        quant_bias: bool,
+        tokens: u32,
+        policy: super::ascend_shape::AscendShapePolicy,
+        spec: &crate::common::system_spec::SystemSpec,
+    ) -> Result<super::ascend_shape::ShapeEstimate, AicError> {
+        match self.query(key, quant_bias, tokens) {
+            Ok(value) => return Ok(super::ascend_shape::ShapeEstimate::measured(value.latency)),
+            Err(error)
+                if policy == super::ascend_shape::AscendShapePolicy::Anchored
+                    && error.is_missing_perf_data() => {}
+            Err(error) => return Err(error),
+        }
+        let curve = self.curve(key, quant_bias)?;
+        super::ascend_shape::anchored_axis(
+            tokens,
+            curve.minimum,
+            curve.maximum,
+            &|value| {
+                self.query(key, quant_bias, value)
+                    .map(|result| result.latency)
+            },
+            &|count| {
+                super::ascend_shape::linear_work(
+                    spec,
+                    count,
+                    f64::from(key.n),
+                    f64::from(key.k),
+                    key.quant_mode.starts_with("w8a8"),
+                )
+            },
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,

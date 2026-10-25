@@ -33,6 +33,10 @@ pub struct AscendOpLevelConfig {
     pub shared_expert_overlap: bool,
     pub routing: String,
     pub kv_transfer_page_layout: String,
+    #[serde(
+        skip_serializing_if = "crate::perf_database::ascend_shape::AscendShapePolicy::is_measured"
+    )]
+    pub shape_policy: crate::perf_database::ascend_shape::AscendShapePolicy,
 }
 
 impl Default for AscendOpLevelConfig {
@@ -41,6 +45,7 @@ impl Default for AscendOpLevelConfig {
             shared_expert_overlap: true,
             routing: "balanced".into(),
             kv_transfer_page_layout: "contiguous".into(),
+            shape_policy: Default::default(),
         }
     }
 }
@@ -102,6 +107,27 @@ mod ascend_tests {
         assert!(restored.resolve_for("a100_sxm", "sglang").is_err());
         assert!(restored.resolve_for("ascend910c", "vllm").is_err());
         assert!(serde_json::from_str::<OpLevelConfig>(r#"{"ascend":{"unknown":true}}"#).is_err());
+    }
+
+    #[test]
+    fn ascend_shape_policy_is_explicit_typed_and_round_trips() {
+        let mut bounded = OpLevelConfig::default();
+        bounded.resolve_for("ascend910c", "sglang").unwrap();
+        assert!(bounded.ascend.as_ref().unwrap().shape_policy.is_measured());
+        let mut anchored: OpLevelConfig =
+            serde_json::from_str(r#"{"ascend":{"shape_policy":"anchored"}}"#).unwrap();
+        anchored.resolve_for("ascend910c", "sglang").unwrap();
+        assert!(!anchored.ascend.as_ref().unwrap().shape_policy.is_measured());
+        assert_eq!(
+            serde_json::from_str::<OpLevelConfig>(&serde_json::to_string(&anchored).unwrap())
+                .unwrap(),
+            anchored
+        );
+        assert!(
+            serde_json::from_str::<OpLevelConfig>(r#"{"ascend":{"shape_policy":"ignore_bounds"}}"#)
+                .is_err()
+        );
+        assert!(anchored.resolve_for("b300_sxm", "sglang").is_err());
     }
 }
 

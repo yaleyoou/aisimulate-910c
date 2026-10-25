@@ -16,6 +16,9 @@ engine:
   comm_quant_mode: half
   estimation_mode: op_level
   fallback_policy: deny
+  estimator_config:
+    op_level:
+      ascend: {shape_policy: anchored}
   workers:
     aggregated:
       parallelism: {tensor: 8, attention_data: 2, moe_tensor: 1, moe_expert: 16, decode_context: 2, replicas: 1}

@@ -5,9 +5,11 @@ use std::sync::OnceLock;
 use serde::{Deserialize, Serialize};
 
 use super::SourceResolver;
+use super::ascend_shape::{AscendShapePolicy, ShapeEstimate, attention_work};
 use super::axis_curve::AxisCurve;
 use super::parquet_loader::PerfReader;
 use crate::common::error::AicError;
+use crate::common::system_spec::SystemSpec;
 
 pub const BASENAME: &str = "ascend_attention_perf.parquet";
 
@@ -79,6 +81,24 @@ impl BoundedCurve {
         }
         self.points.query(f64::from(coordinate), &|_| 1.0)
     }
+
+    fn estimate(
+        &self,
+        coordinate: u32,
+        work: &dyn Fn(u32) -> Result<f64, AicError>,
+    ) -> Result<ShapeEstimate, AicError> {
+        let anchor = coordinate.clamp(self.minimum, self.maximum);
+        let value = ShapeEstimate::measured(self.query(anchor)?);
+        if anchor == coordinate {
+            return Ok(value);
+        }
+        let floor = self
+            .points
+            .iter()
+            .map(|(_, value)| value)
+            .fold(f64::INFINITY, f64::min);
+        value.scale_work(work(coordinate)?, work(anchor)?, floor)
+    }
 }
 
 pub(crate) struct Plane(BTreeMap<u32, BoundedCurve>);
@@ -111,6 +131,87 @@ impl Plane {
             ))),
         }
     }
+
+    fn estimate(
+        &self,
+        outer: u32,
+        inner: u32,
+        work: &dyn Fn(u32, u32) -> Result<f64, AicError>,
+    ) -> Result<ShapeEstimate, AicError> {
+        if let Some(curve) = self.0.get(&outer) {
+            return curve.estimate(inner, &|value| work(outer, value));
+        }
+        let lower = self.0.range(..outer).next_back();
+        let upper = self.0.range(outer..).next();
+        if let (Some((lower_axis, lower_curve)), Some((upper_axis, upper_curve))) = (lower, upper) {
+            return Ok(lower_curve
+                .estimate(inner, &|value| work(*lower_axis, value))?
+                .blend(
+                    upper_curve.estimate(inner, &|value| work(*upper_axis, value))?,
+                    f64::from(outer - lower_axis) / f64::from(upper_axis - lower_axis),
+                ));
+        }
+        let (anchor, curve) = lower
+            .or(upper)
+            .ok_or_else(|| AicError::PerfDatabase("empty Ascend shape plane".into()))?;
+        let value = curve.estimate(inner, &|value| work(*anchor, value))?;
+        let floor = curve
+            .points
+            .iter()
+            .map(|(_, value)| value)
+            .fold(f64::INFINITY, f64::min);
+        value.scale_work(work(outer, inner)?, work(*anchor, inner)?, floor)
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn estimate_attention_grid(
+    partitions: &BTreeMap<u32, Plane>,
+    prefill: bool,
+    active: u32,
+    padded: u32,
+    sequence: u32,
+    prefix: u32,
+    work: &dyn Fn(u32, u32, u32) -> Result<f64, AicError>,
+) -> Result<ShapeEstimate, AicError> {
+    if !prefill {
+        let plane = partitions.get(&padded).ok_or_else(|| {
+            AicError::PerfDatabase(format!("unmeasured Ascend graph bucket={padded}"))
+        })?;
+        return plane.estimate(active, sequence, &|batch, length| work(batch, length, 0));
+    }
+    if let Some(plane) = partitions.get(&active) {
+        return plane.estimate(prefix, sequence, &|past, tokens| work(active, tokens, past));
+    }
+    let lower = partitions.range(..active).next_back();
+    let upper = partitions.range(active..).next();
+    if let (Some((lower_batch, lower_plane)), Some((upper_batch, upper_plane))) = (lower, upper) {
+        return Ok(lower_plane
+            .estimate(prefix, sequence, &|past, tokens| {
+                work(*lower_batch, tokens, past)
+            })?
+            .blend(
+                upper_plane.estimate(prefix, sequence, &|past, tokens| {
+                    work(*upper_batch, tokens, past)
+                })?,
+                f64::from(active - lower_batch) / f64::from(upper_batch - lower_batch),
+            ));
+    }
+    let (anchor, plane) = lower
+        .or(upper)
+        .ok_or_else(|| AicError::PerfDatabase("empty Ascend batch grid".into()))?;
+    let value = plane.estimate(prefix, sequence, &|past, tokens| {
+        work(*anchor, tokens, past)
+    })?;
+    value.scale_work(
+        work(active, sequence, prefix)?,
+        work(*anchor, sequence, prefix)?,
+        plane
+            .0
+            .values()
+            .flat_map(|curve| curve.points.iter().map(|(_, value)| value))
+            .fold(f64::INFINITY, f64::min),
+    )
 }
 
 pub(crate) fn query_prefill_batch(
@@ -145,6 +246,56 @@ pub struct AscendAttentionTable {
 }
 
 impl AscendAttentionTable {
+    #[allow(clippy::too_many_arguments)]
+    pub fn estimate(
+        &self,
+        key: &AscendAttentionKey,
+        active: u32,
+        padded: u32,
+        sequence: u32,
+        prefix: u32,
+        policy: AscendShapePolicy,
+        spec: &SystemSpec,
+    ) -> Result<ShapeEstimate, AicError> {
+        match self.query(key, active, padded, sequence, prefix) {
+            Ok(value) => return Ok(ShapeEstimate::measured(value)),
+            Err(error) if policy == AscendShapePolicy::Anchored && error.is_missing_perf_data() => {
+            }
+            Err(error) => return Err(error),
+        }
+        let partitions = self.grids()?.get(key).ok_or_else(|| {
+            AicError::PerfDatabase(format!("unmeasured Ascend attention identity: {key:?}"))
+        })?;
+        if key.phase == "prefill" && key.execution_mode != "eager" {
+            return Err(AicError::PerfDatabase(
+                "Ascend extrapolation cannot substitute a prefill capture bucket".into(),
+            ));
+        }
+        estimate_attention_grid(
+            partitions,
+            key.phase == "prefill",
+            active,
+            if key.execution_mode == "eager" && key.phase == "decode" {
+                0
+            } else {
+                padded
+            },
+            sequence,
+            prefix,
+            &|batch, tokens, past| {
+                attention_work(
+                    spec,
+                    key.operation == "lightning_indexer",
+                    key.phase == "prefill",
+                    key.local_heads,
+                    batch,
+                    tokens,
+                    past,
+                    1,
+                )
+            },
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,
@@ -680,4 +831,32 @@ mod tests {
                 .is_missing_perf_data()
         );
     }
+}
+#[test]
+fn anchored_ragged_grid_scales_only_the_missing_boundary() {
+    let partitions = BTreeMap::from([
+        (
+            2,
+            Plane::from_raw(BTreeMap::from([(
+                0,
+                BTreeMap::from([(1, 1.0), (4096, 8.0)]),
+            )])),
+        ),
+        (
+            4,
+            Plane::from_raw(BTreeMap::from([(
+                0,
+                BTreeMap::from([(1, 2.0), (2048, 8.0)]),
+            )])),
+        ),
+    ]);
+    let work = |batch, tokens, _| Ok(f64::from(batch) * f64::from(tokens));
+    let estimate = estimate_attention_grid(&partitions, true, 3, 3, 4096, 0, &work).unwrap();
+    assert_eq!(estimate.latency_ms, 11.0);
+    assert!(estimate.extrapolated);
+    assert!(query_prefill_batch(&partitions, 3, 0, 4096).is_err());
+    assert!(estimate_attention_grid(&partitions, false, 1, 8, 4096, 0, &work).is_err());
+    let measured = estimate_attention_grid(&partitions, true, 2, 2, 4096, 0, &work).unwrap();
+    assert_eq!(measured.latency_ms, 8.0);
+    assert!(!measured.extrapolated);
 }

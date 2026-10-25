@@ -209,6 +209,7 @@ explicit Ascend controls.
 | `routing` | `balanced` | Uses the measured synthetic balanced expert-count profile. Other distributions are not yet supported by the complete model composition. |
 | `shared_expert_overlap` | `true` | Overlaps the shared expert with routed work where the pinned runtime permits it. Tensor-MoE prefill stays serial; its decode and the DeepEP path may overlap. `false` adds the streams serially. |
 | `kv_transfer_page_layout` | `contiguous` | Selects the measured PD page pattern: `contiguous` or `fragmented`. Both role models must agree; applies when `engine.kv_transfer.type: measured`. |
+| `shape_policy` | `measured` | `measured` requires measured interpolation brackets. `anchored` preserves covered queries and estimates missing numeric coordinates using same-identity boundary measurements and analytical work ratios. It never substitutes hardware, precision, kernel, topology or graph capture buckets. Both PD roles must agree. |
 
 The GLM adapter requires the local checkpoint's `config.json` and
 `quant_model_description.json`. It validates the full ModelSlim precision
@@ -224,13 +225,34 @@ separately measured storage/attention/merge chains and logical KV blocks of
 `128 * dcp`. PD with DCP is unsupported by the pinned runtime.
 
 These tables support workload-dependent shape queries, not just 8192-input,
-1024-output requests. They currently interpolate within measured bounds and
-reject extrapolation; the common prefill prefix grid is 0/8192 and decode
-sequence grid spans 128..16384. Exact coverage also depends on batch, heads,
-graph mode and the selected operation. Longer prompts can need unmeasured
-prefixes even when chunk size stays fixed. An accepted topology or sufficient
-KV capacity does not establish data coverage. Numerical execution and table
-lookup checks do not establish whole-serving accuracy.
+1024-output requests. The default `shape_policy: measured` interpolates only
+inside measured bounds. `shape_policy: anchored` extends numeric axes while
+retaining the original rows. Attention/indexer estimates use causal query/key
+work, the sparse top2048 limit, HBM traffic and the calibrated BF16 rate;
+DCP also accounts for storage and query/output communication. The measured
+boundary latency is split into a fixed component (the minimum of the measured
+curve) and a remaining component scaled by the analytical work ratio. This
+retains launch overhead instead of multiplying it by context length, and
+prevents launch-dominated small shapes from tending to zero.
+Eager prefill batch interpolation may evaluate a ragged grid's missing inner
+coordinates this way. Graph buckets remain categorical and must be measured.
+
+Linear/BMM/MoE extensions use compute and weight/activation traffic;
+vector work scales with token count. HCCL uses the same measured collective
+identity and its topology's latency/bandwidth calibration. PD keeps page
+rounding and scales page work within the same sender mapping and page layout.
+DeepEP's measured dispatch bounds remain enforced: its observed runtime
+tiling failures are not made executable by enabling extrapolation.
+The policy is part of the canonical identity, saved configurations and PD
+metadata; extrapolated compute results carry the `estimated` source tag.
+`fallback_policy: deny` still prevents switching estimators; it does not
+disable an explicitly selected op-level shape policy.
+
+An accepted topology or sufficient KV capacity does not establish measured
+coverage. Numerical execution, extrapolation and table lookup checks do not
+establish whole-serving accuracy. Long-context estimates can be substantially
+less accurate than nearby measured points, especially across runtime tiling
+changes. Use `measured` to require the original data domain.
 
 EngineSpec schema29 carries request-based HCCL payload sizing and separate
 resident-copy counts for shared RoPE storage and retained MLA weight views.

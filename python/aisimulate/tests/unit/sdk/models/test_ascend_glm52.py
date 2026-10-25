@@ -243,6 +243,28 @@ def test_explicit_serial_shared_experts_survive_saved_engine_identity(model_path
     }
 
 
+def test_anchored_shape_policy_survives_model_and_engine_identity(model_path):
+    config = configuration()
+    config.op_level_config = OpLevelCompileConfig(
+        {"ascend": {"shape_policy": "anchored"}}, system="ascend910c", backend="sglang"
+    )
+    model = get_model(model_path, config, "sglang")
+    engine = _engine_config_dict(
+        model=model,
+        model_path=model_path,
+        system="ascend910c",
+        backend="sglang",
+        backend_version="0.5.22",
+        kv_block_size=128,
+        systems_path=None,
+        nextn=0,
+    )
+    saved = json.loads(engine["extra"]["estimator_config"])
+    assert saved["op_level"]["ascend"]["shape_policy"] == "anchored"
+    bounded = configuration()
+    assert get_model(model_path, bounded, "sglang").get_resident_weights_bytes() == model.get_resident_weights_bytes()
+
+
 def test_model_name_and_w8a8_label_cannot_replace_checkpoint_metadata():
     with pytest.raises(InvalidEngineConfigurationError, match="quant_model_description"):
         get_model("zai-org/GLM-5.2", configuration(), "sglang")
@@ -328,3 +350,20 @@ def test_canonical_pd_model_selects_measured_mapping_and_rejects_unknown_geometr
     )
     with pytest.raises(ValueError, match="matching role page-layout"):
         source.estimate_kv_transfer_time_ms(fragmented, 8192)
+
+
+def test_canonical_anchored_pd_preserves_measured_values_and_requires_matching_policy(model_path):
+    options = {"op_level": {"ascend": {"shape_policy": "anchored"}}}
+    source = transfer_model(model_path, "prefill", estimator_config=options)
+    target = transfer_model(model_path, "decode", estimator_config=options)
+    bounded_source = transfer_model(model_path, "prefill")
+    bounded_target = transfer_model(model_path, "decode")
+    assert source.estimate_kv_transfer_time_ms(target, 8192) == bounded_source.estimate_kv_transfer_time_ms(
+        bounded_target, 8192
+    )
+    assert source.estimate_kv_transfer_time_ms(target, 65536) > source.estimate_kv_transfer_time_ms(target, 32768) > 0
+    assert source.kv_transfer_metadata(target)["shape_policy"] == "anchored"
+    with pytest.raises(ValueError, match="shape-policy"):
+        source.estimate_kv_transfer_time_ms(bounded_target, 65536)
+    with pytest.raises(PerfDataNotAvailableError):
+        bounded_source.estimate_kv_transfer_time_ms(bounded_target, 65536)

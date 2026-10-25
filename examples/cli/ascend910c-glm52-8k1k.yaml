@@ -17,7 +17,7 @@ engine:
   fallback_policy: deny
   estimator_config:
     op_level:
-      ascend: {routing: balanced, shared_expert_overlap: true}
+      ascend: {routing: balanced, shared_expert_overlap: true, shape_policy: anchored}
   workers:
     aggregated:
       parallelism: {tensor: 8, attention_data: 2, moe_tensor: 1, moe_expert: 16, replicas: 1}

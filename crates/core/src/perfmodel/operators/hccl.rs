@@ -68,6 +68,13 @@ impl HcclOp {
                 "HCCL requires its measured tuple".into(),
             )),
             _ => {
+                if !db.ascend_shape_policy.is_measured() {
+                    return Ok(db
+                        .hccl
+                        .estimate(&self.key, bytes, db.ascend_shape_policy, &db.system_spec)?
+                        .result()
+                        .scaled(self.scale_factor));
+                }
                 let value = db.hccl.query(&self.key, bytes)?;
                 Ok(
                     PerformanceResult::with_energy(value.latency, value.energy, Source::Silicon)

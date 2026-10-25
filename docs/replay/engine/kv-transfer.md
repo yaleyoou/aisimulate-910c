@@ -52,7 +52,11 @@ The shared `estimator_config.op_level.ascend.kv_transfer_page_layout` selects
 The source model prepares the measured curve once and Replay shares it across
 handoffs. Destination reservation and source KV retention keep their existing
 ordering. Missing-token counts round up to 128-token pages, zero transfer is
-free, and a query outside measured bounds fails without a bandwidth fallback.
+free. With the default Ascend `shape_policy: measured`, an out-of-bounds query
+fails without a bandwidth fallback. With `shape_policy: anchored` on both
+roles, page-work ratios extend the same measured mapping, preserve a measured
+latency floor and record the policy and original token bounds in metadata.
+These out-of-domain values are estimates, not additional measured rows.
 The runtime records the selected mapping and measurement identity in transfer
 provenance. Bootstrap, per-layer streaming and contention between requests
 remain outside this calibration.

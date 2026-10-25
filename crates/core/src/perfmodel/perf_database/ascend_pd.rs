@@ -33,16 +33,22 @@ impl AscendPdKey {
     }
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct KvTransferCurve {
     key: AscendPdKey,
     values: AxisCurve,
     minimum: u32,
     maximum: u32,
     identity: String,
+    policy: super::ascend_shape::AscendShapePolicy,
 }
 
 impl KvTransferCurve {
+    pub fn with_shape_policy(&self, policy: super::ascend_shape::AscendShapePolicy) -> Arc<Self> {
+        let mut curve = self.clone();
+        curve.policy = policy;
+        Arc::new(curve)
+    }
     #[cfg(test)]
     pub(crate) fn test_curve() -> Arc<Self> {
         let points = BTreeMap::from([(128, 1.0), (256, 3.0)]);
@@ -56,6 +62,7 @@ impl KvTransferCurve {
             minimum: 128,
             maximum: 256,
             identity: "1".repeat(64),
+            policy: Default::default(),
         })
     }
     pub fn latency_ms(&self, tokens: usize) -> Result<f64, AicError> {
@@ -68,6 +75,16 @@ impl KvTransferCurve {
             .and_then(|value| u32::try_from(value).ok())
             .ok_or_else(|| AicError::InvalidEngineConfig("PD page rounding overflow".into()))?;
         if rounded < self.minimum || rounded > self.maximum {
+            if self.policy == super::ascend_shape::AscendShapePolicy::Anchored {
+                return super::ascend_shape::anchored_axis(
+                    rounded,
+                    self.minimum,
+                    self.maximum,
+                    &|value| self.values.query(f64::from(value), &|_| 1.0),
+                    &|tokens| Ok(1.0 + tokens / 128.0),
+                )
+                .map(|value| value.latency_ms);
+            }
             return Err(AicError::PerfDatabase(format!(
                 "Ascend PD tokens={rounded} outside measured [{}, {}] for {:?}",
                 self.minimum, self.maximum, self.key
@@ -86,6 +103,8 @@ impl KvTransferCurve {
             "bytes_per_token_per_replica": 109824,
             "endpoint_scope": "one contiguous attention-DP group per role on distinct nodes",
             "runtime_identity_sha256": self.identity,
+            "shape_policy": self.policy,
+            "extrapolation": if self.policy == super::ascend_shape::AscendShapePolicy::Anchored { Some("boundary-anchored page work with a measured minimum latency floor; estimates outside stated token bounds") } else { None },
             "scope": "isolated request with source-selected sender fanout; other attention-DP groups excluded; no bootstrap or request contention"
         })
     }
@@ -395,8 +414,21 @@ fn load(path: &Path) -> Result<Grids, AicError> {
                 maximum: *points.last_key_value().unwrap().0,
                 values: AxisCurve::from_map("tokens", points),
                 identity: identities.remove(&key).unwrap(),
+                policy: Default::default(),
             });
             (key, curve)
         })
         .collect())
+}
+#[test]
+fn pd_extrapolation_keeps_page_rounding_and_isolates_policy_views() {
+    let measured = KvTransferCurve::test_curve();
+    let anchored =
+        measured.with_shape_policy(crate::perf_database::ascend_shape::AscendShapePolicy::Anchored);
+    assert_eq!(anchored.latency_ms(256).unwrap(), 3.0);
+    assert_eq!(anchored.latency_ms(257).unwrap(), 1.0 + 8.0 / 3.0);
+    assert_eq!(anchored.latency_ms(0).unwrap(), 0.0);
+    assert!(measured.latency_ms(257).is_err());
+    assert_eq!(anchored.metadata()["shape_policy"], "anchored");
+    assert_eq!(measured.metadata()["shape_policy"], "measured");
 }

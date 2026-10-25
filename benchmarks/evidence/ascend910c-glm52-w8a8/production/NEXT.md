@@ -1,5 +1,29 @@
 # Current goal handoff
 
+## NEWEST: anchored shape policy implemented; finalimage/search/push pending
+
+Userexplicitrequests补shape覆盖/外推ANDgitpush. HEAD5f191d51still,source/data proofuncommitted,checkpoint64pending.
+RustAscendShapePolicy measured(defaultskipserialize) /anchored explicitcanonicalop_level.ascend option.
+PerfDatabaseper-viewpolicy propagatedfromEngineSpec.extra.estimator_config;no schema bump oropfieldchange.
+Attention/DCP numericalplanes useboundaryanchors+fixedminlatency+variableworkratio;otherlinear/BMM/vector/MoE/HCCL/PD extended.
+Exactqueriesunchanged;unknownkey/kernel/dtype/topology/graphbucket stillreject. DeepEPdispatch remainsboundedactualruntime.
+Default4AscendexampleYAMLs nowanchored;olderconfigsdefaultmeasured. Full24-caseagg/PD/DCP matrix1..128k andout16kpasses.
+Currentvalidationnative /tmp/aisim-native-shape/_runtime.abi3.so SHAeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22.
+LoadedfromCPU/tmp/aisim-shape-wheels-v2;compiledfromuncommittedsource. Finalwheelneedscommitidentity/rebuildsameCARGOtarget/tmp/aisim-shape-release-target.
+407GPU/modelpass114s;46AscendRustpass;full2057pass1ignoredbeforefixedcomponentformula;exact2577attn+2994DCPzero.
+NPU66firstvalidation+42freshconfirmation ALLnumericandCVpass;collectorunchanged53db19...;ownedcampaigncontainersstopped.
+Frozenproduction/shape-validation-results-20261025;47selectedfiles /tmp/aisim-shape-evidence-files.json. Rawplans twojson;newbenchplan_shape_validation.py.
+Initialworkratiooverpredictedindexerdecode5x duefixedlaunchscaling;fixedcomponentminoriginalcurvecorrects.42fresh median/maxpercent:
+indexerprefill7.31/24.89,decode3.96/7.96,sparseprefill1.72/16.92,decode2.48/5.41. Noformalservingaccuracyclaim.
+ACTIVEroot24914 /tmp/aisim-shape-searches.py:5workloads64trialseach,4k2k+65/32passed,32k+64k+128kongoing.
+Results/tmp/aisim-shape-search-results.json. root93967hostcostprobeusingexistingforwardgatehelpers;firstimports/ppsizeerrorsfixed,
+latestlog/tmp/aisim-shape-host-cost-v3.log reportCPU/tmp/aisim-shape-host-anchored-1.json. Needsmatched3roundsoldc043vsnewnative.
+root72844availableforchecks;root89706node19idle,31untouched. AllNPUworkfinished.
+Gitpushoriginmain attemptedFAILinvalidusername/token;GITHUB_TOKEN/GH_TOKENnotset. SSHexistingkeyalsoPermissiondeniedpublickey.
+No tokenexposure. Finishconcretecode/image/tests/docscommit beforeaskinguserlogin; don'tclaimpushsuccess.
+NEXTformat/lintremainingbenchscript;commitsource+frozenevidence/checkpoint;buildfinalwheelandimage;validateinstalledlong/short/search/bestreplay,
+freeze matrix/search/hostcostlogs,updateusage/progress/checkpoint+commit. Preserveoriginaldata andnonsubstitutedunknownidentities.
+
 ## NEWEST: parallel image delivered; user highlights arbitrary-workload gap, overall adaptation remains open
 
 HEAD1c91c5dd (prefillbatchinterp),previousc01901e9(PD/DCPdata). Finaldocs/evidence/checkpoint63pendingcommit.

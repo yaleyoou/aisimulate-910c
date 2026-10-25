@@ -65,6 +65,38 @@ pub struct AscendBmmTable {
 }
 
 impl AscendBmmTable {
+    pub fn estimate(
+        &self,
+        key: &AscendBmmKey,
+        tokens: u32,
+        policy: super::ascend_shape::AscendShapePolicy,
+        spec: &crate::common::system_spec::SystemSpec,
+    ) -> Result<super::ascend_shape::ShapeEstimate, AicError> {
+        match self.query(key, tokens) {
+            Ok(value) => return Ok(super::ascend_shape::ShapeEstimate::measured(value)),
+            Err(error)
+                if policy == super::ascend_shape::AscendShapePolicy::Anchored
+                    && error.is_missing_perf_data() => {}
+            Err(error) => return Err(error),
+        }
+        let curve = self.curve(key)?;
+        super::ascend_shape::anchored_axis(
+            tokens,
+            curve.minimum,
+            curve.maximum,
+            &|value| self.query(key, value),
+            &|count| {
+                let (inner, width, _, _) = key.shape();
+                super::ascend_shape::linear_work(
+                    spec,
+                    count,
+                    f64::from(width),
+                    f64::from(inner),
+                    false,
+                )
+            },
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,

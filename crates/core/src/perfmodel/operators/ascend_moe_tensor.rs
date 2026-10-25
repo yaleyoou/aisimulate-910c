@@ -71,11 +71,11 @@ impl AscendMoeTensorOp {
         if count == 0 || self.scale_factor == 0.0 {
             return Ok(PerformanceResult::new(0.0, Source::Empirical));
         }
-        Ok(PerformanceResult::new(
-            db.ascend_moe_tensor.query(&self.key, count)?,
-            Source::Silicon,
-        )
-        .scaled(self.scale_factor))
+        Ok(db
+            .ascend_moe_tensor
+            .estimate(&self.key, count, db.ascend_shape_policy, &db.system_spec)?
+            .result()
+            .scaled(self.scale_factor))
     }
 
     pub fn weight_bytes(&self) -> f64 {

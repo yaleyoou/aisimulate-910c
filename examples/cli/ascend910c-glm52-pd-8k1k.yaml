@@ -17,7 +17,7 @@ engine:
   fallback_policy: deny
   estimator_config:
     op_level:
-      ascend: {routing: balanced, shared_expert_overlap: true, kv_transfer_page_layout: contiguous}
+      ascend: {routing: balanced, shared_expert_overlap: true, kv_transfer_page_layout: contiguous, shape_policy: anchored}
   kv_transfer: {type: measured, timing_mode: full_prompt}
   workers:
     prefill:

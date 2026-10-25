@@ -5,9 +5,11 @@ use std::sync::OnceLock;
 use serde::{Deserialize, Serialize};
 
 use super::SourceResolver;
-use super::ascend_attention::{Plane, query_prefill_batch};
+use super::ascend_attention::{Plane, estimate_attention_grid, query_prefill_batch};
+use super::ascend_shape::{AscendShapePolicy, ShapeEstimate, attention_work};
 use super::parquet_loader::PerfReader;
 use crate::common::error::AicError;
+use crate::common::system_spec::SystemSpec;
 
 pub const BASENAME: &str = "ascend_dcp_attention_perf.parquet";
 pub const CONTRACT: &str = "sglang_npu_dcp_storage_attention_chain/v1";
@@ -48,6 +50,47 @@ pub struct AscendDcpAttentionTable {
 }
 
 impl AscendDcpAttentionTable {
+    #[allow(clippy::too_many_arguments)]
+    pub fn estimate(
+        &self,
+        key: &AscendDcpAttentionKey,
+        active: u32,
+        padded: u32,
+        sequence: u32,
+        prefix: u32,
+        policy: AscendShapePolicy,
+        spec: &SystemSpec,
+    ) -> Result<ShapeEstimate, AicError> {
+        match self.query(key, active, padded, sequence, prefix) {
+            Ok(value) => return Ok(ShapeEstimate::measured(value)),
+            Err(error) if policy == AscendShapePolicy::Anchored && error.is_missing_perf_data() => {
+            }
+            Err(error) => return Err(error),
+        }
+        let partitions = self.grids()?.get(key).ok_or_else(|| {
+            AicError::PerfDatabase(format!("unmeasured Ascend DCP identity: {key:?}"))
+        })?;
+        estimate_attention_grid(
+            partitions,
+            key.phase == "prefill",
+            active,
+            padded,
+            sequence,
+            prefix,
+            &|batch, tokens, past| {
+                attention_work(
+                    spec,
+                    false,
+                    key.phase == "prefill",
+                    key.local_heads,
+                    batch,
+                    tokens,
+                    past,
+                    key.dcp_size,
+                )
+            },
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,

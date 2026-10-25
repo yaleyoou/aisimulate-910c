@@ -19,6 +19,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--table-dir", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument("--shape-policy", choices=("measured", "anchored"), default="measured")
     args = parser.parse_args()
     repository = Path(__file__).resolve().parents[4]
     table = args.table_dir / "ascend_attention_perf.parquet"
@@ -45,6 +46,9 @@ def main():
             },
             "context_ops": [],
             "generation_ops": [],
+        }
+        spec["engine"]["extra"] = {
+            "estimator_config": json.dumps({"op_level": {"ascend": {"shape_policy": args.shape_policy}}})
         }
         started = time.perf_counter()
         handle = EngineHandle(_runtime.engine_spec_bincode_from_json(json.dumps(spec)), systems_path=str(systems))

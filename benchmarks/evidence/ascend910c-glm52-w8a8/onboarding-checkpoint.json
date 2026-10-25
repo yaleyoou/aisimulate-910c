@@ -1501,6 +1501,30 @@
           "scope": "validation",
           "sha256": "c0ec7c0e656394887a5f9aeeb57f236efdf95ce4f341408a54435f7b0edeb4fd"
         },
+        "shape_confirmation_comparison": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-validation-results-20261025/aisim-shape-confirmation-comparison.json",
+          "scope": "validation",
+          "sha256": "31014932a1092ce929258d586c8e2bcfc4ae940530a0bcc9f186d45ca3532cdc"
+        },
+        "shape_confirmation_qualified": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-validation-results-20261025/confirmation/ascend_attention_perf.parquet",
+          "scope": "validation",
+          "sha256": "b7b5699f51fb6f99870ed788caec5c673a360eff29bb5484e0b1f75e1491521a"
+        },
+        "shape_initial_qualified": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-validation-results-20261025/validation/ascend_attention_perf.parquet",
+          "scope": "validation",
+          "sha256": "7b0f6c957f0f7ac606b38e81873f557b86dffca031e3d01f97dce2946874ce04"
+        },
         "small_dcp_final": {
           "archived": false,
           "context_sha256": "2b816747f6f871a818618e6dd7d7b49d90f29e88180b3d25f9ad45c011d0f30d",
@@ -1800,9 +1824,9 @@
   ],
   "progress": {
     "blockers": [
-      "General arbitrary-workload parity is incomplete: bounded Ascend interpolation still has ragged prefill, long-prefix and short/long-decode coverage limits. Whole-serving accuracy remains intentionally deferred."
+      "Final variable-workload searches, installed image validation and GitHub push remain. GitHub HTTPS credentials and existing SSH key are both rejected."
     ],
-    "next_action": "Extend general shape coverage and an explicit validated extrapolation policy without relabeling estimates as measurements; retain the delivered parallel-search image and evidence.",
+    "next_action": "Commit tested shape-policy implementation, rebuild the user image, finish variable-workload search checks and publish if authentication becomes available.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2474,6 +2498,16 @@
       "limitations": "Not formal operator data, replay coverage, benchmark repeatability, or serving accuracy qualification.",
       "status": "ready and bounded request validation passed"
     },
+    "shape_extension": {
+      "accuracy_probe": "Firstprototypeincorrectlyscaledfixedindexerlaunchcost;correctedusingonlyoriginalcalibrationminimum. Fresh42pointconfirmation absoluteerror median:max: indexerprefill7.31%:24.89%,indexerdecode3.96%:7.96%,sparseprefill1.72%:16.92%,sparsedecode2.48%:5.41%. Thisisboundedpointvalidation,notwhole-servingaccuracyqualification.",
+      "delivery": "Userimage still5d4e...previousboundedbuild;needsreplacement withcommittedshapeimplementation. PushattemptoriginmainHTTPSfailedinvalidtoken;SSHgit@github.comdeniedpublickey. Nocredentialsprinted orpersisted.",
+      "math": "Same-identity boundary measurements anchor a fixed-plus-variable work model. Fixedcomponent=minmeasuredcurve;remainingcomponent scales by compute/HBM or page work. AttentionincludescausalQKandtop2048;DCPaddsKVwritesandcommunication. Scalarlinear/BMM/MoE/vector andHCCL,PD numericalaxes extended. Datafilesnotfabricated ormodified. Estimatedoperatorresults taggedestimated;PDmetadata records policyandoriginalbounds.",
+      "native_validation": "Draftv2nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22.407GPUgolden/modeltests pass(390+17),46AscendRusttests pass. FullRust2057pass1preexistingignored beforefixed-overheadformula refinement;neworaclesverifyrefinement.2577attention+2994DCPpoints exactzeroerror underanchoredpolicy.",
+      "policy": "Rust canonical estimator_config.op_level.ascend.shape_policy: measured(default,oldbehavior) or anchored(explicit). MainfourAscendexamples selectanchored. Model/topology/dtype/kernel/graphbucketidentities remain exact; fallback_policydeny still enforced. DeepEPdispatch bounds retained due actual runtimefailures.",
+      "search": "4k2k64/64 and65/32 64/64 pass;32k/64k/128k64-trialruns continuing. No failed candidates yet. Not a proof of globaloptimality outside searchedcandidatebudget.",
+      "validation_collection": "66independentpoints allnumeric/CVpass, plus42freshconfirmationpoints allpass, onnode32only. Actualcollectorunchanged53db19...source. Originalrawandnegativecontrols retained. Thesevalidationrows areNOTusedascalibrationdata.",
+      "workload_matrix": "24/24complete:aggregate,PD,DCP each1/32,65/32,4k2k,16k1k,32k1k,64k1k,128k1k,8k16k.4requests/case,tokencountschecked.64k/128kuseglobal32capacity;physicalmemoryconstraints remain unchanged."
+    },
     "single_node_calibration": {
       "collection_execution_complete": true,
       "collection_quality": "Local 81/81 stable. Communication first 84/100 stable; refined 70/100 stable. No cross-campaign coordinate mixing or sample deletion.",
@@ -2526,7 +2560,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 63,
+  "revision": 64,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

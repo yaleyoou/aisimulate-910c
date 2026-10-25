@@ -53,6 +53,38 @@ pub struct AscendMoeTensorTable {
 }
 
 impl AscendMoeTensorTable {
+    pub fn estimate(
+        &self,
+        key: &AscendMoeTensorKey,
+        tokens: u32,
+        policy: super::ascend_shape::AscendShapePolicy,
+        spec: &crate::common::system_spec::SystemSpec,
+    ) -> Result<super::ascend_shape::ShapeEstimate, AicError> {
+        match self.query(key, tokens) {
+            Ok(value) => return Ok(super::ascend_shape::ShapeEstimate::measured(value)),
+            Err(error)
+                if policy == super::ascend_shape::AscendShapePolicy::Anchored
+                    && error.is_missing_perf_data() => {}
+            Err(error) => return Err(error),
+        }
+        let curve = self.curve(key)?;
+        super::ascend_shape::anchored_axis(
+            tokens,
+            curve.minimum,
+            curve.maximum,
+            &|value| self.query(key, value),
+            &|count| {
+                let active_experts = (count * 8.0).min(256.0);
+                super::ascend_shape::roofline_ms(
+                    spec,
+                    6.0 * count * 8.0 * 6144.0 * f64::from(key.intermediate_size),
+                    active_experts * 3.0 * 6144.0 * f64::from(key.intermediate_size)
+                        + count * 8.0 * 6144.0 * 4.0,
+                    true,
+                )
+            },
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,

@@ -55,6 +55,52 @@ pub struct HcclTable {
 }
 
 impl HcclTable {
+    pub fn estimate(
+        &self,
+        key: &HcclKey,
+        bytes: u64,
+        policy: super::ascend_shape::AscendShapePolicy,
+        spec: &crate::common::system_spec::SystemSpec,
+    ) -> Result<super::ascend_shape::ShapeEstimate, AicError> {
+        match self.query(key, bytes) {
+            Ok(value) => return Ok(super::ascend_shape::ShapeEstimate::measured(value.latency)),
+            Err(error)
+                if policy == super::ascend_shape::AscendShapePolicy::Anchored
+                    && error.is_missing_perf_data() => {}
+            Err(error) => return Err(error),
+        }
+        if bytes == 0 || bytes > (1_u64 << 53) {
+            return Err(AicError::InvalidEngineConfig(
+                "invalid HCCL extrapolation payload".into(),
+            ));
+        }
+        let grids = self.loaded()?;
+        let curve = grids
+            .get(key)
+            .ok_or_else(|| AicError::PerfDatabase(format!("HCCL tuple is unmeasured: {key:?}")))?;
+        let bandwidth = if key.num_ranks > key.ranks_per_node {
+            spec.node.inter_node_bw
+        } else {
+            spec.node.intra_node_bw
+        };
+        if !bandwidth.is_finite()
+            || bandwidth <= 0.0
+            || !spec.node.p2p_latency.is_finite()
+            || spec.node.p2p_latency < 0.0
+        {
+            return Err(AicError::InvalidEngineConfig(
+                "invalid HCCL topology calibration".into(),
+            ));
+        }
+        let work = |payload| spec.node.p2p_latency + payload as f64 / bandwidth;
+        let anchor = bytes.clamp(curve.minimum, curve.maximum);
+        let measured = self.query(key, anchor)?.latency;
+        super::ascend_shape::ShapeEstimate::measured(measured).scale_work(
+            work(bytes),
+            work(anchor),
+            self.query(key, curve.minimum)?.latency.min(measured),
+        )
+    }
     pub fn new(root: Option<PathBuf>) -> Self {
         Self {
             path: root.map(|root| root.join(BASENAME)),

@@ -108,6 +108,28 @@ pub struct AscendVectorTable {
 }
 
 impl AscendVectorTable {
+    pub fn estimate(
+        &self,
+        key: &AscendVectorKey,
+        tokens: u32,
+        policy: super::ascend_shape::AscendShapePolicy,
+    ) -> Result<super::ascend_shape::ShapeEstimate, AicError> {
+        match self.query(key, tokens) {
+            Ok(value) => return Ok(super::ascend_shape::ShapeEstimate::measured(value)),
+            Err(error)
+                if policy == super::ascend_shape::AscendShapePolicy::Anchored
+                    && error.is_missing_perf_data() => {}
+            Err(error) => return Err(error),
+        }
+        let curve = self.curve(key)?;
+        super::ascend_shape::anchored_axis(
+            tokens,
+            curve.minimum,
+            curve.maximum,
+            &|value| self.query(key, value),
+            &|count| Ok(count),
+        )
+    }
     pub fn new(path: Option<PathBuf>) -> Self {
         Self {
             path,

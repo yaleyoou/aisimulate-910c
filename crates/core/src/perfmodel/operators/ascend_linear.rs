@@ -116,16 +116,28 @@ impl AscendLinearOp {
                 "Ascend linear requires measured data".into(),
             ));
         }
-        let value = match self.bias {
-            AscendLinearBias::Never => db.ascend_linear.query(&self.key, false, count)?.latency,
-            AscendLinearBias::Always => db.ascend_linear.query(&self.key, true, count)?.latency,
-            AscendLinearBias::TpGroupMax => db
-                .ascend_linear
-                .query(&self.key, true, count)?
-                .latency
-                .max(db.ascend_linear.query(&self.key, false, count)?.latency),
+        let estimate = |bias| {
+            db.ascend_linear.estimate(
+                &self.key,
+                bias,
+                count,
+                db.ascend_shape_policy,
+                &db.system_spec,
+            )
         };
-        Ok(PerformanceResult::new(value, Source::Silicon).scaled(self.scale_factor))
+        let value = match self.bias {
+            AscendLinearBias::Never => estimate(false)?,
+            AscendLinearBias::Always => estimate(true)?,
+            AscendLinearBias::TpGroupMax => {
+                let biased = estimate(true)?;
+                let plain = estimate(false)?;
+                crate::perf_database::ascend_shape::ShapeEstimate {
+                    latency_ms: biased.latency_ms.max(plain.latency_ms),
+                    extrapolated: biased.extrapolated || plain.extrapolated,
+                }
+            }
+        };
+        Ok(value.result().scaled(self.scale_factor))
     }
 
     pub fn weight_bytes(&self) -> f64 {

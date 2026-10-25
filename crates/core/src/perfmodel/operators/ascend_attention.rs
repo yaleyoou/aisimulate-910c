@@ -86,7 +86,7 @@ impl AscendAttentionOp {
         if batch == 0 || self.scale_factor == 0.0 {
             return Ok(PerformanceResult::new(0.0, Source::Empirical));
         }
-        let value = db.ascend_attention.query(
+        let value = db.ascend_attention.estimate(
             &self.key,
             batch,
             self.padded_batch(batch)?,
@@ -96,8 +96,10 @@ impl AscendAttentionOp {
             } else {
                 0
             },
+            db.ascend_shape_policy,
+            &db.system_spec,
         )?;
-        Ok(PerformanceResult::new(value, Source::Silicon).scaled(self.scale_factor))
+        Ok(value.result().scaled(self.scale_factor))
     }
 
     pub fn query_eager(

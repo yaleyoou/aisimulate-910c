@@ -69,12 +69,16 @@ impl AscendBmmOp {
         if tokens == 0 || self.scale_factor == 0.0 {
             return Ok(PerformanceResult::new(0.0, Source::Empirical));
         }
-        Ok(PerformanceResult::new(
-            db.ascend_bmm
-                .query(&self.key, self.measured_tokens(tokens)?)?,
-            Source::Silicon,
-        )
-        .scaled(self.scale_factor))
+        Ok(db
+            .ascend_bmm
+            .estimate(
+                &self.key,
+                self.measured_tokens(tokens)?,
+                db.ascend_shape_policy,
+                &db.system_spec,
+            )?
+            .result()
+            .scaled(self.scale_factor))
     }
 
     pub fn weight_bytes(&self) -> f64 {

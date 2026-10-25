@@ -363,6 +363,29 @@ impl Engine {
     /// caller (`AicEngineBuilder` / `from_spec_bytes`) is responsible for
     /// having loaded the matching `PerfDatabase` from `spec.engine`'s identity.
     pub fn build(spec: EngineSpec, db: Arc<PerfDatabase>) -> Result<Engine, AicError> {
+        let db = if spec.engine.system_name == "ascend910c" {
+            let mut options: crate::EstimatorConfig = spec
+                .engine
+                .extra
+                .get("estimator_config")
+                .map(|value| serde_json::from_str(value))
+                .transpose()
+                .map_err(|error| {
+                    AicError::InvalidEngineConfig(format!(
+                        "invalid Ascend estimator options: {error}"
+                    ))
+                })?
+                .unwrap_or_default();
+            options
+                .op_level
+                .resolve_for(&spec.engine.system_name, spec.engine.backend.as_str())?;
+            let mut view = db.silicon_view();
+            view.database_mode = db.database_mode;
+            view.ascend_shape_policy = options.op_level.ascend.unwrap().shape_policy;
+            Arc::new(view)
+        } else {
+            db
+        };
         if spec.engine.quantization.fpm_fmha_dtype.is_some()
             && spec.engine.forward_model.as_deref() != Some("fpm")
         {

@@ -87,10 +87,11 @@ impl AscendVectorOp {
         if count == 0 || self.scale_factor == 0.0 {
             return Ok(PerformanceResult::new(0.0, Source::Empirical));
         }
-        Ok(
-            PerformanceResult::new(db.ascend_vector.query(&self.key, count)?, Source::Silicon)
-                .scaled(self.scale_factor),
-        )
+        Ok(db
+            .ascend_vector
+            .estimate(&self.key, count, db.ascend_shape_policy)?
+            .result()
+            .scaled(self.scale_factor))
     }
 
     pub fn weight_bytes(&self) -> f64 {
