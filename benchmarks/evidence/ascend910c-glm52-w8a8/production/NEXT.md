@@ -1,5 +1,23 @@
 # Current goal handoff
 
+## NEWEST: shape extension delivered; GitHub authentication blocks push,64K highconcurrency diagnostic remains open
+
+HEADbf61026f sourcecommit,finaldocs/evidence commitpending. Checkpoint65pending.
+Finalinstalledimage19e7b55d1190797455f97073a8f97dce032fed540eae901e168d20a1ea9d78c2.
+Nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22,wheel4950befa18e225e2f7edbbc49c7cd70a5ace3f69161862abc92988cd93ea8324.
+All24predictcasespass.4k2k/65-32/32k1k64trialseachpass(192total). Installedshort/PD128k/DCP32k/4ksearch16+bestreplaypass.
+407GPU/modelchecks,46AscendRustchecks,2577attn+2994DCPexactzero,108NPUheldout/confirmationpoints pass.
+Sharednodewarmhost3pairedrounds old/new56..60us,coveredpredictionsidentical;frozenrawsamplesinshape-delivery.
+SourcefinalwheelCPU/tmp/aisim-shape-wheels-final;CARGO_TARGET_DIR/tmp/aisim-shape-release-target. Baselinec043native/tmp/aisim-native-batch.
+Frozenproduction/shape-delivery-20261025 (426files+manifest) withmatrix/searches/installed/hostlogs+interrupted64k.
+IMPORTANT64K/C8/16/32extendedsearchwasINTERRUPTED (root24914CtrlC,ownedcontainerPIDs112255treeTERM)
+afterlast15completed11feasible;someworkersconsumed120sCPU. No finalrecommendation. DoNOTcallall64pass ordiagnosememoryasproven.
+128khighconcurrencysearchnotstarted.128kC2predictionsallmodespass. Investigateexpensivereplaypathseparately.
+AllownedNPUcontainersstopped,32+19onlyauthorized,31untouched. Noactivejobs. Root93967/72844/24914local,89706remote19idle.
+PushuserauthorizedbutHTTPSinvalidtoken andSSHpublickeydenied. CurrentrepohelperreadsGITHUB_TOKEN(notset),GH_TOKENabsent,noagent.
+DoNOTprint/searchforsecretvalues. NeeduserconfigureGitHubwriteauth;no additionalpermissionneeded onceavailable.
+Finishfinaldocs/evidence/checkpointcommitandreportconcreteresults+pushblocker. Overallgoalnotmarkcompletewhilepushandlongsearchissueopen.
+
 ## NEWEST: anchored shape policy implemented; finalimage/search/push pending
 
 Userexplicitrequests补shape覆盖/外推ANDgitpush. HEAD5f191d51still,source/data proofuncommitted,checkpoint64pending.

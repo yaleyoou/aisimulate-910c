@@ -1,0 +1,167 @@
+[
+  {
+    "file": "chex-0.1.87-py3-none-any.whl",
+    "sha256": "ce536475661fd96d21be0c1728ecdbedd03f8ff950c662dfc338c92ea782cb16",
+    "url": "https://files.pythonhosted.org/packages/46/dd/c1ff2eb8fbf95a8ca804abb1cc3ce70b283ee7b4bc653c3abac245670400/chex-0.1.87-py3-none-any.whl"
+  },
+  {
+    "file": "flax-0.10.0-py3-none-any.whl",
+    "sha256": "b3025c5c7d33ba400e123656ad66b0a1900ec67685365bf322ffa47c40a1d16c",
+    "url": "https://files.pythonhosted.org/packages/65/00/c19d0108f3ce4da076f41e59019149d53f3319ee96a3db880c5f01ba40ac/flax-0.10.0-py3-none-any.whl"
+  },
+  {
+    "file": "google_vizier-0.1.21-py3-none-any.whl",
+    "sha256": "ae457cb42ab55f531223dcbc2b973f2050850eba40808d4927afb3ab0d7e4d2c",
+    "url": "https://files.pythonhosted.org/packages/66/b6/00c7d87a565d98727dcd857e65b3bf6e2c09d060e680fbea6e44abc90fc5/google_vizier-0.1.21-py3-none-any.whl"
+  },
+  {
+    "file": "googleapis_common_protos-1.75.3-py3-none-any.whl",
+    "sha256": "a018d2bf098ca9fb6faa08d5bb780e2a2c2f73c566f069761331386c9596d3f2",
+    "url": "https://files.pythonhosted.org/packages/1a/7a/7d79170c6ce6f12e109df2b3879d6b934010cf4f99aea8de8b7e5408c174/googleapis_common_protos-1.75.3-py3-none-any.whl"
+  },
+  {
+    "file": "jax-0.4.38-py3-none-any.whl",
+    "sha256": "78987306f7041ea8500d99df1a17c33ed92620c2268c4c3677fb24e06712be64",
+    "url": "https://files.pythonhosted.org/packages/22/49/b4418a7a892c0dd64442bbbeef54e1cdfe722dfc5a7bf0d611d3f5f90e99/jax-0.4.38-py3-none-any.whl"
+  },
+  {
+    "file": "jaxlib-0.4.38-cp312-cp312-manylinux2014_aarch64.whl",
+    "sha256": "496f45b0e001a2341309cd0c74af0b670537dced79c168cb230cfcc773f0aa86",
+    "url": "https://files.pythonhosted.org/packages/53/25/dd670d8bdf3799ece76d12cfe6a6a250ea256057aa4b0fcace4753a99d2d/jaxlib-0.4.38-cp312-cp312-manylinux2014_aarch64.whl"
+  },
+  {
+    "file": "bokeh-3.10.1-py3-none-any.whl",
+    "sha256": "d73412b6317f70df0ffe6796956af609617523dfdfbc624d4f7f496cd09e8101",
+    "url": "https://files.pythonhosted.org/packages/4e/9c/aaf2f11e31a75f0fffc79659ad7f0be01f39bb018bbc83c2a8a02657589e/bokeh-3.10.1-py3-none-any.whl"
+  },
+  {
+    "file": "nvidia_ml_py-13.615.71-py3-none-any.whl",
+    "sha256": "959bf4adf6fe1308e4bd739e722236b0d1ec8392e2cefad33ff70c311380b9b6",
+    "url": "https://files.pythonhosted.org/packages/53/a1/1681dfa1c904d4e3e72e51b55a0ff012d50b766843ef832d584abe2113c6/nvidia_ml_py-13.615.71-py3-none-any.whl"
+  },
+  {
+    "file": "munch-4.0.0-py2.py3-none-any.whl",
+    "sha256": "71033c45db9fb677a0b7eb517a4ce70ae09258490e419b0e7f00d1e386ecb1b4",
+    "url": "https://files.pythonhosted.org/packages/56/b3/7c69b37f03260a061883bec0e7b05be7117c1b1c85f5212c72c8c2bc3c8c/munch-4.0.0-py2.py3-none-any.whl"
+  },
+  {
+    "file": "optax-0.2.4-py3-none-any.whl",
+    "sha256": "db35c04e50b52596662efb002334de08c2a0a74971e4da33f467e84fac08886a",
+    "url": "https://files.pythonhosted.org/packages/5c/24/28d0bb21600a78e46754947333ec9a297044af884d360092eb8561575fe9/optax-0.2.4-py3-none-any.whl"
+  },
+  {
+    "file": "tfp_nightly-0.26.0.dev20260626-py2.py3-none-any.whl",
+    "sha256": "57d024ecbc1da39e33af522f98bdfc95cb118af04e27a0b3391618f29be546ee",
+    "url": "https://files.pythonhosted.org/packages/8c/5c/e24a6f85b2038cbf209844944774102bb37e3a1e67ae524c71a7aad0e0a6/tfp_nightly-0.26.0.dev20260626-py2.py3-none-any.whl"
+  },
+  {
+    "file": "toolz-1.2.0-py3-none-any.whl",
+    "sha256": "890f820b1cb8152785aaf9386d8707770110809035800985ca65cb24ce1120ef",
+    "url": "https://files.pythonhosted.org/packages/db/17/4c8beb6c8c4176c6bf143bfd7e1e4dd6719b00ced90738c7ac471b71c1df/toolz-1.2.0-py3-none-any.whl"
+  },
+  {
+    "file": "msgpack-1.2.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "f3d7b3d0018746b5997dd6b14a1870b07cc4c327d9101145d94a1fc264a51a06",
+    "url": "https://files.pythonhosted.org/packages/0a/3a/aa9c580aea1314529a0f3562461479780b0d254b064f0880956bfbcc74a8/msgpack-1.2.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "orbax_checkpoint-0.11.5-py3-none-any.whl",
+    "sha256": "b55a7a254ea0ab18237e8234a6ca8bf5522f589fcc2ac698cf6893d5e7ae3500",
+    "url": "https://files.pythonhosted.org/packages/66/80/e659696b5b1c2ced427efedd2d9d29c1bc31d841ac8a031215aa38f6b2ae/orbax_checkpoint-0.11.5-py3-none-any.whl"
+  },
+  {
+    "file": "tensorstore-0.1.85-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "0e2f42d1e57df7e07655b819dd07f3de258fde97e39b896a53f089d7d7067e21",
+    "url": "https://files.pythonhosted.org/packages/88/7e/a1100ea66dbb028e0ea02f6d2e413e05285534d82d560f1f7d6145603640/tensorstore-0.1.85-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "portpicker-1.6.0-py3-none-any.whl",
+    "sha256": "b2787a41404cf7edbe29b07b9e0ed863b09f2665dcc01c1eb0c2261c1e7d0755",
+    "url": "https://files.pythonhosted.org/packages/32/2d/440e4d7041fff89f28f483733eb617127aa866135c2dc719e05893f089e1/portpicker-1.6.0-py3-none-any.whl"
+  },
+  {
+    "file": "grpcio_tools-1.84.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+    "sha256": "911503ba5900089c27d16f22858a9bb73af6d0b0a3324c0cae558c6cc95efd62",
+    "url": "https://files.pythonhosted.org/packages/6c/67/4d9caad57435b57f4a0a9956a59ccc70054058a3e2570349ea14930bff39/grpcio_tools-1.84.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl"
+  },
+  {
+    "file": "sqlalchemy-2.1.6-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "1b5885ad1226c8eeea6aeabb4c4036e43202e1bd70cc7a50ece98bcd6ebe5566",
+    "url": "https://files.pythonhosted.org/packages/07/05/45e6e2bae7c11e7dbaeb0e9205d92b1b12583b7e199eb2503a7a603f3b9f/sqlalchemy-2.1.6-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "jaxopt-0.8.5-py3-none-any.whl",
+    "sha256": "ff221d1a86908ec759eb1e219ee1d12bf208a70707e961bf7401076fe7cf4d5e",
+    "url": "https://files.pythonhosted.org/packages/45/d8/55e0901103c93d57bab3b932294c216f0cbd49054187ce29f8f13808d530/jaxopt-0.8.5-py3-none-any.whl"
+  },
+  {
+    "file": "equinox-0.11.7-py3-none-any.whl",
+    "sha256": "1177354e1795061fbad71535fe54096d8887dc059b4ab7d400fea2d47dfaa283",
+    "url": "https://files.pythonhosted.org/packages/00/3f/2fa4627a902a38cd836aa8f7e5a0753114bb23d6b4d2a73784dd9f5ff2e6/equinox-0.11.7-py3-none-any.whl"
+  },
+  {
+    "file": "jaxtyping-0.3.11-py3-none-any.whl",
+    "sha256": "8a4bedc4e3f963fa82df41bd13c7ebc2bad925601eb48614c65798f21329d4e3",
+    "url": "https://files.pythonhosted.org/packages/8b/38/c66bbdc5047f4776c2bd3e47e5295a350e3fa44d5b8942105e71c2a876a0/jaxtyping-0.3.11-py3-none-any.whl"
+  },
+  {
+    "file": "typeguard-2.13.3-py3-none-any.whl",
+    "sha256": "5e3e3be01e887e7eafae5af63d1f36c849aaa94e3a0112097312aabfa16284f1",
+    "url": "https://files.pythonhosted.org/packages/9a/bb/d43e5c75054e53efce310e79d63df0ac3f25e34c926be5dffb7d283fb2a8/typeguard-2.13.3-py3-none-any.whl"
+  },
+  {
+    "file": "ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "37da32aa97749251025666d62372775019594577b9c9e9cfda83bed48d778fdb",
+    "url": "https://files.pythonhosted.org/packages/ed/cf/87e8a6c57eed63a91782a0d229856ddf73e138ce004dd71e2799a9dcdb33/ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "opt_einsum-3.4.0-py3-none-any.whl",
+    "sha256": "69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd",
+    "url": "https://files.pythonhosted.org/packages/23/cd/066e86230ae37ed0be70aae89aabf03ca8d9f39c8aea0dec8029455b5540/opt_einsum-3.4.0-py3-none-any.whl"
+  },
+  {
+    "file": "etils-1.14.0-py3-none-any.whl",
+    "sha256": "b5df7341f54dbe1405a4450b2741207b4a8c279780402b45f87202b94dfc52b4",
+    "url": "https://files.pythonhosted.org/packages/5a/3d/589663aeeacd59bb2f3e8596bfd3e81cf0fb18d70bb433199041f469771b/etils-1.14.0-py3-none-any.whl"
+  },
+  {
+    "file": "gast-0.7.0-py3-none-any.whl",
+    "sha256": "99cbf1365633a74099f69c59bd650476b96baa5ef196fec88032b00b31ba36f7",
+    "url": "https://files.pythonhosted.org/packages/1d/33/f1c6a276de27b7d7339a34749cc33fa87f077f921969c47185d34a887ae2/gast-0.7.0-py3-none-any.whl"
+  },
+  {
+    "file": "dm_tree-0.1.10-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "b442a0c1e9d0960e0314a2e4af81fd328a87921b6d6db6dc41bfa420536884d6",
+    "url": "https://files.pythonhosted.org/packages/cc/6f/ed603715fbc29c887a8985252e2cfe0d449497aea96bac51010159771617/dm_tree-0.1.10-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "grpcio-1.84.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+    "sha256": "e0dcc7b588e7b7dd3363317296983db23a26af8baa5884db15a10fc0c8534186",
+    "url": "https://files.pythonhosted.org/packages/af/f9/77e9991fd5ae7d754b78b3c8e8eb028ddc886a480b86b934ece85f727f95/grpcio-1.84.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl"
+  },
+  {
+    "file": "wadler_lindig-0.1.7-py3-none-any.whl",
+    "sha256": "e3ec83835570fd0a9509f969162aeb9c65618f998b1f42918cfc8d45122fe953",
+    "url": "https://files.pythonhosted.org/packages/8d/96/04e7b441807b26b794da5b11e59ed7f83b2cf8af202bd7eba8ad2fa6046e/wadler_lindig-0.1.7-py3-none-any.whl"
+  },
+  {
+    "file": "tornado-6.6-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "4e152a3b2d3eae113b836d979823f7bb2320f7e334a84449729964921f374a4c",
+    "url": "https://files.pythonhosted.org/packages/0f/f4/d9d8d3ac345aa9df3a132ad03bd443160c2ab24ad4003b4e8d6d5af06371/tornado-6.6-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "xyzservices-2026.9.1-py3-none-any.whl",
+    "sha256": "af4fddac0f1fa5f7951834e2c58e10109e722be548cb1fe4f1a8e8b18cef4c09",
+    "url": "https://files.pythonhosted.org/packages/a8/71/9219fe65ef32bddc0b5d14e1d98dfefe9d2c9c1b1d1e93efca1f29fcbd4d/xyzservices-2026.9.1-py3-none-any.whl"
+  },
+  {
+    "file": "wrapt-2.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+    "sha256": "d6d274ec50a5b208be75596dc44ea253e65deaa6ee3a600babc86dafbb957dfc",
+    "url": "https://files.pythonhosted.org/packages/b3/d5/3d4ad322af74d3ab2a14f69ba844cdd3edefb555edfc1c1976ec0112d5c4/wrapt-2.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+  },
+  {
+    "file": "humanize-4.16.0-py3-none-any.whl",
+    "sha256": "353eb2f34c09d098b2880eee8bef21832eae6d174f48c5762fff7e5fcb74d01d",
+    "url": "https://files.pythonhosted.org/packages/b0/aa/0b7365d30fed43e7a3449aba1fe20a0a7174d9cf13e282af4e69ac825441/humanize-4.16.0-py3-none-any.whl"
+  }
+]

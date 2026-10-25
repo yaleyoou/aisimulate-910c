@@ -1517,6 +1517,30 @@
           "scope": "validation",
           "sha256": "b7b5699f51fb6f99870ed788caec5c673a360eff29bb5484e0b1f75e1491521a"
         },
+        "shape_delivery_manifest": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-delivery-20261025/manifest.json",
+          "scope": "validation",
+          "sha256": "f966e7f7971718373447c391d97ee1e64257c4ac0154161e404160b7a5bdfba0"
+        },
+        "shape_delivery_native": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-delivery-20261025/native-identity.json",
+          "scope": "validation",
+          "sha256": "a65f1f9eefb2b3832e73b30a014ea6aca3890daf5aa322418422ea574f093f65"
+        },
+        "shape_delivery_summary": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-delivery-20261025/summary.json",
+          "scope": "validation",
+          "sha256": "962325d6706ec9fc596aa7eab2a5aabe7a4ab0f822e96ec269b12fa29b918a2f"
+        },
         "shape_initial_qualified": {
           "archived": false,
           "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
@@ -1524,6 +1548,14 @@
           "path": "production/shape-validation-results-20261025/validation/ascend_attention_perf.parquet",
           "scope": "validation",
           "sha256": "7b0f6c957f0f7ac606b38e81873f557b86dffca031e3d01f97dce2946874ce04"
+        },
+        "shape_long_search_interruption": {
+          "archived": false,
+          "context_sha256": "38bb35234a82127d6e86c52bf51901df708e878b9fae392065c353619fa59a96",
+          "kind": "file",
+          "path": "production/shape-delivery-20261025/searches/interrupted-64k.json",
+          "scope": "validation",
+          "sha256": "21b5924ea84fd9b3976625ad4113a116c1c6e073c3af4671c93bfa9183d4bfd2"
         },
         "small_dcp_final": {
           "archived": false,
@@ -1760,9 +1792,9 @@
       },
       "progress": {
         "blockers": [
-          "Direct-FPM profile is not accepted; authorized operator-level parallel search is delivered, but general workload coverage/extrapolation and serving accuracy remain separate unfinished work."
+          "Direct-FPM profile not accepted. Operator-level shape functionality delivered; long-context high-concurrency replay timeout and whole-serving accuracy remain distinct outstanding work."
         ],
-        "next_action": "Extend general workload shape coverage/extrapolation first, then calibrate actual serving error, preserving the current operator-level release.",
+        "next_action": "Resolve GitHub authentication for publication and investigate the retained64K high-concurrency diagnostic without changing measurement validity or candidate failure records.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -1824,9 +1856,9 @@
   ],
   "progress": {
     "blockers": [
-      "Final variable-workload searches, installed image validation and GitHub push remain. GitHub HTTPS credentials and existing SSH key are both rejected."
+      "GitHub push authentication is unavailable. High-concurrency64K search has unresolved CPU/timeouts. Formal direct-FPM and whole-serving accuracy remain unaccepted."
     ],
-    "next_action": "Commit tested shape-policy implementation, rebuild the user image, finish variable-workload search checks and publish if authentication becomes available.",
+    "next_action": "Push the completed local commits after GitHub write authentication is configured; separately investigate high-concurrency long-context replay cost, then serving accuracy.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2500,11 +2532,17 @@
     },
     "shape_extension": {
       "accuracy_probe": "Firstprototypeincorrectlyscaledfixedindexerlaunchcost;correctedusingonlyoriginalcalibrationminimum. Fresh42pointconfirmation absoluteerror median:max: indexerprefill7.31%:24.89%,indexerdecode3.96%:7.96%,sparseprefill1.72%:16.92%,sparsedecode2.48%:5.41%. Thisisboundedpointvalidation,notwhole-servingaccuracyqualification.",
-      "delivery": "Userimage still5d4e...previousboundedbuild;needsreplacement withcommittedshapeimplementation. PushattemptoriginmainHTTPSfailedinvalidtoken;SSHgit@github.comdeniedpublickey. Nocredentialsprinted orpersisted.",
+      "cleanup": "Owned64kdiagnosticprocess tree stopped. AllownedNPUcollectors stopped32;19untouchedthisstageandotheruserservicekept.31notused. CPUvalidationcontainer remains available.",
+      "delivery": "Installedimage19e7b55d1190797455f97073a8f97dce032fed540eae901e168d20a1ea9d78c2;nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22;wheel4950befa18e225e2f7edbbc49c7cd70a5ace3f69161862abc92988cd93ea8324.16packageddatafiles/native/model verified. Installedshort65/32,PD128k1k,DCP32k1k,predictbest4k2k pass. Installed4k2ksearch16/16feasible0failed;best64requests metricsmatch.",
+      "evidence": "Frozenproduction/shape-delivery-20261025 contains426artifactfiles plusmanifest;matrix/search/installedpredictions,hostmeasurements,initialfailuresandinterrupted64klogsretained.108NPUvalidationrowsremainseparatefromcalibrationtables.",
+      "host_cost": "Existingforwardgatehelpers usedfor3pairedroundsbaselinec043andcandidateeed.100warmcalls/point. Threecoveredpoint warmmedianbaseline56.101/55.776/59.4505us;candidate55.946/55.831/59.5905us;anchored56.1255/55.801/60.156us. Predictedvaluesidentical. Newlongcontextpoints56.9305/60.816us. Cachewarmdiagnosticnotuncachedloopguarantee;sharednodevariationretained.",
       "math": "Same-identity boundary measurements anchor a fixed-plus-variable work model. Fixedcomponent=minmeasuredcurve;remainingcomponent scales by compute/HBM or page work. AttentionincludescausalQKandtop2048;DCPaddsKVwritesandcommunication. Scalarlinear/BMM/MoE/vector andHCCL,PD numericalaxes extended. Datafilesnotfabricated ormodified. Estimatedoperatorresults taggedestimated;PDmetadata records policyandoriginalbounds.",
       "native_validation": "Draftv2nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22.407GPUgolden/modeltests pass(390+17),46AscendRusttests pass. FullRust2057pass1preexistingignored beforefixed-overheadformula refinement;neworaclesverifyrefinement.2577attention+2994DCPpoints exactzeroerror underanchoredpolicy.",
       "policy": "Rust canonical estimator_config.op_level.ascend.shape_policy: measured(default,oldbehavior) or anchored(explicit). MainfourAscendexamples selectanchored. Model/topology/dtype/kernel/graphbucketidentities remain exact; fallback_policydeny still enforced. DeepEPdispatch bounds retained due actual runtimefailures.",
-      "search": "4k2k64/64 and65/32 64/64 pass;32k/64k/128k64-trialruns continuing. No failed candidates yet. Not a proof of globaloptimality outside searchedcandidatebudget.",
+      "push": "Userauthorizedpushoriginmain. HTTPS invalidusername/token;SSHexistingkeypublickeydenied. No credentialsavailableinGITHUB_TOKEN/GH_TOKEN. No forcepush/historyrewrite attempted. Stillrequires validGitHubwriteauthentication.",
+      "search": "Completed three64trial jointsearches:4k2k,65/32,32k1k,all192feasible,0failed.64k1kC8/16/32 diagnostic hadseveral120secondCPUworkers;interruptedafterlastprogress15completed11feasible. Nofinalrecommendation,NOTpassed.128khighconcurrencysearchnotstarted. Rootcauseunresolved;memorypressure/replayhypothesisonly.24predictmatrixcasesincluding64k/128kC2passed.",
+      "source_commit": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+      "tests": "407GPU/modeltests(390+17)pass;46AscendRusttestsafterfinalformula pass;priorfullRust2057pass1ignored. Exact2577attention+2994DCPunderanchoredzeroerror. PythonRuff andcargoformat checks pass.",
       "validation_collection": "66independentpoints allnumeric/CVpass, plus42freshconfirmationpoints allpass, onnode32only. Actualcollectorunchanged53db19...source. Originalrawandnegativecontrols retained. Thesevalidationrows areNOTusedascalibrationdata.",
       "workload_matrix": "24/24complete:aggregate,PD,DCP each1/32,65/32,4k2k,16k1k,32k1k,64k1k,128k1k,8k16k.4requests/case,tokencountschecked.64k/128kuseglobal32capacity;physicalmemoryconstraints remain unchanged."
     },
@@ -2560,7 +2598,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 64,
+  "revision": 65,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

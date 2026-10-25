@@ -1,0 +1,21 @@
+{
+  "workload": {
+    "input_tokens": 65536,
+    "output_tokens": 1024,
+    "requests": 64,
+    "concurrency_choices": [
+      8,
+      16,
+      32
+    ]
+  },
+  "status": "interrupted_diagnostic_not_qualified",
+  "requested_trials": 64,
+  "last_progress": {
+    "completed": 15,
+    "feasible": 11
+  },
+  "reason": "Several candidate workers consumed about120seconds of CPU each; the broader diagnostic was interrupted for investigation. No final result exists. This is not recorded as a passing search.",
+  "root_cause": "Unresolved. Memory pressure/replay scheduling is a hypothesis; no data-coverage exception was observed. The same64K/1K workload withconcurrency2 passed aggregated,PD,DCP.",
+  "followup": "Investigate the expensive high-concurrency candidate/replay path separately.128K high-concurrency search was not started;128K predictions were checked."
+}

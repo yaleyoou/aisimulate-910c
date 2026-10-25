@@ -1,0 +1,17 @@
+{
+  "source_revision": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+  "sha256": "eed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22",
+  "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+  "wheel_sha256": "4950befa18e225e2f7edbbc49c7cd70a5ace3f69161862abc92988cd93ea8324",
+  "engine_spec_schema": 29,
+  "target": "aarch64-unknown-linux-gnu",
+  "profile": "release",
+  "cargo_features": [
+    "extension-module"
+  ],
+  "build_command": "python3 -m maturin build --release --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+  "maturin": "1.15.0",
+  "python_abi": "abi3-py311",
+  "packaged_ascend_data_files_checked": 16,
+  "source_tree_note": "Code and tables from committed revision; documentation-only working changes are not packaged."
+}

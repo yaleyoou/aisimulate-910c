@@ -1,0 +1,36 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["GitHub push authentication is unavailable. High-concurrency64K search has unresolved CPU/timeouts. Formal direct-FPM and whole-serving accuracy remain unaccepted."],
+    "next_action": "Push the completed local commits after GitHub write authentication is configured; separately investigate high-concurrency long-context replay cost, then serving accuracy."
+  },
+  "research": {
+    "shape_extension": {
+      "source_commit": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+      "delivery": "Installedimage19e7b55d1190797455f97073a8f97dce032fed540eae901e168d20a1ea9d78c2;nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22;wheel4950befa18e225e2f7edbbc49c7cd70a5ace3f69161862abc92988cd93ea8324.16packageddatafiles/native/model verified. Installedshort65/32,PD128k1k,DCP32k1k,predictbest4k2k pass. Installed4k2ksearch16/16feasible0failed;best64requests metricsmatch.",
+      "search": "Completed three64trial jointsearches:4k2k,65/32,32k1k,all192feasible,0failed.64k1kC8/16/32 diagnostic hadseveral120secondCPUworkers;interruptedafterlastprogress15completed11feasible. Nofinalrecommendation,NOTpassed.128khighconcurrencysearchnotstarted. Rootcauseunresolved;memorypressure/replayhypothesisonly.24predictmatrixcasesincluding64k/128kC2passed.",
+      "host_cost": "Existingforwardgatehelpers usedfor3pairedroundsbaselinec043andcandidateeed.100warmcalls/point. Threecoveredpoint warmmedianbaseline56.101/55.776/59.4505us;candidate55.946/55.831/59.5905us;anchored56.1255/55.801/60.156us. Predictedvaluesidentical. Newlongcontextpoints56.9305/60.816us. Cachewarmdiagnosticnotuncachedloopguarantee;sharednodevariationretained.",
+      "tests": "407GPU/modeltests(390+17)pass;46AscendRusttestsafterfinalformula pass;priorfullRust2057pass1ignored. Exact2577attention+2994DCPunderanchoredzeroerror. PythonRuff andcargoformat checks pass.",
+      "evidence": "Frozenproduction/shape-delivery-20261025 contains426artifactfiles plusmanifest;matrix/search/installedpredictions,hostmeasurements,initialfailuresandinterrupted64klogsretained.108NPUvalidationrowsremainseparatefromcalibrationtables.",
+      "push": "Userauthorizedpushoriginmain. HTTPS invalidusername/token;SSHexistingkeypublickeydenied. No credentialsavailableinGITHUB_TOKEN/GH_TOKEN. No forcepush/historyrewrite attempted. Stillrequires validGitHubwriteauthentication.",
+      "cleanup": "Owned64kdiagnosticprocess tree stopped. AllownedNPUcollectors stopped32;19untouchedthisstageandotheruserservicekept.31notused. CPUvalidationcontainer remains available."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["Direct-FPM profile not accepted. Operator-level shape functionality delivered; long-context high-concurrency replay timeout and whole-serving accuracy remain distinct outstanding work."],
+        "next_action": "Resolve GitHub authentication for publication and investigate the retained64K high-concurrency diagnostic without changing measurement validity or candidate failure records."
+      },
+      "artifacts": {
+        "shape_delivery_summary": {"path":"production/shape-delivery-20261025/summary.json","kind":"file","scope":"validation"},
+        "shape_delivery_manifest": {"path":"production/shape-delivery-20261025/manifest.json","kind":"file","scope":"validation"},
+        "shape_delivery_native": {"path":"production/shape-delivery-20261025/native-identity.json","kind":"file","scope":"validation"},
+        "shape_long_search_interruption": {"path":"production/shape-delivery-20261025/searches/interrupted-64k.json","kind":"file","scope":"validation"}
+      }
+    }
+  }
+}

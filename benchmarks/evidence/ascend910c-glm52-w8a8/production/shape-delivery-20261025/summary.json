@@ -1,0 +1,145 @@
+{
+  "source_revision": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+  "image_id": "sha256:19e7b55d1190797455f97073a8f97dce032fed540eae901e168d20a1ea9d78c2",
+  "scope": "Shape interpolation/extrapolation functionality with retained runtime identity and physical memory checks; not full serving accuracy qualification.",
+  "workload_predictions": 24,
+  "successful_searches": [
+    {
+      "input_tokens": 4096,
+      "output_tokens": 2048,
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 64,
+        "failed": 0,
+        "feasible": 64,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      }
+    },
+    {
+      "input_tokens": 65,
+      "output_tokens": 32,
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 64,
+        "failed": 0,
+        "feasible": 64,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      }
+    },
+    {
+      "input_tokens": 32768,
+      "output_tokens": 1024,
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 64,
+        "failed": 0,
+        "feasible": 64,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      }
+    }
+  ],
+  "installed_search": {
+    "cache_hits": 0,
+    "evaluated": 16,
+    "failed": 0,
+    "feasible": 16,
+    "infeasible": 0,
+    "resource_limited": 0,
+    "timed_out": 0,
+    "unsupported": 0
+  },
+  "installed_best_replayed": {
+    "completed_requests": 64,
+    "mean_ttft_ms": 141320.64762043772,
+    "mean_tpot_ms": 95.46786572142939,
+    "output_throughput_tok_s": 150.6032247995144
+  },
+  "independent_npu_validation": {
+    "initial_points": 66,
+    "confirmation_points": 42,
+    "numerical_and_cv_qualified": 108,
+    "calibration_tables_unchanged": true
+  },
+  "validation": {
+    "gpu_goldens": 390,
+    "canonical_model_tests": 17,
+    "ascend_rust_tests": 46,
+    "full_rust_tests_before_fixed_overhead_refinement": 2057,
+    "preexisting_ignored": 1,
+    "attention_exact_points": 2577,
+    "dcp_exact_points": 2994
+  },
+  "host_cost": {
+    "method": "Existing forward gate measurement helpers,3pairedrounds,100warmcalls/point,releasebinaries;setup andfirstcall in rawreports. Shared-node variation remains. Cached repeated calls are not an uncached replay-loop performance guarantee.",
+    "points": [
+      {
+        "baseline": {
+          "warm_median_us": 56.101,
+          "predicted_ms": 462.6667174652642
+        },
+        "candidate": {
+          "warm_median_us": 55.946,
+          "predicted_ms": 462.6667174652642
+        },
+        "anchored": {
+          "warm_median_us": 56.1255,
+          "predicted_ms": 462.6667174652642
+        }
+      },
+      {
+        "baseline": {
+          "warm_median_us": 55.775999999999996,
+          "predicted_ms": 1309.9838980475004
+        },
+        "candidate": {
+          "warm_median_us": 55.831,
+          "predicted_ms": 1309.9838980475004
+        },
+        "anchored": {
+          "warm_median_us": 55.801,
+          "predicted_ms": 1309.9838980475004
+        }
+      },
+      {
+        "baseline": {
+          "warm_median_us": 59.450500000000005,
+          "predicted_ms": 760.2803594809277
+        },
+        "candidate": {
+          "warm_median_us": 59.5905,
+          "predicted_ms": 760.2803594809277
+        },
+        "anchored": {
+          "warm_median_us": 60.156000000000006,
+          "predicted_ms": 760.2803594809277
+        }
+      },
+      {
+        "anchored": {
+          "warm_median_us": 56.930499999999995,
+          "predicted_ms": 1568.020048606801
+        }
+      },
+      {
+        "anchored": {
+          "warm_median_us": 60.816,
+          "predicted_ms": 766.2430993300953
+        }
+      }
+    ]
+  },
+  "remaining": [
+    "64Khigh-concurrency search CPU/timeouts unresolved; diagnostic interrupted and not passed",
+    "Whole-serving accuracy/routing-skew/PD-contention calibration deferred",
+    "GitHub push blocked by invalid HTTPS credential and unauthorized SSHkey"
+  ]
+}

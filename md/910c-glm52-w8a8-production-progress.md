@@ -2,7 +2,29 @@
 
 ## 当前优先级：先可用，再校准
 
-### 当前结论：并行搜索已扩展，任意输入输出的覆盖尚未完成
+### 当前结论：shape外推已交付，高并发长上下文仍有搜索耗时问题
+
+新增 `engine.estimator_config.op_level.ascend.shape_policy: anchored`，主要示例已开启。
+范围内结果不变，范围外通过同身份的实测锚点、固定开销和工作量比例估计；
+未知硬件/算子身份、graph bucket、DeepEP执行边界和内存约束继续严格检查。
+源代码阶段提交 `bf61026f`，32节点运行镜像已经更新。
+
+- 24组请求预测全部通过：合并、PD、DCP各覆盖极短输入、4K、16K、32K、64K、128K及16K输出。
+- 4K/2K、65/32、32K/1K各64个搜索候选全部成功；安装版4K/2K的16候选也全部成功。
+- 66个初始NPU验证点和42个后续复核点均通过数值及CV检查；原始性能表未改变。
+- 390项GPU golden与17项模型/API检查通过；2577个attention和2994个DCP实测点在新策略下仍完全一致。
+- 三轮配对测试的常用warm forward调用约56～60微秒，原覆盖域的预测值完全一致。
+
+64K/1K、并发8/16/32的扩展搜索发现部分候选超过120秒CPU预算，已停止诊断并保留日志；
+根因尚未确定。这是本轮保留的问题，不能宣布任意负载、任意并发的搜索均已通过。
+完整服务误差、真实路由偏斜与PD争用仍按用户要求延后校准。
+GitHub推送已获用户授权，但HTTPS凭据和现有SSH公钥均被GitHub拒绝，尚未推送成功。
+
+本轮证据为 `production/shape-delivery-20261025/summary.json` 和
+`production/shape-validation-results-20261025/`，相对于 `benchmarks/evidence/ascend910c-glm52-w8a8/`。
+正式direct-FPM profile仍未验收，checkpoint保留stage2/in_progress；这与算子级功能交付分开记录。
+
+### 2026-10-25：并行扩展完成时的覆盖边界（历史记录）
 
 使用 [当前说明](910c-glm52-w8a8-usage.md) 和 `ascend910c-glm52-auto-search-8k1k.yaml`。
 新版镜像已包含TP1/2/4/8/16、全局16/32、DeepEP与张量MoE两种路径。
