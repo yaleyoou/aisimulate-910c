@@ -1,0 +1,1240 @@
+{
+  "schema": "aisimulate-four-node-pd-results/v1",
+  "workloads": {
+    "8k1k": {
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 984,
+        "failed": 0,
+        "feasible": 984,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      },
+      "finite_space_exhausted": true,
+      "concurrency_counts": {
+        "32": 328,
+        "8": 328,
+        "16": 328
+      },
+      "all_feasible_completed_expected_tokens": true,
+      "top5": [
+        {
+          "candidate_id": "candidate-000874",
+          "score": 314.7826731146387,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 314.7826731146387,
+            "mean_ttft_ms": 10099.423947736988,
+            "p99_ttft_ms": 27965.784073973973,
+            "mean_tpot_ms": 85.91494078219698,
+            "p99_tpot_ms": 85.93331273802548,
+            "mean_e2e_latency_ms": 97990.40836792448,
+            "duration_ms": 208194.43253197375
+          }
+        },
+        {
+          "candidate_id": "candidate-000861",
+          "score": 307.32282397624283,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 307.32282397624283,
+            "mean_ttft_ms": 6288.6335678619835,
+            "p99_ttft_ms": 14073.757413973975,
+            "mean_tpot_ms": 95.52336542430348,
+            "p99_tpot_ms": 95.52917441153451,
+            "mean_e2e_latency_ms": 104009.03639692444,
+            "duration_ms": 213248.0729939738
+          }
+        },
+        {
+          "candidate_id": "candidate-000869",
+          "score": 302.50878194758974,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 16,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 2,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 302.50878194758974,
+            "mean_ttft_ms": 8822.95123469729,
+            "p99_ttft_ms": 13651.640109759797,
+            "mean_tpot_ms": 95.52065929136106,
+            "p99_tpot_ms": 95.53147999413494,
+            "mean_e2e_latency_ms": 106540.5856897597,
+            "duration_ms": 216641.64451051952
+          }
+        },
+        {
+          "candidate_id": "candidate-000662",
+          "score": 301.3504779530657,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 8,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 301.3504779530657,
+            "mean_ttft_ms": 6279.644118746841,
+            "p99_ttft_ms": 14027.497673993672,
+            "mean_tpot_ms": 97.58542211632457,
+            "p99_tpot_ms": 97.59709236363638,
+            "mean_e2e_latency_ms": 106109.53094374675,
+            "duration_ms": 217474.3522729936
+          }
+        },
+        {
+          "candidate_id": "candidate-000529",
+          "score": 300.7123275119208,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 16,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 300.7123275119208,
+            "mean_ttft_ms": 6694.4132615285525,
+            "p99_ttft_ms": 14082.671256994596,
+            "mean_tpot_ms": 97.30786738508056,
+            "p99_tpot_ms": 97.31348317790811,
+            "mean_e2e_latency_ms": 106240.36159646598,
+            "duration_ms": 217935.8609679945
+          }
+        }
+      ],
+      "equal_best_candidates": [
+        "candidate-000874"
+      ],
+      "best_by_concurrency": {
+        "8": {
+          "candidate_id": "candidate-000070",
+          "score": 103.59865039828203,
+          "concurrency": 8,
+          "roles": {
+            "prefill": {
+              "attention_data": 1,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 16,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 1,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 16,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 103.59865039828203,
+            "mean_ttft_ms": 2694.331566781489,
+            "p99_ttft_ms": 6867.20467400174,
+            "mean_tpot_ms": 74.35043619892477,
+            "p99_tpot_ms": 74.35552996871965,
+            "mean_e2e_latency_ms": 78754.82779828159,
+            "duration_ms": 632595.1134310026
+          }
+        },
+        "16": {
+          "candidate_id": "candidate-000885",
+          "score": 202.56033542129182,
+          "concurrency": 16,
+          "roles": {
+            "prefill": {
+              "attention_data": 2,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 1,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 16,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 202.56033542129182,
+            "mean_ttft_ms": 3813.3661930651424,
+            "p99_ttft_ms": 10750.707957010569,
+            "mean_tpot_ms": 74.34822932429125,
+            "p99_tpot_ms": 74.35362457771255,
+            "mean_e2e_latency_ms": 79871.6047918151,
+            "duration_ms": 323538.16883101035
+          }
+        },
+        "32": {
+          "candidate_id": "candidate-000874",
+          "score": 314.7826731146387,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 314.7826731146387,
+            "mean_ttft_ms": 10099.423947736988,
+            "p99_ttft_ms": 27965.784073973973,
+            "mean_tpot_ms": 85.91494078219698,
+            "p99_tpot_ms": 85.93331273802548,
+            "mean_e2e_latency_ms": 97990.40836792448,
+            "duration_ms": 208194.43253197375
+          }
+        }
+      },
+      "best_by_node_split": {
+        "2:2": {
+          "candidate_id": "candidate-000861",
+          "score": 307.32282397624283,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 307.32282397624283,
+            "mean_ttft_ms": 6288.6335678619835,
+            "p99_ttft_ms": 14073.757413973975,
+            "mean_tpot_ms": 95.52336542430348,
+            "p99_tpot_ms": 95.52917441153451,
+            "mean_e2e_latency_ms": 104009.03639692444,
+            "duration_ms": 213248.0729939738
+          }
+        },
+        "3:1": {
+          "candidate_id": "candidate-000439",
+          "score": 152.93486562285023,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 152.93486562285023,
+            "mean_ttft_ms": 46242.24373014324,
+            "p99_ttft_ms": 274860.856736974,
+            "mean_tpot_ms": 128.41345664568072,
+            "p99_tpot_ms": 322.9073616226786,
+            "mean_e2e_latency_ms": 177609.2098786746,
+            "duration_ms": 428522.2976009741
+          }
+        },
+        "1:3": {
+          "candidate_id": "candidate-000874",
+          "score": 314.7826731146387,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 524288.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 314.7826731146387,
+            "mean_ttft_ms": 10099.423947736988,
+            "p99_ttft_ms": 27965.784073973973,
+            "mean_tpot_ms": 85.91494078219698,
+            "p99_tpot_ms": 85.93331273802548,
+            "mean_e2e_latency_ms": 97990.40836792448,
+            "duration_ms": 208194.43253197375
+          }
+        }
+      },
+      "nonfeasible": [],
+      "recommendation_sha256": "5e5870db8d5fd7305a6548496b6a27222a5bc1eab8d4e72ac7ce110b1030f99e",
+      "best_configuration": "aisimulate-output/4node-pd-8k1k/recommendations/0001.yaml"
+    },
+    "32k1k": {
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 825,
+        "failed": 0,
+        "feasible": 825,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      },
+      "finite_space_exhausted": true,
+      "concurrency_counts": {
+        "8": 275,
+        "16": 275,
+        "32": 275
+      },
+      "all_feasible_completed_expected_tokens": true,
+      "top5": [
+        {
+          "candidate_id": "candidate-000721",
+          "score": 228.58488164574902,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 16,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 2,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 228.58488164574902,
+            "mean_ttft_ms": 37839.65942400529,
+            "p99_ttft_ms": 60044.54966638026,
+            "mean_tpot_ms": 95.75315289455047,
+            "p99_tpot_ms": 95.7537865004886,
+            "mean_e2e_latency_ms": 135795.13483513042,
+            "duration_ms": 286703.1254567608
+          }
+        },
+        {
+          "candidate_id": "candidate-000101",
+          "score": 225.53589640191336,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 16,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 2,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 8,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 225.53589640191336,
+            "mean_ttft_ms": 37729.17193975285,
+            "p99_ttft_ms": 59998.39403737712,
+            "mean_tpot_ms": 97.6866917049121,
+            "p99_tpot_ms": 97.68699998534044,
+            "mean_e2e_latency_ms": 137662.65755387797,
+            "duration_ms": 290579.02110275347
+          }
+        },
+        {
+          "candidate_id": "candidate-000805",
+          "score": 224.00642660975672,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 4,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 224.00642660975672,
+            "mean_ttft_ms": 33930.69849636356,
+            "p99_ttft_ms": 77216.66546297712,
+            "mean_tpot_ms": 95.69213071810788,
+            "p99_tpot_ms": 95.73070669794734,
+            "mean_e2e_latency_ms": 131823.74822098782,
+            "duration_ms": 292563.0348729716
+          }
+        },
+        {
+          "candidate_id": "candidate-000585",
+          "score": 223.62417443583456,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 8,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 4,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 223.62417443583456,
+            "mean_ttft_ms": 34181.69953217604,
+            "p99_ttft_ms": 77241.81522497712,
+            "mean_tpot_ms": 95.6910585962848,
+            "p99_tpot_ms": 95.72982690909105,
+            "mean_e2e_latency_ms": 132073.65247617534,
+            "duration_ms": 293063.12774697144
+          }
+        },
+        {
+          "candidate_id": "candidate-000057",
+          "score": 222.17380574965438,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 32,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 1,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 222.17380574965438,
+            "mean_ttft_ms": 49383.039928339465,
+            "p99_ttft_ms": 49383.03992833954,
+            "mean_tpot_ms": 95.89940754643189,
+            "p99_tpot_ms": 95.89940754643204,
+            "mean_e2e_latency_ms": 147488.13384833938,
+            "duration_ms": 294976.267696679
+          }
+        }
+      ],
+      "equal_best_candidates": [
+        "candidate-000721"
+      ],
+      "best_by_concurrency": {
+        "8": {
+          "candidate_id": "candidate-000321",
+          "score": 81.42509777957568,
+          "concurrency": 8,
+          "roles": {
+            "prefill": {
+              "attention_data": 2,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 81.42509777957568,
+            "mean_ttft_ms": 12294.385099314,
+            "p99_ttft_ms": 22970.092569126562,
+            "mean_tpot_ms": 85.62727368571097,
+            "p99_tpot_ms": 85.62740041055841,
+            "mean_e2e_latency_ms": 99891.0860797963,
+            "duration_ms": 804862.4046778703
+          }
+        },
+        "16": {
+          "candidate_id": "candidate-000201",
+          "score": 139.1492097215898,
+          "concurrency": 16,
+          "roles": {
+            "prefill": {
+              "attention_data": 2,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 2,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 139.1492097215898,
+            "mean_ttft_ms": 15883.992712406638,
+            "p99_ttft_ms": 45700.51851212662,
+            "mean_tpot_ms": 95.382109671737,
+            "p99_tpot_ms": 95.38766755131967,
+            "mean_e2e_latency_ms": 113459.89090659357,
+            "duration_ms": 470976.44414312264
+          }
+        },
+        "32": {
+          "candidate_id": "candidate-000721",
+          "score": 228.58488164574902,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 16,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 2,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 228.58488164574902,
+            "mean_ttft_ms": 37839.65942400529,
+            "p99_ttft_ms": 60044.54966638026,
+            "mean_tpot_ms": 95.75315289455047,
+            "p99_tpot_ms": 95.7537865004886,
+            "mean_e2e_latency_ms": 135795.13483513042,
+            "duration_ms": 286703.1254567608
+          }
+        }
+      },
+      "best_by_node_split": {
+        "1:3": {
+          "candidate_id": "candidate-000448",
+          "score": 108.11207256363437,
+          "concurrency": 16,
+          "roles": {
+            "prefill": {
+              "attention_data": 2,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 108.11207256363437,
+            "mean_ttft_ms": 48224.34148865694,
+            "p99_ttft_ms": 122026.83627412737,
+            "mean_tpot_ms": 85.6231390930169,
+            "p99_tpot_ms": 85.62730725513312,
+            "mean_e2e_latency_ms": 135816.81278081328,
+            "duration_ms": 606185.7704321203
+          }
+        },
+        "2:2": {
+          "candidate_id": "candidate-000721",
+          "score": 228.58488164574902,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 16,
+              "moe_expert": 32,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 2,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 4,
+              "moe_expert": 1,
+              "moe_tensor": 32,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 32,
+              "devices_per_worker": 32,
+              "total_devices": 32,
+              "nodes": 2,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 228.58488164574902,
+            "mean_ttft_ms": 37839.65942400529,
+            "p99_ttft_ms": 60044.54966638026,
+            "mean_tpot_ms": 95.75315289455047,
+            "p99_tpot_ms": 95.7537865004886,
+            "mean_e2e_latency_ms": 135795.13483513042,
+            "duration_ms": 286703.1254567608
+          }
+        },
+        "3:1": {
+          "candidate_id": "candidate-000190",
+          "score": 41.72970142438152,
+          "concurrency": 32,
+          "roles": {
+            "prefill": {
+              "attention_data": 1,
+              "moe_expert": 16,
+              "moe_tensor": 1,
+              "pipeline": 1,
+              "replicas": 3,
+              "tensor": 16,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 48,
+              "nodes": 3,
+              "moe_backend": "deepep"
+            },
+            "decode": {
+              "attention_data": 2,
+              "moe_expert": 1,
+              "moe_tensor": 16,
+              "pipeline": 1,
+              "replicas": 1,
+              "tensor": 8,
+              "global_tp": 16,
+              "devices_per_worker": 16,
+              "total_devices": 16,
+              "nodes": 1,
+              "moe_backend": "none"
+            }
+          },
+          "metrics": {
+            "completed_requests": 64.0,
+            "total_input_tokens": 2097152.0,
+            "total_output_tokens": 65536.0,
+            "output_throughput_tok_s": 41.72970142438152,
+            "mean_ttft_ms": 523389.5863462356,
+            "p99_ttft_ms": 693490.9681796248,
+            "mean_tpot_ms": 85.63293232669874,
+            "p99_tpot_ms": 85.6348690000012,
+            "mean_e2e_latency_ms": 610992.0761164484,
+            "duration_ms": 1570488.1118969405
+          }
+        }
+      },
+      "nonfeasible": [],
+      "recommendation_sha256": "2b6160c860de41027f81701fcf88372ae685d61f3e7a42a0933a50b79601532f",
+      "best_configuration": "aisimulate-output/4node-pd-32k1k/recommendations/0001.yaml"
+    }
+  },
+  "runs": [
+    {
+      "name": "32k1k",
+      "started_at": "2026-10-25T08:28:01.819258+00:00",
+      "finished_at": "2026-10-25T08:37:49.566154+00:00",
+      "returncode": 0,
+      "output_dir": "aisimulate-output/4node-pd-32k1k",
+      "log_path": "aisimulate-output/4node-pd-32k1k.search.log",
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 825,
+        "failed": 0,
+        "feasible": 825,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      },
+      "recommendation_sha256": "2b6160c860de41027f81701fcf88372ae685d61f3e7a42a0933a50b79601532f",
+      "top_candidates": [
+        "candidate-000721",
+        "candidate-000101",
+        "candidate-000805",
+        "candidate-000585",
+        "candidate-000057"
+      ]
+    },
+    {
+      "name": "8k1k",
+      "started_at": "2026-10-25T08:28:01.818877+00:00",
+      "finished_at": "2026-10-25T08:38:23.244011+00:00",
+      "returncode": 0,
+      "output_dir": "aisimulate-output/4node-pd-8k1k",
+      "log_path": "aisimulate-output/4node-pd-8k1k.search.log",
+      "counts": {
+        "cache_hits": 0,
+        "evaluated": 984,
+        "failed": 0,
+        "feasible": 984,
+        "infeasible": 0,
+        "resource_limited": 0,
+        "timed_out": 0,
+        "unsupported": 0
+      },
+      "recommendation_sha256": "5e5870db8d5fd7305a6548496b6a27222a5bc1eab8d4e72ac7ce110b1030f99e",
+      "top_candidates": [
+        "candidate-000874",
+        "candidate-000861",
+        "candidate-000869",
+        "candidate-000662",
+        "candidate-000529"
+      ]
+    }
+  ],
+  "best_replays": [
+    {
+      "name": "8k1k",
+      "output_dir": "aisimulate-output/4node-pd-8k1k-best",
+      "command": [
+        "bash",
+        "scripts/run-ascend910c.sh",
+        "predict",
+        "--stack",
+        "engine",
+        "--config",
+        "aisimulate-output/4node-pd-8k1k/recommendations/0001.yaml",
+        "--capture-per-request",
+        "--output-dir",
+        "aisimulate-output/4node-pd-8k1k-best"
+      ],
+      "returncode": 0,
+      "completed_requests": 64,
+      "metrics_match": {
+        "completed_requests": {
+          "search": 64.0,
+          "replay": 64
+        },
+        "total_input_tokens": {
+          "search": 524288.0,
+          "replay": 524288
+        },
+        "total_output_tokens": {
+          "search": 65536.0,
+          "replay": 65536
+        },
+        "output_throughput_tok_s": {
+          "search": 314.7826731146387,
+          "replay": 314.7826731146387
+        },
+        "mean_ttft_ms": {
+          "search": 10099.423947736988,
+          "replay": 10099.423947736987
+        },
+        "p99_ttft_ms": {
+          "search": 27965.784073973973,
+          "replay": 27965.784073973973
+        },
+        "mean_tpot_ms": {
+          "search": 85.91494078219698,
+          "replay": 85.91494078219698
+        },
+        "p99_tpot_ms": {
+          "search": 85.93331273802548,
+          "replay": 85.93331273802548
+        },
+        "mean_e2e_latency_ms": {
+          "search": 97990.40836792448,
+          "replay": 97990.40836792446
+        },
+        "duration_ms": {
+          "search": 208194.43253197375,
+          "replay": 208194.43253197375
+        }
+      },
+      "prediction_sha256": "bdbfd64cb58282f16cb549c5a163216ba30a7c88cb0b2ddbb89c555835097055",
+      "requests_sha256": "992acefa8b122436fede04bc162030606d4b90320184fb4216bb0ac7fe304c1e"
+    },
+    {
+      "name": "32k1k",
+      "output_dir": "aisimulate-output/4node-pd-32k1k-best",
+      "command": [
+        "bash",
+        "scripts/run-ascend910c.sh",
+        "predict",
+        "--stack",
+        "engine",
+        "--config",
+        "aisimulate-output/4node-pd-32k1k/recommendations/0001.yaml",
+        "--capture-per-request",
+        "--output-dir",
+        "aisimulate-output/4node-pd-32k1k-best"
+      ],
+      "returncode": 0,
+      "completed_requests": 64,
+      "metrics_match": {
+        "completed_requests": {
+          "search": 64.0,
+          "replay": 64
+        },
+        "total_input_tokens": {
+          "search": 2097152.0,
+          "replay": 2097152
+        },
+        "total_output_tokens": {
+          "search": 65536.0,
+          "replay": 65536
+        },
+        "output_throughput_tok_s": {
+          "search": 228.58488164574902,
+          "replay": 228.58488164574902
+        },
+        "mean_ttft_ms": {
+          "search": 37839.65942400529,
+          "replay": 37839.65942400529
+        },
+        "p99_ttft_ms": {
+          "search": 60044.54966638026,
+          "replay": 60044.54966638026
+        },
+        "mean_tpot_ms": {
+          "search": 95.75315289455047,
+          "replay": 95.75315289455047
+        },
+        "p99_tpot_ms": {
+          "search": 95.7537865004886,
+          "replay": 95.7537865004886
+        },
+        "mean_e2e_latency_ms": {
+          "search": 135795.13483513042,
+          "replay": 135795.13483513042
+        },
+        "duration_ms": {
+          "search": 286703.1254567608,
+          "replay": 286703.1254567608
+        }
+      },
+      "prediction_sha256": "b22181b36c7ccbd1a8064ff28d01c540a033bafb77570b116b609ca4c454de5c",
+      "requests_sha256": "ee246bacebc92729278545ca75d90407fdd5193df276a8724f5b1b5806361c73"
+    }
+  ],
+  "runner_bookkeeping": "Both recommend processes and both predict processes exited0. A temporary wrapper then used nonexistent Path.chown; it was corrected to os.chown and output ownership restored. The8K completion record was recovered from its emitted run record and verified against the completed recommendation. Search/replay results were not changed or rerun.",
+  "scope": "Fixed64-device PD-only finite search over published parallel layouts and concurrency8/16/32,64requests each; functional simulation evidence, not real four-node serving calibration.",
+  "limitation": "Routing balance, shared-expert overlap and uncalibrated inter-request shared-link contention remain model assumptions. No latency SLA is applied.64K high-concurrency issue is outside this experiment and remains unresolved."
+}

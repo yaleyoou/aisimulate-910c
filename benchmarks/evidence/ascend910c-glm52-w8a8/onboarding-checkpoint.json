@@ -2157,6 +2157,46 @@
       "node31": "occupiedbyotherworkload;untouched",
       "sessions": "32root24914;19root89706;31root47855"
     },
+    "four_node_pd_search": {
+      "accuracy_acceptance": false,
+      "configuration": "Two independent searches:8192/1024 and32768/1024; min=max64devices; PD-only; concurrency8/16/32;64requests; throughput objective; random finite-domain sampling with max10000trials and120s/candidate.",
+      "next_action": "Review throughput/latency tradeoff for the actual workload and SLA; retained64K high-concurrency diagnostics and whole-serving calibration remain separate future work.",
+      "results": {
+        "32k1k": {
+          "concurrency": 32,
+          "evaluated": 825,
+          "failed": 0,
+          "feasible": 825,
+          "mean_tpot_ms": 95.75315289455047,
+          "mean_ttft_ms": 37839.65942400529,
+          "node_ratio": "2P:2D",
+          "output_throughput_tok_s": 228.58488164574902,
+          "timed_out": 0,
+          "worker_ratio": "1P:1D(each32devices)"
+        },
+        "8k1k": {
+          "concurrency": 32,
+          "evaluated": 984,
+          "failed": 0,
+          "feasible": 984,
+          "mean_tpot_ms": 85.91494078219698,
+          "mean_ttft_ms": 10099.423947736988,
+          "node_ratio": "1P:3D",
+          "output_throughput_tok_s": 314.7826731146387,
+          "timed_out": 0,
+          "worker_ratio": "1P:3D"
+        }
+      },
+      "scope": "CPU-only PD search exactly64devices; both finite candidate spaces exhausted. No source timing/runtime changes.",
+      "sources": [
+        "production/four-node-pd-20261025/plan.json",
+        "production/four-node-pd-20261025/summary.json",
+        "production/four-node-pd-20261025/manifest.json",
+        "../../../md/910c-glm52-w8a8-four-node-pd-results.md"
+      ],
+      "status": "complete",
+      "validation": "All1809feasible candidates complete64requests with exact token totals; each saved rank1YAML replays64requests and matches10metrics. Frozen28files plusmanifest retain full candidate ledgers and top5YAMLs. Temporary post-run ownership helper error was corrected without changing CLI results."
+    },
     "git_stage_policy": {
       "author_scope": "Per-command youxingye <youxingye@npu1-32>; no permanent Git author configuration changed.",
       "hardware_commit": "93011105",
@@ -2614,7 +2654,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 68,
+  "revision": 70,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

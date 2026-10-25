@@ -1,5 +1,19 @@
 # Current goal handoff
 
+## NEWEST: exact four-node PD searches completed for8K/1K and32K/1K
+
+Installed image19e7b55d / nativeeed921d5 (runtime sourcebf61026f) evaluated9848K and82532K candidates;
+both finite domains exhausted, all feasible, no failures/timeouts/resources limits. Min=max64devices,
+PD-only,64requests,C8/16/32,throughput objective,noSLA. Each best savedYAML replayed64requests and matched10metrics.
+8Kbest314.782673tok/s: P1node/1worker,attentionTP4ADP4EP16MoETP1; D3nodes/3workers,TP8ADP2EP1MoETP16.
+32Kbest228.584882tok/s: P2nodes/1worker,TP2ADP16EP32MoETP1; D2nodes/1worker,TP8ADP4EP1MoETP32.
+Both useconcurrency32. MeanTTFT10.099s/37.840s;meanTPOT85.915ms/95.753ms. Node ratios are not worker ratios.
+Evidence production/four-node-pd-20261025, report md/910c-glm52-w8a8-four-node-pd-results.md;
+all user outputs aisimulate-output/4node-pd-{8k1k,32k1k} and -best. Checkpoint70 records completion.
+Temporary orchestration Path.chown error was repaired withos.chown; both searches and bothpredict processes exited0,
+and the emitted8Kcompletion record was recovered/verified. No simulator/data changes. No active search/NPU job remains.
+Overall formal stage2/accuracy status and retained64Khighconcurrency issue remain unchanged.
+
 ## NEWEST: user documentation delivered on2026-10-25
 
 Expanded md/910c-glm52-w8a8-usage.md with parameter, output, deployment-mapping and troubleshooting guidance.

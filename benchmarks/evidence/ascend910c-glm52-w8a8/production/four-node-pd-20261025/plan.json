@@ -1,0 +1,116 @@
+{
+  "schema": "aisimulate-four-node-pd-search/v1",
+  "date": "2026-10-25",
+  "source_revision": "fe8802340a3e203f1b4d69a311fa8fbc0859a17f",
+  "input_sha256": {
+    "examples/cli/ascend910c-glm52-auto-search-8k1k.yaml": "e56dd5b07499580438e4d9f5ff1bdb60eb93d6d5768c87dfa64cefac1b28958b",
+    "/mnt/raid/user/data/models/glm-q/config.json": "817f5fb39ca5d4c4b5648de89ca00deaea7537d8c2f130172a459252a05c1073",
+    "/mnt/raid/user/data/models/glm-q/quant_model_description.json": "3386f968cd7049fe95f896c1a1aeacaa5c1c0659ac2ed9a42cd783cc48ef29ba"
+  },
+  "image": "aisimulate-910c:glm52-w8a8",
+  "image_id": "sha256:19e7b55d1190797455f97073a8f97dce032fed540eae901e168d20a1ea9d78c2",
+  "runtime_source_revision": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
+  "scope": "Offline CPU-only PD recommendation; exactly64runtime devices, no NPU serving launch.",
+  "concurrency_choices": [
+    8,
+    16,
+    32
+  ],
+  "requests": 64,
+  "shape_policy": "anchored",
+  "objective": "throughput",
+  "per_worker_device_choices": [
+    16,
+    32
+  ],
+  "candidate_timeout_seconds": 120,
+  "qualification": "Functional prediction and search; whole-serving accuracy and four-node shared-link contention are not calibrated.",
+  "jobs": [
+    {
+      "name": "8k1k",
+      "input_tokens": 8192,
+      "output_tokens": 1024,
+      "output_dir": "aisimulate-output/4node-pd-8k1k",
+      "log_path": "aisimulate-output/4node-pd-8k1k.search.log",
+      "environment": {
+        "AISIMULATE_910C_CPUS": "16",
+        "AISIMULATE_910C_CPUSET": "0-15",
+        "AISIMULATE_910C_MEMORY": "32g"
+      },
+      "command": [
+        "bash",
+        "scripts/run-ascend910c.sh",
+        "recommend",
+        "--stack",
+        "engine",
+        "--config",
+        "examples/cli/ascend910c-glm52-auto-search-8k1k.yaml",
+        "--set",
+        "engine.mode=disaggregated",
+        "--set",
+        "engine.workers.aggregated=null",
+        "--set",
+        "traffic.source.input_tokens=8192",
+        "--set",
+        "traffic.source.output_tokens=1024",
+        "--set",
+        "engine.context_length=9216",
+        "--set",
+        "optimization.constraints.min_candidate_gpus=64",
+        "--set",
+        "optimization.constraints.max_candidate_gpus=64",
+        "--set",
+        "optimization.target=throughput",
+        "--set",
+        "optimizer.algorithm=random",
+        "--set",
+        "optimizer.max_trials=10000",
+        "--output-dir",
+        "aisimulate-output/4node-pd-8k1k"
+      ]
+    },
+    {
+      "name": "32k1k",
+      "input_tokens": 32768,
+      "output_tokens": 1024,
+      "output_dir": "aisimulate-output/4node-pd-32k1k",
+      "log_path": "aisimulate-output/4node-pd-32k1k.search.log",
+      "environment": {
+        "AISIMULATE_910C_CPUS": "16",
+        "AISIMULATE_910C_CPUSET": "16-31",
+        "AISIMULATE_910C_MEMORY": "32g"
+      },
+      "command": [
+        "bash",
+        "scripts/run-ascend910c.sh",
+        "recommend",
+        "--stack",
+        "engine",
+        "--config",
+        "examples/cli/ascend910c-glm52-auto-search-8k1k.yaml",
+        "--set",
+        "engine.mode=disaggregated",
+        "--set",
+        "engine.workers.aggregated=null",
+        "--set",
+        "traffic.source.input_tokens=32768",
+        "--set",
+        "traffic.source.output_tokens=1024",
+        "--set",
+        "engine.context_length=33792",
+        "--set",
+        "optimization.constraints.min_candidate_gpus=64",
+        "--set",
+        "optimization.constraints.max_candidate_gpus=64",
+        "--set",
+        "optimization.target=throughput",
+        "--set",
+        "optimizer.algorithm=random",
+        "--set",
+        "optimizer.max_trials=10000",
+        "--output-dir",
+        "aisimulate-output/4node-pd-32k1k"
+      ]
+    }
+  ]
+}
