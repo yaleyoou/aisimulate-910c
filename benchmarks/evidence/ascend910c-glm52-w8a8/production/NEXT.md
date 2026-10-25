@@ -1,5 +1,13 @@
 # Current goal handoff
 
+## NEWEST: GitHub publication succeeded; remaining issues are unchanged
+
+Published all feature and validation commits through59aee6d892565933741c60734d1837ac53c88d88 toorigin/main.
+Remote refs/heads/main was verified equal tolocalHEAD. Authentication used only transient Git process environment;
+no credential is stored in this checkpoint, repository files or remote URL. Do not repeat credentials in output.
+Checkpoint66 records authentication resolved. Publication bookkeeping follows the verified feature push.
+Remaining: retained64K highconcurrency replay CPU/timeouts and deferred serving accuracy. No new model/data changes.
+
 ## NEWEST: shape extension delivered; GitHub authentication blocks push,64K highconcurrency diagnostic remains open
 
 HEADbf61026f sourcecommit,finaldocs/evidence commitpending. Checkpoint65pending.

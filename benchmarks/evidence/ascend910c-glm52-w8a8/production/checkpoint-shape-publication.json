@@ -1,0 +1,23 @@
+{
+  "progress": {
+    "stage": 2,
+    "status": "in_progress",
+    "blockers": ["High-concurrency64K search has unresolved CPU/timeouts. Formal direct-FPM and whole-serving accuracy remain unaccepted."],
+    "next_action": "Investigate retained high-concurrency long-context replay cost, then calibrate serving accuracy. GitHub publication authentication is resolved."
+  },
+  "research": {
+    "shape_extension": {
+      "push": "Successfully pushed origin/main from c9e7363bf5983b980fe6622f7b064ee7adff5f5d to59aee6d892565933741c60734d1837ac53c88d88. Verified remote refs/heads/main equals localHEAD. User-supplied authentication was passed only to transient Git processes; no credential was written into repository files or remote URLs."
+    }
+  },
+  "configurations": {
+    "united-tp16-dp2-ep16": {
+      "progress": {
+        "stage": 2,
+        "status": "in_progress",
+        "blockers": ["Direct-FPM profile not accepted. Operator-level shape functionality delivered and published; long-context high-concurrency replay timeout and whole-serving accuracy remain distinct outstanding work."],
+        "next_action": "Investigate the retained64K high-concurrency diagnostic without changing measurement validity or candidate failure records."
+      }
+    }
+  }
+}

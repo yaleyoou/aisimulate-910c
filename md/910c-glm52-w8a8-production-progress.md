@@ -18,7 +18,7 @@
 64K/1K、并发8/16/32的扩展搜索发现部分候选超过120秒CPU预算，已停止诊断并保留日志；
 根因尚未确定。这是本轮保留的问题，不能宣布任意负载、任意并发的搜索均已通过。
 完整服务误差、真实路由偏斜与PD争用仍按用户要求延后校准。
-GitHub推送已获用户授权，但HTTPS凭据和现有SSH公钥均被GitHub拒绝，尚未推送成功。
+GitHub认证已恢复，功能与验证提交已推送到 `origin/main`，远端已核对包含 `59aee6d8`。
 
 本轮证据为 `production/shape-delivery-20261025/summary.json` 和
 `production/shape-validation-results-20261025/`，相对于 `benchmarks/evidence/ascend910c-glm52-w8a8/`。

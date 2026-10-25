@@ -1792,9 +1792,9 @@
       },
       "progress": {
         "blockers": [
-          "Direct-FPM profile not accepted. Operator-level shape functionality delivered; long-context high-concurrency replay timeout and whole-serving accuracy remain distinct outstanding work."
+          "Direct-FPM profile not accepted. Operator-level shape functionality delivered and published; long-context high-concurrency replay timeout and whole-serving accuracy remain distinct outstanding work."
         ],
-        "next_action": "Resolve GitHub authentication for publication and investigate the retained64K high-concurrency diagnostic without changing measurement validity or candidate failure records.",
+        "next_action": "Investigate the retained64K high-concurrency diagnostic without changing measurement validity or candidate failure records.",
         "stage": 2,
         "status": "in_progress"
       },
@@ -1856,9 +1856,9 @@
   ],
   "progress": {
     "blockers": [
-      "GitHub push authentication is unavailable. High-concurrency64K search has unresolved CPU/timeouts. Formal direct-FPM and whole-serving accuracy remain unaccepted."
+      "High-concurrency64K search has unresolved CPU/timeouts. Formal direct-FPM and whole-serving accuracy remain unaccepted."
     ],
-    "next_action": "Push the completed local commits after GitHub write authentication is configured; separately investigate high-concurrency long-context replay cost, then serving accuracy.",
+    "next_action": "Investigate retained high-concurrency long-context replay cost, then calibrate serving accuracy. GitHub publication authentication is resolved.",
     "stage": 2,
     "status": "in_progress"
   },
@@ -2539,7 +2539,7 @@
       "math": "Same-identity boundary measurements anchor a fixed-plus-variable work model. Fixedcomponent=minmeasuredcurve;remainingcomponent scales by compute/HBM or page work. AttentionincludescausalQKandtop2048;DCPaddsKVwritesandcommunication. Scalarlinear/BMM/MoE/vector andHCCL,PD numericalaxes extended. Datafilesnotfabricated ormodified. Estimatedoperatorresults taggedestimated;PDmetadata records policyandoriginalbounds.",
       "native_validation": "Draftv2nativeeed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22.407GPUgolden/modeltests pass(390+17),46AscendRusttests pass. FullRust2057pass1preexistingignored beforefixed-overheadformula refinement;neworaclesverifyrefinement.2577attention+2994DCPpoints exactzeroerror underanchoredpolicy.",
       "policy": "Rust canonical estimator_config.op_level.ascend.shape_policy: measured(default,oldbehavior) or anchored(explicit). MainfourAscendexamples selectanchored. Model/topology/dtype/kernel/graphbucketidentities remain exact; fallback_policydeny still enforced. DeepEPdispatch bounds retained due actual runtimefailures.",
-      "push": "Userauthorizedpushoriginmain. HTTPS invalidusername/token;SSHexistingkeypublickeydenied. No credentialsavailableinGITHUB_TOKEN/GH_TOKEN. No forcepush/historyrewrite attempted. Stillrequires validGitHubwriteauthentication.",
+      "push": "Successfully pushed origin/main from c9e7363bf5983b980fe6622f7b064ee7adff5f5d to59aee6d892565933741c60734d1837ac53c88d88. Verified remote refs/heads/main equals localHEAD. User-supplied authentication was passed only to transient Git processes; no credential was written into repository files or remote URLs.",
       "search": "Completed three64trial jointsearches:4k2k,65/32,32k1k,all192feasible,0failed.64k1kC8/16/32 diagnostic hadseveral120secondCPUworkers;interruptedafterlastprogress15completed11feasible. Nofinalrecommendation,NOTpassed.128khighconcurrencysearchnotstarted. Rootcauseunresolved;memorypressure/replayhypothesisonly.24predictmatrixcasesincluding64k/128kC2passed.",
       "source_commit": "bf61026f5bd96ad8c122bf1da8d35504dcdeb3de",
       "tests": "407GPU/modeltests(390+17)pass;46AscendRusttestsafterfinalformula pass;priorfullRust2057pass1ignored. Exact2577attention+2994DCPunderanchoredzeroerror. PythonRuff andcargoformat checks pass.",
@@ -2598,7 +2598,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 65,
+  "revision": 66,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }
