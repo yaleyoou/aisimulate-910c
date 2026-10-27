@@ -58,7 +58,16 @@ def test_multi_request_prefill_and_lower_graph_bucket_edges_are_covered(model):
         if row["phase"] == "prefill" and row["active_batch"] == 4 and row["tokens"] == 8192 and row["prefix"] == 8192
     )
     assert prefill["sequence_length"] == 10240 and prefill["padded_batch"] == 4
-    assert all(row["tokens"] <= 8192 for row in cases if row["phase"] == "prefill")
+    assert all(row["tokens"] <= 32768 for row in cases if row["phase"] == "prefill")
+    assert any(
+        row["phase"] == "prefill"
+        and row["tokens"] == 16384
+        and row["active_batch"] == 1
+        and row["prefix"] == 16384
+        and row["sequence_length"] == 32768
+        for row in cases
+    )
+    assert any(row["phase"] == "decode" and row["sequence_length"] == 33792 for row in cases)
     for active, padded in ((9, 16), (17, 24), (25, 32)):
         assert any(
             row["phase"] == "decode"

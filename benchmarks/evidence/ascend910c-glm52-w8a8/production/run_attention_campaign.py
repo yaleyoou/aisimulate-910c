@@ -128,7 +128,6 @@ def main():
                 and case["execution_mode"] == "graph"
                 and case["phase"] == "decode"
                 and case["active_batch"] == 1
-                and case["sequence_length"] == 8192
             )
             job = run(
                 "negative-" + operation, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True

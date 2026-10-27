@@ -30,11 +30,12 @@ def physical_coordinate(operation, row):
 
 
 def collection_identities(report):
+    identities = dict(report.get("merged_identities", {}))
     if "identity" in report:
         identity = report["identity"]
         digest = hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-        return {digest: identity}
-    identities = {}
+        identities[digest] = identity
+        return identities
     for source in report["campaigns"]:
         identities.update(collection_identities(source["report"]))
     return identities
@@ -88,17 +89,90 @@ def append_curves(operation, campaigns):
     return rows, decisions, counts
 
 
+def extend_attention_points(campaigns):
+    if not campaigns:
+        raise ValueError("At least one verified campaign is required")
+    rows, decisions, counts = [], [], Counter()
+    identities, groups = {}, defaultdict(list)
+    runtime = campaigns[0]["metadata"]["runtime"]
+    setup, hardware = None, None
+    for index, campaign in enumerate(campaigns):
+        if campaign["metadata"]["runtime"] != runtime:
+            raise ValueError("Different runtime conditions cannot share a table")
+        verified = collection_identities(campaign["report"])
+        for digest, identity in verified.items():
+            actual = hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+            if actual != digest:
+                raise ValueError("Collection identity digest mismatch")
+        identities.update(verified)
+        for row in campaign["rows"]:
+            digest = row["runtime_identity_sha256"]
+            if digest not in verified:
+                raise ValueError("Table row has no verified collection identity")
+            identity = verified[digest]
+            current_hardware = identity["runtime"].get("hardware")
+            current_setup = identity["serving_setup"]
+            if current_hardware is None or (hardware is not None and current_hardware != hardware):
+                raise ValueError("Different or missing hardware identities cannot share a table")
+            if setup is not None and current_setup != setup:
+                raise ValueError("Different serving setups cannot share a table")
+            hardware, setup = current_hardware, current_setup
+            groups[physical_curve("attention", row)].append((index, row))
+            counts[index] += 1
+    merged_identities = {}
+    for key, values in sorted(groups.items()):
+        coordinates = [physical_coordinate("attention", row) for _, row in values]
+        if len(coordinates) != len(set(coordinates)):
+            raise ValueError("Overlapping physical points cannot replace existing measurements")
+        source_ids = sorted({row["runtime_identity_sha256"] for _, row in values})
+        first = identities[source_ids[0]]
+        conditions = {name: first[name] for name in ("runtime", "protocol", "serving_setup")}
+        if any({name: identities[digest][name] for name in conditions} != conditions for digest in source_ids):
+            raise ValueError("Extended curves require identical runtime, protocol and serving setup")
+        if len(source_ids) == 1:
+            merged_digest = source_ids[0]
+        else:
+            merged = {**conditions, "coverage_sources": source_ids}
+            merged_bytes = json.dumps(merged, sort_keys=True, separators=(",", ":")).encode()
+            merged_digest = hashlib.sha256(merged_bytes).hexdigest()
+            merged_identities[merged_digest] = merged
+        for index, row in sorted(values, key=lambda item: physical_coordinate("attention", item[1])):
+            rows.append({**row, "runtime_identity_sha256": merged_digest})
+        decisions.append(
+            {
+                "key": key,
+                "points": sorted(coordinates),
+                "collection_identity_sha256": merged_digest,
+                "sources": [
+                    {
+                        "campaign": index,
+                        "collection_identity_sha256": digest,
+                        "points": sorted(
+                            physical_coordinate("attention", row)
+                            for owner, row in values
+                            if owner == index and row["runtime_identity_sha256"] == digest
+                        ),
+                    }
+                    for index, digest in sorted({(owner, row["runtime_identity_sha256"]) for owner, row in values})
+                ],
+            }
+        )
+    return rows, decisions, counts, merged_identities
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--operation", choices=("linear", "vector", "bmm", "attention", "pd", "dcp_attention"), required=True
     )
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--extend-attention-points", action="store_true")
     parser.add_argument("campaign", type=Path, nargs="+")
     args = parser.parse_args()
     import pyarrow as arrow
     import pyarrow.parquet as parquet
     import yaml
+
     from collector.provenance import append_collection_event, write_collection_meta
 
     name = "ascend_" + args.operation + "_perf"
@@ -116,7 +190,13 @@ def main():
                 "table_sha256": hashlib.sha256(table.read_bytes()).hexdigest(),
             }
         )
-    rows, decisions, counts = append_curves(args.operation, campaigns)
+    merged_identities = {}
+    if args.extend_attention_points:
+        if args.operation != "attention":
+            parser.error("Point extension is qualified only for attention")
+        rows, decisions, counts, merged_identities = extend_attention_points(campaigns)
+    else:
+        rows, decisions, counts = append_curves(args.operation, campaigns)
     entry, total = None, 0
     for index, contributed in sorted(counts.items()):
         metadata = campaigns[index]["metadata"]
@@ -137,13 +217,20 @@ def main():
         args.output_dir, campaigns[0]["metadata"]["runtime"], {name: entry}, provenance_tier="collected"
     )
     report = {
-        "selection": "Append disjoint whole curves; existing curves are retained unchanged. Overlaps are rejected.",
+        "selection": (
+            "Extend disjoint attention coordinates under identical runtime, protocol and serving setup; "
+            "preserve every timing and source hash, join collection identities with explicit coverage_sources."
+            if args.extend_attention_points
+            else "Append disjoint whole curves; existing curves are retained unchanged. Overlaps are rejected."
+        ),
         "curves": decisions,
         "campaigns": [
             {"table_sha256": campaign["table_sha256"], "report": campaign["report"]} for campaign in campaigns
         ],
         "rows": len(rows),
     }
+    if merged_identities:
+        report["merged_identities"] = merged_identities
     (args.output_dir / "provenance.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"rows": len(rows), "curves": len(decisions)}))
 

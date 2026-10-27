@@ -176,6 +176,20 @@ Supply the observed pin or accepted runtime instrumentation when those hooks are
 required. The op-level collector's runtime manifest and version-routing rules
 below are unchanged.
 
+### Incremental Ascend attention coverage
+
+`python -m collector.sglang.ascend_curve_append --operation attention
+--extend-attention-points --output-dir NEW_DIRECTORY OLD_CAMPAIGN NEW_CAMPAIGN`
+adds previously unmeasured coordinates to an existing attention curve. Runtime,
+hardware, collector source, timing protocol and serving setup must match. Any
+duplicate physical coordinate is rejected, including a faster remeasurement;
+the existing latency and observation hash are preserved. Multiple collection
+identities are joined through explicit `coverage_sources` in the provenance
+sidecar so the native reader still receives one verified identity per curve.
+The default command continues to accept only disjoint whole curves. Both inputs
+must already have passed their normal exporter checks; this command does not
+turn diagnostic or held-out measurements into qualified calibration data.
+
 Generation-time admission may omit a topology only when a concrete AIC
 size-vs-capacity estimate proves its configured token envelope cannot fit.
 Missing performance data, bootstrap architectures, and structural estimator
