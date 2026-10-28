@@ -218,6 +218,13 @@ pub struct SglangDestinationReservation {
     pub(crate) allocated_tokens: usize,
 }
 
+#[derive(Default)]
+pub(crate) struct SglangDestinationHeadroom {
+    pub(crate) active_tokens: usize,
+    pub(crate) request_tokens: usize,
+    pub(crate) completion_tokens: usize,
+}
+
 impl SglangDestinationReservation {
     pub(crate) fn transferable_prompt_tokens(&self) -> usize {
         self.unpublished_pages.len() * self.page_size
@@ -815,6 +822,19 @@ impl SglangKvManager {
         page_hashes: &[LocalBlockHash],
         token_count: usize,
     ) -> Option<SglangDestinationReservation> {
+        self.reserve_destination_with_headroom(
+            page_hashes,
+            token_count,
+            &SglangDestinationHeadroom::default(),
+        )
+    }
+
+    pub(crate) fn reserve_destination_with_headroom(
+        &mut self,
+        page_hashes: &[LocalBlockHash],
+        token_count: usize,
+        headroom: &SglangDestinationHeadroom,
+    ) -> Option<SglangDestinationReservation> {
         let (prefix_len, last_node) = self.match_prefix_hashes_and_lock(page_hashes);
         let prefix_pages = self.collect_path_pages_through(last_node, prefix_len);
 
@@ -826,7 +846,10 @@ impl SglangKvManager {
         let fresh_tokens = allocated_tokens.saturating_sub(prefix_len);
         let fresh_pages = fresh_tokens / self.cache.page_size();
         let reservable = self.cache.available_tokens() + self.cache.evictable_size;
-        if fresh_tokens > reservable {
+        let required = fresh_tokens
+            .saturating_add(headroom.request_tokens)
+            .max(headroom.completion_tokens.saturating_sub(prefix_len));
+        if required.saturating_add(headroom.active_tokens) > reservable {
             self.cache.dec_lock_ref(last_node);
             return None;
         }

@@ -28,7 +28,9 @@ use crate::engine::common::speculative::{
 };
 use crate::engine::common::utils::prefill_handoff_transfer_timing;
 use crate::engine::kv_manager::SglangKvManager;
-use crate::engine::kv_manager::sglang_backend::SglangDestinationReservation;
+use crate::engine::kv_manager::sglang_backend::{
+    SglangDestinationHeadroom, SglangDestinationReservation,
+};
 use crate::engine::trace::TraceCollector;
 use crate::engine::{HandoffId, modeled_duration_ms};
 
@@ -358,6 +360,22 @@ impl SglangCore {
                 if prompt_footprint > self.config.total_kv_tokens {
                     anyhow::bail!("destination prompt exceeds the KV pool capacity");
                 }
+                if self.config.decode_reserved_tokens > 0 {
+                    let required = prompt_footprint
+                        .saturating_add(self.config.decode_reserved_tokens)
+                        .max(
+                            request.prompt_len().saturating_add(
+                                request
+                                    .max_output_tokens
+                                    .min(self.config.clip_max_new_tokens),
+                            ),
+                        );
+                    if required > self.config.total_kv_tokens {
+                        anyhow::bail!(
+                            "destination prompt and decode headroom exceed the KV pool capacity"
+                        );
+                    }
+                }
                 self.pending_destinations.insert(uuid, handoff_id, request);
                 let mut effects =
                     SchedulerCommandEffects::new(SchedulerCommandResult::DestinationAccepted {
@@ -426,20 +444,29 @@ impl SglangCore {
 
     pub(crate) fn retry_pending_destinations(&mut self) -> Vec<SchedulerLifecycleEvent> {
         let generation = self.capacity_generation;
+        let (mut headroom, retractable) = self.destination_headroom();
         let Some((_, _, request)) = self.pending_destinations.front_due(generation) else {
             return Vec::new();
         };
-        // TODO(disagg): Real SGLang also preserves logical decode headroom
-        // (`num_reserved_decode_tokens`, default 512, plus a one-request
-        // completion guard). This foundation physically reserves only the
-        // page-rounded incoming prompt footprint.
+        if self.config.decode_reserved_tokens > 0 {
+            headroom.completion_tokens = request
+                .prompt_len()
+                .saturating_add(
+                    request
+                        .max_output_tokens
+                        .min(self.config.clip_max_new_tokens),
+                )
+                .saturating_sub(retractable);
+        }
         #[cfg(test)]
         {
             self.destination_reservation_attempts += 1;
         }
-        let reservation = self
-            .kv_manager
-            .reserve_destination_lease(request.kv_lease.page_hashes(), request.prompt_len());
+        let reservation = self.kv_manager.reserve_destination_with_headroom(
+            request.kv_lease.page_hashes(),
+            request.prompt_len(),
+            &headroom,
+        );
         self.pending_destinations.mark_front_attempted(generation);
         let Some(kv) = reservation else {
             return Vec::new();
@@ -456,6 +483,60 @@ impl SglangCore {
             request_id,
             transferable_prompt_tokens,
         }]
+    }
+
+    fn destination_headroom(&self) -> (SglangDestinationHeadroom, usize) {
+        let reserved = self.config.decode_reserved_tokens;
+        if reserved == 0 {
+            return (SglangDestinationHeadroom::default(), 0);
+        }
+        let retractable = self
+            .running
+            .iter()
+            .map(SglangRequest::current_sequence_len)
+            .sum::<usize>();
+        let completion = |request: &SglangRequest| {
+            request
+                .prompt_len()
+                .saturating_add(
+                    request
+                        .max_output_tokens
+                        .min(self.config.clip_max_new_tokens),
+                )
+                .saturating_sub(retractable)
+        };
+        let retracted = self
+            .waiting
+            .iter()
+            .filter(|request| request.is_decode_handoff)
+            .collect::<Vec<_>>();
+        let active = self.running.len()
+            + self.prebuilt_ready.len()
+            + self.destination_holds.len()
+            + self.waiting.len()
+            - retracted.len();
+        let active_guard = self.running.iter().map(completion).max().unwrap_or(0);
+        let retracted_guard = retracted
+            .iter()
+            .map(|request| {
+                request
+                    .current_sequence_len()
+                    .div_ceil(self.config.block_size)
+                    * self.config.block_size
+                    + reserved
+            })
+            .sum::<usize>();
+        (
+            SglangDestinationHeadroom {
+                active_tokens: active
+                    .saturating_mul(reserved)
+                    .max(active_guard)
+                    .saturating_add(retracted_guard),
+                request_tokens: reserved,
+                completion_tokens: 0,
+            },
+            retractable,
+        )
     }
 
     fn validate_request_id(&self, uuid: Uuid) -> anyhow::Result<()> {
@@ -603,7 +684,7 @@ impl SglangCore {
         let capacity_improved = self.kv_manager.abort(std::mem::take(&mut request.kv_lease));
         self.source_holds.remove_request(request_id);
         self.active_destination_handoffs.remove_request(request_id);
-        if capacity_improved {
+        if capacity_improved || self.config.decode_reserved_tokens > 0 {
             self.bump_capacity_generation();
         }
         true
@@ -841,15 +922,17 @@ impl SglangCore {
         // Preserve admission around validation, prediction and duration conversion.
         // The built-in polynomial remains infallible; external providers may fail
         // after accepting geometry. Lease checkpoints are not independent owners.
+        let retracted_only =
+            self.config.decode_reserved_tokens > 0 && self.pending_destinations.has_pending();
         let admission_checkpoint = (!self.waiting.is_empty()
             && self.config.perf_model.prefill_pass_can_fail())
         .then(|| {
             // FIFO admission only touches an admitted prefix and possibly its
             // first blocked request. LPM may reorder the small queue it scores;
             // keep the complete rollback image in that bounded case.
-            let checkpoint_len = if self.config.schedule_policy
-                == super::config::SchedulePolicy::Lpm
-                && self.waiting.len() <= super::config::LPM_FALLBACK_THRESHOLD
+            let checkpoint_len = if retracted_only
+                || (self.config.schedule_policy == super::config::SchedulePolicy::Lpm
+                    && self.waiting.len() <= super::config::LPM_FALLBACK_THRESHOLD)
             {
                 self.waiting.len()
             } else {
@@ -878,7 +961,10 @@ impl SglangCore {
         let materialized_waiting = !self.prebuilt_ready.is_empty();
         apply_schedule_policy(&mut self.waiting, &self.kv_manager, &self.config);
 
-        let admission = AdmissionInvariant::new(self.pending_destinations.has_pending());
+        let retracted_waiting =
+            retracted_only && self.waiting.iter().any(|request| request.is_decode_handoff);
+        let admission =
+            AdmissionInvariant::new(self.pending_destinations.has_pending() && !retracted_waiting);
         let mut admit = match admission.stage_for(materialized_waiting) {
             AdmissionStage::Materialized | AdmissionStage::PendingDestinationHead => {
                 Default::default()
@@ -889,6 +975,7 @@ impl SglangCore {
                 &self.config,
                 self.new_token_ratio,
                 &self.running,
+                retracted_only,
             ),
             // Gate the entire prefill entry point, including chunk continuation.
             AdmissionStage::FreshKv => Default::default(),
@@ -1074,6 +1161,9 @@ impl SglangCore {
         }
         self.model_work_in_pass = self.prefill_in_pass
             || (!prefill_pass && decode.output_signals.iter().any(|s| s.token_id.is_some()));
+        if self.config.decode_reserved_tokens > 0 && self.model_work_in_pass {
+            self.bump_capacity_generation();
+        }
         if !stalled.is_empty() {
             // Keep FIFO order: older requests stay ahead of the ones admitted in this pass.
             stalled.append(&mut self.running);
@@ -1243,6 +1333,9 @@ impl SglangCore {
                 cache_tier_attribution: None,
             });
             self.running.push(request);
+        }
+        if self.config.decode_reserved_tokens > 0 && !admissions.is_empty() {
+            self.bump_capacity_generation();
         }
         admissions
     }

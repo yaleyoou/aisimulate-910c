@@ -1498,6 +1498,30 @@ def test_runner_lowers_disaggregated_grouped_engines(backend):
     assert runtime.execution_spec["engine"]["decode"]["rank"]["backend"] == backend
 
 
+def test_public_decode_headroom_reaches_native_execution_rank():
+    raw = {
+        "engine": {
+            "mode": "disaggregated",
+            "model": "example/model",
+            "hardware": "h200_sxm",
+            "backend": "sglang",
+            "context_length": 4096,
+            "workers": {
+                role: {
+                    "scheduler": {"decode_reserved_tokens": 512 if role == "decode" else 0},
+                    "kv_cache": {"block_size": 128, "capacity": {"type": "fixed", "blocks": 128}},
+                    "timing": {"type": "fixed", "prefill_ms": 1.0, "decode_ms": 1.0},
+                }
+                for role in ("prefill", "decode")
+            },
+        }
+    }
+    runtime = RecordingRuntime()
+    public = CorePredictionConfig.model_validate(raw)
+    EngineReplayRunnerFactory(runtime=runtime).create(0).run(prediction_to_replay_spec(public))
+    assert runtime.execution_spec["spec"]["engine"]["decode"]["rank"]["sglang"]["decode_reserved_tokens"] == 512
+
+
 @pytest.mark.parametrize(
     ("prefill_dp", "decode_dp"),
     [(2, 1), (1, 2), (2, 4), (2, 2)],

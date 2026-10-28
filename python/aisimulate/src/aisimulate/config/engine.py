@@ -108,6 +108,7 @@ class ParallelismPredictionConfig(ParallelismPresetConfig):
 class SchedulerPredictionConfig(StrictModel):
     max_batched_tokens: PositiveInt = 8192
     max_sequences: PositiveInt = 256
+    decode_reserved_tokens: NonNegativeInt = 0
     prefill_schedule_interval: PositiveInt = Field(
         default=1, description="vLLM only: admit prefill once every N attention-DP group passes."
     )
@@ -725,6 +726,7 @@ class ParallelismRecommendationConfig(StrictModel):
 class SchedulerRecommendationConfig(StrictModel):
     max_batched_tokens: PositiveInt | Choices[PositiveInt] | IntegerRange | None = None
     max_sequences: PositiveInt | Choices[PositiveInt] | IntegerRange | None = None
+    decode_reserved_tokens: NonNegativeInt = 0
 
 
 class KvCapacityRecommendationConfig(StrictModel):
@@ -988,9 +990,12 @@ def _validate_prediction_scheduler_backend(engine: EnginePredictionConfig) -> No
         for field, backend, default in (
             ("prefill_schedule_interval", "vllm", 1),
             ("prefill_decode_interval", "sglang", 0),
+            ("decode_reserved_tokens", "sglang", 0),
         ):
             if engine.backend != backend and getattr(worker.scheduler, field) != default:
                 raise ValueError(f"workers.{role}.scheduler.{field} is supported only for backend={backend}")
+        if worker.scheduler.decode_reserved_tokens and (engine.mode != "disaggregated" or role != "decode"):
+            raise ValueError("decode_reserved_tokens requires the disaggregated decode role")
 
 
 def _validate_prediction_afd(engine: EnginePredictionConfig) -> None:

@@ -55,6 +55,7 @@ _PREFILL_PINNED = (
 )
 _DECODE_SEARCHED = ("decode_max_num_batched_tokens", "decode_max_num_seqs")
 _DECODE_PINNED = (
+    "decode_reserved_tokens",
     "decode_block_size",
     "decode_gpu_memory_utilization",
     "decode_enable_prefix_caching",

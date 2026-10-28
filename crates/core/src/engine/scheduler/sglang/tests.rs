@@ -579,7 +579,7 @@ fn fresh_prefill_tracks_cache_owned_prefix_pages_and_pressure_event() {
         kv_lease: RadixRequestLease::default(),
         allocated_tokens: 0,
     }]);
-    let req = get_new_batch_prefill(&mut waiting, &mut kv_manager, &config, 0.7, &[])
+    let req = get_new_batch_prefill(&mut waiting, &mut kv_manager, &config, 0.7, &[], false)
         .can_run
         .pop()
         .unwrap();
@@ -938,6 +938,183 @@ mod destination_lifecycle {
 
         assert_eq!(footprint(1), 12);
         assert_eq!(footprint(128), 12);
+    }
+
+    fn headroom_core() -> SglangCore {
+        let mut settings = args(WorkerType::Decode);
+        settings.block_size = 128;
+        settings.num_gpu_blocks = 26;
+        settings.max_num_seqs = Some(2);
+        settings.sglang.as_mut().unwrap().page_size = Some(128);
+        settings.sglang.as_mut().unwrap().decode_reserved_tokens = Some(512);
+        SglangCore::new(settings)
+    }
+
+    fn reserve_headroom_request(
+        core: &mut SglangCore,
+        ordinal: u128,
+        output_tokens: usize,
+    ) -> crate::engine::scheduler::SchedulerCommandEffects {
+        core.apply_command_effects(
+            SchedulerCommand::ReserveDestination {
+                handoff_id: HandoffId::from(Uuid::from_u128(ordinal)),
+                request: request(
+                    Uuid::from_u128(ordinal + 100),
+                    vec![ordinal as u32; 1024],
+                    output_tokens,
+                ),
+            },
+            true,
+        )
+        .unwrap()
+    }
+
+    #[test]
+    fn decode_headroom_blocks_holds_and_prebuilt_then_wakes_on_decode() {
+        let mut core = headroom_core();
+        let first = reserve_headroom_request(&mut core, 50_001, 512);
+        assert!(matches!(
+            first.lifecycle_events.as_slice(),
+            [SchedulerLifecycleEvent::DestinationReserved {
+                transferable_prompt_tokens: 1024,
+                ..
+            }]
+        ));
+        assert_eq!(occupied_tokens(&core), 1024);
+        let blocked = reserve_headroom_request(&mut core, 50_002, 1024);
+        assert!(blocked.lifecycle_events.is_empty());
+        let attempts = core.destination_reservation_attempts();
+        assert!(core.retry_pending_destinations().is_empty());
+        assert_eq!(core.destination_reservation_attempts(), attempts);
+        core.apply_command(SchedulerCommand::ActivateDestination {
+            handoff_id: HandoffId::from(Uuid::from_u128(50_001)),
+        })
+        .unwrap();
+        assert!(
+            core.destination_pages(HandoffId::from(Uuid::from_u128(50_002)))
+                .is_empty()
+        );
+        let mut now_ms = 0.0;
+        let mut admitted = false;
+        for _ in 0..1023 {
+            let pass = execute(&mut core, now_ms);
+            now_ms = pass.end_ms;
+            if !core.retry_pending_destinations().is_empty() {
+                admitted = true;
+                break;
+            }
+        }
+        assert!(admitted);
+        assert_eq!(core.running.len(), 1);
+        assert!(
+            !core
+                .destination_pages(HandoffId::from(Uuid::from_u128(50_002)))
+                .is_empty()
+        );
+    }
+
+    #[test]
+    fn decode_headroom_cancel_releases_logical_and_physical_capacity() {
+        let mut core = headroom_core();
+        reserve_headroom_request(&mut core, 51_001, 512);
+        assert!(
+            reserve_headroom_request(&mut core, 51_002, 1024)
+                .lifecycle_events
+                .is_empty()
+        );
+        let effects = core
+            .apply_command_effects(
+                SchedulerCommand::CancelDestination {
+                    handoff_id: HandoffId::from(Uuid::from_u128(51_001)),
+                },
+                true,
+            )
+            .unwrap();
+        assert_eq!(effects.lifecycle_events.len(), 1);
+        assert_eq!(occupied_tokens(&core), 1024);
+        core.apply_command(SchedulerCommand::CancelDestination {
+            handoff_id: HandoffId::from(Uuid::from_u128(51_002)),
+        })
+        .unwrap();
+        assert_eq!(core.kv_manager.cache().protected_size, 0);
+        assert!(core.is_drained());
+    }
+
+    #[test]
+    fn decode_headroom_rejects_unrunnable_request_without_pending_work() {
+        let mut core = headroom_core();
+        let result = core.apply_command(SchedulerCommand::ReserveDestination {
+            handoff_id: HandoffId::from(Uuid::from_u128(52_001)),
+            request: request(Uuid::from_u128(52_002), vec![1; 3072], 1024),
+        });
+        assert!(result.unwrap_err().to_string().contains("decode headroom"));
+        assert!(core.is_drained());
+        assert_eq!(occupied_tokens(&core), 0);
+    }
+
+    #[test]
+    fn decode_headroom_clips_completion_guard_without_increasing_transfer() {
+        let mut core = headroom_core();
+        core.config.clip_max_new_tokens = 1024;
+        let result = core
+            .apply_command_effects(
+                SchedulerCommand::ReserveDestination {
+                    handoff_id: HandoffId::from(Uuid::from_u128(53_001)),
+                    request: request(Uuid::from_u128(53_002), vec![1; 1024], 8192),
+                },
+                true,
+            )
+            .unwrap();
+        assert!(matches!(
+            result.lifecycle_events.as_slice(),
+            [SchedulerLifecycleEvent::DestinationReserved {
+                transferable_prompt_tokens: 1024,
+                ..
+            }]
+        ));
+    }
+
+    #[test]
+    fn decode_headroom_readmits_retracted_work_ahead_of_pending_destination() {
+        let mut settings = args(WorkerType::Decode);
+        settings.num_gpu_blocks = 16;
+        settings.sglang.as_mut().unwrap().decode_reserved_tokens = Some(4);
+        let mut core = SglangCore::new(settings);
+        let retracted_id = Uuid::from_u128(54_001);
+        core.receive(request(retracted_id, vec![1; 4], 3));
+        let mut retracted = core.waiting.pop_front().unwrap();
+        retracted.is_decode_handoff = true;
+        let fresh_id = Uuid::from_u128(54_002);
+        core.receive(request(fresh_id, vec![2; 4], 3));
+        core.waiting.push_back(retracted);
+        let pending_id = HandoffId::from(Uuid::from_u128(54_003));
+        let result = core
+            .apply_command_effects(
+                SchedulerCommand::ReserveDestination {
+                    handoff_id: pending_id,
+                    request: request(Uuid::from_u128(54_004), vec![3; 48], 8),
+                },
+                true,
+            )
+            .unwrap();
+        assert!(result.lifecycle_events.is_empty());
+        let pass = execute(&mut core, 0.0);
+        assert!(
+            pass.output_signals
+                .iter()
+                .any(|signal| signal.uuid == retracted_id)
+        );
+        assert_eq!(core.waiting.len(), 1);
+        assert_eq!(core.waiting.front().unwrap().uuid, fresh_id);
+        let mut now_ms = pass.end_ms;
+        for _ in 0..4 {
+            core.retry_pending_destinations();
+            if !core.destination_pages(pending_id).is_empty() {
+                break;
+            }
+            now_ms = execute(&mut core, now_ms).end_ms;
+        }
+        assert!(!core.destination_pages(pending_id).is_empty());
     }
 
     fn execute(core: &mut SglangCore, now_ms: f64) -> crate::engine::scheduler::EnginePassResult {
@@ -1424,7 +1601,7 @@ mod core_behavior {
             allocated_tokens: 0,
         }]);
 
-        let admit = get_new_batch_prefill(&mut waiting, &mut kv_manager, &config, 0.7, &[]);
+        let admit = get_new_batch_prefill(&mut waiting, &mut kv_manager, &config, 0.7, &[], false);
         assert_eq!(admit.can_run.len(), 1);
         assert_eq!(admit.can_run[0].materialized_tokens, 8);
     }

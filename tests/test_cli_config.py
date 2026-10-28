@@ -1195,6 +1195,58 @@ def _pd_hardware_config(*, recommend=False, **overrides):
     return raw
 
 
+@pytest.mark.parametrize(
+    "backend,role,value", [("vllm", "decode", 512), ("sglang", "prefill", 512), ("sglang", "decode", -1)]
+)
+def test_decode_headroom_rejects_invalid_prediction_configuration(backend, role, value):
+    raw = _pd_hardware_config()
+    raw["engine"]["backend"] = backend
+    raw["engine"]["workers"][role]["scheduler"] = {"decode_reserved_tokens": value}
+    with pytest.raises(ValueError, match="decode_reserved_tokens"):
+        CorePredictionConfig.model_validate(raw)
+
+
+def test_decode_headroom_survives_search_candidate_yaml_and_predict():
+    import yaml
+
+    from aisimulate.compiler import prediction_to_replay_spec
+
+    raw = _pd_hardware_config(recommend=True)
+    raw["engine"]["backend"] = "sglang"
+    raw["engine"]["backend_version"] = "0.5.22"
+    for role in ("prefill", "decode"):
+        raw["engine"]["workers"][role].update(
+            timing={"type": "fixed", "prefill_ms": 1.0, "decode_ms": 1.0},
+            kv_cache={"block_size": 128, "capacity": {"type": "fixed", "blocks": 128}},
+        )
+    raw["engine"]["workers"]["decode"]["scheduler"] = {"decode_reserved_tokens": 512}
+    source = CoreRecommendationConfig.model_validate(raw)
+    space = recommendation_to_sweeper(source).search_space
+    assert space.decode_reserved_tokens == 512
+    parallel = ReplicaParallelConfig(ParallelShape(tp=1, dp=1, moe_tp=1, moe_ep=1), replicas=1)
+    sample = unroll_sample(
+        search_space=space,
+        selection={
+            "deployment_mode": "disagg",
+            "backend": "sglang",
+            "prefill_max_num_batched_tokens": 8192,
+            "prefill_max_num_seqs": 1,
+            "decode_max_num_batched_tokens": 8192,
+            "decode_max_num_seqs": 32,
+        },
+        parallel_config=DisaggParallelConfig(prefill=parallel, decode=parallel),
+    )
+    deployment = build_backend_deployment(sample, backend_version="0.5.22")
+    assert deployment.decode_engine_args["sglang"]["decode_reserved_tokens"] == 512
+    saved = _candidate_prediction(
+        source, sample, ReplaySpec(backend_deployment=deployment, workload={}, goal={}), adapter_sections={}
+    )
+    restored = CorePredictionConfig.model_validate(yaml.safe_load(yaml.safe_dump(saved)))
+    compiled = prediction_to_replay_spec(restored).backend_deployment
+    assert compiled.decode_engine_args["sglang"]["decode_reserved_tokens"] == 512
+    assert "sglang" not in compiled.prefill_engine_args
+
+
 @pytest.mark.parametrize("timing_mode", ["full_prompt", "destination_missing"])
 def test_measured_pd_survives_recommendation_saved_yaml_and_predict(monkeypatch, timing_mode):
     import yaml

@@ -661,6 +661,21 @@ also appear in `python/aisimulate/tests/unit/sdk/models/test_deepseek_v41.py`,
 Rust operator/spec unit tests, `docs/perf-model/models/deepseek-v41.md`. They distinguish candidate masking from scoring
 and physical FlashMLA cache payload from logical FP4 values.
 
+## SGLang PD decode admission
+
+The PD decode admission budget in `crates/core/src/engine/scheduler/sglang/core.rs`
+and `crates/core/src/engine/kv_manager/sglang_backend.rs`, including retracted-request
+admission in `crates/core/src/engine/scheduler/sglang/prefill.rs`, is independently
+reimplemented and modified from the behavioral contract in SGLang
+`python/sglang/srt/disaggregation/decode.py` at immutable revision
+`baa9befa381511cd4d56f83980951e5a45fffc6d`, distributed in the pinned Ascend
+runtime. Source: https://github.com/sgl-project/sglang/blob/baa9befa381511cd4d56f83980951e5a45fffc6d/python/sglang/srt/disaggregation/decode.py
+Copyright SGLang contributors; Apache-2.0, reproduced in the repository
+`LICENSE`. No upstream implementation or tests are copied. The Rust adaptation
+models logical headroom and lifecycle wakeups and is opt-in for compatibility.
+Its regression tests in `crates/core/src/engine/scheduler/sglang/tests.rs` are
+independently written. Host staging and SWA admission are outside this adaptation.
+
 ## DeepSeek model configuration files
 
 The following model configuration files are copied from, or formatting-only

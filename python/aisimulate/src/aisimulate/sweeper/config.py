@@ -600,6 +600,7 @@ class SearchSpace(BaseModel):
     # decode engine (disagg branch): scheduler batching capacity
     decode_max_num_batched_tokens: list[int] = [8192]
     decode_max_num_seqs: list[int] = [256, 512, 1024]
+    decode_reserved_tokens: int = Field(default=0, strict=True, ge=0)
     # pinned
     decode_block_size: int | list[int] | None = 64
     decode_gpu_memory_utilization: float | list[float] | None = 0.9

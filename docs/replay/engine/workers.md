@@ -46,10 +46,19 @@ engine:
 | `workers.<role>.scheduler.max_sequences` | `256`; `1` for `prefill` | Prefill: `{choices: [1, 2, 4, 8, 16, 32, 64, 128, 256]}`; others: `{choices: [256, 512, 1024]}` | Positive. Maximum running requests on one attention-DP rank. |
 | `workers.<role>.scheduler.prefill_schedule_interval` | `1` | predict only | vLLM only. See [vLLM prefill schedule interval](#vllm-prefill-schedule-interval). |
 | `workers.<role>.scheduler.prefill_decode_interval` | `0` | predict only | SGLang only. See [SGLang prefill/decode interval](#sglang-prefilldecode-interval). |
+| `workers.decode.scheduler.decode_reserved_tokens` | `0` | fixed | SGLang PD only. Logical growth reserve per active decode request; set `512` for the qualified 0.5.22 Ascend runtime. Zero preserves the prior prompt-only admission behavior. |
 | `engine.enable_chunked_prefill` | Backend default (on) | fixed | Boolean. Applies to aggregated and prefill roles; `false` is rejected for SGLang and for AFD. |
 
 A backend-specific scheduler field set to a non-default value on another
 backend fails validation.
+
+With `decode_reserved_tokens` enabled, destination admission accounts for running,
+transferring and prebuilt requests, reserves space for retracted work, and applies
+a single-request completion guard capped by the native SGLang output estimate
+(4096 tokens by default). The reserve constrains admission; it does not allocate
+or transfer additional KV pages. Cancellation, activation into the running batch
+and actual decode progress trigger reevaluation. A request that cannot fit its
+prompt and admission headroom in an otherwise empty pool fails explicitly.
 
 ## Context limits
 

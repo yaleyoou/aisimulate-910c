@@ -99,6 +99,10 @@ def _engine_args_payload(
         memory_fraction_field: float(memory_fraction),
         "enable_prefix_caching": bool(sample[f"{role}_enable_prefix_caching"]),
     }
+    if role == "decode" and sample.get("decode_reserved_tokens", 0):
+        if backend != "sglang":
+            raise ValueError("decode_reserved_tokens requires backend=sglang")
+        payload["sglang"] = {"decode_reserved_tokens": sample["decode_reserved_tokens"]}
     if sample.get("systems_paths") is not None and sample.get(f"{role}_timing_model") is not None:
         from .forward_pass_estimator import resolve_systems_paths
 

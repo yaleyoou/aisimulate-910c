@@ -444,6 +444,10 @@ def _role_search_space(
         sequences, sequences_log_range = _integer_domain(scheduler.get("max_sequences"), default=sequences_default)
         result[tokens_name] = tokens
         result[sequences_name] = sequences
+        if legacy_role == "decode":
+            result["decode_reserved_tokens"] = scheduler.get("decode_reserved_tokens", 0)
+        elif scheduler.get("decode_reserved_tokens", 0):
+            raise ValueError("decode_reserved_tokens requires the disaggregated decode role")
         if tokens_log_range is not None:
             result["engine_integer_log_ranges"][tokens_name] = tokens_log_range
         if sequences_log_range is not None:
@@ -1004,6 +1008,7 @@ def _candidate_prediction(
             "scheduler": {
                 "max_batched_tokens": sample[f"{role}_max_num_batched_tokens"],
                 "max_sequences": sample[f"{role}_max_num_seqs"],
+                "decode_reserved_tokens": sample.get("decode_reserved_tokens", 0) if role == "decode" else 0,
             },
             "kv_cache": kv_cache,
             "timing": timing,

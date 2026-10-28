@@ -40,6 +40,7 @@ pub(super) fn get_new_batch_prefill(
     config: &SglangConfig,
     new_token_ratio: f64,
     running: &[SglangRequest],
+    retracted_only: bool,
 ) -> AdmitResult {
     let cache = kv_manager.cache();
     let reserved_decode_output: f64 = running
@@ -68,7 +69,12 @@ pub(super) fn get_new_batch_prefill(
 
     let available_running_slots = config.max_running_requests.saturating_sub(running.len());
     while can_run.len() < available_running_slots
-        && let Some(mut req) = waiting.pop_front()
+        && let Some(index) = if retracted_only {
+            waiting.iter().position(|request| request.is_decode_handoff)
+        } else {
+            (!waiting.is_empty()).then_some(0)
+        }
+        && let Some(mut req) = waiting.remove(index)
     {
         // SGLang `Req.init_next_round_input(tree_cache)`: a waiting request matches its whole
         // prompt against the radix tree once, capped at `input_len - 1` so a request that must
