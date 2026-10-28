@@ -1,0 +1,13 @@
+{
+  "operation": "vector",
+  "source_revision": "73cbb896a7c752edb8500ba23834945dca91f078",
+  "old_rows_preserved": 1194,
+  "new_rows": 216,
+  "total_rows": 1410,
+  "old_observations_unchanged_except_composite_identity": true,
+  "table_sha256": "cfcc32a50cd4c4c846c2b61e428501e4d0af7031fed00e6989530ea16eadbf1c",
+  "campaigns": [
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/vector-large-node20-20261028",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/vector-healing-node20-20261029"
+  ]
+}

@@ -1,0 +1,1 @@
+{"status": "passed", "checked_measured_rows": 2888, "max_abs_error_ms": 0.0, "native_binary": "/workspace/python/aisimulate/src/aisimulate/_runtime.abi3.so", "native_binary_sha256": "eed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22", "scope": "Measured row lookup/wire correctness; not whole-forward or serving accuracy"}

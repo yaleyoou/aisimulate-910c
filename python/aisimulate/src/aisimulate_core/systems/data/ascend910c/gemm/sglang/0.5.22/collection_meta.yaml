@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-# SPDX-License-Identifier: Apache-2.0
-
 schema_version: 2
 provenance: collected
 runtime:
@@ -38,7 +35,7 @@ runtime:
       '
 tables:
   ascend_linear_perf:
-    rows: 2645
+    rows: 2888
     status: complete
     collections:
     - collector_ref: b88c2a9e
@@ -133,6 +130,90 @@ tables:
       classified_failures: 6
       status: complete
       source_campaign_rows: 462
+      source_campaign_status: complete
+      runtime:
+        framework: sglang
+        version: 0.5.22
+        image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+        source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+        abi:
+          torch: 2.10.0+cpu
+          torch_npu: 2.10.0.post6
+          driver_version_info: 'Version=26.1.1
+
+            ascendhal_version=7.35.23
+
+            aicpu_version=1.0
+
+            tdt_version=1.0
+
+            log_version=1.0
+
+            prof_version=2.0
+
+            dvppkernels_version=1.1
+
+            tsfw_version=1.0
+
+            Innerversion=V100R001C10SPC009B220
+
+            compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+            compatible_version_fw=[7.0.0,9.9.9]
+
+            package_version=26.1.1
+
+            '
+    - collector_ref: 73cbb896a7c752edb8500ba23834945dca91f078
+      collector_hash: sha256:8b6f0f0e4591bb98efe61446136d2c0ededd7cd67348e2fca8b512d39ce896f1
+      case_plan_hash: sha256:6019f8f97cd0afa890a28a55c64abfcc65b021b33ba686d7f0b1846c220d32ac
+      collected_at: '2026-10-28T12:02:34.090428+00:00'
+      rows: 201
+      classified_failures: 0
+      status: complete
+      source_campaign_rows: 201
+      source_campaign_status: complete
+      runtime:
+        framework: sglang
+        version: 0.5.22
+        image_digest: quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443
+        source_commit: baa9befa381511cd4d56f83980951e5a45fffc6d
+        abi:
+          torch: 2.10.0+cpu
+          torch_npu: 2.10.0.post6
+          driver_version_info: 'Version=26.1.1
+
+            ascendhal_version=7.35.23
+
+            aicpu_version=1.0
+
+            tdt_version=1.0
+
+            log_version=1.0
+
+            prof_version=2.0
+
+            dvppkernels_version=1.1
+
+            tsfw_version=1.0
+
+            Innerversion=V100R001C10SPC009B220
+
+            compatible_version=[V100R001C21],[V100R001C22],[V100R001C23],[V100R001C25],[V100R001C10]
+
+            compatible_version_fw=[7.0.0,9.9.9]
+
+            package_version=26.1.1
+
+            '
+    - collector_ref: 73cbb896a7c752edb8500ba23834945dca91f078
+      collector_hash: sha256:8b6f0f0e4591bb98efe61446136d2c0ededd7cd67348e2fca8b512d39ce896f1
+      case_plan_hash: sha256:92ad912d8c55c66e48b890354a51a1f85c014c3ae50b4d3766824f993149627c
+      collected_at: '2026-10-28T12:17:48.364274+00:00'
+      rows: 42
+      classified_failures: 0
+      status: complete
+      source_campaign_rows: 42
       source_campaign_status: complete
       runtime:
         framework: sglang

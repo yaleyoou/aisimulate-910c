@@ -1,0 +1,13 @@
+{
+  "operation": "linear",
+  "source_revision": "73cbb896a7c752edb8500ba23834945dca91f078",
+  "old_rows_preserved": 2645,
+  "new_rows": 243,
+  "total_rows": 2888,
+  "old_observations_unchanged_except_composite_identity": true,
+  "table_sha256": "fa23597e4a506562eafd6302f2a1a10f619b6316e09840f0613035f92ec29d28",
+  "campaigns": [
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-large-node20-20261028-p0-v2",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/linear-large-node20-20261028-p1"
+  ]
+}

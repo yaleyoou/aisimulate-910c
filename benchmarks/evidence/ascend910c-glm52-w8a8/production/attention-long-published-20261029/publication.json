@@ -1,0 +1,13 @@
+{
+  "operation": "attention",
+  "source_revision": "73cbb896a7c752edb8500ba23834945dca91f078",
+  "old_rows_preserved": 2845,
+  "new_rows": 1370,
+  "total_rows": 4215,
+  "old_observations_unchanged_except_composite_identity": true,
+  "table_sha256": "263e660acdfa08c01ac741d240faa7ecfa42a69433b836a2dd4bfb7a9b9793d3",
+  "campaigns": [
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/attention-long-context-node20-20261028",
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/attention-healing-node20-20261028-v2"
+  ]
+}

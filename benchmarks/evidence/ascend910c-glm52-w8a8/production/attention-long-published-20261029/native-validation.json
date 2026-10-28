@@ -1,0 +1,53 @@
+{
+  "scope": "Native exact-point and diagnostic component queries; full request results use the canonical predict CLI.",
+  "rows": 4215,
+  "maximum_absolute_error_ms": 0.0,
+  "groups": {
+    "lightning_indexer/decode/32/eager": 53,
+    "lightning_indexer/decode/32/graph": 285,
+    "lightning_indexer/prefill/32/eager": 220,
+    "lightning_indexer/prefill/32/graph": 118,
+    "sparse_attention/decode/4/eager": 70,
+    "sparse_attention/decode/4/graph": 288,
+    "sparse_attention/decode/8/eager": 73,
+    "sparse_attention/decode/8/graph": 287,
+    "sparse_attention/decode/16/eager": 75,
+    "sparse_attention/decode/16/graph": 287,
+    "sparse_attention/decode/32/eager": 74,
+    "sparse_attention/decode/32/graph": 286,
+    "sparse_attention/decode/64/eager": 74,
+    "sparse_attention/decode/64/graph": 288,
+    "sparse_attention/prefill/4/eager": 230,
+    "sparse_attention/prefill/4/graph": 119,
+    "sparse_attention/prefill/8/eager": 226,
+    "sparse_attention/prefill/8/graph": 120,
+    "sparse_attention/prefill/16/eager": 228,
+    "sparse_attention/prefill/16/graph": 120,
+    "sparse_attention/prefill/32/eager": 227,
+    "sparse_attention/prefill/32/graph": 120,
+    "sparse_attention/prefill/64/eager": 227,
+    "sparse_attention/prefill/64/graph": 120
+  },
+  "table_sha256": "263e660acdfa08c01ac741d240faa7ecfa42a69433b836a2dd4bfb7a9b9793d3",
+  "native_sha256": "eed921d5a0bea1c4f7794cbd713e57665d62d32bef076321d0f8232de0a25c22",
+  "tp8_adp2_ep16_decode_batch1_components_75_layers": [
+    [
+      "decode_moe_dispatch",
+      23.36230078653898,
+      0.0,
+      "silicon"
+    ],
+    [
+      "decode_moe_combine",
+      22.213728551287204,
+      0.0,
+      "silicon"
+    ],
+    [
+      "decode_expert_compute",
+      17.456437647342682,
+      0.0,
+      "silicon"
+    ]
+  ]
+}

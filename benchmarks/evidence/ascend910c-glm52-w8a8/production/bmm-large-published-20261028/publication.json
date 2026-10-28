@@ -1,0 +1,12 @@
+{
+  "operation": "bmm",
+  "source_revision": "73cbb896a7c752edb8500ba23834945dca91f078",
+  "old_rows_preserved": 366,
+  "new_rows": 68,
+  "total_rows": 434,
+  "old_observations_unchanged_except_composite_identity": true,
+  "table_sha256": "93ea52d07ac393c94d743754991b1bdcbc0166ae4a28ac617d9a09c5080e6f75",
+  "campaigns": [
+    "benchmarks/evidence/ascend910c-glm52-w8a8/production/bmm-large-node20-20261028-v2"
+  ]
+}
