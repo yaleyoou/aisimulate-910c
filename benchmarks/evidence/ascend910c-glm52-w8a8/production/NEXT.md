@@ -1,5 +1,38 @@
 # Current goal handoff
 
+## NEWEST: node20 shape expansion and DOCX comparison delivered 2026-10-29
+
+Published2165 additional verified points: attention/indexer1638,linear243,BMM68,vector216.
+Current table rows4215/2888/434/1410; all8947 native exact queries havezeroerror.
+The second1897-point batch initially had3CV failures; onlythosecoordinates were remeasuredonce,
+allpassed. Raw failures, negativecontrols and bothsuccessful/failedorchestrationattempts retained in
+production/shape-expansion-node20-20261029/raw-evidence.tar.gz with314-member SHA manifest.
+Decodegraph buckets remain8/16/24/32. Longcoverage isnot a fullCartesianproduct orhighconcurrencyacceptance.
+
+DOCX107rows extractedfrom24embeddedExcelworkbooks; mean/p99 headers preserved.
+50PD W1/W2 cases compared usingeachrow'srequestcountandconcurrency.
+After thefirst268points, later1897points do notchangethese50metrics beyondroundoff;
+all4550 reportedoperation/phaseentries aresilicon(includinginterpolation).
+Lowbatch TPOT remains~108ms versus~53-57ms measured. MoEdispatch+combine+expert diagnostic~63ms/75layers
+already exceedsmeasuredwholeTPOT; thislocalizesinvestigation butdoesnotprove a specificfactor2bug.
+Discovered actualSGLangchunk4096/rank(8192global/ADP2) versusbaseline8192/rank;
+publicmax_batched_tokens doesnotcontrolthis. Correctedusage/implementationdocs; parameteralignmentremainsopen.
+
+Optionaldecode.scheduler.decode_reserved_tokens=512 modelsPDlogicalheadroom/default0preservesoldbehavior.
+Includesretractionpriority/liveness. 1P1D8K C32 readmissions26->0, TPOT234.28->108.66ms;
+TTFT69.17->194.19s, so accuracyisnotfixed. All50caseswith512andall50installeddefaultcasescomplete.
+Sourcecommit263c518b;datareleaseb39d8f57. FullRust2062pass1ignored;publicPython768pass;nativeAPI91pass.
+Runtimeimage94e7938717b1;nativecc025601;wheel2ee88376;all10packagedAscendparquetsmatchsource.
+production/baseline-comparison-node20-20261029 contains150caseevidencearchive,CSV,plotandreport.
+Mainreadablehandoff:md/910c-glm52-w8a8-baseline-alignment.md.
+
+Node20userUID5034 differsfrompreviousnodeUID5031. Repairedcheckoutownership;
+activeattention/BMM/vectorcampaignwrappers nowderiveownerfromrepository, ratherthanfixedUID.
+Thefullmodeldirectory /mnt/raid/user/data/models/glm-q isabsent; offlinepredictusesexistingmetadata snapshot.
+Original /home/youxingye/United deployment/service/start-united-v0522.sh stillmissingfromcheckpointintegrity.
+Formalstage2andservingaccuracyremainopen. Next:publicSGLangchunk/max-prefillalignment,
+actualwholeMoE/forwardtimingandroutegeometry,thentargetedshape/communicationgaps.
+
 ## NEWEST: exact four-node PD searches completed for8K/1K and32K/1K
 
 Installed image19e7b55d / nativeeed921d5 (runtime sourcebf61026f) evaluated9848K and82532K candidates;

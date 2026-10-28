@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "rust-core": {
+      "file": "rust-core.log.gz",
+      "sha256": "0ba4d5d6582500bc52f447e8d771ade1e7bb6832452ad07d0b95145c86703aed"
+    },
+    "python-public": {
+      "file": "python-public.log.gz",
+      "sha256": "737e228d88c4e9548f2b67a7692a1a9b718bfdbabcecd06236602f6c2e7ee556"
+    },
+    "native-api": {
+      "file": "native-api.log.gz",
+      "sha256": "39b7184bb53b818765db88a15fcbbcd19eeb9ef92f3e12684d44ebd7fc846175"
+    },
+    "gpu-parity": {
+      "file": "gpu-parity.log.gz",
+      "sha256": "311a8ab1e23685545f4155b43d0c41cf131c4dcf12b8879518e6b0f24577a464"
+    },
+    "image-build": {
+      "file": "image-build.log.gz",
+      "sha256": "7a8e775d7efcc90fe6dbbf76e0eb2d11ab6c4de8684711dca2b84d9a6ebe4758"
+    },
+    "wheel-build": {
+      "file": "wheel-build.log.gz",
+      "sha256": "6a2ce5d839b602b296d97e9f9f0a5e102d37075d2062a5f13acd9665c993613c"
+    },
+    "documentation-smoke": {
+      "file": "documentation-smoke.log.gz",
+      "sha256": "3111a4dcf903b9e12c8f2dd6d3a51825758b5a754e030966e8cc7bcfb8a01fba"
+    }
+  },
+  "rust_passed": 2062,
+  "rust_ignored": 1,
+  "public_python_passed": 768,
+  "native_api_passed": 91,
+  "gpu_golden_parity_passed": 305,
+  "default_native_compatibility": {
+    "cases": 50,
+    "max_metric_delta": 5.684341886080802e-14,
+    "table_identities_equal": true
+  },
+  "image": "sha256:94e7938717b1742820924c29ad6cbb20840c28f165650c8a84335ff70f576b53",
+  "documentation_example": {
+    "completed_requests": 2,
+    "run_as_uid": 5034,
+    "report": "aisimulate-output/documentation-32k1k-headroom-20261029-v2/prediction.json"
+  },
+  "serving_accuracy_accepted": false
+}

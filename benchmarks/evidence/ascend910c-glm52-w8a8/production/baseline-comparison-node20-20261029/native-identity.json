@@ -1,0 +1,29 @@
+{
+  "source_revision": "b39d8f5745aa7039654393488946ffe6ca34d499",
+  "sha256": "cc025601bbf694899eec257daac7a7dfdf9a33546319df22b1c0fc112f9bec69",
+  "wheel": "aisimulate-0.13.0-cp311-abi3-linux_aarch64.whl",
+  "wheel_sha256": "2ee883768a2497f5ba6d3c3a7878018d2fd26c5d1b54702bde245f2c634da42c",
+  "engine_spec_schema": 29,
+  "target": "aarch64-unknown-linux-gnu",
+  "profile": "release",
+  "cargo_features": [
+    "extension-module"
+  ],
+  "build_command": "python3 -m maturin build --release --locked --offline --auditwheel skip --interpreter /usr/local/python3.12.13/bin/python3",
+  "maturin": "1.15.0",
+  "rustc": "1.94.0",
+  "python_abi": "abi3-py311",
+  "packaged_ascend_tables_checked": [
+    "aisimulate_core/systems/data/ascend910c/gemm/sglang/0.5.22/ascend_linear_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/attention/sglang/0.5.22/ascend_attention_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/attention/sglang/0.5.22/ascend_dcp_attention_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/mla_bmm/sglang/0.5.22/ascend_bmm_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/comm/hccl/9.1.0-b243-drv26.1.1-nodes31-32-v3/hccl_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/vector/sglang/0.5.22/ascend_vector_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/moe/sglang/0.5.22/ascend_moe_chain_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/moe/sglang/0.5.22/ascend_deepep_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/moe/sglang/0.5.22/ascend_moe_tensor_perf.parquet",
+    "aisimulate_core/systems/data/ascend910c/kv_transfer/sglang/0.5.22/ascend_pd_perf.parquet"
+  ],
+  "source_tree_note": "Committed runtime source and operator tables; uncommitted evidence scripts are outside the distribution."
+}

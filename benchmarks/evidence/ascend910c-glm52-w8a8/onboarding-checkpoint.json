@@ -2370,6 +2370,45 @@
       ],
       "status": "First dual-node campaign finished; 6318 P2P samples, 702 rank/size points, 10 points exceed the unchanged CV 10% limit. Selected bulk-bandwidth points pass. 70 vendor collective points report success; 14 BF16 SUM ReduceScatter points report NULL and are unqualified."
     },
+    "node20_baseline_alignment": {
+      "baseline": "production/baseline-node20-20261027/baseline.json",
+      "date": "2026-10-29",
+      "evidence": [
+        "production/shape-expansion-node20-20261029/manifest.json",
+        "production/baseline-comparison-node20-20261029/report.json",
+        "production/baseline-comparison-node20-20261029/comparison.csv",
+        "production/baseline-comparison-node20-20261029/comparison.png",
+        "production/baseline-comparison-node20-20261029/validation.json"
+      ],
+      "facts": [
+        "Published2165 new measured coordinates: attention/indexer1638,linear243,BMM68,vector216. Four tables now4215/2888/434/1410 rows; all8947 exact native lookups return original latency withzeroerror.",
+        "The later1897-point campaign initially had3CV failures; separate once-only healing measurements passed. All original samples and rejected points retained. No qualified historical observation replaced.",
+        "Extracted107 DOCX measurements from24 embedded Excel sheets. Replayed50PD W1/W2 configurations with each measured requestcount/concurrency; reportedmean/p99,notp50.",
+        "After first268points,the further1897points do not materially change these50predictions; current4550reported operation/phase entries are silicon,including interpolation. This is not a full internal coordinate trace.",
+        "TPOT atlowbatch remains~108ms versus53-57ms measured. MoEdispatch/combine/expert diagnostic already~63ms across75layers; source/runtime/composition/overlap require validation,not an empirical scalingfactor.",
+        "Publicmax_batched_tokens doesnot change currentSGLangchunk. Effectivechunk4096/rank(global8192/ADP2) differsfrombaseline8192/rank(global16384). Usageandimplementationdocs corrected; explicit public controls remainfuturework.",
+        "Optionalworkers.decode.scheduler.decode_reserved_tokens512 implementslogicalgrowthbudget,completionguard,retractionpriorityandwakeups. Default0 preservespriorresults. In1P1D8KC32 readmissions26->0,TPOT234.28->108.66ms,butTTFT69.17->194.19s. Accuracyremainsopen.",
+        "All50newimage defaultcases andall50headroom512cases complete. Defaultnewnative matchesoldnative withsame tableswithin5.7e-14 forfive reportedmetrics.",
+        "FullRust2062pass1ignored;publicconfiguration/runner768pass;nativeAPI91pass;GPUgoldenparity305pass. Newimage94e7938717b1 includesall10Ascendparquets verified byte-for-byte.",
+        "Node20youxingyeUID5034 differsfromoldUID5031. Repairedcheckoutownership;activecollectionwrappers deriveUID/GIDfromrepository. DocumentationcommandcompletedasUID5034with2requests65536input2048outputtokens."
+      ],
+      "limitations": [
+        "Original launch_script /home/youxingye/United deployment/service/start-united-v0522.sh is still missing from checkpoint integrity; not archived away.",
+        "Full weights at/mnt/raid/user/data/models/glm-q are absent onnode20. Offlineprediction usesretainedtrue metadata; no newfullmodelservingmeasurements were claimed.",
+        "Historicalbaseline runtimeversions,tokenizedarrivaltrace,realKVcapacity,andper-rankbatchtimelines areunavailable. Configalignmentispartial.",
+        "Decodegraphbuckets remain8/16/24/32; longcontextcoverage isnotfullCartesiancoverage orhighconcurrencyqualification. Retained64Khighconcurrencytimeout issue remainsopen.",
+        "FormalFPMstage2/profileacceptance andfullservingaccuracy remainincomplete; no fittedmultiplier orfakedmeasurements."
+      ],
+      "next": "Align publicSGLangchunk/max-prefillandactualruntime;measurewholeMoE/forwardatdecodebatch1/2/4andsamegraph/EPpath;profileactualexpertroutingandcommunication;thenextendshapegridonlywhereactualqueriesanderrorsjustifyit.",
+      "runtime": {
+        "image_id": "sha256:94e7938717b1742820924c29ad6cbb20840c28f165650c8a84335ff70f576b53",
+        "native_sha256": "cc025601bbf694899eec257daac7a7dfdf9a33546319df22b1c0fc112f9bec69",
+        "source_revision": "b39d8f5745aa7039654393488946ffe6ca34d499",
+        "wheel_sha256": "2ee883768a2497f5ba6d3c3a7878018d2fd26c5d1b54702bde245f2c634da42c"
+      },
+      "source_docx_sha256": "db38316f640ddcb0880a651063edb8b59874a5d569daf192b59ab4b7d5fe082f",
+      "status": "shape_extension_complete_accuracy_open"
+    },
     "operator_collection_delivery": {
       "cleanup": "Task peer container removed; existing peer service preserved; United remains healthy. Full trace archives local, compact reproducible kernel evidence committed.",
       "confidence": "High for fixed source mapping, complete checked captures and scoped synthetic numerical probes; no production prediction accuracy claim.",
@@ -2654,7 +2693,7 @@
       "status": "validated_observations_and_serving_baselines"
     }
   },
-  "revision": 70,
+  "revision": 72,
   "schema_version": "aisimulate-onboarding-checkpoint/v1",
   "validation_inputs": {}
 }

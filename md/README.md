@@ -1,6 +1,7 @@
 # 910C + GLM-5.2 W8A8 适配资料
 
 - [如何直接预测、搜索并行策略和P:D配比](910c-glm52-w8a8-usage.md)
+- [新增2,165个shape、DOCX基线对比与后续补测优先级](910c-glm52-w8a8-baseline-alignment.md)
 - [四节点8K/1K与32K/1K的完整PD搜索结果](910c-glm52-w8a8-four-node-pd-results.md)
 - [做了哪些适配、实现流程及与GPU版的对比](910c-glm52-w8a8-implementation.md)
 - [当前完成情况与验证记录](910c-glm52-w8a8-production-progress.md)

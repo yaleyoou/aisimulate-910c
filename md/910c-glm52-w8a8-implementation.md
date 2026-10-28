@@ -316,10 +316,10 @@ graph bucket、内核、精度和拓扑限制继续生效，不因开启 `anchor
 
 选择United结构：attention TP8、ADP2、MoE-TP1、EP16、一个worker。
 每worker占16个device，即当前一个节点。
-为清晰解释分块，设 `max_batched_tokens=4096`，上下文上限9216，关闭prefix cache。
-
-当前普通预测示例默认prefill预算8192；本节说明的是使用说明第7节改为4096后的情况。
-自动搜索示例的合并/P角色也使用4096预算。
+上下文上限9216，关闭prefix cache。当前SGLang replay使用默认全局chunk8192，
+ADP2后每rank为4096，因此下面按4096分块解释。
+公共字段 `max_batched_tokens` 当前不能改变SGLang的实际chunk；不要用该字段声称已对齐部署的chunk参数。
+详见[基线对比与配置差异](910c-glm52-w8a8-baseline-alignment.md)。
 
 请求输入8192、输出1024，这是请求维度；batch和算子M是调度产生的维度。
 即使每条请求长度相同，不同并发、不同到达顺序和剩余KV都会形成不同batch。

@@ -18,6 +18,9 @@
 使用标准 `predict/recommend --stack engine`：910C实测算子表 → GLM完整forward组合 →
 KV容量推导 → 请求调度模拟 → PD传输 → 配置搜索。
 8K/1K是示例负载，不是接口限制。**新版通过 `shape_policy: anchored` 支持数值shape外推，主要示例已开启。**
+
+2026-10-29补入2,165个测量点，长上下文覆盖到128K附近；现有8K/1K、32K/1K仍有明显整机精度偏差。
+新增覆盖、DOCX对比和下一步工作见[shape扩充与实测偏差排查](910c-glm52-w8a8-baseline-alignment.md)。
 原始实测表不变；范围内沿用原始结果，范围外使用同身份测量锚点和计算/访存工作量模型。
 长度、并发仍须满足模型、KV容量和目标运行时限制，不代表任意硬件配置都能执行。
 完整服务的forward、TTFT、TPOT误差校准仍按本轮要求延后。
@@ -293,7 +296,8 @@ release/extension-module配置，再执行构建脚本。延迟SLA与搜索字�
 | `traffic.load.concurrency` | 闭环并发；predict填整数，recommend可以使用 `{choices: [8, 16, 32]}` |
 | `engine.context_length` | 数值上限应覆盖输入加输出；显式设置更便于复现实验 |
 | `engine.mode` | 合并部署 `aggregated` 或PD分离 `disaggregated`；搜索示例提供两者的choices |
-| `engine.workers.<角色>.scheduler.max_batched_tokens` | 每轮新token预算，会改变prefill分块和算子shape；不是请求总长度 |
+| `engine.workers.<角色>.scheduler.max_batched_tokens` | 通用调度预算；当前SGLang replay不使用它改变chunk，而使用默认全局8192再除以ADP；不是请求总长度 |
+| `engine.workers.decode.scheduler.decode_reserved_tokens` | 可选SGLang PD接收增长预算；默认0保持原行为，512对齐本次固定运行时的预算规则；不会增加KV传输量 |
 | `engine.workers.<角色>.scheduler.max_sequences` | 调度器同时容纳的序列上限；不等于客户端总并发 |
 | `engine.workers.<角色>.parallelism` | 当前角色的TP/ADP/MoE布局及副本数；各字段需一起满足第3节关系 |
 | `engine.workers.<角色>.parallelism.replicas` | 该角色独立worker的副本数；PD的P:D比例由两侧副本数决定 |
@@ -305,7 +309,7 @@ release/extension-module配置，再执行构建脚本。延迟SLA与搜索字�
 | `optimizer.parallelism` | 主机上同时评估几个候选，与模型TP、EP无关 |
 | `optimizer.candidate_timeout_seconds` | 单候选主机评估时间预算；超时不是预测的TTFT |
 
-例如，固定United结构、并发8、总请求16、prefill预算4096：
+例如，固定United结构、并发8、总请求16；该ADP2配置的SGLang默认chunk为每rank4096：
 
 ```bash
 sudo bash scripts/run-ascend910c.sh predict \
@@ -314,7 +318,6 @@ sudo bash scripts/run-ascend910c.sh predict \
   --set traffic.load.concurrency=8 \
   --set traffic.stop.requests=16 \
   --set engine.context_length=9216 \
-  --set engine.workers.aggregated.scheduler.max_batched_tokens=4096 \
   --capture-per-request \
   --output-dir aisimulate-output/910c-united-c8-chunk4k
 ```
