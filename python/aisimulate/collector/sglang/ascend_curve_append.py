@@ -11,7 +11,12 @@ def physical_curve(operation, row):
     if operation == "linear":
         return tuple(row[field] for field in ("quant_mode", "n", "k", "weight_format", "quant_bias", "execution_mode"))
     if operation == "vector":
-        return row["role"], tuple(json.loads(row["dimensions"])), row["execution_mode"]
+        dimensions = row["dimensions"]
+        return (
+            row["role"],
+            tuple(json.loads(dimensions) if isinstance(dimensions, str) else dimensions),
+            row["execution_mode"],
+        )
     if operation == "bmm":
         return tuple(row[field] for field in ("role", "local_heads", "execution_mode"))
     if operation == "attention":
@@ -90,6 +95,10 @@ def append_curves(operation, campaigns):
 
 
 def extend_attention_points(campaigns):
+    return extend_points("attention", campaigns)
+
+
+def extend_points(operation, campaigns):
     if not campaigns:
         raise ValueError("At least one verified campaign is required")
     rows, decisions, counts = [], [], Counter()
@@ -117,11 +126,11 @@ def extend_attention_points(campaigns):
             if setup is not None and current_setup != setup:
                 raise ValueError("Different serving setups cannot share a table")
             hardware, setup = current_hardware, current_setup
-            groups[physical_curve("attention", row)].append((index, row))
+            groups[physical_curve(operation, row)].append((index, row))
             counts[index] += 1
     merged_identities = {}
     for key, values in sorted(groups.items()):
-        coordinates = [physical_coordinate("attention", row) for _, row in values]
+        coordinates = [physical_coordinate(operation, row) for _, row in values]
         if len(coordinates) != len(set(coordinates)):
             raise ValueError("Overlapping physical points cannot replace existing measurements")
         source_ids = sorted({row["runtime_identity_sha256"] for _, row in values})
@@ -136,7 +145,7 @@ def extend_attention_points(campaigns):
             merged_bytes = json.dumps(merged, sort_keys=True, separators=(",", ":")).encode()
             merged_digest = hashlib.sha256(merged_bytes).hexdigest()
             merged_identities[merged_digest] = merged
-        for index, row in sorted(values, key=lambda item: physical_coordinate("attention", item[1])):
+        for index, row in sorted(values, key=lambda item: physical_coordinate(operation, item[1])):
             rows.append({**row, "runtime_identity_sha256": merged_digest})
         decisions.append(
             {
@@ -148,7 +157,7 @@ def extend_attention_points(campaigns):
                         "campaign": index,
                         "collection_identity_sha256": digest,
                         "points": sorted(
-                            physical_coordinate("attention", row)
+                            physical_coordinate(operation, row)
                             for owner, row in values
                             if owner == index and row["runtime_identity_sha256"] == digest
                         ),
@@ -167,12 +176,12 @@ def main():
     )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--extend-attention-points", action="store_true")
+    parser.add_argument("--extend-points", action="store_true")
     parser.add_argument("campaign", type=Path, nargs="+")
     args = parser.parse_args()
     import pyarrow as arrow
     import pyarrow.parquet as parquet
     import yaml
-
     from collector.provenance import append_collection_event, write_collection_meta
 
     name = "ascend_" + args.operation + "_perf"
@@ -191,10 +200,10 @@ def main():
             }
         )
     merged_identities = {}
-    if args.extend_attention_points:
-        if args.operation != "attention":
+    if args.extend_attention_points or args.extend_points:
+        if args.extend_attention_points and args.operation != "attention":
             parser.error("Point extension is qualified only for attention")
-        rows, decisions, counts, merged_identities = extend_attention_points(campaigns)
+        rows, decisions, counts, merged_identities = extend_points(args.operation, campaigns)
     else:
         rows, decisions, counts = append_curves(args.operation, campaigns)
     entry, total = None, 0
@@ -218,9 +227,9 @@ def main():
     )
     report = {
         "selection": (
-            "Extend disjoint attention coordinates under identical runtime, protocol and serving setup; "
+            "Extend disjoint physical coordinates under identical runtime, protocol and serving setup; "
             "preserve every timing and source hash, join collection identities with explicit coverage_sources."
-            if args.extend_attention_points
+            if args.extend_attention_points or args.extend_points
             else "Append disjoint whole curves; existing curves are retained unchanged. Overlaps are rejected."
         ),
         "curves": decisions,

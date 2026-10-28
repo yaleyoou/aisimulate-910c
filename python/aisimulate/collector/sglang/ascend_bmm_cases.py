@@ -7,7 +7,7 @@ from pathlib import Path
 import yaml
 
 
-def get_ascend_bmm_cases(model_path, case_root=None):
+def get_ascend_bmm_cases(model_path, case_root=None, device_memory_bytes=None):
     model_path = Path(model_path)
     case_root = Path(case_root) if case_root else Path(__file__).resolve().parents[1] / "cases"
     config_file = model_path / "config.json"
@@ -57,11 +57,29 @@ def get_ascend_bmm_cases(model_path, case_root=None):
                             "format": 2,
                         }
                     )
+    memory_exclusions = []
+    if device_memory_bytes is not None:
+        accepted = []
+        for case in cases:
+            retained_outputs = base["iterations"] * case["tokens"] * case["local_heads"] * case["output_width"] * 2
+            weights = base["weight_copies"] * case["local_heads"] * case["input_width"] * case["output_width"] * 2
+            inputs = case["tokens"] * case["input_stride"][0] * 2
+            estimated_bytes = retained_outputs + weights + inputs
+            if estimated_bytes > device_memory_bytes * 0.75:
+                memory_exclusions.append({"case": case, "estimated_bytes": estimated_bytes})
+            else:
+                accepted.append(case)
+        cases = accepted
     return {
         "schema": "aisimulate-ascend-bmm-plan/v1",
         "status": "experimental_collection_plan",
         "model_path": str(model_path),
         "cases": cases,
+        "memory_feasibility": {
+            "device_memory_bytes": device_memory_bytes,
+            "fraction": 0.75,
+            "excluded": memory_exclusions,
+        },
         "source_sha256": {
             path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in (config_file, model_file, base_file)
         },

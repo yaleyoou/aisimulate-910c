@@ -18,8 +18,8 @@ def test_all_roles_preserve_the_observed_mla_views(tmp_path):
     }
     (tmp_path / "config.json").write_text(json.dumps(config))
     plan = get_ascend_bmm_cases(tmp_path)
-    assert len(plan["cases"]) == 370
-    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 370
+    assert len(plan["cases"]) == 450
+    assert len({json.dumps(case, sort_keys=True) for case in plan["cases"]}) == 450
     assert {case["local_heads"] for case in plan["cases"]} == {4, 8, 16, 32, 64}
     for case in plan["cases"]:
         if case["role"] == "output_decode":
@@ -37,6 +37,11 @@ def test_all_roles_preserve_the_observed_mla_views(tmp_path):
             if case["role"] == "output_decode"
             else "torch_npu.npu_transpose_batchmatmul"
         )
+    bounded = get_ascend_bmm_cases(tmp_path, device_memory_bytes=64 * 1024**3)
+    excluded = bounded["memory_feasibility"]["excluded"]
+    assert excluded and len(bounded["cases"]) + len(excluded) == len(plan["cases"])
+    assert all(row["estimated_bytes"] > 64 * 1024**3 * 0.75 for row in excluded)
+    assert any(case["tokens"] == 32768 for case in bounded["cases"])
     config["qk_rope_head_dim"] = 32
     (tmp_path / "config.json").write_text(json.dumps(config))
     with pytest.raises(ValueError, match="qk_rope_head_dim"):

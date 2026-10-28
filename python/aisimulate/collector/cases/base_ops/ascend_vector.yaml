@@ -3,7 +3,7 @@ op: ascend_vector
 description: Source-qualified GLM ModelSlim vector and cache operations.
 common_case_values:
   ascend_vector:
-    token_counts: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
+    token_counts: [1, 2, 4, 8, 16, 24, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 12288, 16384, 24576, 32768]
     request_counts: [1, 2, 3, 4, 8, 16, 24, 32]
     execution_modes: [eager, graph]
     reference_cache_tokens: 53376

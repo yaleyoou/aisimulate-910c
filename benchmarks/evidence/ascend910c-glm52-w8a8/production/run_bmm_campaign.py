@@ -136,11 +136,11 @@ def main():
 
     save()
     try:
-        for role in ("query_nope", "output_prefill", "output_decode"):
+        for role in sorted({case["role"] for case in plan["cases"]}):
             index = next(
                 index
                 for index, case in enumerate(plan["cases"])
-                if case["role"] == role and case["execution_mode"] == "graph" and case["tokens"] == 8
+                if case["role"] == role and case["execution_mode"] == "graph"
             )
             job = run(
                 "negative-" + role, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True

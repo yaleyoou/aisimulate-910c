@@ -4,7 +4,12 @@ import json
 
 import pytest
 
-from collector.sglang.ascend_curve_append import append_curves, collection_identities, extend_attention_points
+from collector.sglang.ascend_curve_append import (
+    append_curves,
+    collection_identities,
+    extend_attention_points,
+    extend_points,
+)
 
 pytestmark = pytest.mark.unit
 
@@ -44,6 +49,21 @@ def test_disjoint_curves_keep_original_timings_and_collection_protocols():
 def test_overlapping_curve_cannot_replace_slower_points():
     with pytest.raises(ValueError, match="Overlapping curves"):
         append_curves("vector", [campaign(128, 2.0, {}), campaign(128, 1.0, {})])
+
+
+def test_vector_extension_preserves_existing_points_and_rejects_protocol_changes():
+    first = campaign(128, 2.0, {"iterations": 16})
+    added = campaign(128, 4.0, {"iterations": 16})
+    for row in added["rows"]:
+        row["tokens"] *= 2048
+    rows, _, counts, _ = extend_points("vector", [first, added])
+    assert [row["latency_ms"] for row in rows] == [2.0, 2.0, 4.0, 4.0]
+    assert counts == {0: 2, 1: 2}
+    different = campaign(128, 4.0, {"iterations": 8})
+    for row in different["rows"]:
+        row["tokens"] *= 2048
+    with pytest.raises(ValueError, match="identical runtime, protocol"):
+        extend_points("vector", [first, different])
 
 
 def test_unverified_identity_and_different_serving_setup_are_rejected():

@@ -16,8 +16,8 @@ import threading
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", default="vector-full-node32-20261023")
-    parser.add_argument("--operation", choices=("vector", "moe_chain", "moe_tensor"), default="vector")
-    parser.add_argument("--node", choices=("npu1-32", "npu1-19"), default="npu1-32")
+    parser.add_argument("--operation", choices=("vector", "moe_chain", "moe_tensor", "bmm", "linear"), default="vector")
+    parser.add_argument("--node", default=socket.gethostname())
     parser.add_argument("--existing-plan", type=Path)
     args = parser.parse_args()
     if socket.gethostname() != args.node or not re.fullmatch(r"[a-z0-9-]+", args.run_name):
@@ -155,7 +155,7 @@ def main():
             (
                 result.returncode != 0
                 and record.get("status") == "failed"
-                and "execution numerical check failed" in record.get("error", "")
+                and "numerical check failed" in record.get("error", "")
             )
             if negative
             else result.returncode == 0 and record.get("status") == "completed"
@@ -193,15 +193,18 @@ def main():
             "vector": '"tokens": 8}',
             "moe_chain": '"received_tokens": 8}',
             "moe_tensor": '"tokens": 8,',
-        }[args.operation]
-        parallel("smoke", ["--case-filter", smoke_filter])
+        }.get(args.operation)
+        if smoke_filter is not None and any(
+            case.get("tokens", case.get("received_tokens")) == 8 for case in plan["cases"]
+        ):
+            parallel("smoke", ["--case-filter", smoke_filter])
         state["status"] = "negative_controls"
         save()
         controls = {}
         for index, case in enumerate(plan["cases"]):
             if case["execution_mode"] != "graph":
                 continue
-            if args.operation == "vector" and case["tokens"] == 8:
+            if args.operation == "vector":
                 controls.setdefault(case["role"], index)
             elif args.operation == "moe_chain" and case["received_tokens"] == 8:
                 controls[case["phase"] + "-" + str(case["local_experts"]) + "-" + "-".join(case["distributions"])] = (
@@ -209,6 +212,10 @@ def main():
                 )
             elif args.operation == "moe_tensor" and case["tokens"] == 8:
                 controls[str(case["intermediate_size"])] = index
+            elif args.operation == "bmm":
+                controls.setdefault(case["role"], index)
+            elif args.operation == "linear":
+                controls.setdefault(case["quant_mode"] + "-" + str(case["quant_bias"]), index)
         for label, index in sorted(controls.items()):
             job = run(
                 "negative-" + label, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True

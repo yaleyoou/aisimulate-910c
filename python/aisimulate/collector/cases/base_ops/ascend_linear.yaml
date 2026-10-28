@@ -37,7 +37,10 @@ common_case_values:
       - 3840
       - 4096
       - 8192
+      - 12288
       - 16384
+      - 24576
+      - 32768
     request_counts: [1, 2, 4, 6, 8, 10, 11, 13, 14, 16, 24, 32, 40, 56, 64]
     execution_modes: [eager, graph]
     weight_copies: 64
