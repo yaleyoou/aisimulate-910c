@@ -5,20 +5,23 @@ import concurrent.futures
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import shutil
 import socket
 import subprocess
 import threading
+from pathlib import Path
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", default="vector-full-node32-20261023")
-    parser.add_argument("--operation", choices=("vector", "moe_chain", "moe_tensor", "bmm", "linear"), default="vector")
+    parser.add_argument(
+        "--operation", choices=("vector", "moe_chain", "moe_tensor", "bmm", "linear", "attention"), default="vector"
+    )
     parser.add_argument("--node", default=socket.gethostname())
     parser.add_argument("--existing-plan", type=Path)
+    parser.add_argument("--control-plan", type=Path)
     args = parser.parse_args()
     if socket.gethostname() != args.node or not re.fullmatch(r"[a-z0-9-]+", args.run_name):
         parser.error("Use the requested node and a simple fresh run name")
@@ -26,6 +29,7 @@ def main():
     os.sched_setaffinity(0, [300, 620])
     production = Path(__file__).resolve().parent
     repository = production.parents[3]
+    owner = repository.stat()
     output = production / args.run_name
     output.mkdir(exist_ok=False)
     image = "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
@@ -47,7 +51,9 @@ def main():
         "python3",
         image,
         "-c",
-        "import json;from collector.sglang.ascend_vector_cases import get_ascend_vector_cases;plan=get_ascend_vector_cases('/model');plan['model_path']='/mnt/raid/user/data/models/glm-q';print(json.dumps(plan,indent=2))",
+        "import json;from collector.sglang.ascend_vector_cases import get_ascend_vector_cases;"
+        "plan=get_ascend_vector_cases('/model');plan['model_path']='/mnt/raid/user/data/models/glm-q';"
+        "print(json.dumps(plan,indent=2))",
     ]
     planner[-1] = planner[-1].replace("ascend_vector", "ascend_" + args.operation)
     if args.existing_plan:
@@ -56,6 +62,8 @@ def main():
     else:
         plan = json.loads(subprocess.check_output(planner, text=True))
     (output / "plan.json").write_text(json.dumps(plan, indent=2) + "\n")
+    control_plan = json.loads(args.control_plan.read_text()) if args.control_plan else plan
+    (output / "control-plan.json").write_text(json.dumps(control_plan, indent=2) + "\n")
     source_names = ["ascend_" + args.operation + ".py"]
     if args.operation == "vector":
         source_names.append("ascend_vector_kernels.py")
@@ -146,6 +154,8 @@ def main():
                 *extra,
             )
         )
+        if negative and args.operation == "attention":
+            arguments.append("--fail-fast")
         invocation = ["docker", "exec", container, "timeout", "7200", *arguments]
         with (output / (name + ".log")).open("w") as stream:
             result = subprocess.run(invocation, stdout=stream, stderr=subprocess.STDOUT)
@@ -169,12 +179,16 @@ def main():
         }
 
     def parallel(prefix, extra):
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+        workers = min(4, len(plan["cases"]))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
             futures = [
                 pool.submit(
-                    run, f"{prefix}-{index}", index * 2, ["--num-shards", "4", "--shard-index", str(index), *extra]
+                    run,
+                    f"{prefix}-{index}",
+                    index * 2,
+                    ["--num-shards", str(workers), "--shard-index", str(index), *extra],
                 )
-                for index in range(4)
+                for index in range(workers)
             ]
             jobs = [future.result() for future in concurrent.futures.as_completed(futures)]
         state["jobs"].extend(jobs)
@@ -201,7 +215,7 @@ def main():
         state["status"] = "negative_controls"
         save()
         controls = {}
-        for index, case in enumerate(plan["cases"]):
+        for index, case in enumerate(control_plan["cases"]):
             if case["execution_mode"] != "graph":
                 continue
             if args.operation == "vector":
@@ -216,9 +230,21 @@ def main():
                 controls.setdefault(case["role"], index)
             elif args.operation == "linear":
                 controls.setdefault(case["quant_mode"] + "-" + str(case["quant_bias"]), index)
+            elif args.operation == "attention":
+                controls.setdefault(case["operation"], index)
         for label, index in sorted(controls.items()):
             job = run(
-                "negative-" + label, 0, ["--num-shards", str(len(plan["cases"])), "--shard-index", str(index)], True
+                "negative-" + label,
+                0,
+                [
+                    "--plan",
+                    "/campaign/control-plan.json",
+                    "--num-shards",
+                    str(len(control_plan["cases"])),
+                    "--shard-index",
+                    str(index),
+                ],
+                True,
             )
             state["jobs"].append(job)
             save()
@@ -237,7 +263,7 @@ def main():
         save()
         subprocess.run(["docker", "stop", "--time", "30", container], check=False)
         for path in (output, *output.rglob("*")):
-            os.chown(path, 5031, 5031)
+            os.chown(path, owner.st_uid, owner.st_gid)
 
 
 if __name__ == "__main__":

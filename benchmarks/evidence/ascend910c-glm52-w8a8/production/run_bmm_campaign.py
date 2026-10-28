@@ -20,6 +20,7 @@ def main():
     os.umask(0o022)
     production = Path(__file__).resolve().parent
     repository = production.parents[3]
+    owner = repository.stat()
     output = production / args.run_name
     output.mkdir(exist_ok=False)
     image = "quay.io/ascend/sglang@sha256:5f384cab0e16a4951ed0bdc54e1280f2108aeda6b8ede90ee527d8f4b5146443"
@@ -167,7 +168,7 @@ def main():
         save()
         subprocess.run(["docker", "stop", "--time", "30", container], check=False)
         for path in (output, *output.rglob("*")):
-            os.chown(path, 5031, 5031)
+            os.chown(path, owner.st_uid, owner.st_gid)
 
 
 if __name__ == "__main__":

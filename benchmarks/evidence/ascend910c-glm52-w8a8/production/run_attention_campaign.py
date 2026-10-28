@@ -20,6 +20,7 @@ def main():
     os.umask(0o022)
     production = Path(__file__).resolve().parent
     repository = production.parents[3]
+    owner = repository.stat()
     output = production / args.run_name
     output.mkdir(exist_ok=False)
     for source, name in (
@@ -154,7 +155,7 @@ def main():
         save()
         subprocess.run(["docker", "stop", "--time", "30", container], check=False)
         for path in (output, *output.rglob("*")):
-            os.chown(path, 5031, 5031)
+            os.chown(path, owner.st_uid, owner.st_gid)
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ def main():
         (live / "metadata/provenance.json", "provenance.json"),
     ):
         shutil.copyfile(source, before / name)
-    exports = []
+    exports, planned, qualified = [], set(), set()
     for campaign in args.campaigns:
         status = json.loads((campaign / "campaign.json").read_text())
         if status["status"] != "completed" or not all(job["expected_outcome"] for job in status["jobs"]):
@@ -59,8 +59,16 @@ def main():
         )
         exporter = importlib.import_module(f"collector.sglang.ascend_{args.operation}_export")
         rows, report = exporter.validated_rows(campaign / "plan.json", observations, identity)
-        if report.get("unqualified"):
-            raise ValueError(f"Unqualified points require review: {campaign}: {len(report['unqualified'])}")
+        (campaign / "quality-report.json").write_text(json.dumps(report, indent=2) + "\n")
+        plan = json.loads((campaign / "plan.json").read_text())
+        for case in plan["cases"]:
+            physical = case
+            if args.operation == "linear":
+                physical = {**case, "weight_format": 29 if case["quant_mode"] in ("w8a8", "w8a8_dynamic") else 2}
+            planned.add((physical_curve(args.operation, physical), physical_coordinate(args.operation, physical)))
+        qualified.update(
+            (physical_curve(args.operation, row), physical_coordinate(args.operation, row)) for row in rows
+        )
         identity_path = campaign / "runtime-identity.json"
         identity_path.write_text(json.dumps(identity, indent=2) + "\n")
         destination = campaign / "export"
@@ -82,6 +90,11 @@ def main():
             check=True,
         )
         exports.append(destination)
+    if planned != qualified:
+        raise ValueError(
+            f"{len(planned - qualified)} planned coordinates still lack a qualified observation; "
+            "retain failures and collect a separate healing campaign"
+        )
     merged = args.output_dir / "merged"
     subprocess.run(
         [
